@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="Default.aspx.cs" Inherits="_Default" Title="Untitled Page" %>
+    CodeFile="Default.aspx.cs" Inherits="_Default" Title="后台首页" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main_side">

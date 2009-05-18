@@ -1,0 +1,213 @@
+@charset "gb2312";
+/*
+	Author: Foolin
+	E-mail:Liufuling@msn.com
+	Create Date: 2009-5-12
+	Version：0.1
+*/
+
+
+/*body全局*/
+body{
+	margin:0px;
+	padding:0px;
+	font-size:12px;
+	background:#B3D9FF;
+}
+
+/*清除浮动*/
+.clear{
+	clear:both;
+}
+
+/*全局连接样式*/
+A:link {
+	COLOR: #000000;
+	TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR:#F00; TEXT-DECORATION: underline
+}
+
+/*页*/
+#wrap{
+	margin:0px auto;
+	padding:0px;
+	width:998px;
+	background:#FFF;
+}
+
+/*头部*/
+#header{}
+/*顶部*/
+#top{
+	width:998px;
+	height:130px;
+	background:url(../images/top.jpg);
+	color:#FFF;
+}
+/*顶部菜单*/
+#menu{
+	background:#41a0ed;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	font-weight:bold;
+	background:url(../images/tit_bg.jpg);
+
+}
+#menu ul{
+	padding:0px 20px;
+	margin:0px;
+}
+#menu li{
+	float:left;
+	list-style:none;
+	border-right:#FFF 2px solid;
+	padding-left:3px;
+	padding-right:3px;
+}
+#menu a{
+	color:#FFF;
+	text-decoration:none;
+	padding:5px;
+}
+#menu a:visited {
+	color:#FFF; 
+	TEXT-DECORATION: none;
+	padding:5px;
+}
+#menu a:hover {
+	padding:5px;
+	background:#FFF;
+	color:#39F;
+	text-decoration:none;
+	display:inline;
+}
+#menu  ul li a:active{
+	padding:5px;
+	background:#FFF;
+	color:#39F;
+	text-decoration:none;
+	display:inline;
+}
+
+/*主内容区左边*/
+#main_side{
+	float:left;
+	width:250px;
+	background:#EEF7FF;
+}
+
+/*主内容区右边*/
+#main_content{
+	float:left;
+	width:748px;
+}
+
+/*主内容区左边导航*/
+#navmenu{
+	padding:5px;
+	font-size:14px;
+}
+
+#navmenu dl{
+		border:#75BAFF 1px  solid;
+		background:#FFF;
+		margin-top:5px;
+}
+#navmenu dt{
+	background:#66B3FF;
+	color:#FFF;
+	font-weight:bold;
+	padding:2px;
+	text-align:center;
+	height:23px;
+	line-height:23px;
+	background:url(../images/tit_bg.jpg);
+}
+#navmenu dt a{
+color:#FFF;
+text-decoration:none;
+}
+#navmenu dt a:hover{
+text-decoration:none;
+color:#F33;
+font-size:16px;
+}
+#navmenu dd {
+	text-align:left;
+	margin:5px;
+	padding-left:10px;
+}
+
+/*内容区*/
+#content{
+	padding:5px;
+}
+/*内容区导航信息*/
+#navInfo{
+	padding-left:10px;
+	font-size:14px;
+	color:#333333;
+	margin:2px;
+}
+#navInfo a{
+	color:#333333;
+}
+#navInfo a:hover{
+text-decoration:underline;
+color:#FF0000;
+}
+
+/*新闻列表样式*/
+.NewsList {
+	border:#75BAFF 1px  solid;
+	line-height:20px;
+	background:#ECF5FF;
+	padding:5px;
+}
+.NewsList table{
+	margin:0px;
+	padding:5px 10px;
+	background:#FFF;
+}
+.NewsList td{
+	margin:0px;
+	list-style:none;
+	padding-left:10px;
+	padding-top:5px;
+	border:solid 1px #AAD5FF;
+}
+.time{color:#999999}
+form {	margin:0px;}
+
+/*分页*/
+.pagebar {
+	text-align:center;
+	padding:10px;
+	background:#FFFFFF;
+}
+
+
+/*底部*/
+#footer{
+	background:#FFF;
+	text-align:center;
+}
+
+/*底部连接*/
+#footer #bottomlink{
+	background:#93C9FF;
+	height:30px;
+	line-height:30px;
+	border-bottom:#39F 1px solid;
+}
+/*底部版权信息*/
+#footer #copyright{
+	padding:10px 5px;
+	line-height:22px;
+}

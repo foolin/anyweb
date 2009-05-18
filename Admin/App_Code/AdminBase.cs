@@ -17,12 +17,12 @@ public class AdminBase : System.Web.UI.Page
 
     protected override void OnLoad(EventArgs e)
     {
-        if (Request.Cookies["USERACC"] == null || Request.Cookies["USERACC"].Value == "")
-        {
-            Response.Clear();
-            WebAgent.Alert("未登陆禁止查看该页！");
-            Response.End();
-        }
+        //if (Request.Cookies["USERACC"] == null || Request.Cookies["USERACC"].Value == "")
+        //{
+        //    Response.Clear();
+        //    WebAgent.Alert("未登陆禁止查看该页！");
+        //    Response.End();
+        //}
 
         if (!IsPostBack)
         {

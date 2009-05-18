@@ -1,0 +1,7 @@
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\obj\Debug\ResolveAssemblyReference.cache
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\bin\Debug\AnyWeb_DL.dll
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\bin\Debug\AnyWeb_DL.pdb
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\bin\Debug\Studio.dll
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\bin\Debug\Studio.pdb
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\obj\Debug\AnyWeb_DL.dll
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\obj\Debug\AnyWeb_DL.pdb

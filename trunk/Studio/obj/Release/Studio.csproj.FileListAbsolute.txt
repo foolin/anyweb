@@ -1,0 +1,5 @@
+E:\Program Files\Microsoft Visual Studio\C#\Sales\Studio\bin\Release\Studio.dll
+E:\Program Files\Microsoft Visual Studio\C#\Sales\Studio\bin\Release\Studio.pdb
+E:\Program Files\Microsoft Visual Studio\C#\Sales\Studio\obj\Release\ResolveAssemblyReference.cache
+E:\Program Files\Microsoft Visual Studio\C#\Sales\Studio\obj\Release\Studio.dll
+E:\Program Files\Microsoft Visual Studio\C#\Sales\Studio\obj\Release\Studio.pdb

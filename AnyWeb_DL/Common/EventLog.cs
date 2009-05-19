@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AnyWeb_DL
+namespace AnyWeb.AnyWeb_DL
 {
     public class EventLog
     {
@@ -49,14 +49,14 @@ namespace AnyWeb_DL
             set { _EvenAt = value; }
         }
 
-        private string _UserAcc;
+        private string _EvenUserAcc;
         /// <summary>
         /// ”√ªß’ ∫≈
         /// </summary>
-        public string UserAcc
+        public string EvenUserAcc
         {
-            get { return _UserAcc; }
-            set { _UserAcc = value; }
+            get { return _EvenUserAcc; }
+            set { _EvenUserAcc = value; }
         }
     }
 }

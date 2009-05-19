@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>用户登录</title>
+<style type="text/css">
+<!--
+body{
+	background:#3a84b5;
+}
+
+/*登录窗口*/
+#login {
+	margin:0px auto;
+	margin-top:200px;
+	background:url(images/login_bg.gif) no-repeat;
+	width:310px;
+	height:282px;
+	font-size: 14px;
+	padding:4px;
+}
+
+/*登录表单*/
+#loginForm{
+	color:#3E8AD0;
+}
+
+/*登录顶部标题*/
+#loginTitle{
+	padding-top:5px;
+	text-align:center;
+	color:#3C88DD;
+	font-weight:bold;
+}
+
+/*表单输入框*/
+#loginForm dd{
+	margin-top:5px;
+}
+
+#loginForm .inputTxt{
+	width:130px;
+	border:0px;
+	height:20px;
+	background:#D9E8F9;
+	border-bottom:solid 2px #09C;
+}
+
+#loginForm .onInput{
+	padding-bottom:0px;
+	width:130px;
+	border:0px;
+	height:20px;
+	background:#FFF;
+	border-bottom:solid 1px #09C;
+}
+
+/*登录按钮*/
+.btnForm {
+	padding-top:20px;
+	padding-left:50px;
+}
+.btnForm input{
+	padding:5px;
+}
+
+-->
+</style>
+</head>
+
+<body>
+<div id="login">
+
+	<div id="loginForm">
+    	<div id="loginTitle">Anyweb后台管理系统V0.1</div>
+    	<form action="index.html" method="post">
+    	<dl>
+        	<dd>用户名：<input class="inputTxt" name="UserName" type="text" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"/></dd>
+            
+            <dd>密 &nbsp;码：<input class="inputTxt" name="Password" type="password" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"/></dd>
+            
+            <dd>验证码：<input class="inputTxt" name="CheckCode" type="text" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"/>  6542</dd>
+            
+            <dd class="btnForm"><input type="submit" value="登录" /> <input type="reset" value="重置" /></dd>
+        </dl>
+        </form>
+        
+    </div>
+    
+</div>
+</body>
+</html>

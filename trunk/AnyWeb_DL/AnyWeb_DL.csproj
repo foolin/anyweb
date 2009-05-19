@@ -34,6 +34,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Active.cs" />
+    <Compile Include="Common\Article.cs" />
+    <Compile Include="Common\Column.cs" />
+    <Compile Include="Common\EventLog.cs" />
+    <Compile Include="Common\Leave.cs" />
+    <Compile Include="Common\Link.cs" />
+    <Compile Include="Common\Navigation.cs" />
+    <Compile Include="Common\Notice.cs" />
+    <Compile Include="Common\Photo.cs" />
+    <Compile Include="Common\Site.cs" />
+    <Compile Include="Common\Slide.cs" />
+    <Compile Include="Common\User.cs" />
+    <Compile Include="Common\VoteAnswer.cs" />
+    <Compile Include="Common\VoteQuestion.cs" />
     <Compile Include="Framework\SysAgent.cs" />
     <Compile Include="Framework\SysSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -43,6 +57,9 @@
       <Project>{A93C69CA-F165-4BBB-A8CB-9EB415B89AD4}</Project>
       <Name>Studio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Agent\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

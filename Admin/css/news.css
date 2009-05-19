@@ -1,0 +1,55 @@
+﻿@charset "gb2312";
+
+/*新闻列表样式start*/
+.NewsList {
+	border:#75BAFF 1px  solid;
+	line-height:20px;
+	background:#ECF5FF;
+	padding:5px;
+}
+.NewsList table{
+	margin:0px;
+	padding:5px 10px;
+	background:#FFF;
+}
+.NewsList td{
+	margin:0px;
+	list-style:none;
+	padding-left:10px;
+	padding-top:5px;
+	border:solid 1px #AAD5FF;
+}
+.NewsList .time{color:#999999}
+.NewsList form {	margin:0px;}
+
+/*分页*/
+.NewsList .pagebar {
+	text-align:center;
+	padding:10px;
+	background:#FFFFFF;
+}
+/*新闻列表样式end*/
+
+
+/*添加新闻表单、表格样式start*/
+.tableForm{
+	margin:5px;
+	padding:2px;
+	background:#BADCFA;
+}
+.tableForm td{
+	background:#DFEFFD;
+	margin:0px;
+	list-style:none;
+	border:solid 1px #fff;
+	padding:5px;
+	background:#ECF5FF;
+}
+.tableForm tr{
+	border:0px;
+}
+.tableForm form {margin:3px;}
+.tableForm input {border:1px #bbbbbb solid;background-color:#ffffff;}
+.tableForm textarea {border:1px #bbbbbb solid;background-color:#ffffff;}
+.tableForm .btn {padding:3px 5px;background-color:#FFF;}
+/*添加新闻表单、表格样式end*/

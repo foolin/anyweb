@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "E:\...\Web\", "Web\", "{C9F22462-5637-42D2-9993-9751468BF28E}"
 	ProjectSection(WebsiteProperties) = preProject
-		ProjectReferences = "{A93C69CA-F165-4BBB-A8CB-9EB415B89AD4}|Studio.dll;"
+		ProjectReferences = "{A93C69CA-F165-4BBB-A8CB-9EB415B89AD4}|Studio.dll;{BBDDD2C1-2B22-42CD-BFB7-B21D0795B438}|AnyWeb_DL.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Web"
 		Debug.AspNetCompiler.PhysicalPath = "E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Web\"
@@ -23,7 +23,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "E:\...\Web\", "Web\", "{C9F
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "E:\...\Admin\", "Admin\", "{33F106B0-F062-47B0-9F29-BE331A6FE4A5}"
 	ProjectSection(WebsiteProperties) = preProject
-		ProjectReferences = "{A93C69CA-F165-4BBB-A8CB-9EB415B89AD4}|Studio.dll;"
+		ProjectReferences = "{A93C69CA-F165-4BBB-A8CB-9EB415B89AD4}|Studio.dll;{BBDDD2C1-2B22-42CD-BFB7-B21D0795B438}|AnyWeb_DL.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Admin"
 		Debug.AspNetCompiler.PhysicalPath = "E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Admin\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Admin\"

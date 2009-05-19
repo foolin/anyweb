@@ -34,6 +34,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agent\EventLogAgent.cs" />
     <Compile Include="Common\Active.cs" />
     <Compile Include="Common\Article.cs" />
     <Compile Include="Common\Column.cs" />
@@ -57,9 +58,6 @@
       <Project>{A93C69CA-F165-4BBB-A8CB-9EB415B89AD4}</Project>
       <Name>Studio</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Agent\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

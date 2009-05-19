@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AnyWeb_DL
+namespace AnyWeb.AnyWeb_DL
 {
     public class Leave
     {

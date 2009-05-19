@@ -51,6 +51,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\Decryptor.cs" />
+    <Compile Include="Security\DecryptTransformer.cs" />
+    <Compile Include="Security\Encryptor.cs" />
+    <Compile Include="Security\EncryptTransformer.cs" />
+    <Compile Include="Security\Secure.cs" />
     <Compile Include="Web\ControlDesigner.cs" />
     <Compile Include="Web\PageNaver.cs" />
     <Compile Include="Web\WebAgent.cs" />

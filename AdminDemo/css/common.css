@@ -163,35 +163,6 @@ text-decoration:underline;
 color:#FF0000;
 }
 
-/*新闻列表样式*/
-.NewsList {
-	border:#75BAFF 1px  solid;
-	line-height:20px;
-	background:#ECF5FF;
-	padding:5px;
-}
-.NewsList table{
-	margin:0px;
-	padding:5px 10px;
-	background:#FFF;
-}
-.NewsList td{
-	margin:0px;
-	list-style:none;
-	padding-left:10px;
-	padding-top:5px;
-	border:solid 1px #AAD5FF;
-}
-.time{color:#999999}
-form {	margin:0px;}
-
-/*分页*/
-.pagebar {
-	text-align:center;
-	padding:10px;
-	background:#FFFFFF;
-}
-
 
 /*底部*/
 #footer{

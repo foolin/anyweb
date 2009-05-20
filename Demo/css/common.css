@@ -12,7 +12,8 @@ A:visited {
 	COLOR: #000000; TEXT-DECORATION: none
 }
 A:hover {
-	COLOR: #009933; TEXT-DECORATION: underline
+	COLOR: #009933; TEXT-DECORATION: underline;
+	padding:1px;
 }
 
 /*页*/
@@ -78,10 +79,9 @@ A:hover {
 }
 #menu a:hover {
 	text-decoration:none;
-	padding:0px 5px;
+	padding:1px 6px;
 	font-weight:bold;
 	color:#F00;
-	font-size:14px;
 }
 
 /*导航信息*/
@@ -102,7 +102,7 @@ A:hover {
 #footer{
 	background:#FFF;
 	text-align:center;
-	margin-top:10px;
+	margin-top:5px;
 }
 
 /*底部连接*/
@@ -121,4 +121,21 @@ A:hover {
 /*清除浮动*/
 .clear{
 	clear:both;
+}
+
+/*照片有相框效果*/
+.img{
+	background-color:#FFF;
+	border:#BBB 1px solid;
+	padding:3px;
+	margin:2px;
+}
+
+/*新闻列表后的日期*/
+.time{
+	color:#999;
+}
+
+.center{
+	text-align:center;
 }

@@ -77,7 +77,7 @@
                         用户名：<asp:TextBox class="inputTxt" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"
                             runat="server" ID="txtName"></asp:TextBox></dd>
                     <dd>
-                        密码：<asp:TextBox class="inputTxt" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"
+                        密&nbsp;&nbsp;&nbsp;码：<asp:TextBox class="inputTxt" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"
                             runat="server" ID="txtPass" TextMode="Password"></asp:TextBox></dd>
                     <dd>
                         验证码：<asp:TextBox class="inputTxt" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"

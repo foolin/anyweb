@@ -4,12 +4,13 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
     <title>后台Demo演示</title>
-    <link href="css/common.css" rel="stylesheet" type="text/css" />
-
+    <link href="/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="/css/news.css" rel="stylesheet" type="text/css" />
     <script language="javascript" type="text/javascript" src="/JS/menu.js"></script>
-
     <script type="text/javascript" src="/JS/date.js"></script>
-
+    <script type="text/javascript" src="/JS/Ajax.js"></script>
+    <script type="text/javascript" src="/JS/Validator.js"></script>
+    <script type="text/javascript" for="window" event="onload">Validator.BoundControls();</script>
 </head>
 <body>
     <div id="wrap">
@@ -21,7 +22,7 @@
                     <iframe id="if1" style="display: none;"></iframe>
                     <iframe id="if2" style="display: none;"></iframe>
                 </span>
-                <span style="float:right; padding-top:6px; padding-right:10px;"><a href="Logout.aspx">注销登录</a></span>
+                <span style="float:right; padding-top:6px; padding-right:10px;"><a href="/Logout.aspx">注销登录</a></span>
             </div>
             <div class="clear"></div>
         </div>

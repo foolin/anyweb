@@ -1,0 +1,124 @@
+@charset "gb2312";
+body {
+	margin:0px auto;
+	background:#E4E4E4;
+	font-size: 12px;
+}
+A:link {
+	COLOR: #000000;
+	TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #009933; TEXT-DECORATION: underline
+}
+
+/*页*/
+#wrap {
+	margin:0px auto;
+	background-color: #FFF;
+	width:998px;
+}
+
+/*顶部Bar*/
+#topbar {
+	height:30px;
+	background:url(../images/topbar_bg.jpg);
+	color:#167d00;
+	line-height:33px;
+	padding-left:10px;
+	text-align:left;
+}
+
+/*顶部bar左边漂浮*/
+#topbar .left{
+	float:left;
+}
+
+/*顶部bar右边漂浮*/
+#topbar .right{
+	float:right;
+	padding-right:10px;
+}
+
+/*顶部日期样式*/
+#topbar #clock{
+	font-weight:bold;
+}
+
+
+#top{
+	background:url(../images/top.jpg);
+	height:130px;
+}
+
+/*顶部菜单*/
+#menu {
+	height:33px;
+	background:url(../images/menu_bg.jpg);
+	line-height:33px;
+	color:#000;
+	text-align:left;
+	padding-left:20px;
+	font-weight:bold;
+	color:#009933;
+}
+
+#menu a:link {
+	text-decoration:none;
+	color:#009933;
+	padding:0px 5px;
+}
+#menu a:visited {
+	text-decoration:none;
+	color:#009933;
+	padding:0px 5px;
+}
+#menu a:hover {
+	text-decoration:none;
+	padding:0px 5px;
+	font-weight:bold;
+	color:#F00;
+	font-size:14px;
+}
+
+/*导航信息*/
+#navinfo {
+	height:24px;
+	line-height:24px;
+	background:#e8f4ed;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+/*主内容区*/
+#main{
+	margin:0px;
+}
+
+/*底部*/
+#footer{
+	background:#FFF;
+	text-align:center;
+	margin-top:10px;
+}
+
+/*底部连接*/
+#footer #bottomlink{
+	background:url(../images/bottom_bg.jpg);
+	height:30px;
+	line-height:30px;
+}
+
+/*底部版权信息*/
+#footer #copyright{
+	padding:10px 5px;
+	line-height:22px;
+}
+
+/*清除浮动*/
+.clear{
+	clear:both;
+}

@@ -2,37 +2,8 @@
     CodeFile="Default.aspx.cs" Inherits="_Default" Title="后台首页" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div id="main_side">
-        <div id="navmenu">
-            <dl>
-                <dt><a href="#">控制面板</a></dt>
-                <dd>
-                    <a href="#">管理首页</a></dd>
-                <dd>
-                    <a href="#">修改密码</a></dd>
-                <dd>
-                    <a href="#" style="cursor: help;">帮助文档</a></dd>
-                <dd>
-                    <a href="#" target="_top">退出管理</a></dd>
-            </dl>
-            <dl>
-                <dt><a href="#">控制面板</a></dt>
-                <dd>
-                    <a href="#">管理首页</a></dd>
-                <dd>
-                    <a href="#">修改密码</a></dd>
-                <dd>
-                    <a href="#" style="cursor: help;">帮助文档</a></dd>
-                <dd>
-                    <a href="#" target="_top">退出管理</a></dd>
-            </dl>
-        </div>
-    </div>
     <div id="main_content">
         <div id="content">
-            <div id="navInfo" style="clear: both;">
-                <a href="#">首页</a> &gt;&gt; <a href="#">新闻列表</a> &gt;&gt;
-            </div>
             <div class="NewsList">
                 <table width="100%" cellspacing="0" border="0">
                     <tr bgcolor="#E6F2FF">
@@ -92,5 +63,31 @@
                     [<strong>1</strong>] ...[<strong>1</strong>]</div>
             </div>
         </div>
+    </div>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+    <div id="navmenu">
+        <dl>
+            <dt><a href="#">控制面板</a></dt>
+            <dd>
+                <a href="#">管理首页</a></dd>
+            <dd>
+                <a href="#">修改密码</a></dd>
+            <dd>
+                <a href="#" style="cursor: help;">帮助文档</a></dd>
+            <dd>
+                <a href="#" target="_top">退出管理</a></dd>
+        </dl>
+        <dl>
+            <dt><a href="#">控制面板</a></dt>
+            <dd>
+                <a href="#">管理首页</a></dd>
+            <dd>
+                <a href="#">修改密码</a></dd>
+            <dd>
+                <a href="#" style="cursor: help;">帮助文档</a></dd>
+            <dd>
+                <a href="#" target="_top">退出管理</a></dd>
+        </dl>
     </div>
 </asp:Content>

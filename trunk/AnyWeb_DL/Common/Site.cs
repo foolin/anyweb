@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
+using System.Collections;
 
 namespace AnyWeb.AnyWeb_DL
 {
@@ -8,6 +10,21 @@ namespace AnyWeb.AnyWeb_DL
     {
         public Site()
         { }
+
+        public Site(DataRow row)
+        {
+            this.SiteID = (int)row["SiteID"];
+            this.SiteName = (string)row["SiteName"];
+            this.SiteAddress = (string)row["SiteAddress"];
+            this.SitePhone = (string)row["SitePhone"];
+            this.SiteFax = (string)row["SiteFax"];
+            this.SiteEmail = (string)row["SiteEmail"];
+            this.SiteRecordNO = (string)row["SiteRecordNO"];
+            this.SiteClicks = (int)row["SiteClicks"];
+            this.SiteArticleCount = (int)row["SiteArticleCount"];
+            this.SiteColumnCount = (int)row["SiteColumnCount"];
+            this.SiteLeaveCount = (int)row["SiteLeaveCount"];
+        }
 
         private int _SiteID;
         /// <summary>
@@ -117,6 +134,40 @@ namespace AnyWeb.AnyWeb_DL
         {
             get { return _SiteLeaveCount; }
             set { _SiteLeaveCount = value; }
+        }
+
+        private ArrayList _UserList;
+        /// <summary>
+        /// 用户集合
+        /// </summary>
+        public ArrayList UserList
+        {
+            get { return _UserList; }
+            set { _UserList = value; }
+        }
+
+        private ArrayList _NavigationList;
+        /// <summary>
+        /// 导航栏
+        /// </summary>
+        public ArrayList NavigationList
+        {
+            get { return _NavigationList; }
+            set { _NavigationList = value; }
+        }
+
+        /// <summary>
+        /// 获取用户信息
+        /// </summary>
+        /// <param name="userAcc"></param>
+        /// <returns></returns>
+        public User GetUserByID(int UserID)
+        {
+            foreach (User u in this.UserList)
+            {
+                if (u.UserID == UserID) return u;
+            }
+            return null;
         }
     }
 }

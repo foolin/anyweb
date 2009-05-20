@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using Studio.Web;
+using AnyWeb.AnyWeb_DL;
 
 /// <summary>
 ///AdminBase 的摘要说明
@@ -17,12 +18,10 @@ public class AdminBase : System.Web.UI.Page
 
     protected override void OnLoad(EventArgs e)
     {
-        //if (Request.Cookies["USERACC"] == null || Request.Cookies["USERACC"].Value == "")
-        //{
-        //    Response.Clear();
-        //    WebAgent.Alert("未登陆禁止查看该页！");
-        //    Response.End();
-        //}
+        if (Request.Cookies["USERINFO"] == null || Request.Cookies["USERINFO"]["UserAcc"] == "")
+        {
+            WebAgent.FailAndGo("未登陆禁止查看该页！", "/Login.aspx");
+        }
 
         if (!IsPostBack)
         {
@@ -34,6 +33,33 @@ public class AdminBase : System.Web.UI.Page
             {
                 ViewState["BACK"] = Request.UrlReferrer.ToString();
             }
+        }
+    }
+
+    /// <summary>
+    /// 获取地址栏参数
+    /// </summary>
+    /// <param name="key"></param>
+    /// <returns></returns>
+    protected string QS(string key)
+    {
+        return Request.QueryString[key] + "";
+    }
+
+
+    protected Site SiteInfo
+    {
+        get
+        {
+            return (Site)Context.Items["SITEINFO"];
+        }
+    }
+
+    protected User LoginUser
+    {
+        get
+        {
+            return (User)Context.Items["LOGIN_USER"];
         }
     }
 }

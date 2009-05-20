@@ -35,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Agent\EventLogAgent.cs" />
+    <Compile Include="Agent\SiteAgent.cs" />
     <Compile Include="Common\Active.cs" />
     <Compile Include="Common\Article.cs" />
     <Compile Include="Common\Column.cs" />

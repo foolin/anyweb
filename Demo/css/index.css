@@ -1,0 +1,55 @@
+@charset "gb2312";
+.col_left1 {
+	float:left;
+	width:300px;
+}
+
+.col_main1 {
+	float:left;
+	width:458px;
+	
+}
+
+.col_right1 {
+	width:240px;
+	float:left;
+}
+
+.box{
+	border:1px #BEE2D9 solid;
+	margin:3px;
+}
+
+.box .box_title{
+	height:30px;
+	background:url(../images/box_title_bg.jpg);
+	padding:0px 5px;
+	line-height:25px;
+	color:#418D82;
+}
+
+.box .box_title .titletxt{
+	float:left;
+	padding-left:10px;
+	font-weight:bold;
+	font-size:14px;
+}
+
+.box .box_title .more{
+	float:right;
+}
+
+.box .box_content{
+	margin:0px;
+	padding:0px 5px 5px 5px;
+}
+.box .box_content ul{
+	margin:0px;
+	padding:0px;
+}
+.box .box_content li{
+	margin-top:0px;
+	line-height:22px;
+	border-bottom:#CCC 1px dashed;
+	list-style:url(../images/dot.jpg) inside;
+}

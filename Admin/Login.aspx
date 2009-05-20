@@ -78,7 +78,7 @@
                             runat="server" ID="txtName"></asp:TextBox></dd>
                     <dd>
                         УмТыЃК<asp:TextBox class="inputTxt" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"
-                            runat="server" ID="txtPass"></asp:TextBox></dd>
+                            runat="server" ID="txtPass" TextMode="Password"></asp:TextBox></dd>
                     <dd>
                         бщжЄТыЃК<asp:TextBox class="inputTxt" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"
                             runat="server" ID="txtCode"></asp:TextBox>

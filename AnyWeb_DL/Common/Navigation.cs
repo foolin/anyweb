@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 
 namespace AnyWeb.AnyWeb_DL
 {
@@ -8,6 +9,15 @@ namespace AnyWeb.AnyWeb_DL
     {
         public Navigation()
         { }
+
+        public Navigation(DataRow row)
+        {
+            this.NaviID = (int)row["NaviID"];
+            this.NaviName = (string)row["NaviName"];
+            this.NaviOrder = (int)row["NaviOrder"];
+            this.NaviCreateAt = (DateTime)row["NaviCreateAt"];
+            this.NaviUrl = (string)row["NaviUrl"];
+        }
 
         private int _NaviID;
         /// <summary>

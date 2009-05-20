@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 
 namespace AnyWeb.AnyWeb_DL
 {
@@ -8,6 +9,18 @@ namespace AnyWeb.AnyWeb_DL
     {
         public User()
         { }
+
+        public User(DataRow row)
+        {
+            this.UserID = (int)row["UserID"];
+            this.UserAcc = (string)row["UserAcc"];
+            this.UserPass = (string)row["UserPass"];
+            this.UserName = (string)row["UserName"];
+            this.UserCreateAt = (DateTime)row["UserCreateAt"];
+            this.UserStatus = (int)row["UserStatus"];
+            this.UserPermission = (string)row["UserPermission"];
+            this.UserIsAdmin = (bool)row["UserIsAdmin"];
+        }
 
         private int _UserID;
         /// <summary>

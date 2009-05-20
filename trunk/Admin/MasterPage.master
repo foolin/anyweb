@@ -17,11 +17,13 @@
             <div id="top">
             </div>
             <div class="Nav" id="mainmenu">
-                <iframe id="if1" style="display: none;"></iframe>
-                <iframe id="if2" style="display: none;"></iframe>
-                <div class="clear">
-                </div>
+                <span style="float:left;">
+                    <iframe id="if1" style="display: none;"></iframe>
+                    <iframe id="if2" style="display: none;"></iframe>
+                </span>
+                <span style="float:right; padding-top:6px; padding-right:10px;"><a href="Logout.aspx">×¢ÏúµÇÂ¼</a></span>
             </div>
+            <div class="clear"></div>
         </div>
         <form id="form1" runat="server">
             <div id="container">

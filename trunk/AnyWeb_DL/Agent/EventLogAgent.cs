@@ -22,7 +22,7 @@ namespace AnyWeb.AnyWeb_DL
                     this.NewParam("@EvenDesc", log.EvenDesc),
                     this.NewParam("@EvenIP", log.EvenIP),
                     this.NewParam("@EvenAt", log.EvenAt),
-                    this.NewParam("@UserAcc", log.EvenUserAcc));
+                    this.NewParam("@EvenUserAcc", log.EvenUserAcc));
             }
         }
     }

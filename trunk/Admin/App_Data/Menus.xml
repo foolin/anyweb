@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xmenu xmlns="http://schema.anyp.com/xmenu-1.0">
+	<xMenuItem id="1" url="/Admin/Default.aspx" name="广佛都市网内容支持平台" module="0">
+		<xMenuItem id="10" name="快捷操作" module="1">
+			<xMenuItem id="11" url ="/Default.aspx" name ="后台首页" >
+			</xMenuItem>
+			<xMenuItem id="12" type="2" ></xMenuItem>
+			<xMenuItem id="13" url ="/Content/ArticleAdd.aspx" name ="添加文章" ></xMenuItem>
+			<xMenuItem id="14" url ="/Content/PhotoAdd.aspx" name ="上传图片"></xMenuItem>
+		</xMenuItem>
+		<xMenuItem id="20" name="内容管理" module="1">
+			<xMenuItem id="21" url ="/Content/ColumnAdd.aspx" name ="添加栏目"></xMenuItem>
+			<xMenuItem id="22" url ="/Content/ColumnList.aspx" name ="栏目管理"></xMenuItem>
+			<xMenuItem id="32" url ="/Content/ColumnEdit.aspx" name ="修改栏目" type="3" ></xMenuItem>
+			<xMenuItem id="33" url ="/Content/ColumnDel.aspx" name ="删除栏目" type="3" ></xMenuItem>
+			<xMenuItem id="12" type="2" ></xMenuItem>
+			<xMenuItem id="21" url ="/Content/ArticleAdd.aspx" name ="添加文章"></xMenuItem>
+			<xMenuItem id="22" url ="/Content/ArticleList.aspx" name ="文章管理"></xMenuItem>
+			<xMenuItem id="32" url ="/Content/ArticleEdit.aspx" name ="修改文章" type="3" ></xMenuItem>
+			<xMenuItem id="33" url ="/Content/ArticleDel.aspx" name ="删除文章" type="3" ></xMenuItem>
+		</xMenuItem>
+	</xMenuItem>
+</xmenu>
+

@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="UserAdd.aspx.cs" Inherits="Setting_UserAdd" Title="添加用户" %>
+    CodeFile="UserEdit.aspx.cs" Inherits="Setting_UserEdit" Title="修改用户" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <div id="navmenu">
@@ -18,8 +18,8 @@
             <dt>使用帮助</dt>
             <dd>
                 <ul>
-                    <li>用户帐号用于个人登录，创建成功后将不可修改。</li>
-                    <li>用户帐号格式4-20位字母或数字,必须以字母开头</li>
+                    <li>用户帐号用于个人登录，不可修改。</li>
+                    <li>不修改密码，密码输入框留空</li>
                 </ul>
             </dd>
         </dl>
@@ -35,9 +35,7 @@
                             <td width="15%" align="right">
                                 用户帐号：</td>
                             <td width="85%" align="left">
-                                <asp:TextBox ID="txtUserAcc" runat="server" Width="200" MaxLength="20" require="1"
-                                    datatype="account" okmsg="格式正确" errmsg="用户帐号格式不正确" ToolTip="最多20个字符"></asp:TextBox>
-                                <button onclick="javascript:checkAcc()">检查是否可用</button><span id="accMsg">[4-20位字母或数字,必须以字母开头]</span>
+                                <asp:TextBox ID="txtUserAcc" runat="server" Width="200" ReadOnly="true"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -61,8 +59,7 @@
                             <td align="right">
                                 密码：</td>
                             <td>
-                                <asp:TextBox ID="txtUserPwd" runat="server" TextMode="Password" Width="200" MaxLength="20"
-                                    require="1" errmsg="密码" ToolTip="最多20个字符"></asp:TextBox>
+                                <asp:TextBox ID="txtUserPwd" runat="server" TextMode="Password" Width="200" MaxLength="20" ToolTip="最多20个字符"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -70,7 +67,7 @@
                                 再输入密码：</td>
                             <td>
                                 <asp:TextBox ID="txtUserPwd2" runat="server" TextMode="Password" Width="200" MaxLength="20"
-                                    datatype="custom" exp="oldnew();" require="1" errmsg="两次输入的密码不相同" ToolTip="最多20个字符"></asp:TextBox>
+                                    datatype="custom" exp="oldnew();" errmsg="两次输入的密码不相同" ToolTip="最多20个字符"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -80,31 +77,13 @@
                             </td>
                         </tr>
                     </table>
+                    <asp:TextBox ID="txtpassword" runat="server" Visible="false"></asp:TextBox>
                 </form>
             </div>
         </div>
     </div>
 
-    <script type="text/javascript">
-        function checkAcc()
-		{
-			var accCtl = document.getElementById("<%=txtUserAcc.ClientID %>");
-			var msgCtl = document.getElementById("accMsg");
-			var btnCtl = document.getElementById("btnChk");
-			var acc = accCtl.value;
-			
-			if( accCtl.error && accCtl.error !="")
-			{
-				alert(accCtl.error);
-				return;
-			}
-			
-			var ajax = new Ajax();
-			ajax.Execute( "/ajax/checkacc.aspx?acc=" + acc, checkResult, btnCtl, msgCtl);
-		}
-		
-		function checkResult(){}
-		
+    <script type="text/javascript">		
         function oldnew()
         {
             var txtpwdnew = document.getElementById("<%=txtUserPwd.ClientID %>");

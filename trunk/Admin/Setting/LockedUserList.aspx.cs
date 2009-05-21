@@ -10,7 +10,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using AnyWeb.AnyWeb_DL;
 
-public partial class Setting_UserList : AdminBase
+public partial class Setting_LockedUserList : AdminBase
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -19,7 +19,7 @@ public partial class Setting_UserList : AdminBase
 
     protected override void OnPreRender(EventArgs e)
     {
-        repUser.DataSource = new UserAgent().GetUserList(0);
+        repUser.DataSource = new UserAgent().GetUserList(1);
         repUser.DataBind();
     }
 }

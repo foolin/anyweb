@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="UserList.aspx.cs" Inherits="Setting_UserList" Title="用户列表" %>
+    CodeFile="LockedUserList.aspx.cs" Inherits="Setting_LockedUserList" Title="冻结用户列表" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <div id="navmenu">
@@ -40,13 +40,15 @@
                     <asp:Repeater ID="repUser" runat="server">
                         <ItemTemplate>
                             <tr onmouseover="this.style.background='#E6F2FF';" onmouseout="this.style.background='#FFFFFF'">
-                                <td><%#Eval("UserAcc")%>
+                                <td>
+                                    <%#Eval("UserAcc")%>
                                 </td>
                                 <td>
-                                    <%#Eval("UserName") %></td>
+                                    <%#Eval("UserName") %>
+                                </td>
                                 <td>
-                                    <a href="UserEdit.aspx?id=<%#Eval("UserID") %>" title="修改用户信息">修改</a>
-                                    <a href="LockUser.aspx?id=<%#Eval("UserID") %>" onclick="return confirm('确定要冻结该用户？')" title="冻结用户">冻结</a></td>
+                                    <a href="UnlockUser.aspx?id=<%#Eval("UserID") %>" onclick="return confirm('确定要解冻该用户？')" title="解冻用户">解冻</a> 
+                                    <a href="UserDel.aspx?id=<%#Eval("UserID") %>" onclick="return confirm('确定要删除该用户？')" title="删除用户">删除</a></td>
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>

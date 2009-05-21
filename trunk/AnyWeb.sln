@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Studio", "Studio\Studio.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyWeb_DL", "AnyWeb_DL\AnyWeb_DL.csproj", "{BBDDD2C1-2B22-42CD-BFB7-B21D0795B438}"
 EndProject
+Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "Admin", "published\Admin\Admin.wdproj", "{6CB47D96-4425-4A3E-AB00-D3C9D580509C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -95,6 +97,16 @@ Global
 		{BBDDD2C1-2B22-42CD-BFB7-B21D0795B438}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BBDDD2C1-2B22-42CD-BFB7-B21D0795B438}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{BBDDD2C1-2B22-42CD-BFB7-B21D0795B438}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6CB47D96-4425-4A3E-AB00-D3C9D580509C}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{6CB47D96-4425-4A3E-AB00-D3C9D580509C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CB47D96-4425-4A3E-AB00-D3C9D580509C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CB47D96-4425-4A3E-AB00-D3C9D580509C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6CB47D96-4425-4A3E-AB00-D3C9D580509C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6CB47D96-4425-4A3E-AB00-D3C9D580509C}.Release|.NET.ActiveCfg = Release|Any CPU
+		{6CB47D96-4425-4A3E-AB00-D3C9D580509C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CB47D96-4425-4A3E-AB00-D3C9D580509C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CB47D96-4425-4A3E-AB00-D3C9D580509C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6CB47D96-4425-4A3E-AB00-D3C9D580509C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

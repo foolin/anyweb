@@ -3,3 +3,8 @@ E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Studio\bin\Debug\Studio.pdb
 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Studio\obj\Debug\ResolveAssemblyReference.cache
 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Studio\obj\Debug\Studio.dll
 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Studio\obj\Debug\Studio.pdb
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Studio\bin\Release\Studio.dll
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Studio\bin\Release\Studio.pdb
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Studio\obj\Release\ResolveAssemblyReference.cache
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Studio\obj\Release\Studio.dll
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Studio\obj\Release\Studio.pdb

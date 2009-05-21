@@ -5,3 +5,10 @@ E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\bin\Debug\Studio.dl
 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\bin\Debug\Studio.pdb
 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\obj\Debug\AnyWeb_DL.dll
 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\obj\Debug\AnyWeb_DL.pdb
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\bin\Release\AnyWeb_DL.dll
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\bin\Release\AnyWeb_DL.pdb
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\bin\Release\Studio.dll
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\bin\Release\Studio.pdb
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\obj\Release\ResolveAssemblyReference.cache
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\obj\Release\AnyWeb_DL.dll
+E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\obj\Release\AnyWeb_DL.pdb

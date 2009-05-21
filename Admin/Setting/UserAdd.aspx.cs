@@ -27,11 +27,14 @@ public partial class Setting_UserAdd : AdminBase
         User u = new User();
         u.UserAcc = this.txtUserAcc.Text;
         u.UserName = this.txtUserName.Text;
-        u.UserIsAdmin = false;
         u.UserPermission = "";
         u.UserStatus = 0;
         u.UserPass = Secure.Md5(this.txtUserPwd.Text);
         u.UserCreateAt = DateTime.Now;
+        if (drpPerss.SelectedValue == "0")
+            u.UserIsAdmin = false;
+        else
+            u.UserIsAdmin = true;
         if (agent.AddUser(u))
         {
             EventLog log = new EventLog();

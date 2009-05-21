@@ -15,6 +15,7 @@ public partial class Logout : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         Response.Cookies["USERINFO"].Expires = DateTime.Now.AddDays(-1);
+        HttpRuntime.Cache.Remove("SITE");
         WebAgent.SuccAndGo("您已经成功退出登录!", "/Login.aspx");
     }
 }

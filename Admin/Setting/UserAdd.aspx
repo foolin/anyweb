@@ -29,58 +29,57 @@
     <div id="main_content">
         <div id="content">
             <div class="tableForm">
-                <form name="form1" action="" method="post">
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <td width="15%" align="right">
-                                用户帐号：</td>
-                            <td width="85%" align="left">
-                                <asp:TextBox ID="txtUserAcc" runat="server" Width="200" MaxLength="20" require="1"
-                                    datatype="account" okmsg="格式正确" errmsg="用户帐号格式不正确" ToolTip="最多20个字符"></asp:TextBox>
-                                <button onclick="javascript:checkAcc()">检查是否可用</button><span id="accMsg">[4-20位字母或数字,必须以字母开头]</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                中文名/昵称：</td>
-                            <td>
-                                <asp:TextBox ID="txtUserName" runat="server" Width="200" MaxLength="20" require="1"
-                                    errmsg="中文名/昵称" ToolTip="最多20个字符"></asp:TextBox></td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                权限：</td>
-                            <td>
-                                <asp:DropDownList ID="drpPerss" runat="server">
-                                    <asp:ListItem Text="普通用户" Value="0"></asp:ListItem>
-                                    <asp:ListItem Text="超级管理员" Value="1"></asp:ListItem>
-                                </asp:DropDownList>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                密码：</td>
-                            <td>
-                                <asp:TextBox ID="txtUserPwd" runat="server" TextMode="Password" Width="200" MaxLength="20"
-                                    require="1" errmsg="密码" ToolTip="最多20个字符"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                再输入密码：</td>
-                            <td>
-                                <asp:TextBox ID="txtUserPwd2" runat="server" TextMode="Password" Width="200" MaxLength="20"
-                                    datatype="custom" exp="oldnew();" require="1" errmsg="两次输入的密码不相同" ToolTip="最多20个字符"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <asp:Button ID="btnAddUser" runat="server" Text="保存用户" OnClick="btnAddUser_Click" />
-                                <a href="UserList.aspx">取消</a>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td width="15%" align="right">
+                            用户帐号：</td>
+                        <td width="85%" align="left">
+                            <asp:TextBox ID="txtUserAcc" runat="server" Width="200" MaxLength="20" require="1"
+                                datatype="account" okmsg="格式正确" errmsg="用户帐号格式不正确" ToolTip="最多20个字符"></asp:TextBox>
+                            <button onclick="javascript:checkAcc()">
+                                检查是否可用</button><span id="accMsg">[4-20位字母或数字,必须以字母开头]</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            中文名/昵称：</td>
+                        <td>
+                            <asp:TextBox ID="txtUserName" runat="server" Width="200" MaxLength="20" require="1"
+                                errmsg="中文名/昵称" ToolTip="最多20个字符"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            权限：</td>
+                        <td>
+                            <asp:DropDownList ID="drpPerss" runat="server">
+                                <asp:ListItem Text="普通用户" Value="0"></asp:ListItem>
+                                <asp:ListItem Text="超级管理员" Value="1"></asp:ListItem>
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            密码：</td>
+                        <td>
+                            <asp:TextBox ID="txtUserPwd" runat="server" TextMode="Password" Width="200" MaxLength="20"
+                                require="1" errmsg="密码" ToolTip="最多20个字符"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            再输入密码：</td>
+                        <td>
+                            <asp:TextBox ID="txtUserPwd2" runat="server" TextMode="Password" Width="200" MaxLength="20"
+                                datatype="custom" exp="oldnew();" require="1" errmsg="两次输入的密码不相同" ToolTip="最多20个字符"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <asp:Button ID="btnAddUser" runat="server" Text="保存用户" OnClick="btnAddUser_Click" />
+                            <a href="UserList.aspx">取消</a>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>

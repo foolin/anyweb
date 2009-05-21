@@ -29,55 +29,53 @@
     <div id="main_content">
         <div id="content">
             <div class="tableForm">
-                <form name="form1" action="" method="post">
-                    <table cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <td width="15%" align="right">
-                                用户帐号：</td>
-                            <td width="85%" align="left">
-                                <asp:TextBox ID="txtUserAcc" runat="server" Width="200" ReadOnly="true"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                中文名/昵称：</td>
-                            <td>
-                                <asp:TextBox ID="txtUserName" runat="server" Width="200" MaxLength="20" require="1"
-                                    errmsg="中文名/昵称" ToolTip="最多20个字符"></asp:TextBox></td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                旧密码：</td>
-                            <td>
-                                <asp:TextBox ID="txtUserOldPwd" runat="server" TextMode="Password" Width="200" MaxLength="20"
-                                    ToolTip="最多20个字符"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                新密码：</td>
-                            <td>
-                                <asp:TextBox ID="txtUserPwd" runat="server" TextMode="Password" Width="200" MaxLength="20"
-                                    ToolTip="最多20个字符"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                再输入密码：</td>
-                            <td>
-                                <asp:TextBox ID="txtUserPwd2" runat="server" TextMode="Password" Width="200" MaxLength="20"
-                                    datatype="custom" exp="oldnew();" errmsg="两次输入的密码不相同" ToolTip="最多20个字符"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <asp:Button ID="btnAddUser" runat="server" Text="保存个人信息" OnClick="btnAddUser_Click" />
-                                <a href="UserList.aspx">取消</a>
-                            </td>
-                        </tr>
-                    </table>
-                    <asp:TextBox ID="txtpassword" runat="server" Visible="false"></asp:TextBox>
-                </form>
+                <table cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td width="15%" align="right">
+                            用户帐号：</td>
+                        <td width="85%" align="left">
+                            <asp:TextBox ID="txtUserAcc" runat="server" Width="200" ReadOnly="true"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            中文名/昵称：</td>
+                        <td>
+                            <asp:TextBox ID="txtUserName" runat="server" Width="200" MaxLength="20" require="1"
+                                errmsg="中文名/昵称" ToolTip="最多20个字符"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            旧密码：</td>
+                        <td>
+                            <asp:TextBox ID="txtUserOldPwd" runat="server" TextMode="Password" Width="200" MaxLength="20"
+                                ToolTip="最多20个字符"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            新密码：</td>
+                        <td>
+                            <asp:TextBox ID="txtUserPwd" runat="server" TextMode="Password" Width="200" MaxLength="20"
+                                ToolTip="最多20个字符"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            再输入密码：</td>
+                        <td>
+                            <asp:TextBox ID="txtUserPwd2" runat="server" TextMode="Password" Width="200" MaxLength="20"
+                                datatype="custom" exp="oldnew();" errmsg="两次输入的密码不相同" ToolTip="最多20个字符"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <asp:Button ID="btnAddUser" runat="server" Text="保存个人信息" OnClick="btnAddUser_Click" />
+                            <a href="UserList.aspx">取消</a>
+                        </td>
+                    </tr>
+                </table>
+                <asp:TextBox ID="txtpassword" runat="server" Visible="false"></asp:TextBox>
             </div>
         </div>
     </div>

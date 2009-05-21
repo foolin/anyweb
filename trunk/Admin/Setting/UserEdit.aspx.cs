@@ -41,9 +41,9 @@ public partial class Setting_UserEdit : AdminBase
         u.UserID = int.Parse(QS("id"));
         u.UserName = txtUserName.Text;
         if (txtUserPwd.Text != "")
-            u.UserPass = txtUserPwd.Text;
+            u.UserPass = Secure.Md5(txtUserPwd.Text).Substring(0,20);
         else
-            u.UserPass = Secure.Md5(txtpassword.Text);
+            u.UserPass = txtpassword.Text;
         if (drpPerss.SelectedValue == "1")
             u.UserIsAdmin = true;
         else

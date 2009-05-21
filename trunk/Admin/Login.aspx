@@ -18,7 +18,6 @@
 	        width:310px;
 	        height:282px;
 	        font-size: 14px;
-	        padding:4px;
         }
 
         /*登录表单*/
@@ -34,36 +33,38 @@
 	            font-weight:bold;
             }
 
-            /*表单输入框*/
-            #loginForm dd{
-	            margin-top:5px;
-            }
+		/*表单输入框*/
+		#loginForm table{
+			margin:5px auto;
+			margin-top:15px;
+			
+		}
 
-            #loginForm .inputTxt{
-	            width:130px;
-	            border:0px;
-	            height:20px;
-	            background:#D9E8F9;
-	            border-bottom:solid 2px #09C;
-            }
+		#loginForm .inputTxt{
+			width:130px;
+			border:0px;
+			height:20px;
+			background:#D9E8F9;
+			border-bottom:solid 2px #09C;
+		}
 
-            #loginForm .onInput{
-	            padding-bottom:0px;
-	            width:130px;
-	            border:0px;
-	            height:20px;
-	            background:#FFF;
-	            border-bottom:solid 1px #09C;
-            }
+		#loginForm .onInput{
+			padding-bottom:0px;
+			width:130px;
+			border:0px;
+			height:20px;
+			background:#FFF;
+			border-bottom:solid 1px #09C;
+		}
 
-            /*登录按钮*/
-            .btnForm {
-	            padding-top:20px;
-	            padding-left:50px;
-            }
-            .btnForm input{
-	            padding:5px;
-            }
+		/*登录按钮*/
+		.btnForm {
+			padding-top:10px;
+			text-align:center;
+		}
+		.btnForm input{
+			padding:5px;
+		}
     </style>
 </head>
 <body>
@@ -72,25 +73,39 @@
             <div id="loginForm">
                 <div id="loginTitle">
                     Anyweb后台管理系统V0.1</div>
-                <dl>
-                    <dd>
-                        用户名：<asp:TextBox class="inputTxt" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"
-                            runat="server" ID="txtName"></asp:TextBox></dd>
-                    <dd>
-                        密&nbsp;&nbsp;&nbsp;码：<asp:TextBox class="inputTxt" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"
+                <table>
+                    <tr>
+                       <td>用户名：</td>
+                       <td>
+                       		<asp:TextBox class="inputTxt" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"
+                            runat="server" ID="txtName"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td>密&nbsp;&nbsp;码：</td>
+                        <td>
+                        	<asp:TextBox class="inputTxt" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"
                             runat="server" ID="txtPass" TextMode="Password"></asp:TextBox></dd>
-                    <dd>
-                        验证码：<asp:TextBox class="inputTxt" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>验证码：</td>
+                        <td>
+                        	<asp:TextBox class="inputTxt" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"
                             runat="server" ID="txtCode"></asp:TextBox>
-                        <a href="#" onclick="refreshCode()" title="看不清？">
+                        	<a href="#" onclick="refreshCode()" title="看不清？">
                             <asp:Image ID="imgVal" runat="server"></asp:Image></a>
-                    </dd>
-                    <dd class="btnForm">
+                        </td>
+                    </tr>
+                    <tr>
+                     <td colspan="2"  class="btnForm">
                         <input type="hidden" name="valcode" value="<%=valcode%>" />
                         <asp:Button ID="submit" OnClick="submit_Click" runat="server" Text="登录" CssClass="button">
                         </asp:Button>
-                        <input type="reset" value="重置" /></dd>
-                </dl>
+                        <input type="reset" value="重置" />
+                    </td>
+                  </tr>
+                  
+                </table>
             </div>
         </div>
     </form>

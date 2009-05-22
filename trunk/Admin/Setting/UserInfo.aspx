@@ -64,13 +64,12 @@
                         <td align="right">
                             再输入密码：</td>
                         <td>
-                            <asp:TextBox ID="txtUserPwd2" runat="server" TextMode="Password" Width="200" MaxLength="20"
-                                datatype="custom" exp="oldnew();" errmsg="两次输入的密码不相同" ToolTip="最多20个字符"></asp:TextBox>
+                            <asp:TextBox ID="txtUserPwd2" runat="server" TextMode="Password" Width="200" MaxLength="20" ToolTip="最多20个字符"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:Button ID="btnAddUser" runat="server" Text="保存个人信息" OnClick="btnAddUser_Click" />
+                            <asp:Button ID="btnAddUser" runat="server" Text="保存个人信息" OnClientClick="return oldnew()" OnClick="btnAddUser_Click" />
                             <a href="UserList.aspx">取消</a>
                         </td>
                     </tr>
@@ -86,7 +85,11 @@
             var txtpwdnew = document.getElementById("<%=txtUserPwd.ClientID %>");
             var txtpwdcon = document.getElementById("<%=txtUserPwd2.ClientID %>");
             
-             return txtpwdnew.value == txtpwdcon.value;
+             if(txtpwdnew.value != txtpwdcon.value)
+             {
+                alert("两次输入的密码不相同");
+                return false;
+             }
         }
     </script>
 

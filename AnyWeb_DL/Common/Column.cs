@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
+using System.Collections;
 
 namespace AnyWeb.AnyWeb_DL
 {
@@ -8,6 +10,15 @@ namespace AnyWeb.AnyWeb_DL
     {
         public Column()
         { }
+
+        public Column(DataRow row)
+        {
+            ColuID = (int)row["ColuID"];
+            ColuName = (string)row["ColuName"];
+            ColuCreateAt = (DateTime)row["ColuCreateAt"];
+            ColuParent = (int)row["ColuParent"];
+            ColuDesc = (string)row["ColuDesc"];
+        }
 
         private int _ColuID;
         /// <summary>
@@ -57,6 +68,16 @@ namespace AnyWeb.AnyWeb_DL
         {
             get { return _ColuDesc; }
             set { _ColuDesc = value; }
+        }
+
+        private ArrayList _ColuChidren;
+        /// <summary>
+        /// всю╦д©
+        /// </summary>
+        public ArrayList ColuChidren
+        {
+            get { return _ColuChidren; }
+            set { _ColuChidren = value; }
         }
     }
 }

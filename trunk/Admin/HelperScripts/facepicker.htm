@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>插入表情</title>
+<link href="dialog.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+.normal {background-color:#ccccc; }
+.over {background-color:#cccccc; border-top: 1px #ffffff solid;border-left: 1px #ffffff solid;border-right: 1px #999999 solid; border-bottom: 1px #999999 solid ; font-size: 12px; color: #000000; text-decoration: none;}
+.down {background-color:#cccccc;border-top: 1px #999999 solid;border-left: 1px #ffffff solid; border-right: 1px #ffffff solid; border-bottom: 1px #ffffff solid }
+ </style>
+<script language="javascript">
+function face(i){
+str = '';
+switch(i){
+case 1:
+stradd(1,95);
+break;
+case 2:
+stradd(100,123);
+break;
+case 3:
+stradd(200,239);
+break;
+}
+document.getElementById('emlist').innerHTML = str;
+}
+
+function stradd(starti,endi){
+for(i=starti;i<=endi;i++){
+str += '<img src="http://public.anyp.net/images/ubb/em/' + i + '.gif" OnMouseOver="this.className=\'over\'" OnMouseOut="this.className=\'normal\'" OnMouseDown="this.className=\'down\'" style="cursor:hand" OnClick="InsertEM(this.src)">\n';
+}
+}
+
+function InsertEM(src){
+	//window.returnValue = '[em' + src + ']';
+	window.returnValue = src;
+	window.close();
+}
+</script>
+</head>
+
+<body onLoad="face(1)">
+<input type="button" value="表情1" onClick="face(1)" ID="Button1" NAME="Button1">
+<input type="button" value="表情2" onClick="face(2)" ID="Button2" NAME="Button2"> 
+<input type="button" value="表情3" onClick="face(3)" ID="Button3" NAME="Button3">
+<div id="emlist" style="padding:4px "></div>
+</body>
+</html>

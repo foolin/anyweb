@@ -45,7 +45,7 @@
                             中文名/昵称：</td>
                         <td>
                             <asp:TextBox ID="txtUserName" runat="server" Width="200" MaxLength="20" require="1"
-                                errmsg="中文名/昵称" ToolTip="最多20个字符"></asp:TextBox></td>
+                                errmsg="请输入中文名/昵称" ToolTip="最多20个字符"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td align="right">

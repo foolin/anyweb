@@ -52,4 +52,8 @@
 .tableForm input {border:1px #bbbbbb solid;background-color:#ffffff;}
 .tableForm textarea {border:1px #bbbbbb solid;background-color:#ffffff;}
 .tableForm .btn {padding:3px 5px;background-color:#FFF;}
+.editor td
+{
+	padding:1px;
+}
 /*添加新闻表单、表格样式end*/

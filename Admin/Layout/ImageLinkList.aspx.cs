@@ -10,15 +10,16 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using AnyWeb.AnyWeb_DL;
 
-public partial class Layout_LinkList : AdminBase
+public partial class Layout_ImageLinkList : AdminBase
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
+
     protected override void OnPreRender(EventArgs e)
     {
-        txtLink.DataSource = new LinkAgent().GetLinkList(0);
-        txtLink.DataBind();
+        imgLink.DataSource = new LinkAgent().GetLinkList(1);
+        imgLink.DataBind();
     }
 }

@@ -63,11 +63,12 @@ namespace AnyWeb.AnyWeb_DL
         {
             using (IDbExecutor db = this.NewExecutor())
             {
-                return db.ExecuteProcedure("AddLink",
+                return db.ExecuteNonQuery(CommandType.StoredProcedure, "AddLink",
                     this.NewParam("@LinkName", lnk.LinkName),
                     this.NewParam("@LinkImage", lnk.LinkImage),
                     this.NewParam("@LinkUrl", lnk.LinkUrl),
-                    this.NewParam("@LinkSort", lnk.LinkSort)) > 0;
+                    this.NewParam("@LinkSort", lnk.LinkSort),
+                    this.NewParam("@LinkType", lnk.LinkType)) > 0;
             }
         }
 
@@ -86,8 +87,8 @@ namespace AnyWeb.AnyWeb_DL
                     this.NewParam("@LinkName", lnk.LinkName),
                     this.NewParam("@LinkImage", lnk.LinkImage),
                     this.NewParam("@LinkUrl", lnk.LinkUrl),
-                    this.NewParam("@LinkSort", lnk.LinkSort)
-                    );
+                    this.NewParam("@LinkSort", lnk.LinkSort),
+                    this.NewParam("@LinkType", lnk.LinkType));
             }
         }
 

@@ -50,6 +50,14 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>文章排序：</td>
+                        <td><asp:TextBox ID="txtOrder" runat="server" Text="0" Width="50"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td>其它选项：</td>
+                        <td><asp:CheckBox ID="chkTop" runat="server" Text="置顶" /></td>
+                    </tr>
+                    <tr>
                         <td colspan="2">
                             <asp:Button ID="btnAddUser" runat="server" Text="保存用户" OnClick="btnAddArticle_Click" />
                             <a href="ColumnList.aspx">取消</a>

@@ -19,5 +19,8 @@ public partial class Content_ArticleAdd : AdminBase
     }
 
     protected void btnAddArticle_Click(object sender, EventArgs e)
-    { }
+    {
+        Article ar = new Article();
+        ar.ArtiTitle = txtTitle.Text;
+    }
 }

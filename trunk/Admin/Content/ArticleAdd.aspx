@@ -44,7 +44,9 @@
                         <td align="right">
                             文章内容：</td>
                         <td class="editor">
-                            <ftb:FreeTextBox ID="edtContent" runat="Server" Width="200" ToolbarLayout="bold,italic,underline,strikethrough,removeformat,wordclean;fontfacesmenu,fontsizesmenu,FontForeColorPicker,fontforecolorsmenu,fontbackcolorsmenu;justifyleft,justifyright,justifycenter,justifyfull|bulletedlist,numberedlist,indent,outdent;cut,copy,paste,delete;undo,redo;createlink,unlink,insertimagefromgallery,profileupload,insertmedia,inserttable,insertrule;print" />
+                            <div style="border: solid 1px gray;" colspan="2">
+                            <ftb:FreeTextBox ID="edtContent" runat="Server" ToolbarLayout="bold,italic,underline,strikethrough,removeformat,wordclean;fontfacesmenu,fontsizesmenu,FontForeColorPicker,fontforecolorsmenu,fontbackcolorsmenu;justifyleft,justifyright,justifycenter,justifyfull|bulletedlist,numberedlist,indent,outdent;cut,copy,paste,delete;undo,redo;createlink,unlink,insertimagefromgallery,profileupload,insertmedia,inserttable,insertrule;print" />
+                            </div>
                         </td>
                     </tr>
                     <tr>

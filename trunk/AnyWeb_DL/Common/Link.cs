@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 
 namespace AnyWeb.AnyWeb_DL
 {
@@ -8,6 +9,15 @@ namespace AnyWeb.AnyWeb_DL
     {
         public Link()
         { }
+
+        public Link(DataRow row)
+        {
+            this.LinkID = (int)row["LinkID"];
+            this.LinkName = (string)row["LinkName"];
+            this.LinkImage = (string)row["LinkImage"];
+            this.LinkUrl = (string)row["LinkUrl"];
+            this.LinkSort = (int)row["LinkSort"];
+        }
 
         private int _LinkID;
         /// <summary>

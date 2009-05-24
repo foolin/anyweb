@@ -18,9 +18,11 @@
 			<xMenuItem id="27" url ="/Content/ArticleList.aspx" name ="文章管理"></xMenuItem>
 			<xMenuItem id="28" url ="/Content/ArticleEdit.aspx" name ="修改文章" type="3" ></xMenuItem>
 			<xMenuItem id="29" url ="/Content/ArticleDel.aspx" name ="删除文章" type="3" ></xMenuItem>
-			<xMenuItem id="30" url="/test.aspx" name="测试">
-				<xMenuItem id="301" url="/tst1.aspx" name="测试2"></xMenuItem> 
-			</xMenuItem>
+			<xMenuItem id="30" type="2" ></xMenuItem>
+			<xMenuItem id="31" url="/Content/NoticeAdd.aspx" name="添加公告"></xMenuItem>
+			<xMenuItem id="32" url="/Content/NoticeList.aspx" name="公告列表"></xMenuItem>
+			<xMenuItem id="33" url ="/Content/NoticeEdit.aspx" name ="修改公告" type="3" ></xMenuItem>
+			<xMenuItem id="34" url ="/Content/NoticeDel.aspx" name ="删除公告" type="3" ></xMenuItem>
 		</xMenuItem>
 		<xMenuItem id="40" name="网站设计" module="1">
 			<xMenuItem id="41" url="/Layout/LinkAdd.aspx" name="添加友情链接"></xMenuItem>

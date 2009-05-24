@@ -47,7 +47,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:Button ID="btnAddUser" runat="server" Text="保存用户" OnClick="btnAddColumn_Click" />
+                            <asp:Button ID="btnAddUser" runat="server" Text="保存" OnClick="btnAddColumn_Click" />
                             <a href="ColumnList.aspx">取消</a>
                         </td>
                     </tr>

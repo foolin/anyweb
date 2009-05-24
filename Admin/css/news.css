@@ -10,15 +10,16 @@
 .NewsList table{
 	margin:0px;
 	padding:5px 10px;
+	border:solid 1px #AAD5FF;
+	border-collapse:collapse;
 	background:#FFF;
 }
 .NewsList td{
-	margin:0px;
-	list-style:none;
 	padding-left:10px;
 	padding-top:5px;
 	border:solid 1px #AAD5FF;
 }
+
 .NewsList .time{color:#999999}
 .NewsList form {	margin:0px;}
 

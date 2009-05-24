@@ -24,16 +24,19 @@ public partial class Layout_LinkDel : AdminBase
             WebAgent.AlertAndBack("参数错误");
         Link lnk = new LinkAgent().GetLinkInfo(int.Parse(QS("id")));
         if (lnk == null)
-            WebAgent.AlertAndBack("连接不存在");
+            WebAgent.AlertAndBack("链接不存在");
         if (new LinkAgent().DeleteLink(int.Parse(QS("id"))) > 0)
         {
             EventLog log = new EventLog();
-            log.EvenDesc = "删除连接" + lnk.LinkName + "成功.";
+            log.EvenDesc = "删除链接" + lnk.LinkName + "成功.";
             log.EvenAt = DateTime.Now;
             log.EvenIP = HttpContext.Current.Request.UserHostAddress;
             log.EvenUserAcc = this.LoginUser.UserAcc;
             new EventLogAgent().AddLog(log);
-            WebAgent.SuccAndGo("删除连接成功", "LinkList.aspx");
+            if(lnk.LinkType==0)
+                WebAgent.SuccAndGo("删除链接成功", "LinkList.aspx");
+            else
+                WebAgent.SuccAndGo("删除链接成功", "ImageLinkList.aspx");
         }
         else
             WebAgent.AlertAndBack("删除连接失败");

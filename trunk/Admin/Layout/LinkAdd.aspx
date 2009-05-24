@@ -8,7 +8,17 @@
             <dd>
                 <a href="/Layout/LinkAdd.aspx">添加连接</a></dd>
             <dd>
-                <a href="/Layout/LinkList.aspx">连接列表</a></dd>
+                <a href="/Layout/LinkList.aspx">文字链接列表</a></dd>
+            <dd>
+                <a href="/Layout/ImageLinkList.aspx">图片链接列表</a></dd>
+        </dl>
+        <dl>
+            <dt>使用帮助</dt>
+            <dd>
+                <ul>
+                    <li>链接URL必须以http://开头。</li>
+                </ul>
+            </dd>
         </dl>
     </div>
 </asp:Content>
@@ -19,29 +29,39 @@
                 <table cellpadding="0" cellspacing="0" width="100%">
                     <tr>
                         <td width="15%" align="right">
+                            链接类型：</td>
+                        <td width="85%" align="left">
+                            <asp:DropDownList ID="drpType" runat="server" onchange="typechange(this)">
+                                <asp:ListItem Value="0" Text="文字链接"></asp:ListItem>
+                                <asp:ListItem Value="1" Text="图片链接"></asp:ListItem>
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="15%" align="right">
                             链接名称：</td>
                         <td width="85%" align="left">
-                            <asp:TextBox ID="txtLinkName" runat="server" Width="150" MaxLength="20"></asp:TextBox>
+                            <asp:TextBox ID="txtLinkName" runat="server" Width="200" MaxLength="50" require="1" errmsg="请输入链接名称" ToolTip="最多50个字符"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td align="right">
-                            连接URL：</td>
+                            链接URL：</td>
                         <td>
-                            <asp:TextBox ID="txtLinkUrl" runat="server" Width="300"></asp:TextBox>
+                            <asp:TextBox ID="txtLinkUrl" runat="server" Width="200" MaxLength="200" require="1" errmsg="链接URL格式不正确" datatype="url" ToolTip="最多200个字符" Text="http://"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr>
+                    <tr id="trupload" style="display:none;">
                         <td align="right">
-                            连接图片：</td>
+                            链接图片：</td>
                         <td>
-                            <asp:TextBox ID="txtLinkImage" runat="server" Width="300"></asp:TextBox> （若是文字链接请留空）</td>
+                            <asp:FileUpload ID="imgupload" runat="server" Width="275" /></td>
                     </tr>
                     <tr>
                         <td align="right">
-                            连接排序：</td>
+                            链接排序：</td>
                         <td>
-                            <asp:TextBox ID="txtLinkSort" runat="server" Width="100"></asp:TextBox> （必须为数字）
+                            <asp:TextBox ID="txtLinkSort" runat="server" Width="50" require="1" errmsg="排序格式不正确" datatype="number" Text="0"></asp:TextBox> （必须为数字）
                         </td>
                     </tr>
                     <tr>
@@ -54,5 +74,17 @@
             </div>
         </div>
     </div>
-
+    <script type="text/jscript">
+        function typechange(obj)
+        {   
+            if(obj.value=='0')
+            {
+                document.getElementById("trupload").style.display="none";
+            }
+            else
+            {
+                document.getElementById("trupload").style.display="";
+            }
+        }
+    </script>
 </asp:Content>

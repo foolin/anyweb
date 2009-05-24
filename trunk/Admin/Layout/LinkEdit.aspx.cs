@@ -11,6 +11,7 @@ using System.Web.UI.HtmlControls;
 using AnyWeb.AnyWeb_DL;
 using Studio.Web;
 using Studio.Security;
+using System.IO;
 
 public partial class Layout_LinkEdit : AdminBase
 {
@@ -25,25 +26,32 @@ public partial class Layout_LinkEdit : AdminBase
             WebAgent.AlertAndBack("参数错误");
         Link lnk = new LinkAgent().GetLinkInfo(int.Parse(QS("id")));
         if (lnk == null)
-            WebAgent.AlertAndBack("用户不存在");
+            WebAgent.AlertAndBack("友情链接不存在");
         txtLinkName.Text = lnk.LinkName;
-        txtLinkImage.Text = lnk.LinkImage;
+        drpType.SelectedValue=lnk.LinkType.ToString();
+        if (lnk.LinkType == 1)
+            this.imgPhoto.ImageUrl = lnk.LinkImage;
         txtLinkUrl.Text = lnk.LinkUrl;
-        txtLinkSort.Text = Convert.ToString(lnk.LinkSort);
+        txtLinkSort.Text = lnk.LinkSort.ToString();
     }
 
     protected void btnEditLink_Click(object sender, EventArgs e)
     {
         LinkAgent agent = new LinkAgent();
-        Link lnk = new Link();
-        lnk.LinkID = int.Parse(QS("id"));
+        Link lnk = new LinkAgent().GetLinkInfo(int.Parse(QS("id")));
         lnk.LinkName = this.txtLinkName.Text;
-        lnk.LinkImage = this.txtLinkImage.Text;
         lnk.LinkUrl = this.txtLinkUrl.Text;
-        if (txtLinkSort.Text != "")
-            lnk.LinkSort = Convert.ToInt32(this.txtLinkSort.Text);
+        lnk.LinkSort = int.Parse(txtLinkSort.Text);
+        lnk.LinkType = int.Parse(drpType.SelectedValue);
+        if (drpType.SelectedValue == "1")
+        {
+            if (lnk.LinkImage == "")
+            {
+                lnk.LinkImage = UploadImage();
+            }
+        }
         else
-            lnk.LinkSort = 0;
+            lnk.LinkImage = "";
         if (new LinkAgent().UpdateLinkInfo(lnk) > 0)
         {
             EventLog log = new EventLog();
@@ -52,9 +60,33 @@ public partial class Layout_LinkEdit : AdminBase
             log.EvenIP = HttpContext.Current.Request.UserHostAddress;
             log.EvenUserAcc = this.LoginUser.UserAcc;
             new EventLogAgent().AddLog(log);
-            WebAgent.SuccAndGo("修改连接成功", "LinkList.aspx");
+            WebAgent.SuccAndGo("修改友情成功", "LinkList.aspx");
         }
         else
-            WebAgent.AlertAndBack("修改连接失败");
+            WebAgent.AlertAndBack("修改友情失败");
+    }
+
+    protected string UploadImage()
+    {
+        if (this.imgupload.PostedFile.ContentLength > 0)
+        {
+            if (this.imgupload.PostedFile.ContentType.IndexOf("image") == -1)
+            {
+                WebAgent.AlertAndBack("请选择一个文件");
+                return "";
+            }
+
+            string photo = "/SiteData/Link/";
+            if (!Directory.Exists(Server.MapPath(photo)))
+                Directory.CreateDirectory(Server.MapPath(photo));
+            photo += DateTime.Now.ToString("yyMMddHHmmssfff") + Path.GetExtension(this.imgupload.PostedFile.FileName);
+            WebAgent.SaveFile(this.imgupload.PostedFile, Server.MapPath(photo), 160, 50, true);
+            return photo;
+        }
+        else
+        {
+            WebAgent.AlertAndBack("请选择一个文件");
+            return "";
+        }
     }
 }

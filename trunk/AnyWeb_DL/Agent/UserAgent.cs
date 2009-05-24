@@ -146,5 +146,25 @@ namespace AnyWeb.AnyWeb_DL
                     this.NewParam("@UserID", UserID));
             }
         }
+
+        /// <summary>
+        /// 获取所有用户
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList GetAllUserList()
+        {
+            DataSet ds;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "GetAllUserList");
+            }
+            ArrayList list = new ArrayList();
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                User u = new User(row);
+                list.Add(u);
+            }
+            return list;
+        }
     }
 }

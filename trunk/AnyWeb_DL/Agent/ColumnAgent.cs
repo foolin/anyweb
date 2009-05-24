@@ -146,5 +146,36 @@ namespace AnyWeb.AnyWeb_DL
                     this.NewParam("@ColuID", ColuID));
             }
         }
+
+        /// <summary>
+        /// 获取文章栏目列表
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList GetColumnListByArticle()
+        {
+            DataSet ds;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "GetColumnList");
+            }
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                ArrayList list = new ArrayList();
+                foreach (DataRow row in ds.Tables[0].Select("ColuParent=0"))
+                {
+                    Column col = new Column(row);
+                    list.Add(col);
+                    foreach (DataRow childrow in ds.Tables[0].Select("ColuParent=" + col.ColuID.ToString()))
+                    {
+                        Column Children = new Column(childrow);
+                        Children.ColuName = "----" + Children.ColuName;
+                        list.Add(Children);
+                    }
+                }
+                return list;
+            }
+            else
+                return null;
+        }
     }
 }

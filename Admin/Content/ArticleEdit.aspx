@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="ArticleAdd.aspx.cs" Inherits="Content_ArticleAdd" Title="添加文章" ValidateRequest="false" %>
+    CodeFile="ArticleEdit.aspx.cs" Inherits="Content_ArticleEdit" Title="修改文章" ValidateRequest="false" %>
 
 <%@ Register TagPrefix="ftb" Namespace="FreeTextBoxControls" Assembly="FreeTextBox" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
@@ -17,7 +17,7 @@
             <dt>使用帮助</dt>
             <dd>
                 <ul>
-                    <li>添加文章内容。</li>
+                    <li>修改文章内容。</li>
                     <li>文章排序数字越大文章越靠前。</li>
                 </ul>
             </dd>
@@ -48,21 +48,26 @@
                             文章内容：</td>
                         <td class="editor">
                             <div style="border: solid 1px gray;" colspan="2">
-                            <ftb:FreeTextBox ID="edtContent" runat="Server" ToolbarLayout="bold,italic,underline,strikethrough,removeformat,wordclean;fontfacesmenu,fontsizesmenu,FontForeColorPicker,fontforecolorsmenu,fontbackcolorsmenu;justifyleft,justifyright,justifycenter,justifyfull|bulletedlist,numberedlist,indent,outdent;cut,copy,paste,delete;undo,redo;createlink,unlink,insertimagefromgallery,profileupload,insertmedia,inserttable,insertrule;print" />
+                                <ftb:freetextbox id="edtContent" runat="Server" toolbarlayout="bold,italic,underline,strikethrough,removeformat,wordclean;fontfacesmenu,fontsizesmenu,FontForeColorPicker,fontforecolorsmenu,fontbackcolorsmenu;justifyleft,justifyright,justifycenter,justifyfull|bulletedlist,numberedlist,indent,outdent;cut,copy,paste,delete;undo,redo;createlink,unlink,insertimagefromgallery,profileupload,insertmedia,inserttable,insertrule;print" />
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td>文章排序：</td>
-                        <td><asp:TextBox ID="txtOrder" runat="server" Text="0" Width="50" require="1" datatype="number" errmsg="文章排序格式不正确"></asp:TextBox></td>
+                        <td>
+                            文章排序：</td>
+                        <td>
+                            <asp:TextBox ID="txtOrder" runat="server" Text="0" Width="50" require="1" datatype="number"
+                                errmsg="文章排序格式不正确"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td>其它选项：</td>
-                        <td><asp:CheckBox ID="chkTop" runat="server" Text="置顶" /></td>
+                        <td>
+                            其它选项：</td>
+                        <td>
+                            <asp:CheckBox ID="chkTop" runat="server" Text="置顶" /></td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:Button ID="btnAddUser" runat="server" Text="保存文章" OnClick="btnAddArticle_Click" />
+                            <asp:Button ID="btnAddUser" runat="server" Text="保存文章" OnClick="btnSaveArticle_Click" />
                             <a href="ArticleList.aspx">取消</a>
                         </td>
                     </tr>

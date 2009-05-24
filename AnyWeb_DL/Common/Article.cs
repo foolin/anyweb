@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 
 namespace AnyWeb.AnyWeb_DL
 {
@@ -8,6 +9,20 @@ namespace AnyWeb.AnyWeb_DL
     {
         public Article()
         { }
+
+        public Article(DataRow row)
+        {
+            ArtiID = (int)row["ArtiID"];
+            ArtiTitle = (string)row["ArtiTitle"];
+            ArtiCreateAt = (DateTime)row["ArtiCreateAt"];
+            ArtiColumnID = (int)row["ArtiColumnID"];
+            ArtiStatus = (int)row["ArtiStatus"];
+            ArtiIsTop = (bool)row["ArtiIsTop"];
+            ArtiClicks = (int)row["ArtiClicks"];
+            ArtiOrder = (int)row["ArtiOrder"];
+            ArtiUserID = (int)row["ArtiUserID"];
+            ArtiUserName = (string)row["ArtiUserName"];
+        }
 
         private int _ArtiID;
         /// <summary>
@@ -89,14 +104,14 @@ namespace AnyWeb.AnyWeb_DL
             set { _ArtiClicks = value; }
         }
 
-        private int _ArtiOrderD;
+        private int _ArtiOrder;
         /// <summary>
         /// ÅÅÐò
         /// </summary>
-        public int ArtiOrderD
+        public int ArtiOrder
         {
-            get { return _ArtiOrderD; }
-            set { _ArtiOrderD = value; }
+            get { return _ArtiOrder; }
+            set { _ArtiOrder = value; }
         }
 
         private int _ArtiUserID;
@@ -118,6 +133,15 @@ namespace AnyWeb.AnyWeb_DL
             get { return _ArtiUserName; }
             set { _ArtiUserName = value; }
         }
-	
+
+        private string _ArtiColunmName;
+        /// <summary>
+        /// À¸Ä¿Ãû³Æ
+        /// </summary>
+        public string ArtiColumnName
+        {
+            get { return _ArtiColunmName; }
+            set { _ArtiColunmName = value; }
+        }
     }
 }

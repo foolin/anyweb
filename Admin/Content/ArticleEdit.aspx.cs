@@ -11,7 +11,7 @@ using System.Web.UI.HtmlControls;
 using AnyWeb.AnyWeb_DL;
 using Studio.Web;
 
-public partial class Content_ArticleAdd : AdminBase
+public partial class Content_ArticleEdit : AdminBase
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -20,35 +20,43 @@ public partial class Content_ArticleAdd : AdminBase
 
     protected override void OnPreRender(EventArgs e)
     {
+        if (QS("id") == "" || !WebAgent.IsInt32(QS("id")))
+            WebAgent.AlertAndBack("参数错误");
+        Article ar = new ArticleAgent().GetArticleInfo(int.Parse(QS("id")));
+        if (ar == null)
+            WebAgent.AlertAndBack("文章不存在");
+
         drpColumn.DataSource = new ColumnAgent().GetColumnListByArticle();
         drpColumn.DataBind();
+
+        drpColumn.SelectedValue = ar.ArtiColumnID.ToString();
+        txtTitle.Text = ar.ArtiTitle;
+        edtContent.Text = ar.ArtiContent;
+        txtOrder.Text = ar.ArtiOrder.ToString();
+        chkTop.Checked = ar.ArtiIsTop;
     }
 
-    protected void btnAddArticle_Click(object sender, EventArgs e)
+    protected void btnSaveArticle_Click(object sender, EventArgs e)
     {
         Article ar = new Article();
+        ar.ArtiID = int.Parse(QS("id"));
         ar.ArtiTitle = txtTitle.Text;
         ar.ArtiContent = edtContent.Text;
         ar.ArtiOrder = int.Parse(txtOrder.Text);
         ar.ArtiIsTop = chkTop.Checked;
-        ar.ArtiCreateAt = DateTime.Now;
-        ar.ArtiStatus = 0;
         ar.ArtiColumnID = int.Parse(drpColumn.SelectedValue);
-        ar.ArtiClicks = 0;
-        ar.ArtiUserID = this.LoginUser.UserID;
-        ar.ArtiUserName = this.LoginUser.UserName;
 
-        if (new ArticleAgent().AddArticle(ar) > 0)
+        if (new ArticleAgent().UpdateArticleInfo(ar) > 0)
         {
             EventLog log = new EventLog();
-            log.EvenDesc = "添加文章" + ar.ArtiTitle + "成功.";
+            log.EvenDesc = "修改文章" + ar.ArtiTitle + "成功.";
             log.EvenAt = DateTime.Now;
             log.EvenIP = HttpContext.Current.Request.UserHostAddress;
             log.EvenUserAcc = this.LoginUser.UserAcc;
             new EventLogAgent().AddLog(log);
-            WebAgent.SuccAndGo("添加文章成功", "ArticleList.aspx");
+            WebAgent.SuccAndGo("修改文章成功", "ArticleList.aspx");
         }
         else
-            WebAgent.AlertAndBack("添加文章失败");
+            WebAgent.AlertAndBack("修改修改失败");
     }
 }

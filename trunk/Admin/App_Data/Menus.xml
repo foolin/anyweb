@@ -24,6 +24,7 @@
 		</xMenuItem>
 		<xMenuItem id="40" name="网站设计" module="1">
 			<xMenuItem id="41" url="/Layout/LinkAdd.aspx" name="添加友情链接"></xMenuItem>
+			<xMenuItem id="41" url="/Layout/LinkEdit.aspx" name="修改友情链接" type="3"></xMenuItem>
 			<xMenuItem id="42" url ="/Layout/LinkList.aspx" name ="文字链接列表"></xMenuItem>
 			<xMenuItem id="42" url ="/Layout/ImageLinkList.aspx" name ="图片链接列表"></xMenuItem>
 		</xMenuItem>

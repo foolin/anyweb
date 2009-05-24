@@ -26,7 +26,6 @@
     <div id="main_content">
         <div id="content">
             <div class="NewsList">
-                <div style="height:10px; background-color:White;"></div>
                 <table width="100%" cellspacing="0" border="0">
                     <tr bgcolor="#E6F2FF">
                         <td>

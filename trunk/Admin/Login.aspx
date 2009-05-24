@@ -77,20 +77,20 @@
                     <tr>
                        <td>用户名：</td>
                        <td>
-                       		<asp:TextBox class="inputTxt" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"
+                       		<asp:TextBox class="inputTxt" onfocus="this.className='onInput'"  onblur="this.className='inputTxt'"
                             runat="server" ID="txtName"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td>密&nbsp;&nbsp;码：</td>
                         <td>
-                        	<asp:TextBox class="inputTxt" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"
+                        	<asp:TextBox class="inputTxt" onfocus="this.className='onInput'"  onblur="this.className='inputTxt'"
                             runat="server" ID="txtPass" TextMode="Password"></asp:TextBox></dd>
                         </td>
                     </tr>
                     <tr>
                         <td>验证码：</td>
                         <td>
-                        	<asp:TextBox class="inputTxt" onmouseover="this.className='onInput'" onmouseout="this.className='inputTxt'"
+                        	<asp:TextBox class="inputTxt" onfocus="this.className='onInput'"  onblur="this.className='inputTxt'"
                             runat="server" ID="txtCode"></asp:TextBox>
                         	<a href="#" onclick="refreshCode()" title="看不清？">
                             <asp:Image ID="imgVal" runat="server"></asp:Image></a>

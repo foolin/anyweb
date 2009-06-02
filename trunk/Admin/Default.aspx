@@ -4,6 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div id="main_content">
         <div id="content">
+            <asp:Label ID="LoginUserTips" runat="server" Text="Label" ForeColor="Green" Font-Size="14px" Height="25px"></asp:Label>
             <div class="NewsList">
                 <table width="100%" cellspacing="0" border="0">
                     <tr bgcolor="#E6F2FF">
@@ -70,24 +71,13 @@
         <dl>
             <dt><a href="#">控制面板</a></dt>
             <dd>
-                <a href="#">管理首页</a></dd>
+                <a href="Default.aspx">管理首页</a></dd>
             <dd>
-                <a href="#">修改密码</a></dd>
-            <dd>
-                <a href="#" style="cursor: help;">帮助文档</a></dd>
-            <dd>
-                <a href="#" target="_top">退出管理</a></dd>
-        </dl>
-        <dl>
-            <dt><a href="#">控制面板</a></dt>
-            <dd>
-                <a href="#">管理首页</a></dd>
-            <dd>
-                <a href="#">修改密码</a></dd>
+                <a href="Setting/UserInfo.aspx">修改密码</a></dd>
             <dd>
                 <a href="#" style="cursor: help;">帮助文档</a></dd>
             <dd>
-                <a href="#" target="_top">退出管理</a></dd>
+                <a href="Logout.aspx" target="_top">退出管理</a></dd>
         </dl>
     </div>
 </asp:Content>

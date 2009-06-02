@@ -56,7 +56,11 @@ public partial class Setting_UserEdit : AdminBase
             log.EvenIP = HttpContext.Current.Request.UserHostAddress;
             log.EvenUserAcc = this.LoginUser.UserAcc;
             new EventLogAgent().AddLog(log);
-            WebAgent.SuccAndGo("修改用户成功", "UserList.aspx");
+            if(this.LoginUser.UserID == u.UserID && (this.LoginUser.UserIsAdmin != u.UserIsAdmin) )
+                WebAgent.SuccAndGo("你已经修改了自己的权限，请重新登录...", "../Logout.aspx");
+            else
+                WebAgent.SuccAndGo("修改用户成功", "UserList.aspx");
+                
         }
         else
             WebAgent.AlertAndBack("修改用户失败");

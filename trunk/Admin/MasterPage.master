@@ -22,7 +22,7 @@
                     <iframe id="if1" style="display: none;"></iframe>
                     <iframe id="if2" style="display: none;"></iframe>
                 </span>
-                <span style="float:right; padding-top:6px; padding-right:10px;"><a href="/Logout.aspx">×¢ÏúµÇÂ¼</a></span>
+                <span style="float:right; padding-top:6px; padding-right:10px;"><a href="/Logout.aspx">×¢Ïú¡¾<asp:Label ID="LoginUserName" runat="server" Text="Label"></asp:Label>¡¿µÇÂ¼</a></span>
             </div>
             <div class="clear"></div>
         </div>

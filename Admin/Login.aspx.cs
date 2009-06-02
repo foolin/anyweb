@@ -45,7 +45,6 @@ public partial class Login : System.Web.UI.Page
             co["UserID"] = UserID.ToString();
             co["UserAcc"] = txtName.Text;
             Response.SetCookie(co);
-
             EventLog log = new EventLog();
             log.EvenDesc = "管理员帐号" + txtName.Text + "登录成功.";
             log.EvenAt = DateTime.Now;

@@ -33,7 +33,10 @@ public partial class Setting_LockUser : AdminBase
             log.EvenIP = HttpContext.Current.Request.UserHostAddress;
             log.EvenUserAcc = this.LoginUser.UserAcc;
             new EventLogAgent().AddLog(log);
-            WebAgent.SuccAndGo("冻结用户成功", "UserList.aspx");
+            if ( this.LoginUser.UserID == int.Parse(QS("id")))
+                WebAgent.SuccAndGo("您已经冻结了自己，系统会自动注销...", "../Logout.aspx");
+            else
+                WebAgent.SuccAndGo("冻结用户成功", "UserList.aspx");
         }
         else
             WebAgent.AlertAndBack("冻结用户失败");

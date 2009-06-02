@@ -55,5 +55,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
             this.compPos.Text = pos;
         }
+
+        //注销连接显示用户名
+        LoginUserName.Text = Request.Cookies["USERINFO"]["UserAcc"];
     }
 }

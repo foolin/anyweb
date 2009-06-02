@@ -51,6 +51,7 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </table>
+                <div style="color:green; padding:10px 5px;">提示：若要删除用户，则必须先操作冻结用户，然后才能在冻结用户列表中删除用户。</div>
             </div>
         </div>
     </div>

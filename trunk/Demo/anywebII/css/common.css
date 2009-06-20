@@ -1,0 +1,176 @@
+@charset "gb2312";
+body{
+	margin:0px;
+	font-size: 12px;
+	background:#d1e3b4;
+}
+
+a{
+	color:#000;
+	text-decoration:none;
+}
+
+a:hover{
+	color:#F00;
+	padding:1px;
+	text-decoration:underline;
+}
+
+.clear{
+	clear:both;
+}
+
+.wrapper{
+	margin:0px auto;
+	width:1000px;
+	background:#a6bf7d url(../images/bg.jpg) repeat-x;
+	padding-top:17px;
+}
+
+.innerWrap{
+	margin:0px auto;
+	width:864px;
+}
+
+.top{
+	height:80px;
+	background:url(../images/logo.jpg) no-repeat;
+}
+
+.header {
+	background:#FFF;
+	padding:3px;
+}
+
+.banner{
+	height:170px;
+}
+
+.menu{
+	margin-top:3px;
+	background:#6f8f3c;
+	height:36px;
+	line-height:36px;
+	font-weight:bold;
+	font-size:14px;
+}
+
+.menu ul{
+	list-style:none;
+	padding:0px;
+	margin:0px 5px;
+}
+.menu ul li {
+	float:left;
+}
+
+.menu ul li a{
+	line-height:36px;
+	padding-right:10px;
+	padding-left:10px;
+	display:block;
+	color:#FFF;
+	border-right:1px solid #fff;
+}
+
+.menu ul li a:hover{
+	background:#FFF;
+	color:#6f8f3c;
+	text-decoration:none;
+}
+
+.mainWrap{
+	background:#FFF;
+	padding:0px 3px 0px 3px;
+}
+
+.main{
+	background:#e4e5dd;
+	padding:5px 0px;
+}
+
+.container{
+	float:left;
+	width:558px;
+}
+
+.sidebar{
+	float:left;
+	width:300px;
+}
+
+.footer{
+	margin:0px auto;
+	width:865px;
+	background:url(../images/footer_bg.jpg) no-repeat;
+	height:100px;
+	padding-top:40px;
+	text-align:center;
+	line-height:22px;
+}
+
+
+/*À¸Ä¿Box*/
+.box{
+	margin:2px 2px 5px 2px;
+	border:1px solid #a6bf7d;
+	padding:1px;
+}
+
+.box .box_title{
+	height:25px;
+	background:#a6bf7d;
+	padding:0px 5px;
+	line-height:25px;
+	color:#FFF;
+	font-size:14px;
+	font-weight:bold;
+}
+
+.box .box_title .titletxt{
+	float:left;
+	padding-left:10px;
+}
+
+.box .box_title .more{
+	float:right;
+	font-size:12px;
+	font-weight:normal;
+}
+
+.box .box_content{
+	margin:0px;
+	padding:2px;
+	background:#e5ecd8;
+	line-height:22px;
+}
+.box .box_content ul{
+	margin:0px;
+	padding:0px 5px;
+}
+.box .box_content li{
+	margin:0px;
+	padding:0px;
+	border-bottom:#CCC 1px dashed;
+	list-style:url(../images/dot.jpg) inside;
+}
+
+.boxA{
+	margin:5px 20px 10px 20px;
+}
+
+.boxA .title{
+	padding-left:10px;
+	font-size:14px;
+	font-weight:bold;
+	line-height:30px;
+	height:30px;
+	margin-bottom:5px;
+	background:url(../images/boxA_title.jpg);
+}
+
+.boxA .content{
+	padding-left:10px;
+	padding-right:10px;
+	line-height:22px;
+}

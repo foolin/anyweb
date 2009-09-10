@@ -30,6 +30,28 @@
 
     }
 
+    void Application_BeginRequest(object sender, EventArgs e)
+    {
+        int UserID = 0;
+        if (Request.Cookies["USERINFO"] != null && Studio.Web.WebAgent.IsInt32(Request.Cookies["USERINFO"]["UserID"]))
+        {
+            UserID = int.Parse(Request.Cookies["USERINFO"]["UserID"]);
+        }
+
+        if (UserID > 0)
+        {
+            Site site = new SiteAgent().GetSiteInfo();
+            if (site != null)
+            {
+                Context.Items.Add("SITEINFO", site);
+                AnyWeb.AnyWeb_DL.User loginUser = site.GetUserByID(UserID);
+                if (loginUser != null)
+                    Context.Items.Add("LOGIN_USER", loginUser);
+            }
+        }
+    }
+
+
     void Session_End(object sender, EventArgs e) 
     {
         //在会话结束时运行的代码。 

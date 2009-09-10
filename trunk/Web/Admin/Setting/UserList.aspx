@@ -6,13 +6,11 @@
         <dl>
             <dt>操作菜单</dt>
             <dd>
-                <a href="/Setting/UserAdd.aspx">添加用户</a></dd>
+                <a href="/Admin/Setting/UserAdd.aspx">添加用户</a></dd>
             <dd>
-                <a href="/Setting/UserList.aspx">用户列表</a></dd>
+                <a href="/Admin/Setting/UserList.aspx">用户列表</a></dd>
             <dd>
-                <a href="/Setting/LockedUserList.aspx">冻结用户列表</a></dd>
-            <dd>
-                <a href="/Setting/UserInfo.aspx">修改个人信息</a></dd>
+                <a href="/Admin/Setting/UserInfo.aspx">修改个人信息</a></dd>
         </dl>
         <dl>
             <dt>使用帮助</dt>
@@ -46,7 +44,7 @@
                                     <%#Eval("UserName") %></td>
                                 <td>
                                     <a href="UserEdit.aspx?id=<%#Eval("UserID") %>" title="修改用户信息">修改</a>
-                                    <a href="LockUser.aspx?id=<%#Eval("UserID") %>" onclick="return confirm('确定要冻结该用户？')" title="冻结用户">冻结</a></td>
+                                    <a href="UserDel.aspx?id=<%#Eval("UserID") %>" onclick="return confirm('确定要删除该用户？')" title="删除用户">删除</a></td></td>
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>

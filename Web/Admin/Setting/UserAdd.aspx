@@ -1,6 +1,9 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/MasterPage.master" AutoEventWireup="true"
     CodeFile="UserAdd.aspx.cs" Inherits="Setting_UserAdd" Title="添加用户" %>
 
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
+    添加用户
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <div id="navmenu">
         <dl>
@@ -47,16 +50,6 @@
                     </tr>
                     <tr>
                         <td align="right">
-                            权限：</td>
-                        <td>
-                            <asp:DropDownList ID="drpPerss" runat="server">
-                                <asp:ListItem Text="普通用户" Value="0"></asp:ListItem>
-                                <asp:ListItem Text="超级管理员" Value="1"></asp:ListItem>
-                            </asp:DropDownList>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right">
                             密码：</td>
                         <td>
                             <asp:TextBox ID="txtUserPwd" runat="server" TextMode="Password" Width="200" MaxLength="20"
@@ -72,7 +65,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:Button ID="btnAddUser" runat="server" Text="保存用户" OnClientClick="return oldnew()" OnClick="btnAddUser_Click" />
+                            <asp:Button ID="btnAddUser" runat="server" Text="保存用户" OnClick="btnAddUser_Click" />
                             <a href="UserList.aspx">取消</a>
                         </td>
                     </tr>
@@ -100,18 +93,6 @@
 		}
 		
 		function checkResult(){}
-		
-        function oldnew()
-        {
-            var txtpwdnew = document.getElementById("<%=txtUserPwd.ClientID %>");
-            var txtpwdcon = document.getElementById("<%=txtUserPwd2.ClientID %>");
-            
-            if(txtpwdnew.value != txtpwdcon.value)
-            {
-                alert("两次输入的密码不相同");
-                return false;
-            }
-        }
     </script>
 
 </asp:Content>

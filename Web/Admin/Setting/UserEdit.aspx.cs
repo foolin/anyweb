@@ -28,26 +28,25 @@ public partial class Setting_UserEdit : AdminBase
             WebAgent.AlertAndBack("用户不存在");
         txtUserAcc.Text = u.UserAcc;
         txtUserName.Text = u.UserName;
-        txtpassword.Text = u.UserPass;
-        if (u.UserIsAdmin)
-            drpPerss.SelectedValue = "1";
-        else
-            drpPerss.SelectedValue = "0";
+        if(!this.LoginUser.UserIsAdmin)
+            lit.Text = "<script type=\"text/jscript\">isAdmin();</script>"; 
     }
 
     protected void btnAddUser_Click(object sender, EventArgs e)
     {
-        User u = new User();
-        u.UserID = int.Parse(QS("id"));
+        User u = new UserAgent().GetUserInfo(int.Parse(QS("id")));
+        if (this.LoginUser.UserIsAdmin)
+        {
+            if (!string.IsNullOrEmpty(txtUserPwd.Text) || !string.IsNullOrEmpty(txtUserPwd2.Text))
+            {
+                if (txtUserPwd.Text != txtUserPwd2.Text)
+                    WebAgent.AlertAndBack("两次输入的密码不相同");
+                else
+                    u.UserPass = Secure.Md5(txtUserPwd.Text).Substring(0, 20);
+            }
+        }
         u.UserName = txtUserName.Text;
-        if (txtUserPwd.Text != "")
-            u.UserPass = Secure.Md5(txtUserPwd.Text).Substring(0,20);
-        else
-            u.UserPass = txtpassword.Text;
-        if (drpPerss.SelectedValue == "1")
-            u.UserIsAdmin = true;
-        else
-            u.UserIsAdmin = false;
+        u.UserIsAdmin = false;
         if (new UserAgent().UpdateUserInfo(u) > 0)
         {
             EventLog log = new EventLog();

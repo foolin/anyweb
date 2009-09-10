@@ -22,6 +22,10 @@ public partial class Setting_UserAdd : AdminBase
     protected void btnAddUser_Click(object sender, EventArgs e)
     {
         UserAgent agent = new UserAgent();
+        if (string.IsNullOrEmpty(txtUserPwd.Text) || string.IsNullOrEmpty(txtUserPwd2.Text))
+            WebAgent.AlertAndBack("密码不能为空");
+        if (txtUserPwd.Text != txtUserPwd2.Text)
+            WebAgent.AlertAndBack("两次输入的密码不相同");
         if (!agent.CheckUserAcc(this.txtUserAcc.Text))
             WebAgent.AlertAndBack("用户帐号已存在");
         User u = new User();
@@ -31,10 +35,7 @@ public partial class Setting_UserAdd : AdminBase
         u.UserStatus = 0;
         u.UserPass = Secure.Md5(this.txtUserPwd.Text);
         u.UserCreateAt = DateTime.Now;
-        if (drpPerss.SelectedValue == "0")
-            u.UserIsAdmin = false;
-        else
-            u.UserIsAdmin = true;
+        u.UserIsAdmin = false;
         if (agent.AddUser(u))
         {
             EventLog log = new EventLog();

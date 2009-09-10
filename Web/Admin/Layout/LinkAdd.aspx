@@ -1,16 +1,17 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/MasterPage.master" AutoEventWireup="true"
-    CodeFile="LinkAdd.aspx.cs" Inherits="Layout_LinkAdd" Title="添加连接" %>
+    CodeFile="LinkAdd.aspx.cs" Inherits="Layout_LinkAdd" Title="添加链接" %>
 
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
+    添加链接
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <div id="navmenu">
         <dl>
             <dt>操作菜单</dt>
             <dd>
-                <a href="/Admin/Layout/LinkAdd.aspx">添加连接</a></dd>
+                <a href="/Admin/Layout/LinkAdd.aspx">添加链接</a></dd>
             <dd>
-                <a href="/Admin/Layout/LinkList.aspx">文字链接列表</a></dd>
-            <dd>
-                <a href="/Admin/Layout/ImageLinkList.aspx">图片链接列表</a></dd>
+                <a href="/Admin/Layout/LinkList.aspx">链接列表</a></dd>
         </dl>
         <dl>
             <dt>使用帮助</dt>
@@ -29,16 +30,6 @@
                 <table cellpadding="0" cellspacing="0" width="100%">
                     <tr>
                         <td width="15%" align="right">
-                            链接类型：</td>
-                        <td width="85%" align="left">
-                            <asp:DropDownList ID="drpType" runat="server" onchange="typechange(this)">
-                                <asp:ListItem Value="0" Text="文字链接"></asp:ListItem>
-                                <asp:ListItem Value="1" Text="图片链接"></asp:ListItem>
-                            </asp:DropDownList>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="15%" align="right">
                             链接名称：</td>
                         <td width="85%" align="left">
                             <asp:TextBox ID="txtLinkName" runat="server" Width="200" MaxLength="50" require="1" errmsg="请输入链接名称" ToolTip="最多50个字符"></asp:TextBox>
@@ -51,7 +42,7 @@
                             <asp:TextBox ID="txtLinkUrl" runat="server" Width="200" MaxLength="200" require="1" errmsg="链接URL格式不正确" datatype="url" ToolTip="最多200个字符" Text="http://"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr id="trupload" style="display:none;">
+                    <tr id="trupload">
                         <td align="right">
                             链接图片：</td>
                         <td>
@@ -74,17 +65,4 @@
             </div>
         </div>
     </div>
-    <script type="text/jscript">
-        function typechange(obj)
-        {   
-            if(obj.value=='0')
-            {
-                document.getElementById("trupload").style.display="none";
-            }
-            else
-            {
-                document.getElementById("trupload").style.display="";
-            }
-        }
-    </script>
 </asp:Content>

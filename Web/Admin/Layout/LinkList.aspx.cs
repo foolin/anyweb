@@ -18,7 +18,9 @@ public partial class Layout_LinkList : AdminBase
     }
     protected override void OnPreRender(EventArgs e)
     {
-        txtLink.DataSource = new LinkAgent().GetLinkList(0);
-        txtLink.DataBind();
+        int RecordCount = 0;
+        drpLink.DataSource = new LinkAgent().GetLinkList(PN1.PageSize, PN1.PageIndex, out RecordCount);
+        drpLink.DataBind();
+        PN1.SetPage(RecordCount);
     }
 }

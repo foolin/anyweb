@@ -16,12 +16,17 @@ namespace AnyWeb.AnyWeb_DL
         /// </summary>
         /// 连接参数：0-文字链接，1-图片链接，其它数字-全部链接
         /// <returns></returns>
-        public ArrayList GetLinkList(int LinkType)
+        public ArrayList GetLinkList(int PageSize,int PageIndex,out int RecordCount)
         {
             DataSet ds;
             using (IDbExecutor db = this.NewExecutor())
             {
-                ds = db.GetDataSet(CommandType.StoredProcedure, "GetLinkList", this.NewParam("@LinkType", LinkType));
+                IDbDataParameter record = this.NewParam("@RecordCount", 0, DbType.Int32, 4, true);
+                ds = db.GetDataSet(CommandType.StoredProcedure, "GetLinkList",
+                    this.NewParam("@PageSize",PageSize),
+                    this.NewParam("@PageNo",PageIndex),
+                    record);
+                RecordCount = (int)record.Value;
             }
             ArrayList list = new ArrayList();
             foreach (DataRow row in ds.Tables[0].Rows)
@@ -67,8 +72,7 @@ namespace AnyWeb.AnyWeb_DL
                     this.NewParam("@LinkName", lnk.LinkName),
                     this.NewParam("@LinkImage", lnk.LinkImage),
                     this.NewParam("@LinkUrl", lnk.LinkUrl),
-                    this.NewParam("@LinkSort", lnk.LinkSort),
-                    this.NewParam("@LinkType", lnk.LinkType)) > 0;
+                    this.NewParam("@LinkSort", lnk.LinkSort)) > 0;
             }
         }
 
@@ -87,8 +91,7 @@ namespace AnyWeb.AnyWeb_DL
                     this.NewParam("@LinkName", lnk.LinkName),
                     this.NewParam("@LinkImage", lnk.LinkImage),
                     this.NewParam("@LinkUrl", lnk.LinkUrl),
-                    this.NewParam("@LinkSort", lnk.LinkSort),
-                    this.NewParam("@LinkType", lnk.LinkType));
+                    this.NewParam("@LinkSort", lnk.LinkSort));
             }
         }
 

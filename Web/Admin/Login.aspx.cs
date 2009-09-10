@@ -52,22 +52,22 @@ public partial class Login : System.Web.UI.Page
             log.EvenUserAcc = txtName.Text;
             new EventLogAgent().AddLog(log);
 
-            Response.Redirect("/Default.aspx");
+            Response.Redirect("/Admin/Default.aspx");
         }
 
         switch (UserID)
         {
             case 0: //用户不存在
-                WebAgent.FailAndGo("用户不存在", "/login.aspx");
+                WebAgent.FailAndGo("用户不存在", "/Admin/login.aspx");
                 break;
             case -1: //密码错误
-                WebAgent.FailAndGo("密码错误", "/login.aspx");
+                WebAgent.FailAndGo("密码错误", "/Admin/login.aspx");
                 break;
             case -2: //锁定
-                WebAgent.FailAndGo("用户已被锁定", "/login.aspx");
+                WebAgent.FailAndGo("用户已被锁定", "/Admin/login.aspx");
                 break;
             default: //登录失败
-                WebAgent.FailAndGo("登陆失败", "/login.aspx");
+                WebAgent.FailAndGo("登陆失败", "/Admin/login.aspx");
                 break;
         }
     }

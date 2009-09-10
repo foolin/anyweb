@@ -1,0 +1,66 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>后台Demo演示</title>
+    <link href="/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="/css/news.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript" src="/JS/menu.js"></script>
+    <script type="text/javascript" src="/JS/date.js"></script>
+    <script type="text/javascript" src="/JS/Ajax.js"></script>
+    <script type="text/javascript" src="/JS/Validator.js"></script>
+    <script type="text/javascript" for="window" event="onload">Validator.BoundControls();</script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div id="top">
+            </div>
+            <div class="Nav" id="mainmenu">
+                <span style="float:left;">
+                    <iframe id="if1" style="display: none;"></iframe>
+                    <iframe id="if2" style="display: none;"></iframe>
+                </span>
+                <span style="float:right; padding-top:6px; padding-right:10px;"><a href="/Logout.aspx">注销【<asp:Label ID="LoginUserName" runat="server" Text="Label"></asp:Label>】登录</a></span>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <form id="form1" runat="server">
+            <div id="container">
+                <div id="main_side">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div id="main_content">
+                    <div class="Location">
+                        当前位置：<a href="/Default.aspx">首页</a> &gt;
+                        <asp:Literal ID="compPos" runat="server"></asp:Literal>
+                    </div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </form>
+        <div class="clear">
+        </div>
+        <div id="footer">
+            <div id="bottomlink">
+                <a href="index.html">首页</a> | <a href="#">底部连接</a> | <a href="#">底部连接</a> | <a href="#">
+                    底部连接</a> | <a href="#">底部连接</a>
+            </div>
+            <div id="copyright">
+                本系统由Anyweb团队开发 版权所有:Anyweb team
+                <br />
+                联系地址：广州市外环西路230号(510006)
+                <br />
+                联系电话：020—838228×× 传真号码：020—838032×× 电子邮箱：master@website.com
+                <br />
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/ajax/getmenuitems.aspx"></script>
+
+</body>
+</html>

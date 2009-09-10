@@ -17,7 +17,6 @@ namespace AnyWeb.AnyWeb_DL
             this.LinkImage = (string)row["LinkImage"];
             this.LinkUrl = (string)row["LinkUrl"];
             this.LinkSort = (int)row["LinkSort"];
-            this.LinkType = (int)row["LinkType"];
         }
 
         private int _LinkID;
@@ -68,16 +67,6 @@ namespace AnyWeb.AnyWeb_DL
         {
             get { return _LinkSort; }
             set { _LinkSort = value; }
-        }
-
-        private int _LinkType;
-        /// <summary>
-        /// ¡¥Ω”¿‡–Õ
-        /// </summary>
-        public int LinkType
-        {
-            get { return _LinkType; }
-            set { _LinkType = value; }
         }
     }
 }

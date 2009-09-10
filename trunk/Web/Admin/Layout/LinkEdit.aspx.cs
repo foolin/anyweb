@@ -28,10 +28,11 @@ public partial class Layout_LinkEdit : AdminBase
         if (lnk == null)
             WebAgent.AlertAndBack("友情链接不存在");
         txtLinkName.Text = lnk.LinkName;
-        drpType.SelectedValue=lnk.LinkType.ToString();
-        if (lnk.LinkType == 1)
-            this.imgPhoto.ImageUrl = lnk.LinkImage;
         txtLinkUrl.Text = lnk.LinkUrl;
+        if (string.IsNullOrEmpty(lnk.LinkImage))
+            imgPhoto.Visible = false;
+        else
+            imgPhoto.ImageUrl = lnk.LinkImage;
         txtLinkSort.Text = lnk.LinkSort.ToString();
     }
 
@@ -42,16 +43,8 @@ public partial class Layout_LinkEdit : AdminBase
         lnk.LinkName = this.txtLinkName.Text;
         lnk.LinkUrl = this.txtLinkUrl.Text;
         lnk.LinkSort = int.Parse(txtLinkSort.Text);
-        lnk.LinkType = int.Parse(drpType.SelectedValue);
-        if (drpType.SelectedValue == "1")
-        {
-            if (lnk.LinkImage == "")
-            {
-                lnk.LinkImage = UploadImage();
-            }
-        }
-        else
-            lnk.LinkImage = "";
+        if (this.imgupload.PostedFile.ContentLength > 0)
+            lnk.LinkImage = UploadImage();
         if (new LinkAgent().UpdateLinkInfo(lnk) > 0)
         {
             EventLog log = new EventLog();
@@ -68,25 +61,17 @@ public partial class Layout_LinkEdit : AdminBase
 
     protected string UploadImage()
     {
-        if (this.imgupload.PostedFile.ContentLength > 0)
-        {
-            if (this.imgupload.PostedFile.ContentType.IndexOf("image") == -1)
-            {
-                WebAgent.AlertAndBack("请选择一个文件");
-                return "";
-            }
-
-            string photo = "/SiteData/Link/";
-            if (!Directory.Exists(Server.MapPath(photo)))
-                Directory.CreateDirectory(Server.MapPath(photo));
-            photo += DateTime.Now.ToString("yyMMddHHmmssfff") + Path.GetExtension(this.imgupload.PostedFile.FileName);
-            WebAgent.SaveFile(this.imgupload.PostedFile, Server.MapPath(photo), 160, 50, true);
-            return photo;
-        }
-        else
+        if (this.imgupload.PostedFile.ContentType.IndexOf("image") == -1)
         {
             WebAgent.AlertAndBack("请选择一个文件");
             return "";
         }
+
+        string photo = "/SiteData/Link/";
+        if (!Directory.Exists(Server.MapPath(photo)))
+            Directory.CreateDirectory(Server.MapPath(photo));
+        photo += DateTime.Now.ToString("yyMMddHHmmssfff") + Path.GetExtension(this.imgupload.PostedFile.FileName);
+        WebAgent.SaveFile(this.imgupload.PostedFile, Server.MapPath(photo), 160, 50, true);
+        return photo;
     }
 }

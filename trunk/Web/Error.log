@@ -324,3 +324,89 @@ Message:System.ArgumentException: 列“ArtiPic”不属于表 Table。
    在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
 
 
+Time:2009-09-10 23:40:11
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkList.aspx
+UrlRef:http://localhost:668/Admin/Layout/ImageLinkList.aspx
+Message:System.Data.SqlClient.SqlException: 列名 'LinkType' 无效。
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\anyweb\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.LinkAgent.GetLinkList(Int32 LinkType) 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Agent\LinkAgent.cs:行号 24
+   在 Layout_LinkList.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Layout\LinkList.aspx.cs:行号 21
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-10 23:41:47
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkList.aspx
+UrlRef:http://localhost:668/Admin/Layout/ImageLinkList.aspx
+Message:System.Data.SqlClient.SqlException: 过程或函数 'GetLinkList' 需要参数 '@LinkType'，但未提供该参数。
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\anyweb\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.LinkAgent.GetLinkList() 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Agent\LinkAgent.cs:行号 24
+   在 Layout_LinkList.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Layout\LinkList.aspx.cs:行号 21
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-10 23:56:17
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkList.aspx
+UrlRef:http://localhost:668/Admin/Layout/LinkAdd.aspx
+Message:System.Exception: 未知的服务器标记“cc1:PageNaver”。 ---> System.Web.HttpException: 未知的服务器标记“cc1:PageNaver”。
+   在 System.Web.UI.TemplateParser.ProcessError(String message)
+   在 System.Web.UI.TemplateParser.ProcessBeginTag(Match match, String inputText)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+
+
+Time:2009-09-11 00:03:20
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkAdd.aspx
+UrlRef:http://localhost:668/Admin/Layout/LinkAdd.aspx
+Message:System.Data.SqlClient.SqlException: 过程或函数 'AddLink' 需要参数 '@LinkType'，但未提供该参数。
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\anyweb\Studio\Data\SqlDbExecutor.cs:行号 186
+   在 AnyWeb.AnyWeb_DL.LinkAgent.AddLink(Link lnk) 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Agent\LinkAgent.cs:行号 71
+   在 Layout_LinkAdd.btnAddLink_Click(Object sender, EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Layout\LinkAdd.aspx.cs:行号 36
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-11 00:04:10
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkAdd.aspx
+UrlRef:http://localhost:668/Admin/Layout/LinkAdd.aspx
+Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Studio.Data.DbAgent.NewParam(String name, Object valu) 位置 D:\工作\项目\昭明师兄项目\anyweb\Studio\Data\DbAgent.cs:行号 109
+   在 AnyWeb.AnyWeb_DL.LinkAgent.AddLink(Link lnk) 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Agent\LinkAgent.cs:行号 71
+   在 Layout_LinkAdd.btnAddLink_Click(Object sender, EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Layout\LinkAdd.aspx.cs:行号 36
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-11 00:15:17
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkEdit.aspx?id=13
+UrlRef:http://localhost:668/Admin/Layout/LinkEdit.aspx?id=13
+Message:System.Data.SqlClient.SqlException: 过程或函数 'UpdateLinkInfo' 需要参数 '@LinkType'，但未提供该参数。
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\anyweb\Studio\Data\SqlDbExecutor.cs:行号 186
+   在 AnyWeb.AnyWeb_DL.LinkAgent.UpdateLinkInfo(Link lnk) 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Agent\LinkAgent.cs:行号 89
+   在 Layout_LinkEdit.btnEditLink_Click(Object sender, EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Layout\LinkEdit.aspx.cs:行号 48
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

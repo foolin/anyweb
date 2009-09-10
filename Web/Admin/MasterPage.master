@@ -6,7 +6,6 @@
     <title>后台Demo演示</title>
     <link href="/css/common.css" rel="stylesheet" type="text/css" />
     <link href="/css/news.css" rel="stylesheet" type="text/css" />
-    <script language="javascript" type="text/javascript" src="/JS/menu.js"></script>
     <script type="text/javascript" src="/JS/date.js"></script>
     <script type="text/javascript" src="/JS/Ajax.js"></script>
     <script type="text/javascript" src="/JS/Validator.js"></script>
@@ -18,11 +17,13 @@
             <div id="top">
             </div>
             <div class="Nav" id="mainmenu">
-                <span style="float:left;">
-                    <iframe id="if1" style="display: none;"></iframe>
-                    <iframe id="if2" style="display: none;"></iframe>
+                <span style="float:left;font-size:medium;padding-top:5px;font-weight:bold;">
+                    <a href="/Admin/Default.aspx">首页</a>
+                    <a href="/Admin/Content/ArticleList.aspx">内容管理</a>
+                    <a href="/Admin/Setting/UserList.aspx">用户管理</a>
+                    <a href="/Admin/Layout/LinkList.aspx">链接管理</a>
                 </span>
-                <span style="float:right; padding-top:6px; padding-right:10px;"><a href="/Logout.aspx">注销【<asp:Label ID="LoginUserName" runat="server" Text="Label"></asp:Label>】登录</a></span>
+                <span style="float:right; padding-top:6px; padding-right:10px;"><a href="/Admin/Logout.aspx">注销【<asp:Label ID="LoginUserName" runat="server" Text="Label"></asp:Label>】登录</a></span>
             </div>
             <div class="clear"></div>
         </div>
@@ -34,8 +35,9 @@
                 </div>
                 <div id="main_content">
                     <div class="Location">
-                        当前位置：<a href="/Default.aspx">首页</a> &gt;
-                        <asp:Literal ID="compPos" runat="server"></asp:Literal>
+                        当前位置：<a href="/Admin/Default.aspx">首页</a>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+                        </asp:ContentPlaceHolder>
                     </div>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>

@@ -271,3 +271,56 @@ Message:System.Data.EvaluateException: 未找到列 [ColuParent]。
    在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
 
 
+Time:2009-09-10 22:18:42
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/ArticleList.aspx
+UrlRef:
+Message:System.ArgumentException: 列“ArtiPic”不属于表 Table。
+   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 AnyWeb.AnyWeb_DL.Article..ctor(DataRow row) 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Common\Article.cs:行号 25
+   在 AnyWeb.AnyWeb_DL.ArticleAgent.GetArticleList(Int32 ColumnID, Int32 UserID, String Title, Int32 PageSize, Int32 PageNo, Int32& Record) 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Agent\ArticleAgent.cs:行号 66
+   在 Content_ArticleList.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Content\ArticleList.aspx.cs:行号 37
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-10 22:21:03
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/ArticleEdit.aspx?id=4
+UrlRef:http://localhost:668/Admin/Content/ArticleList.aspx
+Message:System.ArgumentException: 列“ArtiPic”不属于表 Table。
+   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 AnyWeb.AnyWeb_DL.Article..ctor(DataRow row) 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Common\Article.cs:行号 25
+   在 AnyWeb.AnyWeb_DL.ArticleAgent.GetArticleInfo(Int32 ArtiID) 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Agent\ArticleAgent.cs:行号 88
+   在 Content_ArticleEdit.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Content\ArticleEdit.aspx.cs:行号 25
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-10 22:25:35
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/ArticleEdit.aspx?id=4
+UrlRef:http://localhost:668/Admin/Content/ArticleList.aspx
+Message:System.Web.HttpException: 服务器标记的格式不正确。
+   在 System.Web.UI.TemplateParser.ProcessError(String message)
+   在 System.Web.UI.TemplateParser.DetectSpecialServerTagError(String text, Int32 textPos)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+
+
+Time:2009-09-10 22:30:15
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/ArticleRecycle.aspx
+UrlRef:http://localhost:668/Admin/Content/ArticleList.aspx
+Message:System.ArgumentException: 列“ArtiPic”不属于表 Table。
+   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 AnyWeb.AnyWeb_DL.Article..ctor(DataRow row) 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Common\Article.cs:行号 25
+   在 AnyWeb.AnyWeb_DL.ArticleAgent.GetArticleRecycleList(Int32 PageSize, Int32 PageNo, Int32& RecordCount) 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Agent\ArticleAgent.cs:行号 192
+   在 Content_ArticleRecycle.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Content\ArticleRecycle.aspx.cs:行号 23
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

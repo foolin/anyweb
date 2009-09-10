@@ -6,11 +6,11 @@
         <dl>
             <dt>操作菜单</dt>
             <dd>
-                <a href="/Layout/LinkAdd.aspx">添加连接</a></dd>
+                <a href="/Admin/Layout/LinkAdd.aspx">添加连接</a></dd>
             <dd>
-                <a href="/Layout/LinkList.aspx">文字链接列表</a></dd>
+                <a href="/Admin/Layout/LinkList.aspx">文字链接列表</a></dd>
             <dd>
-                <a href="/Layout/ImageLinkList.aspx">图片链接列表</a></dd>
+                <a href="/Admin/Layout/ImageLinkList.aspx">图片链接列表</a></dd>
         </dl>
     </div>
 </asp:Content>

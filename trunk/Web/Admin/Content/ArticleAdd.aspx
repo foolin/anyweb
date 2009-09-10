@@ -2,16 +2,19 @@
     CodeFile="ArticleAdd.aspx.cs" Inherits="Content_ArticleAdd" Title="添加文章" ValidateRequest="false" %>
 
 <%@ Register TagPrefix="ftb" Namespace="FreeTextBoxControls" Assembly="FreeTextBox" %>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
+    添加文档
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <div id="navmenu">
         <dl>
             <dt>操作菜单</dt>
             <dd>
-                <a href="/Content/ArticleAdd.aspx">添加文章</a></dd>
+                <a href="/Admin/Content/ArticleAdd.aspx">添加文档</a></dd>
             <dd>
-                <a href="/Content/ArticleList.aspx">文章列表</a></dd>
+                <a href="/Admin/Content/ArticleList.aspx">文档列表</a></dd>
             <dd>
-                <a href="/Content/ArticleRecycle.aspx">文章回收站</a></dd>
+                <a href="/Admin/Content/ArticleRecycle.aspx">文档回收站</a></dd>
         </dl>
         <dl>
             <dt>使用帮助</dt>
@@ -41,7 +44,14 @@
                             文章标题：</td>
                         <td>
                             <asp:TextBox ID="txtTitle" runat="server" Width="200" MaxLength="50" require="1"
-                                errmsg="请输入文章标题"></asp:TextBox></td>
+                                errmsg="请输入文章标题"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            文章图片：</td>
+                        <td>
+                            <asp:FileUpload ID="uploadPic" runat="server" /></td>
                     </tr>
                     <tr>
                         <td align="right">
@@ -55,10 +65,6 @@
                     <tr>
                         <td>文章排序：</td>
                         <td><asp:TextBox ID="txtOrder" runat="server" Text="0" Width="50" require="1" datatype="number" errmsg="文章排序格式不正确"></asp:TextBox></td>
-                    </tr>
-                    <tr>
-                        <td>其它选项：</td>
-                        <td><asp:CheckBox ID="chkTop" runat="server" Text="置顶" /></td>
                     </tr>
                     <tr>
                         <td colspan="2">

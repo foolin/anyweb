@@ -33,7 +33,7 @@ public partial class Setting_UserDel : AdminBase
             log.EvenIP = HttpContext.Current.Request.UserHostAddress;
             log.EvenUserAcc = this.LoginUser.UserAcc;
             new EventLogAgent().AddLog(log);
-            WebAgent.SuccAndGo("删除用户成功", "LockedUserList.aspx");
+            WebAgent.SuccAndGo("删除用户成功", "UserList.aspx");
         }
         else
             WebAgent.AlertAndBack("删除用户失败");

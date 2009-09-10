@@ -199,3 +199,75 @@ Message:System.Data.SqlClient.SqlException: 在与 SQL Server 建立连接时出现与网络
    在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
 
 
+Time:2009-09-10 21:15:59
+IP:127.0.0.1
+Url:http://localhost/Admin/Default.aspx
+UrlRef:http://localhost:668/Admin/Login.aspx
+Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 _Default.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Default.aspx.cs:行号 21
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-10 21:16:33
+IP:127.0.0.1
+Url:http://localhost/Admin/Default.aspx
+UrlRef:http://localhost:668/Admin/Login.aspx
+Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 _Default.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Default.aspx.cs:行号 21
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-10 21:18:29
+IP:127.0.0.1
+Url:http://localhost/Admin/Default.aspx
+UrlRef:http://localhost:668/Admin/Login.aspx
+Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 _Default.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Default.aspx.cs:行号 21
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-10 21:30:53
+IP:127.0.0.1
+Url:http://localhost/Admin/Default.aspx
+UrlRef:http://localhost:668/Admin/Login.aspx
+Message:System.Exception: e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\MasterPage.master.cs(23): error CS0246: 找不到类型或命名空间名称“DropMenuItem”(是否缺少 using 指令或程序集引用?) ---> System.Web.HttpCompileException: e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\MasterPage.master.cs(23): error CS0246: 找不到类型或命名空间名称“DropMenuItem”(是否缺少 using 指令或程序集引用?)
+   在 System.Web.Compilation.BuildManager.PostProcessFoundBuildResult(BuildResult result, Boolean keyFromVPP, VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetBuildResultFromCacheInternal(String cacheKey, Boolean keyFromVPP, VirtualPath virtualPath, Int64 hashCode)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultFromCacheInternal(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.UI.BaseTemplateParser.GetReferencedType(VirtualPath virtualPath, Boolean allowNoCompile)
+   在 System.Web.UI.PageParser.ProcessMainDirectiveAttribute(String deviceName, String name, String value, IDictionary parseData)
+   在 System.Web.UI.TemplateParser.ProcessMainDirective(IDictionary mainDirective)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   在 System.Web.UI.TemplateParser.ProcessMainDirective(IDictionary mainDirective)
+   在 System.Web.UI.TemplateControlParser.ProcessMainDirective(IDictionary mainDirective)
+   在 System.Web.UI.PageParser.ProcessMainDirective(IDictionary mainDirective)
+   在 System.Web.UI.TemplateParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.BaseTemplateParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.TemplateControlParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.PageParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+
+
+Time:2009-09-10 21:45:56
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/ArticleList.aspx
+UrlRef:http://localhost:668/Admin/Setting/UserList.aspx
+Message:System.Data.EvaluateException: 未找到列 [ColuParent]。
+   在 System.Data.NameNode.Bind(DataTable table, List`1 list)
+   在 System.Data.BinaryNode.Bind(DataTable table, List`1 list)
+   在 System.Data.DataExpression.Bind(DataTable table)
+   在 System.Data.DataExpression..ctor(DataTable table, String expression, Type type)
+   在 System.Data.Select..ctor(DataTable table, String filterExpression, String sort, DataViewRowState recordStates)
+   在 System.Data.DataTable.Select(String filterExpression)
+   在 AnyWeb.AnyWeb_DL.ColumnAgent.GetColumnListByArticle() 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Agent\ColumnAgent.cs:行号 156
+   在 Content_ArticleList.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Content\ArticleList.aspx.cs:行号 22
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

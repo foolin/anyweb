@@ -29,21 +29,18 @@ public partial class Setting_UserInfo : AdminBase
     protected void btnAddUser_Click(object sender, EventArgs e)
     {
         User u = this.LoginUser;
-        if (txtUserPwd.Text != "")
+        if (!string.IsNullOrEmpty(txtUserPwd.Text) || !string.IsNullOrEmpty(txtUserPwd2.Text))
         {
-            if (txtUserOldPwd.Text != "")
+            if (string.IsNullOrEmpty(txtUserOldPwd.Text))
+                WebAgent.AlertAndBack("请输入旧密码");
+            if (Secure.Md5(txtUserOldPwd.Text).Substring(0, 20) != u.UserPass)
             {
-                if (Secure.Md5(txtUserOldPwd.Text).Substring(0, 20) != u.UserPass)
-                {
-                    WebAgent.AlertAndBack("密码不正确，请重新输入！");
-                }
-                u.UserPass = Secure.Md5(txtUserPwd.Text);
+                WebAgent.AlertAndBack("密码不正确，请重新输入！");
             }
+            if (txtUserPwd.Text != txtUserPwd2.Text)
+                WebAgent.AlertAndBack("两次输入的密码不相同");
             else
-            {
-                WebAgent.AlertAndBack("请输入旧密码！");
-            }
-            string UserOld = Secure.Md5(txtUserOldPwd.Text).Substring(0, 20);
+                u.UserPass = Secure.Md5(txtUserPwd.Text).Substring(0, 20);
         }
         u.UserName = txtUserName.Text;
         if (new UserAgent().UpdateUserInfo(u) > 0)
@@ -54,7 +51,7 @@ public partial class Setting_UserInfo : AdminBase
             log.EvenIP = HttpContext.Current.Request.UserHostAddress;
             log.EvenUserAcc = this.LoginUser.UserAcc;
             new EventLogAgent().AddLog(log);
-            WebAgent.SuccAndGo("修改个人信息成功,请注销后重新登陆加载新个人信息", "UserList.aspx");
+            WebAgent.SuccAndGo("修改个人信息成功", "UserList.aspx");
         }
         else
             WebAgent.AlertAndBack("修改个人信息失败");

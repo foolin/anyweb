@@ -2,16 +2,19 @@
     CodeFile="ArticleRecycle.aspx.cs" Inherits="Content_ArticleRecycle" Title="文章回收站" %>
 
 <%@ Register TagPrefix="cc1" Namespace="Studio.Web" Assembly="Studio" %>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
+    回收站
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <div id="navmenu">
         <dl>
             <dt>操作菜单</dt>
             <dd>
-                <a href="/Content/ArticleAdd.aspx">添加文章</a></dd>
+                <a href="/Admin/Content/ArticleAdd.aspx">添加文档</a></dd>
             <dd>
-                <a href="/Content/ArticleList.aspx">文章列表</a></dd>
+                <a href="/Admin/Content/ArticleList.aspx">文档列表</a></dd>
             <dd>
-                <a href="/Content/ArticleRecycle.aspx">文章回收站</a></dd>
+                <a href="/Admin/Content/ArticleRecycle.aspx">文档回收站</a></dd>
         </dl>
         <dl>
             <dt>使用帮助</dt>

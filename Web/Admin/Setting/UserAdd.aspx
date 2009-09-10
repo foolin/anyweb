@@ -6,13 +6,11 @@
         <dl>
             <dt>操作菜单</dt>
             <dd>
-                <a href="/Setting/UserAdd.aspx">添加用户</a></dd>
+                <a href="/Admin/Setting/UserAdd.aspx">添加用户</a></dd>
             <dd>
-                <a href="/Setting/UserList.aspx">用户列表</a></dd>
+                <a href="/Admin/Setting/UserList.aspx">用户列表</a></dd>
             <dd>
-                <a href="/Setting/LockedUserList.aspx">冻结用户列表</a></dd>
-            <dd>
-                <a href="/Setting/UserInfo.aspx">修改个人信息</a></dd>
+                <a href="/Admin/Setting/UserInfo.aspx">修改个人信息</a></dd>
         </dl>
         <dl>
             <dt>使用帮助</dt>

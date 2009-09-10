@@ -10,6 +10,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using AnyWeb.AnyWeb_DL;
 using Studio.Web;
+using System.IO;
 
 public partial class Content_ArticleAdd : AdminBase
 {
@@ -30,13 +31,19 @@ public partial class Content_ArticleAdd : AdminBase
         ar.ArtiTitle = txtTitle.Text;
         ar.ArtiContent = edtContent.Text;
         ar.ArtiOrder = int.Parse(txtOrder.Text);
-        ar.ArtiIsTop = chkTop.Checked;
+        ar.ArtiIsTop = false;
         ar.ArtiCreateAt = DateTime.Now;
         ar.ArtiStatus = 0;
         ar.ArtiColumnID = int.Parse(drpColumn.SelectedValue);
         ar.ArtiClicks = 0;
         ar.ArtiUserID = this.LoginUser.UserID;
         ar.ArtiUserName = this.LoginUser.UserName;
+        if (this.uploadPic.PostedFile.ContentLength > 0)
+        {
+            ar.ArtiPic = UploadImage();
+        }
+        else
+            ar.ArtiPic = "";
 
         if (new ArticleAgent().AddArticle(ar) > 0)
         {
@@ -50,5 +57,21 @@ public partial class Content_ArticleAdd : AdminBase
         }
         else
             WebAgent.AlertAndBack("添加文章失败");
+    }
+
+    protected string UploadImage()
+    {
+        if (this.uploadPic.PostedFile.ContentType.IndexOf("image") == -1)
+        {
+            WebAgent.AlertAndBack("请选择一个文件");
+            return "";
+        }
+
+        string photo = "/SiteData/article/";
+        if (!Directory.Exists(Server.MapPath(photo)))
+            Directory.CreateDirectory(Server.MapPath(photo));
+        photo += DateTime.Now.ToString("yyMMddHHmmssfff") + Path.GetExtension(this.uploadPic.PostedFile.FileName);
+        WebAgent.SaveFile(this.uploadPic.PostedFile, Server.MapPath(photo), 160, 50, true);
+        return photo;
     }
 }

@@ -44,7 +44,6 @@ namespace AnyWeb.AnyWeb_DL
                 return db.ExecuteNonQuery(CommandType.StoredProcedure, "AddColumn",
                     this.NewParam("@ColuName", col.ColuName),
                     this.NewParam("@ColuCreateAt", col.ColuCreateAt),
-                    this.NewParam("@ColuParent", col.ColuParent),
                     this.NewParam("@ColuDesc", col.ColuDesc));
             }
         }
@@ -63,15 +62,9 @@ namespace AnyWeb.AnyWeb_DL
             if (ds.Tables[0].Rows.Count > 0)
             {
                 ArrayList list = new ArrayList();
-                foreach (DataRow row in ds.Tables[0].Select("ColuParent=0"))
+                foreach (DataRow row in ds.Tables[0].Rows)
                 {
                     Column col = new Column(row);
-                    col.ColuChidren = new ArrayList();
-                    foreach (DataRow childrow in ds.Tables[0].Select("ColuParent=" + col.ColuID.ToString()))
-                    {
-                        Column Children = new Column(childrow);
-                        col.ColuChidren.Add(Children);
-                    }
                     list.Add(col);
                 }
                 return list;
@@ -92,7 +85,6 @@ namespace AnyWeb.AnyWeb_DL
                 return db.ExecuteNonQuery(CommandType.StoredProcedure, "UpdateColumnInfo",
                     this.NewParam("@ColuID", col.ColuID),
                     this.NewParam("@ColuName", col.ColuName),
-                    this.NewParam("@ColuParent", col.ColuParent),
                     this.NewParam("@ColuDesc", col.ColuDesc));
             }
         }
@@ -161,16 +153,10 @@ namespace AnyWeb.AnyWeb_DL
             if (ds.Tables[0].Rows.Count > 0)
             {
                 ArrayList list = new ArrayList();
-                foreach (DataRow row in ds.Tables[0].Select("ColuParent=0"))
+                foreach (DataRow row in ds.Tables[0].Rows)
                 {
                     Column col = new Column(row);
                     list.Add(col);
-                    foreach (DataRow childrow in ds.Tables[0].Select("ColuParent=" + col.ColuID.ToString()))
-                    {
-                        Column Children = new Column(childrow);
-                        Children.ColuName = "----" + Children.ColuName;
-                        list.Add(Children);
-                    }
                 }
                 return list;
             }

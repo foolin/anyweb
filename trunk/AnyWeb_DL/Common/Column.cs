@@ -16,7 +16,6 @@ namespace AnyWeb.AnyWeb_DL
             ColuID = (int)row["ColuID"];
             ColuName = (string)row["ColuName"];
             ColuCreateAt = (DateTime)row["ColuCreateAt"];
-            ColuParent = (int)row["ColuParent"];
             ColuDesc = (string)row["ColuDesc"];
         }
 
@@ -50,16 +49,6 @@ namespace AnyWeb.AnyWeb_DL
             set { _ColuCreateAt = value; }
         }
 
-        private int _ColuParent;
-        /// <summary>
-        /// 父级栏目
-        /// </summary>
-        public int ColuParent
-        {
-            get { return _ColuParent; }
-            set { _ColuParent = value; }
-        }
-
         private string _ColuDesc;
         /// <summary>
         /// 栏目描述
@@ -68,16 +57,6 @@ namespace AnyWeb.AnyWeb_DL
         {
             get { return _ColuDesc; }
             set { _ColuDesc = value; }
-        }
-
-        private ArrayList _ColuChidren;
-        /// <summary>
-        /// 子栏目
-        /// </summary>
-        public ArrayList ColuChidren
-        {
-            get { return _ColuChidren; }
-            set { _ColuChidren = value; }
         }
     }
 }

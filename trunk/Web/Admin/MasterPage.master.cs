@@ -20,42 +20,6 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected override void OnPreRender(EventArgs e)
     {
-        DropMenuItem dmi;
-        if (Path == "")
-            dmi = (new DropMenu()).GetItemByPath(Request.FilePath, null);
-        else
-            dmi = (new DropMenu()).GetItemByPath(Request.FilePath.Replace(Path, ""), null);
-        string pos;
-
-        if (dmi != null)
-        {
-            if (dmi.Parent == null)
-            {
-                pos = dmi.Name;
-            }
-            else
-            {
-                if (dmi.Parent.Parent == null)
-                {
-                    pos = string.Format("{0}&gt; {1}", dmi.Parent.Name, dmi.Name);
-                }
-                else
-                {
-                    if (dmi.Parent.Parent.Parent == null)
-                    {
-                        pos = string.Format("{0} &gt; {1}", dmi.Parent.Name, dmi.Name);
-                    }
-                    else
-                    {
-                        pos = string.Format("{0} &gt; {1} &gt; {2}", dmi.Parent.Parent.Name, dmi.Parent.Name, dmi.Name);
-                    }
-
-                }
-            }
-
-            this.compPos.Text = pos;
-        }
-
         //注销连接显示用户名
         LoginUserName.Text = Request.Cookies["USERINFO"]["UserAcc"];
     }

@@ -1,0 +1,201 @@
+Time:2009-05-24 17:44:27
+IP:192.168.1.2
+Url:http://192.168.1.2/Content/ArticleList.aspx?c=5&u=1&t=
+UrlRef:
+Message:System.Web.HttpParseException: 未知的服务器标记“cc1:PageNaver”。 ---> System.Web.HttpException: 未知的服务器标记“cc1:PageNaver”。
+   在 System.Web.UI.TemplateParser.ProcessError(String message)
+   在 System.Web.UI.TemplateParser.ProcessBeginTag(Match match, String inputText)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+
+
+Time:2009-05-24 18:07:10
+IP:192.168.1.2
+Url:http://192.168.1.2/Content/ArticleList.aspx?c=0&u=0&t=
+UrlRef:
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Article”不包含名为“ArtiColumnName”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 System.Web.UI.DataBinder.Eval(Object container, String expression)
+   在 System.Web.UI.TemplateControl.Eval(String expression)
+   在 ASP.content_articlelist_aspx.__DataBind__control3(Object sender, EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Admin\Content\ArticleList.aspx:行号 54
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.Repeater.DataBind()
+   在 Content_ArticleList.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Admin\Content\ArticleList.aspx.cs:行号 38
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-05-24 18:07:47
+IP:192.168.1.2
+Url:http://192.168.1.2/Content/ArticleList.aspx?c=0&u=0&t=
+UrlRef:
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Article”不包含名为“ArtiColumnName”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 System.Web.UI.DataBinder.Eval(Object container, String expression)
+   在 System.Web.UI.TemplateControl.Eval(String expression)
+   在 ASP.content_articlelist_aspx.__DataBind__control3(Object sender, EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Admin\Content\ArticleList.aspx:行号 54
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.Repeater.DataBind()
+   在 Content_ArticleList.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Admin\Content\ArticleList.aspx.cs:行号 38
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-05-24 18:09:46
+IP:192.168.1.2
+Url:http://192.168.1.2/Content/ArticleList.aspx?c=0&u=0&t=
+UrlRef:
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Article”不包含名为“ColuCreateAt”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 System.Web.UI.DataBinder.Eval(Object container, String expression)
+   在 System.Web.UI.TemplateControl.Eval(String expression)
+   在 ASP.content_articlelist_aspx.__DataBind__control3(Object sender, EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Admin\Content\ArticleList.aspx:行号 59
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.Repeater.DataBind()
+   在 Content_ArticleList.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Admin\Content\ArticleList.aspx.cs:行号 38
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-05-24 18:10:02
+IP:192.168.1.2
+Url:http://192.168.1.2/Content/ArticleList.aspx?c=0&u=0&t=
+UrlRef:
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Article”不包含名为“ColuID”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 System.Web.UI.DataBinder.Eval(Object container, String expression)
+   在 System.Web.UI.TemplateControl.Eval(String expression)
+   在 ASP.content_articlelist_aspx.__DataBind__control3(Object sender, EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Admin\Content\ArticleList.aspx:行号 62
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.Repeater.DataBind()
+   在 Content_ArticleList.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Admin\Content\ArticleList.aspx.cs:行号 38
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-05-24 18:21:01
+IP:192.168.1.2
+Url:http://192.168.1.2/Content/ArticleEdit.aspx?id=1
+UrlRef:http://192.168.1.2:1000/Content/ArticleList.aspx
+Message:System.Web.HttpParseException: 未知的服务器标记“ftb:freetextbox”。 ---> System.Web.HttpException: 未知的服务器标记“ftb:freetextbox”。
+   在 System.Web.UI.TemplateParser.ProcessError(String message)
+   在 System.Web.UI.TemplateParser.ProcessBeginTag(Match match, String inputText)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+
+
+Time:2009-05-24 18:28:50
+IP:192.168.1.2
+Url:http://192.168.1.2/Content/ArticleEdit.aspx?id=1
+UrlRef:http://192.168.1.2:1000/Content/ArticleList.aspx
+Message:System.ArgumentException: 列“ArtiStatus”不属于表 Table。
+   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 AnyWeb.AnyWeb_DL.Article..ctor(DataRow row) 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Common\Article.cs:行号 19
+   在 AnyWeb.AnyWeb_DL.ArticleAgent.GetArticleInfo(Int32 ArtiID) 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Agent\ArticleAgent.cs:行号 88
+   在 Content_ArticleEdit.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Admin\Content\ArticleEdit.aspx.cs:行号 25
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-10 20:43:11
+IP:127.0.0.1
+Url:http://localhost/Admin/Default.aspx
+UrlRef:
+Message:System.Exception: 文件“/MasterPage.master”不存在。 ---> System.Exception: 文件“/MasterPage.master”不存在。 ---> System.Web.HttpException: 文件“/MasterPage.master”不存在。
+   在 System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.UI.BaseTemplateParser.GetReferencedType(VirtualPath virtualPath, Boolean allowNoCompile)
+   在 System.Web.UI.PageParser.ProcessMainDirectiveAttribute(String deviceName, String name, String value, IDictionary parseData)
+   在 System.Web.UI.TemplateParser.ProcessMainDirective(IDictionary mainDirective)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   在 System.Web.UI.TemplateParser.ProcessMainDirective(IDictionary mainDirective)
+   在 System.Web.UI.TemplateControlParser.ProcessMainDirective(IDictionary mainDirective)
+   在 System.Web.UI.PageParser.ProcessMainDirective(IDictionary mainDirective)
+   在 System.Web.UI.TemplateParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.BaseTemplateParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.TemplateControlParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.PageParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+
+
+Time:2009-09-10 20:46:42
+IP:127.0.0.1
+Url:http://localhost/Admin/Login.aspx
+UrlRef:http://localhost:668/Admin/Login.aspx
+Message:System.Data.SqlClient.SqlException: 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: TCP 提供程序, error: 0 - 套接字操作尝试一个无法连接的主机。)
+   在 Studio.Data.SqlDbExecutor.ExecuteProcedure(String procedureName, IDbDataParameter[] parameters)
+   在 AnyWeb.AnyWeb_DL.SiteAgent.Login(String UserAcc, String Password)
+   在 Login.submit_Click(Object sender, EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Login.aspx.cs:行号 40
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-10 20:49:28
+IP:127.0.0.1
+Url:http://localhost/Admin/Login.aspx
+UrlRef:http://localhost:668/Admin/Login.aspx
+Message:System.Data.SqlClient.SqlException: 在与 SQL Server 建立连接时出现与网络相关的或特定于实例的错误。未找到或无法访问服务器。请验证实例名称是否正确并且 SQL Server 已配置为允许远程连接。 (provider: TCP 提供程序, error: 0 - 套接字操作尝试一个无法连接的主机。)
+   在 Studio.Data.SqlDbExecutor.ExecuteProcedure(String procedureName, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\anyweb\Studio\Data\SqlDbExecutor.cs:行号 254
+   在 AnyWeb.AnyWeb_DL.SiteAgent.Login(String UserAcc, String Password) 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Agent\SiteAgent.cs:行号 25
+   在 Login.submit_Click(Object sender, EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Login.aspx.cs:行号 40
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

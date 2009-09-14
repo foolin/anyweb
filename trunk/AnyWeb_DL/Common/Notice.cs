@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 
 namespace AnyWeb.AnyWeb_DL
 {
@@ -9,9 +10,17 @@ namespace AnyWeb.AnyWeb_DL
         public Notice()
         { }
 
+        public Notice(DataRow row)
+        {
+            NotiID = (int)row["NotiID"];
+            NotiArtiID = (int)row["NotiArtiID"];
+            NotiOrder = (int)row["NotiOrder"];
+            NotiCreateAt = (DateTime)row["NotiCreateAt"];
+        }
+
         private int _NotiID;
         /// <summary>
-        /// 公告ID
+        /// 流动通知ID
         /// </summary>
         public int NotiID
         {
@@ -19,15 +28,37 @@ namespace AnyWeb.AnyWeb_DL
             set { _NotiID = value; }
         }
 
-        private string _NotiTitle;
+        private int _NotiArtiID;
         /// <summary>
-        /// 公告标题
+        /// 关联文章ID
         /// </summary>
-        public string NotiTitle
+        public int NotiArtiID
         {
-            get { return _NotiTitle; }
-            set { _NotiTitle = value; }
+            get { return _NotiArtiID; }
+            set { _NotiArtiID = value; }
         }
+
+        private string _Title;
+        /// <summary>
+        /// 流动通知标题
+        /// </summary>
+        public string Title
+        {
+            get { return _Title; }
+            set { _Title = value; }
+        }
+
+
+        private int _NotiOrder;
+        /// <summary>
+        /// 排序
+        /// </summary>
+        public int NotiOrder
+        {
+            get { return _NotiOrder; }
+            set { _NotiOrder = value; }
+        }
+	
 
         private DateTime _NotiCreateAt;
         /// <summary>
@@ -37,16 +68,6 @@ namespace AnyWeb.AnyWeb_DL
         {
             get { return _NotiCreateAt; }
             set { _NotiCreateAt = value; }
-        }
-
-        private string _NotiContent;
-        /// <summary>
-        /// 公告内容
-        /// </summary>
-        public string NotiContent
-        {
-            get { return _NotiContent; }
-            set { _NotiContent = value; }
         }
     }
 }

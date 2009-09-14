@@ -62,7 +62,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <asp:Button ID="btnAddUser" runat="server" Text="保存文章" OnClick="btnAddArticle_Click" />
+                            <asp:Button ID="btnAddArticle" runat="server" Text="保存文章" OnClick="btnAddArticle_Click" />
                             <a href="ArticleList.aspx">取消</a>
                         </td>
                     </tr>

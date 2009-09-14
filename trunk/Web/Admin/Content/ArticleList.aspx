@@ -20,8 +20,9 @@
             <dt>使用帮助</dt>
             <dd>
                 <ul>
-                    <li>添加文章内容。</li>
                     <li>文章排序数字越大文章越靠前。</li>
+                    <li>文章误删后可以到回收站还原该文章内容。</li>
+                    <li>流动通知可将选取的文章添加到流动通知模块。</li>
                 </ul>
             </dd>
         </dl>
@@ -79,7 +80,8 @@
                     <tr>
                         <td colspan="7">
                             <input type="button" onclick="DeleteSelected()" value="批量删除" />
-                            <input type="button" onclick="MoveSelected()" value="批量移到栏目" />
+                            <input type="button" onclick="MoveSelected()" value="批量移动" />
+                            <input type="button" onclick="NoticeSelected()" value="添加流动通知" />
                         </td>
                     </tr>
                 </table>
@@ -141,10 +143,10 @@
 		{
 			if( !CheckSeleted())
 			{
-				alert("请先选择文章!");
+				alert("请先选择文档!");
 				return;
 			}
-			if(!confirm("确定要把文章移到回收站吗?")){
+			if(!confirm("确定要把文档移到回收站吗?")){
 				return ;
 			}
 			var form1;
@@ -181,13 +183,49 @@
 		{
 			if( !CheckSeleted())
 			{
-				alert("请先选择文章!");
+				alert("请先选择文档!");
 				return;
 			}
 			var form1;
 			form1 = document.createElement('form');
 			form1.method = 'POST';
 			form1.action = 'ArticleMove.aspx';
+			form1.submit();
+			var e_all = document.all.tags('INPUT');
+			for(var i=0;i<e_all.length;i++)
+			{
+				if (e_all[i].tagName=="INPUT")
+				{
+					if ((e_all[i].type) && (e_all[i].name))
+					{
+						if ((e_all[i].type=="checkbox") && (e_all[i].name!="boxAll"))
+						{
+							if( e_all[i].checked)
+							{					
+								input1 = document.createElement('input');
+		    					input1.type = 'hidden';
+								input1.name = 'id';
+								input1.value = e_all[i].value;
+								form1.insertBefore(input1);
+							}
+						}
+					}
+				}
+			}
+			document.body.insertBefore(form1);				
+			form1.submit();
+		}
+		function NoticeSelected()
+		{
+			if( !CheckSeleted())
+			{
+				alert("请先选择文档!");
+				return;
+			}
+			var form1;
+			form1 = document.createElement('form');
+			form1.method = 'POST';
+			form1.action = 'ArticleToNotice.aspx';
 			form1.submit();
 			var e_all = document.all.tags('INPUT');
 			for(var i=0;i<e_all.length;i++)

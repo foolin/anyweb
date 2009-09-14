@@ -48,13 +48,6 @@
                     </tr>
                     <tr>
                         <td align="right">
-                            文章图片：</td>
-                        <td>
-                            <asp:FileUpload ID="uploadPic" runat="server" />
-                            <asp:Image ID="imgPic" runat="server" /></td>
-                    </tr>
-                    <tr>
-                        <td align="right">
                             文章内容：</td>
                         <td class="editor">
                             <div style="border: solid 1px gray;" colspan="2">

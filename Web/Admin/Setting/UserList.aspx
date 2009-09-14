@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/MasterPage.master" AutoEventWireup="true"
     CodeFile="UserList.aspx.cs" Inherits="Setting_UserList" Title="用户列表" %>
-
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
+    用户管理
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <div id="navmenu">
         <dl>
@@ -49,7 +51,6 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </table>
-                <div style="color:green; padding:10px 5px;">提示：若要删除用户，则必须先操作冻结用户，然后才能在冻结用户列表中删除用户。</div>
             </div>
         </div>
     </div>

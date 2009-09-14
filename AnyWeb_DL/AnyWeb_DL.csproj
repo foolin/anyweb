@@ -38,6 +38,7 @@
     <Compile Include="Agent\ColumnAgent.cs" />
     <Compile Include="Agent\EventLogAgent.cs" />
     <Compile Include="Agent\LinkAgent.cs" />
+    <Compile Include="Agent\NoticeAgent.cs" />
     <Compile Include="Agent\SiteAgent.cs" />
     <Compile Include="Agent\UserAgent.cs" />
     <Compile Include="Common\Active.cs" />

@@ -410,3 +410,37 @@ Message:System.Data.SqlClient.SqlException: 过程或函数 'UpdateLinkInfo' 需要参数
    在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
 
 
+Time:2009-09-15 00:31:35
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/NoticeEdit.aspx?id=1
+UrlRef:http://localhost:668/Admin/Content/NoticeList.aspx
+Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Admin_Content_NoticeEdit.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Content\NoticeEdit.aspx.cs:行号 28
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-15 00:32:15
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/NoticeEdit.aspx?id=1
+UrlRef:http://localhost:668/Admin/Content/NoticeList.aspx
+Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Admin_Content_NoticeEdit.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Content\NoticeEdit.aspx.cs:行号 28
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-15 00:33:01
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/NoticeEdit.aspx?id=1
+UrlRef:http://localhost:668/Admin/Content/NoticeList.aspx
+Message:System.ArgumentException: 列“NotiCreateAt”不属于表 Table。
+   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 AnyWeb.AnyWeb_DL.Notice..ctor(DataRow row) 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Common\Notice.cs:行号 18
+   在 AnyWeb.AnyWeb_DL.NoticeAgent.GetNoticeInfo(Int32 NotiID) 位置 E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\AnyWeb_DL\Agent\NoticeAgent.cs:行号 70
+   在 Admin_Content_NoticeEdit.OnPreRender(EventArgs e) 位置 e:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\Admin\Content\NoticeEdit.aspx.cs:行号 25
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

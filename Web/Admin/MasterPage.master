@@ -26,6 +26,7 @@
                     <a href="/Admin/Content/ArticleList.aspx">内容管理</a>
                     <a href="/Admin/Setting/UserList.aspx">用户管理</a>
                     <a href="/Admin/Layout/LinkList.aspx">链接管理</a>
+                    <a href="/Admin/Content/NoticeList.aspx">流动通知</a>
                 </span>
                 <span style="float:right; padding-top:6px; padding-right:10px;"><a href="/Admin/Logout.aspx">注销【<asp:Label ID="LoginUserName" runat="server" Text="Label"></asp:Label>】登录</a></span>
             </div>
@@ -65,8 +66,5 @@
             </div>
         </div>
     </div>
-
-    <script type="text/javascript" src="/ajax/getmenuitems.aspx"></script>
-
 </body>
 </html>

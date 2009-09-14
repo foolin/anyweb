@@ -30,8 +30,7 @@ namespace AnyWeb.AnyWeb_DL
                     this.NewParam("@ArtiClicks", ar.ArtiClicks),
                     this.NewParam("@ArtiOrder", ar.ArtiOrder),
                     this.NewParam("@ArtiUserID", ar.ArtiUserID),
-                    this.NewParam("@ArtiUserName", ar.ArtiUserName),
-                    this.NewParam("@ArtiPic",ar.ArtiPic));
+                    this.NewParam("@ArtiUserName", ar.ArtiUserName));
             }
         }
 
@@ -109,8 +108,7 @@ namespace AnyWeb.AnyWeb_DL
                     this.NewParam("@ArtiContent", ar.ArtiContent),
                     this.NewParam("@ArtiColumnID", ar.ArtiColumnID),
                     this.NewParam("@ArtiIsTop", ar.ArtiIsTop),
-                    this.NewParam("@ArtiOrder", ar.ArtiOrder),
-                    this.NewParam("@ArtiPic",ar.ArtiPic));
+                    this.NewParam("@ArtiOrder", ar.ArtiOrder));
             }
         }
 

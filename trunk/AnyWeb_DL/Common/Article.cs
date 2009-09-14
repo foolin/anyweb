@@ -22,7 +22,6 @@ namespace AnyWeb.AnyWeb_DL
             ArtiOrder = (int)row["ArtiOrder"];
             ArtiUserID = (int)row["ArtiUserID"];
             ArtiUserName = (string)row["ArtiUserName"];
-            ArtiPic = (string)row["ArtiPic"];
         }
 
         private int _ArtiID;
@@ -144,16 +143,5 @@ namespace AnyWeb.AnyWeb_DL
             get { return _ArtiColunmName; }
             set { _ArtiColunmName = value; }
         }
-
-        private string _ArtiPic;
-        /// <summary>
-        /// ÎÄÕÂÍ¼Æ¬
-        /// </summary>
-        public string ArtiPic
-        {
-            get { return _ArtiPic; }
-            set { _ArtiPic = value; }
-        }
-	
     }
 }

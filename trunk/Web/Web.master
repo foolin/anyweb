@@ -1,0 +1,40 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Web.master.cs" Inherits="Web" %>
+<%@ Register Src="Controls/Header.ascx" TagName="Header" TagPrefix="uc1" %>
+<%@ Register Src="Controls/Footer.ascx" TagName="Footer" TagPrefix="uc2" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>广州市天河沙河供销社网</title>
+    <link href="/css/common1.css" rel="stylesheet" type="text/css" />
+
+    <script language="javascript" type="text/javascript" src="/JS/common.js"></script>
+
+    <script language="javascript" type="text/javascript" src="/JS/flash.js"></script>
+
+    <script language="javascript" type="text/javascript" src="/JS/slide-effect.js"></script>
+
+    <style type="text/css">
+        <!--
+        .subcontainer{ clear:both;}
+        .subcolumn-A{ width:55%; float:left;}
+        .subcolumn-B{ width:45%; float:left;}
+        .subcolumn-C{ width:50%; float:left;}
+        .column-P3 { width:33.3%; float:left;}	/* 30%漂浮 */
+        * +html .hr-IE7bug{ height:1px;}	/*Hack: 修复IE7下的bug*/
+        .fixh-intro{ height:300px; overflow:hidden;}
+        -->
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="wrapper">
+            <uc1:Header ID="Header1" runat="server" />
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <uc2:Footer ID="Footer1" runat="server" />
+        </div>
+        <!-- wrapper end -->
+    </form>
+</body>
+</html>

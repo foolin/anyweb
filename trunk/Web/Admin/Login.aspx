@@ -14,7 +14,7 @@
         #login {
 	        margin:0px auto;
 	        margin-top:200px;
-	        background:url(/images/login_bg.gif) no-repeat;
+	        background:url(/Admin/Images/login_bg.gif) no-repeat;
 	        width:310px;
 	        height:282px;
 	        font-size: 14px;

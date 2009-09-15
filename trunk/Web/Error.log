@@ -444,3 +444,130 @@ Message:System.ArgumentException: 列“NotiCreateAt”不属于表 Table。
    在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
 
 
+Time:2009-09-15 14:56:29
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/PhotoList.aspx
+UrlRef:http://localhost/Admin/Layout/LinkList.aspx
+Message:System.Exception: 未知的服务器标记“cc1:PageNaver”。 ---> System.Web.HttpException: 未知的服务器标记“cc1:PageNaver”。
+   在 System.Web.UI.TemplateParser.ProcessError(String message)
+   在 System.Web.UI.TemplateParser.ProcessBeginTag(Match match, String inputText)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+
+
+Time:2009-09-15 15:31:37
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/PhotoAdd.aspx
+UrlRef:http://localhost/Admin/Content/PhotoAdd.aspx
+Message:System.Data.SqlTypes.SqlTypeException: SqlDateTime 溢出。必须介于 1/1/1753 12:00:00 AM 和 12/31/9999 11:59:59 PM 之间。
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 186
+   在 AnyWeb.AnyWeb_DL.PhotoAgent.AddPhoto(Photo phot) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\PhotoAgent.cs:行号 73
+   在 Admin_Content_PhotoAdd.btnAddPhoto_Click(Object sender, EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Content\PhotoAdd.aspx.cs:行号 43
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-15 15:34:08
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/PhotoList.aspx
+UrlRef:
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Photo”不包含名为“PhotSort”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 System.Web.UI.DataBinder.Eval(Object container, String expression)
+   在 System.Web.UI.TemplateControl.Eval(String expression)
+   在 ASP.admin_content_photolist_aspx.__DataBind__control3(Object sender, EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Content\PhotoList.aspx:行号 56
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.Repeater.DataBind()
+   在 Admin_Content_PhotoList.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Content\PhotoList.aspx.cs:行号 24
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-15 16:33:51
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/PhotoEdit.aspx?id=1
+UrlRef:http://localhost/Admin/Content/PhotoList.aspx
+Message:System.Data.SqlClient.SqlException: 找不到存储过程 'GetPhotoInfo'。
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.PhotoAgent.GetPhotoInfo(Int32 PhotID) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\PhotoAgent.cs:行号 52
+   在 Admin_Content_PhotoEdit.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Content\PhotoEdit.aspx.cs:行号 27
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-15 16:33:55
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/PhotoEdit.aspx?id=1
+UrlRef:http://localhost/Admin/Content/PhotoList.aspx
+Message:System.Data.SqlClient.SqlException: 找不到存储过程 'GetPhotoInfo'。
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.PhotoAgent.GetPhotoInfo(Int32 PhotID) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\PhotoAgent.cs:行号 52
+   在 Admin_Content_PhotoEdit.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Content\PhotoEdit.aspx.cs:行号 27
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-15 16:34:53
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/PhotoEdit.aspx?id=1
+UrlRef:http://localhost/Admin/Content/PhotoList.aspx
+Message:System.Data.SqlClient.SqlException: 找不到存储过程 'GetPhotoInfo'。
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.PhotoAgent.GetPhotoInfo(Int32 PhotID) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\PhotoAgent.cs:行号 52
+   在 Admin_Content_PhotoEdit.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Content\PhotoEdit.aspx.cs:行号 27
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-15 16:34:55
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/PhotoEdit.aspx?id=1
+UrlRef:http://localhost/Admin/Content/PhotoList.aspx
+Message:System.Data.SqlClient.SqlException: 找不到存储过程 'GetPhotoInfo'。
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.PhotoAgent.GetPhotoInfo(Int32 PhotID) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\PhotoAgent.cs:行号 52
+   在 Admin_Content_PhotoEdit.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Content\PhotoEdit.aspx.cs:行号 27
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-15 16:34:56
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/PhotoEdit.aspx?id=1
+UrlRef:http://localhost/Admin/Content/PhotoList.aspx
+Message:System.Data.SqlClient.SqlException: 找不到存储过程 'GetPhotoInfo'。
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.PhotoAgent.GetPhotoInfo(Int32 PhotID) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\PhotoAgent.cs:行号 52
+   在 Admin_Content_PhotoEdit.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Content\PhotoEdit.aspx.cs:行号 27
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-15 16:34:58
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/PhotoEdit.aspx?id=1
+UrlRef:http://localhost/Admin/Content/PhotoList.aspx
+Message:System.Data.SqlClient.SqlException: 找不到存储过程 'GetPhotoInfo'。
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.PhotoAgent.GetPhotoInfo(Int32 PhotID) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\PhotoAgent.cs:行号 52
+   在 Admin_Content_PhotoEdit.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Content\PhotoEdit.aspx.cs:行号 27
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

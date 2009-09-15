@@ -1,0 +1,9 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\AnyWeb_DL.dll
+bin\Debug\AnyWeb_DL.dll
+bin\Debug\AnyWeb_DL.pdb
+bin\Debug\Studio.dll
+bin\Debug\Studio.pdb
+obj\Debug\AnyWeb_DL.pdb
+..\Web\Bin\AnyWeb_DL.dll
+..\Web\Bin\AnyWeb_DL.pdb

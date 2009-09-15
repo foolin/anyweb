@@ -14,7 +14,6 @@ namespace AnyWeb.AnyWeb_DL
         /// <summary>
         /// 获取连接列表
         /// </summary>
-        /// 连接参数：0-文字链接，1-图片链接，其它数字-全部链接
         /// <returns></returns>
         public ArrayList GetLinkList(int PageSize,int PageIndex,out int RecordCount)
         {
@@ -29,6 +28,26 @@ namespace AnyWeb.AnyWeb_DL
                 RecordCount = (int)record.Value;
             }
             ArrayList list = new ArrayList();
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                Link lnk = new Link(row);
+                list.Add(lnk);
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 获取所有友情链接
+        /// </summary>
+        /// <returns></returns>
+        public List<Link> GetLinkList()
+        {
+            DataSet ds;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "GetAllLinkList");
+            }
+            List<Link> list = new List<Link>();
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 Link lnk = new Link(row);

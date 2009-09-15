@@ -71,6 +71,32 @@ namespace AnyWeb.AnyWeb_DL
         }
 
         /// <summary>
+        /// 获取文章列表
+        /// </summary>
+        /// <param name="ColumnID"></param>
+        /// <param name="UserID"></param>
+        /// <param name="Title"></param>
+        /// <param name="PageSize"></param>
+        /// <param name="PageNo"></param>
+        /// <param name="Record"></param>
+        /// <returns></returns>
+        public ArrayList GetArticleList(int ColumnID)
+        {
+            DataSet ds;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "GetArticleListByColumn",
+                    this.NewParam("@ArtiColumnID", ColumnID));
+            }
+            ArrayList list = new ArrayList();
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                list.Add(new Article(row));
+            }
+            return list;
+        }
+
+        /// <summary>
         /// 获取文章内容
         /// </summary>
         /// <param name="ArtiID"></param>
@@ -218,6 +244,58 @@ namespace AnyWeb.AnyWeb_DL
                 db.ExecuteNonQuery(CommandType.StoredProcedure, "ClearArticle",
                     this.NewParam("@ids", ids));
             }
+        }
+
+        /// <summary>
+        /// 获取栏目热门文章
+        /// </summary>
+        /// <param name="ColumnID"></param>
+        /// <returns></returns>
+        public List<Article> GetHotArticleList(int ColumnID)
+        {
+            DataSet ds;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "GetHotArticleList",
+                    this.NewParam("@ArtiColumnID", ColumnID));
+            }
+            List<Article> list = new List<Article>();
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                list.Add(new Article(row));
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 获取栏目文章
+        /// </summary>
+        /// <param name="ColumnID"></param>
+        /// <param name="PageSize"></param>
+        /// <param name="PageNo"></param>
+        /// <param name="Record"></param>
+        /// <returns></returns>
+        public ArrayList GetArticleListByColumn(int ColumnID, int PageSize, int PageNo, out int Record)
+        {
+            DataSet ds;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                IDbDataParameter record = this.NewParam("@RecordCount", 0, DbType.Int32, 4, true);
+                ds = db.GetDataSet(CommandType.StoredProcedure, "GetArticleByColumn",
+                    this.NewParam("@ArtiColumnID",ColumnID),
+                    this.NewParam("@PageSize", PageSize),
+                    this.NewParam("@PageNo", PageNo),
+                    record);
+                Record = (int)record.Value;
+            }
+
+            ArrayList list = new ArrayList();
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                Article ar = new Article(row);
+                list.Add(ar);
+            }
+            return list;
         }
     }
 }

@@ -55,6 +55,24 @@ namespace AnyWeb.AnyWeb_DL
             return list;
         }
 
+        public List<Notice> GetNoticeList()
+        {
+            DataSet ds;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "GetAllNoticeList");
+            }
+
+            List<Notice> list = new List<Notice>();
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                Notice notice = new Notice(row);
+                notice.Title = (string)row["ArtiTitle"];
+                list.Add(notice);
+            }
+            return list;
+        }
+
         public Notice GetNoticeInfo(int NotiID)
         {
             DataSet ds;

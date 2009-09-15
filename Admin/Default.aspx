@@ -77,6 +77,8 @@
             <dd>
                 <a href="#" style="cursor: help;">帮助文档</a></dd>
             <dd>
+                <a href="PhotoList.aspx" style="cursor: help;">上传图片</a></dd>
+            <dd>
                 <a href="Logout.aspx" target="_top">退出管理</a></dd>
         </dl>
     </div>

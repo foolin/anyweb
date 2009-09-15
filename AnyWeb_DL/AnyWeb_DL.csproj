@@ -14,7 +14,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Web\Bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -39,6 +39,7 @@
     <Compile Include="Agent\EventLogAgent.cs" />
     <Compile Include="Agent\LinkAgent.cs" />
     <Compile Include="Agent\NoticeAgent.cs" />
+    <Compile Include="Agent\PhotoAgent.cs" />
     <Compile Include="Agent\SiteAgent.cs" />
     <Compile Include="Agent\UserAgent.cs" />
     <Compile Include="Common\Active.cs" />
@@ -64,6 +65,21 @@
       <Project>{A93C69CA-F165-4BBB-A8CB-9EB415B89AD4}</Project>
       <Name>Studio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\AnyWeb_DL.dll" />
+    <Content Include="bin\Debug\AnyWeb_DL.pdb" />
+    <Content Include="bin\Debug\Studio.dll" />
+    <Content Include="bin\Debug\Studio.pdb" />
+    <Content Include="obj\AnyWeb_DL.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\AnyWeb_DL.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="obj\Debug\ResolveAssemblyReference.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\Refactor\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

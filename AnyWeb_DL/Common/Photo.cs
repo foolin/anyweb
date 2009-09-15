@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 
 namespace AnyWeb.AnyWeb_DL
 {
@@ -11,6 +12,16 @@ namespace AnyWeb.AnyWeb_DL
     {
         public Photo()
         { }
+
+        public Photo(DataRow row)
+        {
+            this.PhotID = (int)row["PhotID"];
+            this.PhotName = (string)row["PhotName"];
+            this.PhotDesc = (string)row["PhotDesc"];
+            this.PhotPath = (string)row["PhotPath"];
+            this.PhotOrder = (int)row["PhotOrder"];
+            this.PhotUploadAt = (DateTime)row["PhotUploadAt"];
+        }
 
         private int _PhotID;
         /// <summary>

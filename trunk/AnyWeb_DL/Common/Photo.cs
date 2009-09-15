@@ -17,7 +17,7 @@ namespace AnyWeb.AnyWeb_DL
         {
             this.PhotID = (int)row["PhotID"];
             this.PhotName = (string)row["PhotName"];
-            this.PhotDesc = (string)row["PhotDesc"];
+            this.PhotUrl = (string)row["PhotUrl"];
             this.PhotPath = (string)row["PhotPath"];
             this.PhotOrder = (int)row["PhotOrder"];
             this.PhotUploadAt = (DateTime)row["PhotUploadAt"];
@@ -43,14 +43,14 @@ namespace AnyWeb.AnyWeb_DL
             set { _PhotName = value; }
         }
 
-        private string _PhotDesc;
+        private string _PhotUrl;
         /// <summary>
         /// Õº∆¨√Ë ˆ
         /// </summary>
-        public string PhotDesc
+        public string PhotUrl
         {
-            get { return _PhotDesc; }
-            set { _PhotDesc = value; }
+            get { return _PhotUrl; }
+            set { _PhotUrl = value; }
         }
 
         private string _PhotPath;

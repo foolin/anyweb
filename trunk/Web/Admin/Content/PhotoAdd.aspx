@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/MasterPage.master" AutoEventWireup="true" CodeFile="PhotoAdd.aspx.cs" Inherits="Admin_Content_PhotoAdd" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/MasterPage.master" AutoEventWireup="true" CodeFile="PhotoAdd.aspx.cs" Inherits="Admin_Content_PhotoAdd" Title="添加图片" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <div id="navmenu">
         <dl>
@@ -12,7 +12,7 @@
             <dt>使用帮助</dt>
             <dd>
                 <ul>
-                    <li>图片排序数字越小图片越靠前。</li>
+                    <li>图片排序数字越大图片越靠前。</li>
                     <li>图片删除将不能恢复。</li>
                 </ul>
             </dd>
@@ -36,9 +36,9 @@
                     </tr>
                     <tr>
                         <td align="right">
-                            图片描述：</td>
+                            链接地址：</td>
                         <td>
-                            <asp:TextBox ID="txtPhotDesc" runat="server" Width="400" MaxLength="50" require="1" errmsg="请输入图片描述" ToolTip="最多50个字符" Text="" ></asp:TextBox>
+                            <asp:TextBox ID="txtPhotUrl" runat="server" Width="400" MaxLength="200" require="1" errmsg="请输入图片链接地址" ToolTip="最多200个字符" Text="http://" ></asp:TextBox>
                         </td>
                     </tr>
                     <tr id="trupload">

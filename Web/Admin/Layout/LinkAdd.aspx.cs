@@ -34,7 +34,7 @@ public partial class Layout_LinkAdd : AdminBase
             lnk.LinkImage = UploadImage();
         }
         else
-            lnk.LinkImage = "";
+            WebAgent.AlertAndBack("请上传图片！");
         if (agent.AddLink(lnk))
         {
             EventLog log = new EventLog();

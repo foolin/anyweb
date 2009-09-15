@@ -163,5 +163,26 @@ namespace AnyWeb.AnyWeb_DL
             else
                 return null;
         }
+
+        /// <summary>
+        /// 通过文章获取栏目
+        /// </summary>
+        /// <param name="ArticleID"></param>
+        /// <returns></returns>
+        public Column GetColumnByArticle(int ArticleID)
+        {
+            DataSet ds;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "GetColumnByArticle",
+                    this.NewParam("@ArtiID", ArticleID));
+            }
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return new Column(ds.Tables[0].Rows[0]);
+            }
+            else
+                return null;
+        }
     }
 }

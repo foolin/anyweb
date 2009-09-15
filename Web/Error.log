@@ -571,3 +571,17 @@ Message:System.Data.SqlClient.SqlException: 找不到存储过程 'GetPhotoInfo'。
    在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
 
 
+Time:2009-09-15 22:41:42
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/PhotoList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.ArgumentException: 列“PhotDesc”不属于表 Table。
+   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 AnyWeb.AnyWeb_DL.Photo..ctor(DataRow row) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Common\Photo.cs:行号 20
+   在 AnyWeb.AnyWeb_DL.PhotoAgent.GetPhotoList(Int32 PageSize, Int32 PageIndex, Int32& RecordCount) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\PhotoAgent.cs:行号 36
+   在 Admin_Content_PhotoList.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Content\PhotoList.aspx.cs:行号 23
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

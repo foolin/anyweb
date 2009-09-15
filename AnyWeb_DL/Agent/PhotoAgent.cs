@@ -72,7 +72,7 @@ namespace AnyWeb.AnyWeb_DL
             {
                 return db.ExecuteNonQuery(CommandType.StoredProcedure, "AddPhoto",
                     this.NewParam("@PhotName", phot.PhotName),
-                    this.NewParam("@PhotDesc", phot.PhotDesc),
+                    this.NewParam("@PhotUrl", phot.PhotUrl),
                     this.NewParam("@PhotPath", phot.PhotPath),
                     this.NewParam("@PhotOrder", phot.PhotOrder),
                     this.NewParam("@PhotUploadAt", phot.PhotUploadAt)) > 0;
@@ -91,7 +91,7 @@ namespace AnyWeb.AnyWeb_DL
                 return db.ExecuteNonQuery(CommandType.StoredProcedure, "UpdatePhotoInfo",
                     this.NewParam("@PhotID", phot.PhotID),
                     this.NewParam("@PhotName", phot.PhotName),
-                    this.NewParam("@PhotDesc", phot.PhotDesc),
+                    this.NewParam("@PhotUrl", phot.PhotUrl),
                     this.NewParam("@PhotPath", phot.PhotPath),
                     this.NewParam("@PhotOrder", phot.PhotOrder),
                     this.NewParam("@PhotUploadAt", phot.PhotUploadAt));

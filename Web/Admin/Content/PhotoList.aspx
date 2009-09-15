@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/MasterPage.master" AutoEventWireup="true" CodeFile="PhotoList.aspx.cs" Inherits="Admin_Content_PhotoList" Title="Untitled Page" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/MasterPage.master" AutoEventWireup="true" CodeFile="PhotoList.aspx.cs" Inherits="Admin_Content_PhotoList" Title="图片列表" %>
 <%@ Register TagPrefix="cc1" Namespace="Studio.Web" Assembly="Studio" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <div id="navmenu">
@@ -13,7 +13,7 @@
             <dt>使用帮助</dt>
             <dd>
                 <ul>
-                    <li>图片排序数字越小图片越靠前。</li>
+                    <li>图片排序数字越大图片越靠前。</li>
                     <li>图片删除将不能恢复。</li>
                 </ul>
             </dd>
@@ -34,7 +34,7 @@
                         <td>
                             图片</td>
                         <td>
-                            描述</td>
+                            连接地址</td>
                         <td>
                             排序</td>
                         <td>
@@ -47,10 +47,10 @@
                                     <%#Eval("PhotName")%>
                                 </td>
                                 <td>
-                                    <a href="<%#Eval("PhotPath")%>" target="_blank" title="点击查看大图片"><img src="<%#Eval("PhotPath")%>" width="150" height="100" class="img" alt="<%#Eval("PhotName")%>" /></a>
+                                    <a href="<%#Eval("PhotPath")%>" target="_blank" title="点击查看大图"><img src="<%#Eval("PhotPath")%>" width="150" height="100" class="img" alt="<%#Eval("PhotName")%>" /></a>
                                     </td>
                                 <td>
-                                    <%#Eval("PhotDesc") %>
+                                    <%#Eval("PhotUrl") %>  <a href="<%#Eval("PhotUrl") %> " target="_blank">[查看]</a>
                                 </td>
                                 <td>
                                     <%#Eval("PhotOrder")%>

@@ -24,16 +24,16 @@ public partial class Admin_Content_PhotoAdd : AdminBase
         PhotoAgent agent = new PhotoAgent();
         Photo phot = new Photo();
         phot.PhotName = this.txtPhotName.Text;
-        phot.PhotDesc = this.txtPhotDesc.Text;
+        phot.PhotUrl = this.txtPhotUrl.Text;
         phot.PhotOrder = int.Parse(this.txtPhotSort.Text);
         phot.PhotUploadAt = DateTime.Now;
         if (phot.PhotName == "")
         {
             WebAgent.AlertAndBack("请填写名字");
         }
-        if (phot.PhotDesc == "")
+        if (phot.PhotUrl == "")
         {
-            phot.PhotDesc = "暂无描述";
+            WebAgent.AlertAndBack("请填写连接地址");
         }
         if (this.imgupload.PostedFile.ContentLength > 0)
         {

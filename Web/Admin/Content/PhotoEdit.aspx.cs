@@ -28,7 +28,7 @@ public partial class Admin_Content_PhotoEdit : AdminBase
         if (phot == null)
             WebAgent.AlertAndBack("图片不存在");
         txtPhotName.Text = phot.PhotName;
-        txtPhotDesc.Text = phot.PhotDesc;
+        txtPhotUrl.Text = phot.PhotUrl;
         imgPhoto.ImageUrl = phot.PhotPath;
         txtPhotSort.Text = phot.PhotOrder.ToString();
     }
@@ -38,7 +38,7 @@ public partial class Admin_Content_PhotoEdit : AdminBase
         Photo phot = new Photo();
         phot.PhotID = int.Parse(QS("id"));
         phot.PhotName = this.txtPhotName.Text;
-        phot.PhotDesc = this.txtPhotDesc.Text;
+        phot.PhotUrl = this.txtPhotUrl.Text;
         phot.PhotOrder = int.Parse(this.txtPhotSort.Text);
         phot.PhotPath = imgPhoto.ImageUrl;
         phot.PhotUploadAt = DateTime.Now;
@@ -46,9 +46,9 @@ public partial class Admin_Content_PhotoEdit : AdminBase
         {
             WebAgent.AlertAndBack("请填写名字");
         }
-        if (phot.PhotDesc == "")
+        if (phot.PhotUrl == "")
         {
-            phot.PhotDesc = "暂无描述";
+            WebAgent.AlertAndBack("图片地址不能为空");
         }
         if (agent.UpdatePhotoInfo(phot) > 0)
         {

@@ -16,11 +16,11 @@
         <div class="container">
             <div class="column-sider">
                 <!--栏目-->
-                <div class="boxA">
+                <div class="boxA" style="height:190px; overflow:hidden;">
                     <uc1:Notice ID="Notice1" runat="server" />
                 </div>
                 <!--栏目-->
-                <div class="boxA">
+                <div class="boxA" style="height:180px; overflow:hidden;">
                     <div class="box-title">
                         <span class="titletxt">--== 网站导航 ==--</span></div>
                     <div class="box-content">
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <!--栏目-->
-                <div class="boxA">
+                <div class="boxA" style="height:180px; overflow:hidden;">
                     <uc5:Contact ID="Contact1" runat="server" />
                 </div>
             </div>
@@ -39,7 +39,7 @@
                 <div class="subcontainer">
                     <div class="subcolumn-A">
                         <!--栏目-->
-                        <div class="box">
+                        <div class="box fixh-A">
                             <uc2:ArticleList ID="Article1" ColumnID="1" runat="server" />
                         </div>
                         <!--栏目End-->
@@ -47,7 +47,7 @@
                     <!-- subcolumn-A end -->
                     <div class="subcolumn-B">
                         <!--栏目-->
-                        <div class="box">
+                        <div class="box fixh-A">
                             <uc3:ImagesCtl ID="ImagesCtl1" runat="server" />
                         </div>
                         <!--栏目End-->
@@ -61,14 +61,14 @@
                 <div class="subcontainer">
                     <div class="subcolumn-C">
                         <!--栏目-->
-                        <div class="box">
+                        <div class="box fixh-B">
                             <uc2:ArticleList ID="ArticleList1" ColumnID="2" runat="server" />
                         </div>
                     </div>
                     <!--subcolumn-C end-->
                     <div class="subcolumn-C">
                         <!--栏目-->
-                        <div class="box">
+                        <div class="box fixh-B">
                             <uc2:ArticleList ID="ArticleList2" ColumnID="3" runat="server" />
                         </div>
                     </div>

@@ -25,5 +25,9 @@ public partial class Controls_ArticleContent : System.Web.UI.UserControl
         Article ar = new ArticleAgent().GetArticleInfo(int.Parse(Request.QueryString["id"]));
         if (ar == null)
             WebAgent.FailAndGo("文章不存在");
+        litTitle.Text = ar.ArtiTitle;
+        litClick.Text = ar.ArtiClicks.ToString();
+        litCreateAt.Text = ar.ArtiCreateAt.ToString();
+        litContent.Text = ar.ArtiContent;
     }
 }

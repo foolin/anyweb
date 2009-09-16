@@ -1,9 +1,12 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Web.master" AutoEventWireup="true" CodeFile="Article.aspx.cs"
     Inherits="Article" Title="文章" %>
 
+<%@ Register Src="Controls/ArticleContent.ascx" TagName="ArticleContent" TagPrefix="uc3" %>
+
 <%@ Register Src="Controls/HotList.ascx" TagName="HotList" TagPrefix="uc2" %>
 
 <%@ Register Src="Controls/Contact.ascx" TagName="Contact" TagPrefix="uc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="main">
         <div class="container">
@@ -16,8 +19,8 @@
                 </div>
             </div>
             <div class="column-main">
-                
-            </div>
+                <uc3:ArticleContent id="ArticleContent1" runat="server">
+                </uc3:ArticleContent></div>
             <!-- column-main end -->
         </div>
         <!--container end -->

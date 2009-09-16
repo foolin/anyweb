@@ -22,7 +22,16 @@
         .subcolumn-C{ width:50%; float:left;}
         .column-P3 { width:33.3%; float:left;}	/* 30%漂浮 */
         * +html .hr-IE7bug{ height:1px;}	/*Hack: 修复IE7下的bug*/
-        .fixh-intro{ height:300px; overflow:hidden;}
+        /* 30%漂浮 */
+        .column-P3 { width:33.3%; float:left;}
+        /*Hack: 修复IE7下的bug*/
+        * +html .hr-IE7bug{ height:1px;}
+        /* 焦点新闻固定高度 */
+        .fixh-A{ height:270px; overflow:hidden;}
+        /* 社务动态、法律法规固定高度 */
+        .fixh-B{ height:290px; overflow:hidden;}
+        /* 企业介绍固定高度 */
+        .fixh-intro{ height:300px; overflow:hidden;} 
         -->
     </style>
 </head>

@@ -12,7 +12,7 @@
                 <tr>
                     <td>
                         <a href="article.aspx?id=<%#Eval("ArtiID") %>" title="<%#Eval("ArtiTitle") %>"><%#Studio.Web.WebAgent.GetLeft(Eval("ArtiTitle").ToString(),20) %></a></td>
-                    <td class="time">
+                    <td style="width:120px; color:Gray;">
                         <%#Eval("ArtiCreateAt","{0:yyyy-MM-dd HH:mm}") %></td>
                 </tr>
             </ItemTemplate>

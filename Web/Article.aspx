@@ -9,9 +9,7 @@
         <div class="container">
             <div class="column-sider">
                 <!--栏目-->
-                <div class="boxA">
-                    <uc2:HotList ID="HotList1" runat="server" />
-                </div>
+                <uc2:HotList ID="HotList1" runat="server" />
                 <!--栏目-->
                 <div class="boxA">
                     <uc1:Contact ID="Contact1" runat="server" />

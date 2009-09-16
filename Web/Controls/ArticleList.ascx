@@ -9,7 +9,7 @@
                     <td>
                         <a href="Article.aspx?id=<%#Eval("ArtiID") %>" title="<%#Eval("ArtiTitle") %>"><%#Studio.Web.WebAgent.GetLeft(Eval("ArtiTitle").ToString(),20) %></a></td>
                     <td class="time">
-                        <%#Eval("ArtiCreateAt","{0:yyyy-MM-dd HH:mm}") %></td>
+                        <%#Eval("ArtiCreateAt","{0:yyyy-MM-dd}") %></td>
                 </tr>
             </ItemTemplate>
         </asp:Repeater>

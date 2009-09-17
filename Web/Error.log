@@ -968,3 +968,236 @@ Message:System.Web.HttpCompileException: d:\工作\项目\昭明师兄项目\SVN\Web\Contr
    在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
 
 
+Time:2009-09-16 09:17:54
+IP:127.0.0.1
+Url:http://localhost/Article.aspx?id=4
+UrlRef:http://localhost/index.aspx
+Message:System.Web.HttpCompileException: d:\工作\项目\昭明师兄项目\SVN\Web\Controls\ArticleContent.ascx.cs(28): error CS0029: 无法将类型“int”隐式转换为“string”
+   在 System.Web.Compilation.BuildManager.PostProcessFoundBuildResult(BuildResult result, Boolean keyFromVPP, VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetBuildResultFromCacheInternal(String cacheKey, Boolean keyFromVPP, VirtualPath virtualPath, Int64 hashCode)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultFromCacheInternal(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.UI.BaseTemplateParser.GetReferencedType(VirtualPath virtualPath, Boolean allowNoCompile)
+   在 System.Web.UI.BaseTemplateParser.GetUserControlType(VirtualPath virtualPath)
+   在 System.Web.UI.MainTagNameToTypeMapper.ProcessUserControlRegistration(UserControlRegisterEntry ucRegisterEntry)
+   在 System.Web.UI.BaseTemplateParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.TemplateControlParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.PageParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+
+
+Time:2009-09-16 09:18:21
+IP:127.0.0.1
+Url:http://localhost/Article.aspx?id=4
+UrlRef:http://localhost/index.aspx
+Message:System.Web.HttpCompileException: d:\工作\项目\昭明师兄项目\SVN\Web\Controls\ArticleContent.ascx.cs(28): error CS0030: 无法将类型“int”转换为“string”
+   在 System.Web.Compilation.BuildManager.PostProcessFoundBuildResult(BuildResult result, Boolean keyFromVPP, VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetBuildResultFromCacheInternal(String cacheKey, Boolean keyFromVPP, VirtualPath virtualPath, Int64 hashCode)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultFromCacheInternal(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.UI.BaseTemplateParser.GetReferencedType(VirtualPath virtualPath, Boolean allowNoCompile)
+   在 System.Web.UI.BaseTemplateParser.GetUserControlType(VirtualPath virtualPath)
+   在 System.Web.UI.MainTagNameToTypeMapper.ProcessUserControlRegistration(UserControlRegisterEntry ucRegisterEntry)
+   在 System.Web.UI.BaseTemplateParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.TemplateControlParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.PageParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+
+
+Time:2009-09-16 09:57:08
+IP:127.0.0.1
+Url:http://localhost/Article.aspx?id=11
+UrlRef:http://localhost/index.aspx
+Message:System.Data.SqlClient.SqlException: 在向服务器发送请求时发生传输级错误。 (provider: TCP 提供程序, error: 0 - 远程主机强迫关闭了一个现有的连接。)
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.ColumnAgent.GetColumnByArticle(Int32 ArticleID) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\ColumnAgent.cs:行号 177
+   在 Article.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Article.aspx.cs:行号 25
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-16 20:54:53
+IP:127.0.0.1
+Url:http://localhost/index.aspx
+UrlRef:
+Message:System.Data.SqlClient.SqlException: 在建立与服务器的连接时出错。在连接到 SQL Server 2005 时，在默认的设置下 SQL Server 不允许进行远程连接可能会导致此失败。 (provider: TCP 提供程序, error: 0 - 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。)
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.NoticeAgent.GetNoticeList() 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\NoticeAgent.cs:行号 63
+   在 Controls_Notice.Page_Load(Object sender, EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Controls\Notice.ascx.cs:行号 17
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   在 System.Web.UI.Control.OnLoad(EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-17 09:18:53
+IP:127.0.0.1
+Url:http://localhost/Admin/Setting/LogList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.Exception: 未知的服务器标记“cc1:PageNaver”。 ---> System.Web.HttpException: 未知的服务器标记“cc1:PageNaver”。
+   在 System.Web.UI.TemplateParser.ProcessError(String message)
+   在 System.Web.UI.TemplateParser.ProcessBeginTag(Match match, String inputText)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+
+
+Time:2009-09-17 09:20:27
+IP:127.0.0.1
+Url:http://localhost/Admin/Setting/LogList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.Data.SqlClient.SqlException: 对象名 'EvenLog' 无效。
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.EventLogAgent.GetLogList(String EvenUserAcc, Int32 PageSize, Int32 PageNo, Int32& Record) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\EventLogAgent.cs:行号 44
+   在 Admin_Setting_LogList.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Setting\LogList.aspx.cs:行号 29
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-17 09:20:30
+IP:127.0.0.1
+Url:http://localhost/Admin/Setting/LogList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.Data.SqlClient.SqlException: 对象名 'EvenLog' 无效。
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.EventLogAgent.GetLogList(String EvenUserAcc, Int32 PageSize, Int32 PageNo, Int32& Record) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\EventLogAgent.cs:行号 44
+   在 Admin_Setting_LogList.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Setting\LogList.aspx.cs:行号 29
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-17 09:23:58
+IP:127.0.0.1
+Url:http://localhost/Admin/Setting/LogList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.Data.SqlClient.SqlException: 对象名 'EvenLog' 无效。
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.EventLogAgent.GetLogList(String EvenUserAcc, Int32 PageSize, Int32 PageNo, Int32& Record) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\EventLogAgent.cs:行号 44
+   在 Admin_Setting_LogList.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Setting\LogList.aspx.cs:行号 29
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-17 09:24:00
+IP:127.0.0.1
+Url:http://localhost/Admin/Setting/LogList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.Data.SqlClient.SqlException: 对象名 'EvenLog' 无效。
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.EventLogAgent.GetLogList(String EvenUserAcc, Int32 PageSize, Int32 PageNo, Int32& Record) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\EventLogAgent.cs:行号 44
+   在 Admin_Setting_LogList.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Setting\LogList.aspx.cs:行号 29
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-17 09:24:01
+IP:127.0.0.1
+Url:http://localhost/Admin/Setting/LogList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.Data.SqlClient.SqlException: 对象名 'EvenLog' 无效。
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.EventLogAgent.GetLogList(String EvenUserAcc, Int32 PageSize, Int32 PageNo, Int32& Record) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\EventLogAgent.cs:行号 44
+   在 Admin_Setting_LogList.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Setting\LogList.aspx.cs:行号 29
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-17 09:24:03
+IP:127.0.0.1
+Url:http://localhost/Admin/Setting/LogList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.Data.SqlClient.SqlException: 对象名 'EvenLog' 无效。
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.EventLogAgent.GetLogList(String EvenUserAcc, Int32 PageSize, Int32 PageNo, Int32& Record) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\EventLogAgent.cs:行号 44
+   在 Admin_Setting_LogList.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Setting\LogList.aspx.cs:行号 29
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-17 09:26:39
+IP:127.0.0.1
+Url:http://localhost/Admin/Setting/LogList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.ArgumentException: 列“EvenIP”不属于表 Table。
+   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 AnyWeb.AnyWeb_DL.EventLog..ctor(DataRow row) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Common\EventLog.cs:行号 17
+   在 AnyWeb.AnyWeb_DL.EventLogAgent.GetLogList(String EvenUserAcc, Int32 PageSize, Int32 PageNo, Int32& Record) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\EventLogAgent.cs:行号 55
+   在 Admin_Setting_LogList.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Setting\LogList.aspx.cs:行号 29
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-17 09:26:41
+IP:127.0.0.1
+Url:http://localhost/Admin/Setting/LogList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.ArgumentException: 列“EvenIP”不属于表 Table。
+   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 AnyWeb.AnyWeb_DL.EventLog..ctor(DataRow row) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Common\EventLog.cs:行号 17
+   在 AnyWeb.AnyWeb_DL.EventLogAgent.GetLogList(String EvenUserAcc, Int32 PageSize, Int32 PageNo, Int32& Record) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\EventLogAgent.cs:行号 55
+   在 Admin_Setting_LogList.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Setting\LogList.aspx.cs:行号 29
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-17 09:26:43
+IP:127.0.0.1
+Url:http://localhost/Admin/Setting/LogList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.ArgumentException: 列“EvenIP”不属于表 Table。
+   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 AnyWeb.AnyWeb_DL.EventLog..ctor(DataRow row) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Common\EventLog.cs:行号 17
+   在 AnyWeb.AnyWeb_DL.EventLogAgent.GetLogList(String EvenUserAcc, Int32 PageSize, Int32 PageNo, Int32& Record) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\EventLogAgent.cs:行号 55
+   在 Admin_Setting_LogList.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Setting\LogList.aspx.cs:行号 29
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-17 09:26:44
+IP:127.0.0.1
+Url:http://localhost/Admin/Setting/LogList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.ArgumentException: 列“EvenIP”不属于表 Table。
+   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 AnyWeb.AnyWeb_DL.EventLog..ctor(DataRow row) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Common\EventLog.cs:行号 17
+   在 AnyWeb.AnyWeb_DL.EventLogAgent.GetLogList(String EvenUserAcc, Int32 PageSize, Int32 PageNo, Int32& Record) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\EventLogAgent.cs:行号 55
+   在 Admin_Setting_LogList.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Setting\LogList.aspx.cs:行号 29
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-17 10:03:02
+IP:127.0.0.1
+Url:http://localhost/Admin/Setting/LogDel.aspx
+UrlRef:http://localhost/Admin/Setting/LogList.aspx?u=
+Message:System.Data.SqlClient.SqlException: 对象名 'EvenLog' 无效。
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 186
+   在 AnyWeb.AnyWeb_DL.EventLogAgent.DeleteLog(String ids) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\EventLogAgent.cs:行号 69
+   在 Admin_Setting_LogDel.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Setting\LogDel.aspx.cs:行号 30
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-17 10:05:27
+IP:127.0.0.1
+Url:http://localhost/Admin/Setting/LogClear.aspx?act=clear
+UrlRef:http://localhost/Admin/Setting/LogList.aspx
+Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Admin_Setting_LogClear.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Setting\LogClear.aspx.cs:行号 30
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

@@ -62,7 +62,7 @@
                                     <%#Eval("EvenAt")%>
                                 </td>
                                 <td>
-                                    <a href="ArticleEdit.aspx?id=<%#Eval("EvenID") %>" title="删除该记录">删除</a></td>
+                                    <a href="LogDel.aspx?id=<%#Eval("EvenID") %>" onclick="return confirm('确定删除该日志记录？');" title="删除该记录">删除</a></td>
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Data;
 
 namespace AnyWeb.AnyWeb_DL
 {
@@ -8,6 +9,15 @@ namespace AnyWeb.AnyWeb_DL
     {
         public EventLog()
         { }
+
+        public EventLog(DataRow row)
+        {
+            EvenID = (int)row["EvenID"];
+            EvenDesc = (string)row["EvenDesc"];
+            EvenIP = (string)row["EvenIP"];
+            EvenAt = (DateTime)row["EvenAt"];
+            EvenUserAcc = (string)row["EvenUserAcc"];
+        }
 
         private int _EvenID;
         /// <summary>

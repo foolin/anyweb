@@ -50,6 +50,11 @@ public partial class Admin_Content_PhotoEdit : AdminBase
         {
             WebAgent.AlertAndBack("图片地址不能为空");
         }
+        if (imgupload.PostedFile.ContentLength > 0)
+        {
+            phot.PhotPath = UploadImage();
+        }
+        
         if (agent.UpdatePhotoInfo(phot) > 0)
         {
             EventLog log = new EventLog();
@@ -62,5 +67,21 @@ public partial class Admin_Content_PhotoEdit : AdminBase
         }
         else
             WebAgent.AlertAndBack("修改图片信息失败");
+    }
+
+    protected string UploadImage()
+    {
+        if (this.imgupload.PostedFile.ContentType.IndexOf("image") == -1)
+        {
+            WebAgent.AlertAndBack("请选择一个文件");
+            return "";
+        }
+
+        string photo = "/SiteData/Picture/";
+        if (!Directory.Exists(Server.MapPath(photo)))
+            Directory.CreateDirectory(Server.MapPath(photo));
+        photo += DateTime.Now.ToString("yyMMddHHmmssfff") + Path.GetExtension(this.imgupload.PostedFile.FileName);
+        WebAgent.SaveFile(this.imgupload.PostedFile, Server.MapPath(photo), 800, 600, true);
+        return photo;
     }
 }

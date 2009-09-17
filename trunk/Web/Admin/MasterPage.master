@@ -28,6 +28,7 @@
                     <a href="/Admin/Layout/LinkList.aspx">链接管理</a>
                     <a href="/Admin/Content/NoticeList.aspx">流动通知</a>
                     <a href="/Admin/Content/PhotoList.aspx">图片管理</a>
+                    <a href="/Admin/Setting/LogList.aspx">操作记录</a>
                 </span>
                 <span style="float:right; padding-top:6px; padding-right:10px;"><a href="/Admin/Logout.aspx">注销【<asp:Label ID="LoginUserName" runat="server" Text="Label"></asp:Label>】登录</a></span>
             </div>

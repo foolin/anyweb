@@ -5,7 +5,9 @@
         <dl>
             <dt>操作菜单</dt>
             <dd>
-                <a href="/Admin/Content/ArticleList.aspx">清空日志</a></dd>
+                <a href="/Admin/Setting/LogList.aspx">日志列表</a></dd>
+            <dd>
+                <a href="/Admin/Setting/LogClear.aspx?act=clear" onclick="return confirm('确定清除所有日志记录？');" >清空日志</a></dd>
         </dl>
         <dl>
             <dt>使用帮助</dt>

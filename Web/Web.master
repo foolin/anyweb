@@ -6,7 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
     <title>广州市天河沙河供销社网</title>
-    <link href="/Css/common.css" rel="stylesheet" type="text/css" />
+    <link href="/Css/common1.css" rel="stylesheet" type="text/css" />
     <link href="/Css/article.css" rel="stylesheet" type="text/css" />
 
     <script language="javascript" type="text/javascript" src="/JS/common.js"></script>

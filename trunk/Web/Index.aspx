@@ -25,8 +25,8 @@
                         <span class="titletxt">--== 网站导航 ==--</span></div>
                     <div class="box-content">
                         <ul class="li-slide">
-                            <li><a href="list.html">供销社介绍</a></li><li><a href="list.html">机构职能</a>
-                            </li><li><a href="list.html">领导分工</a></li></ul>
+                            <li><a href="Company.aspx">供销社介绍</a></li><li><a href="Department.aspx">机构职能</a>
+                            </li><li><a href="Leadership.aspx">领导分工</a></li></ul>
                     </div>
                 </div>
                 <!--栏目-->

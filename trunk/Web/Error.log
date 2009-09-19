@@ -1201,3 +1201,36 @@ Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
    在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
 
 
+Time:2009-09-19 21:42:15
+IP:127.0.0.1
+Url:http://localhost/company.aspx
+UrlRef:
+Message:System.Web.HttpException: 内容控件必须是内容页中的顶级控件，或是引用母版页的嵌套母版页。
+   在 System.Web.UI.MasterPage.CreateMaster(TemplateControl owner, HttpContext context, VirtualPath masterPageFile, IDictionary contentTemplateCollection)
+   在 System.Web.UI.Page.get_Master()
+   在 System.Web.UI.Page.ApplyMasterPage()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-19 21:42:28
+IP:127.0.0.1
+Url:http://localhost/company.aspx
+UrlRef:
+Message:System.Web.HttpException: 内容控件必须是内容页中的顶级控件，或是引用母版页的嵌套母版页。
+   在 System.Web.UI.MasterPage.CreateMaster(TemplateControl owner, HttpContext context, VirtualPath masterPageFile, IDictionary contentTemplateCollection)
+   在 System.Web.UI.Page.get_Master()
+   在 System.Web.UI.Page.ApplyMasterPage()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-09-19 21:42:29
+IP:127.0.0.1
+Url:http://localhost/company.aspx
+UrlRef:
+Message:System.Web.HttpException: 内容控件必须是内容页中的顶级控件，或是引用母版页的嵌套母版页。
+   在 System.Web.UI.MasterPage.CreateMaster(TemplateControl owner, HttpContext context, VirtualPath masterPageFile, IDictionary contentTemplateCollection)
+   在 System.Web.UI.Page.get_Master()
+   在 System.Web.UI.Page.ApplyMasterPage()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

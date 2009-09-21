@@ -297,5 +297,18 @@ namespace AnyWeb.AnyWeb_DL
             }
             return list;
         }
+
+        /// <summary>
+        /// 更新点击数
+        /// </summary>
+        /// <param name="ArticleID"></param>
+        public void UpdateArticleClick(int ArticleID)
+        {
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                db.ExecuteNonQuery(CommandType.StoredProcedure, "UpdateArticleClick",
+                    this.NewParam("@ArtiID", ArticleID));
+            }
+        }
     }
 }

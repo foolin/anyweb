@@ -8,11 +8,18 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using AnyWeb.AnyWeb_DL;
 
 public partial class Controls_ImagesCtl : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
+    }
+
+    protected override void OnPreRender(EventArgs e)
+    {
+        repImage.DataSource = new PhotoAgent().GetPhotoListByWeb();
+        repImage.DataBind();
     }
 }

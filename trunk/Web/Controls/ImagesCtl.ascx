@@ -3,13 +3,6 @@
     焦点图片</div>
 <div class="box-content">
     <div class="focuspic" style="text-align: center; padding-top: 5px; padding-bottom: 5px;">
-    <%--<asp:Repeater ID="repImage" runat="server">
-        <ItemTemplate>
-            imgUrl[<%#Container.ItemIndex+1 %>]='<%Eval("PhotPath") %>';
-            imgLink[<%#Container.ItemIndex+1 %>]='<%Eval("PhotPath") %>';
-            imgText[1]='二届四次教职工(工会会员)代表大会召开';
-        </ItemTemplate>
-    </asp:Repeater>--%>
         <script type="text/javascript">
             <!--
             var focus_width=290;
@@ -22,29 +15,22 @@
 			  text_height=20;
 			}
             var swf_height = focus_height+text_height
-            var order=new Array('','1','2','3','4','5');var xb;
+            var order=new Array('','1','2','3','4','5','6','7','8','9');
+            var xb;
             var pics="";
             var links="";
             var texts="";
             var imgUrl=new Array();
             var imgLink=new Array();
             var imgText=new Array();
+            <asp:Repeater ID="repImage" runat="server">
+                <ItemTemplate>
+                    imgUrl[<%#Container.ItemIndex+1 %>]='<%#Eval("PhotPath") %>';
+                    imgLink[<%#Container.ItemIndex+1 %>]='<%#Eval("PhotUrl") %>';
+                    imgText[<%#Container.ItemIndex+1 %>]='<%#Eval("PhotName") %>';
+                </ItemTemplate>
+            </asp:Repeater>
             
-            imgUrl[1]='http://news.gzhu.edu.cn/upload/info/null2009526306.jpg';
-            imgLink[1]='http://news.gzhu.edu.cn/newsxp/index.jsp?id=8232';
-            imgText[1]='二届四次教职工(工会会员)代表大会召开';
-            imgUrl[2]='http://news.gzhu.edu.cn/upload/info/null200952393131.JPG';
-            imgLink[2]='http://news.gzhu.edu.cn/newsxp/index.jsp?id=8219';
-            imgText[2]='广州大学校友座谈联谊会召开';
-            imgUrl[3]='http://news.gzhu.edu.cn/upload/info/null200952242143.jpg';
-            imgLink[3]='http://news.gzhu.edu.cn/newsxp/index.jsp?id=8216';
-            imgText[3]='我校在市政务服务中心建立“精神文明共建基地”';
-            imgUrl[4]='http://news.gzhu.edu.cn/upload/info/null200951493535.jpg';
-            imgLink[4]='http://news.gzhu.edu.cn/newsxp/index.jsp?id=8178';
-            imgText[4]='“广东中南声像灯光设计研究院”揭牌仪式昨日举行';
-            imgUrl[5]='http://news.gzhu.edu.cn/upload/info/null200951292935.jpg';
-            imgLink[5]='http://news.gzhu.edu.cn/newsxp/index.jsp?id=8169';
-            imgText[5]='众志成城力争灾后重建早日胜利完成';
             var j=0;
                 for (i=1;i<=5;i++) {
                         xb=order[i];

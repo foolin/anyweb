@@ -12,6 +12,7 @@
             <dt>使用帮助</dt>
             <dd>
                 <ul>
+                    <li>首页显示前8张图片</li>
                     <li>图片排序数字越大图片越靠前。</li>
                     <li>图片删除将不能恢复。</li>
                 </ul>
@@ -42,8 +43,15 @@
                         </td>
                     </tr>
                     <tr id="trupload">
+                        <td>
+                            上传图片：
+                        </td>
                         <td colspan="2" align="center">
-                            <asp:Image ID="imgPhoto" Width="600" runat="server" /></td>
+                            <asp:FileUpload ID="imgupload" runat="server" Width="275" />
+                            <div>
+                                <asp:Image ID="imgPhoto" Width="600" runat="server" />
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td align="right">

@@ -112,5 +112,29 @@ namespace AnyWeb.AnyWeb_DL
             }
         }
 
+        /// <summary>
+        /// 前台获取图片
+        /// </summary>
+        /// <returns></returns>
+        public List<Photo> GetPhotoListByWeb()
+        {
+            DataSet ds;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "GetPhotoListByWeb");
+            }
+            if (ds.Tables[0].Rows.Count == 0)
+                return null;
+            else
+            {
+                List<Photo> list = new List<Photo>();
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    Photo pt = new Photo(row);
+                    list.Add(pt);
+                }
+                return list;
+            }
+        }
     }
 }

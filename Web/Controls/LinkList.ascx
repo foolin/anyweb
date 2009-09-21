@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="LinkList.ascx.cs" Inherits="Controls_LinkList" %>
 <div class="box-title">
     <span class="titletxt">--== 友情链接 ==--</span></div>
-<div class="box-content">
+<div class="box-content"  style="text-align:center;">
     <div class="picLinks">
         <asp:Repeater ID="repImage" runat="server">
             <ItemTemplate>

@@ -21,7 +21,7 @@ public partial class Controls_LinkList : System.Web.UI.UserControl
     protected override void OnPreRender(EventArgs e)
     {
         List<Link> list = new LinkAgent().GetLinkList();
-        if (list.Count <= 20)
+        if (list.Count <= 10)
         {
             repImage.DataSource = list;
             repImage.DataBind();
@@ -29,9 +29,9 @@ public partial class Controls_LinkList : System.Web.UI.UserControl
         }
         else
         {
-            repImage.DataSource = list.GetRange(0, 20);
+            repImage.DataSource = list.GetRange(0, 10);
             repImage.DataBind();
-            drpLink.DataSource = list.GetRange(20, list.Count - 20);
+            drpLink.DataSource = list.GetRange(10, list.Count - 10);
             drpLink.DataBind();
         }
     }

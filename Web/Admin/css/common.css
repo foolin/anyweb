@@ -12,7 +12,7 @@ body{
 	margin:0px;
 	padding:0px;
 	font-size:12px;
-	background:#B3D9FF;
+	background:#B3D9FF url(../images/bg.jpg) repeat;
 }
 
 /*清除浮动*/
@@ -45,7 +45,7 @@ A:hover {
 /*顶部*/
 #top{
 	width:998px;
-	height:130px;
+	height:100px;
 	background:url(../images/top.jpg);
 	color:#FFF;
 }
@@ -95,19 +95,9 @@ A:hover {
 	display:inline;
 }
 
-.Nav{height:23px;background:#41a0ed;height:30px;padding-left:20px;background:url(../images/tit_bg.jpg);}
-.Nav iframe{position:absolute;left:0;top:0;visibility:hidden;z-index:9999;}
-.Nav .child{background:#EEF3F7;position:absolute;z-index:9999;left:0;top:0;visibility:hidden;border:1px solid #92B0DD;width:12em;}
-.Nav .child a{display:block;padding:4px 15px 3px 30px;margin:1px;}
-.Nav .child a.hasChild{}
-.Nav .child a:hover{padding:3px 15px 2px 29px;border:solid #A5B6C8;border-width:1px;text-decoration:none;background-color:#F2FAFF;}
-.Nav .child a.hasChild:hover{background-position:69px -128px;}
-.Nav .parent{color:#00518a;font-weight:bold;float:left;display:inline;padding:11px 20px 0 0;margin-right:10px;}
-.Nav .parent,
-.Nav .child a{cursor:pointer;}
-.Nav .separator{height:1px;width:130px;text-align:right;margin-right:5px;border-bottom:1px solid #e0e0e0;}
-.Nav .change{background:0;float:right;margin:0;cursor:auto;}
-.Nav .change a{display:block;color:#fff;padding-right:15px;background-position:100% -181px;}
+#nav{ background:#09F url(../images/nav_bg.jpg); font-size:14px;line-height:32px; color:#EEE; }
+#nav a{ color:#FFF; font-weight:bold; padding: 1px 5px;margin-left:3px;}
+#nav a:hover{ text-decoration:none; color:#F00;}
 
 /*主内容区左边*/
 #main_side{
@@ -125,7 +115,7 @@ A:hover {
 /*主内容区左边导航*/
 #navmenu{
 	padding:5px;
-	font-size:14px;
+	font-size:13px;
 }
 
 #navmenu dl{

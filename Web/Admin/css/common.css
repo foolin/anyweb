@@ -99,17 +99,25 @@ A:hover {
 #nav a{ color:#FFF; font-weight:bold; padding: 1px 5px;margin-left:3px;}
 #nav a:hover{ text-decoration:none; color:#F00;}
 
+.part{clear:none;height:100%;overflow:hidden;}
+
+#container{overflow:hidden;}
+
 /*主内容区左边*/
 #main_side{
 	float:left;
 	width:250px;
 	background:#EEF7FF;
+	padding-bottom:3000px;
+	margin-bottom:-3000px;
+	border-left:#A4D1FF 1px solid;
+	border-right:#A4D1FF 1px solid;
 }
 
 /*主内容区右边*/
 #main_content{
 	float:left;
-	width:748px;
+	width:746px;
 }
 
 /*主内容区左边导航*/

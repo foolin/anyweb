@@ -1,17 +1,17 @@
-var curFontSize = 14;				//µ±Ç°×ÖÌå´óĞ¡
-var fontAreaId = 'art-content';		//ÎÄ×ÖÇøÓòµÄID
-/* ´ó */
+ï»¿var curFontSize = 14;				//å½“å‰å­—ä½“å¤§å°
+var fontAreaId = 'art-content';		//æ–‡å­—åŒºåŸŸçš„ID
+//å¤§
 function fontZoomMax(){
 	if(curFontSize < 64){
 		document.getElementById(fontAreaId).style.fontSize = (++curFontSize)+'px';
 	}
 }
-/* ÖĞ */
+//ä¸­
 function fontZoomMid(){
 		curFontSize = 14;
 		document.getElementById(fontAreaId).style.fontSize = curFontSize + 'px';
 }
-/* Ğ¡ */
+//å°
 function fontZoomMin(){
 	if(curFontSize > 8){
 		document.getElementById(fontAreaId).style.fontSize = (--curFontSize)+'px';

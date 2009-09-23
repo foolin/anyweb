@@ -1,4 +1,4 @@
-//´úÂë¿ªÊ¼
+ï»¿//ä»£ç å¼€å§‹
 function writeflashhtml( arg )
 {
 var parm = []
@@ -98,4 +98,4 @@ thtml += "</object>"
 document.write(thtml)
 }
 
-//´úÂë½áÊø
+//ä»£ç ç»“æŸ

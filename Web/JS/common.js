@@ -1,12 +1,12 @@
-//ÅĞ¶Ïä¯ÀÀÆ÷ÊÇ·ñÎªIE
+ï»¿//åˆ¤æ–­æµè§ˆå™¨æ˜¯å¦ä¸ºIE
 function isIE(){
       return (document.all && window.ActiveXObject && !window.opera) ? true : false;
 } 
 
-//ÅĞ¶Ïä¯ÀÀÆ÷ÊÇ·ñÊÇie
+//åˆ¤æ–­æµè§ˆå™¨æ˜¯å¦æ˜¯ie
 var isFF = navigator.userAgent.indexOf("Firefox") > 0;
 
-//ÉèÎªÖ÷Ò³
+//è®¾ä¸ºä¸»é¡µ
 function HomePage(){
     if(isIE){
         this.style.behavior='url(#default#homepage)';this.setHomePage(this.document.location.href);
@@ -14,13 +14,14 @@ function HomePage(){
     return false;
 }
 
-//Ìí¼ÓÊÕ²Ø
+//æ·»åŠ æ”¶è—
 function Love(){
     if(isIE){
-        window.external.AddFavorite(this.document.location.href,'ÃÛÄğ¹¤·¿ÅàÑµ¼ÓÃËÍø');
+        window.external.AddFavorite(this.document.location.href,'å¹¿å·å¤©æ²³æ²™æ²³ä¾›é”€ç¤¾ç½‘');
     }
     if(isFF){
-        alert("ÄãµÄä¯ÀÀÆ÷ÊÇFirefox£¬ÊÕ²Ø¿É°´ Ctrl + D");
+        alert("ä½ çš„æµè§ˆå™¨æ˜¯Firefoxï¼Œæ”¶è—å¯æŒ‰ Ctrl + D");
     }
     return false;
 }
+

@@ -6,7 +6,7 @@
         <asp:Repeater ID="repImage" runat="server">
             <ItemTemplate>
                 <a href="<%#Eval("LinkUrl") %>" target="_blank">
-                    <img src="<%#Eval("LinkImage") %>" class="img" width="120" alt="<%#Eval("LinkName") %>" /></a>
+                    <img src="<%#Eval("LinkImage") %>" class="img"  width="170" height="80" alt="<%#Eval("LinkName") %>" /></a>
             </ItemTemplate>
         </asp:Repeater>
     </div>

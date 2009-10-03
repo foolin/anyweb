@@ -94,10 +94,9 @@ A:hover {
 	text-decoration:none;
 	display:inline;
 }
-
-#nav{ background:#09F url(../images/nav_bg.jpg); font-size:14px;line-height:32px; color:#EEE; }
 #nav a{ color:#FFF; font-weight:bold; padding: 1px 5px;margin-left:3px;}
 #nav a:hover{ text-decoration:none; color:#F00;}
+#nav{ background:#3baaf1 url(../images/nav_bg.jpg) repeat-x;font-size:14px;line-height:32px; color:#EEE; display:block; }
 
 .part{clear:none;height:100%;overflow:hidden;}
 

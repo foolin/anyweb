@@ -21,7 +21,6 @@
             <div id="top">
             </div>
             <div id="nav">
-                <span style="float:left;padding-left:10px;">
                     <a href="/Admin/Default.aspx">首页</a> | 
                     <a href="/Admin/Content/ArticleList.aspx">内容管理</a> | 
                     <a href="/Admin/Setting/UserList.aspx">用户管理</a> | 
@@ -29,9 +28,7 @@
                     <a href="/Admin/Content/NoticeList.aspx">流动通知</a> | 
                     <a href="/Admin/Content/PhotoList.aspx">图片管理</a> | 
                     <a href="/Admin/Setting/LogList.aspx">操作记录</a> | 
-                </span>
-                <span style="float:right;padding-right:10px;"><a href="/Admin/Logout.aspx">注销【<asp:Label ID="LoginUserName" runat="server" Text="Label"></asp:Label>】登录</a></span>
-                <div class="clear"></div>
+               		<a href="/Admin/Logout.aspx">注销【<asp:Label ID="LoginUserName" runat="server" Text="Label"></asp:Label>】登录</a>
             </div>
             <div class="clear"></div>
         </div>

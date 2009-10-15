@@ -1,5 +1,4 @@
-@charset "gb2312";
-/*==============================================================*/
+ï»¿/*==============================================================*/
 /* Purpose:        Css for article style                       	*/
 /* Author:         Foolin 					                    */
 /* E-mail:         Foolin@126.com				                */
@@ -12,20 +11,20 @@ body{
 	background:url(../images/bg.gif) repeat;
 }
 
-/* div·Ö¸ô */
+/* divåˆ†éš” */
 .hr{
 	height:5px;
 	background:#FFF;
 	clear:both;
 }
-/* Çå³ı¸¡¶¯ */
+/* æ¸…é™¤æµ®åŠ¨ */
 .clear{ clear:both;}
 
-/* ³¬¼¶Á¬½ÓÑùÊ½ */
+/* è¶…çº§è¿æ¥æ ·å¼ */
 a{ color:#000; text-decoration:none;}
 a:hover{ color:#F00; text-decoration:underline;}
 
-/* Í¼Æ¬ÑùÊ½ */
+/* å›¾ç‰‡æ ·å¼ */
 .img{
 	border:#CCC 1px solid;
 	background:#FFF;
@@ -33,7 +32,7 @@ a:hover{ color:#F00; text-decoration:underline;}
 	margin:3px;
 }
 
-/* ×ÜÒ³Ãæ¹Ì¶¨´óĞ¡ */
+/* æ€»é¡µé¢å›ºå®šå¤§å° */
 .wrapper {
 	margin:0px auto;
 	width:980px;
@@ -41,12 +40,12 @@ a:hover{ color:#F00; text-decoration:underline;}
 	background:#FFF;
 }
 
-/* Ò³Ãæ¶¥²¿ */
+/* é¡µé¢é¡¶éƒ¨ */
 .header{
 	height:150px;
 	background:#82c02f url(../images/header.jpg) no-repeat;
 }
-/* Ìí¼ÓÊÕ²Ø */
+/* æ·»åŠ æ”¶è— */
 .loveFav{
 	text-align:right;
 	padding:5px;
@@ -57,7 +56,7 @@ a:hover{ color:#F00; text-decoration:underline;}
 }
 .top-flash{ padding-left:10px;}
 
-/* ²Ëµ¥µ¼º½ */
+/* èœå•å¯¼èˆª */
 .nav{
 	margin-top:0px;
 	font-size:14px;
@@ -86,27 +85,27 @@ a:hover{ color:#F00; text-decoration:underline;}
 	text-decoration:none;
 }
 
-/* ÄÚÈİÖĞÈİÆ÷ */
+/* å†…å®¹ä¸­å®¹å™¨ */
 .container{ clear:both;}
-/* ×ó±ßÀ¸ */
+/* å·¦è¾¹æ  */
 .column-sider{
 	float:left;
 	width:30%;
 }
-/* ÄÚÈİÀ¸ */
+/* å†…å®¹æ  */
 .column-main{
 	float:left;
 	width:70%;
 }
 
-/* µ×²¿µ¼º½Á´½Ó */
+/* åº•éƒ¨å¯¼èˆªé“¾æ¥ */
 .bottom-link{
 	height:30px;
 	line-height:30px;
 	text-align:center;
 	padding-bottom:20px;
 }
-/* µ×²¿ */
+/* åº•éƒ¨ */
 .footer{
 	margin-top:10px;
 	padding-top:20px;
@@ -118,10 +117,10 @@ a:hover{ color:#F00; text-decoration:underline;}
 }
 
 
-/*À¸Ä¿Box*/
+/*æ ç›®Box*/
 .box{
 	margin:2px 2px 5px 2px;
-	border:2px solid #9dd96b;
+	border:1px solid #9dd96b;
 	padding:1px;
 }
 .box .box-title{
@@ -174,10 +173,10 @@ a:hover{ color:#F00; text-decoration:underline;}
 	border-bottom:#CCC 1px dashed;
 }
 
-/*À¸Ä¿BoxA*/
+/*æ ç›®BoxA*/
 .boxA{
 	margin:2px 2px 5px 2px;
-	border:2px solid #9dd96b;
+	border:1px solid #9dd96b;
 	padding:1px;
 }
 .boxA .box-title{
@@ -214,12 +213,12 @@ a:hover{ color:#F00; text-decoration:underline;}
 	border-bottom:#CCC 1px dashed;
 }
 
-/*ĞÂÎÅÁĞ±íÊ±¼äÑùÊ½*/
+/*æ–°é—»åˆ—è¡¨æ—¶é—´æ ·å¼*/
 .time{
 	color:#999;
 }
 
-/* µ±Ç°Î»ÖÃ */
+/* å½“å‰ä½ç½® */
 .location{
 	color:#999;
 	font-size:14px;
@@ -228,7 +227,7 @@ a:hover{ color:#F00; text-decoration:underline;}
 	line-height:25px;
 }
 
-/* ·ÖÒ³°´Å¥*/
+/* åˆ†é¡µæŒ‰é’®*/
 .pagebar{
 	padding-top:5px;
 	line-height:30px;

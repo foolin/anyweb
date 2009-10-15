@@ -22,6 +22,7 @@
         .subcolumn-B{ width:45%; float:left;}
         .subcolumn-C{ width:50%; float:left;}
         .column-P3 { width:33.3%; float:left;}	/* 30%Æ¯¸¡ */
+        .column-P3r{ width:33.3%; float:right;} /* 30%Æ¯¸¡-ÓÒ */
         +html .hr-IE7bug{ height:1px;}	/*Hack: ÐÞ¸´IE7ÏÂµÄbug*/
         /* 30%Æ¯¸¡ */
         .column-P3 { width:33.3%; float:left;}

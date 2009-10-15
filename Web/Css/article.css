@@ -1,5 +1,4 @@
-@charset "gb2312";
-/*==============================================================*/
+﻿/*==============================================================*/
 /* Purpose:        Css for article style                       	*/
 /* Author:         Foolin 					                    */
 /* E-mail:         Foolin@126.com				                */
@@ -43,13 +42,14 @@
 	line-height:180%;
 	text-indent: 2em;
 }
-/* ͼƬ��ʽ */
+/* 图片样式 */
 .article .art-content img{
 	border:#CCC 1px solid;
 	background:#FFF;
 	padding:5px;
 	margin:5px;
 }
+
 
 
 

@@ -103,7 +103,7 @@
                 </div>
             </div>
             <!-- column-P3 end-->
-            <div class="column-P3">
+            <div class="column-P3r">
                 <!--栏目-->
                 <div class="box fixh-intro" onmouseover="this.style.background='#f2fee2';" onmouseout="this.style.background='#FFFFFF'">
                     <div class="box-title">

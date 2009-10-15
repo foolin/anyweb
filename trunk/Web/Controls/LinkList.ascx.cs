@@ -20,6 +20,7 @@ public partial class Controls_LinkList : System.Web.UI.UserControl
 
     protected override void OnPreRender(EventArgs e)
     {
+        drpLink.Attributes.Add("onchange", "linkSelect()");
         List<Link> list = new LinkAgent().GetLinkList();
         if (list.Count <= 10)
         {

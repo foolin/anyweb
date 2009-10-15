@@ -1,4 +1,6 @@
-﻿.NewsList {
+﻿
+/*新闻列表样式start*/
+.NewsList {
 	border:#75BAFF 1px  solid;
 	line-height:20px;
 	background:#ECF5FF;
@@ -19,11 +21,17 @@
 
 .NewsList .time{color:#999999}
 .NewsList form {	margin:0px;}
+
+/*分页*/
 .NewsList .pagebar {
 	text-align:center;
 	padding:10px;
 	background:#FFFFFF;
 }
+/*新闻列表样式end*/
+
+
+/*添加新闻表单、表格样式start*/
 .tableForm{
 	margin:5px;
 	padding:2px;
@@ -43,3 +51,4 @@
 .tableForm textarea {border:1px #bbbbbb solid;background-color:#ffffff;}
 .tableForm .btn {padding:3px 5px;background-color:#FFF;}
 .editor td{ padding:1px; border: inherit;}
+/*添加新闻表单、表格样式end*/

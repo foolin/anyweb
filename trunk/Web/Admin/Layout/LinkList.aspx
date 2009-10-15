@@ -64,7 +64,7 @@
                     </asp:Repeater>
                 </table>
                 <div class="pagebar">
-                    <cc1:PageNaver ID="PN1" runat="server" StyleID="1">
+                    <cc1:PageNaver ID="PN1" runat="server" StyleID="1" PageSize="10">
                     </cc1:PageNaver>
                 </div>
             </div>

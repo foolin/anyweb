@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Web.master" AutoEventWireup="true" CodeFile="Company.aspx.cs" Inherits="Company" Title="商品销售" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Web.master" AutoEventWireup="true" CodeFile="GoodsSell.aspx.cs" Inherits="GoodsSell" Title="商品销售" %>
 
 <%@ Register Src="Controls/CompanyNav.ascx" TagName="CompanyNav" TagPrefix="uc1" %>
 

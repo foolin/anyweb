@@ -1,9 +1,4 @@
-﻿/*==============================================================*/
-/* Purpose:        Css for article style                       	*/
-/* Author:         Foolin 					                    */
-/* E-mail:         Foolin@126.com				                */
-/* Created on:     2009-7-14 8:58:47                            */
-/*==============================================================*/
+
 body{
 	font-size:12px;
 	font-family:Verdana, Geneva, sans-serif;
@@ -11,20 +6,16 @@ body{
 	background:url(../images/bg.gif) repeat;
 }
 
-/* div分隔 */
 .hr{
 	height:5px;
 	background:#FFF;
 	clear:both;
 }
-/* 清除浮动 */
 .clear{ clear:both;}
 
-/* 超级连接样式 */
 a{ color:#000; text-decoration:none;}
 a:hover{ color:#F00; text-decoration:underline;}
 
-/* 图片样式 */
 .img{
 	border:#CCC 1px solid;
 	background:#FFF;
@@ -32,7 +23,6 @@ a:hover{ color:#F00; text-decoration:underline;}
 	margin:3px;
 }
 
-/* 总页面固定大小 */
 .wrapper {
 	margin:0px auto;
 	width:980px;
@@ -40,12 +30,10 @@ a:hover{ color:#F00; text-decoration:underline;}
 	background:#FFF;
 }
 
-/* 页面顶部 */
 .header{
 	height:150px;
 	background:#82c02f url(../images/header.jpg) no-repeat;
 }
-/* 添加收藏 */
 .loveFav{
 	text-align:right;
 	padding:5px;
@@ -56,7 +44,6 @@ a:hover{ color:#F00; text-decoration:underline;}
 }
 .top-flash{ padding-left:10px;}
 
-/* 菜单导航 */
 .nav{
 	margin-top:0px;
 	font-size:14px;
@@ -85,27 +72,22 @@ a:hover{ color:#F00; text-decoration:underline;}
 	text-decoration:none;
 }
 
-/* 内容中容器 */
 .container{ clear:both;}
-/* 左边栏 */
 .column-sider{
 	float:left;
 	width:30%;
 }
-/* 内容栏 */
 .column-main{
 	float:left;
 	width:70%;
 }
 
-/* 底部导航链接 */
 .bottom-link{
 	height:30px;
 	line-height:30px;
 	text-align:center;
 	padding-bottom:20px;
 }
-/* 底部 */
 .footer{
 	margin-top:10px;
 	padding-top:20px;
@@ -117,7 +99,6 @@ a:hover{ color:#F00; text-decoration:underline;}
 }
 
 
-/*栏目Box*/
 .box{
 	margin:2px 2px 5px 2px;
 	border:1px solid #9dd96b;
@@ -173,7 +154,6 @@ a:hover{ color:#F00; text-decoration:underline;}
 	border-bottom:#CCC 1px dashed;
 }
 
-/*栏目BoxA*/
 .boxA{
 	margin:2px 2px 5px 2px;
 	border:1px solid #9dd96b;
@@ -213,12 +193,10 @@ a:hover{ color:#F00; text-decoration:underline;}
 	border-bottom:#CCC 1px dashed;
 }
 
-/*新闻列表时间样式*/
 .time{
 	color:#999;
 }
 
-/* 当前位置 */
 .location{
 	color:#999;
 	font-size:14px;
@@ -227,7 +205,6 @@ a:hover{ color:#F00; text-decoration:underline;}
 	line-height:25px;
 }
 
-/* 分页按钮*/
 .pagebar{
 	padding-top:5px;
 	line-height:30px;

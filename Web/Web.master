@@ -3,7 +3,7 @@
 <%@ Register Src="Controls/Footer.ascx" TagName="Footer" TagPrefix="uc2" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
     <title>广州市天河沙河供销社网</title>
     <link href="/Css/common.css" rel="stylesheet" type="text/css" />
@@ -22,7 +22,6 @@
         .subcolumn-B{ width:45%; float:left;}
         .subcolumn-C{ width:50%; float:left;}
         .column-P3 { width:33.3%; float:left;}	/* 30%漂浮 */
-        .column-P3r{ width:33.3%; float:right;} /* 30%漂浮-右 */
         +html .hr-IE7bug{ height:1px;}	/*Hack: 修复IE7下的bug*/
         /* 30%漂浮 */
         .column-P3 { width:33.3%; float:left;}

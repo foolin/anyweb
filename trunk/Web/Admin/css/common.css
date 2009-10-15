@@ -1,13 +1,12 @@
-@charset "gb2312";
-/*
+ï»¿/*
 	Author: Foolin
 	E-mail:Liufuling@msn.com
 	Create Date: 2009-5-12
-	Version£º0.1
+	Versionï¼š0.1
 */
 
 
-/*bodyÈ«¾Ö*/
+/*bodyå…¨å±€*/
 body{
 	margin:0px;
 	padding:0px;
@@ -15,12 +14,12 @@ body{
 	background:#B3D9FF url(../images/bg.jpg) repeat;
 }
 
-/*Çå³ı¸¡¶¯*/
+/*æ¸…é™¤æµ®åŠ¨*/
 .clear{
 	clear:both;
 }
 
-/*È«¾ÖÁ¬½ÓÑùÊ½*/
+/*å…¨å±€è¿æ¥æ ·å¼*/
 A:link {
 	COLOR: #000000;
 	TEXT-DECORATION: none
@@ -32,7 +31,7 @@ A:hover {
 	COLOR:#F00; TEXT-DECORATION: underline
 }
 
-/*Ò³*/
+/*é¡µ*/
 #wrap{
 	margin:0px auto;
 	padding:0px;
@@ -40,16 +39,16 @@ A:hover {
 	background:#FFF;
 }
 
-/*Í·²¿*/
+/*å¤´éƒ¨*/
 #header{}
-/*¶¥²¿*/
+/*é¡¶éƒ¨*/
 #top{
 	width:998px;
 	height:100px;
 	background:url(../images/top.jpg);
 	color:#FFF;
 }
-/*¶¥²¿²Ëµ¥*/
+/*é¡¶éƒ¨èœå•*/
 #menu{
 	background:#41a0ed;
 	height:30px;
@@ -100,9 +99,9 @@ A:hover {
 
 .part{clear:none;height:100%;overflow:hidden;}
 
-#container{overflow:hidden;}
+#container{overflow:hidden; clear:both;}
 
-/*Ö÷ÄÚÈİÇø×ó±ß*/
+/*ä¸»å†…å®¹åŒºå·¦è¾¹*/
 #main_side{
 	float:left;
 	width:250px;
@@ -113,13 +112,13 @@ A:hover {
 	border-right:#A4D1FF 1px solid;
 }
 
-/*Ö÷ÄÚÈİÇøÓÒ±ß*/
+/*ä¸»å†…å®¹åŒºå³è¾¹*/
 #main_content{
 	float:left;
 	width:746px;
 }
 
-/*Ö÷ÄÚÈİÇø×ó±ßµ¼º½*/
+/*ä¸»å†…å®¹åŒºå·¦è¾¹å¯¼èˆª*/
 #navmenu{
 	padding:5px;
 	font-size:13px;
@@ -174,11 +173,11 @@ font-size:16px;
 }
 
 
-/*ÄÚÈİÇø*/
+/*å†…å®¹åŒº*/
 #content{
 	padding:5px;
 }
-/*ÄÚÈİÇøµ¼º½ĞÅÏ¢*/
+/*å†…å®¹åŒºå¯¼èˆªä¿¡æ¯*/
 #navInfo{
 	padding-left:10px;
 	font-size:14px;
@@ -196,7 +195,7 @@ color:#FF0000;
 .time{color:#999999}
 form {	margin:0px;}
 
-/*·ÖÒ³*/
+/*åˆ†é¡µ*/
 .pagebar {
 	text-align:center;
 	padding:10px;
@@ -204,27 +203,34 @@ form {	margin:0px;}
 }
 
 
-/*µ×²¿*/
+/*åº•éƒ¨*/
 #footer{
 	background:#FFF;
 	text-align:center;
 }
 
 
-/*µ×²¿Á¬½Ó*/
+/*åº•éƒ¨è¿æ¥*/
 #footer #bottomlink{
 	background:#93C9FF;
 	height:30px;
 	line-height:30px;
 	border-bottom:#39F 1px solid;
 }
-/*µ×²¿°æÈ¨ĞÅÏ¢*/
-#footer #copyright{
+/*åº•éƒ¨ç‰ˆæƒä¿¡æ¯*/
+#footer #copyright1{
 	padding:10px 5px;
 	line-height:22px;
 }
+#footer #copyright{
+	padding:10px 5px;
+	height:80px;
+	line-height:22px;
+	background:#FFF;
+	overflow:visible;
+}
 
-/*ÕÕÆ¬ÓĞÏà¿òĞ§¹û*/
+/*ç…§ç‰‡æœ‰ç›¸æ¡†æ•ˆæœ*/
 .img{
 	background-color:#FFF;
 	border:#BBB 1px solid;

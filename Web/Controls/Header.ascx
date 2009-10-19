@@ -1,9 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Header.ascx.cs" Inherits="Controls_Header" %>
 <div class="header">
     <div class="loveFav">
-        <a href="#" onclick="return HomePage.call(this);">设为首页</a> &nbsp;|&nbsp; <a href="#"
-            onclick="return Love();">添加收藏</a> &nbsp;|&nbsp; <a href="javascript:open('about-us');">
-                联系我们</a>
+        <a href="#" onclick="return HomePage.call(this);">设为首页</a> &nbsp;|&nbsp; 
+        <a href="#" onclick="return Love();">添加收藏</a> &nbsp;|&nbsp; 
+        <a href="/Contact.aspx"> 联系我们</a>
     </div>
     <!-- loveFav end -->
     <div class="top-flash">

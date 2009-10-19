@@ -8,18 +8,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
-using AnyWeb.AnyWeb_DL;
 
-public partial class Setting_LockedUserList : AdminBase
+public partial class copyright : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
-    }
-
-    protected override void OnPreRender(EventArgs e)
-    {
-        repUser.DataSource = new UserAgent().GetUserList(1);
-        repUser.DataBind();
     }
 }

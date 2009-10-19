@@ -1253,3 +1253,49 @@ Message:System.Web.HttpCompileException: d:\工作\项目\昭明师兄项目\SVN\Web\Contr
    在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
 
 
+Time:2009-10-15 23:42:11
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/ArticleList.aspx
+UrlRef:
+Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 MasterPage.OnPreRender(EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\MasterPage.master.cs:行号 24
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-10-17 17:22:47
+IP:127.0.0.1
+Url:http://localhost/Admin/Login.aspx
+UrlRef:http://localhost/Admin/Login.aspx
+Message:System.Data.SqlClient.SqlException: 超时时间已到。在操作完成之前超时时间已过或服务器未响应。
+   在 Studio.Data.SqlDbExecutor.ExecuteProcedure(String procedureName, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 254
+   在 AnyWeb.AnyWeb_DL.SiteAgent.Login(String UserAcc, String Password) 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\SiteAgent.cs:行号 25
+   在 Login.submit_Click(Object sender, EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Admin\Login.aspx.cs:行号 40
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2009-10-17 17:24:40
+IP:127.0.0.1
+Url:http://localhost/index.aspx
+UrlRef:http://localhost/Company.aspx
+Message:System.Data.SqlClient.SqlException: 在向服务器发送请求时发生传输级错误。 (provider: TCP 提供程序, error: 0 - 远程主机强迫关闭了一个现有的连接。)
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 D:\工作\项目\昭明师兄项目\SVN\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.NoticeAgent.GetNoticeList() 位置 D:\工作\项目\昭明师兄项目\SVN\AnyWeb_DL\Agent\NoticeAgent.cs:行号 63
+   在 Controls_Notice.Page_Load(Object sender, EventArgs e) 位置 d:\工作\项目\昭明师兄项目\SVN\Web\Controls\Notice.ascx.cs:行号 17
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   在 System.Web.UI.Control.OnLoad(EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

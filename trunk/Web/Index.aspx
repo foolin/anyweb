@@ -59,14 +59,14 @@
                 <!-- subcontainer end -->
                 <!-- subcontainer  start -->
                 <div class="subcontainer">
-                    <div class="subcolumn-C">
+                    <div class="subcolumn-A">
                         <!--栏目-->
                         <div class="box fixh-B">
                             <uc2:ArticleList ID="ArticleList1" ColumnID="2" runat="server" />
                         </div>
                     </div>
                     <!--subcolumn-C end-->
-                    <div class="subcolumn-C">
+                    <div class="subcolumn-B">
                         <!--栏目-->
                         <div class="box fixh-B">
                             <uc2:ArticleList ID="ArticleList2" ColumnID="3" runat="server" />

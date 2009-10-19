@@ -53,8 +53,7 @@
         </div>
         <div id="footer">
             <div id="bottomlink">
-                <a href="index.html">首页</a> | <a href="#">底部连接</a> | <a href="#">底部连接</a> | <a href="#">
-                    底部连接</a> | <a href="#">底部连接</a>
+                <a href="/Index.aspx">门户网首页</a> | <a href="/Admin/Default.aspx">首页</a>
             </div>
             <div id="copyright">
                 本系统由Anyweb团队开发 版权所有:Anyweb team

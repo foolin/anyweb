@@ -56,7 +56,7 @@ public partial class Layout_LinkEdit : AdminBase
             WebAgent.SuccAndGo("修改友情成功", "LinkList.aspx");
         }
         else
-            WebAgent.AlertAndBack("修改友情失败");
+            WebAgent.AlertAndBack("修改友情链接失败");
     }
 
     protected string UploadImage()

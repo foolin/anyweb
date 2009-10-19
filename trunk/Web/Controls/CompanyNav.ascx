@@ -7,6 +7,7 @@
             <li>--- <a href="Company.aspx">供销社介绍</a> ---</li>
             <li>--- <a href="Department.aspx">机构职能</a> ---</li>
             <li>--- <a href="LkdMarket.aspx">龙口东市场</a> ---</li>
+            <li>--- <a href="#">产品销售</a> ---</li>
             <li>--- <a href="HR.aspx">人力资源</a> ---</li>
             <li>--- <a href="Leadership.aspx">领导分工</a> ---</li>
             <li>--- <a href="LeaderContact.aspx">领导邮箱</a> ---</li>

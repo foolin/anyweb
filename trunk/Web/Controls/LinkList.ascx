@@ -16,8 +16,27 @@
     </div>
 </div>
 <script type="text/jscript">
+//    function linkSelect(){
+//        var obj = document.getElementById("<%=drpLink.ClientID %>");
+//        window.open(obj.value,"","","");
+//    }
+    function ForceWindow ()
+    {
+        this.r = document.documentElement;
+        this.f = document.createElement("FORM");
+        this.f.target = "_blank";
+        this.f.method = "post";
+        this.r.insertBefore(this.f, this.r.childNodes[0]);
+    }
+    ForceWindow.prototype.open = function (sUrl)
+    {
+        this.f.action = sUrl;
+        this.f.submit();
+    }
     function linkSelect(){
+        var myWindow = new ForceWindow(); 
         var obj = document.getElementById("<%=drpLink.ClientID %>");
-        window.open(obj.value,"","","");
+        //window.showModelessDialog(obj.value,'dialogwin','scroll:0;status:0;help:1;resizable:1;dialogWidth:480px;dialogHeight:320px');
+        myWindow.open(obj.value);
     }
 </script>

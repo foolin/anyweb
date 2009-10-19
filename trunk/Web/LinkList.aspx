@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Web.master" AutoEventWireup="true" CodeFile="NoticeList.aspx.cs" Inherits="NoticeList" Title="流动通知" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Web.master" AutoEventWireup="true" CodeFile="LinkList.aspx.cs" Inherits="LinkList" Title="友情链接" %>
 <%@ Register Src="Controls/CompanyNav.ascx" TagName="CompanyNav" TagPrefix="uc1" %>
 <%@ Register Src="Controls/Contact.ascx" TagName="Contact" TagPrefix="uc1" %>
 <%@ Register TagPrefix="cc1" Namespace="Studio.Web" Assembly="Studio" %>
@@ -16,22 +16,16 @@
             <div class="column-main">
                 <div class="box">
                     <div class="box-title">
-                        <span class="titletxt">--==流动通知==--</span>
+                        <span class="titletxt">--==友情链接==--</span>
                     </div>
                     <div class="box-content">
-                        <table>
-                            <asp:Repeater ID="repNotice" runat="server">
+                        <div class="picLinks" style="text-align:center;">
+                            <asp:Repeater ID="repImage" runat="server">
                                 <ItemTemplate>
-                                   <tr>
-                                       <td>
-                                           <a href="article.aspx?id=<%#Eval("NotiArtiID") %>" title="<%#Eval("Title") %>"><%#Studio.Web.WebAgent.GetLeft(Eval("Title").ToString(), 20)%></a></td>
-                                       <td style="width:120px; color:Gray;"><%#Eval("NotiCreateAt", "{0:yyyy-MM-dd HH:mm}")%></td>
-                                   </tr>
+                                    <a href="<%#Eval("LinkUrl") %>" target="_blank">
+                                        <img src="<%#Eval("LinkImage") %>" class="img"  width="170" height="80" alt="<%#Eval("LinkName") %>" /></a>
                                 </ItemTemplate>
                             </asp:Repeater>
-                        </table>
-                        <div class="pagebar">
-                            <cc1:PageNaver ID="PN1" runat="server" StyleID="1"></cc1:PageNaver>
                         </div>
                     </div> 
                 </div>
@@ -42,3 +36,4 @@
     </div>
     <!-- main end -->
 </asp:Content>
+

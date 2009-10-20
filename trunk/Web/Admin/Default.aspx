@@ -14,7 +14,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
     <div id="navmenu">
         <dl>
-            <dt><a href="/Content/ArticleAdd.aspx">添加文档</a></dt>
+        <dt>系统管理</dt>
+	    <dd>
+		<a href="/Admin/Layout/ArticleAdd.aspx">添加文档</a></dd>
             <dd>
                 <a href="/Admin/Layout/LinkAdd.aspx">添加链接</a></dd>
             <dd>

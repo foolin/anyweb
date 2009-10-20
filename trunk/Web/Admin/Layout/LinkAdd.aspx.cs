@@ -20,6 +20,11 @@ public partial class Layout_LinkAdd : AdminBase
 
     }
 
+    protected override void OnPreRender(EventArgs e)
+    {
+        txtLinkSort.Text = (SiteInfo.SiteLinkCount + 1).ToString();
+    }
+
     protected void btnAddLink_Click(object sender, EventArgs e)
     {
         LinkAgent agent = new LinkAgent();
@@ -37,6 +42,7 @@ public partial class Layout_LinkAdd : AdminBase
             WebAgent.AlertAndBack("请上传图片！");
         if (agent.AddLink(lnk))
         {
+            SiteInfo.SiteLinkCount += 1;
             EventLog log = new EventLog();
             log.EvenDesc = "添加友情链接" + lnk.LinkName + "成功.";
             log.EvenAt = DateTime.Now;

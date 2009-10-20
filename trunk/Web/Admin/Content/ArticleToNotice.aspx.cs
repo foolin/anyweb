@@ -39,6 +39,7 @@ public partial class Admin_Content_ArticleToNotice : AdminBase
                     n.NotiCreateAt = DateTime.Now;
                     if (new NoticeAgent().AddNotice(n) > 0)
                     {
+                        SiteInfo.SiteNoticeCount += 1;
                         EventLog log = new EventLog();
                         log.EvenDesc = "添加流动通知" + ar.ArtiTitle + "成功.";
                         log.EvenAt = DateTime.Now;

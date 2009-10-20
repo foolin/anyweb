@@ -19,6 +19,12 @@ public partial class Admin_Content_PhotoAdd : AdminBase
     {
 
     }
+
+    protected override void OnPreRender(EventArgs e)
+    {
+        txtPhotSort.Text = (SiteInfo.SitePicCount + 1).ToString();    
+    }
+
     protected void btnAddPhoto_Click(object sender, EventArgs e)
     {
         PhotoAgent agent = new PhotoAgent();

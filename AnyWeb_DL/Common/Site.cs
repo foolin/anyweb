@@ -24,6 +24,9 @@ namespace AnyWeb.AnyWeb_DL
             this.SiteArticleCount = (int)row["SiteArticleCount"];
             this.SiteColumnCount = (int)row["SiteColumnCount"];
             this.SiteLeaveCount = (int)row["SiteLeaveCount"];
+            this.SitePicCount = (int)row["SitePicCount"];
+            this.SiteNoticeCount = (int)row["SiteNoticeCount"];
+            this.SiteLinkCount = (int)row["SiteLinkCount"];
         }
 
         private int _SiteID;
@@ -155,6 +158,37 @@ namespace AnyWeb.AnyWeb_DL
             get { return _NavigationList; }
             set { _NavigationList = value; }
         }
+
+        private int _SitePicCount;
+        /// <summary>
+        /// 图片数
+        /// </summary>
+        public int SitePicCount
+        {
+            get { return _SitePicCount; }
+            set { _SitePicCount = value; }
+        }
+
+        private int _SiteNoticeCount;
+        /// <summary>
+        /// 流动通知数
+        /// </summary>
+        public int SiteNoticeCount
+        {
+            get { return _SiteNoticeCount; }
+            set { _SiteNoticeCount = value; }
+        }
+
+        private int _SiteLinkCount;
+        /// <summary>
+        /// 链接数
+        /// </summary>
+        public int SiteLinkCount
+        {
+            get { return _SiteLinkCount; }
+            set { _SiteLinkCount = value; }
+        }
+	
 
         /// <summary>
         /// 获取用户信息

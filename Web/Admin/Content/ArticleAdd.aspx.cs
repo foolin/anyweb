@@ -23,6 +23,7 @@ public partial class Content_ArticleAdd : AdminBase
     {
         drpColumn.DataSource = new ColumnAgent().GetColumnListByArticle();
         drpColumn.DataBind();
+        txtOrder.Text = (this.SiteInfo.SiteArticleCount + 1).ToString();
     }
 
     protected void btnAddArticle_Click(object sender, EventArgs e)
@@ -41,6 +42,7 @@ public partial class Content_ArticleAdd : AdminBase
 
         if (new ArticleAgent().AddArticle(ar) > 0)
         {
+            this.SiteInfo.SiteArticleCount += 1;
             EventLog log = new EventLog();
             log.EvenDesc = "添加文章" + ar.ArtiTitle + "成功.";
             log.EvenAt = DateTime.Now;

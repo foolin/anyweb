@@ -44,8 +44,6 @@
                         <td>
                             创建时间</td>
                         <td>
-                            置顶</td>
-                        <td>
                             操作</td>
                     </tr>
                     <asp:Repeater ID="repArticle" runat="server">
@@ -65,9 +63,6 @@
                                 <td>
                                     <%#Eval("ArtiCreateAt")%>
                                 </td>
-                                <td>
-                                    <img src='<%#(bool)Eval("ArtiIsTop")==true ?"/images/topArticle.gif" :"/images/none.gif"%>'
-                                        alt="" /></td>
                                 <td>
                                     <a href="ArticleEdit.aspx?id=<%#Eval("ArtiID") %>" title="修改栏目信息">修改</a></td>
                             </tr>

@@ -16,7 +16,7 @@
         <dl>
         <dt>系统管理</dt>
 	    <dd>
-		<a href="/Admin/Layout/ArticleAdd.aspx">添加文档</a></dd>
+		<a href="/Admin/Content/ArticleAdd.aspx">添加文档</a></dd>
             <dd>
                 <a href="/Admin/Layout/LinkAdd.aspx">添加链接</a></dd>
             <dd>

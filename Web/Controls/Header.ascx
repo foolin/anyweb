@@ -29,7 +29,7 @@
         <li><a href="LkdMarket.aspx">龙口东市场</a></li>
         <li><a href="HR.aspx">人力资源</a></li>
         <li><a href="Contact.aspx">联系我们</a></li>
-        <li style="float:right; padding-right:5px; font-size:12px; font-weight:normal; overflow:hidden; width:210px;"><span id="time">加载中...</span></li>
+        <li style="float:right; padding-right:5px;font-size:12px; font-weight:normal; width:210px; height:35px;overflow:hidden;"><span id="time">加载中...</span></li>
     </ul>
 </div>
 <script type="text/javascript" language="javascript">
@@ -37,10 +37,10 @@
 //时间,每秒刷新
 function $(o){ return typeof(o)=="string" ? document.getElementById(o) : o;}
 setInterval("$('time').innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
-//setInterval("$('time').innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);
 -->
 </script>
 <!-- nav end -->
 <div class="hr">
 </div>
+
 

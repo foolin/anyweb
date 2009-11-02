@@ -7,7 +7,7 @@
     </div>
     <div class="copyright">
         广州市天河区沙河供销社<br />
-        地址：广州市天河区沙河供销社 电话：0203934111<br />
+        地址：天河区龙口东路139号后座四楼 电话：(020)87563088<br />
         Copyright&copy; 2009 Anyweb Studio， All rights reserved。
     </div>
 </div>

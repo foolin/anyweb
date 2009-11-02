@@ -26,12 +26,7 @@
                     </div> 
                     <!-- art-info end --> 
                     <div class="art-content" id="art-content"> 
-                        
-		                <p>
-		                
-		                
-		                </p> 
-                 
+                        <p>投诉电话：87590122 （人事行政科电话）</p>
                     </div> 
                     <!-- art-content end --> 
                 </div> 

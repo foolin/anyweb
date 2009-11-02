@@ -12,7 +12,7 @@ using Studio.Web;
 using AnyWeb.AnyWeb_DL;
 using Studio.Security;
 
-public partial class Login : System.Web.UI.Page
+public partial class LoginIn : System.Web.UI.Page
 {
     protected string valcode = "1234";
     protected void Page_Load(object sender, EventArgs e)

@@ -3,7 +3,6 @@
 <%@ Register Src="Controls/CompanyNav.ascx" TagName="CompanyNav" TagPrefix="uc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div class="location">您的位置： <a href="Index.aspx">首页</a> → 龙口东市场</div>
     <div class="main">
         <div class="container">
             <div class="column-sider">

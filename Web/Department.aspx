@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Web.master" AutoEventWireup="true" CodeFile="Department.aspx.cs" Inherits="Department" Title="机构职能" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Web.master" AutoEventWireup="true" CodeFile="Department.aspx.cs" Inherits="Department" Title="部门架构" %>
 
 <%@ Register Src="Controls/CompanyNav.ascx" TagName="CompanyNav" TagPrefix="uc1" %>
 

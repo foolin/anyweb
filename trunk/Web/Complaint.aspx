@@ -26,7 +26,7 @@
                     </div> 
                     <!-- art-info end --> 
                     <div class="art-content" id="art-content"> 
-                        <p>投诉电话：87590122 （人事行政科电话）</p>
+                        <p>人事科电话：020-87590122</p>
                     </div> 
                     <!-- art-content end --> 
                 </div> 

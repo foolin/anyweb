@@ -16,7 +16,7 @@
             
                 <div class="article"> 
                     <h3 class="art-title"> 
-                        商品销售
+                        商品经营
                     </h3> 
                     <div class="art-info"> 
                         [字体： <a href="javascript:fontZoomMax()">大</a> <a href="javascript:fontZoomMid()">中</a> <a href="javascript:fontZoomMin()">小</a> ] &nbsp;[<a href="javascript:window.print()">打印</a> ] &nbsp;[<a href="javascript:window.close()">关闭</a>]
@@ -24,7 +24,7 @@
                     </div> 
                     <!-- art-info end --> 
                     <div class="art-content" id="art-content">                         
-		                <p>我社充分发挥供销社供销渠道广，经销优质商品的优势，秉承“信誉立足、品质取胜、用心服务、创新致远”的宗旨，不断开拓商品经营模式、完善配送服务，竭诚为客户服务。</p>
+		                <p>我社充分发挥供销社渠道广，经销优质商品的优势，秉承“信誉立足、品质取胜、用心服务、创新致远”的宗旨，不断开拓商品经营模式、完善配送服务，竭诚为客户服务。</p>
                     </div> 
                     <!-- art-content end --> 
                 </div> 

@@ -167,7 +167,7 @@ return mediafilereturn;
 			</Script>
 	</HEAD>
 	<BODY bgColor="menu" topMargin="0" leftmargin="15">
-		<form name="mediamanage" method="post" action="/uploadimage.aspx?type=swf,mov,asf,asx,wmv,wma,wmf,avi,mpeg,mpg,rm,rmvb,mp3,ra,wav,mid,midi" enctype="multipart/form-data"
+		<form name="mediamanage" method="post" action="/Admin/uploadimage.aspx?type=swf,mov,asf,asx,wmv,wma,wmf,avi,mpeg,mpg,rm,rmvb,mp3,ra,wav,mid,midi" enctype="multipart/form-data"
 			target="innerF">
 			<table width="100%" border="0" align="center" cellpadding="0" cellspacing="2">
 				<tr>

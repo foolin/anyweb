@@ -112,7 +112,7 @@ function inserObject1(objvalue,insertLink,Align) {
 		<LINK href="editor_dialog.css" type="text/css" rel="stylesheet">
 	</HEAD>
 	<BODY bgColor="menu" leftMargin="15">
-		<form name="FileManage" method="post" action="uploadimage.aspx?type=gif,jpg,png,bmp"
+		<form name="FileManage" method="post" action="/Admin/uploadimage.aspx?type=gif,jpg,png,bmp"
 			enctype="multipart/form-data" target="innerF">
 			<table cellSpacing="2" cellPadding="0" width="100%" align="center" border="0">
 				<tr>

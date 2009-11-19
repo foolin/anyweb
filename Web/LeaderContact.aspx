@@ -25,13 +25,7 @@
                     </div> 
                     <!-- art-info end --> 
                     <div class="art-content" id="art-content"> 
-                        <p>主任：罗学葆</p>
-                        <p>地址：天河区龙口东路139号后座四楼</p>                 
-                        <p>邮编：510635</p>
-                        <p>电话：(020)87563088</p>
-                        <p>传真：(020)87597663</p>
-                        <p>手机：13535379393</p>
-                        <p>邮箱：luoxb_shs@163.com;gzthshaheshe@163.com</p>
+                        <p>罗学葆主任：luoxb_shs@163.com</p>
                     </div> 
                     <!-- art-content end --> 
                 </div> 

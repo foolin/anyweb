@@ -5,7 +5,7 @@
     <div class="box-content">
         <ul style="font-size:14px; font-weight:bold; color:#666;">
             <li>--- <a href="Company.aspx">供销社介绍</a> ---</li>
-            <li>--- <a href="Department.aspx">机构职能</a> ---</li>
+            <li>--- <a href="Department.aspx">部门架构</a> ---</li>
             <li>--- <a href="LkdMarket.aspx">龙口东市场</a> ---</li>
             <li>--- <a href="GoodsSell.aspx">商品销售</a> ---</li>
             <li>--- <a href="HR.aspx">人力资源</a> ---</li>

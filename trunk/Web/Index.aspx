@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Web.master" AutoEventWireup="true" CodeFile="Index.aspx.cs"
-    Inherits="Index" Title="广州市天河沙河供销社网" %>
+    Inherits="Index" Title="广州市天河沙河供销社合作网" %>
 
 <%@ Register Src="Controls/Contact.ascx" TagName="Contact" TagPrefix="uc5" %>
 

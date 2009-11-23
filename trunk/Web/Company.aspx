@@ -17,7 +17,7 @@
                 <div class="article"> 
                     <h3 class="art-title"> 
                         
-                        广州市天河区沙河供销社
+                        广州市天河区沙河供销合作社
                     </h3> 
                     <div class="art-info"> 
                         [字体： <a href="javascript:fontZoomMax()">大</a> <a href="javascript:fontZoomMid()">中</a> <a href="javascript:fontZoomMin()">小</a> ] &nbsp;[<a href="javascript:window.print()">打印</a> ] &nbsp;[<a href="javascript:window.close()">关闭</a>]

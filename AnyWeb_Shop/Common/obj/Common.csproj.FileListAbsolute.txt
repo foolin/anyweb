@@ -1,0 +1,35 @@
+E:\BizShopIndie\Common\bin\Debug\Common.dll
+E:\BizShopIndie\Common\bin\Debug\Common.pdb
+E:\BizShopIndie\Common\bin\Debug\Studio.dll
+E:\BizShopIndie\Common\bin\Debug\Studio.pdb
+E:\BizShopIndie\Common\obj\Debug\ResolveAssemblyReference.cache
+E:\BizShopIndie\Common\obj\Debug\Common.dll
+E:\BizShopIndie\Common\obj\Debug\Common.pdb
+E:\BizShopIndie\Common\bin\Release\Common.dll
+E:\BizShopIndie\Common\bin\Release\Common.pdb
+E:\BizShopIndie\Common\bin\Release\Studio.dll
+E:\BizShopIndie\Common\bin\Release\Studio.XmlSerializers.dll
+E:\BizShopIndie\Common\obj\Release\ResolveAssemblyReference.cache
+E:\BizShopIndie\Common\obj\Release\Common.dll
+E:\BizShopIndie\Common\obj\Release\Common.pdb
+E:\复件 BizShopIndie\Common\bin\Debug\Common.dll
+E:\复件 BizShopIndie\Common\bin\Debug\Common.pdb
+E:\复件 BizShopIndie\Common\bin\Debug\Studio.dll
+E:\复件 BizShopIndie\Common\bin\Debug\Studio.pdb
+E:\复件 BizShopIndie\Common\obj\Debug\ResolveAssemblyReference.cache
+E:\复件 BizShopIndie\Common\obj\Debug\Common.dll
+E:\复件 BizShopIndie\Common\obj\Debug\Common.pdb
+F:\Program Files\Microsoft Visual Studio\C#\BizShopIndie\Common\bin\Debug\Common.dll
+F:\Program Files\Microsoft Visual Studio\C#\BizShopIndie\Common\bin\Debug\Common.pdb
+F:\Program Files\Microsoft Visual Studio\C#\BizShopIndie\Common\bin\Debug\Studio.dll
+F:\Program Files\Microsoft Visual Studio\C#\BizShopIndie\Common\bin\Debug\Studio.pdb
+F:\Program Files\Microsoft Visual Studio\C#\BizShopIndie\Common\obj\Debug\ResolveAssemblyReference.cache
+F:\Program Files\Microsoft Visual Studio\C#\BizShopIndie\Common\obj\Debug\Common.dll
+F:\Program Files\Microsoft Visual Studio\C#\BizShopIndie\Common\obj\Debug\Common.pdb
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Common\bin\Debug\Common.dll
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Common\bin\Debug\Common.pdb
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Common\bin\Debug\Studio.dll
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Common\bin\Debug\Studio.pdb
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Common\obj\Debug\ResolveAssemblyReference.cache
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Common\obj\Debug\Common.dll
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Common\obj\Debug\Common.pdb

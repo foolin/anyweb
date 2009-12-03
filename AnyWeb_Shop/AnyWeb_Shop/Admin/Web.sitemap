@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title="常用操作"  description="常用操作">
+    <siteMapNode url="/Default.aspx" title="商城首页"  description="商城首页" />
+
+    <siteMapNode url="/OrderList.aspx" title="订单管理"  description="订单管理" >
+      <siteMapNode url="/OrderList.aspx" title="订单管理"  description="订单管理" >
+      </siteMapNode>
+      <siteMapNode url="/OrderItem.aspx" title="订单明细" roles ="9" description="订单明细">
+      </siteMapNode>
+      <siteMapNode url ="/PaymentModeList.aspx" title ="支付方式管理" description ="支付方式管理" >
+        <siteMapNode url ="/ModeHandle.aspx" title ="编辑支付方式" description ="编辑支付方式" >
+        </siteMapNode>
+        <siteMapNode url ="/SysPaymentMode.aspx" title ="系统支付方式" description ="系统支付方式" >
+        </siteMapNode>
+        <siteMapNode url="/SysPaymentModeParticular.aspx" title="系统支付详情"  description="系统支付详情" ></siteMapNode>
+      </siteMapNode>
+
+      <siteMapNode url ="/DeliverMode.aspx" title ="配送方式管理" description ="配送方式管理" >
+        <siteMapNode url ="/DeliverModeHandle.aspx" title ="编辑配送方式" description ="编辑配送方式" >
+        </siteMapNode>
+        <siteMapNode url ="/SysDeliverList.aspx" title ="系统配送方式" description ="系统配送方式" >
+        </siteMapNode>
+        <siteMapNode url ="/SysDeliverParticular.aspx" title ="配送方式详情" description ="配送方式详情" >
+        </siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode url="/User/UserList.aspx"  title="客户信息管理" description="客户信息管理">
+      <siteMapNode url="/User/UserList.aspx"  title="会员管理" description="会员管理"></siteMapNode>
+      <siteMapNode url="/User/UserGrade.aspx" title="会员等级设置" description="会员等级设置"></siteMapNode>
+      <siteMapNode url="/User/Agreement.aspx"  title="协议管理" description="注册协议管理"></siteMapNode>
+      <siteMapNode url="/User/UserInfo.aspx"  title="会员详细信息" roles ="9" description="会员详细信息"></siteMapNode>
+      <siteMapNode url="/CommentList.aspx" title="评论管理"  description="评论管理" >
+        <siteMapNode url="/CommentReplay.aspx" title="回复评论"  description="回复评论" roles="9"></siteMapNode>
+      </siteMapNode>
+      <siteMapNode url="/ComplaintsList.aspx" title="投诉管理" description="投诉管理">
+        <siteMapNode url="/ComplaintsList.aspx" title="投诉管理" description="投诉管理">
+        </siteMapNode>
+        <siteMapNode url="/ComplaintsEdit.aspx" title="回复投诉" description="回复投诉" roles="9"></siteMapNode>
+      </siteMapNode>
+      <siteMapNode url="/MessageList.aspx" title="留言薄"  description="留言薄" >
+        <siteMapNode url="/MessageReplay.aspx" title="回复信息"  description="回复信息" roles="9" ></siteMapNode>
+      </siteMapNode>
+      <siteMapNode url="/AfficheList.aspx" title="公告管理" description="公告管理">
+        <siteMapNode url="/AfficheList.aspx" title="系统公告管理" description="系统公告管理"></siteMapNode>
+        <siteMapNode url="/AfficheEdit.aspx" title="编辑系统公告" roles ="9" description="编辑系统公告"></siteMapNode>
+        <siteMapNode url="/UserAfficheList.aspx" title="用户公告管理" description="用户公告管理"></siteMapNode>
+        <siteMapNode url="/UserAfficheEdit.aspx" title="编辑用户公告" description="编辑用户公告"></siteMapNode>
+      </siteMapNode>
+
+    </siteMapNode>
+
+    <siteMapNode url="/GoodsCategorhandle.aspx" title="商品管理"  description="商品管理" >
+      
+      <siteMapNode url="/GoodsCategoryList.aspx" title="商品类别管理"  description="商品类别管理"> </siteMapNode>
+
+      <siteMapNode url="/GoodsCategorhandle.aspx" title="编辑商品类别" roles ="9"  description="编辑商品" />
+      <siteMapNode url="/GoodsList.aspx" title="商品管理"  description="商品管理" >
+
+        <siteMapNode url="/GoodsEdit.aspx" title="编辑商品"  description="编辑商品" ></siteMapNode>
+        <siteMapNode url="/GoodsImage.aspx" title="商品相关图片" description="商品相关图片" ></siteMapNode>
+      </siteMapNode>
+     
+    </siteMapNode>
+      <siteMapNode url="/GoodsFromSmt.aspx" title="导入商脉通产品"  description="导入商脉通产品" >
+        <siteMapNode url="/GoodsFromSmt.aspx" title="导入商脉通产品(按产品)"  description="导入商脉通产品(按产品)" ></siteMapNode>
+        <siteMapNode url="/GoodsListFromSmt.aspx" title="导入商脉通产品(按系列)"  description="导入商脉通产品(按系列)" ></siteMapNode>
+     
+    </siteMapNode>
+
+
+
+    <siteMapNode url="/ShopArticleList.aspx" title="文章管理"  description="文章管理" >
+      <siteMapNode url="/ShopArticleList.aspx" title="商城服务指南" description="商城服务指南">
+        <siteMapNode url="/ShopArticleEdit.aspx" title="商城指南编辑" description="商城指南编辑"></siteMapNode>
+      </siteMapNode>
+      <siteMapNode url="/ArticleCategoryList.aspx" title="自定义文章栏目"  description="自定义文章栏目" >
+        <siteMapNode url="/SingerArticleEdit.aspx" title="编辑单篇文章" roles ="9" description="编辑单篇文章" ></siteMapNode>
+        <siteMapNode url="/ArticleCategoryHandle.aspx" title="编辑文章栏目" roles ="9"  description="编辑文章栏目" ></siteMapNode>
+      </siteMapNode>
+      
+      <siteMapNode url="/ArticleList.aspx" title="自定义文章管理"  description="自定义文章管理" >
+        <siteMapNode url="/ArticleEdit.aspx" title="编辑自定义文章"  description="编辑自定义文章" ></siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+    
+
+
+    <siteMapNode url="/ShopSetting/SetDefault.aspx" title="版面设置" description="版面设置">
+      
+      <siteMapNode url ="/ShopSetting/SetDefault.aspx" description ="首页组件一览" title ="首页组件一览"></siteMapNode>
+      
+      <siteMapNode url="/ShopSetting/ChangeMode.aspx" title="模版管理" description="模版管理"></siteMapNode>
+
+      <siteMapNode url="/ShopSetting/SetHomeLeftWidget.aspx" title="组件管理" description="组件管理">
+        <siteMapNode url="/ShopSetting/SetHomeLeftWidget.aspx" title="首页区域管理" description="首页区域管理">
+          <siteMapNode url="/ShopSetting/SetHomeLeftWidget.aspx" title="首页区域组件管理" description="首页侧边区域管理"></siteMapNode>
+          <siteMapNode url="/ShopSetting/SetHomeContentWidget.aspx" title="首页内容区域管理" description="首页内容区域管理"></siteMapNode>
+        </siteMapNode>
+
+        <siteMapNode url="/ShopSetting/SetListLeftWidget.aspx" title="侧边区域管理" description="侧边区域管理">
+          <siteMapNode url="/ShopSetting/SetListLeftWidget.aspx" title="列表页侧边区域" description="列表页侧边区域"></siteMapNode>
+          <siteMapNode url="/ShopSetting/SetGoodsLeftWidget.aspx" title="商品页侧边区域" description="商品页侧边区域"></siteMapNode>
+          <siteMapNode url="/ShopSetting/SetArticleLeftWidget.aspx" title="文章页侧边区域" description="文章页侧边区域"></siteMapNode>
+          <siteMapNode url="/ShopSetting/SetCarLeftWidget.aspx" title="购物车页侧边区域" description="购物车页侧边区域"></siteMapNode>
+          <siteMapNode url="/ShopSetting/SetUserLeftWidget.aspx" title="用户中心侧边区域" description="用户中心侧边区域"></siteMapNode>
+        </siteMapNode>
+      </siteMapNode>
+
+    
+     
+    </siteMapNode>
+    
+
+    <siteMapNode url ="/BasicInfoManage.aspx" title ="高级系统设置" description ="高级系统设置">
+      <siteMapNode url ="/BasicInfoManage.aspx" title ="商户资料管理" description ="商户资料管理" >
+        <siteMapNode url ="/AboutUs.aspx" title ="关于我们" description ="关于我们" >
+        </siteMapNode>
+        <siteMapNode url="/ContactUs.aspx" title="联系方式" description="联系方式">
+          <siteMapNode url="/ContactUs.aspx" title="设置联系方式" description="设置联系方式"></siteMapNode>
+        </siteMapNode>
+        <siteMapNode url="/Service.aspx" title="服务条款" description="服务条款"></siteMapNode>
+      </siteMapNode>
+      <siteMapNode url="/SetMailBox.aspx" title="设置邮箱" description="设置邮箱"></siteMapNode>
+      <siteMapNode url="/SetAdminPass.aspx" title="设置登陆信息" description="设置登陆信息"></siteMapNode>
+   
+
+      <siteMapNode url="/SEO.aspx" title="SEO管理" description="SEO管理"></siteMapNode>
+      <siteMapNode url="/LogList.aspx" title="日志管理" description="日志管理"></siteMapNode>
+
+      
+    </siteMapNode >
+
+    <siteMapNode url="/SlideList.aspx" title="页面高级设置" description="页面高级设置">
+      <siteMapNode url="/SlideList.aspx" title="flash动画管理" description="flash动画管理">
+        <siteMapNode url="/SlideEidt.aspx" title="编辑flash动画" description="编辑flash动画" roles="9">
+        </siteMapNode>
+      </siteMapNode>
+      <siteMapNode url="/AdvertisementList.aspx" title="广告管理" description="广告管理">
+        <siteMapNode url="/AdvertisementEdit.aspx" title="编辑广告" roles ="9" description="编辑广告"></siteMapNode>
+      </siteMapNode>
+      <siteMapNode url="/ShopSetting/SetCategory.aspx" description ="导航设置" title ="导航设置" >
+      </siteMapNode>
+      <siteMapNode url="/Head.aspx" description ="页头设置" title ="页头设置" >
+      </siteMapNode>
+      <siteMapNode url="/Footer.aspx" description ="页脚设置" title ="页脚设置" >
+      </siteMapNode>
+
+      <siteMapNode url="/LinkList.aspx" title="友情链接" description="友情链接">
+        <siteMapNode url="/LinkEdit.aspx" title="编辑友情链接" roles ="9" description="编辑友情链接"></siteMapNode>
+      </siteMapNode>
+      
+      
+      <siteMapNode url="/ShopSetting/SetHomePageCss.aspx" title="自定义CSS" description="自定义首页CSS">
+        <siteMapNode url="/ShopSetting/SetHomePageCss.aspx" title="自定义首页CSS" description="自定义首页CSS"></siteMapNode>
+        <siteMapNode url="/ShopSetting/SetPageCss.aspx" title="自定义内页CSS" description="自定义内页CSS"></siteMapNode>
+        <siteMapNode url="/ShopSetting/SetListCss.aspx" title="自定义列表页CSS" description="自定义列表页CSS"></siteMapNode>
+        <siteMapNode url="/ShopSetting/SetGoodsCss.aspx" title="自定义商品页CSS" description="自定义商品页CSS"></siteMapNode>
+        <siteMapNode url="/ShopSetting/SetArticleCss.aspx" title="自定义文章页CSS" description="自定义文章页CSS"></siteMapNode>
+        <siteMapNode url="/ShopSetting/SetOrderCss.aspx" title="自定义购物车页CSS" description="自定义购物车页CSS"></siteMapNode>
+      </siteMapNode>
+    
+    </siteMapNode>
+   
+  </siteMapNode>
+</siteMap>
+
+

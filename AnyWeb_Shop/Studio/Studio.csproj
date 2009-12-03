@@ -1,0 +1,327 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2FEB2769-C1A2-40C6-ACB0-2214C1E7DF41}</ProjectGuid>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Studio</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Studio</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <WebReference_EnableProperties>true</WebReference_EnableProperties>
+    <WebReference_EnableSQLTypes>false</WebReference_EnableSQLTypes>
+    <WebReference_EnableLegacyEventingModel>true</WebReference_EnableLegacyEventingModel>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Data.OracleClient">
+      <Name>System.Data.OracleClient</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ajax\ListPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\ObjPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Array\Collection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Array\IdObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Array\ISortable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Array\IXmlable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Array\KeyValueCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Array\ObjectList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Array\RandomSeek.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Array\TreeObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Array\TreeObjectCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\DbAgent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\DbFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\IDbExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\OleDbExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\OracleDbExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\SqlDbExecutor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\FileAgent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\LogAgent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\ResponseConvFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mail\EMail.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Net\FtpAgent.cs" />
+    <Compile Include="Net\HttpAgent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Decryptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\DecryptTransformer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Encryptor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\EncryptTransformer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\KeywordAgent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\KeywordFilter.cs" />
+    <Compile Include="Security\LoginPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Security\Secure.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\SSOAgent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\Ticket.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\UserInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web References\Passport\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Web\ArticleICON.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\Comment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\ControlDesigner.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\Faces.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\HtmlEditor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\ICONSchema.cs">
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Web\Mails.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\PageNaver.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\RegexString.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\SkinedControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\TinyMce.cs" />
+    <Compile Include="Web\WebAgent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\WebEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Xml\Rss.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Xml\XmlAgent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="Web References\Passport\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Passport\sso.disco" />
+    <None Include="Web References\Passport\sso.wsdl" />
+    <WebReferenceUrl Include="http://public.anyp.cn/sso.asmx">
+      <RelPath>Web References\Passport\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

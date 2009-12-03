@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XMenuSchema" targetNamespace="http://schema.anyp.com/xmenu-1.0" elementFormDefault="qualified" xmlns="http://schema.anyp.com/xmenu-1.0" xmlns:mstns="http://schema.anyp.com/xmenu-1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="xmenu">
+    <xs:complexType>
+      <xs:sequence maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="xMenuItem">
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="xMenuItem">
+    <xs:complexType>
+      <xs:sequence maxOccurs="unbounded" minOccurs="0">
+        <xs:element ref="xMenuItem">
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:int" />
+      <xs:attribute name="name" type="xs:string" />
+      <xs:attribute name="url" type="xs:string" />
+      <xs:attribute name="description" type="xs:string" />
+      <xs:attribute name="module" type="xs:int" />
+      <xs:attribute name="function" type="xs:int" />
+      <xs:attribute name="visible" type="xs:boolean" />
+      <xs:attribute name="sort" type="xs:int" />
+      <xs:attribute name="type" type="xs:int" />
+      <xs:attribute name="icon" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://www.AnyP.cn/Services" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://www.AnyP.cn/Services" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.AnyP.cn/Services">
+      <s:element name="GetTicket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sign" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTicketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTicketResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakeTicket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sign" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fromIP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fromSystemID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakeTicketResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SignIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sign" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fromIP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fromSystemID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="identity" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="signMethod" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SignInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SignInResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SignOut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sign" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SignOutResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="BrowseOnlines">
+        <s:complexType />
+      </s:element>
+      <s:element name="BrowseOnlinesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BrowseOnlinesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </types>
+  <message name="GetTicketSoapIn">
+    <part name="parameters" element="s0:GetTicket" />
+  </message>
+  <message name="GetTicketSoapOut">
+    <part name="parameters" element="s0:GetTicketResponse" />
+  </message>
+  <message name="MakeTicketSoapIn">
+    <part name="parameters" element="s0:MakeTicket" />
+  </message>
+  <message name="MakeTicketSoapOut">
+    <part name="parameters" element="s0:MakeTicketResponse" />
+  </message>
+  <message name="SignInSoapIn">
+    <part name="parameters" element="s0:SignIn" />
+  </message>
+  <message name="SignInSoapOut">
+    <part name="parameters" element="s0:SignInResponse" />
+  </message>
+  <message name="SignOutSoapIn">
+    <part name="parameters" element="s0:SignOut" />
+  </message>
+  <message name="SignOutSoapOut">
+    <part name="parameters" element="s0:SignOutResponse" />
+  </message>
+  <message name="BrowseOnlinesSoapIn">
+    <part name="parameters" element="s0:BrowseOnlines" />
+  </message>
+  <message name="BrowseOnlinesSoapOut">
+    <part name="parameters" element="s0:BrowseOnlinesResponse" />
+  </message>
+  <portType name="SSOSoap">
+    <operation name="GetTicket">
+      <documentation>获取当前已验证的身份票据</documentation>
+      <input message="s0:GetTicketSoapIn" />
+      <output message="s0:GetTicketSoapOut" />
+    </operation>
+    <operation name="MakeTicket">
+      <documentation>生成身份票据</documentation>
+      <input message="s0:MakeTicketSoapIn" />
+      <output message="s0:MakeTicketSoapOut" />
+    </operation>
+    <operation name="SignIn">
+      <documentation>利用用户输入的验证信息登陆,若登陆成功,返回已验证的票据</documentation>
+      <input message="s0:SignInSoapIn" />
+      <output message="s0:SignInSoapOut" />
+    </operation>
+    <operation name="SignOut">
+      <documentation>注销</documentation>
+      <input message="s0:SignOutSoapIn" />
+      <output message="s0:SignOutSoapOut" />
+    </operation>
+    <operation name="BrowseOnlines">
+      <input message="s0:BrowseOnlinesSoapIn" />
+      <output message="s0:BrowseOnlinesSoapOut" />
+    </operation>
+  </portType>
+  <binding name="SSOSoap" type="s0:SSOSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <operation name="GetTicket">
+      <soap:operation soapAction="http://www.AnyP.cn/Services/GetTicket" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="MakeTicket">
+      <soap:operation soapAction="http://www.AnyP.cn/Services/MakeTicket" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SignIn">
+      <soap:operation soapAction="http://www.AnyP.cn/Services/SignIn" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SignOut">
+      <soap:operation soapAction="http://www.AnyP.cn/Services/SignOut" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="BrowseOnlines">
+      <soap:operation soapAction="http://www.AnyP.cn/Services/BrowseOnlines" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SSO">
+    <documentation>AnyP统一认证服务,通过调用本服务获取认证票据/登陆/注销</documentation>
+    <port name="SSOSoap" binding="s0:SSOSoap">
+      <soap:address location="http://public.anyp.cn/sso.asmx" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UseDeliver.aspx.cs" Inherits="UseDeliver" %>

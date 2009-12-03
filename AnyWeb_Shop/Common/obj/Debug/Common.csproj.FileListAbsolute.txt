@@ -1,0 +1,7 @@
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Common\bin\Debug\Common.dll
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Common\bin\Debug\Common.pdb
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Common\bin\Debug\Studio.dll
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Common\bin\Debug\Studio.pdb
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Common\obj\Debug\ResolveAssemblyReference.cache
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Common\obj\Debug\Common.dll
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Common\obj\Debug\Common.pdb

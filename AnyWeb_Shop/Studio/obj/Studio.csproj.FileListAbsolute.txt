@@ -1,0 +1,25 @@
+E:\BizShopIndie\Studio\bin\Debug\Studio.dll
+E:\BizShopIndie\Studio\bin\Debug\Studio.pdb
+E:\BizShopIndie\Studio\obj\Debug\ResolveAssemblyReference.cache
+E:\BizShopIndie\Studio\obj\Debug\Studio.dll
+E:\BizShopIndie\Studio\obj\Debug\Studio.pdb
+E:\BizShopIndie\Studio\bin\Release\Studio.dll
+E:\BizShopIndie\Studio\bin\Release\Studio.XmlSerializers.dll
+E:\BizShopIndie\Studio\obj\Release\ResolveAssemblyReference.cache
+E:\BizShopIndie\Studio\obj\Release\Studio.dll
+E:\BizShopIndie\Studio\obj\Release\Studio.XmlSerializers.dll
+E:\复件 BizShopIndie\Studio\bin\Debug\Studio.dll
+E:\复件 BizShopIndie\Studio\bin\Debug\Studio.pdb
+E:\复件 BizShopIndie\Studio\obj\Debug\ResolveAssemblyReference.cache
+E:\复件 BizShopIndie\Studio\obj\Debug\Studio.dll
+E:\复件 BizShopIndie\Studio\obj\Debug\Studio.pdb
+F:\Program Files\Microsoft Visual Studio\C#\BizShopIndie\Studio\bin\Debug\Studio.dll
+F:\Program Files\Microsoft Visual Studio\C#\BizShopIndie\Studio\bin\Debug\Studio.pdb
+F:\Program Files\Microsoft Visual Studio\C#\BizShopIndie\Studio\obj\Debug\ResolveAssemblyReference.cache
+F:\Program Files\Microsoft Visual Studio\C#\BizShopIndie\Studio\obj\Debug\Studio.dll
+F:\Program Files\Microsoft Visual Studio\C#\BizShopIndie\Studio\obj\Debug\Studio.pdb
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Studio\bin\Debug\Studio.dll
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Studio\bin\Debug\Studio.pdb
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Studio\obj\Debug\ResolveAssemblyReference.cache
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Studio\obj\Debug\Studio.dll
+F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Studio\obj\Debug\Studio.pdb

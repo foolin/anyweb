@@ -1,0 +1,151 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="Admin_Admin" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head2" runat="server">
+    <title>电子商城——后台</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=gb2312" />
+   <link href="/Public/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/public/date.js"></script>
+    <script type="text/javascript" src="/public/admin.js"></script>
+      <script type="text/javascript" src="/public/ajax.js"></script>
+   <!--[if lte IE 6]>
+	<link href="Public/forIE6.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+
+<style type="text/css">
+body{width:1003px;min-width:1003px;}
+.phdtop {	PADDING-RIGHT: 3px;	PADDING-LEFT: 3px;	PADDING-BOTTOM: 3px;	PADDING-TOP: 3px;	BACKGROUND-COLOR: #eee;	TEXT-ALIGN: right}
+.phdtop img{vertical-align:middle;}
+    .iopr {margin:4px;position:absolute;left:500px;top:150px;width:480px;text-align:right;height:30px;line-height:30px;}
+    .iopr a{border:1px #ccc solid;background-color:#f0f0f0;padding:4px 10px 2px;margin-right:5px;}
+	.iopr a:hover{background:#e0e0e0;text-decoration:none;border-color:#999; padding:0px;}
+    .pt0 .mbd .inner{min-height:0;overflow:hidden;padding:10px 7px;height:auto;}
+    .pt0 .mbd .ihelp{width:94%;padding:10px;margin:0 auto;background:#ffe;border:1px solid #999;}
+    .pt0 .mbd .ihelp li{color:#666;line-height:25px;list-style:none;margin:0;padding:0;list-style-position:outside;}
+	#ihelp{line-height:150%;width:466px;height:148px;padding:4px 6px 194px 6px;overflow:hidden;background:url(/images/helpbg.gif) no-repeat;margin:20px auto;}
+</style>
+</head>
+<body  class="pInner" style="padding: 0px;" onload="this.focus()">
+    <div class="phd">
+        <h1>
+            <img src="/images/top.jpg" alt="代销社电子商城" /></h1>
+        <ul class="tools">
+            <li>
+                <img src="/images/yl.gif" /><a href="/index.aspx" target="_blank">浏览商城</a>|</li>
+            <li><img src="/images/r.gif" /><a class="navOut" href="OutLogin.aspx">退出登录</a></li>
+        </ul>
+        <ul class="nav" id="nav1">
+            <asp:Repeater ID="rep1" runat="server" DataSourceID="ods1">
+                <ItemTemplate>
+                    <li  class='<%#(bool)Eval("selected")==true?"on":"" %>'><span><a href='<%#Eval("Url") %>'>
+                            <%# (string)Eval("Icon") != ""?("<img src='" + (string)Eval("Icon") + "' border='0'>"):"" %>
+                            <%#Eval("Name") %>
+                        </a></span></li>
+                </ItemTemplate>
+            </asp:Repeater>
+        </ul>
+    </div>
+    <div class="pbd">
+        <div class="part pt1">
+            <div class="mod">
+                <div class="mhd">
+                    <h3 >
+                        功能导航</h3>
+                </div>
+                <div class="mbd">
+                    <div class="iMenu">
+                        <asp:Repeater ID="rep3" runat="server" DataSourceID="ods3" OnItemDataBound="rep3_ItemDataBound">
+                            <ItemTemplate>
+                            <div>
+                                <div class='li on up' onclick="javascript:switchShow(this);"><a style="padding-left:12px; width:auto;">
+                                    <%#Eval("Name") %>
+                                </a></div>
+                               <div style="display:none;">
+                                <asp:Repeater ID="rep4" runat="server">
+                                    <ItemTemplate>
+                                        <div class='li<%#(bool)Eval("Selected")?" sel":"" %>' id='it<%# Eval("ID")%>'><a href='<%#Eval("Url") %>' style="padding-left:12px;width:auto;">
+                                            <%#Eval("Name") %>
+                                        </a></div>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                                </div>
+                            </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                </div>
+                <div class="mft">
+                </div>
+            </div>
+        </div>
+        <div class="part pt0">
+          
+            <asp:ContentPlaceHolder ID="cph1" runat="server">
+            </asp:ContentPlaceHolder>
+            <div class="mbd">
+             <div class="inner" style="padding-bottom:40%;">
+           <ul class="ihelp">
+            <asp:ContentPlaceHolder ID="cph2" runat="server">
+            </asp:ContentPlaceHolder>
+            </ul>
+            </div>
+         </div>
+        </div>
+    </div>
+    
+    <div class="pft">
+        <p class="copyright">
+            Copyright 2003-2006 版权所有 AnyWeb工作室</p>
+    </div>
+   
+    <asp:ObjectDataSource ID="ods1" runat="server" SelectMethod="GetCurrentItems" TypeName="AnyP.BizBlog.Admin.XMenu">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="~/Admin/ShopMenus.xml" Name="menufile" Type="string" />
+            <asp:Parameter DefaultValue="2" Name="depth" Type="Int32" />
+            <asp:Parameter Name="permissions" Type="object" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetCurrentItems" TypeName="AnyP.BizBlog.Admin.XMenu">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="~/Admin/ShopMenus.xml" Name="menufile" Type="string" />
+            <asp:Parameter DefaultValue="3" Name="depth" Type="Int32" />
+            <asp:Parameter Name="permissions" Type="object" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ods4" runat="server" SelectMethod="GetCurrentItems" TypeName="AnyP.BizBlog.Admin.XMenu">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="~/Admin/ShopMenus.xml" Name="menufile" Type="string" />
+            <asp:Parameter DefaultValue="-1" Name="depth" Type="Int32" />
+            <asp:Parameter Name="permissions" Type="object" />
+        </SelectParameters>
+    </asp:ObjectDataSource>
+    
+      <script type="text/javascript">
+       
+        function switchShow(div)
+        {
+           
+            div.className = div.className == "li on up"?"li on down":"li on up";
+            div.parentNode.childNodes[1].style.display = div.parentNode.childNodes[1].style.display == "none"?"":"none";
+
+        }
+        
+        var activeMenu = document.getElementById("it<%=SelectedID %>");
+        if( activeMenu)
+        {
+           
+            activeMenu.parentNode.parentNode.childNodes[1].style.display="";
+            activeMenu.parentNode.parentNode.childNodes[0].className = "li on down";
+           
+        }
+        else
+        {
+           
+            document.getElementById("it1").parentNode.parentNode.childNodes[1].style.display="";
+            document.getElementById("it1").parentNode.parentNode.childNodes[0].className = "li on down";
+        }
+
+    </script>
+    
+</body>
+</html>

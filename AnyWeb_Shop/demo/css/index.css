@@ -1,0 +1,197 @@
+/*=======================================================*/
+/* Purpose:      Css for index style                    */
+/* Author:       Anyweb Studio $Foolin                   */
+/* E-mail:       Foolin@126.com                          */
+/* Created on:   2009-12-3 16:33:46                      */
+/*=======================================================*/
+.col-left {
+	float:left;
+	width:20%;
+	overflow:hidden;
+}
+.col-main {
+	float:left;
+	width:50%;
+	overflow:hidden;
+}
+.col-right {
+	float:right;
+	width:30%;
+	overflow:hidden;
+}
+
+/* 中间滚动图片*/
+.container-images{
+	margin:0px auto;
+	padding-left:10px;
+	overflow:hidden;
+}
+.slide-container,.slide-container img{width:460px; height:200px;}
+.slide-container{border:1px solid #FFF;}
+.slide-container img{border:0;} 	
+.slide-container .num{ position:absolute; right:5px; bottom:5px;}
+.slide-container .num li{
+	float: left;
+	list-style:none;
+	color: #fff;
+	text-align: center;
+	line-height: 16px;
+	width: 16px;
+	height: 16px;
+	font-family: Arial;
+	font-size: 12px;
+	cursor: pointer;
+	margin: 1px;
+	border: 1px solid #707070;
+	background-color: #060a0b;
+}
+.slide-container .num li.on{
+	line-height: 18px;
+	width: 18px;
+	height: 18px;
+	font-size: 14px;
+	border: 0;
+	background-color: #ce0609;
+	font-weight: bold;
+}
+
+/* 中间商品区域*/
+.container{
+	padding:5px;
+}
+.container .goods-container{
+	margin-bottom:10px;
+	border:1px solid #AAD5FF;
+	background-color:#FFFFFF;
+}
+.container .goods-container .title{
+	height:25px;
+	line-height:25px;
+	background:#C8E3FF url(../images/goods_container_title_bg.jpg) repeat-x;
+	font-size:14px;
+	font-weight:bold;
+	color:#069;
+	padding-left:10px;
+	overflow:hidden;
+}
+.container .goods-container .goods{
+	float:left;
+	width:33%;
+	overflow:hidden;
+}
+.container .goods-container .goods img{
+	background:#FFF;
+	border:1px solid #CCC;
+}
+.container .goods-container .goods a:hover img{
+	border:1px solid #F00;
+}
+.container .goods-container .goods .index-item{
+	padding:3px;
+	text-align:center;
+}
+.container .goods-container .goods .index-item .name{
+	padding-top:3px;
+	padding-bottom:5px;
+	font-weight:bold;
+}
+.container .goods-container .goods .items{
+	margin-top:3px;
+	margin-left:20px;
+}
+.container .goods-container .goods .items li{
+	padding-top:1px;
+	padding-bottom:1px;
+}
+
+
+
+/* topic-box  */
+.topic-box{
+	border:1px solid #A4D1FF;
+	padding:10px;
+	line-height:1.5em;
+	background-color:#FFFFFF;
+	overflow:hidden;
+}
+.topic-box .title{
+	font-size:18px;
+	color:#cd6702;
+	font-weight:bold;
+}
+.topic-box .more{
+	text-align:right;
+}
+
+/* .topic-goods 首页促销专题 */
+.topic-box .topic-goods{
+	margin-top:5px;
+	margin-bottom:5px;
+	border:0px;
+	overflow:hidden;
+}
+.topic-box .topic-goods .goods-pic{
+	float:left;
+	padding-top:5px;
+	width:92px;
+	overflow:hidden;
+}
+.topic-box .topic-goods .goods-pic img{
+	background:#FFF;
+	border:1px solid #CCC;
+}
+.topic-box .topic-goods .goods-pic a:hover img{
+	border:1px solid #F00;
+}
+.topic-box .topic-goods .goods-intro{
+	float:right;
+}
+.topic-box .topic-goods .goods-intro .content{
+	padding-left:5px;
+	max-width:160px;
+	padding-left:8px;
+	padding-right:5px;
+	overflow:hidden;
+}
+.topic-box .topic-goods .goods-intro h5{
+	margin-top:0px;
+	margin-bottom:10px;
+	color:#cd6702;
+	font-weight:bold;
+}
+
+
+/* hot-goods 热门畅销商品 */
+.topic-box .hot-goods{
+	margin-top:5px;
+	margin-bottom:5px;
+	border:0px;
+	overflow:hidden;
+}
+.topic-box .hot-goods .goods-pic{
+	float:left;
+	padding-top:5px;
+	width:92px;
+	overflow:hidden;
+}
+.topic-box .hot-goods .goods-pic img{
+	background:#FFF;
+	border:1px solid #CCC;
+}
+
+.topic-box .hot-goods .goods-pic a:hover img{
+	border:1px solid #F00;
+}
+
+.topic-box .hot-goods .goods-list{
+	float:left;
+	max-width:160px;
+}
+.topic-box .hot-goods .goods-list ol{
+	margin-left:30px;
+	padding:0px;
+}
+.topic-box .hot-goods .goods-list ol li{
+	margin:0px;
+}
+

@@ -50,10 +50,6 @@
         <xMenuItem url="/Admin/User/DeleteUser.aspx" name="冻结用户" description="冻结用户" type="0"></xMenuItem>
       </xMenuItem>
         <xMenuItem url="/Admin/User/UserInfo.aspx"  name="会员详细信息" visible="false" description="会员详细信息"></xMenuItem>
-        <xMenuItem url="/Admin/User/ChangeNote.aspx" name="会员积分兑换记录" visible="false" description="会员积分兑换记录"></xMenuItem>
-      </xMenuItem>
-      <xMenuItem url="/Admin/User/UserGrade.aspx" name="会员等级管理" description="会员等级管理" type="1">
-        <xMenuItem url="/Admin/User/UserGrade.aspx" name="会员等级设置" description="会员等级设置" type="0"></xMenuItem>
       </xMenuItem>
       
       <xMenuItem url="/Admin/CommentList.aspx" name="互动管理"  description="互动管理" type="1" >
@@ -91,17 +87,6 @@
         <xMenuItem url="/Admin/GoodsEdit.aspx" name="编辑商品"  description="编辑商品" visible="false" ></xMenuItem>
         <xMenuItem url="/Admin/GoodsImage.aspx" name="商品相关图片" description="商品相关图片" type="0" ></xMenuItem>
       </xMenuItem>
-      </xMenuItem>
-
-      <xMenuItem url="/Admin/ChangeGoodsList.aspx" name="积分礼品管理" description="积分礼品管理" type="1">
-        <xMenuItem url="/Admin/ChangeGoodsList.aspx" name="积分礼品列表" description="积分礼品列表" type="0">
-          <xMenuItem url="/Admin/ChangeGoodsEidt.aspx" name="编辑积分礼品" description="编辑积分礼品" type="0"></xMenuItem>
-        </xMenuItem>
-      </xMenuItem>
-      
-      <xMenuItem url="/Admin/SetCommendAgio.aspx" name="商品折扣管理"  description="商品折扣管理" type="1" >
-        <xMenuItem url="/Admin/SetCommendAgio.aspx" name="设置推荐商品折扣"  description="设置推荐商品折扣" type="0" >
-        </xMenuItem>
       </xMenuItem>
     </xMenuItem>
 
@@ -149,10 +134,6 @@
       <xMenuItem url="/Admin/SetAdminPass.aspx" name="登陆信息管理" description="登陆信息管理" visible="false" type="1">
         <xMenuItem url="/Admin/SetAdminPass.aspx" name="设置登陆信息" description="设置登陆信息" type="0"></xMenuItem>
       </xMenuItem>
-
-      <xMenuItem url="/Admin/SEO.aspx" name="SEO管理" description="SEO管理" type="1">
-        <xMenuItem url="/Admin/SEO.aspx" name="设置SEO" description="设置SEO" type="0"></xMenuItem>
-      </xMenuItem>
       <xMenuItem url="/Admin/LogList.aspx" name="日志管理" description="日志管理" type="1">
         <xMenuItem url="/Admin/LogList.aspx" name="日志列表" description="日志列表" type="0"></xMenuItem>
       </xMenuItem>
@@ -175,11 +156,6 @@
       <xMenuItem url="/Admin/AdvertisementList.aspx" name="广告管理" description="广告管理" type="1">
         <xMenuItem url="/Admin/AdvertisementList.aspx" name="广告列表" description="广告列表" type="0">
           <xMenuItem url="/Admin/AdvertisementEdit.aspx" name="编辑广告" visible="false" description="编辑广告"></xMenuItem>
-        </xMenuItem>
-      </xMenuItem>
-
-      <xMenuItem url="/Admin/ShopSetting/SetCategory.aspx" description ="导航管理" name ="导航管理" type="1">
-        <xMenuItem url="/Admin/ShopSetting/SetCategory.aspx" description ="导航设置" name ="导航设置" type="0">
         </xMenuItem>
       </xMenuItem>
 

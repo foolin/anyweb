@@ -40,10 +40,7 @@
                                 <th>
                                     注册时间</th>
                                 <th>
-                                    积分</th>
-                                <th>
-                                    状态
-                                </th>
+                                    状态</th>
                                 <th class="end">
                                     操作</th>
                             </tr>
@@ -64,14 +61,10 @@
                                                 <%# ((DateTime)Eval("CreateAt")).ToString("yyyy-MM-dd") %>
                                             </td>
                                             <td>
-                                                <%#Eval("Point")%>
-                                            </td> 
-                                            <td>
                                                 <%# Convert.ToInt32( Eval( "Status" ) ) == 0 ? "<font color='green'>有效</font>" : "<font color='red'>冻结</font>"%>
                                             </td>
                                             <td>
                                                 <a href='UserInfo.aspx?userid=<%#Eval("ID") %>'>详细信息</a> 
-                                                <a href='ChangeNote.aspx?uid=<%#Eval("ID") %>'>积分兑换</a>
                                                 <a href='../OrderList.aspx?userid=<%#Eval("ID") %>'>查看订单</a>
                                                  <%# Convert.ToInt32(Eval("Status")) == 0 ? "<a href='DeleteUser.aspx?type=1&userid=" + Eval("ID") + "'>冻结</a>" : "<a href='DeleteUser.aspx?type=0&userid=" + Eval("ID") + "'>恢复</a>"%>
                                                 <a href='DeleteUser.aspx?type=2&userid=<%# Eval("ID") %>' onclick="javascript:return confirm('确定删除？');">删除</a> 

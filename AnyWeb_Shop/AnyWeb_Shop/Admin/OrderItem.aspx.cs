@@ -21,9 +21,6 @@ public partial class OrderItem :AdminBase
     protected void Page_Load(object sender , EventArgs e)
     {
         paneReason.Visible = false;
-        chk1.Visible = false;
-        pChange.Visible = false;
-        divchk1.Visible = false;
     } 
 
     protected void btnDeal_Click(object sender , ImageClickEventArgs e)
@@ -43,7 +40,8 @@ public partial class OrderItem :AdminBase
                 {
                     if ( litEmail != null && litEmail.Text != "" )
                     {
-                        //----发货成功------------发送公告
+                        //----发货成功------------发送公告
+
                         if ( int.Parse( lituid.Text ) > 0 )
                         {
                             using ( AfficheAgent ag = new AfficheAgent() )
@@ -58,7 +56,8 @@ public partial class OrderItem :AdminBase
                             }
                         }
 
-                        //----发货成功------------发送邮件
+                        //----发货成功------------发送邮件
+
                         if ( ShopInfo.EmailSend == "" || ShopInfo.EmailPass == "" )
                         {
                             WebAgent.FailAndGo( "处理成功。已向用户发布公告| 邮件发送失败，您还未正确设置商城使用邮箱" , Request.RawUrl );
@@ -154,7 +153,8 @@ public partial class OrderItem :AdminBase
                     
                     if ( chkAffiche.Checked && int.Parse(lituid.Text)> 0)
                     {
-                        //-------取消发货----------发送公告
+                        //-------取消发货----------发送公告
+
                         using ( AfficheAgent ag = new AfficheAgent() )
                         {
                             Affiche ac = new Affiche();
@@ -166,7 +166,8 @@ public partial class OrderItem :AdminBase
                             ag.AfficheAdd( ac );
                         }
                     }
-                    //------取消发货----------发送邮件
+                    //------取消发货----------发送邮件
+
                     string contentemail2="",title = "";
                     if ( chkEmail.Checked )
                     {
@@ -208,7 +209,8 @@ public partial class OrderItem :AdminBase
     }
 
     /// <summary>
-    /// 发送邮件
+    /// 发送邮件
+
     /// </summary>
     /// <param name="port"></param>
     /// <param name="myEmail"></param>
@@ -255,39 +257,6 @@ public partial class OrderItem :AdminBase
         if ( WebAgent.IsInt32( QS( "oid" ) ) )
         {
             HiddenField litStatus = (HiddenField)fv1.FindControl( "litStatus" );
-
-            //未发货则检查是否有积分礼品
-            if ( litStatus.Value == "1" )
-            {
-                using ( ChangeNoteAgent ca = new ChangeNoteAgent() )
-                {
-                   ArrayList list= ca.GetChangeNoteByOrderID(int.Parse( QS( "oid" )));
-                   if ( list.Count > 0 )
-                   {
-                       this.chk1.Visible = true;
-                      
-                       pChange.Visible = true;
-                       divchk1.Visible = true;
-                       repChangeNote.DataSource = list;
-                       repChangeNote.DataBind();
-                      
-                   }
-                }
-            }
-        }
-    }
-   
-    protected void btnChange_Click1(object sender , EventArgs e)
-    {
-        if ( Request.Form["idsChange"] + "" != "" )
-        {
-            using ( ChangeNoteAgent ca = new ChangeNoteAgent() )
-            {
-                if ( ca.ChangeNoteOrder( Request.Form["idsChange"] , int.Parse( QS( "oid" ) ) , Request.Form["idsChange"].Split( ',' ).Length ) > 0 )
-                {
-                    WebAgent.SuccAndGo( "合并成功。" ,Request.RawUrl);
-                }
-            }
         }
     }
 }

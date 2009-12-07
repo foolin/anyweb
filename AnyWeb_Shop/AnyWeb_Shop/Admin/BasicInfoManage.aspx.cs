@@ -30,7 +30,6 @@ public partial class BasicInfoManage : AdminBase
         FileUpload logo = (FileUpload)this.fv1.FindControl( "fileLog" );
 
         int maxSize = 1024 * 1024 * 2;
-        int maxW = 120 , maxH = 120;
 
         if ( logo.HasFile )
         {

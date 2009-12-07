@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{72F5E3B8-1B0A-4E05-BAA2-920E848DFC64}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -44,16 +44,12 @@
     <Compile Include="Agent\AdvertisementAgent.cs" />
     <Compile Include="Agent\AfficheAgent.cs" />
     <Compile Include="Agent\AgentBase.cs" />
-    <Compile Include="Agent\AgioAgent.cs" />
     <Compile Include="Agent\AgreementAgent.cs" />
     <Compile Include="Agent\ArticleAgent.cs" />
     <Compile Include="Agent\CategoryAgent.cs" />
-    <Compile Include="Agent\ChangeGoodsAgent.cs" />
-    <Compile Include="Agent\ChangeNoteAgent.cs" />
     <Compile Include="Agent\CollectionAgent.cs" />
     <Compile Include="Agent\CommentAgent.cs" />
     <Compile Include="Agent\ComplaintsAgent.cs" />
-    <Compile Include="Agent\CurrencyAgent.cs" />
     <Compile Include="Agent\EventLogAgent.cs" />
     <Compile Include="Agent\GoodsAgent.cs" />
     <Compile Include="Agent\LinkAgent.cs" />
@@ -62,50 +58,36 @@
     <Compile Include="Agent\OrderAgent.cs" />
     <Compile Include="Agent\ShopAgent.cs" />
     <Compile Include="Agent\ShopSettingAgent.cs" />
-    <Compile Include="Agent\SkinAgent.cs" />
     <Compile Include="Agent\SlideAgent.cs" />
     <Compile Include="Agent\StatAgent.cs" />
-    <Compile Include="Agent\TypeAgent.cs" />
     <Compile Include="Agent\UserAgent.cs" />
-    <Compile Include="Agent\WidGetAgent.cs" />
     <Compile Include="Ajax\AjaxPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Common\Advertisement.cs" />
     <Compile Include="Common\Affiche.cs" />
-    <Compile Include="Common\Agio.cs" />
     <Compile Include="Common\Agreement.cs" />
     <Compile Include="Common\Article.cs" />
     <Compile Include="Common\Category.cs" />
-    <Compile Include="Common\ChangeGoods.cs" />
-    <Compile Include="Common\ChangeNote.cs" />
     <Compile Include="Common\Collection.cs" />
     <Compile Include="Common\Comment.cs" />
     <Compile Include="Common\Complaints.cs" />
-    <Compile Include="Common\Currency.cs" />
     <Compile Include="Common\Deposits.cs" />
     <Compile Include="Common\EventLog.cs" />
     <Compile Include="Common\Goods.cs" />
     <Compile Include="Common\GoodsImages.cs" />
     <Compile Include="Common\Link.cs" />
     <Compile Include="Common\Member.cs" />
-    <Compile Include="Common\MemberGrade.cs" />
     <Compile Include="Common\Message.cs" />
     <Compile Include="Common\Mode.cs" />
     <Compile Include="Common\Order.cs" />
     <Compile Include="Common\Order_Item.cs" />
-    <Compile Include="Common\Setting_Currency.cs" />
     <Compile Include="Common\Shop.cs" />
     <Compile Include="Common\ShopSetting.cs" />
     <Compile Include="Common\SingleArticle.cs" />
-    <Compile Include="Common\Skin.cs" />
     <Compile Include="Common\Slide.cs" />
     <Compile Include="Common\Stat.cs" />
-    <Compile Include="Common\Typies.cs" />
     <Compile Include="Common\User.cs" />
-    <Compile Include="Common\UserWidget.cs" />
-    <Compile Include="Common\validWidget.cs" />
-    <Compile Include="Common\Widget.cs" />
     <Compile Include="Framework\SysSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

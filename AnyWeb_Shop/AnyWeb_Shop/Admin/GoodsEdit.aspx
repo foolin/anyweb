@@ -40,7 +40,14 @@
                                         <%#Eval( "Model" )%>
                                     </td>
                                     <td rowspan="8" style="text-align: center; width: 226px; background-color: White; border-left: solid 1px gray; border-right: solid 1px gray;">
-                                        <img src='<%#(string)Eval("image")=="" ? "./images/wait.jpg":Eval("image").ToString().Replace("S_","")%>' alt="点击查看原图" onload="javascript:if(this.width>200)this.width=200" onclick="window.open(this.src);" style="cursor: hand;" />
+                                        <img src='<%#(string)Eval("image")=="" ? "/images/wait.jpg":Eval("image").ToString().Replace("S_","")%>' alt="点击查看原图" onload="javascript:if(this.width>200)this.width=200" onclick="window.open(this.src);" style="cursor: hand;" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        市场价格：</th>
+                                    <td>
+                                        <%#Eval("MarketPrice","{0:c}")%>
                                     </td>
                                 </tr>
                                 <tr>
@@ -50,11 +57,11 @@
                                         <%#Eval("Price","{0:c}")%>
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr style="display:<%#(bool)Eval("IsPromotions")==false?"none":"" %>">
                                     <th>
-                                        市场价格：</th>
+                                        促销价</th>
                                     <td>
-                                        <%#Eval("MarketPrice","{0:c}")%>
+                                        <%#Eval("PromotionsPrice", "{0:c}")%>
                                     </td>
                                 </tr>
                                 <tr>
@@ -90,15 +97,6 @@
                                     </th>
                                     <td>
                                         <%# CheckStatus((int)Eval( "Status" )  ,(DateTime)Eval( "EndTime" ) )%>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        积分：
-                                    </th>
-                                    <td>
-                                        <%#Eval( "Score" )%>
-                                        分
                                     </td>
                                 </tr>
                                 <tr>
@@ -207,6 +205,14 @@
                                 </tr>
                                 <tr>
                                     <th>
+                                        是否促销：</th>
+                                    <td>
+                                        <asp:CheckBox ID="chkPromotions" runat="server" Checked='<%#Bind("IsPromotions") %>' onclick="Promotions()" />促销
+                                        <label id="lblPromotions" style="display:none;">价格：<asp:TextBox ID="txtProPrice" runat="server" Width="60" Text='<%#Bind("PromotionsPrice") %>'></asp:TextBox>元</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
                                         有效时间：
                                     </th>
                                     <td>
@@ -220,14 +226,6 @@
                                     </th>
                                     <td>
                                         <asp:TextBox ID="txtUnit" runat="server" CssClass="input" MaxLength="10" Width="100px"></asp:TextBox>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        积分：
-                                    </th>
-                                    <td>
-                                        <asp:TextBox ID="txtScore" runat="server" CssClass="input" errmsg="请输入正确的积分" MaxLength="10" Width="100px" datatype="integer"></asp:TextBox> *输入顾客购买该商品获得的积分值，不填默认为0.
                                     </td>
                                 </tr>
                                  <tr class="name">
@@ -349,6 +347,14 @@
                                 </tr>
                                 <tr>
                                     <th>
+                                        是否促销：</th>
+                                    <td>
+                                        <asp:CheckBox ID="chkPromotions" runat="server" Checked='<%#Bind("IsPromotions") %>' onclick="Promotions()" />促销
+                                        <label id="lblPromotions" style="display:none;">价格：<asp:TextBox ID="txtProPrice" runat="server" Width="60" Text='<%#Bind("PromotionsPrice") %>'></asp:TextBox>元</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
                                         有效时间：
                                     </th>
                                     <td>
@@ -364,18 +370,10 @@
                                         <asp:TextBox ID="txtUnit" runat="server" CssClass="input" MaxLength="10" Width="100px"></asp:TextBox>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th>
-                                        积分：
-                                    </th>
-                                    <td>
-                                        <asp:TextBox ID="txtScore" runat="server" CssClass="input" errmsg="请输入正确的积分" MaxLength="10" Width="100px" datatype="integer"></asp:TextBox> *输入顾客购买该商品获得的积分值，不填默认为0.
-                                    </td>
-                                </tr>
-                                  <tr>
+                                 <tr>
                                     <th>设置：</th>
                                     <td>
-                                         <asp:CheckBox ID="chkRecomm" runat="server" Checked='<%#Bind("IsRecommend")%>' />设置为推荐商品
+                                         <asp:CheckBox ID="chkRecomm" runat="server" Checked='<%#Bind("IsRecommend")%>' />设置为推荐商品                                         <asp:CheckBox ID="chkComm" runat="server" Checked='<%#Bind("Recommend")%>' />是否允许评论 【不允许请留空。】
                                     </td>
                                 </tr>
                                  <tr>
@@ -416,11 +414,22 @@
     </div>
 
     <script type="text/javascript">
-                      	function showDesc()
-						{
-							document.getElementById("divDesc").style.display=document.getElementById("_ctl0_cph1_fv1_chkAutoDesc").checked?'none':'block';
-							
-						} 
+        function showDesc() {
+            document.getElementById("divDesc").style.display = document.getElementById("_ctl0_cph1_fv1_chkAutoDesc").checked ? 'none' : 'block';
+
+        }
+
+        function Promotions() {
+            var chk = document.getElementById('<%=fv1.FindControl("chkPromotions").ClientID %>');
+            if (chk.checked) {
+                document.getElementById("lblPromotions").style.display = "";
+            }
+            else {
+                document.getElementById("lblPromotions").style.display = "none";
+            }
+        }
+
+        Promotions();
     </script>
 
     <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetGoodsByID" TypeName="Common.Agent.GoodsAgent" OnSelecting="ods3_Selecting" OnInserted="ods3_Inserted" OnInserting="ods3_Inserting" OnUpdated="ods3_Updated" OnUpdating="ods3_Updating" DataObjectTypeName="Common.Common.Goods" InsertMethod="AddGoods" UpdateMethod="UpdateGoods" DeleteMethod="GoodsDeletes" OnDeleted="ods3_Deleted">

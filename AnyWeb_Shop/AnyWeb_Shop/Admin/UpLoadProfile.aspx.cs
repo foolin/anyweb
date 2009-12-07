@@ -74,19 +74,21 @@ public partial class UpLoadProfile :AdminBase
         {
             return matchType;
         }
-
-        string[] types = Request.QueryString["type"].Split(',');
-
-        foreach (string type in types)
+        else
         {
-            if (file.FileName.ToLower().EndsWith(type))
-            {
-                matchType = true;
-                break;
-            }
-        }
+            string[] types = Request.QueryString["type"].Split(',');
 
-        return matchType;
+            foreach (string type in types)
+            {
+                if (file.FileName.ToLower().EndsWith(type))
+                {
+                    matchType = true;
+                    break;
+                }
+            }
+
+            return matchType;
+        }
     }
 
     void Failed(string msg)

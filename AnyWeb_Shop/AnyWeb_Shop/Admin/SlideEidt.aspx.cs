@@ -130,7 +130,6 @@ public partial class SlideEidt : AdminBase
         Slide s = new Slide();
 
         int maxSize = 1024 * 1024 * 2;
-        int maxW = 120 , maxH = 120;
 
         if ( fp.HasFile )
         {

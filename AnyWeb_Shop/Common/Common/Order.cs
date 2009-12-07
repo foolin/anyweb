@@ -79,7 +79,8 @@ namespace Common.Common
 
         private int _status;
         /// <summary>
-        /// 订单状态 1-未处理 2－已发货 3－取消发货 9－删除
+        /// 订单状态 1-未处理 2－已发货 3－取消发货 9－删除
+
         /// </summary>
         public int Status
         {
@@ -89,7 +90,8 @@ namespace Common.Common
 
         private string _userName;
         /// <summary>
-        /// 用户名
+        /// 用户名
+
         /// </summary>
         public string UserName
         {
@@ -196,30 +198,12 @@ namespace Common.Common
             get { return _paymentPrice; }
             set { _paymentPrice = value; }
         }
-
-        /// <summary>
-        /// 支付总金额
-        /// </summary>
-        public double MathPaymentPrice
-        {
-            get 
-            {
-                double _mathPaymentPrice=0.0;
-                if ( OfSendMode != null && OfPayMode != null )
-                {
-
-                    _mathPaymentPrice = this.OfPayMode.MathPayMent + this.OfSendMode.MathDeliver + this.MathPrice;
-
-                }
-                return _mathPaymentPrice;
-            }
-          
-        }
 	
 
         private ObjectList _orderItems;
         /// <summary>
-        /// 订单项
+        /// 订单项
+
         /// </summary>
         public ObjectList OrderItems
         {
@@ -229,7 +213,8 @@ namespace Common.Common
 
         private ObjectList _changeList;
         /// <summary>
-        /// 积分兑换项
+        /// 积分兑换项
+
         /// </summary>
         public ObjectList ChangeList
         {
@@ -238,65 +223,8 @@ namespace Common.Common
         }
 
         /// <summary>
-        /// 商品总价格
-        /// </summary>
-        public double MathPrice
-        {
-            get 
-            {
-                double _mathprice=0;
-                double _commentMath = 0;
-                double _sMath = 0;
+        /// 推荐商品的价格
 
-
-                Shop s = (Common.Shop)HttpContext.Current.Items["SHOP_INFO"];
-                Agio a = s.OfAgio;
-
-                if (a != null)
-                {
-                    foreach (Order_Item oi in OrderItems)
-                    {
-
-                        if (oi.OfGoods.IsRecommend == true)
-                        {
-                            _commentMath += oi.Price;
-                        }
-                        else
-                        {
-                            _mathprice += oi.Price;
-                        }
-                    }
-
-                    if (a.Type == 1)
-                    {
-                        _sMath = _commentMath * a.Agiomoney / 10 + _mathprice;
-                    }
-                    else if (a.Type == 2 && _commentMath > a.Money)
-                    {
-
-                        _sMath = _commentMath * a.Agiomoney / 10 + _mathprice;
-                    }
-                    else
-                    {
-                        _sMath = _commentMath + _mathprice;
-                    }
-
-                }
-                else
-                {
-                    foreach (Order_Item oi in OrderItems)
-                    {
-                        _sMath += oi.Price;
-                        
-                    }
-                }
-
-                return _sMath;
-            }
-        }
-
-        /// <summary>
-        /// 推荐商品的价格
         /// </summary>
         public double CommPrice
         {
@@ -315,27 +243,6 @@ namespace Common.Common
                 return _commentMath;
             }
             
-        }
-	
-
-        /// <summary>
-        /// 优惠金额
-        /// </summary>
-        public double MathMarket
-        {
-            get
-            {
-                double _marketMath = 0;
-               
-                foreach (Order_Item oi in OrderItems)
-                {
-                   
-                    
-                    _marketMath += oi.MarketPrice;
-                }
-
-                return _marketMath - MathPrice;
-            }
         }
         /// <summary>
         /// 用户信息
@@ -390,7 +297,8 @@ namespace Common.Common
 
         private string _cancleReson;
         /// <summary>
-        /// 取消发货的原因
+        /// 取消发货的原因
+
         /// </summary>
         public string CancleReson
         {
@@ -410,7 +318,8 @@ namespace Common.Common
         }
 
         /// <summary>
-        /// 总积分
+        /// 总积分
+
         /// </summary>
         public int MathScore
         {
@@ -426,7 +335,8 @@ namespace Common.Common
         }
 
         /// <summary>
-        /// 商品总重量
+        /// 商品总重量
+
         /// </summary>
         public double MathWeight
         {

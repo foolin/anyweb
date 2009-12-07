@@ -1,5 +1,0 @@
-F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Studio\bin\Debug\Studio.dll
-F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Studio\bin\Debug\Studio.pdb
-F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Studio\obj\Debug\ResolveAssemblyReference.cache
-F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Studio\obj\Debug\Studio.dll
-F:\Program Files\Microsoft Visual Studio\C#\AnyWeb_Shop\Studio\obj\Debug\Studio.pdb

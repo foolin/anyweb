@@ -52,11 +52,6 @@ namespace Common.Agent
 
             //初始化ShopInfo对象
             s = new Shop(ds.Tables[0].Rows[0]);
-            Skin sk = new Skin();
-            sk.ID = (int)ds.Tables[0].Rows[0]["SkinID"];
-            sk.SkinName = (string)ds.Tables[0].Rows[0]["SkinName"];
-            sk.FramWork = (FrameWork)ds.Tables[0].Rows[0]["FrameWork"];
-            s.OfSkin = sk;
 
             HttpRuntime.Cache.Insert("SHOP_" + shopid.ToString(), s, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(5));
 
@@ -124,13 +119,6 @@ namespace Common.Agent
 
             //获取类别
             s = new Shop(ds.Tables[0].Rows[0]);
-            s.OfType = new Typies();
-            s.OfType = (Typies)SysSetting.GetSetting().Typies.GetById((int)ds.Tables[0].Rows[0]["TypeID"]);
-
-            //获取模板
-
-            s.OfSkin = new Skin();
-            s.OfSkin = (Skin)SysSetting.GetSetting().Skins.GetById((int)ds.Tables[0].Rows[0]["SkinID"]);
 
             //获取栏目
             s.Categorys = new ObjectList();
@@ -149,56 +137,6 @@ namespace Common.Agent
             s.ArticleLeftWidgets = new ObjectList();
             s.OrderLeftWidgets = new ObjectList();
             s.UserLeftWidgets = new ObjectList();
-
-            foreach (DataRow dr in ds.Tables[2].Rows)
-            {
-                UserWidget uw = new UserWidget(dr);
-                switch ((int)dr["WidgetType"])
-                {
-                    case 2:
-                        {
-                            uw.OfWidget = (Widget)SysSetting.GetSetting().LeftWidgets.GetById((int)dr["WidgetID"]);
-                            s.LeftWidgets.Add(uw);
-                            break;
-                        }
-                    case 3:
-                        {
-                            uw.OfWidget = (Widget)SysSetting.GetSetting().ContentWidgets.GetById((int)dr["WidgetID"]);
-                            s.ContentWidgets.Add(uw);
-                            break;
-                        }
-                    case 4:
-                        {
-                            uw.OfWidget = (Widget)SysSetting.GetSetting().ListLeftWidgets.GetById((int)dr["WidgetID"]);
-                            s.ListLeftWidgets.Add(uw);
-                            break;
-                        }
-                    case 5:
-                        {
-                            uw.OfWidget = (Widget)SysSetting.GetSetting().ArticleLeftWidgets.GetById((int)dr["WidgetID"]);
-                            s.ArticleLeftWidgets.Add(uw);
-                            break;
-                        }
-                    case 6:
-                        {
-                            uw.OfWidget = (Widget)SysSetting.GetSetting().GoodsLeftWidgets.GetById((int)dr["WidgetID"]);
-                            s.GoodsLeftWidgets.Add(uw);
-                            break;
-                        }
-                    case 7:
-                        {
-                            uw.OfWidget = (Widget)SysSetting.GetSetting().CarLeftWidgets.GetById((int)dr["WidgetID"]);
-                            s.OrderLeftWidgets.Add(uw);
-                            break;
-                        }
-                    case 8:
-                        {
-                            uw.OfWidget = (Widget)SysSetting.GetSetting().UserLeftWidgets.GetById((int)dr["WidgetID"]);
-                            s.UserLeftWidgets.Add(uw);
-                            break;
-                        }
-                }
-            }
 
             //友情连接
             s.Links = new ObjectList();
@@ -237,13 +175,6 @@ namespace Common.Agent
                 ad.OfShop = s;
 
                 s.Advertisement.Add(ad);
-            }
-
-            if (ds.Tables[6].Rows.Count > 0)
-            {
-                Agio ag = new Agio(ds.Tables[6].Rows[0]);
-                ag.OfShop = s;
-                s.OfAgio = ag;
             }
            
             HttpRuntime.Cache.Insert("SHOP_" + shopid.ToString(), s, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(5));
@@ -577,11 +508,6 @@ namespace Common.Agent
 
             //初始化ShopInfo对象
             s = new Shop(ds.Tables[0].Rows[0]);
-            Skin sk = new Skin();
-            sk.ID = (int)ds.Tables[0].Rows[0]["SkinID"];
-            sk.SkinName = (string)ds.Tables[0].Rows[0]["SkinName"];
-            sk.FramWork = (FrameWork)ds.Tables[0].Rows[0]["FrameWork"];
-            s.OfSkin = sk;
 
             HttpRuntime.Cache.Insert("ComID_" + comid.ToString(), s, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(5));
 
@@ -620,27 +546,6 @@ namespace Common.Agent
                 }
                 return returnvalue;
             }
-        }
-
-        /// <summary>
-        /// 获得模版
-        /// </summary>
-        /// <param name="typeID"></param>
-        /// <returns></returns>
-        public ArrayList GetSkinsByID(int typeID)
-        {
-            DataSet ds;
-            using ( IDbExecutor db = this.NewExecutor() )
-            {
-                ds = db.GetDataSet( CommandType.StoredProcedure , "Shop_GetSkinsByType" ,
-                                    this.NewParam( "@TypeID" , typeID ) );
-            }
-            ArrayList list = new ArrayList();
-            foreach ( DataRow dr in ds.Tables[0].Rows )
-            {
-                list.Add( new Skin( dr ) );
-            }
-            return list;
         }
 
         /// <summary>

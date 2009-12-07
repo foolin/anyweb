@@ -53,8 +53,6 @@ namespace Common.Common
             this._welcome = dr["Welcome"] == System.DBNull.Value ? "" : (string)dr["Welcome"];
             this._aboutUs = dr["AboutUs"] == System.DBNull.Value ? "" : (string)dr["AboutUs"];
             this.InterosculateUs = dr["InterosculateUs"] == System.DBNull.Value ? "" : (string)dr["InterosculateUs"];
-
-            this._comAcc = dr["ComAcc"] == System.DBNull.Value ? "" : (string)dr["ComAcc"];
             this._homeCss = dr["HomeCss"]==System.DBNull.Value ? "" :(string)dr["HomeCss"];
             this._pageCss = dr["PageCss"] == System.DBNull.Value ? "" : (string)dr["PageCss"];
             this._carCss = dr["CarCss"] == System.DBNull.Value ? "" : (string)dr["CarCss"];
@@ -373,17 +371,6 @@ namespace Common.Common
         }
 
         /// <summary>
-        /// 类别
-        /// </summary>
-        private Typies _oftype;
-
-        public Typies OfType
-        {
-            get { return _oftype; }
-            set { _oftype = value; }
-        }
-
-        /// <summary>
         /// SEO
         /// </summary>
         private string _titleExt;
@@ -540,19 +527,6 @@ namespace Common.Common
             get { return _links; }
             set { _links = value; }
         }
-            
-
-        /// <summary>
-        /// 所属模版
-        /// </summary>
-        private Skin _ofSkin;
-
-        public Skin OfSkin
-        {
-            get { return _ofSkin; }
-            set { _ofSkin = value; }
-        }
-	
 
         /// <summary>
         /// LOGO
@@ -734,27 +708,7 @@ namespace Common.Common
         {
             get { return _advertisement; }
             set { _advertisement = value; }
-        }
-
-        private Agio _agio;
-
-        public Agio OfAgio
-        {
-            get { return _agio; }
-            set { _agio = value; }
-        }
-	
-
-        private string _comAcc;
-        /// <summary>
-        /// 对应的商脉通域名
-        /// </summary>
-        public string ComAcc
-        {
-            get { return _comAcc; }
-            set { _comAcc = value; }
-        }
-
+        }	
 
         private bool _showhelp;
         /// <summary>

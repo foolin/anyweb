@@ -91,11 +91,9 @@ public partial class GoodsEdit :AdminBase
             }
             if (QS("mode") == "update")
             {
-                TextBox txtScore = (TextBox)fv1.FindControl("txtScore");
                 TextBox txtWeight = (TextBox)fv1.FindControl("txtWeight");
                 TextBox txtUnit = (TextBox)fv1.FindControl("txtUnit");
 
-                txtScore.Text = gs.Score.ToString();
                 txtWeight.Text = gs.Weight.ToString();
                 txtUnit.Text = gs.Unit;
             }
@@ -106,7 +104,6 @@ public partial class GoodsEdit :AdminBase
     {
         FileUpload img = (FileUpload)fv1.FindControl( "txtImage" );
         DropDownList drptype = (DropDownList)fv1.FindControl( "drpType" );
-        TextBox txtScore = (TextBox)fv1.FindControl( "txtScore" );
         TextBox txtWeight = (TextBox)fv1.FindControl( "txtWeight" );
         TextBox txtUnit = (TextBox)fv1.FindControl( "txtUnit" );
 
@@ -122,7 +119,6 @@ public partial class GoodsEdit :AdminBase
             gs.Image = this.GetProductImg( img );
         }
         gs.Unit = txtUnit.Text;
-        gs.Score = txtScore.Text == "" ? 0 : int.Parse(txtScore.Text);
         gs.Weight = txtWeight.Text == "" ? 0 : double.Parse(txtWeight.Text);
 
 
@@ -185,7 +181,6 @@ public partial class GoodsEdit :AdminBase
         TextBox txtWeight = (TextBox)fv1.FindControl( "txtWeight" );
 
         gs.Unit = txtUnit.Text;
-        gs.Score = txtScore.Text == "" ? 0 : int.Parse( txtScore.Text );
         gs.Weight = txtWeight.Text == "" ? 0 : double.Parse( txtWeight.Text );
 
         if ( gs!= null && drptype != null && status != null)

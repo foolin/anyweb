@@ -38,6 +38,8 @@ namespace Common.Common
             this._unit = (string)dr["Unit"];
             this._model = (string)dr["Model"];
             this._isRecommend = (bool)dr["IsRecommend"];
+            this._IsPromotions = (bool)dr["IsPromotions"];
+            this._PromotionsPrice = (double)dr["PromotionsPrice"];
         }
 
         private string _goodsName;
@@ -100,7 +102,7 @@ namespace Common.Common
             set { _categoryID = value; }
         }
 
-        private int _comments;
+        private int _comments = 0;
         /// <summary>
         /// 评论数
 
@@ -335,6 +337,26 @@ namespace Common.Common
         {
             get { return _payCount; }
             set { _payCount = value; }
+        }
+
+        private bool _IsPromotions;
+        /// <summary>
+        /// 是否促销
+        /// </summary>
+        public bool IsPromotions
+        {
+            get { return _IsPromotions; }
+            set { _IsPromotions = value; }
+        }
+
+        private double _PromotionsPrice;
+        /// <summary>
+        /// 促销价格
+        /// </summary>
+        public double PromotionsPrice
+        {
+            get { return _PromotionsPrice; }
+            set { _PromotionsPrice = value; }
         }
     }
 }

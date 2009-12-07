@@ -11,7 +11,6 @@ using System.Web.UI.HtmlControls;
 using Admin.Framework;
 
 using Studio.Web;
-using Admin.Framework;
 using Common.Common;
 using Common.Agent;
 
@@ -54,9 +53,6 @@ public partial class GoodsList :AdminBase
 
     protected void ods3_Selecting(object sender , ObjectDataSourceSelectingEventArgs e)
     {
-
-        int cid = 0 ,status = 0;
-
         if ( WebAgent.IsInt32( QS( "cid" ) ) )
         {
               e.InputParameters["categoryID"]= int.Parse( QS( "cid" ) );

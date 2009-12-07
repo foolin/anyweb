@@ -212,7 +212,7 @@
                     }
                 }
             }
-            req.open("post", "/GoodsRecomm.aspx", true);
+            req.open("post", "/Admin/GoodsRecomm.aspx", true);
             req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
             req.send(data);

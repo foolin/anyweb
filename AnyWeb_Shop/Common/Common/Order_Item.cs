@@ -65,7 +65,8 @@ namespace Common.Common
 
         private int _status;
         /// <summary>
-        /// 状态
+        /// 状态
+
         /// </summary>
         public int Status
         {

@@ -169,13 +169,14 @@ namespace Common.Agent
                                      this.NewParam("@Status", gs.Status),
                                      this.NewParam("@MarketPrice", gs.MarketPrice),
                                      this.NewParam("@Description", gs.Description),
-                                     this.NewParam("@Score", gs.Score),
                                      this.NewParam("@Weight", gs.Weight),
                                      this.NewParam("@Model", gs.Model),
                                      this.NewParam("@Unit", gs.Unit),
                                      this.NewParam("@IsRecommend", gs.IsRecommend),
                                      this.NewParam("@Service", gs.Service),
-                                     this.NewParam("@Factory", gs.Factory));
+                                     this.NewParam("@Factory", gs.Factory),
+                                     this.NewParam("@IsPromotions", gs.IsPromotions),
+                                     this.NewParam("@PromotionsPrice", gs.PromotionsPrice));
 
             }
         }
@@ -199,13 +200,14 @@ namespace Common.Agent
                                     this.NewParam("@ShopID", ShopInfo.ID),
                                     this.NewParam("@MarketPrice", gs.MarketPrice),
                                     this.NewParam("@Description", gs.Description),
-                                    this.NewParam("@Score", gs.Score),
                                     this.NewParam("@Weight", gs.Weight),
                                     this.NewParam("@Model", gs.Model),
                                     this.NewParam("@Unit", gs.Unit),
                                     this.NewParam("@Service", gs.Service),
                                     this.NewParam("@Factory", gs.Factory),
-                                    this.NewParam("@IsRecommend", gs.IsRecommend));
+                                    this.NewParam("@IsRecommend", gs.IsRecommend),
+                                    this.NewParam("@IsPromotions", gs.IsPromotions),
+                                    this.NewParam("@PromotionsPrice", gs.PromotionsPrice));
 
             }
         }
@@ -847,113 +849,6 @@ namespace Common.Agent
             }
             return ds.Tables[0];
         }
-
-        /// <summary>
-        /// 批量加入商脉通商品
-
-        /// </summary>
-        /// <returns></returns>
-        public int AddSmtGoods(string photos,string pids, string cid, int status)
-        {
-            int value = 0;
-            string[] pid = pids.Split(',');
-            string[] photo = photos.Split( ',' );
-            if (pid.Length > 0)
-            {
-
-                for (int i = 0; i < pid.Length; i++)
-                {
-                    using (IDbExecutor db = this.NewExecutor())
-                    {
-                        value = db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_AddSmtGoods",
-                                            this.NewParam("@ProductID", pid[i]),
-                                            this.NewParam("@ShopID", ShopInfo.ID),
-                                            this.NewParam("@Status", status),
-                                            this.NewParam("@CategoryID", int.Parse(cid)));
-
-                    } 
-                    //---------------copy商品图片--------------//
-                    if ( photo.Length > 0 )
-                    {
-                        if ( photo[i] != "" )
-                        {
-                            CopyPhoto( photo[i] );
-                        }
-                    }
-                }
-            }
-
-            return value;
-        }
-
-        /// <summary>
-        /// 根据产品类别批量加入商脉通数据
-
-        /// </summary>
-        /// <param name="goodsId"></param>
-        /// <param name="categoryids"></param>
-        /// <param name="num"></param>
-        /// <returns></returns>
-        public int AddSmtGoodsList(int goodsId, string categoryids, int num, int status)
-        {
-            DataSet ds = new DataSet();
-            using (IDbExecutor db = this.NewExecutor())
-            {
-                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_AddSmtGoodsList",
-                                    this.NewParam("@ShopID", ShopInfo.ID),
-                                    this.NewParam("@GoodsCategory", goodsId),
-                                    this.NewParam("@CategoryIDs", categoryids),
-                                    this.NewParam("@Status", status),
-                                    this.NewParam("@Num", num));
-
-            }
-            foreach (DataRow dr in ds.Tables[0].Rows)
-            {
-                if ((string)dr["Photo"] + "" != "")
-                {
-                    CopyPhoto((string)dr["Photo"]);
-                }
-            }
-            return ds.Tables[0].Rows.Count;
-        }
-
-
-        public void CopyPhoto(string url)
-        {
-            string folder = HttpContext.Current.Server.MapPath(ShopInfo.DataPath + "/Goods/");
-            int outwidth, outheight = 0;
-
-            //-----------下载图片------------//
-            if ( ShopInfo.ComAcc != "" )
-            {
-                string sRmFile = "http://" + ShopInfo.ComAcc + ".anyp.com" + url.Replace( "S_" , "" ); //获得商脉通原图
-
-                string newfilename = url.Substring( url.IndexOf( "/products/" ) + 12 , url.Length - ( url.IndexOf( "/products/" ) + 12 ) );
-                WebClient wc = new WebClient();
-                if ( newfilename.Contains( "." ) )
-                {
-
-                    if (!Directory.Exists(folder))
-                    {
-                        Directory.CreateDirectory(folder);
-                    }
-
-                    wc.DownloadFile( sRmFile , folder + newfilename );
-
-                    ////------------生成缩略图---------------//
-                    int maxSize = 1024 * 1024 * 2;
-                    int maxW = 120 , maxH = 120;
-
-                   
-                    string photos = folder + "S_" + newfilename;
-
-                    WebAgent.SaveFile(folder + newfilename, photos, maxW, maxH, out outwidth, out outheight);
-                }
-               
-            }
-           
-        }
-
 
         /// <summary>
         /// 获得商品相关图片

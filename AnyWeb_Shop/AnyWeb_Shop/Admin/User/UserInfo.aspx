@@ -59,22 +59,6 @@
                                     </td>
                                   
                                 </tr>
-                               
-                                <tr >
-                                    <th>
-                                        积分：
-                                    </th>
-                                    <td>
-                                        <%#Eval("Point")%>
-                                    </td> 
-                                     <th>
-                                        预付款：
-
-                                    </th>
-                                    <td >
-                                        <%#Eval("Advance", "{0:c}")%>
-                                    </td>
-                                </tr>
                                 <tr>
                                     <th>
                                         邮政编码：

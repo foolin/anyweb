@@ -122,28 +122,6 @@ namespace Common.Agent
                         o.OrderItems.Add(oi);
                     }
                 }
-                if ( ds.Tables[4].Rows.Count > 0 )
-                {
-                    o.ChangeList = new ObjectList();
-                    foreach ( DataRow dr in ds.Tables[4].Rows )
-                    {
-                        ChangeNote cn = new ChangeNote();
-                        cn.ID = (int)dr["ChangeNoteID"];
-
-                        cn.OfChangeGoods = new ChangeGoods();
-
-                        cn.OfChangeGoods.Name = (string)dr["ChangeName"];
-                        cn.OfChangeGoods.Image = (string)dr["Image"];
-                        cn.NoteTime = (DateTime)dr["NoteTime"];
-                        cn.OfChangeGoods.Score = (int)dr["Score"];
-                        cn.OfChangeGoods.Price = (double)dr["Price"];
-
-                        o.ChangeList.Add( cn );
-                    }
-                  
-                   
-                }
-
                 return o;
             }
             else
@@ -152,7 +130,8 @@ namespace Common.Agent
             }
         }
        /// <summary>
-       /// 获得订单项
+       /// 获得订单项
+
        /// </summary>
        /// <param name="orderid"></param>
        /// <returns></returns>
@@ -197,7 +176,8 @@ namespace Common.Agent
         }
 
         /// <summary>
-        /// 获取购物车,没有则创建
+        /// 获取购物车,没有则创建
+
         /// </summary>
         /// <returns></returns>
         public Order GetShopCart()
@@ -247,7 +227,6 @@ namespace Common.Agent
                         this.NewParam("@ShopID", ShopInfo.ID),
                         this.NewParam("@UserID", UserInfo == null ?0:UserInfo.ID),
                         this.NewParam("@CreateAt", o.CreateAt),
-                        this.NewParam("@Price", o.MathPaymentPrice),
                         this.NewParam("@UserName", o.UserName),
                         this.NewParam("@UserEmail", o.UserEmail),
                         this.NewParam("@UserPhone", o.UserPhone),
@@ -258,7 +237,6 @@ namespace Common.Agent
                         this.NewParam("@Remark", o.Remark),
                         this.NewParam("@DeliverModeID", o.OfSendMode.ID),
                         this.NewParam("@PaymentModeID", o.OfPayMode.ID),
-                        this.NewParam("@PaymentPrice", o.OfPayMode.MathPayMent),
                         this.NewParam("@DeliverPrice", o.OfSendMode.MathDeliver));
             }
 
@@ -281,7 +259,8 @@ namespace Common.Agent
         }
 
         /// <summary>
-        /// 移除购物车
+        /// 移除购物车
+
         /// </summary>
         public void RemoveShopCart()
         {

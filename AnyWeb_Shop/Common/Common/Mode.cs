@@ -102,27 +102,6 @@ namespace Common.Common
         }
 
         /// <summary>
-        /// 支付总金额
-        /// </summary>
-        public double MathPayMent
-        {
-            get
-            {
-                Order o = (new OrderAgent()).GetShopCart();
-                double MathPoundage = o.MathPrice * this.Poundage / 1000;
-
-                if (MathPoundage < this.MostPoundage)
-                {
-                    return MostPoundage;
-                }
-                else
-                {
-                    return MathPoundage;
-                }
-            }
-        }
-
-        /// <summary>
         /// 配送总金额
         /// </summary>
         public double MathDeliver

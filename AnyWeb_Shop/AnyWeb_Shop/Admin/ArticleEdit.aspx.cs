@@ -51,25 +51,27 @@ public partial class ArticleEdit :AdminBase
         Article ar = (Article)fv1.DataItem;
         DropDownList drpType = (DropDownList)fv1.FindControl( "drpType" );
 
-        if ( drpType.Items.Count <= 0 )
+        if (QS("mode") != "select")
         {
-            WebAgent.FailAndGo( "您当前任何文章栏目，请先添加文章栏目。" , "ArticleCategoryHandle.aspx?mode=insert" );
-        }
-
-        if ( drpType != null && ar != null )
-        {
-            drpType.SelectedValue = ar.CategoryID.ToString();
-        }
-        if ( QS( "mode" ) == "insert" )
-        {
-            CheckBox chkComm = (CheckBox)fv1.FindControl( "chkComm" );
-
-            if ( chkComm != null )
+            if (drpType.Items.Count <= 0)
             {
-                chkComm.Checked = true;
+                WebAgent.FailAndGo("您当前任何文章栏目，请先添加文章栏目。", "ArticleCategoryHandle.aspx?mode=insert");
+            }
+
+            if (drpType != null && ar != null)
+            {
+                drpType.SelectedValue = ar.CategoryID.ToString();
+            }
+            if (QS("mode") == "insert")
+            {
+                CheckBox chkComm = (CheckBox)fv1.FindControl("chkComm");
+
+                if (chkComm != null)
+                {
+                    chkComm.Checked = true;
+                }
             }
         }
-       
     }
 
     protected void ods3_Inserting(object sender , ObjectDataSourceMethodEventArgs e)

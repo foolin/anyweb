@@ -278,6 +278,19 @@
                                 <button id="btnBack" onclick="window.location='GoodsList.aspx';">
                                     取 消</button>
                             </div>
+                            <script type="text/javascript">
+                                function Promotions() {
+                                    var chk = document.getElementById('<%=fv1.FindControl("chkPromotions").ClientID %>');
+                                    if (chk.checked) {
+                                        document.getElementById("lblPromotions").style.display = "";
+                                    }
+                                    else {
+                                        document.getElementById("lblPromotions").style.display = "none";
+                                    }
+                                }
+
+                                Promotions();
+                            </script>
                         </EditItemTemplate>
                         <InsertItemTemplate>
                             <table class="iEditForm iEditBaseInf">
@@ -404,6 +417,19 @@
                                 <button id="btnBack" onclick="window.location='GoodsList.aspx';" type="button">
                                     取 消</button>
                             </div>
+                            <script type="text/javascript">
+                                function Promotions() {
+                                    var chk = document.getElementById('<%=fv1.FindControl("chkPromotions").ClientID %>');
+                                    if (chk.checked) {
+                                        document.getElementById("lblPromotions").style.display = "";
+                                    }
+                                    else {
+                                        document.getElementById("lblPromotions").style.display = "none";
+                                    }
+                                }
+
+                                Promotions();
+                            </script>
                         </InsertItemTemplate>
                     </asp:FormView>
                 </form>
@@ -418,18 +444,6 @@
             document.getElementById("divDesc").style.display = document.getElementById("_ctl0_cph1_fv1_chkAutoDesc").checked ? 'none' : 'block';
 
         }
-
-        function Promotions() {
-            var chk = document.getElementById('<%=fv1.FindControl("chkPromotions").ClientID %>');
-            if (chk.checked) {
-                document.getElementById("lblPromotions").style.display = "";
-            }
-            else {
-                document.getElementById("lblPromotions").style.display = "none";
-            }
-        }
-
-        Promotions();
     </script>
 
     <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetGoodsByID" TypeName="Common.Agent.GoodsAgent" OnSelecting="ods3_Selecting" OnInserted="ods3_Inserted" OnInserting="ods3_Inserting" OnUpdated="ods3_Updated" OnUpdating="ods3_Updating" DataObjectTypeName="Common.Common.Goods" InsertMethod="AddGoods" UpdateMethod="UpdateGoods" DeleteMethod="GoodsDeletes" OnDeleted="ods3_Deleted">

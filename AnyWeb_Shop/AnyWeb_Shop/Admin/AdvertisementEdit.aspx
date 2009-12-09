@@ -64,7 +64,7 @@
                                     </tr>
                                     <tr class="edit odd">
                                      <td colspan="2">
-                                        <sw:TinyMce ID="txtContent" runat="server" Height="500px" />
+                                        <sw:TinyMce ID="txtContent" runat="server" Height="500px" Text='<%# Bind("AdContent") %>' />
                                     </td>
                                     
                                 </tr>

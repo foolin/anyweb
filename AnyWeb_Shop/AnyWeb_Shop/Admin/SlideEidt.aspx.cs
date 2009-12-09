@@ -111,7 +111,7 @@ public partial class SlideEidt : AdminBase
             {
                 this.AddLog( EventID.Update , "修改幻灯片" , "修改幻灯片" );
 
-                WebAgent.SuccAndGo( "保存成功" , "/SlideEidt.aspx" );
+                WebAgent.SuccAndGo( "保存成功" , "/Admin/SlideEidt.aspx" );
             }
         }
 
@@ -178,72 +178,3 @@ public partial class SlideEidt : AdminBase
 
     }
 }
-
-
-
-//    /// <summary>
-//    /// 上传图片
-//    /// </summary>
-//    /// <param name="fp"></param>
-//    /// <param name="t"></param>
-//    /// <param name="ts"></param>
-//    /// <param name="fileName"></param>
-//    /// <returns></returns>
-//    public Slide SavaSlide(FileUpload fp , TextBox t ,HiddenField f, TextBox ts )
-//    {
-//        Slide s = new Slide();
-
-//        int maxSize = 1024 * 1024 * 2;
-//        int maxW = 120 , maxH = 120;
-
-//        if ( fp.HasFile )
-//        {
-   
-//            HttpPostedFile file = fp.PostedFile;
-
-//            if ( file.FileName.ToString().Substring( file.FileName.ToString().IndexOf( '.' ) , 4 ).ToLower().Equals( ".bmp" ) )
-//            {
-//                WebAgent.FailAndGo( "当前不支持bmp格式图片." );
-//            }
-
-//            string folder =Server.MapPath( ShopInfo.DataPath) + "\\Slide";
-//            if ( !Directory.Exists( folder ) )
-//            {
-//                Directory.CreateDirectory( folder );
-//            }
-
-//            string newkey = WebAgent.NewKey();
-//            string url = "/" + newkey+ file.FileName.Substring( file.FileName.LastIndexOf( '.' ) );
-
-//           string  fileName = folder + "\\" +
-//           newkey+ file.FileName.Substring( file.FileName.LastIndexOf( '.' ) );
-
-//            if ( file.ContentLength > maxSize )
-//            {
-//                WebAgent.FailAndGo( "图片太大，当前允许2M." );
-//            }
-
-//            file.SaveAs( fileName );
-
-//            file.InputStream.Close();
-
-//            s.SlideFile =url ;
-          
-//        }
-//        else
-//        {
-//            if ( f.Value == null || f.Value == "" ) return null;
-//            else
-//            {
-//                s.SlideFile = f.Value;
-             
-//            }
-//        }
-
-//        int st = 0;
-//        s.SlideLink = t.Text;
-//        s.Sort = int.Parse( ts.Text =="" ? st.ToString() :ts.Text);
-//        return s;
-
-//    }
-//}

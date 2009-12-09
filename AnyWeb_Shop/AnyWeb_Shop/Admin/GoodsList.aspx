@@ -11,6 +11,7 @@
     <li>可以批量删除商品。</li>
     <li>改变商品的状态，必须进入到修改页对商品状态进行处理。</li>
     <li>对查看商品的详细信息，并对其进行相关的操作。</li>
+    <li>商品排序只对相同类别的商品有效。</li>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
 

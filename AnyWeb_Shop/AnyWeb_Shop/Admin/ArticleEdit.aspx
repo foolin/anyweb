@@ -78,7 +78,7 @@
                             <div class="iSubmit">
                                 <span style="display: <%#(bool)Eval("IsComment")==true? "":"none"%>">
                                     <button id="btnComment" onclick="window.location='CommentList.aspx?tid=1&sid=<%#Eval("ID") %>';" type="button" class="submit">
-                                        查看该商品评论</button></span>
+                                        查看该文章评论</button></span>
                                 <asp:Button ID="btnDelete" runat="server" Text="删除该文章" CommandName="Delete" CssClass="submit"></asp:Button>
                                 <button id="btnBack" onclick="window.location='ArticleList.aspx';">
                                     返回列表</button>

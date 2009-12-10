@@ -95,11 +95,13 @@
 	padding-bottom:5px;
 	font-weight:bold;
 }
-.container .goods-container .goods .items{
+.container .goods-container .goods ul.items{
 	margin-top:3px;
 	margin-left:20px;
+	padding:0px;
 }
 .container .goods-container .goods .items li{
+	margin-left:0px;
 	padding-top:1px;
 	padding-bottom:1px;
 }

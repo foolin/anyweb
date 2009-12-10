@@ -61,16 +61,16 @@
 }
 .container .goods-container{
 	margin-bottom:10px;
-	border:1px solid #AAD5FF;
+	border:1px solid #9ed96b;
 	background-color:#FFFFFF;
 }
 .container .goods-container .title{
 	height:25px;
 	line-height:25px;
-	background:#C8E3FF url(../images/goods_container_title_bg.jpg) repeat-x;
+	background:#9ed96b url(../images/boxA_title_bg.jpg) repeat-x;
 	font-size:14px;
 	font-weight:bold;
-	color:#069;
+	color:#090;
 	padding-left:10px;
 	overflow:hidden;
 }
@@ -108,7 +108,7 @@
 
 /* topic-box  */
 .topic-box{
-	border:1px solid #A4D1FF;
+	border:1px solid #9dd96b;
 	padding:10px;
 	line-height:1.5em;
 	background-color:#FFFFFF;

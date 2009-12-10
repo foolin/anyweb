@@ -9,7 +9,7 @@ body{
 	font-size:12px;
 }
 a{
-	color:#069;
+	color:#186100;
 	text-decoration:none;
 }
 a:hover{
@@ -57,24 +57,18 @@ a:hover{
 	display:block; 
 	padding-left:8px;
 	padding-right:8px;
-	background:#f1f6fc url(../images/nav_bg.jpg) repeat-x;
-	border-left:1px solid #d3e5fa;
-	border-right:1px solid #d3e5fa;
-	border-top:1px solid #d3e5fa;
+	background:#beeb97;
+	color:#393;
 }
-.nav ul li a:hover{
-	background:#e5f1ff url(../images/nav_bg_on.jpg) repeat-x;
+.nav ul li a:hover, .nav ul li.on a:hover{
+	background:#8cc93a;
 	text-decoration:none;
-	border-left:1px solid #d3e5fa;
-	border-right:1px solid #d3e5fa;
-	border-top:1px solid #d3e5fa;
+	color:#FFF;
 }
 .nav ul li.on a{
-	background:#e5f1ff url(../images/nav_bg_on.jpg) repeat-x;
+	background:#8cc93a;
 	font-weight:bold;
-	border-left:1px solid #e5f1ff;
-	border-right:1px solid #e5f1ff;
-	border-top:1px solid #e5f1ff;
+	color:#FFF;
 }
 .sub-nav{
 	float:left;
@@ -84,12 +78,14 @@ a:hover{
 .search{
 	background:#ffffff url(../images/search_bg.jpg) repeat-x;
 	height:50px;
-	border:1px solid #d3e5fa;
+	border:1px solid #9dd96b;
+	border-top:0px;
+
 }
 .search form label{
 	font-size:14px;
 	font-weight:bold;
-	color:#09F;
+	color:#FFF;
 }
 .search form{
 	margin:0px;
@@ -103,7 +99,7 @@ a:hover{
 }
 .search .button{
 	height:25px;
-	background:#f1f6fc;
+	background:#F3FDF0;
 }
 .search form select{
 	border:1px solid #BDF;
@@ -143,17 +139,20 @@ a:hover{
 
 /** category **/
 .category{
-	border:1px solid #CAE4FF;
+	border:1px solid #9dd96b;
 	background-color:#FFFFFF;
+	background:#F5FDF2;
 	margin-bottom:10px;
 }
 .category .title{
-	background:#09F url(../images/box_title_bg.jpg);
-	height:30px;
-	line-height:30px;
+	background:#9dd96b url(../images/boxB_title_bg.jpg);
+	height:28px;
+	line-height:28px;
 	font-size:14px;
 	font-weight:bold;
 	text-align:center;
+	color:#0A0;
+	color:#FFF;
 }
 .category .content{
 }

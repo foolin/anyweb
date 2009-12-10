@@ -1,0 +1,178 @@
+/*=======================================================*/
+/* Purpose:      Css for common style                    */
+/* Author:       Anyweb Studio $Foolin                   */
+/* E-mail:       Foolin@126.com                          */
+/* Created on:   2009-12-2 10:30:24                      */
+/*=======================================================*/
+body{
+	margin:0px;
+	font-size:12px;
+}
+a{
+	color:#069;
+	text-decoration:none;
+}
+a:hover{
+	color:#F00;
+	text-decoration:underline;
+}
+.clear{
+	clear:both;
+}
+.wrapper {
+	margin:0px auto;
+	width:980px;
+}
+/*header*/
+.header{}
+.top{
+	overflow:hidden;
+	padding-left:10%;
+}
+.logo {
+	float:left;
+	width:200px;
+	height:50px;
+	overflow:hidden;
+}
+.nav{
+	float:left;
+	margin-top:20px;
+	margin-left:10px;
+	font-size:14px;
+}
+.nav ul{
+	margin:0px;
+	padding:0px;
+}
+.nav ul li{
+	float:left;
+	margin:0px 3px;
+	list-style:none;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+}
+.nav ul li a{
+	display:block; 
+	padding-left:8px;
+	padding-right:8px;
+	background:#f1f6fc url(../images/nav_bg.jpg) repeat-x;
+	border-left:1px solid #d3e5fa;
+	border-right:1px solid #d3e5fa;
+	border-top:1px solid #d3e5fa;
+}
+.nav ul li a:hover{
+	background:#e5f1ff url(../images/nav_bg_on.jpg) repeat-x;
+	text-decoration:none;
+	border-left:1px solid #d3e5fa;
+	border-right:1px solid #d3e5fa;
+	border-top:1px solid #d3e5fa;
+}
+.nav ul li.on a{
+	background:#e5f1ff url(../images/nav_bg_on.jpg) repeat-x;
+	font-weight:bold;
+	border-left:1px solid #e5f1ff;
+	border-right:1px solid #e5f1ff;
+	border-top:1px solid #e5f1ff;
+}
+.sub-nav{
+	float:left;
+	margin-top:30px;
+	margin-left:20px;
+}
+.search{
+	background:#ffffff url(../images/search_bg.jpg) repeat-x;
+	height:50px;
+	border:1px solid #d3e5fa;
+}
+.search form label{
+	font-size:14px;
+	font-weight:bold;
+	color:#09F;
+}
+.search form{
+	margin:0px;
+	margin-top:10px;
+	padding:5px;
+}
+.search form input{
+	border:1px solid #BDF;
+	height:20px;
+	line-height:20px;
+}
+.search .button{
+	height:25px;
+	background:#f1f6fc;
+}
+.search form select{
+	border:1px solid #BDF;
+}
+.search .hot-tags{
+	margin-left:10px;
+}
+
+.ad-banner{
+	margin-top:10px;
+	margin-bottom:10px;
+	height:45px;
+	background:#F0F0F0;
+}
+
+.main{
+	clear:both;
+}
+.help-links{
+	margin-top:10px;
+	margin-bottom:10px;
+	border:1px solid #CCC;
+}
+.help-links ul{
+	margin-top:10px;
+	margin-bottom:10px;
+	list-style:none;
+}
+.help-links ul li{
+	float:left;
+	width:20%;
+}
+.footer{
+	text-align:center;
+	line-height:22px;
+}
+
+/** category **/
+.category{
+	border:1px solid #CAE4FF;
+	background-color:#FFFFFF;
+	margin-bottom:10px;
+}
+.category .title{
+	background:#09F url(../images/box_title_bg.jpg);
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;
+}
+.category .content{
+}
+.category .content h3{
+	margin:5px;
+	color:#cd6702;
+	clear:both;
+}
+.category .content .line{
+	margin:2px;
+	padding:5px;
+	overflow:hidden;
+}
+
+.category .content .line span{
+	float:left;
+	margin-bottom:5px;
+	padding:0px 5px;
+	white-space:nowrap;
+	background:url(../images/line_li_bg.gif) no-repeat right 0px;
+	line-height:14px;
+}

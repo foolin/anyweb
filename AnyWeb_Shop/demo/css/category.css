@@ -1,0 +1,53 @@
+.col-sider {
+	float:left;
+	width:25%;
+}
+
+.col-main{
+	float:right;
+	width:75%;
+}
+
+.container{
+	margin-left:5px;
+	line-height:30px;
+	border-collapse:collapse;
+	border:1px solid #9ed96b;
+	background:#FFF;
+}
+
+.container .title{
+	height:30px;
+	line-height:30px;
+	background:#9ed96b url(../images/category_title_bg.jpg) repeat-x;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+	text-align:center;
+}
+
+.goods{
+	float:left;
+	width:33.3%;
+}
+
+.goods dl{
+	margin:5px;
+	border:solid 1px #E0F1E4;
+	overflow:hidden;
+}
+
+.goods dl dd{
+	margin:0px;
+	line-height:18px;
+	text-align:center;
+	background:#F3FAF5;
+
+}
+
+.goods dl dd img{
+	margin:5px;
+	border:solid 1px #CCC;
+	background:#FFF;
+	padding:2px;
+}

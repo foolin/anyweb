@@ -4,39 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Anyweb Shop - Home Page</title>
 <link href="css/common.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/slidetrans.js"></script>
-<style type="text/css">
-<!--
-.container{
-	background:#FFF;
-}
-
-table.regForm{
-	width:100%;
-	line-height:30px;
-	border-collapse:collapse;
-	border:1px solid #9ed96b;
-	background:#FFF;
-}
-table.regForm .title{
-	height:20px;
-	line-height:20px;
-	background:#9ed96b url(images/boxA_title_bg.jpg) repeat-x;
-	font-size:14px;
-	font-weight:bold;
-	color:#090;
-	text-align:center;
-}
-table.regForm td{
-	padding-top:5px;
-	padding-bottom:5px;
-}
-.regForm input{
-	border:solid 1px #aaa;
-	padding:3px 3px;
-}
--->
-</style>
+<link href="css/goods_details.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -50,9 +18,10 @@ table.regForm td{
             <!-- logo end -->
             <div class="nav">
             	<ul>
-                <li class="on"><a href="index.html">首页</a></li>
-                <li><a href="index.html">关于我们</a></li>
-                <li><a href="index.html">商品类别</a></li>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="Category.html">商品类别</a></li>
+                <li><a href="Register.html">用户注册</a></li>
+                <li><a href="Login.html">用户登录</a></li>
             	</ul>
             </div>
             <!-- nav end -->
@@ -103,39 +72,77 @@ table.regForm td{
     <!-- ad-banner end -->
 	
     <div class="main">
-    	<div class="container">
-                <table class="regForm">
-                	<tr><td colspan="3" class="title">注册用户</td></tr>
-                    <tr>
-                        <td width="20%" align="right">登录名：</td>
-                        <td width="50%"><input type="text" class="inputtext" name="txtUserName" id="txtUserName" onblur="ExistName(this);" /></td>
-                        <td width="30%"><div id="txtUserNameMsg"></div></td>
-                    </tr>
-                    <tr>
-                        <td align="right"> 密码：</td>
-                        <td><input class="inputtext" type="password" name="txtPassWord" id="txtPassWord" onblur="checkPass(this);" /></td>
-                        <td valign="top"><div id="txtPassWordMsg"></div></td>
-                    </tr>
-                    <tr>
-                        <td align="right">确认密码：</td>
-                        <td><input class="inputtext" type="password" name="txtConfirmPass" id="txtConfirmPass" onblur="checkSurePass(this);" /></td>
-                        <td valign="top"><div id="txtConfirmPassMsg"></div></td>
-                    </tr>
-                    <tr>
-                        <td align="right">电子邮件：</td>
-                        <td> <input class="inputtext" type="text" name="txtEmail" id="txtEmail" onblur="ExistEmail(this);" /></td>
-                        <td valign="top"> <div id="txtEmailMsg"></div></td>
-                    </tr>
+    	<div class="col-sider">
+        
+        	<!-- 栏目 -->
+        	<div class="category">
+            	<div class="title">商品分类</div>
+                <div class="content">
+                
+            		<h3>图像音像分类</h3>
+                  	<ul>
+                      <li><a href="">DVD</a></li>
+                      <li><a href="">DVD</a></li>
+                    </ul>
                     
-                    <tr>
-                        <td colspan="3" align="center" style="text-align:center">
-                              <input type="submit" name="btnRegister" value="注册"/>
-                              <input type="reset" name="btnReset" value="重置"  />
-                        </td>
-                    </tr>
-                </table>
+                    <div class="clear"></div>
+                </div>
+                <!-- content end -->
+            </div>
+            <!-- category end -->
+        
+        
         </div>
-        <!-- container end -->
+        <!-- col-sider end -->
+        
+        
+        
+        <div class="col-main">
+			<div class="box">
+            	<div class="title">诺基亚 7610S 7310S 7310C 6650F E63 5800 原装数据线</div>
+     			<div class="gLeft">
+                	<div class="gImage">
+                    	<a href="#"><img src="http://img06.taobaocdn.com/bao/uploaded/i6/T1ldNmXeVCXXavpwTb_093901.jpg_310x310.jpg" width="300" height="300" alt=""  /></a>
+                        <br />
+                        <a href="#">点击查看大图</a>
+                    </div>
+                </div>
+                <!-- gLeft -->
+                <div class="gRight">
+                	<dl class="gInfo">
+                    	<dt>原装 诺基亚E63数据线 N82数据线 5220XM数据线 CA-101</dt>
+                        <dd>市场价：￥<s>15元</s></dd>
+                        <dd>基团网价格：￥8元</dd>
+                        <dd>存货：500件</dd>
+                        <dd>
+                        	基团网，品质保证，消费返积分，无理由退换货！<br />
+                            承诺： 正品保障 7天退换。 
+                        </dd>
+                        <dd><input type="button" name="buy" value="购买" />  <input type="button" name="addToCart" value="加入购物车" /></dd>
+                    </dl>
+                </div>
+                <!-- gRight -->
+                <div class="clear"></div>
+                
+                <div class="hr"></div>
+                <div class="gDetails">
+                
+                《媳妇的美好时代》：大龄女毛豆豆，几次相亲对象都是摄影师余味。这是老天要他们在一起吗？但是面对两个婆婆的争夺和挑剔，毛豆豆几乎无招架之力。
+                连拉带拽嫁入城市的原生态女潘美丽，无奈老公又是个风流多情种。
+                新婚丧夫的变态媳妇余好，整天施法，跟嫂嫂作对，自己又是老大难。
+                三个媳妇一箩筐的烦恼事，
+                酸甜苦辣样样尝遍后，
+                终于走进了美好的时代……
+
+
+                
+                </div>
+           </div>
+           <!-- container end -->
+        </div>
+        <!-- col-main -->
+     
+        <div class="clear"></div>
     </div>
     <!-- main end -->
     

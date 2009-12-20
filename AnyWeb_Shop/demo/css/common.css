@@ -122,6 +122,7 @@ a:hover{
 	margin-top:10px;
 	margin-bottom:10px;
 	border:1px solid #CCC;
+	background:#FFF; /*解决ie6/7出现border断线现象*/
 }
 .help-links ul{
 	margin-top:10px;
@@ -184,3 +185,51 @@ a:hover{
 .category .content ul li{
 	margin:0px;
 }
+
+/***** ****/
+
+.box{
+	margin-left:5px;
+	line-height:30px;
+	border-collapse:collapse;
+	border:solid 1px #9ed96b;
+	background:#FFF;
+}
+
+.box .title{
+	height:30px;
+	line-height:30px;
+	background:#9ed96b url(../images/category_title_bg.jpg) repeat-x;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+	text-align:center;
+}
+
+/****** 分页样式 ******/
+.page{
+	margin:5px;
+	font-size:12px;
+	font-weight:bold;
+	text-align:center;
+}
+
+.page input{
+	width:20px;
+	border:solid 1px #999;
+}
+
+.page a{
+	margin-left:2px;
+	padding:3px 6px;
+	border:solid 1px #CCC;
+	background:#FFF;
+	text-decoration:none;
+}
+
+.page a:hover{
+	text-decoration:none;
+	border:solid 1px #F00;
+}
+
+

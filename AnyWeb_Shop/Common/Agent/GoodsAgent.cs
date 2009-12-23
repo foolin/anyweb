@@ -274,14 +274,18 @@ namespace Common.Agent
         /// </summary>
         /// <param name="categoryid"></param>
         /// <returns></returns>
-        public ArrayList GetGoodsByCategoryID(int categoryid)
+        public ArrayList GetGoodsByCategoryID(int categoryid,int PageSize,int PageIndex,out int RecordCount)
         {
             DataSet ds = new DataSet();
-
+            IDbDataParameter record = this.NewParam("@RecordCount", 0, DbType.Int32, 8, true);
             using (IDbExecutor db = this.NewExecutor())
             {
                 ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetGoodsByCategoryID",
-                                this.NewParam("@CategoryID", categoryid));
+                                this.NewParam("@CategoryID", categoryid),
+                                this.NewParam("@PageSize", PageSize),
+                                this.NewParam("@PageNo", PageIndex),
+                                record);
+                RecordCount = (int)record.Value;
             }
 
             ArrayList list = new ArrayList();
@@ -662,7 +666,6 @@ namespace Common.Agent
         }
         /// <summary>
         /// 获取大栏目下所有商品
-
         /// </summary>
         /// <param name="categoryid"></param>
         /// <param name="pageSize"></param>

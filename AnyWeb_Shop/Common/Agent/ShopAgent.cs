@@ -52,6 +52,7 @@ namespace Common.Agent
 
             //初始化ShopInfo对象
             s = new Shop(ds.Tables[0].Rows[0]);
+            s.Categorys = new CategoryAgent().GetCategorys(shopid);
 
             HttpRuntime.Cache.Insert("SHOP_" + shopid.ToString(), s, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(5));
 

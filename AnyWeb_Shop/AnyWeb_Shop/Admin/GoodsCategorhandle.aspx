@@ -27,13 +27,6 @@
                                     <td>
                                         <asp:TextBox ID="txtName" runat="server" CssClass="input" errmsg="请输入正确的商品类别" MaxLength="50" require="1" Width="308px" Text='<%#Bind("Name") %>'></asp:TextBox>&nbsp;不超过50个汉字。</td>
                                 </tr>
-                                <tr >
-                                    <th>
-                                        文件名称：
-                                    </th>
-                                    <td>
-                                        <asp:TextBox ID="txtPath" runat="server" CssClass="input" errmsg="请输入正确的文件名称" MaxLength="20" require="1" Width="208px" Text='<%#Bind("Path") %>'></asp:TextBox>&nbsp;请输入与栏目意思相近的英文名称。例:book。</td>
-                                </tr>
                                 <tr id="ofType">
                                     <th>
                                         所属类别：
@@ -58,13 +51,6 @@
                                     <td>
                                         <asp:TextBox ID="txtName" runat="server" CssClass="input" errmsg="请输入正确的商品类别" MaxLength="50" require="1" Width="408px" Text='<%#Bind("Name") %>'></asp:TextBox>&nbsp;不超过50个汉字。</td>
                                 </tr>
-                                <tr >
-                                    <th>
-                                        文件名称：
-                                    </th>
-                                    <td>
-                                        <asp:TextBox ID="txtPath" runat="server" CssClass="input" errmsg="请输入正确的文件名称" MaxLength="20" require="1" Width="208px" Text='<%#Bind("Path") %>'></asp:TextBox>&nbsp;请输入与栏目意思相近的英文名称。例:book。</td>
-                                </tr>
                                 <tr  id="ofType">
                                     <th>
                                         所属类别：
@@ -86,7 +72,7 @@
                             <asp:QueryStringParameter Name="id" QueryStringField="cid" Type="Int32" />
                         </SelectParameters>
                     </asp:ObjectDataSource>
-                    <asp:ObjectDataSource ID="ods4" runat="server" TypeName="Common.Agent.CategoryAgent" SelectMethod="GetGoodsCategory"></asp:ObjectDataSource>
+                    <asp:ObjectDataSource ID="ods4" runat="server" TypeName="Common.Agent.CategoryAgent" SelectMethod="GetCategoryList"></asp:ObjectDataSource>
                 </form>
             </div>
         </div>

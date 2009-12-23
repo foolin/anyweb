@@ -24,8 +24,6 @@
                                     商品类别名称</th>
                                 <th>
                                     创建时间</th>
-                                <th>
-                                    文件名称</th>
                                 <th class="end">
                                     操作</th>
                             </tr>
@@ -41,9 +39,6 @@
                                             <%#Eval("CreateAt","{0:yyyy-MM-dd}") %>
                                         </td>
                                         <td>
-                                            <%#Eval("Path") %>
-                                        </td>
-                                        <td>
                                             <a href="GoodsCategorhandle.aspx?mode=update&cid=<%#Eval("ID")%>">修改</a> <a href="GoodsCategorhandle.aspx?mode=delete&cid=<%#Eval("ID")%>" onclick="javascript:return confirm('删除此商品类别会将相关前台显示内容一并移除，确定删除？')">删除</a></td>
                                     </tr>
                                     <asp:Repeater ID="rep2" runat="server">
@@ -57,9 +52,6 @@
                                                     <%#Eval("CreateAt","{0:yyyy-MM-dd}") %>
                                                 </td>
                                                 <td>
-                                                    <%#Eval("Path") %>
-                                                </td>
-                                                <td>
                                                     <a href="GoodsCategorhandle.aspx?mode=update&cid=<%#Eval("ID")%>">修改</a> <a href="GoodsCategorhandle.aspx?mode=delete&cid=<%#Eval("ID")%>" onclick="javascript:return confirm('删除此商品类别会将相关前台显示内容一并移除，确定删除？')">删除</a></td>
                                             </tr>
                                         </ItemTemplate>
@@ -69,8 +61,6 @@
                         </tbody>
                     </table>
                     <div class="iPagination">
-                        <cc1:PageNaver ID="PN1" StyleID="2" runat="server" PageSize="18">
-                        </cc1:PageNaver>
                     </div>
                 </form>
             </div>
@@ -78,13 +68,7 @@
         <div class="mft">
         </div>
     </div>
-    <asp:ObjectDataSource ID="ods1" runat="server" SelectMethod="GetCategoryList" TypeName="Common.Agent.CategoryAgent" OnSelected="ods1_Selected">
-        <SelectParameters>
-            <asp:Parameter Type="Int32" DefaultValue="2" Name="type"/>
-            <asp:ControlParameter ControlID="PN1" Name="PageSize" Type="int32" DefaultValue="20" PropertyName="pagesize" />
-            <asp:ControlParameter Name="PageNo" ControlID="PN1" Type="int32" DefaultValue="1" PropertyName="pageindex" />
-            <asp:Parameter Direction="Output" Name="recordCount" Type="Int32" />
-        </SelectParameters>
+    <asp:ObjectDataSource ID="ods1" runat="server" SelectMethod="GetCategoryList" TypeName="Common.Agent.CategoryAgent">
     </asp:ObjectDataSource>
     
 </asp:Content>

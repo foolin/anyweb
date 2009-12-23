@@ -363,7 +363,7 @@
                                         是否促销：</th>
                                     <td>
                                         <asp:CheckBox ID="chkPromotions" runat="server" Checked='<%#Bind("IsPromotions") %>' onclick="Promotions()" />促销
-                                        <label id="lblPromotions" style="display:none;">价格：<asp:TextBox ID="txtProPrice" runat="server" Width="60" Text='<%#Bind("PromotionsPrice") %>'></asp:TextBox>元</label>
+                                        <label id="lblPromotions" style="display:none;">价格：<asp:TextBox ID="txtProPrice" runat="server" Width="60"></asp:TextBox>元</label>
                                     </td>
                                 </tr>
                                 <tr>

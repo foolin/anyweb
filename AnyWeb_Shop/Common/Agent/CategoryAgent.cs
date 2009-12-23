@@ -21,58 +21,56 @@ namespace Common.Agent
         /// <summary>
         /// 类别列表
         /// </summary>
-        /// <param name="shopId"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="pageNo"></param>
-        /// <param name="recordCount"></param>
         /// <returns></returns>
-        public ArrayList GetCategoryList(int type , int pageSize , int pageNo , out int recordCount)
+        public ArrayList GetCategoryList()
+        {
+            ArrayList listTemp = ShopInfo.Categorys;
+            ArrayList list = new ArrayList();
+            foreach (Category c in listTemp)
+            {
+                if (c.Pater == 0)
+                    list.Add(c);
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 初始化类别缓存
+        /// </summary>
+        /// <returns></returns>
+        public ObjectList GetCategorys(int ShopID)
         {
             DataSet ds;
-            IDbDataParameter record = this.NewParam( "@RecordCount" , 0 , DbType.Int32 , 8 , true );
-            using ( IDbExecutor db = this.NewExecutor() )
+            ObjectList list = (ObjectList)HttpRuntime.Cache["CATEGORY_" + ShopID.ToString()];
+            if (list != null)
+                return list;
+            using (IDbExecutor db = this.NewExecutor())
             {
-                ds = db.GetDataSet( CommandType.StoredProcedure , "Shop_GetCategoryList" ,
-                                this.NewParam( "@ShopID" , ShopInfo.ID ) ,
-                                this.NewParam( "@Type" , type ) ,
-                                this.NewParam( "@PageSize" , pageSize ) ,
-                                this.NewParam( "@PageNo" , pageNo ) ,
-                                record );
+                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetCategorys",
+                    this.NewParam("@ShopID", ShopID));
             }
-            recordCount = (int)record.Value;
-
-            ArrayList list = new ArrayList();
-            foreach ( DataRow dr in ds.Tables[0].Rows )
+            list = new ObjectList();
+            foreach (DataRow row in ds.Tables[0].Rows)
             {
-                Category c = new Category(dr);
-                c.BackUrl = string.Format( "http://{0}/c/{1}.aspx" , ShopInfo.ShopDomain , (string)dr["Path"] );
-                list.Add( c );
-
+                Category c = new Category(row);
+                list.Add(c);
             }
-
+            HttpRuntime.Cache.Insert("CATEGORY_" + ShopID.ToString(), list, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(5));
             return list;
         }
 
         /// <summary>
         /// 获取子类别
-
         /// </summary>
         /// <param name="categoryId"></param>
         /// <returns></returns>
         public ArrayList GetCategoryChildren(int categoryId)
         {
-            DataSet ds;
-            using ( IDbExecutor db = this.NewExecutor() )
+            ArrayList list = new ArrayList();
+            foreach (Category c in ShopInfo.Categorys)
             {
-                ds=db.GetDataSet( CommandType.StoredProcedure , "Shop_GetCategoryChildren" ,
-                                this.NewParam( "@CategoryID" , categoryId ) );
-            }
-            ArrayList list=new ArrayList();
-            foreach ( DataRow dr in ds.Tables[0].Rows )
-            {
-                Category c = new Category( dr );
-                c.BackUrl = string.Format( "http://{0}/c/{1}.aspx" , ShopInfo.ShopDomain , (string)dr["Path"] );
-                list.Add( c );
+                if (c.Pater == categoryId)
+                    list.Add(c);
             }
             return list;
         }
@@ -105,7 +103,7 @@ namespace Common.Agent
                                     this.NewParam( "@CategoryName" , c.Name ) ,
                                     this.NewParam( "@ShopID" , ShopInfo.ID) ,
                                     this.NewParam( "@Type" , c.Type ),
-                                    this.NewParam("@Path",c.Path),
+                                    this.NewParam("@Path",""),
                                     this.NewParam("@Pater",c.Pater));
 
                if ( id > 0 )
@@ -128,16 +126,28 @@ namespace Common.Agent
         /// <param name="c"></param>
         public int UpdateCategory(Category c)
         {
+            int result;
             using ( IDbExecutor db = this.NewExecutor() )
             {
-               return db.ExecuteNonQuery( CommandType.StoredProcedure , "Shop_CategoryUpdate" ,
+               result = db.ExecuteNonQuery( CommandType.StoredProcedure , "Shop_CategoryUpdate" ,
                                     this.NewParam("@CategoryID",c.ID),
                                     this.NewParam( "@CategoryName" , c.Name ) ,
                                     this.NewParam( "@Type" , c.Type ) ,
                                     this.NewParam("@Pater",c.Pater),
-                                    this.NewParam("@Path",c.Path));
+                                    this.NewParam("@Path",""));
             }
 
+            foreach (Category ca in ShopInfo.Categorys)
+            {
+                if (ca.ID == c.ID)
+                {
+                    ca.Name = c.Name;
+                    ca.Type = c.Type;
+                    ca.Pater = c.Pater;
+                    ca.Path = c.Path;
+                }
+            }
+            return result;
         }
 
         /// <summary>
@@ -168,27 +178,12 @@ namespace Common.Agent
         /// <returns></returns>
         public Category GetCategoryByid(int id)
         {
-            DataSet ds;
-            using ( IDbExecutor db = this.NewExecutor() )
+            foreach (Category c in ShopInfo.Categorys)
             {
-                ds=db.GetDataSet( CommandType.StoredProcedure , "Shop_GetCategoryByID" ,
-                                this.NewParam( "@CategoryID" , id ) );
+                if (c.ID == id)
+                    return c;
             }
-            if ( ds.Tables[0].Rows.Count > 0 )
-            {
-                Category ca = new Category(ds.Tables[0].Rows[0] );
-                if ( (int)ds.Tables[0].Rows[0]["Pater"] > 0 )
-                {
-                    ca.PaterName = (string)ds.Tables[0].Rows[0]["PaterName"];
-                }
-                else
-                {
-                    ca.PaterName = "";
-                }
-                return ca;
-            }
-            else
-                return null;
+            return null;
         }
 
         /// <summary>
@@ -215,41 +210,6 @@ namespace Common.Agent
                list.Add( ca );
            }
            return list;
-        }
-
-        /// <summary>
-        /// 获得商品类别（有子级的父级类别除外）
-        /// </summary>
-        /// <returns></returns>
-        public ArrayList GetGoodsCategory()
-        {
-            DataSet ds;
-            using ( IDbExecutor db = this.NewExecutor() )
-            {
-                ds = db.GetDataSet( CommandType.StoredProcedure , "Shop_GetCategoryName" ,
-                                this.NewParam( "@ShopID" , ShopInfo.ID ) );
-            }
-            ArrayList list = new ArrayList();
-            foreach ( DataRow dr in ds.Tables[0].Rows )
-            {
-                Category ca = new Category();
-                ca.ID = (int)dr["CategoryID"];
-                ca.Name = (string)dr["CategoryName"];
-
-                list.Add( ca );
-            }
-
-            ArrayList list2 = new ArrayList();
-
-            foreach ( Category c in list )
-            {
-                if ( ( ( new GoodsAgent() ).GetGoodsByCategoryID( c.ID ) ).Count == 0 )
-                {
-                    list2.Add( c );
-                }
-            }
-
-            return list2;
         }
 
         /// <summary>

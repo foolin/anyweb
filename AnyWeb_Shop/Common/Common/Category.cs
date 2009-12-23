@@ -55,7 +55,8 @@ namespace Common.Common
 
         private string _paterName;
         /// <summary>
-        /// 所属类别名称
+        /// 所属类别名称
+
         /// </summary>
         public string PaterName
         {
@@ -84,7 +85,8 @@ namespace Common.Common
         }
 
         /// <summary>
-        /// 所属商店
+        /// 所属商店
+
         /// </summary>
         private Shop _ofshop;
 
@@ -94,7 +96,7 @@ namespace Common.Common
             set { _ofshop = value; }
         }
 
-        private string _path;
+        private string _path = "";
         /// <summary>
         /// 文件名称
         /// </summary>
@@ -116,7 +118,8 @@ namespace Common.Common
 
         private int _pater ;
         /// <summary>
-        ///所属父级
+        ///所属父级
+
         /// </summary>
         public int Pater 
         {
@@ -163,6 +166,14 @@ namespace Common.Common
             set { _backUrl = value; }
         }
 
-
+        private List<Category> _Children;
+        /// <summary>
+        /// 子类别
+        /// </summary>
+        public List<Category> Children
+        {
+            get { return _Children; }
+            set { _Children = value; }
+        }
     }
 }

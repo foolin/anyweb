@@ -1,29 +1,30 @@
 ﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Collections;
+using System.Collections.Generic;
 using System.Web;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using Common.Common;
 using Common.Agent;
-using Admin.Framework;
+using Common.Common;
+using Studio.Web;
 
-public partial class GoodsCategoryList : AdminBase
+public partial class Controls_CategoryLeft : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
 
-    public void repCategory_ItemDataBound(object sender, RepeaterItemEventArgs e)
+    protected override void OnPreRender(EventArgs e)
+    {
+        repCate.DataSource = new CategoryAgent().GetCategoryList();
+        repCate.DataBind();
+    }
+
+    protected void repCategory_ItemDataBound(object sender, RepeaterItemEventArgs e)
     {
 
         Category c = (Category)e.Item.DataItem;
-        Repeater rep2 = (Repeater)e.Item.FindControl("rep2");
+        Repeater rep2 = (Repeater)e.Item.FindControl("repChiled");
         if (rep2 != null)
         {
             using (CategoryAgent ca = new CategoryAgent())

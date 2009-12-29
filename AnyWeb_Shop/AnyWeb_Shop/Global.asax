@@ -20,15 +20,10 @@
 
     void Application_BeginRequest(object sender, EventArgs e)
      {
-         if (Request.Cookies["SHOPID"] != null)
+         Shop s2 = (new ShopAgent()).GetShopInfo(10015);
+         if (s2 != null)
          {
-
-             Shop s2 = (new ShopAgent()).GetShopInfo(int.Parse(Request.Cookies["SHOPID"].Value));
-
-             if (s2 != null)
-             {
-                 Context.Items.Add("SHOP_INFO", s2);
-             }
+             Context.Items.Add("SHOP_INFO", s2);
          }
      }
         

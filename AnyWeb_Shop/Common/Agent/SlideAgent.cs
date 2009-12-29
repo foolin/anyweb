@@ -53,7 +53,7 @@ namespace Common.Agent
         }
 
         /// <summary>
-        /// 删除所有幻灯
+        /// 删除所有幻灯
         /// </summary>
         public void SlideDeleteAll()
         {
@@ -65,7 +65,8 @@ namespace Common.Agent
         }
 
         /// <summary>
-        /// 编辑幻灯片
+        /// 编辑幻灯片
+
         /// </summary>
         /// <param name="slideList"></param>
         /// <returns></returns>

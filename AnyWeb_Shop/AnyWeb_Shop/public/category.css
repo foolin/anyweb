@@ -1,0 +1,40 @@
+.col-sider {
+	float:left;
+	width:25%;
+}
+
+.col-main{
+	float:right;
+	width:75%;
+}
+
+
+
+.goods{
+	float:left;
+	width:33.3%;
+}
+
+.goods dl{
+	margin:5px;
+	border:solid 1px #E0F1E4;
+	overflow:hidden;
+}
+
+.goods dl dd{
+	margin:0px;
+	line-height:18px;
+	text-align:center;
+	background:#F3FAF5;
+	padding-bottom:3px;
+
+}
+
+.goods dl dd img{
+	margin:5px;
+	border:solid 1px #CCC;
+	background:#FFF;
+	padding:2px;
+	width:125px;
+	height:95px;
+}

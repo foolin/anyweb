@@ -1,0 +1,235 @@
+/*=======================================================*/
+/* Purpose:      Css for common style                    */
+/* Author:       Anyweb Studio $Foolin                   */
+/* E-mail:       Foolin@126.com                          */
+/* Created on:   2009-12-2 10:30:24                      */
+/*=======================================================*/
+body{
+	margin:0px;
+	font-size:12px;
+}
+a{
+	color:#186100;
+	text-decoration:none;
+}
+a:hover{
+	color:#F00;
+	text-decoration:underline;
+}
+.clear{
+	clear:both;
+}
+.wrapper {
+	margin:0px auto;
+	width:980px;
+}
+/*header*/
+.header{}
+.top{
+	overflow:hidden;
+	padding-left:10%;
+}
+.logo {
+	float:left;
+	width:200px;
+	height:50px;
+	overflow:hidden;
+}
+.nav{
+	float:left;
+	margin-top:20px;
+	margin-left:10px;
+	font-size:14px;
+}
+.nav ul{
+	margin:0px;
+	padding:0px;
+}
+.nav ul li{
+	float:left;
+	margin:0px 3px;
+	list-style:none;
+	height:30px;
+	line-height:30px;
+	overflow:hidden;
+}
+.nav ul li a{
+	display:block; 
+	padding-left:8px;
+	padding-right:8px;
+	background:#beeb97;
+	color:#393;
+}
+.nav ul li a:hover, .nav ul li.on a:hover{
+	background:#8cc93a;
+	text-decoration:none;
+	color:#FFF;
+}
+.nav ul li.on a{
+	background:#8cc93a;
+	font-weight:bold;
+	color:#FFF;
+}
+.sub-nav{
+	float:left;
+	margin-top:30px;
+	margin-left:20px;
+}
+.search{
+	background:#ffffff url(../images/search_bg.jpg) repeat-x;
+	height:50px;
+	border:1px solid #9dd96b;
+	border-top:0px;
+
+}
+.search form label{
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+}
+.search form{
+	margin:0px;
+	margin-top:10px;
+	padding:5px;
+}
+.search form input{
+	border:1px solid #BDF;
+	height:20px;
+	line-height:20px;
+}
+.search .button{
+	height:25px;
+	background:#F3FDF0;
+}
+.search form select{
+	border:1px solid #BDF;
+}
+.search .hot-tags{
+	margin-left:10px;
+}
+
+.ad-banner{
+	margin-top:10px;
+	margin-bottom:10px;
+	height:45px;
+	background:#F0F0F0;
+}
+
+.main{
+	clear:both;
+}
+.help-links{
+	margin-top:10px;
+	margin-bottom:10px;
+	border:1px solid #CCC;
+	background:#FFF; /*解决ie6/7出现border断线现象*/
+}
+.help-links ul{
+	margin-top:10px;
+	margin-bottom:10px;
+	list-style:none;
+}
+.help-links ul li{
+	float:left;
+	width:20%;
+}
+.footer{
+	text-align:center;
+	line-height:22px;
+}
+
+/** category **/
+.category{
+	border:1px solid #9dd96b;
+	background-color:#FFFFFF;
+	background:#F5FDF2;
+	margin-bottom:10px;
+}
+.category .title{
+	background:#9dd96b url(../images/boxB_title_bg.jpg);
+	height:28px;
+	line-height:28px;
+	font-size:14px;
+	font-weight:bold;
+	text-align:center;
+	color:#0A0;
+	color:#FFF;
+}
+.category .content{
+}
+.category .content h3{
+	margin:5px;
+	color:#cd6702;
+	clear:both;
+}
+.category .content .line{
+	margin:2px;
+	padding:5px;
+	overflow:hidden;
+}
+
+.category .content .line span{
+	float:left;
+	margin-bottom:5px;
+	padding:0px 5px;
+	white-space:nowrap;
+	background:url(../images/line_li_bg.gif) no-repeat right 0px;
+	line-height:14px;
+}
+
+.category .content ul{
+	margin:2px 2px 10px 20px;
+	padding:0px;
+}
+
+.category .content ul li{
+	margin:0px;
+}
+
+/***** ****/
+
+.box{
+	margin-left:5px;
+	line-height:30px;
+	border-collapse:collapse;
+	border:solid 1px #9ed96b;
+	background:#FFF;
+}
+
+.box .title{
+	height:30px;
+	line-height:30px;
+	background:#9ed96b url(../images/category_title_bg.jpg) repeat-x;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+	text-align:center;
+}
+
+/****** 分页样式 ******/
+.page{
+	margin:5px;
+	font-size:12px;
+	font-weight:bold;
+	text-align:center;
+}
+
+.page input{
+	width:20px;
+	border:solid 1px #999;
+}
+
+.page a{
+	margin-left:2px;
+	padding:3px 6px;
+	border:solid 1px #CCC;
+	background:#FFF;
+	text-decoration:none;
+}
+
+.page a:hover{
+	text-decoration:none;
+	border:solid 1px #F00;
+}
+
+

@@ -157,7 +157,7 @@
                                         所属类别：
                                     </th>
                                     <td>
-                                        <asp:DropDownList ID="drpType" runat="server" DataSourceID="ods4" DataValueField="ID" DataTextField="Name">
+                                        <asp:DropDownList ID="drpType" runat="server" DataSourceID="ods4" DataValueField="ID" DataTextField="RelativeName">
                                         </asp:DropDownList>
                                     </td>
                                 </tr>
@@ -313,7 +313,7 @@
                                         所属类别：
                                     </th>
                                     <td>
-                                        <asp:DropDownList ID="drpType" runat="server" DataSourceID="ods4" DataValueField="ID" DataTextField="Name">
+                                        <asp:DropDownList ID="drpType" runat="server" DataSourceID="ods4" DataValueField="ID" DataTextField="RelativeName">
                                         </asp:DropDownList>
                                     </td>
                                 </tr>
@@ -451,5 +451,5 @@
             <asp:Parameter Name="gid" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="ods4" runat="server" SelectMethod="GetCategoryNameByType" TypeName="Common.Agent.CategoryAgent"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ods4" runat="server" SelectMethod="GetAllCategoryList" TypeName="Common.Agent.CategoryAgent"></asp:ObjectDataSource>
 </asp:Content>

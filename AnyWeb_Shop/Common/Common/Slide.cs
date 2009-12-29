@@ -21,7 +21,7 @@ namespace Common.Common
 
         private string _slideFile;
         /// <summary>
-        /// 幻灯片路径
+        /// 幻灯片路径
         /// </summary>
         public string SlideFile
         {
@@ -41,7 +41,8 @@ namespace Common.Common
 
         private string _slideLink;
         /// <summary>
-        /// 幻灯片链接
+        /// 幻灯片链接
+
         /// </summary>
         public string SlideLink
         {

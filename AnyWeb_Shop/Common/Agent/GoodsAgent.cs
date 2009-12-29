@@ -153,9 +153,10 @@ namespace Common.Agent
         /// <param name="gs"></param>
         public int UpdateGoods(Goods gs)
         {
+            int result = 0;
             using (IDbExecutor db = this.NewExecutor())
             {
-                return db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_GoodsUpdate",
+                result = db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_GoodsUpdate",
                                      this.NewParam("@GoodsID", gs.ID),
                                      this.NewParam("@GoodsName", gs.GoodsName),
                                      this.NewParam("@Price", gs.Price),
@@ -179,6 +180,10 @@ namespace Common.Agent
                                      this.NewParam("@PromotionsPrice", gs.PromotionsPrice));
 
             }
+            HttpRuntime.Cache.Remove("GetPromotIndex_" + ShopInfo.ID.ToString());
+            HttpRuntime.Cache.Remove("GetCommendIndex_" + ShopInfo.ID.ToString());
+            HttpRuntime.Cache.Remove("GetPromotListIndex_" + ShopInfo.ID.ToString());
+            return result;
         }
 
         /// <summary>
@@ -187,9 +192,10 @@ namespace Common.Agent
         /// <param name="gs"></param>
         public int AddGoods(Goods gs)
         {
+            int result = 0;
             using (IDbExecutor db = this.NewExecutor())
             {
-                return db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_GoodsAdd",
+                result = db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_GoodsAdd",
                                     this.NewParam("@GoodsName", gs.GoodsName),
                                     this.NewParam("@Price", gs.Price),
                                     this.NewParam("@CategoryID", gs.CategoryID),
@@ -210,6 +216,10 @@ namespace Common.Agent
                                     this.NewParam("@PromotionsPrice", gs.PromotionsPrice));
 
             }
+            HttpRuntime.Cache.Remove("GetPromotIndex_" + ShopInfo.ID.ToString());
+            HttpRuntime.Cache.Remove("GetCommendIndex_" + ShopInfo.ID.ToString());
+            HttpRuntime.Cache.Remove("GetPromotListIndex_" + ShopInfo.ID.ToString());
+            return result;
         }
 
         /// <summary>
@@ -225,6 +235,9 @@ namespace Common.Agent
                                 this.NewParam("@GoodsIDs", ids),
                                 this.NewParam("@Count", count));
             }
+            HttpRuntime.Cache.Remove("GetPromotIndex_" + ShopInfo.ID.ToString());
+            HttpRuntime.Cache.Remove("GetCommendIndex_" + ShopInfo.ID.ToString());
+            HttpRuntime.Cache.Remove("GetPromotListIndex_" + ShopInfo.ID.ToString());
         }
 
         /// <summary>
@@ -234,12 +247,16 @@ namespace Common.Agent
         /// <returns></returns>
         public int GoodsDeletes(Goods g)
         {
+            int result = 0;
             using (IDbExecutor db = this.NewExecutor())
             {
-                return db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_GoodsDeletes",
+                result = db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_GoodsDeletes",
                                 this.NewParam("@GoodsID", g.ID));
             }
-
+            HttpRuntime.Cache.Remove("GetPromotIndex_" + ShopInfo.ID.ToString());
+            HttpRuntime.Cache.Remove("GetCommendIndex_" + ShopInfo.ID.ToString());
+            HttpRuntime.Cache.Remove("GetPromotListIndex_" + ShopInfo.ID.ToString());
+            return result;
         }
 
         /// <summary>
@@ -724,12 +741,15 @@ namespace Common.Agent
         /// <returns></returns>
         public int GoodsRecommend(int gid, bool type)
         {
+            int result = 0;
             using (IDbExecutor db = this.NewExecutor())
             {
-                return db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_GoodsRecommend",
+                result = db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_GoodsRecommend",
                                      this.NewParam("@GoodsID", gid),
                                      this.NewParam("@Type", type));
             }
+            HttpRuntime.Cache.Remove("GetCommendIndex_" + ShopInfo.ID.ToString());
+            return result;
         }
 
         /// <summary>
@@ -1033,6 +1053,127 @@ namespace Common.Agent
                                     this.NewParam("@GoodsID", GoodID));
 
             }
+        }
+
+        /// <summary>
+        /// 获取推荐商品(首页)
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList GetRecommentGoodsByIndex()
+        {
+            ArrayList list = (ArrayList)HttpRuntime.Cache["GetCommendIndex_" + ShopInfo.ID.ToString()];
+
+            if (list != null)
+                return list;
+
+            DataSet ds = new DataSet();
+
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetGoodsCommendByIndex",
+                                this.NewParam("@ShopID", ShopInfo.ID));
+            }
+
+            list = new ArrayList();
+            foreach (Category cate in ShopInfo.Categorys)
+            {
+                cate.RecommentList = new List<Goods>();
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    if ((int)row["CategoryID"] == cate.ID)
+                    {
+                        Goods good = new Goods();
+                        good.ID = (int)row["GoodsID"];
+                        good.GoodsName = (string)row["GoodsName"];
+                        good.Image = (string)row["Image"];
+                        cate.RecommentList.Add(good);
+                    }
+                }
+                if (cate.RecommentList.Count > 0)
+                    list.Add(cate);
+            }
+
+            HttpRuntime.Cache.Insert("GetCommendIndex_" + ShopInfo.ID.ToString(), list, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(5));
+
+            return list;
+        }
+
+        /// <summary>
+        /// 获取促销商品(首页)
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList GetPromotGoodsByIndex()
+        {
+            ArrayList list = (ArrayList)HttpRuntime.Cache["GetPromotIndex_" + ShopInfo.ID.ToString()];
+
+            if (list != null)
+                return list;
+
+            DataSet ds = new DataSet();
+
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetGoodsPromotByIndex",
+                                this.NewParam("@ShopID", ShopInfo.ID));
+            }
+
+            list = new ArrayList();
+            foreach (Category cate in ShopInfo.Categorys)
+            {
+                cate.PromotionList = new List<Goods>();
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    if ((int)row["CategoryID"] == cate.ID)
+                    {
+                        Goods good = new Goods();
+                        good.ID = (int)row["GoodsID"];
+                        good.GoodsName = (string)row["GoodsName"];
+                        good.Image = (string)row["Image"];
+                        cate.PromotionList.Add(good);
+                    }
+                }
+                if (cate.PromotionList.Count > 0)
+                    list.Add(cate);
+            }
+
+            HttpRuntime.Cache.Insert("GetPromotIndex_" + ShopInfo.ID.ToString(), list, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(5));
+
+            return list;
+        }
+
+        /// <summary>
+        /// 获取促销专题
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList GetPromotListByIndex()
+        {
+            ArrayList list = (ArrayList)HttpRuntime.Cache["GetPromotListIndex_" + ShopInfo.ID.ToString()];
+
+            if (list != null)
+                return list;
+
+            DataSet ds = new DataSet();
+
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetGoodsPromotListByIndex",
+                                this.NewParam("@ShopID", ShopInfo.ID));
+            }
+
+            list = new ArrayList();
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                Goods good = new Goods();
+                good.ID = (int)row["GoodsID"];
+                good.GoodsName = (string)row["GoodsName"];
+                good.Image = (string)row["Image"];
+                good.Description = (string)row["Description"];
+                list.Add(good);
+            }
+
+            HttpRuntime.Cache.Insert("GetPromotListIndex_" + ShopInfo.ID.ToString(), list, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(5));
+
+            return list;
         }
     }
 }

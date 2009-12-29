@@ -3,7 +3,10 @@
 
 <%@ Register Src="~/Controls/CategoryInner.ascx" TagName="CategoryInner" TagPrefix="cate" %>
 <%@ Register Src="~/Controls/GoodsByCate.ascx"TagName="GoodsByCate" TagPrefix="cate" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" runat="Server">
+    <link href="/public/category.css" rel="stylesheet" type="text/css" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="Server">
     <div class="main">
         <div class="col-sider">
             <!-- 栏目 -->

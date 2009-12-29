@@ -5,12 +5,9 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>基团网</title>
-    <link href="/public/common.css" rel="stylesheet" type="text/css" />
-    <link href="/public/index.css" rel="stylesheet" type="text/css" />
-    <link href="/public/category.css" rel="stylesheet" type="text/css" />
-
-    <script type="text/javascript" src="/public/slidetrans.js"></script>
-
+    <asp:ContentPlaceHolder ID="cphTitle" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="/public/common.css" rel="stylesheet" type="text/css" />  
 </head>
 <body>
     <div class="wrapper">
@@ -23,10 +20,10 @@
                 <!-- logo end -->
                 <div class="nav">
                     <ul>
-                        <li class="on"><a href="index.html">首页</a></li>
-                        <li><a href="Category.html">商品类别</a></li>
-                        <li><a href="Register.html">用户注册</a></li>
-                        <li><a href="Login.html">用户登录</a></li>
+                        <li class="on"><a href="index.aspx">首页</a></li>
+                        <li><a href="Category.aspx">商品类别</a></li>
+                        <li><a href="Register.aspx">用户注册</a></li>
+                        <li><a href="Login.aspx">用户登录</a></li>
                     </ul>
                 </div>
                 <!-- nav end -->
@@ -62,7 +59,7 @@
             特色标语
         </div>
         <!-- ad-banner end -->
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <asp:ContentPlaceHolder ID="cphContent" runat="server">
         </asp:ContentPlaceHolder>
         <div class="help-links">
             <ul>

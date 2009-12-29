@@ -175,5 +175,35 @@ namespace Common.Common
             get { return _Children; }
             set { _Children = value; }
         }
+
+        private string _RelativeName;
+        /// <summary>
+        /// 相对类名
+        /// </summary>
+        public string RelativeName
+        {
+            get { return _RelativeName; }
+            set { _RelativeName = value; }
+        }
+
+        private List<Goods> _RecommentList;
+        /// <summary>
+        /// 推荐列表(用于首页)
+        /// </summary>
+        public List<Goods> RecommentList
+        {
+            get { return _RecommentList; }
+            set { _RecommentList = value; }
+        }
+
+        private List<Goods> _PromotionList;
+        /// <summary>
+        /// 促销列表
+        /// </summary>
+        public List<Goods> PromotionList
+        {
+            get { return _PromotionList; }
+            set { _PromotionList = value; }
+        }
     }
 }

@@ -11,7 +11,7 @@
     <li>可以批量删除商品。</li>
     <li>改变商品的状态，必须进入到修改页对商品状态进行处理。</li>
     <li>对查看商品的详细信息，并对其进行相关的操作。</li>
-    <li>商品排序只对相同类别的商品有效。</li>
+    <li>商品排序以商品类别在所有商品的状态为准。</li>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
 
@@ -69,7 +69,7 @@
                 <form id="form1" runat="server">
                 <table class="iList iArticle" id="tbGoods">
                     <caption>
-                        商品类别：<asp:DropDownList ID="drpType" runat="server" DataSourceID="ods4" DataTextField="Name"
+                        商品类别：<asp:DropDownList ID="drpType" runat="server" DataSourceID="ods4" DataTextField="RelativeName"
                             DataValueField="ID" OnDataBound="drpType_DataBound">
                         </asp:DropDownList>
                         状态：<asp:DropDownList ID="drpStatus" runat="server">
@@ -173,7 +173,7 @@
     </div>
     <div id="enlarge_images">
     </div>
-    <asp:ObjectDataSource ID="ods4" runat="server" SelectMethod="GetCategoryNameByType"
+    <asp:ObjectDataSource ID="ods4" runat="server" SelectMethod="GetAllCategoryList"
         TypeName="Common.Agent.CategoryAgent"></asp:ObjectDataSource>
     <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetGoodsList" TypeName="Common.Agent.GoodsAgent"
         OnSelected="ods3_Selected" OnSelecting="ods3_Selecting">

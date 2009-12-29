@@ -35,6 +35,26 @@ namespace Common.Agent
         }
 
         /// <summary>
+        /// 获取所有类别+子类别
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList GetAllCategoryList()
+        {
+            ArrayList list = new ArrayList();
+            foreach (Category cate in GetCategoryList())
+            {
+                cate.RelativeName = cate.Name;
+                list.Add(cate);
+                foreach (Category child in GetCategoryChildren(cate.ID))
+                {
+                    child.RelativeName = cate.Name + "-" + child.Name;
+                    list.Add(child);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
         /// 初始化类别缓存
         /// </summary>
         /// <returns></returns>
@@ -521,6 +541,8 @@ namespace Common.Agent
                                     this.NewParam("@Count",count));
             }
         }
+
+
 
     }
 

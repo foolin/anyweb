@@ -162,6 +162,11 @@ a:hover{
 	color:#cd6702;
 	clear:both;
 }
+.category .content h3 a{
+	margin:5px;
+	color:#cd6702;
+	clear:both;
+}
 .category .content .line{
 	margin:2px;
 	padding:5px;

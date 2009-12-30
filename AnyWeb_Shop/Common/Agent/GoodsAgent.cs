@@ -584,15 +584,16 @@ namespace Common.Agent
         /// <param name="pageNo"></param>
         /// <param name="recordCount"></param>
         /// <returns></returns>
-        public ArrayList GetCommendGoodsMove(int pageSize, int pageNo, out int recordCount)
+        public ArrayList GetRecommentGoods(int CateID, int pageSize, int pageNo, out int recordCount)
         {
             DataSet ds = new DataSet();
 
             IDbDataParameter record = this.NewParam("@RecordCount", 0, DbType.Int32, 8, true);
             using (IDbExecutor db = this.NewExecutor())
             {
-                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetCommentGoodsMove",
+                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetRecommentGoods",
                                     this.NewParam("@ShopID", ShopInfo.ID),
+                                    this.NewParam("@CateID", CateID),
                                     this.NewParam("@PageSize", pageSize),
                                     this.NewParam("@PageNo", pageNo),
                                     record);
@@ -621,6 +622,58 @@ namespace Common.Agent
                 gs.Comments = (int)dr["Comments"];
                 gs.IsRecommend = (bool)dr["IsRecommend"];
 
+                gs.OfCategory = (Category)ShopInfo.Categorys.GetById((int)dr["CategoryID"]);
+                list.Add(gs);
+            }
+
+            return list;
+        }
+
+        /// <summary>
+        /// 更多促销商品
+        /// </summary>
+        /// <param name="pageSize"></param>
+        /// <param name="pageNo"></param>
+        /// <param name="recordCount"></param>
+        /// <returns></returns>
+        public ArrayList GetPromotionGoods(int CateID, int pageSize, int pageNo, out int recordCount)
+        {
+            DataSet ds = new DataSet();
+
+            IDbDataParameter record = this.NewParam("@RecordCount", 0, DbType.Int32, 8, true);
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetPromotionGoods",
+                                    this.NewParam("@ShopID", ShopInfo.ID),
+                                    this.NewParam("@CateID", CateID),
+                                    this.NewParam("@PageSize", pageSize),
+                                    this.NewParam("@PageNo", pageNo),
+                                    record);
+                recordCount = (int)record.Value;
+            }
+
+            ArrayList list = new ArrayList();
+
+            if (ds.Tables[0].Rows.Count == 0)
+                return null;
+
+
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                Goods gs = new Goods();
+                gs.ID = (int)dr["GoodsID"];
+                gs.GoodsName = (string)dr["GoodsName"];
+                gs.Status = (int)dr["Status"];
+                gs.Price = (double)dr["Price"];
+                gs.MarketPrice = (double)dr["MarketPrice"];
+                gs.Image = (string)dr["Image"];
+                gs.CategoryID = (int)dr["CategoryID"];
+                gs.Clicks = (int)dr["Clicks"];
+                gs.Model = (string)dr["Model"];
+                gs.CreateAt = (DateTime)dr["CreateAt"];
+                gs.Comments = (int)dr["Comments"];
+                gs.IsRecommend = (bool)dr["IsRecommend"];
+                gs.PromotionsPrice = (double)dr["PromotionsPrice"];
 
                 gs.OfCategory = (Category)ShopInfo.Categorys.GetById((int)dr["CategoryID"]);
                 list.Add(gs);

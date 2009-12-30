@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="GoodsByCate.ascx.cs" Inherits="Controls_GoodsByCate" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="RecommentGoods.ascx.cs" Inherits="Controls_RecommentGoods" %>
 <%@ Register Assembly="Studio" Namespace="Studio.Web" TagPrefix="cc1" %>
 <div class="box">
     <div class="title">

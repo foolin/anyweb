@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="GoodsByCate.ascx.cs" Inherits="Controls_GoodsByCate" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="PromotionGoods.ascx.cs" Inherits="Controls_PromotionGoods" %>
 <%@ Register Assembly="Studio" Namespace="Studio.Web" TagPrefix="cc1" %>
 <div class="box">
     <div class="title">
@@ -16,7 +16,10 @@
                     <dd>
                         <s>市场价：￥<%#Eval("MarketPrice")%>元</s></dd>
                     <dd>
-                        商城优惠价：￥<%#Eval("PromotionsPrice")%>元
+                        <s>商城优惠价：￥<%#Eval("PromotionsPrice")%>元</s>
+                    </dd>
+                    <dd>
+                        促销价：￥<%#Eval("Price")%>元
                     </dd>
                 </dl>
             </div>

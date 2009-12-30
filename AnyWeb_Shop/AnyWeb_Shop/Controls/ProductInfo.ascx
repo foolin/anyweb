@@ -5,10 +5,11 @@
     <div class="gLeft">
         <div class="gImage">
             <a href="#">
-                <img src="<%=good.Image=="" ? "../images/wait.jpg":good.Image.Replace("S_","") %>" width="300" height="300"
-                    alt="<%=good.GoodsName %>" /></a>
+                <img src="<%=good.Image=="" ? "../images/wait.jpg":good.Image.Replace("S_","") %>"
+                    width="300" height="300" alt="<%=good.GoodsName %>" /></a>
             <br />
-            <a href="<%=good.Image=="" ? "../images/wait.jpg":good.Image.Replace("S_","") %>" target="_blank" title="点击查看大图">点击查看大图</a>
+            <a href="<%=good.Image=="" ? "../images/wait.jpg":good.Image.Replace("S_","") %>"
+                target="_blank" title="点击查看大图">点击查看大图</a>
         </div>
     </div>
     <!-- gLeft -->
@@ -18,9 +19,19 @@
                 <%=good.GoodsName %>
             </dt>
             <dd>
-                市场价：￥<s><%=good.MarketPrice%>元</s></dd>
+                市场价：<s>￥<%=good.MarketPrice%>元</s></dd>
+            <%if (good.IsPromotions)
+              { %>
             <dd>
-                基团网价格：￥<%=good.Price %>元</dd>
+                基团网价格：<s>￥<%=good.Price%>元</s></dd>
+            <dd>
+                促销价格：￥<%=good.PromotionsPrice%>元</dd>
+            <%}
+              else
+              { %>
+            <dd>
+                基团网价格：￥<%=good.Price%>元</dd>
+            <%} %>
             <dd>
                 存货：<%=GetGoodCount(good.Status) %></dd>
             <dd>

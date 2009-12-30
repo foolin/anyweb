@@ -7,7 +7,24 @@
     <title>基团网</title>
     <asp:ContentPlaceHolder ID="cphTitle" runat="server">
     </asp:ContentPlaceHolder>
-    <link href="/public/common.css" rel="stylesheet" type="text/css" />  
+    <link href="/public/common.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        //判断浏览器是否为IE
+        function isIE() {
+            return (document.all && window.ActiveXObject && !window.opera) ? true : false;
+        }
+
+        //判断浏览器是否是ie
+        var isFF = navigator.userAgent.indexOf("Firefox") > 0;
+
+        //设为主页
+        function HomePage() {
+            if (isIE) {
+                this.style.behavior = 'url(#default#homepage)'; this.setHomePage(this.document.location.href);
+            }
+            return false;
+        }
+    </script>  
 </head>
 <body>
     <div class="wrapper">
@@ -28,7 +45,7 @@
                 </div>
                 <!-- nav end -->
                 <div class="sub-nav">
-                    <a href="index.html">关于我们</a> <a href="index.html">设为首页</a> <a href="index.html">联系我们</a>
+                    <a href="index.html">关于我们</a> <a href="#" onclick="return HomePage.call(this);">设为首页</a> <a href="index.html">联系我们</a>
                 </div>
                 <!-- sub-nav end -->
                 <div class="clear">

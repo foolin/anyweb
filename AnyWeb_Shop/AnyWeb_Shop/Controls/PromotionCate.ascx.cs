@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Common.Common;
 using Common.Agent;
-using Studio.Web;
+using Common.Common;
 
-public partial class Controls_CategoryInner : ControlBase
+public partial class Controls_PromotionCate : ControlBase
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
-
     protected override void OnPreRender(EventArgs e)
     {
         repCate.DataSource = new CategoryAgent().GetCategoryList();

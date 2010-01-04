@@ -26,11 +26,15 @@
                     <div class="box-content">
                         <ul class="li-slide">
                             <li><a href="Company.aspx">供销社介绍</a></li><li><a href="Department.aspx">部门架构</a>
-                            </li><li><a href="Leadership.aspx">领导分工</a></li></ul>
+                            </li><li><a href="Leadership.aspx">领导分工</a></li>
+                            <li><a href="GoodsSell.aspx">商品销售</a></li>
+                            <li><a href="LkdMarket.aspx">龙口东市场</a></li>
+                            <li><a href="HR.aspx">人力资源</a></li>
+                        </ul>
                     </div>
                 </div>
                 <!--栏目-->
-                <div class="boxA" style="height:180px; overflow:hidden;">
+                <div class="boxA" style="height:183px; overflow:hidden;">
                     <uc5:Contact ID="Contact1" runat="server" />
                 </div>
             </div>

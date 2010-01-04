@@ -122,6 +122,8 @@ a:hover{ color:#F00; text-decoration:underline;}
 	margin:2px 2px 5px 2px;
 	border:1px solid #9dd96b;
 	padding:1px;
+	height:354px;
+	overflow:visible;
 }
 .box .box-title{
 	margin:0px;

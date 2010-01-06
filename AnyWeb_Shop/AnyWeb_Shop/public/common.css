@@ -80,6 +80,7 @@ a:hover{
 	height:50px;
 	border:1px solid #9dd96b;
 	border-top:0px;
+	overflow:hidden;
 
 }
 .search form label{
@@ -118,11 +119,12 @@ a:hover{
 .main{
 	clear:both;
 }
+ /*解决ie6/7出现border断线现象 background:#FFF;*/
 .help-links{
 	margin-top:10px;
 	margin-bottom:10px;
 	border:1px solid #CCC;
-	background:#FFF; /*解决ie6/7出现border断线现象*/
+	background:#FFF;
 }
 .help-links ul{
 	margin-top:10px;

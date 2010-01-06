@@ -59,20 +59,17 @@ a:hover{
 	padding-right:8px;
 	background:#beeb97;
 	color:#393;
+}
+.nav ul li a:hover, .nav ul li.on a:hover{
+	background:#8cc93a;
 	text-decoration:none;
+	color:#FFF;
 }
 .nav ul li.on a{
 	background:#8cc93a;
 	font-weight:bold;
 	color:#FFF;
 }
-.nav ul li a:hover,
-.nav ul li.on a:hover{
-	background:#8cc93a;
-	text-decoration:none;
-	color:#FFF;
-}
-
 .sub-nav{
 	float:left;
 	margin-top:30px;
@@ -85,8 +82,6 @@ a:hover{
 	border-top:0px;
 	overflow:hidden;
 
-}
-.search .search-form{
 }
 .search form label{
 	font-size:14px;
@@ -124,11 +119,30 @@ a:hover{
 .main{
 	clear:both;
 }
-
+ /*解决ie6/7出现border断线现象 background:#FFF;*/
+.help-links{
+	margin-top:10px;
+	margin-bottom:10px;
+	border:1px solid #CCC;
+	background:#FFF;
+}
+.help-links ul{
+	margin-top:10px;
+	margin-bottom:10px;
+	list-style:none;
+}
+.help-links ul li{
+	float:left;
+	width:20%;
+}
+.footer{
+	text-align:center;
+	line-height:22px;
+}
 
 /** category **/
 .category{
-	border:solid 1px #9dd96b;
+	border:1px solid #9dd96b;
 	background-color:#FFFFFF;
 	background:#F5FDF2;
 	margin-bottom:10px;
@@ -146,6 +160,11 @@ a:hover{
 .category .content{
 }
 .category .content h3{
+	margin:5px;
+	color:#cd6702;
+	clear:both;
+}
+.category .content h3 a{
 	margin:5px;
 	color:#cd6702;
 	clear:both;
@@ -172,33 +191,9 @@ a:hover{
 
 .category .content ul li{
 	margin:0px;
-	padding:2px;
 }
 
- /*解决ie6/7出现border断线现象: background:#FFF;*/
-
-.help-links{
-	margin-top:10px;
-	margin-bottom:10px;
-	border:1px solid #CCC;
-	background:#FFF;
-}
-.help-links ul{
-	margin-top:10px;
-	margin-bottom:10px;
-	list-style:none;
-}
-.help-links ul li{
-	float:left;
-	width:20%;
-}
-.footer{
-	text-align:center;
-	line-height:22px;
-}
-
-
-/***** ssss ****/
+/***** ****/
 
 .box{
 	margin-left:5px;
@@ -249,6 +244,7 @@ a:hover{
 	border:solid 1px #F00;
 }
 
+
 /**** 当前位置 *****/
 .location{
 	line-height:22px;
@@ -261,12 +257,12 @@ a:hover{
 
 /**** 布局 ****/
 
-.col-sider {
+.gCol-sider {
 	float:left;
 	width:25%;
 }
 
-.col-main{
+.gCol-main{
 	float:right;
 	width:75%;
 }
@@ -278,3 +274,4 @@ a:hover{
 	margin-top:5px;
 	padding-bottom:5px;
 }
+

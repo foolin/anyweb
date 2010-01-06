@@ -172,6 +172,7 @@ a:hover{
 
 .category .content ul li{
 	margin:0px;
+	padding:2px;
 }
 
  /*解决ie6/7出现border断线现象: background:#FFF;*/
@@ -217,6 +218,11 @@ a:hover{
 	text-align:center;
 }
 
+.box .content{
+	padding:5px;
+	line-height:1.5em;
+}
+
 /****** 分页样式 ******/
 .page{
 	margin:5px;
@@ -243,4 +249,32 @@ a:hover{
 	border:solid 1px #F00;
 }
 
+/**** 当前位置 *****/
+.location{
+	line-height:22px;
+	padding-left:10px;
+	font-size:14px;
+	padding-top:5px;
+	padding-bottom:5px;
+}
 
+
+/**** 布局 ****/
+
+.col-sider {
+	float:left;
+	width:25%;
+}
+
+.col-main{
+	float:right;
+	width:75%;
+}
+
+
+/***** 分割线 *****/
+.hr{
+	border-top: dashed 1px #9ed96b;
+	margin-top:5px;
+	padding-bottom:5px;
+}

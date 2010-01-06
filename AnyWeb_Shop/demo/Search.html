@@ -2,9 +2,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Anyweb Shop - 购物车</title>
+<title>Anyweb Shop - 用户控制面板</title>
 <link href="css/common.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/slidetrans.js"></script>
+<style type="text/css">
+<!--
+.search-list {
+	line-height:1.5em;
+	padding:5px;
+}
+.search-tips{
+	padding:5px;
+	font-size:14px;
+	padding-left:20px;
+}
+.keywords{
+	color:#F00;
+	font-weight:bold;
+}
+table.goods-list{
+	border-collapse:collapse;
+	border:solid 1px #9ed96b;
+}
+table.goods-list th{
+	line-height:25px;
+	font-size:14px;
+	padding:5px;
+	border:dashed 1px #9ed96b;
+	border-bottom:solid 1px #9ed96b;
+}
+table.goods-list td{
+	border:dashed 1px #9ed96b;
+	border-bottom:solid 1px #9ed96b;
+	padding:5px;
+	line-height:1.5em;
+}
+
+table.goods-list td ul li{
+	padding:2px;
+}
+table.goods-list input{
+	padding:3px;
+	margin:3px;
+	border:solid 1px #9ed96b;
+}
+-->
+</style>
 </head>
 
 <body>
@@ -67,14 +110,115 @@
     </div>
     <!-- header end -->
     
+   
+    
     <div class="ad-banner">
     	特色标语
     </div>
     <!-- ad-banner end -->
     
+     <div class="location">您的位置：<a href="index.html">首页</a> → 控制面板 </div>
 	
     <div class="main">
-    
+    	
+    	<div class="gCol-sider">
+        	<!-- 栏目 -->
+        	<div class="category">
+            	<div class="title">控制面板</div>
+                <div class="content">
+                
+            		<h3>个人资料</h3>
+                  	<ul>
+                      <li><a href="">我的信息</a></li>
+                      <li><a href="">修改资料</a></li>
+                      <li><a href="">修改密码</a></li>
+                      <li><a href="">退出登录</a></li>
+                    </ul>
+                    
+                    
+            		<h3>个人助理</h3>
+                  	<ul>
+                      <li><a href="">我的购物车</a></li>
+                      <li><a href="">我的订单</a></li>
+                      <li><a href="">交易记录</a></li>
+                      <li><a href="">支付方式</a></li>
+                      <li><a href="">疑难解答</a></li>
+                    </ul>
+                    
+                    <div class="clear"></div>
+                </div>
+                <!-- content end -->
+            </div>
+            <!-- category end -->
+        
+        </div>
+        <!-- col-sider end -->
+
+        <div class="gCol-main">
+        
+        	<div class="search-tips">您搜索<span class="keywords"> 音乐 </span>，一共有555条记录。</div>
+            
+			<div class="search-list">
+            	<table class="goods-list">
+                	<tr>
+                    	<th width="130">缩略图</th>
+                        <th>商品信息</th>
+                        <th width="20%">操作</th>
+                    </tr>
+                    
+                	<tr>
+                    	<td>
+                        <a href="#"><img src="http://ec4.images-amazon.com/images/I/41%2BbZx7Hg0L._AA115_.jpg" border="0" alt="" /></a></td>
+                        <td>
+                        	<ul>
+                            	<li><a href="#">林峰:挚爱YOUR LOVE(CD) 林峰</a></li>
+                                <li><s>￥ 49.00</s> ￥ 33.00</li>
+                                <li>现在有货。</li>
+                                <li>推荐|评论</li>
+                            </ul>
+                        </td>
+                        <td>
+                        	<input type="button" name="buy" value="购买" />
+                            <input type="button" name="addToCart" value="添加到购物车" />
+                        </td>
+                    </tr>
+                    
+                    
+                	<tr>
+                    	<td>
+                        <a href="#"><img src="http://ec4.images-amazon.com/images/I/41%2BbZx7Hg0L._AA115_.jpg" border="0" alt="" /></a></td>
+                        <td>
+                        	<ul>
+                            	<li><a href="#">林峰:挚爱YOUR LOVE(CD) 林峰</a></li>
+                                <li><s>￥ 49.00</s> ￥ 33.00</li>
+                                <li>现在有货。</li>
+                                <li>推荐|评论</li>
+                            </ul>
+                        </td>
+                        <td>
+                        	<input type="button" name="buy" value="购买" />
+                            <input type="button" name="addToCart" value="添加到购物车" />
+                        </td>
+                    </tr>
+                </table>
+                <div class="page">
+                
+                	<a href="#1">上一页</a>
+                	<a href="#1">1</a>
+                    <a href="#1">2</a>
+                    			 3
+                    <a href="#1">4</a>
+                    <a href="#1">5</a>
+                    <a href="#1">下一页</a>
+                    <input type="text" name="page" value="" />
+                
+                </div>
+           </div>
+           <!-- box end -->
+                
+        </div>
+        <!-- col-main -->
+    	<div class="clear"></div>
     
     
     </div>

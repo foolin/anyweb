@@ -24,6 +24,9 @@
         <siteMapNode url ="/SysDeliverParticular.aspx" title ="配送方式详情" description ="配送方式详情" >
         </siteMapNode>
       </siteMapNode>
+      <siteMapNode url="/ShopService.aspx" title="退换货服务管理" description="退换货服务管理">
+        <siteMapNode url="/ShopService.aspx" title="退换货服务" description="退换货服务"></siteMapNode>
+      </siteMapNode>
     </siteMapNode>
 
     <siteMapNode url="/User/UserList.aspx"  title="客户信息管理" description="客户信息管理">

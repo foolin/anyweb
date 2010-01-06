@@ -45,7 +45,7 @@
                 </div>
                 <!-- nav end -->
                 <div class="sub-nav">
-                    <a href="index.html">关于我们</a> <a href="#" onclick="return HomePage.call(this);">设为首页</a> <a href="index.html">联系我们</a>
+                    <a href="AboutUs.aspx">关于我们</a> <a href="#" onclick="return HomePage.call(this);">设为首页</a> <a href="Contact.aspx">联系我们</a>
                 </div>
                 <!-- sub-nav end -->
                 <div class="clear">
@@ -80,9 +80,9 @@
         </asp:ContentPlaceHolder>
         <div class="help-links">
             <ul>
-                <li><a href="">如何付款</a></li>
-                <li><a href="">配送信息</a></li>
-                <li><a href="">退换货服务</a></li>
+                <li><a href="Payment.aspx">如何付款</a></li>
+                <li><a href="DeliveryMode.aspx">配送信息</a></li>
+                <li><a href="Service.aspx">退换货服务</a></li>
                 <li><a href="">需要帮助</a></li>
             </ul>
             <div class="clear">
@@ -91,7 +91,7 @@
         <!-- bottom-links end -->
         <div class="footer">
             <div class="bottom-link">
-                <a href="Company.aspx">关于我们</a> - <a href="copyright.aspx">版权声明</a> - <a href="Contact.aspx">
+                <a href="AboutUs.aspx">关于我们</a> - <a href="copyright.aspx">版权声明</a> - <a href="Contact.aspx">
                     联系我们</a> - <a href="LinkList.aspx">友情链接</a> - <a href="/Admin/Login.aspx" target="_blank">
                         管理登录</a>
             </div>

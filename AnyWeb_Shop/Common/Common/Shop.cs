@@ -61,6 +61,7 @@ namespace Common.Common
             this._goodsCss = dr["GoodsCss"] == System.DBNull.Value ? "" : (string)dr["GoodsCss"];
             this._recordsInfo = dr["RecordsInfo"] == System.DBNull.Value ? "" : (string)dr["RecordsInfo"];
             this._showhelp = (bool)dr["ShowHelp"];
+            this._service = (string)dr["Service"];
 
             this._categorys = new ObjectList();
             this._leftWidgets = new ObjectList();
@@ -720,6 +721,11 @@ namespace Common.Common
             set { _showhelp = value; }
         }
 
-
+        private string _service;
+        public string Service
+        {
+            get { return _service; }
+            set { _service = value; }
+        }
     }
 }

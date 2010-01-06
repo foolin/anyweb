@@ -42,8 +42,11 @@
           </xMenuItem>
         </xMenuItem>
       </xMenuItem>
+      <xMenuItem url="/Admin/ShopService.aspx" description ="退换货服务管理" name ="退换货服务管理"  type="1">
+        <xMenuItem url="/Admin/ShopService.aspx" description ="退换货服务管理" name ="退换货服务管理"  type="0">
+        </xMenuItem>
+      </xMenuItem>
     </xMenuItem>
-    
     <xMenuItem url="/Admin/SetNavUrl.aspx?mode=user"  name="会员管理" description="会员管理" >
       <xMenuItem url="/Admin/User/UserList.aspx"  name="会员信息管理" description="会员信息管理"  type="1">
       <xMenuItem url="/Admin/User/UserList.aspx"  name="会员信息列表" description="会员信息列表"  type="0">

@@ -357,6 +357,27 @@ namespace Common.Agent
                 return count;
             }
         }
+
+        /// <summary>
+        /// ±à¼­ÍË»»»õ·þÎñ
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public int UpdateService(Shop s)
+        {
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                int count = db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_ShopServiceUpdate",
+                                        this.NewParam("@ShopID", ShopInfo.ID),
+                                        this.NewParam("@Service", s.AboutUs));
+                if (count > 0)
+                {
+                    ShopInfo.AboutUs = s.AboutUs;
+                    HttpRuntime.Cache["SHOP_" + ShopInfo.ID] = ShopInfo;
+                }
+                return count;
+            }
+        }
         
         
         /// <summary>

@@ -57,14 +57,9 @@
                     <form action="search.aspx" method="get">
                     <label>
                         搜索：</label>
-                    <select name="category">
-                        <option value="图书音像">图书音像</option>
-                        <option value="电子产品">电子产品</option>
-                        <option value="日用消费品">日用消费品</option>
-                    </select>
                     <input name="keywords" type="text" onclick="if(this.value=='请输入关键词')this.value='';" value="请输入关键词" />
                     <input name="search" class="button" type="submit" value="搜索" />
-                    <span class="hot-tags"><a href="#">高级搜索</a></span>
+                    <span class="hot-tags"><a href="AdvancedSearch.aspx">高级搜索</a></span>
                     </form>
                 </div>
                 <!-- search-form -->

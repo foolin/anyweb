@@ -16,7 +16,9 @@
 	color:#F00;
 	font-weight:bold;
 }
-table.goods-list{
+table.goods-list
+{
+	width:100%;
 	border-collapse:collapse;
 	border:solid 1px #9ed96b;
 	border:solid 1px #ccc;
@@ -101,8 +103,8 @@ table.goods-list input{
                                         </td>
                                         <td>
                                             <a href="Good.aspx?gid=<%#Eval("ID") %>">查看详细信息</a><br />
-                        	                <input type="button" name="buy" value="购买" />
-                                            <input type="button" name="addToCart" value="添加到购物车" />
+                                            <a href="#">购买</a><br />
+                                            <a href="#">添加到购物车</a><br />
                                         </td>
                                     </tr>
                         </ItemTemplate>

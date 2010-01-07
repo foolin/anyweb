@@ -55,7 +55,7 @@
             <div class="box">
             	<div class="title">高级搜索</div>
                 <div class="advanced-search">
-                    <form action="Search.aspx" method="post">
+                    <form action="Search.aspx" method="get">
                         <p>
                         	<span class="left">关键词：</span>
                             <span class="right"><input name="keywords" type="text" onclick="if(this.value=='请输入关键词')this.value='';" value="请输入关键词" /> 多关键词用空格分开</span>

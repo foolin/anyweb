@@ -34,7 +34,7 @@ public partial class Search : PageBase
         }
         else
         {
-            WebAgent.FailAndGo("请输入搜索关键词！", "index.aspx");
+            WebAgent.AlertAndBack("请输入搜索关键词！");
         }
     }
 

@@ -1284,6 +1284,7 @@ namespace Common.Agent
                 gs.Model = (string)dr["Model"];
                 gs.EndTime = (DateTime)dr["EndTime"];
                 gs.IsRecommend = (bool)dr["IsRecommend"];
+                gs.PromotionsPrice = (double)dr["PromotionsPrice"];
 
                 gs.OfCategory = new Category();
                 gs.OfCategory.Name = (string)dr["CategoryName"];

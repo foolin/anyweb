@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Search.aspx.cs" Inherits="Search" Title="无标题页" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Search.aspx.cs" Inherits="Search" Title="产品搜索" %>
 <%@ Register Assembly="Studio" Namespace="Studio.Web" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" Runat="Server">
@@ -45,11 +45,8 @@ table.goods-list input{
 }
 </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cphContent" Runat="Server">
-    <div class="location">您的位置：<a href="Index.aspx">首页</a> → 商品搜索 </div>
-	
-    <div class="main">
-    	
+<asp:Content ID="Content2" ContentPlaceHolderID="cphContent" Runat="Server">	
+    <div class="main">    	
     	<div class="gCol-sider">
 
         	<!-- 栏目 -->
@@ -96,7 +93,9 @@ table.goods-list input{
                                         <td>
                         	                <ul>
                             	                <li><a href="Good.aspx?gid=<%#Eval("ID") %>"><%#Eval("GoodsName")%></a></li>
-                                                <li><s>￥ <%#Eval("MarketPrice")%>元</s></s> ￥ <%#Eval("PromotionsPrice")%></li>
+                                                <li>市场价格：<s>￥ <%#Eval("MarketPrice")%>元</s></li>
+                                                <li>基团网价格：<%#(bool)Eval("IsRecommend") ? "<s>￥ " + Eval("Price").ToString() + "元</s>" : "￥ " + Eval("Price").ToString() + "元"%></li>
+                                                <%#(bool)Eval("IsRecommend") ? "<li>促销价格：￥ " + Eval("PromotionsPrice").ToString() + "元</li>" : ""%>
                                                 <li>存货：<%#GetGoodCount((int)Eval("Status"))%></li>
                                             </ul>
                                         </td>

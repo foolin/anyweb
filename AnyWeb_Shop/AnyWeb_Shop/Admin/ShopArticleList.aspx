@@ -37,7 +37,7 @@
                             <ItemTemplate>
                                 <tr>
                                     <td>
-                                        <a href='<%#Eval("BackUrl")%>' target="_blank">
+                                        <a href='/Help.aspx?id=<%#Eval("ID")%>' target="_blank">
                                             <%#Eval("Title") %></a>
                                     </td>
                                     <td>

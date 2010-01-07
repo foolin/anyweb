@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="关于我们" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="AboutUs.aspx.cs" Inherits="AboutUs" %>
+    CodeFile="AboutUs.aspx.cs" Inherits="Web_AboutUs" %>
 <%@ Register Src="~/Controls/CategoryInner.ascx" TagName="CategoryInner" TagPrefix="cate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" runat="Server">
     <link href="/public/goods_details.css" rel="stylesheet" type="text/css" />

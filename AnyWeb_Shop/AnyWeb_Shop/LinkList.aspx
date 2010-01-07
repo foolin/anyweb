@@ -1,4 +1,4 @@
-﻿<%@ Page Title="友情链接" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="LinkList.aspx.cs" Inherits="LinkList" %>
+﻿<%@ Page Title="友情链接" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="LinkList.aspx.cs" Inherits="Web_LinkList" %>
 <%@ Register Src="~/Controls/CategoryInner.ascx" TagName="CategoryInner" TagPrefix="cate" %>
 <%@ Register Src="~/Controls/LinkList.ascx" TagName="LinkList" TagPrefix="link" %>
 

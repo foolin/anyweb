@@ -1,4 +1,4 @@
-﻿<%@ Page Title="退换货服务" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Service.aspx.cs" Inherits="Service" %>
+﻿<%@ Page Title="退换货服务" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Service.aspx.cs" Inherits="Web_Service" %>
 <%@ Register Src="~/Controls/CategoryInner.ascx" TagName="CategoryInner" TagPrefix="cate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" Runat="Server">
     <link href="/public/goods_details.css" rel="stylesheet" type="text/css" />

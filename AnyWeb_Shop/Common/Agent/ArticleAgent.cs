@@ -88,8 +88,37 @@ namespace Common.Agent
                 a.BackUrl = string.Format( "http://{0}/c/{1}/{2}.aspx" , ShopInfo.ShopDomain  , (string)dr["Path"] , (int)dr["ArticleID"] );
                 a.OfCategory = new Category();
                 a.OfCategory.Name = (string)dr["CategoryName"];
+                a.IsShow = (bool)dr["IsShow"];
 
                 list.Add( a );
+            }
+
+            return list;
+        }
+
+        /// <summary>
+        /// 获得商城文章
+        /// </summary>
+        /// <returns></returns>
+        public List<Article> GetSysArticleListByWeb(int ShopID)
+        {
+            DataSet ds;
+
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetSysArticlelistByWeb",
+                                   this.NewParam("@ShopID", ShopID));
+            }
+            List<Article> list = new List<Article>();
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                Article a = new Article();
+                a.ID = (int)dr["ArticleID"];
+                a.Title = (string)dr["Title"];
+                a.ShopID = (int)dr["ShopID"];
+                a.IsShow = (bool)dr["IsShow"];
+
+                list.Add(a);
             }
 
             return list;
@@ -114,7 +143,7 @@ namespace Common.Agent
                 Article a = new Article();
                 a.ID = (int)dr["ArticleID"];
                 a.Title = (string)dr["Title"];
-
+                a.IsShow = (bool)dr["IsShow"];
                 a.BackUrl = string.Format( "http://{0}/c/{1}/{2}.aspx" , ShopInfo.ShopDomain , (string)dr["Path"] , (int)dr["ArticleID"] );
              
                 list.Add( a );
@@ -132,10 +161,11 @@ namespace Common.Agent
         {
             using ( IDbExecutor db = this.NewExecutor() )
             {
-                return db.ExecuteNonQuery( CommandType.StoredProcedure , "Shop_SysArticlesUpdate" ,
-                                    this.NewParam( "@ArticleID" , a.ID ) ,
-                                    this.NewParam("@Title",a.Title),
-                                    this.NewParam( "@Content" , a.Content ) );
+                return db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_SysArticlesUpdate",
+                                    this.NewParam("@ArticleID", a.ID),
+                                    this.NewParam("@Title", a.Title),
+                                    this.NewParam("@Content", a.Content),
+                                    this.NewParam("@IsShow", a.IsShow));
             }
             
         }

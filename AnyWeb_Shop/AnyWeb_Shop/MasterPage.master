@@ -1,5 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
-
+<%@ Register Src="~/Controls/Help.ascx" TagName="Help" TagPrefix="help" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -78,16 +78,7 @@
         <!-- ad-banner end -->
         <asp:ContentPlaceHolder ID="cphContent" runat="server">
         </asp:ContentPlaceHolder>
-        <div class="help-links">
-            <ul>
-                <li><a href="Payment.aspx">如何付款</a></li>
-                <li><a href="DeliveryMode.aspx">配送信息</a></li>
-                <li><a href="Service.aspx">退换货服务</a></li>
-                <li><a href="">需要帮助</a></li>
-            </ul>
-            <div class="clear">
-            </div>
-        </div>
+        <help:Help runat="server" />
         <!-- bottom-links end -->
         <div class="footer">
             <div class="bottom-link">

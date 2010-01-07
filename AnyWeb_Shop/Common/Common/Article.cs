@@ -26,6 +26,7 @@ namespace Common.Common
             this._clickCount = (int)dr["ClickCount"];
             this._createAt = (DateTime)dr["CreateAt"];
             this._commentCount = (int)dr["CommentCount"];
+            this._isshow = (bool)dr["IsShow"];
         }
 
         private string _title;
@@ -50,7 +51,8 @@ namespace Common.Common
 
         private int _categoryID;
         /// <summary>
-        /// 所属栏目编号
+        /// 所属栏目编号
+
         /// </summary>
         public int CategoryID
         {
@@ -70,7 +72,8 @@ namespace Common.Common
 
         private int _clickCount;
         /// <summary>
-        /// 点击率
+        /// 点击率
+
         /// </summary>
         public int ClickCount
         {
@@ -80,7 +83,8 @@ namespace Common.Common
 
         private int _commentCount;
         /// <summary>
-        /// 评论数
+        /// 评论数
+
         /// </summary>
         public int CommentCount
         {
@@ -101,7 +105,8 @@ namespace Common.Common
 
         private int _shopID;
         /// <summary>
-        /// 所属商店编号
+        /// 所属商店编号
+
         /// </summary>
         public int ShopID
         {
@@ -110,7 +115,8 @@ namespace Common.Common
         }
 
         /// <summary>
-        /// 所属栏目
+        /// 所属栏目
+
         /// </summary>
         private Category _ofCategory;
 
@@ -118,6 +124,16 @@ namespace Common.Common
         {
             get { return _ofCategory; }
             set { _ofCategory = value; }
+        }
+
+        private bool _isshow;
+        /// <summary>
+        /// 是否显示
+        /// </summary>
+        public bool IsShow
+        {
+            get { return _isshow; }
+            set { _isshow = value; }
         }
 
         /// <summary>

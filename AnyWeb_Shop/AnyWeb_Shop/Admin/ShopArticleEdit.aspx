@@ -24,6 +24,13 @@
                                     <td>
                                         <asp:TextBox ID="txtTitle" runat="server" CssClass="input" errmsg="请输入正确的文章标题" MaxLength="50" require="1" Width="308px" Text='<%#Bind("Title") %>'></asp:TextBox>&nbsp;不超过50个汉字。</td>
                                 </tr>
+                                <tr>
+                                    <th>
+                                        是否显示：</th>
+                                    <td>
+                                        <asp:CheckBox ID="chkShow" runat="server" CssClass="checkbox" Checked='<%#Bind("IsShow") %>' Text="显示" />
+                                    </td>
+                                </tr>
                                 <tr class="edit odd">
                                     <th >
                                         指南内容：                                           

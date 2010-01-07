@@ -11,6 +11,7 @@ using System.Web.UI.HtmlControls;
 using Studio.Web;
 using Admin.Framework;
 using Common.Common;
+using Common.Agent;
 
 public partial class ShopArticleEdit : AdminBase
 {
@@ -31,7 +32,7 @@ public partial class ShopArticleEdit : AdminBase
         if ( (int)e.ReturnValue > 0 )
         {
             this.AddLog( EventID.Update , "修改商城文章" , "修改商城文章,文章编号：" + QS( "aid" ) );
-
+            ShopInfo.SysArticle = new ArticleAgent().GetSysArticleListByWeb(ShopInfo.ID);
             WebAgent.SuccAndGo( "修改成功." , "ShopArticleList.aspx" );
         }
         else

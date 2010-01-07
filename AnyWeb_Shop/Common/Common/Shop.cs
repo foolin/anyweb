@@ -722,10 +722,23 @@ namespace Common.Common
         }
 
         private string _service;
+        /// <summary>
+        /// 退换货服务
+        /// </summary>
         public string Service
         {
             get { return _service; }
             set { _service = value; }
+        }
+
+        private List<Article> _sysarticle;
+        /// <summary>
+        /// 服务
+        /// </summary>
+        public List<Article> SysArticle
+        {
+            get { return _sysarticle; }
+            set { _sysarticle = value; }
         }
     }
 }

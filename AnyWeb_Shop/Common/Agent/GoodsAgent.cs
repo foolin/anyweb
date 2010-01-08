@@ -1298,5 +1298,76 @@ namespace Common.Agent
         }
 
 
+        /// <summary>
+        /// 高级搜索
+        /// </summary>
+        /// <param name="pageSize"></param>
+        /// <param name="pageNo"></param>
+        /// <param name="goodsKeywords"></param>
+        /// <param name="categoryId"></param>
+        /// <param name="price"></param>
+        /// <param name="recordCount"></param>
+        /// <returns></returns>
+        public ArrayList GetGoodsBySearch(int pageSize, int pageNo, string goodsKeywords, int categoryId, float price, out int recordCount)
+        {
+            string[] arrKeywords = goodsKeywords.Split(" ".ToCharArray());  //按空格将数据分割成一个数组
+            string strKeywords = "";
+            for (int i = 0; i < arrKeywords.Length; i++)
+            {
+                if (i == 0)
+                {
+                    strKeywords = "GoodsName LIKE '%" + arrKeywords[i] + "%'";
+                }
+                else
+                {
+                    strKeywords += " OR GoodsName LIKE '%" + arrKeywords[i] + "%'";
+                }
+            }
+
+            DataSet ds;
+
+            IDbDataParameter record = this.NewParam("@RecordCount", 0, DbType.Int32, 8, true);
+            using (IDbExecutor db = this.NewExecutor())
+            {
+
+                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetGoodsByAdvancedSearch",
+                                     this.NewParam("@PageSize", pageSize),
+                                     this.NewParam("@PageNo", pageNo),
+                                     this.NewParam("@WhereKeys", strKeywords),
+                                     this.NewParam("@CategoryId", categoryId),
+                                     this.NewParam("@Price", price),
+                                     record);
+            }
+            recordCount = (int)record.Value;
+
+            ArrayList list = new ArrayList();
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                Goods gs = new Goods();
+                gs.ID = (int)dr["GoodsID"];
+                gs.GoodsName = (string)dr["GoodsName"];
+                gs.Status = (int)dr["Status"];
+                gs.Price = (double)dr["Price"];
+                gs.MarketPrice = (double)dr["MarketPrice"];
+                gs.Image = (string)dr["Image"];
+                gs.CategoryID = (int)dr["CategoryID"];
+                gs.Clicks = (int)dr["Clicks"];
+                gs.Model = (string)dr["Model"];
+                gs.EndTime = (DateTime)dr["EndTime"];
+                gs.IsRecommend = (bool)dr["IsRecommend"];
+                gs.PromotionsPrice = (double)dr["PromotionsPrice"];
+
+                gs.OfCategory = new Category();
+                gs.OfCategory.Name = (string)dr["CategoryName"];
+                gs.OfCategory.Path = (string)dr["Path"];
+                gs.OfCategory.OfShop = ShopInfo;
+                list.Add(gs);
+            }
+
+
+            return list;
+        }
+
+
     }
 }

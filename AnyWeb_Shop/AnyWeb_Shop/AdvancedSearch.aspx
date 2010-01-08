@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#"  MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="AdvancedSearch.aspx.cs" Inherits="AdvancedSearch" Title="高级搜索" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="AdvancedSearch.aspx.cs" Inherits="AdvancedSearch" Title="产品高级搜索" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" Runat="Server">
 <style type="text/css">

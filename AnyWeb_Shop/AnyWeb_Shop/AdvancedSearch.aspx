@@ -74,8 +74,12 @@
 							</span>
                         </p>
                         <p>
-                        	<span class="left">价格：</span>
-                            <span class="right"><input name="price" type="text" value="" style="width:50px;" /> 请输入价格（单位：元）</span>
+                        	<span class="left">最低价格：</span>
+                            <span class="right"><input name="lowPrice" type="text" value="" style="width:50px;" /> 请输入价格（单位：元）</span>
+                        </p>
+                        <p>
+                        	<span class="left">最高价格：</span>
+                            <span class="right"><input name="highPrice" type="text" value="" style="width:50px;" /> 请输入价格（单位：元）</span>
                         </p>
                    		<p>
                         	<span class="left"></span>

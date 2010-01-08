@@ -25,19 +25,24 @@ public partial class Search : PageBase
         {
             string keywords = QS("keywords");
             int record = 0;
-            if (!string.IsNullOrEmpty(QS("category")) || !string.IsNullOrEmpty(QS("price")))
+            if (!string.IsNullOrEmpty(QS("category")) || (!string.IsNullOrEmpty(QS("lowprice")) && !string.IsNullOrEmpty(QS("highprice"))))
             {
                 int categoryId = 0;
-                float price = 0f;
+                float lowPrice = 0f;
+                float highPrice = 0f;
                 if (!int.TryParse(QS("category").ToString(), out categoryId))
                 {
                     categoryId = 0;
                 }
-                if (float.TryParse(QS("price").ToString(), out  price))
+                if (float.TryParse(QS("lowPrice").ToString(), out  lowPrice))
                 {
-                    price = 0f;
+                    lowPrice = 0f;
                 }
-                repGoods.DataSource = new GoodsAgent().GetGoodsBySearch(PN1.PageSize, PN1.PageIndex, keywords, categoryId, price, out record);
+                if (float.TryParse(QS("highPrice").ToString(), out  highPrice))
+                {
+                    highPrice = 999999f;
+                }
+                repGoods.DataSource = new GoodsAgent().GetGoodsBySearch(PN1.PageSize, PN1.PageIndex, keywords, categoryId, lowPrice, highPrice, out record);
             }
             else
             {

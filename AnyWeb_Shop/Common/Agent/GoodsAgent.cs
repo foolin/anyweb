@@ -1308,7 +1308,7 @@ namespace Common.Agent
         /// <param name="price"></param>
         /// <param name="recordCount"></param>
         /// <returns></returns>
-        public ArrayList GetGoodsBySearch(int pageSize, int pageNo, string goodsKeywords, int categoryId, float price, out int recordCount)
+        public ArrayList GetGoodsBySearch(int pageSize, int pageNo, string goodsKeywords, int categoryId, float lowPrice, float highPrice, out int recordCount)
         {
             string[] arrKeywords = goodsKeywords.Split(" ".ToCharArray());  //按空格将数据分割成一个数组
             string strKeywords = "";
@@ -1316,11 +1316,11 @@ namespace Common.Agent
             {
                 if (i == 0)
                 {
-                    strKeywords = "GoodsName LIKE '%" + arrKeywords[i] + "%'";
+                    strKeywords = " '%" + arrKeywords[i] + "%'";
                 }
                 else
                 {
-                    strKeywords += " OR GoodsName LIKE '%" + arrKeywords[i] + "%'";
+                    strKeywords += " OR g.GoodsName LIKE '%" + arrKeywords[i] + "%'";
                 }
             }
 
@@ -1335,7 +1335,8 @@ namespace Common.Agent
                                      this.NewParam("@PageNo", pageNo),
                                      this.NewParam("@WhereKeys", strKeywords),
                                      this.NewParam("@CategoryId", categoryId),
-                                     this.NewParam("@Price", price),
+                                     this.NewParam("@LowPrice", lowPrice),
+                                     this.NewParam("@HighPrice", highPrice),
                                      record);
             }
             recordCount = (int)record.Value;

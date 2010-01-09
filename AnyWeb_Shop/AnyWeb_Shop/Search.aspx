@@ -45,6 +45,29 @@ table.goods-list input{
 	margin:3px;
 	border:solid 1px #ccc;
 }
+.ctr
+{
+	line-height:0.5em;
+	font-size:14px;
+}
+.ctr a
+{
+	text-decoration:none;
+	margin:0px;
+	display:block;
+	width:80px;
+	height:25px;
+	line-height:25px;
+	padding-left:5px;
+	padding-right:5px;
+	border:solid 1px #CCC;
+	overflow:hidden;
+}
+.ctr a:hover{
+	text-decoration:none;
+	border:solid 1px #F00;
+}
+
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" Runat="Server">	
@@ -102,9 +125,11 @@ table.goods-list input{
                                             </ul>
                                         </td>
                                         <td>
+                                            <div class="ctr">
                                             <a href="Good.aspx?gid=<%#Eval("ID") %>">查看详细信息</a><br />
                                             <a href="#">购买</a><br />
                                             <a href="#">添加到购物车</a><br />
+                                            </div>
                                         </td>
                                     </tr>
                         </ItemTemplate>

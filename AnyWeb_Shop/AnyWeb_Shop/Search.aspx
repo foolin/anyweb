@@ -112,10 +112,21 @@ table.goods-list input{
                     
                 
                 </table>
+                
                 <div class="page">
                 
                 	<cc1:PageNaver ID="PN1" StyleID="2" runat="server" PageSize="10"></cc1:PageNaver>
                 
+                </div>
+                
+                <div class="search">
+                    <form action="search.aspx" method="get">
+                    <label>
+                        搜索：</label>
+                    <input name="keywords" type="text" onclick="if(this.value=='请输入关键词')this.value='';" value="<%=keywords %>" />
+                    <input class="button" type="submit" value="搜索" />
+                    <span class="hot-tags"><a href="AdvancedSearch.aspx">高级搜索</a></span>
+                    </form>
                 </div>
            </div>
            <!-- box end -->

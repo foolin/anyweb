@@ -14,6 +14,8 @@ using Common.Common;
 
 public partial class Search : PageBase
 {
+    public string keywords = "请输入关键词";
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -23,22 +25,24 @@ public partial class Search : PageBase
     {
         if (!string.IsNullOrEmpty(QS("keywords")))
         {
-            string keywords = QS("keywords");
             int record = 0;
+            int categoryId = 0;
+            float lowPrice = 0f;
+            float highPrice = 999999f;
+
+            keywords = QS("keywords");
+
             if (!string.IsNullOrEmpty(QS("category")) || (!string.IsNullOrEmpty(QS("lowprice")) && !string.IsNullOrEmpty(QS("highprice"))))
             {
-                int categoryId = 0;
-                float lowPrice = 0f;
-                float highPrice = 0f;
                 if (!int.TryParse(QS("category").ToString(), out categoryId))
                 {
                     categoryId = 0;
                 }
-                if (float.TryParse(QS("lowPrice").ToString(), out  lowPrice))
+                if (!float.TryParse(QS("lowPrice").ToString(), out  lowPrice))
                 {
                     lowPrice = 0f;
                 }
-                if (float.TryParse(QS("highPrice").ToString(), out  highPrice))
+                if (!float.TryParse(QS("highPrice").ToString(), out  highPrice))
                 {
                     highPrice = 999999f;
                 }
@@ -48,6 +52,8 @@ public partial class Search : PageBase
             {
                 repGoods.DataSource = new GoodsAgent().GetGoodsBySearch(PN1.PageSize, PN1.PageIndex, keywords, out record);
             }
+            //WebAgent.Alert("lowprice:" + lowPrice);
+            //WebAgent.Alert("highprice:" + highPrice);
             repGoods.DataBind();
             PN1.SetPage(record);
             litKeywords.Text = keywords;

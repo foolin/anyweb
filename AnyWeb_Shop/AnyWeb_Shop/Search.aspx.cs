@@ -46,6 +46,10 @@ public partial class Search : PageBase
                 {
                     highPrice = 999999f;
                 }
+                if (highPrice < lowPrice)
+                {
+                    WebAgent.FailAndGo("请输入的价格范围：最高价格("+highPrice.ToString()+")＜最低价格("+lowPrice.ToString()+")，请重新输入！");
+                }
                 repGoods.DataSource = new GoodsAgent().GetGoodsBySearch(PN1.PageSize, PN1.PageIndex, keywords, categoryId, lowPrice, highPrice, out record);
             }
             else

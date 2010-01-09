@@ -1310,7 +1310,7 @@ namespace Common.Agent
         /// <returns></returns>
         public ArrayList GetGoodsBySearch(int pageSize, int pageNo, string goodsKeywords, int categoryId, float lowPrice, float highPrice, out int recordCount)
         {
-            /*
+
             string[] arrKeywords = goodsKeywords.Split(" ".ToCharArray());  //按空格将数据分割成一个数组
             string strKeywords = "";
             for (int i = 0; i < arrKeywords.Length; i++)
@@ -1324,8 +1324,8 @@ namespace Common.Agent
                     strKeywords += " OR g.GoodsName LIKE '%" + arrKeywords[i] + "%'";
                 }
             }
-             */
-            string strKeywords = goodsKeywords;
+
+            //string strKeywords = goodsKeywords;
 
             DataSet ds;
 

@@ -20,7 +20,8 @@
 	padding-left:5px;
 }
 .advanced-search input{
-	padding:3px;
+	padding:2px;
+	margin-right:5px;
 }
 -->
 </style>
@@ -55,10 +56,10 @@
             <div class="box">
             	<div class="title">高级搜索</div>
                 <div class="advanced-search">
-                    <form action="Search.aspx" method="get">
+                    <form id="advancedSearchForm" action="Search.aspx" method="get" onsubmit="return chkSearch();">
                         <p>
                         	<span class="left">关键词：</span>
-                            <span class="right"><input name="keywords" type="text" onclick="if(this.value=='请输入关键词')this.value='';" value="请输入关键词" /> 多关键词用空格分开</span>
+                            <span class="right"><input name="keywords" type="text" onclick="if(this.value=='请输入关键词')this.value='';" value="请输入关键词" />  <span style="color:#F00">*必填</span> 多关键词用空格分开</span>
                         </p>
                         <p>
                         	<span class="left">分类：</span>
@@ -74,12 +75,9 @@
 							</span>
                         </p>
                         <p>
-                        	<span class="left">最低价格：</span>
-                            <span class="right"><input name="lowPrice" type="text" value="" style="width:50px;" /> 请输入价格（单位：元）</span>
-                        </p>
-                        <p>
-                        	<span class="left">最高价格：</span>
-                            <span class="right"><input name="highPrice" type="text" value="" style="width:50px;" /> 请输入价格（单位：元）</span>
+                        	<span class="left">价格范围：</span>
+                            <span class="right"><input name="lowPrice" id="lowPrice" type="text" value="" style="width:50px;" /> 
+                                              ~ <input name="highPrice" id="highPrice" type="text" value="" style="width:50px;" />低价格 ~ 高价格（单位：元）</span>
                         </p>
                    		<p>
                         	<span class="left"></span>
@@ -90,11 +88,35 @@
             </div>
             <!-- box end -->
             
+            <script type="text/javascript" language="javascript">
+                function chkSearch(){
+                    var form = document.forms["advancedSearchForm"];
+                    var keywords = form.keywords.value;
+                    var lowPrice = form.lowPrice.value;
+                    var highPrice = form.highPrice.value;
+                    
+                    if(keywords == '请输入关键词' || keywords == ''){
+                        alert('请输入关键词!');
+                        return false;
+                    }
+                    
+                    if(lowPrice != "" || highPrice != "")
+                    {
+                        if(isNaN(lowPrice) || isNaN(highPrice))
+                        {
+                            alert("价格输入非法！请输入数字");
+                            return false;
+                        }
+                    }
+    
+                    return true;
+                }
+            </script>
             
         </div>
         <div class="clear"></div>
         <!-- gCol-main -->
-
+        
     
     </div>
     <!-- main end -->

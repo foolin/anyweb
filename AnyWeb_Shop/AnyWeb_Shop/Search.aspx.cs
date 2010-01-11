@@ -23,7 +23,7 @@ public partial class Search : PageBase
 
     protected override void OnPreRender(EventArgs e)
     {
-        if (!string.IsNullOrEmpty(QS("keywords")))
+        if (!string.IsNullOrEmpty(QS("keywords")) && QS("keywords") != "请输入关键词")
         {
             int record = 0;
             int categoryId = 0;
@@ -48,7 +48,7 @@ public partial class Search : PageBase
                 }
                 if (highPrice < lowPrice)
                 {
-                    WebAgent.FailAndGo("请输入的价格范围：最高价格("+highPrice.ToString()+")＜最低价格("+lowPrice.ToString()+")，请重新输入！");
+                    WebAgent.FailAndGo("请输入的价格范围：最高价格(" + highPrice.ToString() + ")＜最低价格(" + lowPrice.ToString() + ")，请重新输入！");
                 }
                 repGoods.DataSource = new GoodsAgent().GetGoodsBySearch(PN1.PageSize, PN1.PageIndex, keywords, categoryId, lowPrice, highPrice, out record);
             }

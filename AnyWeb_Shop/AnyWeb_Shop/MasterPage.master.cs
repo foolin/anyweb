@@ -11,5 +11,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
     }
 
-
+    public string QS(string key)
+    {
+        return Request.QueryString[key] + "";
+    }
 }

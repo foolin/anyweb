@@ -28,7 +28,7 @@ public partial class Search : PageBase
             int record = 0;
             int categoryId = 0;
             float lowPrice = 0f;
-            float highPrice = 999999f;
+            float highPrice = 99999999f;
 
             keywords = QS("keywords");
 
@@ -44,7 +44,7 @@ public partial class Search : PageBase
                 }
                 if (!float.TryParse(QS("highPrice").ToString(), out  highPrice))
                 {
-                    highPrice = 999999f;
+                    highPrice = 99999999f;
                 }
                 if (highPrice < lowPrice)
                 {

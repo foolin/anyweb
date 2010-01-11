@@ -143,7 +143,7 @@ table.goods-list input{
                 	<cc1:PageNaver ID="PN1" StyleID="2" runat="server" PageSize="10"></cc1:PageNaver>
                 
                 </div>
-                
+                <%--
                 <div class="search">
                     <form action="search.aspx" method="get">
                     <label>
@@ -152,7 +152,7 @@ table.goods-list input{
                     <input class="button" type="submit" value="搜索" />
                     <span class="hot-tags"><a href="AdvancedSearch.aspx">高级搜索</a></span>
                     </form>
-                </div>
+                </div>--%>
            </div>
            <!-- box end -->
            

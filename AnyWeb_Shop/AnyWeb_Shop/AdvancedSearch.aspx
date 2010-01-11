@@ -100,15 +100,15 @@
                         return false;
                     }
                     
-                    if(lowPrice != "" || highPrice != "")
-                    {
-                        if(isNaN(lowPrice) || isNaN(highPrice))
-                        {
-                            alert("价格输入非法！请输入数字");
-                            return false;
-                        }
-                    }
-    
+//                    if(lowPrice != "" || highPrice != "")
+//                    {
+//                        if(isNaN(lowPrice) || isNaN(highPrice))
+//                        {
+//                            alert("价格输入非法！请输入数字");
+//                            return false;
+//                        }
+//                    }
+//    
                     return true;
                 }
             </script>

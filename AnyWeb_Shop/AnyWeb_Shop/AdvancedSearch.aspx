@@ -27,6 +27,9 @@
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" Runat="Server">
+
+    <div class="location">您的位置：<a href="Default.aspx">首页</a> → 高级搜索 </div>
+
     <div class="main">
     
     	<div class="gCol-sider">

@@ -81,13 +81,19 @@
         </div>
         <!-- col-main -->
         <div class="col-right">
-            <div class="topic-box">
-                <promot:PromotionList runat="server" />
-                <div style="height: 10px;">
-                    <!-- 分割 -->
+        
+            <div class="box">
+            <div class="title">
+                促销专题</div>
+                <div class="topic-box">
+                    <promot:PromotionList runat="server" />
+                    <div style="height: 10px;">
+                        <!-- 分割 -->
+                    </div>
                 </div>
-            </div>
             <!-- topic-box end -->
+            
+            </div>
         </div>
         <!-- col-right -->
         <div class="clear">

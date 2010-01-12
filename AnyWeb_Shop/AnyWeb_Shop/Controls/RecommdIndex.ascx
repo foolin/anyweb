@@ -1,7 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="RecommdIndex.ascx.cs"
     Inherits="Controls_RecommdIndex" %>
 <div class="title">
-    热荐商品</div>
+    <span class="floatLeft">热荐商品</span>
+    <span style="float:right; font-size:12px; padding-right:10px;"><a href="Recomment.aspx">更多>></a></span>
+</div>
 <asp:Repeater ID="repRecomment" runat="server" OnItemDataBound="repCategory_ItemDataBound">
     <ItemTemplate>
         <asp:Repeater ID="repGood" runat="server">

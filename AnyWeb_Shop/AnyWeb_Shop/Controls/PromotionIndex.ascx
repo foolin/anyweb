@@ -1,6 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="PromotionIndex.ascx.cs" Inherits="Controls_PromotionIndex" %>
-<div class="title">
-    促销商品</div>
+<div class="title clear">
+    <span class="floatLeft">促销商品</span>
+    <span style="float:right; font-size:12px; padding-right:10px;"><a href="Promotion.aspx">更多>></a></span>
+</div>
 <asp:Repeater ID="repRecomment" runat="server" OnItemDataBound="repCategory_ItemDataBound">
     <ItemTemplate>
         <asp:Repeater ID="repGood" runat="server">

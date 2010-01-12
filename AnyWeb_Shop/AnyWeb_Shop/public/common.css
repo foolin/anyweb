@@ -19,6 +19,7 @@ a:hover{
 .clear{
 	clear:both;
 }
+
 .wrapper {
 	margin:0px auto;
 	width:980px;
@@ -275,4 +276,23 @@ a:hover{
 	padding-bottom:5px;
 }
 
+/*****Æ¯¸¡****/
+.floatLeft
+{
+	float:left;
+}
+.floatRight
+{
+	float:right;
+}
+
+/****¸ü¶à***/
+.moreLink
+{
+	float:right;
+}
+.moreLink a
+{
+	color:Red;
+}
 

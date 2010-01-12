@@ -1,8 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="PromotionListIndex.ascx.cs"
     Inherits="Controls_PromotionListIndex" %>
 <!-- 促销专题开始 -->
-<div class="title">
-    促销专题</div>
+
 <asp:Repeater ID="repList" runat="server">
     <ItemTemplate>
         <div class="topic-goods">

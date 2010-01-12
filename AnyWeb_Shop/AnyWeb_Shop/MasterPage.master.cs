@@ -15,4 +15,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         return Request.QueryString[key] + "";
     }
+
+    /// <summary>
+    /// 获取商店信息
+    /// </summary>
+    public Common.Common.Shop ShopInfo
+    {
+        get
+        {
+            return (Common.Common.Shop)Context.Items["SHOP_INFO"];
+        }
+    }
 }

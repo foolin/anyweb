@@ -36,9 +36,9 @@ public partial class Controls_PromotionIndex : ControlBase
         if (c.PromotionList.Count > 1)
         {
             Repeater replist = (Repeater)e.Item.FindControl("repList");
-            if (replist != null)
+            if (replist != null && c.PromotionList.Count > 1)
             {
-                replist.DataSource = c.PromotionList.GetRange(1, c.RecommentList.Count - 1);
+                replist.DataSource = c.PromotionList.GetRange(1, c.PromotionList.Count - 1);
                 replist.DataBind();
             }
         }

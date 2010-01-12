@@ -37,6 +37,7 @@ public partial class User_UserList :AdminBase
 
         e.InputParameters["userName"] = QS( "userName" );
         e.InputParameters["useracc"] = QS( "useracc" );
-        
+        txtacc.Text = QS("useracc");
+        txtname.Text = QS("userName");
     }
 }

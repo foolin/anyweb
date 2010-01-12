@@ -109,6 +109,9 @@
                             <th>
                                 状态
                             </th>
+                            <th>
+                                排序
+                            </th>
                             <th class="end">
                                 操作
                             </th>
@@ -122,7 +125,7 @@
                                         <input type="checkbox" name="ids" value='<%#Eval("ID")%>' title="点击选择" />
                                     </td>
                                     <td style="width: 140px; line-height: 23px;">
-                                        <a href='<%#Eval( "LinkUrl" )%>' target="_blank">
+                                        <a href='/Good.aspx?gid=<%#Eval( "ID" )%>' target="_blank">
                                             <%#Eval( "GoodsName" )%>
                                         </a>
                                     </td>
@@ -147,11 +150,11 @@
                                         <%# CheckStatus((int)Eval( "Status" )  ,(DateTime)Eval( "EndTime" ) )%>
                                     </td>
                                     <td>
+                                        <%#Eval("Order") %>
+                                    </td>
+                                    <td>
                                         <a href="GoodsEdit.aspx?mode=update&gid=<%#Eval("ID")%>">修改</a>
-                                        <a href="GoodsImage.aspx?goodsid=<%#Eval("ID")%>">相关图片</a>
                                         <a href="GoodsEdit.aspx?mode=select&gid=<%#Eval("ID")%>">查看详情</a>
-                                        <a href="goodsSort.aspx?action=up&id=<%#Eval("ID")%>">排前</a>
-                                        <a href="goodsSort.aspx?action=down&id=<%#Eval("ID")%>">排后</a>
                                     </td>
                                 </tr>
                             </ItemTemplate>

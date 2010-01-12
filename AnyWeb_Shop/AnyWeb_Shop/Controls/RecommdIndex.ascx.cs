@@ -36,9 +36,9 @@ public partial class Controls_RecommdIndex : ControlBase
         if (c.RecommentList.Count > 1)
         {
             Repeater replist = (Repeater)e.Item.FindControl("repList");
-            if (replist != null)
+            if (replist != null && c.RecommentList.Count > 1)
             {
-                replist.DataSource = c.RecommentList.GetRange(1, c.RecommentList.Count-1);
+                replist.DataSource = c.RecommentList.GetRange(1, c.RecommentList.Count - 1);
                 replist.DataBind();
             }
         }

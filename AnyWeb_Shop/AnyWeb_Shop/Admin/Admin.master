@@ -28,7 +28,7 @@ body{width:1003px;min-width:1003px;}
 <body  class="pInner" style="padding: 0px;" onload="this.focus()">
     <div class="phd">
         <h1>
-            <img src="/images/top.jpg" alt="代销社电子商城" /></h1>
+            <img src="/images/top.jpg" alt="供销社电子商城" width="1003px" /></h1>
         <ul class="tools">
             <li>
                 <img src="/images/yl.gif" /><a href="/index.aspx" target="_blank">浏览商城</a>|</li>

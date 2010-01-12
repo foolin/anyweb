@@ -100,8 +100,4 @@
         </div>
     </div>
     <!-- main end -->
-    <div class="ad-banner">
-        专题及节日销售活动
-    </div>
-    <!-- ad-banner end -->
 </asp:Content>

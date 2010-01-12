@@ -87,19 +87,19 @@ public partial class SlideEidt : AdminBase
     {
         ObjectList slist = new ObjectList();
 
-        Slide s = this.SavaSlide( fud1 , txt1 , hf1 , txts1 , "slide1.jpg" );
+        Slide s = this.SavaSlide( fud1 , txt1 , hf1 , txts1);
         if ( s != null ) slist.Add( s );
 
-        s = this.SavaSlide( fud2 , txt2 , hf2 , txts2 , "slide2.jpg" );
+        s = this.SavaSlide( fud2 , txt2 , hf2 , txts2);
         if ( s != null ) slist.Add( s );
 
-        s = this.SavaSlide( fud3 , txt3 , hf3 , txts3 , "slide3.jpg" );
+        s = this.SavaSlide( fud3 , txt3 , hf3 , txts3);
         if ( s != null ) slist.Add( s );
 
-        s = this.SavaSlide( fud4 , txt4 , hf4 , txts4 , "slide4.jpg" );
+        s = this.SavaSlide( fud4 , txt4 , hf4 , txts4);
         if ( s != null ) slist.Add( s );
 
-        s = this.SavaSlide( fud5 , txt5 , hf5 , txts5 , "slide5.jpg" );
+        s = this.SavaSlide( fud5 , txt5 , hf5 , txts5);
         if ( s != null ) slist.Add( s );
 
         slist.Sort();
@@ -125,7 +125,7 @@ public partial class SlideEidt : AdminBase
     /// <param name="ts"></param>
     /// <param name="fileName"></param>
     /// <returns></returns>
-    public Slide SavaSlide(FileUpload fp , TextBox t , HiddenField f , TextBox ts , string fileName)
+    public Slide SavaSlide(FileUpload fp , TextBox t , HiddenField f , TextBox ts)
     {
         Slide s = new Slide();
 
@@ -146,8 +146,8 @@ public partial class SlideEidt : AdminBase
                 Directory.CreateDirectory( folder );
             }
 
-            string url = "/" + fileName;
-            fileName = folder + "\\" + fileName ;
+            string url = "/" + Studio.Web.WebAgent.NewKey() + ".jpg";
+            string fileName = folder + "\\" + Studio.Web.WebAgent.NewKey() + ".jpg";
 
             if ( file.ContentLength > maxSize )
             {

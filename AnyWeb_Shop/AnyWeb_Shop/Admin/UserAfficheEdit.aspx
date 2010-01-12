@@ -40,7 +40,7 @@
                                 </tr>
                             </table>
                                  <div class="iSubmit">
-                                    <button id="btnBack" onclick="window.location='UserAfficheList.aspx';">
+                                    <button id="btnBack" onclick="window.location='ComplaintsList.aspx';">
                                     返 回</button>
                             </div>
                         </ItemTemplate>

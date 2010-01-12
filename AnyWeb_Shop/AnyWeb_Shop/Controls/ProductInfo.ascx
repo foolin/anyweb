@@ -4,12 +4,12 @@
         <%=good.GoodsName %></div>
     <div class="gLeft">
         <div class="gImage">
-            <a href="#">
+            <a href="<%=good.Image=="" ? "../images/wait.jpg":good.Image.Replace("S_","") %>" target="_blank">
                 <img src="<%=good.Image=="" ? "../images/wait.jpg":good.Image.Replace("S_","") %>"
                     width="300" height="300" alt="<%=good.GoodsName %>" /></a>
             <br />
             <a href="<%=good.Image=="" ? "../images/wait.jpg":good.Image.Replace("S_","") %>"
-                target="_blank" title="点击查看大图">点击查看大图</a>
+                target="_blank" title="点击查看大图">点击查看大图</a>            
         </div>
     </div>
     <!-- gLeft -->

@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="Head.aspx.cs" Inherits="Head" Title="页头管理" validateRequest="false"  %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="Head.aspx.cs" Inherits="Head" Title="特色标语管理" validateRequest="false"  %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
    
-                <li>对页头的内容进行设置，建议填写简单的内容。</li>
+                <li>对特色标语的内容进行设置。</li>
         
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" Runat="Server">
@@ -9,7 +9,7 @@
         <div class="mhd">
             <div class="inner">
                 <h2>
-                   页头管理</h2>
+                   特色标语管理</h2>
             </div>
         </div>
         <div class="mbd">
@@ -22,7 +22,7 @@
                             <table class="iEditForm iEditBaseInf">
                              <tr class="title">
                                     <th>
-                                        『 页头 』内容设置：
+                                        『 特色标语 』内容设置：
                                     </th>
                              </tr>
                               <tr class="edit odd">
@@ -33,8 +33,6 @@
                             </table>
                             <div class="iSubmit">
                                 <asp:Button ID="btnSave" runat="server" Text="保存内容" CommandName="Update" CssClass="submit"></asp:Button>
-                                <button id="btnBack" onclick="window.location='BasicInfoManage.aspx';">
-                                    取 消</button>
                             </div>
                         </EditItemTemplate>
                     </asp:FormView>

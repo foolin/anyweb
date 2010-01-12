@@ -92,8 +92,6 @@
                     </div>
                    <div class="iSubmit">
                      <asp:Button ID="btnDel" runat="server" CssClass="submit" Text="批量删除" OnClick="btnDel_Click" />
-                         <button id="btnBack" onclick="history.back(-1);">
-                                    返 回</button>
                     </div>
                     <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetOrderList"  TypeName="Common.Agent.OrderAgent" OnSelected="ods3_Selected" OnSelecting="ods3_Selecting">
                         <SelectParameters>

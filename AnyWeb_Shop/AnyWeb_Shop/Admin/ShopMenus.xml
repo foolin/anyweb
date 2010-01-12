@@ -6,15 +6,6 @@
       <xMenuItem url="/Admin/OrderList.aspx" name="订单管理"  description="订单管理" type="2"></xMenuItem>
       <xMenuItem url="/Admin/User/UserList.aspx"  name="会员管理" description="会员管理" type="2"></xMenuItem>
       <xMenuItem url="/Admin/GoodsCategoryList.aspx" name="商品管理"  description="商品管理"  type="2"></xMenuItem>
-      <xMenuItem url="/Admin/VenditionStat.aspx" name="商城统计"  description="商城统计"  type="1">
-        <xMenuItem url="/Admin/VenditionStat.aspx" name="销售统计"  description="销售统计"  type="0" ></xMenuItem>
-        <xMenuItem url="/Admin/GoodsStat.aspx" name="商品流量统计"  description="商品流量统计"  type="0" ></xMenuItem>
-        <xMenuItem url="/Admin/ChangeGoodsStat.aspx" name="积分礼品兑换统计"  description="积分礼品兑换统计"  type="0" ></xMenuItem>
-      </xMenuItem>
-      <xMenuItem url="/Admin/UserDirect.aspx" name="商城新用户使用指引"  description="商城新用户使用指引"  type="1">
-        <xMenuItem url="/Admin/UserDirect.aspx" name="商城新用户使用指引"  description="商城新用户使用指引"  type="0">
-        </xMenuItem>
-      </xMenuItem>
     </xMenuItem>
     <xMenuItem url="/Admin/SetNavUrl.aspx?mode=order" name="订单管理"  description="订单管理" >
       <xMenuItem url="/Admin/OrderList.aspx" name="订单管理"  description="订单管理"  type="1">
@@ -55,10 +46,7 @@
         <xMenuItem url="/Admin/User/UserInfo.aspx"  name="会员详细信息" visible="false" description="会员详细信息"></xMenuItem>
       </xMenuItem>
       
-      <xMenuItem url="/Admin/CommentList.aspx" name="互动管理"  description="互动管理" type="1" >
-      <xMenuItem url="/Admin/CommentList.aspx" name="评论列表"  description="评论列表" type="0" >
-        <xMenuItem url="/Admin/CommentReplay.aspx" name="回复评论"  description="回复评论" visible="false"></xMenuItem>
-      </xMenuItem>
+      <xMenuItem url="/Admin/ComplaintsList.aspx" name="互动管理"  description="互动管理" type="1" >
         <xMenuItem url="/Admin/ComplaintsList.aspx" name="投诉列表" description="投诉列表" type="0">
         </xMenuItem>
         <xMenuItem url="/Admin/ComplaintsEdit.aspx" name="回复投诉" description="回复投诉" visible="false"></xMenuItem>
@@ -94,24 +82,11 @@
     </xMenuItem>
 
 
-    <xMenuItem url="/Admin/SetNavUrl.aspx?mode=article" name="文章管理"  description="文章管理" >
+    <xMenuItem url="/Admin/ShopArticleList.aspx" name="商城服务指南"  description="商城服务指南" >
       <xMenuItem url="/Admin/ShopArticleList.aspx" name="商城服务指南" description="商城服务指南" type="1">
         <xMenuItem url="/Admin/ShopArticleList.aspx" name="商城指南列表" description="商城指南列表" type="0">
         <xMenuItem url="/Admin/ShopArticleEdit.aspx" name="商城指南编辑" description="商城指南编辑" visible="false"></xMenuItem>
-        </xMenuItem>
-        
-        <xMenuItem url="/Admin/ShopArticleSet.aspx" name="商城指南设置" description="商城指南设置"  type="0"></xMenuItem>
-      </xMenuItem>
-      <xMenuItem url="/Admin/ArticleCategoryList.aspx" name="文章栏目管理"  description="文章栏目管理"  type="1">
-      <xMenuItem url="/Admin/ArticleCategoryList.aspx" name="文章栏目列表"  description="文章栏目列表"  type="0">
-        <xMenuItem url="/Admin/SingerArticleEdit.aspx" name="编辑单篇文章" visible="false" description="编辑单篇文章" ></xMenuItem>
-        <xMenuItem url="/Admin/ArticleCategoryHandle.aspx" name="编辑文章栏目"   description="编辑文章栏目" visible="false" ></xMenuItem>
-      </xMenuItem>
-      </xMenuItem>
-      <xMenuItem url="/Admin/ArticleList.aspx" name="文章管理"  description="文章管理"  type="1">
-        <xMenuItem url="/Admin/ArticleList.aspx" name="文章列表"  description="文章列表"  type="0">
-          <xMenuItem url="/Admin/ArticleEdit.aspx" name="编辑文章"  description="编辑文章"  visible="false"></xMenuItem>
-        </xMenuItem>
+        </xMenuItem>        
       </xMenuItem>
     </xMenuItem>
 
@@ -162,11 +137,11 @@
         </xMenuItem>
       </xMenuItem>
 
-      <xMenuItem url="/Admin/Head.aspx" description ="页头页脚管理" name ="页头页脚管理"  type="1">
+      <xMenuItem url="/Admin/Head.aspx" description ="特色标语管理" name ="特色标语管理"  type="1">
 
-        <xMenuItem url="/Admin/Head.aspx" description ="页头设置" name ="页头设置"  type="0">
+        <xMenuItem url="/Admin/Head.aspx" description ="特色标语设置" name ="特色标语设置"  type="0">
         </xMenuItem>
-        <xMenuItem url="/Admin/Footer.aspx" description ="页脚设置" name ="页脚设置"  type="0">
+        <xMenuItem url="/Admin/Footer.aspx" description ="专题活动设置" name ="专题活动设置"  type="0">
         </xMenuItem>
       </xMenuItem>
 

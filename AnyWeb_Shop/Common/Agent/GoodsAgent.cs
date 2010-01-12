@@ -71,7 +71,7 @@ namespace Common.Agent
                 gs.Model = (string)dr["Model"];
                 gs.EndTime = (DateTime)dr["EndTime"];
                 gs.IsRecommend = (bool)dr["IsRecommend"];
-
+                gs.Order = (int)dr["Order"];
                 gs.OfCategory = new Category();
                 gs.OfCategory.Name = (string)dr["CategoryName"];
                 gs.OfCategory.Path = (string)dr["Path"];
@@ -212,6 +212,7 @@ namespace Common.Agent
                                     this.NewParam("@Service", gs.Service),
                                     this.NewParam("@Factory", gs.Factory),
                                     this.NewParam("@IsRecommend", gs.IsRecommend),
+                                    this.NewParam("@Order",gs.Order),
                                     this.NewParam("@IsPromotions", gs.IsPromotions),
                                     this.NewParam("@PromotionsPrice", gs.PromotionsPrice));
 

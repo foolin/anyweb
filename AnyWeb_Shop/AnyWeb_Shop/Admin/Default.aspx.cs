@@ -23,32 +23,6 @@ public partial class _Default : AdminBase
 
     protected override void OnPreRender(EventArgs e)
     {
-       
-        if ( ( Request.Cookies["SHOPID"] == null ) )
-        {
-            pn2.Visible = true;
-            pn1.Visible = false;
-        }
-        else
-        {
-            pn2.Visible = false;
-            pn1.Visible = true;
-            using ( StatAgent s = new StatAgent() )
-            {
-                this.litComment.Text = ( ShopInfo.CommentCount - s.GetNewStatByTypeID( 1 ) ).ToString();
-                this.litLeave.Text = ( ShopInfo.MessageCount - s.GetNewStatByTypeID( 2 ) ).ToString();
-                this.litOrder.Text = ( ShopInfo.OrderCount - s.GetNewStatByTypeID( 3 ) ).ToString();
-                this.litUser.Text = ( ShopInfo.UserCount - s.GetNewStatByTypeID( 4 ) ).ToString();
-
-                using ( OrderAgent oa = new OrderAgent() )
-                {
-                    litorder1.Text = oa.OrderStat( 1 ).ToString();
-                    litOrder2.Text = oa.OrderStat( 2 ).ToString();
-                    litOrder3.Text = oa.OrderStat( 3 ).ToString();
-                }
-
-            }
-        }
     }
     protected void btnOpen_Click(object sender , EventArgs e)
     {

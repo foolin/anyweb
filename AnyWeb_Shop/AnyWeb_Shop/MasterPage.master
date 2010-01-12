@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
 <%@ Register Src="~/Controls/Help.ascx" TagName="Help" TagPrefix="help" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,6 +9,7 @@
     <asp:ContentPlaceHolder ID="cphTitle" runat="server">
     </asp:ContentPlaceHolder>
     <link href="/public/common.css" rel="stylesheet" type="text/css" />
+
     <script type="text/javascript">
         //判断浏览器是否为IE
         function isIE() {
@@ -24,7 +26,8 @@
             }
             return false;
         }
-    </script>  
+    </script>
+
 </head>
 <body>
     <div class="wrapper">
@@ -45,7 +48,8 @@
                 </div>
                 <!-- nav end -->
                 <div class="sub-nav">
-                    <a href="AboutUs.aspx">关于我们</a> <a href="#" onclick="return HomePage.call(this);">设为首页</a> <a href="Contact.aspx">联系我们</a>
+                    <a href="AboutUs.aspx">关于我们</a> <a href="#" onclick="return HomePage.call(this);">设为首页</a>
+                    <a href="Contact.aspx">联系我们</a>
                 </div>
                 <!-- sub-nav end -->
                 <div class="clear">
@@ -57,7 +61,8 @@
                     <form action="search.aspx" method="get">
                     <label>
                         搜索：</label>
-                    <input name="keywords" type="text" onclick="if(this.value=='请输入关键词')this.value='';" value="<%=!string.IsNullOrEmpty(QS("keywords"))?QS("keywords"):"请输入关键词" %>" />
+                    <input name="keywords" type="text" onclick="if(this.value=='请输入关键词')this.value='';"
+                        value="<%=!string.IsNullOrEmpty(QS("keywords"))?QS("keywords"):"请输入关键词" %>" />
                     <input class="button" type="submit" value="搜索" />
                     <span class="hot-tags"><a href="AdvancedSearch.aspx">高级搜索</a></span>
                     </form>
@@ -67,12 +72,18 @@
             <!-- search end -->
         </div>
         <!-- header end -->
-        <div class="ad-banner">
-            特色标语
-        </div>
+        <%if (!string.IsNullOrEmpty(ShopInfo.Header))
+          { %>
+            <%=ShopInfo.Header %>
+        <%} %>
         <!-- ad-banner end -->
         <asp:ContentPlaceHolder ID="cphContent" runat="server">
         </asp:ContentPlaceHolder>
+        <%if (!string.IsNullOrEmpty(ShopInfo.Footer))
+          { %>
+            <%=ShopInfo.Footer %>
+        <%} %>
+        <!-- ad-banner end -->
         <help:Help runat="server" />
         <!-- bottom-links end -->
         <div class="footer">

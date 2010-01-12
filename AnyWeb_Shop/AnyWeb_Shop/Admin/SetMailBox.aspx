@@ -64,7 +64,6 @@
                             </table>
                             <div class="iSubmit">
                                 <asp:Button ID="btnSave" runat="server" Text="保存资料" CssClass="submit" OnClick="btnSave_Click"></asp:Button>
-                                <button id="btnBack" onclick="window.location='ArticleList.aspx';">取 消</button>
                             </div>
                 </form>
             </div>

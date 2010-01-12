@@ -27,7 +27,7 @@ public partial class Controls_RecommentGoods : ControlBase
             cateID = c.ID;
         }
         int record = 0;
-        repGoods.DataSource = new GoodsAgent().GetPromotionGoods(cateID, PN1.PageSize, PN1.PageIndex, out record);
+        repGoods.DataSource = new GoodsAgent().GetRecommentGoods(cateID, PN1.PageSize, PN1.PageIndex, out record);
         repGoods.DataBind();
         PN1.SetPage(record);
     }

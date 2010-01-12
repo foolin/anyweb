@@ -19,6 +19,7 @@
         <form runat="server" id="form1" onsubmit="javascript:return checkForm()">
             <div style="display: none;">
                 <asp:Label ID="lblDomain" runat="server"></asp:Label></div>
+            <div class="title">商城系统管理登录</div>
             <div class="item ">
                 <label>
                     帐号</label>

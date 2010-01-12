@@ -1,7 +1,14 @@
 body,h1,h2,h3,h4,h5,h6,ul,ul li,form,p,img,dl,dt,dd,table,th,td,img{margin:0;padding:0;border:0;}
 ul,ul li{list-style:none;}
 input,.button{margin:0;padding:0;font-size:12px;}
-body{background:url(../images/loginbg.jpg) 0 -140px #d6e4ed;margin:0;padding:0;font-size:12px;font-family:"ËÎÌו",sans-serif;}
+/*
+body{background:url(../images/loginbg.gif) 0 -140px #d6e4ed;margin:0;padding:0;font-size:12px;font-family:"ËÎÌו",sans-serif;}
+*/
+body{
+	background:#3a84b5;
+	font-size:12px;
+	font-family:"ËÎÌו",sans-serif;
+}
 a{color:#06c;}
 a:hover{color:#c00;}
 
@@ -12,8 +19,9 @@ a:hover{color:#c00;}
 .logo .msg{clear:both;padding:0 0 0 25px;margin-left:25px;font-weight:bold;line-height:25px;}
 .logo .msg li{list-style:disc;}
 .logo .msg li.hot{color:#f60;font-size:14px;}
-form{position:absolute;top:212px;left:456px;width:355px;height:232px;padding:50px 0 0 50px;background:url(../images/loginform.png) #e8e8e8 no-repeat;}
-form .item{clear:both;margin-bottom:10px;height:20px;}
+form{position:absolute;top:212px;left:456px;width:319px;height:282px;padding:0px 0px 0px 0px;background:url(../images/loginform.gif) #e8e8e8 no-repeat;}
+form .title{ height:50px; line-height:35px; font-size:14px; font-weight:bold; text-align:center; color:#3a84b5;}
+form .item{clear:both;margin-bottom:10px;height:20px; }
 form .item .inputBox{background:url(../images/logininput.gif) 0 0 no-repeat #fff;height:20px;width:193px;padding-left:3px;}
 form .item.i2 .inputBox{background-position:0 -20px;width:60px;}
 form .item .err{background-position:0 -40px;}

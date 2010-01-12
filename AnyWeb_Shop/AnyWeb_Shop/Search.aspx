@@ -49,6 +49,7 @@ table.goods-list input{
 {
 	line-height:0.5em;
 	font-size:14px;
+	text-align:center;
 }
 .ctr a
 {
@@ -60,12 +61,16 @@ table.goods-list input{
 	line-height:25px;
 	padding-left:5px;
 	padding-right:5px;
-	border:solid 1px #CCC;
+	border:solid 1px #62aa1b;
+	background:url(images/btn_bg.gif) repeat-x;
+	color:#FFF;
 	overflow:hidden;
 }
 .ctr a:hover{
 	text-decoration:none;
-	border:solid 1px #F00;
+	color:#FFF;
+	background:url(images/btn_bg_on.gif) repeat-x;
+	border:solid 1px #f00;
 }
 
 </style>
@@ -126,7 +131,7 @@ table.goods-list input{
                                         </td>
                                         <td>
                                             <div class="ctr">
-                                            <a href="Good.aspx?gid=<%#Eval("ID") %>">查看详细信息</a><br />
+                                            <a href="Good.aspx?gid=<%#Eval("ID") %>">详细信息</a><br />
                                             <a href="#">购买</a><br />
                                             <a href="#">添加到购物车</a><br />
                                             </div>

@@ -54,12 +54,30 @@ a:hover{
 	line-height:30px;
 	overflow:hidden;
 }
-.nav ul li a{
+/*.nav ul li a{
 	display:block; 
 	padding-left:8px;
 	padding-right:8px;
 	background:#beeb97;
 	color:#393;
+}*/
+.select 
+{
+	display:block; 
+	padding-left:8px;
+	padding-right:8px;
+	background:#8cc93a;
+	text-decoration:none;
+	color:#FFF;
+}
+.noselect
+{
+	display:block; 
+	padding-left:8px;
+	padding-right:8px;
+	background:#beeb97;
+	color:#393;
+	
 }
 .nav ul li a:hover, .nav ul li.on a:hover{
 	background:#8cc93a;

@@ -32,7 +32,7 @@ body{width:1003px;min-width:1003px;margin:0px auto; }
         <ul class="tools">
             <li>
                 <img src="/images/yl.gif" /><a href="/index.aspx" target="_blank">浏览商城</a>|</li>
-            <li><img src="/images/r.gif" /><a class="navOut" href="OutLogin.aspx">退出登录</a></li>
+            <li><img src="/images/r.gif" /><a class="navOut" href="/Admin/OutLogin.aspx">退出登录</a></li>
         </ul>
         <ul class="nav" id="nav1">
             <asp:Repeater ID="rep1" runat="server" DataSourceID="ods1">

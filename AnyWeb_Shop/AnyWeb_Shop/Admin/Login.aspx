@@ -31,16 +31,11 @@
                     密码</label>
                 <div class="inputBox" id="divpass">
                     <asp:TextBox ID="txtPassword" runat="server" MaxLength="20" TextMode="Password" CssClass="text password"></asp:TextBox></div>
-                <div class="forget">
-                    <span>(?)</span>
-                    <p>
-                        如果<em>遗忘了您的个人密码</em>，请与您企业的系统管理员联系办理密码找回手续</p>
-                </div>
             </div>
             <div class="item i2">
                 <label>
                     验证码</label>
-                <div class="inputBox" id="divVal">
+                <div class="inputBox" style="width:53px" id="divVal">
                     <input type="text" id="txtVal" name="val" maxlength="4" style="width: 60px;" class="text" /></div>
                 <asp:Image ID="imgVal" runat="server" />
                 <a href="" onclick="refreshCode()">看不清？</a>

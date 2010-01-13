@@ -26,6 +26,13 @@
             }
             return false;
         }
+
+        function SetTitleCss(id) {
+            for (i = 1; i < 5; i++) {
+                document.getElementById("title" + i).className = "noselect";
+            }
+            document.getElementById("title" + id).className = "select";
+        }        
     </script>
 
 </head>
@@ -40,10 +47,10 @@
                 <!-- logo end -->
                 <div class="nav">
                     <ul>
-                        <li class="on"><a href="index.aspx">首页</a></li>
-                        <li><a href="Category.aspx">商品类别</a></li>
-                        <li><a href="Register.aspx">用户注册</a></li>
-                        <li><a href="Login.aspx">用户登录</a></li>
+                        <li><a href="index.aspx" id="title1">首页</a></li>
+                        <li><a href="Category.aspx" id="title2">商品类别</a></li>
+                        <li><a href="Register.aspx" id="title3">用户注册</a></li>
+                        <li><a href="Login.aspx" id="title4">用户登录</a></li>
                     </ul>
                 </div>
                 <!-- nav end -->

@@ -131,12 +131,6 @@
         </xMenuItem>
       </xMenuItem>
 
-      <xMenuItem url="/Admin/AdvertisementList.aspx" name="广告管理" description="广告管理" type="1">
-        <xMenuItem url="/Admin/AdvertisementList.aspx" name="广告列表" description="广告列表" type="0">
-          <xMenuItem url="/Admin/AdvertisementEdit.aspx" name="编辑广告" visible="false" description="编辑广告"></xMenuItem>
-        </xMenuItem>
-      </xMenuItem>
-
       <xMenuItem url="/Admin/Head.aspx" description ="特色标语管理" name ="特色标语管理"  type="1">
 
         <xMenuItem url="/Admin/Head.aspx" description ="特色标语设置" name ="特色标语设置"  type="0">

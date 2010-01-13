@@ -17,7 +17,7 @@
                     <%#Studio.Web.WebAgent.GetLeft(Studio.Web.WebAgent.stripHtml(Eval("Description").ToString()),70)%>
                 </div>
                 <div class="more">
-                    <a href="PromotionList.aspx">查看更多>></a></div>
+                    <a href="Promotion.aspx">查看更多>></a></div>
             </div>
         </div>
         <div class="clear">

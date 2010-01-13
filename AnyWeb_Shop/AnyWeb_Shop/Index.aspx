@@ -100,4 +100,7 @@
         </div>
     </div>
     <!-- main end -->
+    <script type="text/javascript">
+        SetTitleCss(1);
+    </script>
 </asp:Content>

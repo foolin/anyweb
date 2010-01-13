@@ -27,4 +27,7 @@
         </div>
     </div>
     <!-- main end -->
+    <script type="text/javascript">
+        SetTitleCss(2);
+    </script>
 </asp:Content>

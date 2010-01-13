@@ -13,7 +13,7 @@
 	<![endif]-->
 
 <style type="text/css">
-body{width:1003px;min-width:1003px;}
+body{width:1003px;min-width:1003px;margin:0px auto; }
 .phdtop {	PADDING-RIGHT: 3px;	PADDING-LEFT: 3px;	PADDING-BOTTOM: 3px;	PADDING-TOP: 3px;	BACKGROUND-COLOR: #eee;	TEXT-ALIGN: right}
 .phdtop img{vertical-align:middle;}
     .iopr {margin:4px;position:absolute;left:500px;top:150px;width:480px;text-align:right;height:30px;line-height:30px;}
@@ -146,6 +146,5 @@ body{width:1003px;min-width:1003px;}
         }
 
     </script>
-    
 </body>
 </html>

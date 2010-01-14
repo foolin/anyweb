@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Search.aspx.cs" Inherits="Search" Title="产品搜索" %>
 <%@ Register Assembly="Studio" Namespace="Studio.Web" TagPrefix="cc1" %>
-
+<%@ Register Src="~/Controls/CategoryInner.ascx" TagName="CategoryInner" TagPrefix="cate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" Runat="Server">
 <style type="text/css">
 .search-list {
@@ -78,24 +78,7 @@ table.goods-list input{
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" Runat="Server">	
     <div class="main">    	
     	<div class="gCol-sider">
-
-        	<!-- 栏目 -->
-        	<div class="category">
-            	<div class="title">商品分类</div>
-                <div class="content">
-                
-            		<h3>图像音像分类</h3>
-                  	<ul>
-                      <li><a href="">DVD</a></li>
-                      <li><a href="">DVD</a></li>
-                    </ul>
-                    
-                    <div class="clear"></div>
-                </div>
-                <!-- content end -->
-            </div>
-            <!-- category end -->
-        
+            <cate:CategoryInner runat="server" />        
         </div>
         <!-- col-sider end -->
 

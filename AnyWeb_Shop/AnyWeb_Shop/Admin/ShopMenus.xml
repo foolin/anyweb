@@ -124,9 +124,9 @@
 
 
     <xMenuItem  url="/Admin/SetNavUrl.aspx?mode=page" description="页面高级设置" name="页面高级设置" type="1">
-      <xMenuItem url="/Admin/SlideList.aspx" name="Flash动画管理" description="Flash动画管理" type="1">
-        <xMenuItem url="/Admin/SlideList.aspx" name="Flash动画列表" description="Flash动画列表" type="0">
-          <xMenuItem url="/Admin/SlideEidt.aspx" name="编辑Flash动画" description="编辑Flash动画" visible="false">
+      <xMenuItem url="/Admin/SlideList.aspx" name="图片滚动管理" description="图片滚动管理" type="1">
+        <xMenuItem url="/Admin/SlideList.aspx" name="图片滚动管理" description="图片滚动管理" type="0">
+          <xMenuItem url="/Admin/SlideEidt.aspx" name="编辑图片滚动" description="编辑图片滚动" visible="false">
           </xMenuItem>
         </xMenuItem>
       </xMenuItem>

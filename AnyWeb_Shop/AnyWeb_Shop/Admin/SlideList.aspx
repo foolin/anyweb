@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="SlideList.aspx.cs" Inherits="SlideList" Title="flash动画管理" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="SlideList.aspx.cs" Inherits="SlideList" Title="图片滚动管理" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
 <li>自定义Flash，可以上传5张图片（保持长宽一致），用途可以是做产品推广、广告等，在商城首页中幻灯展示。</li>
 <li>建议图片的长宽大小为：642px 206px;</li>         
@@ -8,7 +8,7 @@
         <div class="mhd">
             <div class="inner">
                 <h2>
-                    Flash动画管理<span style="float:right; margin-top:-16px; line-height:28px; padding-right:26px;"><a href="SlideEidt.aspx">编辑flash</a></span></h2>
+                    图片滚动管理<span style="float:right; margin-top:-16px; line-height:28px; padding-right:26px;"><a href="SlideEidt.aspx">编辑图片</a></span></h2>
             </div>
         </div>
         <div class="mbd">

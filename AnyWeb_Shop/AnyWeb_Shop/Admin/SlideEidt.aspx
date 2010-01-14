@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="SlideEidt.aspx.cs" Inherits="SlideEidt" Title=" 编辑Falsh" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="SlideEidt.aspx.cs" Inherits="SlideEidt" Title=" 编辑图片" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
    
-                  <li>编辑Flash，可以一次性编辑所有幻灯图片。</li>
+                  <li>编辑图片，可以一次性编辑所有幻灯图片。</li>
        
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
@@ -10,7 +10,7 @@
         <div class="mhd">
             <div class="inner">
                 <h2>
-                   编辑Flash
+                   编辑图片
                 </h2>
             </div>
         </div>

@@ -85,7 +85,7 @@ public partial class GoodsList :AdminBase
         }
         else
         {
-            WebAgent.FailAndGo( "请在要删除的项前打勾。" , "GoodsList.asxp" );
+            WebAgent.FailAndGo("请在要删除的项前打勾。", "GoodsList.aspx");
         }
     }
 
@@ -134,7 +134,7 @@ public partial class GoodsList :AdminBase
         }
         else
         {
-            WebAgent.FailAndGo("请在要推荐的商品项前打勾。", "GoodsList.asxp");
+            WebAgent.FailAndGo("请在要推荐的商品项前打勾。", "GoodsList.aspx");
         }
     }
     protected void btnCancelRec_Click(object sender, EventArgs e)
@@ -152,7 +152,7 @@ public partial class GoodsList :AdminBase
         }
         else
         {
-            WebAgent.FailAndGo("请在要取消推荐的商品项前打勾。", "GoodsList.asxp");
+            WebAgent.FailAndGo("请在要取消推荐的商品项前打勾。", "GoodsList.aspx");
         }
     }
 }

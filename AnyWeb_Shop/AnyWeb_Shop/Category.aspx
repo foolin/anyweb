@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="Server">
 
-    <div class="location">您的位置：<a href="Default.aspx">首页</a> → 商品分类 </div>
+    <div class="location">您的位置：<a href="Index.aspx">首页</a> → 商品分类 </div>
 
     <div class="main">
         <div class="col-sider">

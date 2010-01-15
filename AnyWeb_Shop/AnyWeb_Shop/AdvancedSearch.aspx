@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#"  MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="AdvancedSearch.aspx.cs" Inherits="AdvancedSearch" Title="产品高级搜索" %>
-
+<%@ Register Src="~/Controls/CategoryInner.ascx" TagName="CategoryInner" TagPrefix="cate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" Runat="Server">
 <style type="text/css">
 <!--
@@ -28,28 +28,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" Runat="Server">
 
-    <div class="location">您的位置：<a href="Default.aspx">首页</a> → 高级搜索 </div>
+    <div class="location">您的位置：<a href="Index.aspx">首页</a> → 高级搜索 </div>
 
     <div class="main">
     
     	<div class="gCol-sider">
 
         	<!-- 栏目 -->
-        	<div class="category">
-            	<div class="title">商品分类</div>
-                <div class="content">
-                
-            		<h3>图像音像分类</h3>
-                  	<ul>
-                      <li><a href="">DVD</a></li>
-                      <li><a href="">DVD</a></li>
-                    </ul>
-                    
-                    <div class="clear"></div>
-                </div>
-                <!-- content end -->
-            </div>
-            <!-- category end -->
+        	 <cate:CategoryInner ID="CategoryInner1" runat="server" />     
         
         </div>
         <!-- col-sider end -->

@@ -17,6 +17,7 @@
             <cate:CategoryLeft runat="server" />
             <!-- category end -->
             <!-- 栏目 -->
+            <!--
             <div class="category">
                 <div class="title">
                     商品分类</div>
@@ -60,8 +61,10 @@
                     <div class="clear">
                     </div>
                 </div>
-                <!-- content end -->
+               
+                <! -- content end -- >
             </div>
+             -->
             <!-- category end -->
         </div>
         <!-- col-left -->

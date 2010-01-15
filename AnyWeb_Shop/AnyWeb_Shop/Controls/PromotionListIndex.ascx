@@ -4,7 +4,7 @@
 
 <asp:Repeater ID="repList" runat="server">
     <ItemTemplate>
-        <div class="topic-goods">
+        <div class="topic-goods"  style="overflow:hidden; width:99%;">
             <div class="goods-pic">
                 <a href="Good.aspx?gid=<%#Eval("ID") %>">
                     <img src="<%#(string)Eval( "image" )=="" ? "../images/wait.jpg":(string)Eval( "image" ) %>" width="90" height="90" alt="" border="0" />

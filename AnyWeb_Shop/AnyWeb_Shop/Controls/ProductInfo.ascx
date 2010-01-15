@@ -37,9 +37,11 @@
             <dd>
                 <%=good.Service %>
             </dd>
+            <!--
             <dd>
                 <input type="button" name="buy" value="购买" />
                 <input type="button" name="addToCart" value="加入购物车" /></dd>
+                -->
         </dl>
     </div>
 </div>

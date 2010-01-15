@@ -115,8 +115,10 @@ table.goods-list input{
                                         <td>
                                             <div class="ctr">
                                             <a href="Good.aspx?gid=<%#Eval("ID") %>">详细信息</a><br />
+                                            <!--
                                             <a href="#">购买</a><br />
                                             <a href="#">添加到购物车</a><br />
+                                            -->
                                             </div>
                                         </td>
                                     </tr>

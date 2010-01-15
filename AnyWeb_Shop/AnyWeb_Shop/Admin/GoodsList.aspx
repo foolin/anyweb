@@ -166,6 +166,10 @@
                     </cc1:PageNaver>
                 </div>
                 <div class="iSubmit">
+                    <asp:Button ID="btnRec" runat="server" Text="批量推荐"  CssClass="submit" 
+                        onclick="btnRec_Click" />
+                    <asp:Button ID="btnCancelRec" runat="server" Text="批量取消推荐"  CssClass="submit" 
+                        onclick="btnCancelRec_Click" />
                     <asp:Button ID="btnDel" runat="server" Text="批量删除" CssClass="submit" OnClick="btnDel_Click" />
                 </div>
                 </form>

@@ -806,6 +806,24 @@ namespace Common.Agent
             return result;
         }
 
+
+
+        /// <summary>
+        /// 批量推荐商品
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <param name="type"></param>
+        public void GoodsRecommends(string ids, bool type)
+        {
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_GoodsRecommends",
+                                this.NewParam("@GoodsIDs", ids),
+                                this.NewParam("@Type", type));
+            }
+        }
+
+
         /// <summary>
         /// 获得最便宜，最贵商品 
         /// </summary>

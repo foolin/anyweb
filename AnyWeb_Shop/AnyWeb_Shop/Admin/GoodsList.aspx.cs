@@ -119,4 +119,40 @@ public partial class GoodsList :AdminBase
         return s;
     }
 
+    protected void btnRec_Click(object sender, EventArgs e)
+    {
+        if (Request.Form["ids"] + "" != "")
+        {
+            using (GoodsAgent ga = new GoodsAgent())
+            {
+                ga.GoodsRecommends(Request.Form["ids"], true);
+
+                this.AddLog(EventID.Delete, "批量推荐商品", "批量推荐商品,商品编号:" + Request.Form["ids"]);
+
+                WebAgent.SuccAndGo("推荐商品成功。", "GoodsList.aspx");
+            }
+        }
+        else
+        {
+            WebAgent.FailAndGo("请在要推荐的商品项前打勾。", "GoodsList.asxp");
+        }
+    }
+    protected void btnCancelRec_Click(object sender, EventArgs e)
+    {
+        if (Request.Form["ids"] + "" != "")
+        {
+            using (GoodsAgent ga = new GoodsAgent())
+            {
+                ga.GoodsRecommends(Request.Form["ids"], false);
+
+                this.AddLog(EventID.Delete, "取消批量推荐商品", "取消批量推荐商品,商品编号:" + Request.Form["ids"]);
+
+                WebAgent.SuccAndGo("取消推荐商品成功。", "GoodsList.aspx");
+            }
+        }
+        else
+        {
+            WebAgent.FailAndGo("请在要取消推荐的商品项前打勾。", "GoodsList.asxp");
+        }
+    }
 }

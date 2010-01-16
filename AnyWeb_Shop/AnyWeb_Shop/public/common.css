@@ -191,6 +191,7 @@ a:hover{
 .category .content .line{
 	margin:2px;
 	padding:5px;
+	line-height:1.5em;
 	overflow:hidden;
 }
 

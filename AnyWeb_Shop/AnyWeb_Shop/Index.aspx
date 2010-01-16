@@ -16,56 +16,54 @@
             <!-- 栏目 -->
             <cate:CategoryLeft runat="server" />
             <!-- category end -->
+            
+            
             <!-- 栏目 -->
-            <!--
             <div class="category">
                 <div class="title">
-                    商品分类</div>
+                    联系方式</div>
                 <div class="content">
                     <h3>
-                        图像音像分类</h3>
+                        商城服务时间:  </h3>
                     <div class="line">
-                        <span><a href="">DVD</a></span> <span><a href="">影视</a></span> <span><a href="">音乐</a></span>
-                        <span><a href="">音乐</a></span> <span><a href="">音乐</a></span> <span><a href="">音s乐</a></span>
-                        <span><a href="">音s乐</a></span> <span><a href="">音s乐</a></span> <span><a href="">DVD</a></span>
-                        <span><a href="">影视</a></span> <span><a href="">音乐</a></span> <span><a href="">音乐</a></span>
-                        <span><a href="">音乐</a></span> <span><a href="">音s乐</a></span> <span><a href="">音s乐</a></span>
-                        <span><a href="">音s乐</a></span>
-                        <div class="clear">
-                        </div>
+                         周一至周五<br />
+                        上午9:00至下午18:00<br />
                     </div>
                     <h3>
-                        图像音像分类</h3>
+                        联系方式</h3>
                     <div class="line">
-                        <span><a href="">DVD</a></span> <span><a href="">影视</a></span> <span><a href="">音乐</a></span>
-                        <span><a href="">音乐</a></span> <span><a href="">音乐</a></span> <span><a href="">音s乐</a></span>
-                        <span><a href="">音s乐</a></span> <span><a href="">音s乐</a></span> <span><a href="">DVD</a></span>
-                        <span><a href="">影视</a></span> <span><a href="">音乐</a></span> <span><a href="">音乐</a></span>
-                        <span><a href="">音乐</a></span> <span><a href="">音s乐</a></span> <span><a href="">音s乐</a></span>
-                        <span><a href="">音s乐</a></span>
-                        <div class="clear">
-                        </div>
-                    </div>
-                    <h3>
-                        图像音像分类</h3>
-                    <div class="line">
-                        <span><a href="">DVD</a></span> <span><a href="">影视</a></span> <span><a href="">音乐</a></span>
-                        <span><a href="">音乐</a></span> <span><a href="">音乐</a></span> <span><a href="">音s乐</a></span>
-                        <span><a href="">音s乐</a></span> <span><a href="">音s乐</a></span> <span><a href="">DVD</a></span>
-                        <span><a href="">影视</a></span> <span><a href="">音乐</a></span> <span><a href="">音乐</a></span>
-                        <span><a href="">音乐</a></span> <span><a href="">音s乐</a></span> <span><a href="">音s乐</a></span>
-                        <span><a href="">音s乐</a></span>
-                        <div class="clear">
-                        </div>
+                        联系电话：020-87590122<br />
+                        投诉电话：020-87590122 <br />
+                        传真：020-87597663 <br />
+                        邮箱： gzthshaheshe@163.com <br />
+                        邮编：510635 <br />
+                        地址：广州市天河区龙口东路139号后座二至四楼 <br />
                     </div>
                     <div class="clear">
                     </div>
                 </div>
-               
-                <! -- content end -- >
+                <!-- content end -->
             </div>
-             -->
             <!-- category end -->
+            
+            
+            <!-- 栏目 -->
+            <div class="category">
+                <div class="title">
+                    友情链接</div>
+                <div class="content">
+                    <ul>
+                        <li><a href="#">基团网</a></li>
+                        <li><a href="http://www.thshcoop.com" target="_blank">沙河供销社</a></li>
+                        <li><a href="http://www.amazon.cn/" target="_blank">卓越网</a></li>
+                    </ul>
+                </div>
+               
+                <!-- content end -->
+            </div>
+            <!-- category end -->
+            
+            
         </div>
         <!-- col-left -->
         <div class="col-main">

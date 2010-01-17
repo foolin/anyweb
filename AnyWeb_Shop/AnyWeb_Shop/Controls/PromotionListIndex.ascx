@@ -17,7 +17,7 @@
                     <%#Studio.Web.WebAgent.GetLeft(Studio.Web.WebAgent.stripHtml(Eval("Description").ToString()),70)%>
                 </div>
                 <div class="more">
-                    <a href="Promotion.aspx">查看更多>></a></div>
+                    <a href="Good.aspx?gid=<%#Eval("ID") %>">详细信息>></a></div>
             </div>
         </div>
         <div class="clear">
@@ -25,4 +25,7 @@
     </ItemTemplate>
 </asp:Repeater>
 <!-- topic-goods end-->
+        <div class="more">
+            <br />
+             <a href="Promotion.aspx">查看更多>></a></div>
 <!-- 促销专题结束 -->

@@ -479,7 +479,7 @@
                                     排序：
                                 </th>
                                 <td>
-                                    <asp:TextBox ID="txtOrder" runat="server" Text='<%#Bind("Order") %>' CssClass="input" require="1" errmsg="请输入正确的排序"></asp:TextBox>排序为0时系统自动分配
+                                    <asp:TextBox ID="txtOrder" runat="server" Text='0' CssClass="input" require="1" errmsg="请输入正确的排序"></asp:TextBox>排序为0时系统自动分配
                                 </td>
                             </tr>
                         </table>

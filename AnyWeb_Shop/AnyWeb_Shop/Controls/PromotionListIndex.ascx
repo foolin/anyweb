@@ -13,7 +13,7 @@
             <div class="goods-intro">
                 <div class="content">
                     <h5>
-                        <a href="Good.aspx?gid=<%#Eval("ID") %>"><%#Studio.Web.WebAgent.GetLeft(Eval("GoodsName").ToString(),11)%></a></h5>
+                        <%#Studio.Web.WebAgent.GetLeft(Eval("GoodsName").ToString(),11)%></h5>
                     <%#Studio.Web.WebAgent.GetLeft(Studio.Web.WebAgent.stripHtml(Eval("Description").ToString()),70)%>
                 </div>
                 <div class="more">

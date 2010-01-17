@@ -178,7 +178,9 @@ a:hover{
 }
 .category .content{
 }
-.category .content h3{
+.category .content h3
+{
+	font-size:14px;
 	margin:5px;
 	color:#cd6702;
 	clear:both;

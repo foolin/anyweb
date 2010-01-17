@@ -821,6 +821,7 @@ namespace Common.Agent
                                 this.NewParam("@GoodsIDs", ids),
                                 this.NewParam("@Type", type));
             }
+            HttpRuntime.Cache.Remove("GetCommendIndex_" + ShopInfo.ID.ToString());
         }
 
 

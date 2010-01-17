@@ -3,7 +3,7 @@
   <xMenuItem url="/SetNavUrl.aspx?mode=default" name="商城首页"  description="商城首页">
 
     <xMenuItem url="/Admin/default.aspx" name="首页"  description="首页" type="0">
-      <xMenuItem url="/Admin/OrderList.aspx" name="订单管理"  description="订单管理" type="2"></xMenuItem>
+      
       <xMenuItem url="/Admin/User/UserList.aspx"  name="会员管理" description="会员管理" type="2"></xMenuItem>
       <xMenuItem url="/Admin/GoodsCategoryList.aspx" name="商品管理"  description="商品管理"  type="2"></xMenuItem>
     </xMenuItem>
@@ -119,6 +119,8 @@
     
   </xMenuItem>
 </xmenu>
+
+<!--<xMenuItem url="/Admin/OrderList.aspx" name="订单管理"  description="订单管理" type="2"></xMenuItem>-->
 
 <!--<xMenuItem url="/Admin/SetNavUrl.aspx?mode=order" name="订单管理"  description="订单管理" >
       <xMenuItem url="/Admin/OrderList.aspx" name="订单管理"  description="订单管理"  type="1">

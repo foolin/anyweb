@@ -60,7 +60,7 @@ body{width:1003px;min-width:1003px;margin:0px auto; }
                                 <div class='li on up' onclick="javascript:switchShow(this);"><a style="padding-left:12px; width:auto;">
                                     <%#Eval("Name") %>
                                 </a></div>
-                               <div style="display:none;">
+                               <div style="display:block;">
                                 <asp:Repeater ID="rep4" runat="server">
                                     <ItemTemplate>
                                         <div class='li<%#(bool)Eval("Selected")?" sel":"" %>' id='it<%# Eval("ID")%>'><a href='<%#Eval("Url") %>' style="padding-left:12px;width:auto;">

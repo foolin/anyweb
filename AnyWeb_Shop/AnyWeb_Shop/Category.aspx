@@ -7,9 +7,6 @@
     <link href="/public/category.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="Server">
-
-    <div class="location">您的位置：<a href="Index.aspx">首页</a> → 商品分类 </div>
-
     <div class="main">
         <div class="col-sider">
             <!-- 栏目 -->

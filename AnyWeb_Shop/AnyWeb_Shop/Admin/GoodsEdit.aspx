@@ -4,7 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
     <li>商品的描述建议控制在10000字之内。</li>
     <li>商品图片文件不得超过2M,且必须是gif或jpg格式。</li>
-    <li>“积分”为你设置顾客购买该商品后，所获得的积分奖励，用于之后的优惠活动的依据。</li>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
     <div class="mod mEdit">
@@ -190,15 +189,6 @@
                             </tr>
                             <tr>
                                 <th>
-                                    商品重量：
-                                </th>
-                                <td colspan="2">
-                                    <asp:TextBox ID="txtWeight" runat="server" CssClass="input" errmsg="请输入正确的商品重量" MaxLength="10"
-                                        Width="100px" datatype="double"></asp:TextBox>千克
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
                                     商品图片：
                                 </th>
                                 <td>
@@ -247,14 +237,6 @@
                                         Text='<%#Bind("StartTime") %>' CssClass="input" require="1" errmsg="请输入正确的有效日期"></asp:TextBox>
                                     至&nbsp;<asp:TextBox ID="txtDataEnd" runat="server" MaxLength="30" Width="127px" onclick="setday(this);"
                                         Text='<%#Bind("EndTime") %>' CssClass="input" require="1" errmsg="请输入正确的过期时间"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    计量单位：
-                                </th>
-                                <td>
-                                    <asp:TextBox ID="txtUnit" runat="server" CssClass="input" MaxLength="10" Width="100px"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr class="name">
@@ -376,15 +358,6 @@
                             </tr>
                             <tr>
                                 <th>
-                                    商品重量：
-                                </th>
-                                <td colspan="2">
-                                    <asp:TextBox ID="txtWeight" runat="server" CssClass="input" errmsg="请输入正确的商品重量" MaxLength="10"
-                                        Width="100px" datatype="double"></asp:TextBox>千克
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
                                     商品图片：
                                 </th>
                                 <td>
@@ -432,14 +405,6 @@
                                         Text='<%#Bind("StartTime") %>' CssClass="input" require="1" errmsg="请输入正确的有效日期"></asp:TextBox>
                                     至&nbsp;<asp:TextBox ID="txtDataEnd" runat="server" MaxLength="30" Width="127px" onclick="setday(this);"
                                         Text='<%#Bind("EndTime") %>' CssClass="input" require="1" errmsg="请输入正确的过期时间"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    计量单位：
-                                </th>
-                                <td>
-                                    <asp:TextBox ID="txtUnit" runat="server" CssClass="input" MaxLength="10" Width="100px"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>

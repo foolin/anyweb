@@ -125,59 +125,60 @@ public partial class SlideEidt : AdminBase
     /// <param name="ts"></param>
     /// <param name="fileName"></param>
     /// <returns></returns>
-    public Slide SavaSlide(FileUpload fp , TextBox t , HiddenField f , TextBox ts)
+    public Slide SavaSlide(FileUpload fp, TextBox t, HiddenField f, TextBox ts)
     {
-        lock (this)
+        Slide s = new Slide();
+
+        int maxSize = 1024 * 1024 * 2;
+
+        if (fp.HasFile)
         {
-            Slide s = new Slide();
+            HttpPostedFile file = fp.PostedFile;
 
-            int maxSize = 1024 * 1024 * 2;
-
-            if (fp.HasFile)
+            if (file.FileName.ToString().Substring(file.FileName.ToString().IndexOf('.'), 4).ToLower().Equals(".bmp"))
             {
-                HttpPostedFile file = fp.PostedFile;
-
-                if (file.FileName.ToString().Substring(file.FileName.ToString().IndexOf('.'), 4).ToLower().Equals(".bmp"))
-                {
-                    WebAgent.FailAndGo("当前不支持bmp格式图片.");
-                }
-
-                string folder = Server.MapPath(ShopInfo.DataPath) + "\\Slide";
-                if (!Directory.Exists(folder))
-                {
-                    Directory.CreateDirectory(folder);
-                }
-
-                string url = "/" + Studio.Web.WebAgent.NewKey() + ".jpg";
-                string fileName = folder + "\\" + Studio.Web.WebAgent.NewKey() + ".jpg";
-
-                if (file.ContentLength > maxSize)
-                {
-                    WebAgent.FailAndGo("图片太大，当前允许2M.");
-                }
-
-                file.SaveAs(fileName);
-
-                file.InputStream.Close();
-
-                s.SlideFile = url;
-
+                WebAgent.FailAndGo("当前不支持bmp格式图片.");
             }
+
+            string folder = Server.MapPath(ShopInfo.DataPath) + "\\Slide";
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+
+            string key = Studio.Web.WebAgent.NewKey() + Index.ToString();
+            Index += 1;
+            string url = "/" + key + ".jpg";
+            string fileName = folder + "\\" + key + ".jpg";
+
+            if (file.ContentLength > maxSize)
+            {
+                WebAgent.FailAndGo("图片太大，当前允许2M.");
+            }
+
+            file.SaveAs(fileName);
+
+            file.InputStream.Close();
+
+            s.SlideFile = url;
+
+        }
+        else
+        {
+            if (f.Value == null || f.Value == "") return null;
             else
             {
-                if (f.Value == null || f.Value == "") return null;
-                else
-                {
-                    s.SlideFile = f.Value;
+                s.SlideFile = f.Value;
 
-                }
             }
+        }
 
-            int st = 0;
-            s.SlideLink = t.Text;
-            s.Sort = int.Parse(ts.Text == "" ? st.ToString() : ts.Text);
-            return s;
+        int st = 0;
+        s.SlideLink = t.Text;
+        s.Sort = int.Parse(ts.Text == "" ? st.ToString() : ts.Text);
 
-        }        
+        return s;
     }
+
+    protected int Index = 1;
 }

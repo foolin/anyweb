@@ -7,7 +7,7 @@
             <div class="goods">
                 <dl>
                     <dd>
-                        <a href="<%#Eval("LinkUrl") %>">
+                        <a href="<%#Eval("LinkUrl") %>" title="<%#Eval("Name")%>">
                             <img src="<%#(string)Eval( "Image" )=="" ? "../images/wait.jpg":(string)Eval( "Image" ) %>"
                                 border="0" alt="<%#Eval("Name")%>" /></a></dd>
                 </dl>

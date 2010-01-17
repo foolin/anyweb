@@ -89,14 +89,6 @@ public partial class GoodsEdit :AdminBase
                 if (txtdataend != null)
                     txtdataend.Text = DateTime.Now.AddDays(30).ToString("yyyy-MM-dd");
             }
-            if (QS("mode") == "update")
-            {
-                TextBox txtWeight = (TextBox)fv1.FindControl("txtWeight");
-                TextBox txtUnit = (TextBox)fv1.FindControl("txtUnit");
-
-                txtWeight.Text = gs.Weight.ToString();
-                txtUnit.Text = gs.Unit;
-            }
         }
     }
 
@@ -104,8 +96,6 @@ public partial class GoodsEdit :AdminBase
     {
         FileUpload img = (FileUpload)fv1.FindControl( "txtImage" );
         DropDownList drptype = (DropDownList)fv1.FindControl( "drpType" );
-        TextBox txtWeight = (TextBox)fv1.FindControl( "txtWeight" );
-        TextBox txtUnit = (TextBox)fv1.FindControl( "txtUnit" );
 
         Goods gs = (Goods)e.InputParameters[0];
 
@@ -118,10 +108,6 @@ public partial class GoodsEdit :AdminBase
         {
             gs.Image = this.GetProductImg( img );
         }
-        gs.Unit = txtUnit.Text;
-        gs.Weight = txtWeight.Text == "" ? 0 : double.Parse(txtWeight.Text);
-
-
     }
 
     protected void ods3_Inserted(object sender , ObjectDataSourceStatusEventArgs e)
@@ -175,13 +161,10 @@ public partial class GoodsEdit :AdminBase
         DropDownList status = (DropDownList)fv1.FindControl( "drpStatus" );
 
         Goods gs = (Goods)e.InputParameters[0];
-
-        TextBox txtUnit = (TextBox)fv1.FindControl( "txtUnit" );
         TextBox txtScore = (TextBox)fv1.FindControl( "txtScore" );
-        TextBox txtWeight = (TextBox)fv1.FindControl( "txtWeight" );
 
-        gs.Unit = txtUnit.Text;
-        gs.Weight = txtWeight.Text == "" ? 0 : double.Parse( txtWeight.Text );
+        gs.Unit = "";
+        gs.Weight = 0;
 
         if ( gs!= null && drptype != null && status != null)
         {

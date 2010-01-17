@@ -7,37 +7,7 @@
       <xMenuItem url="/Admin/User/UserList.aspx"  name="会员管理" description="会员管理" type="2"></xMenuItem>
       <xMenuItem url="/Admin/GoodsCategoryList.aspx" name="商品管理"  description="商品管理"  type="2"></xMenuItem>
     </xMenuItem>
-    <xMenuItem url="/Admin/SetNavUrl.aspx?mode=order" name="订单管理"  description="订单管理" >
-      <xMenuItem url="/Admin/OrderList.aspx" name="订单管理"  description="订单管理"  type="1">
-      <xMenuItem url="/Admin/OrderList.aspx" name="订单列表"  description="订单列表"  type="0">
-        <xMenuItem url="/Admin/OrderItem.aspx" name="订单明细"  visible="false" description="订单明细">
-        </xMenuItem>
-      </xMenuItem>
-      </xMenuItem>
-      <xMenuItem url ="/Admin/PaymentModeList.aspx" name ="支付方式管理" description ="支付方式管理"  type="1">
-        <xMenuItem url ="/Admin/PaymentModeList.aspx" name ="支付方式列表" description ="支付方式列表"  type="0">
-          <xMenuItem url ="/Admin/ModeHandle.aspx" name ="编辑支付方式" description ="编辑支付方式"  visible="false">
-          </xMenuItem>
-        </xMenuItem>
-        <xMenuItem url ="/Admin/SysPaymentMode.aspx" name ="系统支付方式" description ="系统支付方式"  visible="false" type="0">
-          <xMenuItem url="/Admin/SysPaymentModeParticular.aspx" name="系统支付详情"  description="系统支付详情" ></xMenuItem>
-        </xMenuItem>
-      </xMenuItem>
-      <xMenuItem url ="/Admin/DeliverMode.aspx" name ="配送方式管理" description ="配送方式管理" type="1" >
-        <xMenuItem url ="/Admin/DeliverMode.aspx" name ="配送方式列表" description ="配送方式列表" type="0" >
-          <xMenuItem url ="/Admin/DeliverModeHandle.aspx" name ="编辑配送方式"  visible="false" description ="编辑配送方式" >
-          </xMenuItem>
-        </xMenuItem>
-        <xMenuItem url ="/Admin/SysDeliverList.aspx" name ="系统配送方式" description ="系统配送方式"  visible="false" type="0">
-          <xMenuItem url ="/Admin/SysDeliverParticular.aspx" name ="配送方式详情" description ="配送方式详情"  type="0">
-          </xMenuItem>
-        </xMenuItem>
-      </xMenuItem>
-      <xMenuItem url="/Admin/ShopService.aspx" description ="退换货服务管理" name ="退换货服务管理"  type="1">
-        <xMenuItem url="/Admin/ShopService.aspx" description ="退换货服务管理" name ="退换货服务管理"  type="0">
-        </xMenuItem>
-      </xMenuItem>
-    </xMenuItem>
+    
     <xMenuItem url="/Admin/SetNavUrl.aspx?mode=user"  name="会员管理" description="会员管理" >
       <xMenuItem url="/Admin/User/UserList.aspx"  name="会员信息管理" description="会员信息管理"  type="1">
       <xMenuItem url="/Admin/User/UserList.aspx"  name="会员信息列表" description="会员信息列表"  type="0">
@@ -150,3 +120,34 @@
   </xMenuItem>
 </xmenu>
 
+<!--<xMenuItem url="/Admin/SetNavUrl.aspx?mode=order" name="订单管理"  description="订单管理" >
+      <xMenuItem url="/Admin/OrderList.aspx" name="订单管理"  description="订单管理"  type="1">
+      <xMenuItem url="/Admin/OrderList.aspx" name="订单列表"  description="订单列表"  type="0">
+        <xMenuItem url="/Admin/OrderItem.aspx" name="订单明细"  visible="false" description="订单明细">
+        </xMenuItem>
+      </xMenuItem>
+      </xMenuItem>
+      <xMenuItem url ="/Admin/PaymentModeList.aspx" name ="支付方式管理" description ="支付方式管理"  type="1">
+        <xMenuItem url ="/Admin/PaymentModeList.aspx" name ="支付方式列表" description ="支付方式列表"  type="0">
+          <xMenuItem url ="/Admin/ModeHandle.aspx" name ="编辑支付方式" description ="编辑支付方式"  visible="false">
+          </xMenuItem>
+        </xMenuItem>
+        <xMenuItem url ="/Admin/SysPaymentMode.aspx" name ="系统支付方式" description ="系统支付方式"  visible="false" type="0">
+          <xMenuItem url="/Admin/SysPaymentModeParticular.aspx" name="系统支付详情"  description="系统支付详情" ></xMenuItem>
+        </xMenuItem>
+      </xMenuItem>
+      <xMenuItem url ="/Admin/DeliverMode.aspx" name ="配送方式管理" description ="配送方式管理" type="1" >
+        <xMenuItem url ="/Admin/DeliverMode.aspx" name ="配送方式列表" description ="配送方式列表" type="0" >
+          <xMenuItem url ="/Admin/DeliverModeHandle.aspx" name ="编辑配送方式"  visible="false" description ="编辑配送方式" >
+          </xMenuItem>
+        </xMenuItem>
+        <xMenuItem url ="/Admin/SysDeliverList.aspx" name ="系统配送方式" description ="系统配送方式"  visible="false" type="0">
+          <xMenuItem url ="/Admin/SysDeliverParticular.aspx" name ="配送方式详情" description ="配送方式详情"  type="0">
+          </xMenuItem>
+        </xMenuItem>
+      </xMenuItem>
+      <xMenuItem url="/Admin/ShopService.aspx" description ="退换货服务管理" name ="退换货服务管理"  type="1">
+        <xMenuItem url="/Admin/ShopService.aspx" description ="退换货服务管理" name ="退换货服务管理"  type="0">
+        </xMenuItem>
+      </xMenuItem>
+    </xMenuItem>-->

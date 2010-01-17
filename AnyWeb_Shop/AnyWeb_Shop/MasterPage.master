@@ -79,17 +79,21 @@
             <!-- search end -->
         </div>
         <!-- header end -->
+        <div class="ad-banner">
         <%if (!string.IsNullOrEmpty(ShopInfo.Header))
           { %>
             <%=ShopInfo.Header %>
         <%} %>
+        </div>
         <!-- ad-banner end -->
         <asp:ContentPlaceHolder ID="cphContent" runat="server">
         </asp:ContentPlaceHolder>
+        <div class="ad-banner">
         <%if (!string.IsNullOrEmpty(ShopInfo.Footer))
           { %>
             <%=ShopInfo.Footer %>
         <%} %>
+        </div>
         <!-- ad-banner end -->
         <help:Help runat="server" />
         <!-- bottom-links end -->

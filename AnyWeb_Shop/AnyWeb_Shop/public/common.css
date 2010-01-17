@@ -133,6 +133,8 @@ a:hover{
 	margin-bottom:10px;
 	height:45px;
 	background:#F0F0F0;
+	width:100%;
+	overflow:hidden;
 }
 
 .main{

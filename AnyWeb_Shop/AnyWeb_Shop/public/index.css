@@ -77,6 +77,7 @@
 .container .goods-container .goods{
 	float:left;
 	width:33%;
+	height:220px;
 	overflow:hidden;
 }
 .container .goods-container .goods img{

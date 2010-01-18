@@ -13,7 +13,8 @@
 .goods{
 	float:left;
 	width:33.3%;
-	height:180px;
+	height:190px;
+	overflow:hidden;
 }
 
 .goods dl{

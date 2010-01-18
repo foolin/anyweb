@@ -11,15 +11,15 @@
         </div>
         <!-- col-sider end -->
         <div class="col-main">
-            <div class="box">
+
                 <div class="box">
                     <div class="title">
                         关于我们</div>
+                    <div class="gDetails">
+                        <%=ShopInfo.AboutUs %>
+                    </div>
                 </div>
                 <!-- gRight -->
-                <div class="gDetails">
-                    <%=ShopInfo.AboutUs %>
-                </div>
             </div>
             <!-- container end -->
         </div>

@@ -5,6 +5,7 @@
 <%@ Register Src="~/Controls/RecommdIndex.ascx" TagName="RecommdIndex" TagPrefix="recomment" %>
 <%@ Register Src="~/Controls/PromotionIndex.ascx"TagName="PromotionIndex" TagPrefix="promot" %>
 <%@ Register Src="~/Controls/PromotionListIndex.ascx"TagName="PromotionList" TagPrefix="promot" %>
+<%@ Register Src="~/Controls/LinkIndex.ascx"TagName="Link" TagPrefix="link" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" runat="Server">
     <link href="/public/index.css" rel="stylesheet" type="text/css" />
@@ -49,16 +50,7 @@
             
             <!-- 栏目 -->
             <div class="category">
-                <div class="title">
-                    友情链接</div>
-                <div class="content">
-                    <ul>
-                        <li><a href="#">基团网</a></li>
-                        <li><a href="http://www.thshcoop.com" target="_blank">沙河供销社</a></li>
-                        <li><a href="http://www.amazon.cn/" target="_blank">卓越网</a></li>
-                    </ul>
-                </div>
-               
+                <link:Link runat="server" />
                 <!-- content end -->
             </div>
             <!-- category end -->

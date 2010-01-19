@@ -23,14 +23,14 @@
             <%if (good.IsPromotions)
               { %>
             <dd>
-                基团网价格：<s>￥<%=good.Price%>元</s></dd>
+                基团价：<s>￥<%=good.Price%>元</s></dd>
             <dd>
                 促销价格：￥<%=good.PromotionsPrice%>元</dd>
             <%}
               else
               { %>
             <dd>
-                基团网价格：￥<%=good.Price%>元</dd>
+                基团价：￥<%=good.Price%>元</dd>
             <%} %>
             <dd>
                 存货：<%=GetGoodCount(good.Status) %></dd>

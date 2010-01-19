@@ -6,6 +6,7 @@ using System.Collections;
 using Studio.Data;
 using System.Data;
 using Common.Common;
+using System.Web;
 
 namespace Common.Agent
 {
@@ -65,15 +66,18 @@ namespace Common.Agent
         /// <returns></returns>
         public int LinkUpdate(Link l)
         {
+            int result;
             using ( IDbExecutor db = this.NewExecutor() )
             {
-                return db.ExecuteNonQuery( CommandType.StoredProcedure , "Shop_LinkUpdate" ,
+                result = db.ExecuteNonQuery( CommandType.StoredProcedure , "Shop_LinkUpdate" ,
                                     this.NewParam( "@LinkID" , l.ID ) ,
                                     this.NewParam( "@LinkName" , l.Name ) ,
                                     this.NewParam( "@Image" , l.Image ) ,
                                     this.NewParam( "@LinkUrl" , l.LinkUrl ) ,
                                     this.NewParam( "@Sort" , l.Sort ) );
             }
+            HttpRuntime.Cache.Remove("LINK_" + ShopInfo.ID.ToString());
+            return result;
         }
 
         /// <summary>
@@ -83,9 +87,10 @@ namespace Common.Agent
         /// <returns></returns>
         public int LinkAdd(Link l)
         {
+            int result;
             using ( IDbExecutor db = this.NewExecutor() )
             {
-                return db.ExecuteNonQuery( CommandType.StoredProcedure , "Shop_LinkAdd" ,
+                result = db.ExecuteNonQuery( CommandType.StoredProcedure , "Shop_LinkAdd" ,
                                     this.NewParam( "@LinkName" , l.Name ) ,
                                     this.NewParam( "@Image" , l.Image ) ,
                                     this.NewParam( "@LinkUrl" , l.LinkUrl ) ,
@@ -93,6 +98,8 @@ namespace Common.Agent
                                     this.NewParam( "@Sort" , l.Sort ) ,
                                     this.NewParam("@ShopID",ShopInfo.ID));
             }
+            HttpRuntime.Cache.Remove("LINK_" + ShopInfo.ID.ToString());
+            return result;
         }
         
         /// <summary>
@@ -102,11 +109,14 @@ namespace Common.Agent
         /// <returns></returns>
         public int LinkDelete(Link l)
         {
+            int result;
             using ( IDbExecutor db = this.NewExecutor() )
             {
-                return db.ExecuteNonQuery( CommandType.StoredProcedure , "Shop_LinkDelete" ,
-                                            this.NewParam( "@LinkID" , l.ID ) );
+                result = db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_LinkDelete",
+                                            this.NewParam("@LinkID", l.ID));
             }
+            HttpRuntime.Cache.Remove("LINK_" + ShopInfo.ID.ToString());
+            return result;
         }
 
         /// <summary>
@@ -132,6 +142,31 @@ namespace Common.Agent
             {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// 获取前10个友情链接
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList GetTop10LinkList(int ShopID)
+        {
+            DataSet ds = new DataSet();
+            ArrayList list = (ArrayList)HttpRuntime.Cache["LINK_" + ShopID.ToString()];
+            if (list != null)
+                return list;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetTop10LinkList",
+                            this.NewParam("@ShopID", ShopInfo.ID));
+            }
+
+            list = new ArrayList();
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                list.Add(new Link(dr));
+            }
+            HttpRuntime.Cache.Insert("LINK_" + ShopID.ToString(), list, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(5));
+            return list;
         }
     }
 }

@@ -16,7 +16,7 @@
                     <dd>
                         <s>市场价：￥<%#Eval("MarketPrice")%>元</s></dd>
                     <dd>
-                        商城优惠价：￥<%#Eval("PromotionsPrice")%>元
+                        商城优惠价：￥<%#Eval("Price")%>元
                     </dd>
                 </dl>
             </div>

@@ -108,6 +108,8 @@ public partial class GoodsEdit :AdminBase
         {
             gs.Image = this.GetProductImg( img );
         }
+        gs.StartTime = DateTime.Now;
+        gs.EndTime = DateTime.MaxValue;
     }
 
     protected void ods3_Inserted(object sender , ObjectDataSourceStatusEventArgs e)
@@ -162,6 +164,9 @@ public partial class GoodsEdit :AdminBase
 
         Goods gs = (Goods)e.InputParameters[0];
         TextBox txtScore = (TextBox)fv1.FindControl( "txtScore" );
+
+        gs.StartTime = DateTime.Now;
+        gs.EndTime = DateTime.MaxValue;
 
         gs.Unit = "";
         gs.Weight = 0;

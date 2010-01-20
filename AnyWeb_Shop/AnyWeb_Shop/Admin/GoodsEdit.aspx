@@ -30,10 +30,6 @@
                                     <%#Eval("GoodsName") %>
                                     <img src="images/recommend.gif" style='display: <%#(bool)Eval( "IsRecommend" ) == true ? "" : "none"%>;
                                         margin-left: 10px;' />
-                                    <span style="padding-left: 20px;">关注度：<%#Eval("Clicks")%></span> <span style="padding-left: 20px;">
-                                        热评情况：
-                                        <%#(bool)Eval( "Recommend" ) == true ? "" : "不允许评论"%>
-                                        <span style="display: <%#(bool)Eval("Recommend")==true? "":"none"%>">共<%#"<span stype='color:red;font-size:14;font-family:Verdana;'>" + Eval( "Comments" )+"</span>"%>条评论</span></span>
                                 </td>
                             </tr>
                             <tr>
@@ -92,29 +88,10 @@
                             </tr>
                             <tr>
                                 <th>
-                                    有效时间：
-                                </th>
-                                <td>
-                                    <%#Eval("StartTime","{0:yyyy-MM-dd}") %>
-                                    至
-                                    <%#Eval("EndTime","{0:yyyy-MM-dd}") %>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
                                     状态：
                                 </th>
                                 <td>
                                     <%# CheckStatus((int)Eval( "Status" )  ,(DateTime)Eval( "EndTime" ) )%>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    商品重量：
-                                </th>
-                                <td>
-                                    <%#Eval( "Weight" )%>
-                                    千克
                                 </td>
                             </tr>
                             <tr>
@@ -226,17 +203,6 @@
                                         onclick="Promotions()" />促销
                                     <label id="lblPromotions" style="display: none;">
                                         价格：<asp:TextBox ID="txtProPrice" runat="server" Width="60" Text='<%#Bind("PromotionsPrice") %>'></asp:TextBox>元</label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    有效时间：
-                                </th>
-                                <td>
-                                    <asp:TextBox ID="txtData" runat="server" MaxLength="30" Width="135px" onclick="setday(this);"
-                                        Text='<%#Bind("StartTime") %>' CssClass="input" require="1" errmsg="请输入正确的有效日期"></asp:TextBox>
-                                    至&nbsp;<asp:TextBox ID="txtDataEnd" runat="server" MaxLength="30" Width="127px" onclick="setday(this);"
-                                        Text='<%#Bind("EndTime") %>' CssClass="input" require="1" errmsg="请输入正确的过期时间"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr class="name">
@@ -398,17 +364,6 @@
                             </tr>
                             <tr>
                                 <th>
-                                    有效时间：
-                                </th>
-                                <td>
-                                    <asp:TextBox ID="txtData" runat="server" MaxLength="30" Width="135px" onclick="setday(this);"
-                                        Text='<%#Bind("StartTime") %>' CssClass="input" require="1" errmsg="请输入正确的有效日期"></asp:TextBox>
-                                    至&nbsp;<asp:TextBox ID="txtDataEnd" runat="server" MaxLength="30" Width="127px" onclick="setday(this);"
-                                        Text='<%#Bind("EndTime") %>' CssClass="input" require="1" errmsg="请输入正确的过期时间"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
                                     设置：
                                 </th>
                                 <td>
@@ -494,6 +449,6 @@
             <asp:Parameter Name="gid" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
-    <asp:ObjectDataSource ID="ods4" runat="server" SelectMethod="GetAllCategoryList"
+    <asp:ObjectDataSource ID="ods4" runat="server" SelectMethod="GetChildCategoryList"
         TypeName="Common.Agent.CategoryAgent"></asp:ObjectDataSource>
 </asp:Content>

@@ -80,7 +80,8 @@
                             <asp:ListItem Value="4">不显示于首页商品</asp:ListItem>
                         </asp:DropDownList>
                         商品名称：<asp:TextBox ID="txtName" runat="server" Width="100" CssClass="text"></asp:TextBox>
-                        <a href="GoodsList.aspx?recommd=true">查看推荐商品</a>
+                        <a href="GoodsList.aspx?recommd=true">推荐商品</a>
+                        <a href="GoodsList.aspx?promot=true">促销商品</a>
                         <asp:Button ID="btnSearch" runat="server" Text="搜索" OnClick="btnSearch_Click" />
                     </caption>
                     <thead>
@@ -168,9 +169,10 @@
                 <div class="iSubmit">
                     <asp:Button ID="btnRec" runat="server" Text="批量推荐"  CssClass="submit" 
                         onclick="btnRec_Click" />
-                    <asp:Button ID="btnCancelRec" runat="server" Text="批量取消推荐"  CssClass="submit" 
+                    <asp:Button ID="btnCancelRec" runat="server" Text="取消推荐"  CssClass="submit" 
                         onclick="btnCancelRec_Click" />
-                    <asp:Button ID="btnDel" runat="server" Text="批量删除" CssClass="submit" OnClick="btnDel_Click" />
+                    <asp:Button ID="btnCancelPro" runat="server" Text="取消促销" CssClass="submit" OnClick="btnPro_Click" />
+                    <asp:Button ID="btnDel" runat="server" Text="批量删除" CssClass="submit" OnClick="btnDel_Click" />                    
                 </div>
                 </form>
             </div>
@@ -192,6 +194,7 @@
             <asp:QueryStringParameter Type="Int32" Name="categoryID" DefaultValue="0" QueryStringField="cid" />
             <asp:Parameter Name="isrecommend" Type="Boolean" DefaultValue="false" />
             <asp:Parameter Direction="Output" Name="recordCount" Type="Int32" />
+            <asp:Parameter Name="ispromoted" Type="Boolean" DefaultValue="false" />
         </SelectParameters>
     </asp:ObjectDataSource>
 

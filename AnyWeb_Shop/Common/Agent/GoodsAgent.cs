@@ -36,7 +36,7 @@ namespace Common.Agent
         /// <param name="categoryID"></param>
         /// <param name="recordCount"></param>
         /// <returns></returns>
-        public ArrayList GetGoodsList(int pageSize, int pageNo, string goodsName, int status, int categoryID,bool isrecommend, out int recordCount)
+        public ArrayList GetGoodsList(int pageSize, int pageNo, string goodsName, int status, int categoryID, bool isrecommend, bool ispromoted, out int recordCount)
         {
             DataSet ds;
 
@@ -50,7 +50,8 @@ namespace Common.Agent
                                      this.NewParam("@GoodsName", goodsName),
                                      this.NewParam("@CategoryID", categoryID),
                                      this.NewParam("@Status", status),
-                                     this.NewParam("@Isrecommend" , isrecommend ) ,
+                                     this.NewParam("@Isrecommend", isrecommend),
+                                     this.NewParam("@IsPromoted", ispromoted),
                                      this.NewParam("@ShopID", ShopInfo.ID),
                                      record);
             }
@@ -78,8 +79,6 @@ namespace Common.Agent
                 gs.OfCategory.OfShop = ShopInfo;
                 list.Add(gs);
             }
-
-
             return list;
         }
 
@@ -824,6 +823,22 @@ namespace Common.Agent
             HttpRuntime.Cache.Remove("GetCommendIndex_" + ShopInfo.ID.ToString());
         }
 
+        /// <summary>
+        /// 批量推荐商品
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <param name="type"></param>
+        public void GoodsPromotions(string ids, bool type)
+        {
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_GoodsPromotions",
+                                this.NewParam("@GoodsIDs", ids),
+                                this.NewParam("@Type", type));
+            }
+            HttpRuntime.Cache.Remove("GetPromotIndex_" + ShopInfo.ID.ToString());
+        }
+
 
         /// <summary>
         /// 获得最便宜，最贵商品 
@@ -1150,20 +1165,23 @@ namespace Common.Agent
             list = new ArrayList();
             foreach (Category cate in ShopInfo.Categorys)
             {
-                cate.RecommentList = new List<Goods>();
-                foreach (DataRow row in ds.Tables[0].Rows)
+                if (cate.Pater == 0)
                 {
-                    if ((int)row["CategoryID"] == cate.ID)
+                    cate.RecommentList = new List<Goods>();
+                    foreach (DataRow row in ds.Tables[0].Rows)
                     {
-                        Goods good = new Goods();
-                        good.ID = (int)row["GoodsID"];
-                        good.GoodsName = (string)row["GoodsName"];
-                        good.Image = (string)row["Image"];
-                        cate.RecommentList.Add(good);
+                        if ((int)row["CategoryID"] == cate.ID || (int)row["Pater"] == cate.ID)
+                        {
+                            Goods good = new Goods();
+                            good.ID = (int)row["GoodsID"];
+                            good.GoodsName = (string)row["GoodsName"];
+                            good.Image = (string)row["Image"];
+                            cate.RecommentList.Add(good);
+                        }
                     }
+                    if (cate.RecommentList.Count > 0)
+                        list.Add(cate);
                 }
-                if (cate.RecommentList.Count > 0)
-                    list.Add(cate);
             }
 
             HttpRuntime.Cache.Insert("GetCommendIndex_" + ShopInfo.ID.ToString(), list, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(5));
@@ -1193,20 +1211,23 @@ namespace Common.Agent
             list = new ArrayList();
             foreach (Category cate in ShopInfo.Categorys)
             {
-                cate.PromotionList = new List<Goods>();
-                foreach (DataRow row in ds.Tables[0].Rows)
+                if (cate.Pater == 0)
                 {
-                    if ((int)row["CategoryID"] == cate.ID)
+                    cate.PromotionList = new List<Goods>();
+                    foreach (DataRow row in ds.Tables[0].Rows)
                     {
-                        Goods good = new Goods();
-                        good.ID = (int)row["GoodsID"];
-                        good.GoodsName = (string)row["GoodsName"];
-                        good.Image = (string)row["Image"];
-                        cate.PromotionList.Add(good);
+                        if ((int)row["CategoryID"] == cate.ID || (int)row["Pater"] == cate.ID)
+                        {
+                            Goods good = new Goods();
+                            good.ID = (int)row["GoodsID"];
+                            good.GoodsName = (string)row["GoodsName"];
+                            good.Image = (string)row["Image"];
+                            cate.PromotionList.Add(good);
+                        }
                     }
+                    if (cate.PromotionList.Count > 0)
+                        list.Add(cate);
                 }
-                if (cate.PromotionList.Count > 0)
-                    list.Add(cate);
             }
 
             HttpRuntime.Cache.Insert("GetPromotIndex_" + ShopInfo.ID.ToString(), list, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(5));

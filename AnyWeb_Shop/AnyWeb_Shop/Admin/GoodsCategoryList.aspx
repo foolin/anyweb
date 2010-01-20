@@ -33,7 +33,7 @@
                                 <ItemTemplate>
                                     <tr>
                                         <td>
-                                          <a href='<%#Eval("BackUrl") %>' target="_blank"> <%#Eval("Name") %></a>
+                                          <a href='/Category.aspx?cid=<%#Eval("ID") %>' target="_blank"> <%#Eval("Name") %></a>
                                         </td>
                                         <td>
                                             <%#Eval("CreateAt","{0:yyyy-MM-dd}") %>
@@ -46,7 +46,7 @@
                                   
                                             <tr style="background-color:#f5f5f5; width:500px;">
                                                 <td style="text-align: center;">
-                                                   <a href='<%#Eval("BackUrl") %>' target="_blank"><%#Eval("Name") %></a> 
+                                                   <a href='/Category.aspx?cid=<%#Eval("ID") %>' target="_blank"><%#Eval("Name") %></a> 
                                                 </td>
                                                 <td>
                                                     <%#Eval("CreateAt","{0:yyyy-MM-dd}") %>

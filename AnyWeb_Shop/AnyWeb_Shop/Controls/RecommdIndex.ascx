@@ -18,7 +18,7 @@
                         </div>
                         <div class="name">
                             <a href="Good.aspx?gid=<%#Eval("ID") %>">
-                                <%#Eval("GoodsName")%></a>
+                                <%#Studio.Web.WebAgent.GetLeft((string)Eval("GoodsName"),12)%></a>
                         </div>
                     </div>
             </ItemTemplate>
@@ -27,7 +27,7 @@
             <asp:Repeater ID="repList" runat="server">
                 <ItemTemplate>
                     <li><a href="Good.aspx?gid=<%#Eval("ID") %>" title="<%#Eval("GoodsName")%>">
-                        <%#Eval("GoodsName")%></a></li>
+                        <%#Studio.Web.WebAgent.GetLeft((string)Eval("GoodsName"),10)%></a></li>
                 </ItemTemplate>
             </asp:Repeater>
         </ul>

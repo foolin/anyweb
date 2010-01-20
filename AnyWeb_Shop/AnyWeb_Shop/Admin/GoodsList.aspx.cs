@@ -67,6 +67,10 @@ public partial class GoodsList :AdminBase
         {
             e.InputParameters["isrecommend"] = bool.Parse(QS( "recommd" ).ToString());
         }
+        if (QS("promot") + "" != "")
+        {
+            e.InputParameters["ispromoted"] = bool.Parse(QS("promot").ToString());
+        }
         e.InputParameters["goodsName"] = QS( "goodsName" );
     }
 
@@ -153,6 +157,25 @@ public partial class GoodsList :AdminBase
         else
         {
             WebAgent.FailAndGo("请在要取消推荐的商品项前打勾。", "GoodsList.aspx");
+        }
+    }
+
+    protected void btnPro_Click(object sender, EventArgs e)
+    {
+        if (Request.Form["ids"] + "" != "")
+        {
+            using (GoodsAgent ga = new GoodsAgent())
+            {
+                ga.GoodsPromotions(Request.Form["ids"], false);
+
+                this.AddLog(EventID.Delete, "取消批量促销商品", "取消批量促销商品,商品编号:" + Request.Form["ids"]);
+
+                WebAgent.SuccAndGo("取消促销商品成功。", "GoodsList.aspx");
+            }
+        }
+        else
+        {
+            WebAgent.FailAndGo("请在要取消促销的商品项前打勾。", "GoodsList.aspx");
         }
     }
 }

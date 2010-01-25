@@ -1,6 +1,0 @@
-D:\IBOX2009\Studio\bin\Release\Studio.dll
-D:\IBOX2009\Studio\obj\Release\ResolveAssemblyReference.cache
-D:\IBOX2009\Studio\obj\Release\Studio.dll
-E:\IBOX2009\Studio\bin\Release\Studio.dll
-E:\IBOX2009\Studio\obj\Release\ResolveAssemblyReference.cache
-E:\IBOX2009\Studio\obj\Release\Studio.dll

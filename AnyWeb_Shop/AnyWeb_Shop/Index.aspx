@@ -48,13 +48,6 @@
             <!-- category end -->
             
             
-            <!-- 으커 -->
-            <div class="category">
-                <link:Link runat="server" />
-                <!-- content end -->
-            </div>
-            <!-- category end -->
-            
             
         </div>
         <!-- col-left -->
@@ -85,8 +78,19 @@
                     </div>
                 </div>
             <!-- topic-box end -->
-            
+          </div>
+          <!-- box end -->
+          
+            <div style="margin:5px 0 0 5px;">
+            <!-- 으커 -->
+            <div class="category">
+                <link:Link ID="Link1" runat="server" />
+                <!-- content end -->
             </div>
+            <!-- category end -->
+            </div>
+            
+
         </div>
         <!-- col-right -->
         <div class="clear">

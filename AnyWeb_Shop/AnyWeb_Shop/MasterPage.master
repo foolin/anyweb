@@ -37,6 +37,7 @@
 
 </head>
 <body>
+<div class="page-body">
     <div class="wrapper">
         <div class="header">
             <div class="top">
@@ -112,5 +113,7 @@
         <!-- footer -->
     </div>
     <!-- wrapper end -->
+</div>
+<!-- page-body end -->
 </body>
 </html>

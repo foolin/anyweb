@@ -7,6 +7,7 @@
 body{
 	margin:0px;
 	font-size:12px;
+	background:url(../images/bg.gif) repeat;
 }
 a{
 	color:#186100;
@@ -19,7 +20,11 @@ a:hover{
 .clear{
 	clear:both;
 }
-
+.page-body{
+	margin:0px auto;
+	background:#FFF;
+	width:990px;
+}
 .wrapper {
 	margin:0px auto;
 	width:980px;
@@ -158,6 +163,18 @@ a:hover{
 .footer{
 	text-align:center;
 	line-height:22px;
+}
+
+.footer .bottom-link{
+	background:#7bbf31;
+	color:#CCC;
+	padding:3px;
+}
+.footer .bottom-link a{
+	color:#FFF;
+}
+.footer .bottom-link a:hover{
+	color:#F00;
 }
 
 /** category **/

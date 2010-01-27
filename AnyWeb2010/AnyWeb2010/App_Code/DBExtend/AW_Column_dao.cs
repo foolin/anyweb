@@ -1,57 +1,52 @@
 ﻿using System;
-using System.Data;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text;
-using AnyWeb.AW_DL;
 using System.Web;
-
-using Studio.Data;
 using Studio.Web;
+using System.Data;
 
 namespace AnyWeb.AW_DL
 {
-	public partial class AW_News_Column_dao
-	{
-        /// <summary>
-        /// 获取栏目信息
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        public AW_News_Column_bean funcGetColumnInfo(string path)
-        {
-            if (path == "")
-                return null;
+    public partial class AW_Column_dao
+    {
+        ///// <summary>
+        ///// 获取栏目信息
+        ///// </summary>
+        ///// <param name="path"></param>
+        ///// <returns></returns>
+        //public AW_Column_bean funcGetColumnInfo(string path)
+        //{
+        //    if (path == "")
+        //        return null;
 
-            if (WebAgent.IsInt32(path))
-                return this.funcGetColumnInfo(int.Parse(path));
+        //    if (WebAgent.IsInt32(path))
+        //        return this.funcGetColumnInfo(int.Parse(path));
 
-            foreach (AW_News_Column_bean bean1 in this.funcGetColumns())
-            {
-                if (bean1.fdColuPath == path)
-                    return bean1;
-                foreach (AW_News_Column_bean bean2 in bean1.Children)
-                {
-                    if (bean2.fdColuPath == path)
-                        return bean2;
-                }
-            }
-            return null;
-        }
+        //    foreach (AW_Column_bean bean1 in this.funcGetColumns())
+        //    {
+        //        if (bean1.fdColuPath == path)
+        //            return bean1;
+        //        foreach (AW_Column_bean bean2 in bean1.Children)
+        //        {
+        //            if (bean2.fdColuPath == path)
+        //                return bean2;
+        //        }
+        //    }
+        //    return null;
+        //}
 
         /// <summary>
         /// 获取栏目信息
         /// </summary>
         /// <param name="columnId"></param>
         /// <returns></returns>
-        public AW_News_Column_bean funcGetColumnInfo(int columnId)
+        public AW_Column_bean funcGetColumnInfo(int columnId)
         {
 
-            foreach (AW_News_Column_bean bean1 in this.funcGetColumns())
+            foreach (AW_Column_bean bean1 in this.funcGetColumns())
             {
                 if (bean1.fdColuID == columnId)
                     return bean1;
-                foreach (AW_News_Column_bean bean2 in bean1.Children)
+                foreach (AW_Column_bean bean2 in bean1.Children)
                 {
                     if (bean2.fdColuID == columnId)
                         return bean2;
@@ -64,28 +59,24 @@ namespace AnyWeb.AW_DL
         /// 获取所有栏目(缓存)
         /// </summary>
         /// <returns></returns>
-        public List<AW_News_Column_bean> funcGetColumns()
+        public List<AW_Column_bean> funcGetColumns()
         {
-            List<AW_News_Column_bean> list = (List<AW_News_Column_bean>)HttpRuntime.Cache["NEWS_COLUMNS"];
-            if (list != null) return list;
-
             DataSet ds = this.funcCommon();
-            list = new List<AW_News_Column_bean>();
+            List<AW_Column_bean>  list = new List<AW_Column_bean>();
             foreach (DataRow row1 in ds.Tables[0].Select("fdColuParentID=0", "fdColuSort ASC"))
             {
-                AW_News_Column_bean bean1 = new AW_News_Column_bean();
+                AW_Column_bean bean1 = new AW_Column_bean();
                 bean1.funcFromDataRow(row1);
-                bean1.Children = new List<AW_News_Column_bean>();
-                foreach (DataRow row2 in ds.Tables[0].Select("fdColuParentID="+bean1.fdColuID.ToString(), "fdColuSort ASC"))
+                bean1.Children = new List<AW_Column_bean>();
+                foreach (DataRow row2 in ds.Tables[0].Select("fdColuParentID=" + bean1.fdColuID.ToString(), "fdColuSort ASC"))
                 {
-                    AW_News_Column_bean bean2 = new AW_News_Column_bean();
+                    AW_Column_bean bean2 = new AW_Column_bean();
                     bean2.funcFromDataRow(row2);
                     bean2.Parent = bean1;
                     bean1.Children.Add(bean2);
                 }
                 list.Add(bean1);
             }
-            HttpRuntime.Cache.Insert("NEWS_COLUMNS", list, null, DateTime.Now.AddMinutes(10), TimeSpan.Zero);
             return list;
         }
 
@@ -117,7 +108,7 @@ namespace AnyWeb.AW_DL
         /// <returns></returns>
         public bool funcUp(int columnId)
         {
-            AW_News_Column_bean bean = AW_News_Column_bean.funcGetByID(columnId);
+            AW_Column_bean bean = AW_Column_bean.funcGetByID(columnId);
             if (bean == null) return false;
 
             this.propSelect = " TOP 1 *";
@@ -126,7 +117,7 @@ namespace AnyWeb.AW_DL
 
             DataSet ds = this.funcCommon();
             if (ds.Tables[0].Rows.Count == 0) return false;
-            AW_News_Column_bean beanUp = new AW_News_Column_bean();
+            AW_Column_bean beanUp = new AW_Column_bean();
             beanUp.funcFromDataRow(ds.Tables[0].Rows[0]);
 
             int temp = beanUp.fdColuSort;
@@ -144,7 +135,7 @@ namespace AnyWeb.AW_DL
         /// <returns></returns>
         public bool funcDown(int columnId)
         {
-            AW_News_Column_bean bean = AW_News_Column_bean.funcGetByID(columnId);
+            AW_Column_bean bean = AW_Column_bean.funcGetByID(columnId);
             if (bean == null) return false;
 
             this.propSelect = " TOP 1 *";
@@ -152,7 +143,7 @@ namespace AnyWeb.AW_DL
             this.propOrder = " ORDER BY fdColuSort ASC";
             DataSet ds = this.funcCommon();
             if (ds.Tables[0].Rows.Count == 0) return false;
-            AW_News_Column_bean beanDown = new AW_News_Column_bean();
+            AW_Column_bean beanDown = new AW_Column_bean();
             beanDown.funcFromDataRow(ds.Tables[0].Rows[0]);
 
             int temp = beanDown.fdColuSort;
@@ -162,6 +153,5 @@ namespace AnyWeb.AW_DL
             funcUpdate(beanDown);
             return true;
         }
-
-	}
+    }
 }

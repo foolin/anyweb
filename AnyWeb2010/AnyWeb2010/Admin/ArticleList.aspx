@@ -1,9 +1,9 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
-    CodeFile="NewsList.aspx.cs" Inherits="Admin_NewsList" %>
+    CodeFile="ArticleList.aspx.cs" Inherits="Admin_ArticleList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
     <ul class="Opr">
-        <li><a href="NewsAdd.aspx?cid=<%=QS("cid")%>">添加新闻</a></li>
+        <li><a href="ArticleAdd.aspx?cid=<%=QS("cid")%>">添加新闻</a></li>
     </ul>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
@@ -13,7 +13,7 @@
                 新闻管理</h3>
         </div>
         <div class="fi filter">
-            栏目：<asp:DropDownList ID="drpColumn" onchange="window.location='NewsList.aspx?cid='+this.value"
+            栏目：<asp:DropDownList ID="drpColumn" onchange="window.location='ArticleList.aspx?cid='+this.value"
                 runat="server">
                 <asp:ListItem Value="0">所有栏目</asp:ListItem>
             </asp:DropDownList>
@@ -37,13 +37,13 @@
                     <ItemTemplate>
                         <tr align="center" class="editalt">
                             <td style="text-align: left;">
-                                <%#Eval("fdNewsTitle")%>
+                                <%#Eval("fdArtiTitle")%>
                             </td>
                             <td>
                                 <%#Eval("Column.fdColuName")%><%#(int)Eval("Column.fdColuShowIndex") == 0 ? "<span style='color:red'>(不在首页显示)</span>" : ""%>
                             </td>
                             <td>
-                                <a href="NewsEdit.aspx?id=<%# Eval("fdNewsID")%>">修改</a> <a href="NewsDel.aspx?id=<%# Eval("fdNewsID")%>"
+                                <a href="ArticleEdit.aspx?id=<%# Eval("fdArtiID")%>">修改</a> <a href="ArticleDel.aspx?id=<%# Eval("fdArtiID")%>"
                                     onclick="return confirm('您确定要删除吗?')">删除</a>
                             </td>
                         </tr>

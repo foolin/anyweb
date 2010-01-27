@@ -13,7 +13,7 @@ using AnyWeb.AW_DL;
 
 
 
-public partial class Admin_NewsAdd : ShopAdmin
+public partial class Admin_ArticleAdd : ShopAdmin
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -24,10 +24,10 @@ public partial class Admin_NewsAdd : ShopAdmin
     {
         base.OnPreRender(e);
 
-        foreach (AW_News_Column_bean bean1 in (new AW_News_Column_dao()).funcGetColumns())
+        foreach (AW_Column_bean bean1 in (new AW_Column_dao()).funcGetColumns())
         {
             drpColumn.Items.Add(new ListItem(bean1.fdColuName, bean1.fdColuID.ToString()));
-            foreach (AW_News_Column_bean bean2 in bean1.Children)
+            foreach (AW_Column_bean bean2 in bean1.Children)
             {
                 drpColumn.Items.Add(new ListItem(bean1.fdColuName + "-" + bean2.fdColuName, bean2.fdColuID.ToString()));
             }
@@ -45,18 +45,18 @@ public partial class Admin_NewsAdd : ShopAdmin
         if (String.IsNullOrEmpty(txtContent.Text))
             WebAgent.AlertAndBack("内容不能为空");
 
-        using (AW_News_dao dao = new AW_News_dao())
+        using (AW_Article_dao dao = new AW_Article_dao())
         {
 
-            AW_News_bean bean = new AW_News_bean();
-            bean.fdNewsID = dao.funcNewID();
-            bean.fdNewsColumnID = int.Parse(drpColumn.SelectedValue);
-            bean.fdNewsTitle = txtTitle.Text.Trim();
-            bean.fdNewsContent = txtContent.Text;
+            AW_Article_bean bean = new AW_Article_bean();
+            bean.fdArtiID = dao.funcNewID();
+            bean.fdArtiColumnID = int.Parse(drpColumn.SelectedValue);
+            bean.fdArtiTitle = txtTitle.Text.Trim();
+            bean.fdArtiContent = txtContent.Text;
             int record = dao.funcInsert(bean);
             if (record > 0)
             {
-                Studio.Web.WebAgent.SuccAndGo("添加成功", "NewsList.aspx?cid=" + bean.fdNewsColumnID.ToString());
+                Studio.Web.WebAgent.SuccAndGo("添加成功", "ArticleList.aspx?cid=" + bean.fdArtiColumnID.ToString());
             }
         }
     }

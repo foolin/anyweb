@@ -9,7 +9,7 @@ using Studio.Data;
 
 namespace AnyWeb.AW_DL
 {
-	public partial class AW_Goods_Comment_dao : SHOP_daoBase
+	public partial class AW_Goods_Comment_dao : Dao_Base
 	{
 		public AW_Goods_Comment_dao()
         {

@@ -20,9 +20,6 @@
                             名称
                         </th>
                         <th>
-                            路径
-                        </th>
-                        <th>
                             首页显示
                         </th>
                         <th class="end">
@@ -35,9 +32,6 @@
                         <tr align="center" class="editalt">
                             <td title="<%#Eval("fdColuDescription") %>" style="text-align: left; padding-left: 20px;">
                                 <%#Eval("fdColuName")%>
-                            </td>
-                            <td>
-                                <%# Studio.Web.WebAgent.IsInt32(Eval("fdColuPath").ToString()) ? "" : Eval("fdColuPath")%>
                             </td>
                             <td>
                                 <%# (int)Eval("fdColuShowIndex")==0?"<span style='color:red'>否</span>":"是" %>
@@ -54,9 +48,6 @@
                                 <tr align="center" class="editalt">
                                     <td title="<%#Eval("fdColuDescription") %>" style="text-align: left; padding-left: 40px;">
                                         <%#Eval("fdColuName")%>
-                                    </td>
-                                    <td>
-                                        <%# Studio.Web.WebAgent.IsInt32(Eval("fdColuPath").ToString()) ? "" : Eval("fdColuPath")%>
                                     </td>
                                     <td>
                                         <%# (int)Eval("fdColuShowIndex")==0?"<span style='color:red'>否</span>":"是" %>

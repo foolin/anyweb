@@ -23,7 +23,7 @@ public partial class Admin_ColumnList : ShopAdmin
     {
         base.OnPreRender(e);
 
-        compRep.DataSource = new AW_News_Column_dao().funcGetColumns();
+        compRep.DataSource = new AW_Column_dao().funcGetColumns();
         compRep.DataBind();
     }
 

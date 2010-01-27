@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
-    CodeFile="NewsAdd.aspx.cs" Inherits="Admin_NewsAdd" %>
+    CodeFile="ArticleEdit.aspx.cs" Inherits="Admin_ArticleEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
 </asp:Content>
@@ -7,7 +7,7 @@
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
-                添加新闻</h3>
+                修改新闻</h3>
         </div>
         <div class="mbd">
             <div class="fi">
@@ -34,7 +34,7 @@
                 <label>
                     新闻内容：</label>
                 <div class="cont">
-                    <asp:TextBox ID="txtContent" TextMode="MultiLine" Width="100%" Height="300px" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtContent" Width="100%" Height="300px" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div class="fi fiBtns">

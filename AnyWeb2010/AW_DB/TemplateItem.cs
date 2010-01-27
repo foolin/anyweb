@@ -5,7 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.ComponentModel;
 
-namespace FortuneAge.IBOX_UC
+namespace FortuneAge.AW_UC
 {
     public class TemplateItem : Control, IDataItemContainer
     {

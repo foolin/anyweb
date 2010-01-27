@@ -29,11 +29,6 @@
                     ErrorMessage="请输入栏目名" runat="server">
                 </sw:Validator>
             </div>
-            <div class="fi even">
-                <label>
-                    栏目路径：</label>
-                <asp:TextBox ID="txtPath" MaxLength="50" runat="server" CssClass="text"></asp:TextBox>
-            </div>
             <div class="fi">
                 <label>
                     栏目描述：</label>

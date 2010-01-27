@@ -9,7 +9,7 @@ using Studio.Data;
 
 namespace AnyWeb.AW_DL
 {
-	public partial class AW_Member_Contact_dao : SHOP_daoBase
+	public partial class AW_Member_Contact_dao : Dao_Base
 	{
 		public AW_Member_Contact_dao()
         {

@@ -13,7 +13,7 @@ using Studio.Web;
 
 using AnyWeb.AW_DL;
 
-namespace FortuneAge.IBOX_UC
+namespace FortuneAge.AW_UC
 {
     /// <summary>
     /// 单条数据控件基类，根据Field获取单字段值或根据ItemTemplate展示一条数据的多个值

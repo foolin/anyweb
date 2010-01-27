@@ -11,7 +11,7 @@ using System.Web.UI.WebControls.WebParts;
 
 using AnyWeb.AW_DL;
 
-public partial class Admin_NewsList : ShopAdmin
+public partial class Admin_ArticleList : ShopAdmin
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -22,10 +22,10 @@ public partial class Admin_NewsList : ShopAdmin
     {
         base.OnPreRender(e);
 
-        foreach(AW_News_Column_bean bean1 in (new AW_News_Column_dao()).funcGetColumns())
+        foreach(AW_Column_bean bean1 in (new AW_Column_dao()).funcGetColumns())
         {
             drpColumn.Items.Add(new ListItem(bean1.fdColuName, bean1.fdColuID.ToString()));
-            foreach(AW_News_Column_bean bean2 in bean1.Children)
+            foreach (AW_Column_bean bean2 in bean1.Children)
             {
                 drpColumn.Items.Add(new ListItem(bean1.fdColuName + "-" + bean2.fdColuName, bean2.fdColuID.ToString()));
             }
@@ -35,10 +35,10 @@ public partial class Admin_NewsList : ShopAdmin
         if (li != null) li.Selected = true;
 
 
-        AW_News_Column_bean column = (new AW_News_Column_dao()).funcGetColumnInfo(int.Parse(drpColumn.SelectedValue));
+        AW_Column_bean column = (new AW_Column_dao()).funcGetColumnInfo(int.Parse(drpColumn.SelectedValue));
 
 
-        using (AW_News_dao dao = new AW_News_dao())
+        using (AW_Article_dao dao = new AW_Article_dao())
         {
             compRep.DataSource = dao.funcGetNews(column, PN1.PageSize, PN1.PageIndex);
             compRep.DataBind();

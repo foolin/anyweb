@@ -9,7 +9,7 @@ using System.ComponentModel;
 using System.Text.RegularExpressions;
 using System.Reflection;
 
-namespace FortuneAge.IBOX_UC
+namespace FortuneAge.AW_UC
 {
     public abstract class ScriptControlBase : Control, INamingContainer
     {

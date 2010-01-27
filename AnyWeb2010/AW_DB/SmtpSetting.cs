@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Net.Mail;
 using System.Net;
 
-namespace FortuneAge.IBOX_UC
+namespace FortuneAge.AW_UC
 {
     public  class SmtpSetting
     {

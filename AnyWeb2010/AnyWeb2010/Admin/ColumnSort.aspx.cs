@@ -14,11 +14,11 @@ using Studio.Web;
 
 public partial class Admin_ColumnSort : ShopAdmin
 {
-    protected void Page_Load(object sender, EventArgs e)
+    protected override void OnPreRender(EventArgs e)
     {
         string type = QS("type");
         int columnId = int.Parse(QS("id"));
-        AW_News_Column_dao dao = new AW_News_Column_dao();
+        AW_Column_dao dao = new AW_Column_dao();
 
         if (type == "up")
         {

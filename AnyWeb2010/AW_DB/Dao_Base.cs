@@ -70,22 +70,10 @@ namespace AnyWeb.AW_DL
             }
         }
 
-        //protected static string RetrieveConnectionString(string name, string value)
-        //{
-        //    if (value.ToLower().IndexOf("server") < 0 && value.ToLower().IndexOf("data source") < 0) //连接字符串经过加密使用默认的解密键进行解密
-        //    {
-        //        RegistryKey rk = Registry.LocalMachine.OpenSubKey(@"Software\FortuneAge\IBOX", false);
-        //        string key = (string)rk.GetValue("SecureKEY", "");
-        //        string iv = (string)rk.GetValue("SecureIV", "");
-        //        value = Secure.Decrypt(value, key, iv);
-        //    }
-        //    return value;
-        //}
-
         public Dao_Base()
         {
             this.DBType = (DatabaseType)dbType;
-            this.ConnectionString = dbConnectionStrings["IBOX_DB"];
+            this.ConnectionString = dbConnectionStrings["ANYWEB_DB"];
         }
 
         /// <summary>

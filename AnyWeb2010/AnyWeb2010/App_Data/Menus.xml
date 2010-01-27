@@ -62,14 +62,14 @@
       </xMenuItem>
     </xMenuItem>
 
-    <xMenuItem id="4" name="资讯" module="4">
-      <xMenuItem id="401" url ="/Admin/NewsList.aspx" name ="新闻列表" >
-        <xMenuItem url ="/Admin/NewsAdd.aspx" name ="添加新闻" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/NewsEdit.aspx" name ="修改新闻" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/NewsDel.aspx" name ="删除新闻" type="3" ></xMenuItem>
+    <xMenuItem id="4" name="文章" module="4">
+      <xMenuItem id="401" url ="/Admin/ArticleList.aspx" name ="文章列表" >
+        <xMenuItem url ="/Admin/ArticleAdd.aspx" name ="添加文章" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/ArticleEdit.aspx" name ="修改文章" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/ArticleDel.aspx" name ="删除文章" type="3" ></xMenuItem>
       </xMenuItem>
-      <xMenuItem id="402" url ="/Admin/NewsAdd.aspx" name ="添加新闻"></xMenuItem>
-      <xMenuItem id="403" url ="/Admin/ColumnList.aspx" name ="新闻栏目" >
+      <xMenuItem id="402" url ="/Admin/ArticleAdd.aspx" name ="添加文章"></xMenuItem>
+      <xMenuItem id="403" url ="/Admin/ColumnList.aspx" name ="文章栏目" >
         <xMenuItem url ="/Admin/ColumnAdd.aspx" name ="添加栏目" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/ColumnEdit.aspx" name ="修改栏目" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/ColumnDel.aspx" name ="删除栏目" type="3" ></xMenuItem>

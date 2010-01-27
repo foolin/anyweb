@@ -11,7 +11,7 @@ using System.Reflection;
 
 using AnyWeb.AW_DL;
 
-namespace FortuneAge.IBOX_UC
+namespace FortuneAge.AW_UC
 {
     /// <summary>
     /// 多条数据控件基类，返回一个列表，类似Repeater控件用ItemTemplate绑定数据项

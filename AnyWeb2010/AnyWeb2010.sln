@@ -4,7 +4,7 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AnyWeb2010", "AnyWeb2010\", "{CDAAFDE6-953C-4B70-8F04-F082F4B3C70D}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "2.0"
-		ProjectReferences = "{67EDE50C-1A2F-4B66-B336-11EFBE1B8802}|AW_DB.dll;{2FEB2769-C1A2-40C6-ACB0-2214C1E7DF41}|Studio.dll;"
+		ProjectReferences = "{2FEB2769-C1A2-40C6-ACB0-2214C1E7DF41}|Studio.dll;{67EDE50C-1A2F-4B66-B336-11EFBE1B8802}|AW_DB.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/AnyWeb2010"
 		Debug.AspNetCompiler.PhysicalPath = "AnyWeb2010\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\AnyWeb2010\"

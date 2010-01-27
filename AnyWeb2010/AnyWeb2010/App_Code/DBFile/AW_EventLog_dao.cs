@@ -9,7 +9,7 @@ using Studio.Data;
 
 namespace AnyWeb.AW_DL
 {
-	public partial class AW_EventLog_dao : SHOP_daoBase
+	public partial class AW_EventLog_dao : Dao_Base
 	{
 		public AW_EventLog_dao()
         {

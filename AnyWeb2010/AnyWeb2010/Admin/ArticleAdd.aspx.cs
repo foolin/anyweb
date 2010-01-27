@@ -45,6 +45,12 @@ public partial class Admin_ArticleAdd : ShopAdmin
         if (String.IsNullOrEmpty(txtContent.Text))
             WebAgent.AlertAndBack("内容不能为空");
 
+        if (string.IsNullOrEmpty(txtSort.Text))
+            WebAgent.AlertAndBack("排序不能为空");
+
+        if (!WebAgent.IsInt32(txtSort.Text.Trim()))
+            WebAgent.AlertAndBack("排序格式不正确");
+
         using (AW_Article_dao dao = new AW_Article_dao())
         {
 
@@ -53,6 +59,10 @@ public partial class Admin_ArticleAdd : ShopAdmin
             bean.fdArtiColumnID = int.Parse(drpColumn.SelectedValue);
             bean.fdArtiTitle = txtTitle.Text.Trim();
             bean.fdArtiContent = txtContent.Text;
+            bean.fdArtiSort = int.Parse(txtSort.Text.Trim());
+            if (bean.fdArtiSort == 0)
+                bean.fdArtiSort = bean.fdArtiID * 100;
+            
             int record = dao.funcInsert(bean);
             if (record > 0)
             {

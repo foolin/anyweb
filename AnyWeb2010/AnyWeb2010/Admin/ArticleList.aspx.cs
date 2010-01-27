@@ -40,7 +40,7 @@ public partial class Admin_ArticleList : ShopAdmin
 
         using (AW_Article_dao dao = new AW_Article_dao())
         {
-            compRep.DataSource = dao.funcGetNews(column, PN1.PageSize, PN1.PageIndex);
+            compRep.DataSource = dao.funcGetArticle(column, PN1.PageSize, PN1.PageIndex);
             compRep.DataBind();
             PN1.SetPage(dao.propPage);
         }

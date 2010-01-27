@@ -28,6 +28,7 @@ public partial class Admin_ArticleEdit : ShopAdmin
 
         txtTitle.Text = article.fdArtiTitle;
         txtContent.Text = article.fdArtiContent;
+        txtSort.Text = article.fdArtiSort.ToString();
 
         foreach (AW_Column_bean bean1 in (new AW_Column_dao()).funcGetColumns())
         {
@@ -48,6 +49,9 @@ public partial class Admin_ArticleEdit : ShopAdmin
             article.fdArtiTitle = txtTitle.Text.Trim();
             article.fdArtiColumnID = int.Parse(drpColumn.SelectedValue);
             article.fdArtiContent = txtContent.Text;
+            article.fdArtiSort = int.Parse(txtSort.Text.Trim());
+            if (article.fdArtiSort == 0)
+                article.fdArtiSort = article.fdArtiID * 100;
 
             dao.funcUpdate(article);
             WebAgent.SuccAndGo("修改文章成功", "ArticleList.aspx?cid=" + article.fdArtiColumnID.ToString());

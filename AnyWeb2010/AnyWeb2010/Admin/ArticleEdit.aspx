@@ -7,12 +7,12 @@
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
-                修改新闻</h3>
+                修改文章</h3>
         </div>
         <div class="mbd">
             <div class="fi">
                 <label>
-                    新闻标题：</label>
+                    文章标题：</label>
                 <asp:TextBox ID="txtTitle" MaxLength="100" Width="400px" runat="server" CssClass="text"></asp:TextBox>
                 <span class="required">*</span>
                 <sw:Validator ID="Validator1" ControlID="txtTitle" ValidateType="Required" ErrorText="请输入标题"
@@ -32,15 +32,25 @@
             </div>
             <div class="fi">
                 <label>
-                    新闻内容：</label>
+                    文章内容：</label>
                 <div class="cont">
                     <asp:TextBox ID="txtContent" Width="100%" Height="300px" runat="server"></asp:TextBox>
                 </div>
             </div>
+            <div class="fi even">
+                <label>
+                    文章排序：</label>
+                <asp:TextBox ID="txtSort" runat="server" Text="0"></asp:TextBox>
+                <span class="required">*</span>
+                <sw:Validator ID="Validator3" ControlID="txtSort" ValidateType="Required" ErrorText="请输入文章排序"
+                    ErrorMessage="请输入文章排序" runat="server"></sw:Validator>
+                <sw:Validator ID="Validator4" ControlID="txtSort" ValidateType="DataType" DataType="Integer" ErrorText="请输入正确的文章排序"
+                    ErrorMessage="请输入正确的文章排序" runat="server"></sw:Validator>
+            </div>
             <div class="fi fiBtns">
                 <asp:Button ID="btnOk" runat="server" Text="保存" CssClass="submit" OnClick="btnOk_Click">
                 </asp:Button>
-                <a href="NewsList.aspx">返回列表</a>
+                <a href="ArticleList.aspx">返回列表</a>
             </div>
         </div>
         <div class="mft">

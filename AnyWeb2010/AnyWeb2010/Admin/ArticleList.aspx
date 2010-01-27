@@ -3,14 +3,14 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
     <ul class="Opr">
-        <li><a href="ArticleAdd.aspx?cid=<%=QS("cid")%>">添加新闻</a></li>
+        <li><a href="ArticleAdd.aspx?cid=<%=QS("cid")%>">添加文章</a></li>
     </ul>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
     <div class="Mod DataList">
         <div class="mhd">
             <h3>
-                新闻管理</h3>
+                文章管理</h3>
         </div>
         <div class="fi filter">
             栏目：<asp:DropDownList ID="drpColumn" onchange="window.location='ArticleList.aspx?cid='+this.value"

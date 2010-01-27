@@ -56,6 +56,15 @@ namespace AnyWeb.AW_DL
             set { _fdArtiCreateAt = value; }
         }
 
+        private int _fdArtiSort = 0;
+        /// <summary>
+        /// 文章排序
+        /// </summary>
+        public int fdArtiSort
+        {
+            get { return _fdArtiSort; }
+            set { _fdArtiSort = value; }
+        }
 
 
         /////////////////////////////////////////

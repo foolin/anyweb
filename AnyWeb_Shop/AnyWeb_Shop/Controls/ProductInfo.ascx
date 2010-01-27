@@ -1,5 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ProductInfo.ascx.cs" Inherits="Controls_ProductInfo" %>
-<div class="box">
     <div class="title">
         <%=good.GoodsName %></div>
     <div class="gLeft">
@@ -44,7 +43,6 @@
                 -->
         </dl>
     </div>
-</div>
 <!-- gRight -->
 <div class="clear">
 </div>

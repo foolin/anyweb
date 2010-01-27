@@ -15,7 +15,7 @@
             <div class="box">
                 <good:GoodDetail runat="server" />
             </div>
-            <!-- container end -->
+            <!-- box end -->
         </div>
         <!-- col-main -->
         <div class="clear">

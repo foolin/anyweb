@@ -10,13 +10,18 @@ using System.Web.UI.WebControls.WebParts;
 
 using Studio.Web;
 using AnyWeb.AW.Configs;
-using AnyWeb.Configs;
 
 /// <summary>
-///PageAdmin 的摘要说明
+///ShopAdmin 的摘要说明
 /// </summary>
-public class PageAdmin : Page
+public class ShopAdmin : Page
 {
+    protected static string ShopMasterPageFile = "~/Admin/AdminPage.master";
+    public ShopAdmin()
+    {
+        this.Load += new EventHandler(ShopAdmin_Load);
+    }
+
     protected override void OnLoad(EventArgs e)
     {
         Response.Buffer = true;
@@ -26,7 +31,16 @@ public class PageAdmin : Page
         Response.AppendHeader("Pragma", "No-Cache");
     }
 
-    void PageAdmin_Load(object sender, EventArgs e)
+    protected override void OnPreInit(EventArgs e)
+    {
+        if (this.Master != null)
+        {
+            this.MasterPageFile = ShopMasterPageFile;
+        }
+        base.OnPreInit(e);
+    }
+
+    void ShopAdmin_Load(object sender, EventArgs e)
     {
         if (!this.IsPostBack && Request.UrlReferrer != null)
         {
@@ -41,9 +55,13 @@ public class PageAdmin : Page
         }
     }
 
-    static PageAdmin()
+    static ShopAdmin()
     {
         Validator.ScriptSrc = "/public/js/validator1.2.js";
+        if (string.IsNullOrEmpty(ConfigurationManager.AppSettings["AW_AdminMasterPage"]) == false)
+        {
+            ShopMasterPageFile = ConfigurationManager.AppSettings["AW_AdminMasterPage"];
+        }
     }
 
     protected string QS(string key)
@@ -76,5 +94,11 @@ public class PageAdmin : Page
         }
         builder.Append("[]");
         return builder.ToString();
+    }
+
+    protected void SetUploadForm()
+    {
+        HtmlForm form1 = (HtmlForm)this.Master.FindControl("form1");
+        form1.Enctype = "multipart/form-data";
     }
 }

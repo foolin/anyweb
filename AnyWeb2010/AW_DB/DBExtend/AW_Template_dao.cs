@@ -34,13 +34,13 @@ namespace AnyWeb.AW_DL
         }
 
         /// <summary>
-        /// 检查模版名称是否存在
+        /// 检查文件名称是否存在
         /// </summary>
         /// <param name="templateName"></param>
         /// <returns></returns>
-        public bool funcCheckIsExists(string templateName, int templateID)
+        public bool funcCheckIsExists(string pageName, int templateID)
         {
-            this.propWhere = "fdTempName=" + templateName;
+            this.propWhere = string.Format("fdTempName='{0}'", pageName);
             if (templateID != 0)
             {
                 this.propWhere += " AND fdTempID<>" + templateID.ToString();
@@ -50,6 +50,42 @@ namespace AnyWeb.AW_DL
                 return true;
             else
                 return false;
+        }
+
+        /// <summary>
+        /// 通过模版名称获取模版信息
+        /// </summary>
+        /// <param name="templateName"></param>
+        /// <returns></returns>
+        public AW_Template_bean funcGetTemplateByName(string templateName)
+        {
+            this.propWhere = string.Format("fdTempName='{0}'", templateName);
+            DataSet ds = this.funcCommon();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                AW_Template_bean bean = new AW_Template_bean();
+                bean.funcFromDataRow(ds.Tables[0].Rows[0]);
+                return bean;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 删除模版
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public override int funcDelete(int id)
+        {
+            int result = base.funcDelete(id);
+            if (result > 0)
+            {
+                new AW_Mapping_dao().funcRemoveCache();
+            }
+            return result;
         }
 	}
 }

@@ -20,31 +20,20 @@ public partial class Admin_TemplateAdd : PageAdmin
         AW_Template_bean bean = new AW_Template_bean();
         bean.fdTempID = new AW_Template_dao().funcNewID();
         bean.fdTempName = txtName.Text.Trim();
-        bean.fdTempType = int.Parse(drpType.SelectedValue);
+        bean.fdTempType = int.Parse(drpType.SelectedValue);      
         bean.fdTempContent = txtContent.Text;
         bean.fdTempCreateAt = DateTime.Now;
 
         AW_Template_dao dao = new AW_Template_dao();
         if (dao.funcCheckIsExists(bean.fdTempName, 0))
         {
-            WebAgent.AlertAndBack("模板名称已被占用");
+            WebAgent.AlertAndBack("文件名称已被占用");
         }
 
         if (dao.funcInsert(bean) > 0)
         {
             string templatePath = Server.MapPath(Request.ApplicationPath + "/Control");
-            if (!Directory.Exists(templatePath))
-            {
-                Directory.CreateDirectory(templatePath);
-            }
-            if (drpType.SelectedValue == "1")
-            {
-                FileAgent.WriteText(templatePath + "\\" + bean.fdTempName + ".aspx", bean.fdTempContent, false);
-            }
-            else
-            {
-                FileAgent.WriteText(templatePath + "\\" + bean.fdTempName + ".ascx", bean.fdTempContent, false);
-            }
+            FileAgent.WriteText(templatePath + "\\" + bean.fdTempName + ".ascx", bean.fdTempContent, false);
             WebAgent.SuccAndGo("添加成功", "TemplateList.aspx");
         }
     }

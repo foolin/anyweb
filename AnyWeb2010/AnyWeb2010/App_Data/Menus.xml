@@ -131,14 +131,21 @@
     </xMenuItem>
 
     <xMenuItem id="7" name="模版" module="7">
-      <xMenuItem id="701" type="2" ></xMenuItem>
-      <xMenuItem id="702" url ="/Admin/TemplateList.aspx" name ="模版管理" >
+      <xMenuItem id="701" url ="/Admin/TemplateList.aspx" name ="模版管理" >
         <xMenuItem url ="/Admin/TemplateEdit.aspx" name ="修改模版"  type="3" >
         </xMenuItem>
         <xMenuItem url ="/Admin/TemplateDel.aspx" name ="删除模版" type="3"  >
         </xMenuItem>
       </xMenuItem>
-      <xMenuItem id="703" url ="/Admin/TemplateAdd.aspx" name ="添加模版" >
+      <xMenuItem id="702" url ="/Admin/TemplateAdd.aspx" name ="添加模版" >
+      </xMenuItem>
+      <xMenuItem id="703" url ="/Admin/MappingList.aspx" name ="映射管理" >
+        <xMenuItem url ="/Admin/MappingEdit.aspx" name ="修改映射"  type="3" >
+        </xMenuItem>
+        <xMenuItem url ="/Admin/MappingDel.aspx" name ="删除映射" type="3"  >
+        </xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="704" url ="/Admin/MappingAdd.aspx" name ="添加映射" >
       </xMenuItem>
     </xMenuItem>
 

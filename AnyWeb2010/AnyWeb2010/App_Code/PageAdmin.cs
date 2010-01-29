@@ -10,18 +10,13 @@ using System.Web.UI.WebControls.WebParts;
 
 using Studio.Web;
 using AnyWeb.AW.Configs;
+using AnyWeb.Configs;
 
 /// <summary>
 ///ShopAdmin 的摘要说明
 /// </summary>
-public class ShopAdmin : Page
+public class PageAdmin : Page
 {
-    protected static string ShopMasterPageFile = "~/Admin/AdminPage.master";
-    public ShopAdmin()
-    {
-        this.Load += new EventHandler(ShopAdmin_Load);
-    }
-
     protected override void OnLoad(EventArgs e)
     {
         Response.Buffer = true;
@@ -31,16 +26,7 @@ public class ShopAdmin : Page
         Response.AppendHeader("Pragma", "No-Cache");
     }
 
-    protected override void OnPreInit(EventArgs e)
-    {
-        if (this.Master != null)
-        {
-            this.MasterPageFile = ShopMasterPageFile;
-        }
-        base.OnPreInit(e);
-    }
-
-    void ShopAdmin_Load(object sender, EventArgs e)
+    void PageAdmin_Load(object sender, EventArgs e)
     {
         if (!this.IsPostBack && Request.UrlReferrer != null)
         {
@@ -55,13 +41,9 @@ public class ShopAdmin : Page
         }
     }
 
-    static ShopAdmin()
+    static PageAdmin()
     {
         Validator.ScriptSrc = "/public/js/validator1.2.js";
-        if (string.IsNullOrEmpty(ConfigurationManager.AppSettings["AW_AdminMasterPage"]) == false)
-        {
-            ShopMasterPageFile = ConfigurationManager.AppSettings["AW_AdminMasterPage"];
-        }
     }
 
     protected string QS(string key)

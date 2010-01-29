@@ -11,5 +11,6 @@ namespace AnyWeb.AW_DL
 {
 	public partial class AW_Member_bean
 	{
+        
 	}
 }

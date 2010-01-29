@@ -90,6 +90,8 @@
     <Compile Include="DBExtend\AW_KeyWord_dao.cs" />
     <Compile Include="DBExtend\AW_Link_bean.cs" />
     <Compile Include="DBExtend\AW_Link_dao.cs" />
+    <Compile Include="DBExtend\AW_Mapping_bean.cs" />
+    <Compile Include="DBExtend\AW_Mapping_dao.cs" />
     <Compile Include="DBExtend\AW_Member_bean.cs" />
     <Compile Include="DBExtend\AW_Member_Contact_bean.cs" />
     <Compile Include="DBExtend\AW_Member_Contact_dao.cs" />
@@ -134,6 +136,8 @@
     <Compile Include="DBFile\AW_KeyWord_dao.cs" />
     <Compile Include="DBFile\AW_Link_bean.cs" />
     <Compile Include="DBFile\AW_Link_dao.cs" />
+    <Compile Include="DBFile\AW_Mapping_bean.cs" />
+    <Compile Include="DBFile\AW_Mapping_dao.cs" />
     <Compile Include="DBFile\AW_Member_bean.cs" />
     <Compile Include="DBFile\AW_Member_Contact_bean.cs" />
     <Compile Include="DBFile\AW_Member_Contact_dao.cs" />

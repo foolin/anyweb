@@ -28,7 +28,9 @@ public partial class Admin_TemplateEdit : PageAdmin
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
+        string oldName;
         AW_Template_bean bean = AW_Template_bean.funcGetByID(int.Parse(QS("id")));
+        oldName = bean.fdTempName;
         bean.fdTempName = txtName.Text.Trim();
         bean.fdTempType = int.Parse(drpType.SelectedValue);
         bean.fdTempContent = txtContent.Text;
@@ -46,13 +48,14 @@ public partial class Admin_TemplateEdit : PageAdmin
             {
                 Directory.CreateDirectory(templatePath);
             }
-            if (drpType.SelectedValue == "1")
+            FileAgent.WriteText(templatePath + "\\" + bean.fdTempName + ".ascx", bean.fdTempContent, false);
+            if (oldName != bean.fdTempName)
             {
-                FileAgent.WriteText(templatePath + "\\" + bean.fdTempName + ".aspx", bean.fdTempContent, false);
-            }
-            else
-            {
-                FileAgent.WriteText(templatePath + "\\" + bean.fdTempName + ".ascx", bean.fdTempContent, false);
+                string templateFile = Server.MapPath(Request.ApplicationPath + "/Control" + oldName + ".ascx");
+                if (File.Exists(templateFile))
+                {
+                    File.Delete(templateFile);
+                }
             }
             WebAgent.SuccAndGo("修改模版成功", "TemplateList.aspx");
         }

@@ -13,6 +13,11 @@ namespace AnyWeb.AW_UC
     /// </summary>
     public class Article : ItemControlBase
     {
+        protected override Dao_Base Dao
+        {
+            get { return new AW_Article_dao(); }
+        }
+
         private int _pageID = 0;
         [Description("内容分页"), Browsable(false)]
         public virtual int PageID

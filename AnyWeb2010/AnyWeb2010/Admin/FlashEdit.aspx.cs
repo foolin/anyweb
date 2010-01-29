@@ -14,7 +14,7 @@ using Studio.Web;
 using System.IO;
 using AnyWeb.AW_DL;
 
-public partial class Admin_FlashEdit : ShopAdmin
+public partial class Admin_FlashEdit : PageAdmin
 {
 
     protected override void OnPreRender(EventArgs e)

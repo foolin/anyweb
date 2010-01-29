@@ -13,7 +13,7 @@ using AnyWeb.AW_DL;
 using Studio.Web;
 using AnyWeb.AW.Configs;
 
-public partial class Admin_HelpEdit : ShopAdmin
+public partial class Admin_HelpEdit : PageAdmin
 {
     AW_Help_bean help;
 

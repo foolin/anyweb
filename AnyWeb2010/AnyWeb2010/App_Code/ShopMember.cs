@@ -10,6 +10,7 @@ using System.Web.UI.WebControls.WebParts;
 
 using AnyWeb.AW_DL;
 using AnyWeb.AW.Configs;
+using AnyWeb.Configs;
 
 /// <summary>
 ///ShopMember 的摘要说明

@@ -13,7 +13,7 @@ using Studio.Web;
 using AnyWeb.AW_DL;
 using AnyWeb.AW.Configs;
 
-public partial class Admin_MemberInfo : ShopAdmin
+public partial class Admin_MemberInfo : PageAdmin
 {
     protected AW_Member_bean member;
 

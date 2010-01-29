@@ -12,7 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using AnyWeb.AW_DL;
 using Studio.Web;
 
-public partial class Admin_KeyWordEdit : ShopAdmin
+public partial class Admin_KeyWordEdit : PageAdmin
 {
     protected AW_KeyWord_bean bean;
 

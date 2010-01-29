@@ -14,7 +14,7 @@ using AnyWeb.AW_DL;
 using AnyWeb.AW_DL;
 using System.Collections.Generic;
 
-public partial class Admin_GoodsSet : ShopAdmin
+public partial class Admin_GoodsSet : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {

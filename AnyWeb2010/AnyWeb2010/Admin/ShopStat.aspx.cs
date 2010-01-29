@@ -13,7 +13,7 @@ using System.Web.UI.WebControls.WebParts;
 using AnyWeb.AW_DL;
 using Studio.Web;
 
-public partial class Admin_ShopStat : ShopAdmin
+public partial class Admin_ShopStat : PageAdmin
 {
     public int OrderCount = 0;       //订单数
     public float GoodsPrice = 0;//订单销售金额总和

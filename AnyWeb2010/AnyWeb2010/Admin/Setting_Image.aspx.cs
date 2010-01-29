@@ -17,7 +17,7 @@ using AnyWeb.AW.Configs;
 using System.IO;
 
 
-public partial class Admin_Setting_Image : ShopAdmin
+public partial class Admin_Setting_Image : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {

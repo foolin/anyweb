@@ -16,7 +16,7 @@ using AnyWeb.AW_DL;
 using AnyWeb.AW.Configs;
 
 
-public partial class Admin_OrderDetails : ShopAdmin
+public partial class Admin_OrderDetails : PageAdmin
 {
     public AW_Order_bean Order;
 

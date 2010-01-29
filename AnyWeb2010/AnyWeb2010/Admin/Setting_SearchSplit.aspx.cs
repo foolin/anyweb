@@ -15,7 +15,7 @@ using Studio.Web;
 using AnyWeb.AW_DL;
 using Studio.IO;
 
-public partial class Admin_Setting_SearchSplit : ShopAdmin
+public partial class Admin_Setting_SearchSplit : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {

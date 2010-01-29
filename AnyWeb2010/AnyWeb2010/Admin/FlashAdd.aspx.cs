@@ -14,7 +14,7 @@ using AnyWeb.AW_DL;
 using System.IO;
 using Studio.Web;
 
-public partial class Admin_FlashAdd : ShopAdmin
+public partial class Admin_FlashAdd : PageAdmin
 {
     protected void btnOk_Click(object sender, EventArgs e)
     {

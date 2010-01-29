@@ -12,7 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using Studio.Web;
 using AnyWeb.AW_DL;
 
-public partial class Admin_KeyWordSet : ShopAdmin
+public partial class Admin_KeyWordSet : PageAdmin
 {
     protected void Page_Load(object sender, EventArgs e)
     {

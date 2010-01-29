@@ -12,7 +12,7 @@ using System.IO;
 using Studio.Web;
 using AnyWeb.AW_DL;
 
-public partial class Admin_FileAdd : ShopAdmin
+public partial class Admin_FileAdd : PageAdmin
 {
 
     protected override void OnPreRender(EventArgs e)

@@ -12,7 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using AnyWeb.AW_DL;
 using Studio.Web;
 
-public partial class Admin_ArticleEdit : ShopAdmin
+public partial class Admin_ArticleEdit : PageAdmin
 {
     protected AW_Article_bean article;
 

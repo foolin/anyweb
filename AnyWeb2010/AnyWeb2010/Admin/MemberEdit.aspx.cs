@@ -15,7 +15,7 @@ using AnyWeb.AW_DL;
 using Studio.Web;
 
 
-public partial class Admin_MemberEdit : ShopAdmin
+public partial class Admin_MemberEdit : PageAdmin
 {
     protected AW_Member_bean member;
 

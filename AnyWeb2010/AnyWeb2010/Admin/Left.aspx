@@ -23,11 +23,11 @@
         var selected = "";
         function select(idt) {
             var nametu = "xiaotu" + idt;
-            var tp = document.getElementById(nametu);
-            tp.src = "../public/images/ico05.gif";
             if (selected != "") {
                 document.getElementById(selected).src = "../public/images/ico06.gif";
             }
+            var tp = document.getElementById(nametu);
+            tp.src = "../public/images/ico05.gif";
             selected = nametu;
         }
 

@@ -10,6 +10,7 @@ using System.Web.UI.WebControls.WebParts;
 using Studio.Web;
 using AnyWeb.AW_DL;
 using AnyWeb.AW.Configs;
+using AnyWeb.Configs;
 
 /// <summary>
 ///ShopCartBase 的摘要说明

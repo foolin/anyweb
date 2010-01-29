@@ -11,7 +11,7 @@ using System.Web.UI.WebControls.WebParts;
 using AnyWeb.AW_DL;
 using Studio.Web;
 
-public partial class Admin_CategoryDel : ShopAdmin
+public partial class Admin_CategoryDel : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {

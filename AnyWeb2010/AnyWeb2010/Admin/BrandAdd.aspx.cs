@@ -14,7 +14,7 @@ using AnyWeb.AW_DL;
 using AnyWeb.AW_DL;
 using AnyWeb.AW.Configs;
 
-public partial class Admin_BrandAdd : ShopAdmin
+public partial class Admin_BrandAdd : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {

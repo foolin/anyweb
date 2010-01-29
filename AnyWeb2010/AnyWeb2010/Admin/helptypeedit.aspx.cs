@@ -12,7 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using AnyWeb.AW_DL;
 using Studio.Web;
 
-public partial class Admin_HelpTypeEdit : ShopAdmin
+public partial class Admin_HelpTypeEdit : PageAdmin
 {
     AW_Help_Type_bean helpType;
 

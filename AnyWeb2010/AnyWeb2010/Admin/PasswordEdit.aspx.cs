@@ -14,7 +14,7 @@ using AnyWeb.AW_DL;
 using AnyWeb.AW_DL;
 using AnyWeb.AW.Configs;
 
-public partial class Admin_PasswordEdit : ShopAdmin
+public partial class Admin_PasswordEdit : PageAdmin
 {
     protected void btnOk_Click(object sender, EventArgs e)
     {

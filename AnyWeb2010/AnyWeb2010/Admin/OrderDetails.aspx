@@ -87,8 +87,8 @@
                         <div class="fi">
                             <label>
                                 收货地址：</label>
-                            <%=AnyWeb.AW.Configs.AreaConfigs.GetConfigs().funcGetProvinceById(this.Order.fdOrdeUserProvinceID).Name+"省"
-                                +AnyWeb.AW.Configs.AreaConfigs.GetConfigs().funcGetProvinceById(this.Order.fdOrdeUserProvinceID).funcGetCityById(this.Order.fdOrdeUserCityID).Name+"市"%><%=AnyWeb.AW.Configs.AreaConfigs.GetConfigs().funcGetProvinceById(this.Order.fdOrdeUserProvinceID).funcGetCityById(this.Order.fdOrdeUserCityID).funcGetAreaById(this.Order.fdOrdeUserAreaID)!=null?AnyWeb.AW.Configs.AreaConfigs.GetConfigs().funcGetProvinceById(this.Order.fdOrdeUserProvinceID).funcGetCityById(this.Order.fdOrdeUserCityID).funcGetAreaById(this.Order.fdOrdeUserAreaID).Name+"区":""%><%=this.Order.fdOrdeUserAddress %>
+                            <%=AnyWeb.Configs.AreaConfigs.GetConfigs().funcGetProvinceById(this.Order.fdOrdeUserProvinceID).Name+"省"
+                                +AnyWeb.Configs.AreaConfigs.GetConfigs().funcGetProvinceById(this.Order.fdOrdeUserProvinceID).funcGetCityById(this.Order.fdOrdeUserCityID).Name+"市"%><%=AnyWeb.Configs.AreaConfigs.GetConfigs().funcGetProvinceById(this.Order.fdOrdeUserProvinceID).funcGetCityById(this.Order.fdOrdeUserCityID).funcGetAreaById(this.Order.fdOrdeUserAreaID)!=null?AnyWeb.Configs.AreaConfigs.GetConfigs().funcGetProvinceById(this.Order.fdOrdeUserProvinceID).funcGetCityById(this.Order.fdOrdeUserCityID).funcGetAreaById(this.Order.fdOrdeUserAreaID).Name+"区":""%><%=this.Order.fdOrdeUserAddress %>
                         </div>
                         <div class="fi">
                             <label>

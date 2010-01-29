@@ -13,7 +13,7 @@ using AnyWeb.AW;
 using AnyWeb.AW_DL;
 using AnyWeb.AW.Configs;
 
-public partial class Admin_GoodsPictureDel : ShopAdmin
+public partial class Admin_GoodsPictureDel : PageAdmin
 {
     protected void Page_Load(object sender, EventArgs e)
     {

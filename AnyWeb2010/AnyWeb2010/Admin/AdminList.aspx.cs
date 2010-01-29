@@ -13,7 +13,7 @@ using AnyWeb.AW_DL;
 using Studio.Web;
 
 
-public partial class Admin_AdminList : ShopAdmin
+public partial class Admin_AdminList : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {

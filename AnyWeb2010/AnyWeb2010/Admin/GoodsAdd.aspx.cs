@@ -17,7 +17,7 @@ using AnyWeb.AW_DL;
 using AnyWeb.AW.Configs;
 
 
-public partial class Admin_GoodsAdd : ShopAdmin
+public partial class Admin_GoodsAdd : PageAdmin
 {
     protected override void OnLoad(EventArgs e)
     {

@@ -12,7 +12,7 @@ using Studio.Web;
 using AnyWeb.AW_DL;
 using AnyWeb.AW.Configs;
 
-public partial class Admin_CategoryAdd : ShopAdmin
+public partial class Admin_CategoryAdd : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {

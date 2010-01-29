@@ -15,7 +15,7 @@ using AnyWeb.AW_DL;
 using AnyWeb.AW_DL;
 using Studio.Web;
 
-public partial class Admin_MemberAdd : ShopAdmin
+public partial class Admin_MemberAdd : PageAdmin
 {
 
     //protected override void OnPreRender(EventArgs e)

@@ -11,7 +11,6 @@ namespace Studio.Web
     /// <summary>
 	/// Name:验证控件
 	/// Description:实现客户端验证功能，暂不支持服务器端验证
-	/// Author:谢康
 	/// CreateDate:2009-02-24
 	/// </summary>	
     public class Validator : Control, INamingContainer 

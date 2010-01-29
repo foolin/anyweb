@@ -13,7 +13,7 @@ using AnyWeb.AW_DL;
 using Studio.Web;
 
 
-public partial class Admin_HelpTypeAdd : ShopAdmin
+public partial class Admin_HelpTypeAdd : PageAdmin
 {
 
     protected void btnOk_Click(object sender, EventArgs e)

@@ -11,7 +11,7 @@ using System.Web.UI.WebControls.WebParts;
 
 using AnyWeb.AW_DL;
 
-public partial class Shop_Admin_Desktop : ShopAdmin
+public partial class Shop_Admin_Desktop : PageAdmin
 {
     protected void Page_Load(object sender, EventArgs e)
     {

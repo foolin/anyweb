@@ -15,7 +15,7 @@ using AnyWeb.AW_DL;
 using AnyWeb.AW.Configs;
 using Studio.Web;
 
-public partial class Admin_GoodsPictureUpload : ShopAdmin
+public partial class Admin_GoodsPictureUpload : PageAdmin
 {
     protected void Page_Load(object sender, EventArgs e)
     {

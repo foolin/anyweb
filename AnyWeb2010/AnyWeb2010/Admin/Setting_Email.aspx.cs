@@ -13,7 +13,7 @@ using AnyWeb.AW_DL;
 using AnyWeb.AW_DL;
 using AnyWeb.AW.Configs;
 
-public partial class Admin_Setting_Email : ShopAdmin
+public partial class Admin_Setting_Email : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {

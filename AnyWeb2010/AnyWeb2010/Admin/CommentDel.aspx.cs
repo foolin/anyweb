@@ -11,7 +11,7 @@ using System.Web.UI.WebControls.WebParts;
 
 using AnyWeb.AW_DL;
 
-public partial class Admin_CommentDel : ShopAdmin
+public partial class Admin_CommentDel : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {

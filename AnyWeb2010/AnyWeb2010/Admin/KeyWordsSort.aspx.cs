@@ -15,7 +15,7 @@ using AnyWeb.AW_DL;
 using System.Collections.Generic;
 
 
-public partial class Admin_KeyWordsSort : ShopAdmin
+public partial class Admin_KeyWordsSort : PageAdmin
 {
     protected void Page_Load(object sender, EventArgs e)
     {

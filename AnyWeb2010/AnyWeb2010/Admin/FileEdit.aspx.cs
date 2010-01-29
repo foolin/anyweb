@@ -14,7 +14,7 @@ using AnyWeb.AW_DL;
 using Studio.IO;
 using System.Text;
 
-public partial class Admin_FileEdit : ShopAdmin
+public partial class Admin_FileEdit : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {

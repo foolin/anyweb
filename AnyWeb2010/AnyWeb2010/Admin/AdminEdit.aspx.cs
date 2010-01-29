@@ -15,7 +15,7 @@ using AnyWeb.AW_DL;
 using AnyWeb.AW.Configs;
 using AnyWeb.AW;
 
-public partial class Admin_AdminEdit : ShopAdmin
+public partial class Admin_AdminEdit : PageAdmin
 {
     protected AW_Admin_bean bean = null;
     protected override void OnPreRender(EventArgs e)

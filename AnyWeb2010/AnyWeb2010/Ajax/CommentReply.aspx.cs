@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using AnyWeb.AW_DL;
 
-public partial class Ajax_CommentReply : ShopAdmin
+public partial class Ajax_CommentReply : PageAdmin
 {
     protected void Page_Load(object sender, EventArgs e)
     {

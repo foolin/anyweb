@@ -12,7 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using AnyWeb.AW_DL;
 using Studio.Web;
 
-public partial class Admin_CategoryList : ShopAdmin
+public partial class Admin_CategoryList : PageAdmin
 {
     protected override void OnLoad(EventArgs e)
     {

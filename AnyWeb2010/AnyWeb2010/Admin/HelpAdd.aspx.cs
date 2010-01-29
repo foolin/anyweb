@@ -12,7 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using AnyWeb.AW_DL;
 using AnyWeb.AW.Configs;
 
-public partial class Admin_HelpAdd : ShopAdmin
+public partial class Admin_HelpAdd : PageAdmin
 {
     protected void Page_Load(object sender, EventArgs e)
     {

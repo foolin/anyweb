@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using AnyWeb.AW_DL;
 
-public partial class Admin_FlashList : ShopAdmin
+public partial class Admin_FlashList : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {

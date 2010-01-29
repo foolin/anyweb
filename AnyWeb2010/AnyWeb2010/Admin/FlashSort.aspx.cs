@@ -11,7 +11,7 @@ using System.Web.UI.WebControls.WebParts;
 using AnyWeb.AW_DL;
 using Studio.Web;
 
-public partial class Admin_FlashSort : ShopAdmin
+public partial class Admin_FlashSort : PageAdmin
 {
     protected void Page_Load(object sender, EventArgs e)
     {

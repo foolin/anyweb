@@ -13,7 +13,7 @@ using AnyWeb.AW_DL;
 using Studio.Web;
 using AnyWeb.AW.Configs;
 
-public partial class Admin_KeyWordList : ShopAdmin
+public partial class Admin_KeyWordList : PageAdmin
 {
     protected int status;
 

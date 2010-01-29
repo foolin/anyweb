@@ -13,7 +13,7 @@ using AnyWeb.AW_DL;
 
 
 
-public partial class Admin_ArticleAdd : ShopAdmin
+public partial class Admin_ArticleAdd : PageAdmin
 {
     protected void Page_Load(object sender, EventArgs e)
     {

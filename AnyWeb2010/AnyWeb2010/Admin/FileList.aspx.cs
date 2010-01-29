@@ -12,7 +12,7 @@ using System.IO;
 using Studio.Web;
 using AnyWeb.AW_DL;
 
-public partial class Admin_FileList : ShopAdmin
+public partial class Admin_FileList : PageAdmin
 {
     protected string rootPath
     {

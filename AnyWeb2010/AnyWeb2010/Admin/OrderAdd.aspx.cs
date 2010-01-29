@@ -17,7 +17,7 @@ using AnyWeb.AW_DL;
 using AnyWeb.AW.Configs;
 
 
-public partial class Admin_OrderAdd : ShopAdmin
+public partial class Admin_OrderAdd : PageAdmin
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -54,20 +54,6 @@ public partial class Admin_OrderAdd : ShopAdmin
                 order.fdOrdeInvoiceTitle = this.txtInvoiceTitle.Text;
             }
             order.fdOrderNote = this.txtNote.Text;
-
-            ////计算金额：（
-            //float totalPrice = 0;
-            //for (int i = 1; i <= int.Parse(this.QF("goodsCount")); i++)
-            //{
-            //    //先判断是否存在该商品，因为有可能已被删除或者根本没有输入值
-            //    if (this.QF("txtGoodsID" + i) != "")
-            //    {
-            //        float price = float.Parse(this.QF("txtPrice" + i));
-            //        int quantity = int.Parse(this.QF("txtQuantity" + i));
-
-            //        totalPrice = totalPrice + price * quantity;
-            //    }
-            //}
             order.fdOrdeGoodsPrice = float.Parse(this.QF("totalPrice"));
             order.fdOrdeDeliverPrice = float.Parse(this.QF("txtDeliverPrice"));
             order.fdOrdePayPrice = order.fdOrdeGoodsPrice + order.fdOrdeDeliverPrice;

@@ -12,7 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using AnyWeb.AW_DL;
 using Studio.Web;
 
-public partial class Admin_ColumnDel : ShopAdmin
+public partial class Admin_ColumnDel : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {
@@ -29,7 +29,7 @@ public partial class Admin_ColumnDel : ShopAdmin
         if (column.Children != null && column.Children.Count > 0)
             WebAgent.FailAndGo("该栏目下存在子栏目，不能删除！", backUrl);
 
-        if ((new AW_Article_dao()).funcGetNewsCount(column.fdColuID) > 0)
+        if ((new AW_Article_dao()).funcGetArticleCount(column.fdColuID) > 0)
             WebAgent.FailAndGo("该栏目下存在文章，不能删除！", backUrl);
 
         (new AW_Column_dao()).funcDelete(column.fdColuID);

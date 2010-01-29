@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
 
-namespace FortuneAge.AW_UC
+namespace AnyWeb.AW_UC
 {
     /// <summary>
     /// 用户控件基类，ItemTemplate模板用于定制输出布局和样式，类似Repeater

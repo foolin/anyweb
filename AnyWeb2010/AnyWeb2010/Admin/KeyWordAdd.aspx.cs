@@ -12,7 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using AnyWeb.AW_DL;
 using Studio.Web;
 
-public partial class Admin_KeyWordAdd : ShopAdmin
+public partial class Admin_KeyWordAdd : PageAdmin
 {
 
     protected override void OnPreRender(EventArgs e)

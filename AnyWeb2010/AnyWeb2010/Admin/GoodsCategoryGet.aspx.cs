@@ -13,7 +13,7 @@ using Studio.Web;
 using AnyWeb.AW_DL;
 using AnyWeb.AW;
 
-public partial class Admin_GoodsCategoryGet : ShopAdmin
+public partial class Admin_GoodsCategoryGet : PageAdmin
 {
     protected void Page_Load(object sender, EventArgs e)
     {

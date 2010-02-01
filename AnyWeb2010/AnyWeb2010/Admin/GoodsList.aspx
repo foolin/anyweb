@@ -178,7 +178,7 @@
                                 <input type="checkbox" name="ids" value="<%# Eval("fdGoodID")%>" /><%# Eval("fdGoodID")%>
                             </td>
                             <td align="left" class="dragTd" title="拖动排序">
-                                <%# Eval("fdGoodName")%>
+                                <a href="<%#Eval("PathStr") %>" target="_blank"><%# Eval("fdGoodName")%></a>
                                 <%# (int)Eval("fdGoodIsPromotion") == 1 ? "<img alt='促销商品' src='/public/images/promotion.gif' />" : ""%>
                                 <%# (int)Eval("fdGoodIsRecommend") == 1 ? "<img alt='推荐商品' src='/public/images/recommend.gif' />" : ""%>
                             </td>

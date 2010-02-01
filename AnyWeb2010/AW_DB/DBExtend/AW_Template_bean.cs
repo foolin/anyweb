@@ -20,9 +20,13 @@ namespace AnyWeb.AW_DL
                 switch (this._fdTempType)
                 {
                     case 1:
-                        return "内容模板";
+                        return "首页模版";
                     case 2:
+                        return "内容模板";
+                    case 3:
                         return "嵌套模板";
+                    case 4:
+                        return "扩展模版";
                     default:
                         return "首页模板";
                 }

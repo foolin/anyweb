@@ -13,32 +13,35 @@ namespace AnyWeb.AW_DL
 	public partial class AW_Category_dao
     {
         /// <summary>
-        /// 获取分类列表，支持三级分类，缓存
+        /// 获取分类列表，支持三级分类
         /// </summary>
         /// <returns></returns>
         public List<AW_Category_bean> funcGetCategories()
         {
-            List<AW_Category_bean> categories = (List<AW_Category_bean>)HttpRuntime.Cache["Categories"];
-            if (categories != null) return categories;
-
             DataSet ds = this.funcCommon();
-            categories = new List<AW_Category_bean>();
+            List<AW_Category_bean> categories = new List<AW_Category_bean>();
             foreach (DataRow row1 in ds.Tables[0].Select("fdCateParent=0","fdCateSort ASC"))
             {
                 AW_Category_bean category1 = new AW_Category_bean();
                 category1.funcFromDataRow(row1);
+                category1.IndexTemplate = new AW_Template_dao().funcGetTemplateInfo(category1.fdCateTempIndex);
+                category1.ContentTemplate = new AW_Template_dao().funcGetTemplateInfo(category1.fdCateTempContent);
                 category1.Children = new List<AW_Category_bean>();
                 foreach (DataRow row2 in ds.Tables[0].Select("fdCateParent=" + category1.fdCateID.ToString(), "fdCateSort ASC"))
                 {
                     AW_Category_bean category2 = new AW_Category_bean();
                     category2.funcFromDataRow(row2);
                     category2.Parent = category1;
+                    category2.IndexTemplate = new AW_Template_dao().funcGetTemplateInfo(category2.fdCateTempIndex);
+                    category2.ContentTemplate = new AW_Template_dao().funcGetTemplateInfo(category2.fdCateTempContent);
                     category2.Children = new List<AW_Category_bean>();
                     foreach (DataRow row3 in ds.Tables[0].Select("fdCateParent=" + category2.fdCateID.ToString(), "fdCateSort ASC"))
                     {
                         AW_Category_bean category3 = new AW_Category_bean();
                         category3.funcFromDataRow(row3);
                         category3.Parent = category2;
+                        category3.IndexTemplate = new AW_Template_dao().funcGetTemplateInfo(category3.fdCateTempIndex);
+                        category3.ContentTemplate = new AW_Template_dao().funcGetTemplateInfo(category3.fdCateTempContent);
                         category2.Children.Add(category3);
                     }
                     category1.Children.Add(category2);
@@ -46,8 +49,6 @@ namespace AnyWeb.AW_DL
                 categories.Add(category1);
             }
             ds.Dispose();
-
-            HttpRuntime.Cache.Insert("Categories", categories, null, DateTime.MaxValue, TimeSpan.FromMinutes(5));
             return categories;
         }
 
@@ -178,24 +179,34 @@ namespace AnyWeb.AW_DL
             return true;
         }
 
-
-
-        public override int funcInsert(Bean_Base aBean)
+        /// <summary>
+        /// 更新分类模版
+        /// </summary>
+        /// <param name="coluID"></param>
+        /// <param name="type"></param>
+        /// <param name="tempID"></param>
+        /// <param name="childUpdate"></param>
+        /// <returns></returns>
+        public int funcUpdateCateTemplate(int cateID, int type, int tempID, bool childUpdate)
         {
-            HttpRuntime.Cache.Remove("Categories");
-            return base.funcInsert(aBean);
-        }
-
-        public override int funcUpdate(Bean_Base aBean)
-        {
-            HttpRuntime.Cache.Remove("Categories");
-            return base.funcUpdate(aBean);
-        }
-
-        public override int funcDelete(int aID)
-        {
-            HttpRuntime.Cache.Remove("Categories");
-            return base.funcDelete(aID);
+            string cmdText = "";
+            if (type == 1)
+            {
+                cmdText = string.Format("UPDATE AW_Category SET fdCateTempIndex={0} WHERE fdCateID={1}", tempID, cateID);
+                if (childUpdate)
+                {
+                    cmdText += string.Format("UPDATE AW_Category SET fdCateTempIndex={0} WHERE fdCateParent IN (SELECT fdCateID FROM AW_Category WHERE fdCateParent={1}) OR fdCateID IN (SELECT fdCateID FROM AW_Category WHERE fdCateParent={1})", tempID, cateID);
+                }
+            }
+            else
+            {
+                cmdText = string.Format("UPDATE AW_Category SET fdCateTempContent={0} WHERE fdCateID={1}", tempID, cateID);
+                if (childUpdate)
+                {
+                    cmdText += string.Format("UPDATE AW_Category SET fdCateTempContent={0} WHERE fdCateParent IN (SELECT fdCateID FROM AW_Category WHERE fdCateParent={1}) OR fdCateID IN (SELECT fdCateID FROM AW_Category WHERE fdCateParent={1})", tempID, cateID);
+                }
+            }
+            return this.funcExecute(cmdText);
         }
 
 	}

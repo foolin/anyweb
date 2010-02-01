@@ -10,11 +10,11 @@
   <frame src="top.aspx" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
   <frameset cols="213,*" frameborder="no" border="0" framespacing="0">
     <frame src="left.aspx" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" />
-    <frame src="mainfra.html" name="mainFrame" id="mainFrame"/>
+    <frame src="mainfra.html" name="mainFrame" id="mainFrame"/>    
   </frameset>
 </frameset>
 <noframes>
-    <body>
+    <body>        
     </body>
 </noframes>
 </html>

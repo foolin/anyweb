@@ -24,9 +24,9 @@ namespace AnyWeb.AW_UC
         {
             get
             {
-                if (_pageID == 0 && Context.Request.QueryString["dpid"] != null)
+                if (_pageID == 0 && Context.Request.QueryString["cpid"] != null)
                 {
-                    int.TryParse(Context.Request.QueryString["dpid"], out _pageID);
+                    int.TryParse(Context.Request.QueryString["cpid"], out _pageID);
                 }
                 if (_pageID <= 0)
                 {
@@ -62,6 +62,7 @@ namespace AnyWeb.AW_UC
             {
                 return null;
             }
+            Context.Items.Add("ARTICLE", this.RecID);
             string[] Content = WebAgent.Split(article.fdArtiContent, "<!-- pagebreak -->");
             if (Content.Length > 1)
             {

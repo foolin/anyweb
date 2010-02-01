@@ -60,6 +60,15 @@ namespace AnyWeb.AW_DL
 			set{_fdTempContent = value;}
 		}
 
+        private string _fdTempPath;
+        /// <summary>
+        /// 访问路径
+        /// </summary>
+        public string fdTempPath
+        {
+            get { return _fdTempPath; }
+            set { _fdTempPath = value; }
+        }
 
 
 		/////////////////////////////////////////

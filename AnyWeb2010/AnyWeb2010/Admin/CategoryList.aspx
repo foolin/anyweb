@@ -25,6 +25,12 @@
                         <th>
                             导航
                         </th>
+                        <th>
+                            首页模版
+                        </th>
+                        <th>
+                            内容模版
+                        </th>
                         <th class="end">
                             操 作
                         </th>
@@ -37,11 +43,21 @@
                                 <%# Eval("fdCateID")%>
                             </td>
                             <td style="text-align: left; padding-left: 10px">
-                                <%# Eval("fdCateName")%>
+                                <a href="<%#Eval("PathStr") %>" target="_blank"><%# Eval("fdCateName")%></a>
                             </td>
                             <td>
                                 <span style="color: <%# Eval("Parent") != null || Eval("fdCateIsShow").ToString() == "0" ? "#eee" : ""%>">
                                     显示<span>
+                            </td>
+                            <td>
+                                <%#(int)Eval("fdCateTempIndex") == 0 ? "未设置" : "<a href=\"TemplateEdit.aspx?id="+Eval("IndexTemplate.fdTempID")+"\" title=\"修改模版\">"+Eval("IndexTemplate.fdTempName")+"</a>"%>
+                                <a href="TemplateColumn.aspx?ttype=1&type=2&id=<%#Eval("fdCateID") %>" title="设置模版">
+                                    <img src="../public/images/set.gif" alt="设置模版" /></a>
+                            </td>
+                            <td>
+                                <%#(int)Eval("fdCateTempContent") == 0 ? "未设置" : "<a href=\"TemplateEdit.aspx?id=" + Eval("ContentTemplate.fdTempID") + "\" title=\"修改模版\">" + Eval("ContentTemplate.fdTempName") + "</a>"%>
+                                <a href="TemplateColumn.aspx?ttype=2&type=2&id=<%#Eval("fdCateID") %>" title="设置模版">
+                                    <img src="../public/images/set.gif" alt="设置模版" /></a>
                             </td>
                             <td style="text-align: left; padding-left: 10px">
                                 <a href="categoryedit.aspx?id=<%# Eval("fdCateID")%>">修改</a> <a href="categorysort.aspx?type=up&id=<%# Eval("fdCateID")%>">
@@ -61,7 +77,17 @@
                                     </td>
                                     <td>
                                     </td>
-                                    <td style="text-align: left; padding-left: 30px;">
+                                    <td>
+                                        <%#(int)Eval("fdCateTempIndex") == 0 ? "未设置" : "<a href=\"TemplateEdit.aspx?id="+Eval("IndexTemplate.fdTempID")+"\" title=\"修改模版\">"+Eval("IndexTemplate.fdTempName")+"</a>"%>
+                                        <a href="TemplateColumn.aspx?ttype=1&type=2&id=<%#Eval("fdCateID") %>" title="设置模版">
+                                            <img src="../public/images/set.gif" alt="设置模版" /></a>
+                                    </td>
+                                    <td>
+                                        <%#(int)Eval("fdCateTempContent") == 0 ? "未设置" : "<a href=\"TemplateEdit.aspx?id=" + Eval("ContentTemplate.fdTempID") + "\" title=\"修改模版\">" + Eval("ContentTemplate.fdTempName") + "</a>"%>
+                                        <a href="TemplateColumn.aspx?ttype=2&type=2&id=<%#Eval("fdCateID") %>" title="设置模版">
+                                            <img src="../public/images/set.gif" alt="设置模版" /></a>
+                                    </td>
+                                    <td style="text-align: left; padding-left: 10px;">
                                         <a href="categoryedit.aspx?id=<%# Eval("fdCateID")%>">修改</a> <a href="categorysort.aspx?type=up&id=<%# Eval("fdCateID")%>">
                                             排前</a> <a href="categorysort.aspx?type=down&id=<%# Eval("fdCateID")%>">排后</a>
                                         <a href="categorydel.aspx?type=del&id=<%# Eval("fdCateID")%>" onclick="return confirm('您确定要删除吗?')">
@@ -74,12 +100,22 @@
                                             <td style="width: 50px;">
                                                 <%# Eval("fdCateID")%>
                                             </td>
-                                            <td style="text-align: left; padding-left: 30px;">
+                                            <td style="text-align: left; padding-left: 50px;">
                                                 <%# Eval("fdCateName")%>
                                             </td>
                                             <td>
                                             </td>
-                                            <td style="text-align: left; padding-left: 30px;">
+                                            <td>
+                                                <%#(int)Eval("fdCateTempIndex") == 0 ? "未设置" : "<a href=\"TemplateEdit.aspx?id="+Eval("IndexTemplate.fdTempID")+"\" title=\"修改模版\">"+Eval("IndexTemplate.fdTempName")+"</a>"%>
+                                                <a href="TemplateColumn.aspx?ttype=1&type=2&id=<%#Eval("fdCateID") %>" title="设置模版">
+                                                    <img src="../public/images/set.gif" alt="设置模版" /></a>
+                                            </td>
+                                            <td>
+                                                <%#(int)Eval("fdCateTempContent") == 0 ? "未设置" : "<a href=\"TemplateEdit.aspx?id=" + Eval("ContentTemplate.fdTempID") + "\" title=\"修改模版\">" + Eval("ContentTemplate.fdTempName") + "</a>"%>
+                                                <a href="TemplateColumn.aspx?ttype=2&type=2&id=<%#Eval("fdCateID") %>" title="设置模版">
+                                                    <img src="../public/images/set.gif" alt="设置模版" /></a>
+                                            </td>
+                                            <td style="text-align: left; padding-left: 10px;">
                                                 <a href="categoryedit.aspx?id=<%# Eval("fdCateID")%>">修改</a> <a href="categorysort.aspx?type=up&id=<%# Eval("fdCateID")%>">
                                                     排前</a> <a href="categorysort.aspx?type=down&id=<%# Eval("fdCateID")%>">排后</a>
                                                 <a href="categorydel.aspx?type=del&id=<%# Eval("fdCateID")%>" onclick="return confirm('您确定要删除吗?')">

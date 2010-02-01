@@ -38,8 +38,45 @@ namespace AnyWeb.AW_DL
             else
                 return this;
         }
-	
-	
-	
+
+        private AW_Template_bean _indexTemplate;
+        /// <summary>
+        /// 首页模版
+        /// </summary>
+        public AW_Template_bean IndexTemplate
+        {
+            get { return _indexTemplate; }
+            set { _indexTemplate = value; }
+        }
+
+        private AW_Template_bean _contentTemplate;
+        /// <summary>
+        /// 内容模版
+        /// </summary>
+        public AW_Template_bean ContentTemplate
+        {
+            get { return _contentTemplate; }
+            set { _contentTemplate = value; }
+        }
+
+        private string _pathStr;
+        /// <summary>
+        /// 访问路径
+        /// </summary>
+        public string pathStr
+        {
+            get
+            {
+                if (HttpContext.Current.Request.ApplicationPath == "/")
+                {
+                    return string.Format("/p/{0}.aspx", fdCateID);
+                }
+                else
+                {
+                    return string.Format("/{0}/p/{1}.aspx", HttpContext.Current.Request.ApplicationPath, fdCateID);
+                }
+            }
+            set { _pathStr = value; }
+        }
 	}
 }

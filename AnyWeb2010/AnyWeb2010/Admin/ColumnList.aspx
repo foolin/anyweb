@@ -22,6 +22,12 @@
                         <th>
                             首页显示
                         </th>
+                        <th>
+                            首页模版
+                        </th>
+                        <th>
+                            内容模版
+                        </th>
                         <th class="end">
                             操 作
                         </th>
@@ -31,10 +37,18 @@
                     <ItemTemplate>
                         <tr align="center" class="editalt">
                             <td title="<%#Eval("fdColuDescription") %>" style="text-align: left; padding-left: 20px;">
-                                <%#Eval("fdColuName")%>
+                                <a href="<%#Eval("PathStr") %>" target="_blank"><%#Eval("fdColuName")%></a>
                             </td>
                             <td>
                                 <%# (int)Eval("fdColuShowIndex")==0?"<span style='color:red'>否</span>":"是" %>
+                            </td>
+                            <td>
+                                <%#(int)Eval("fdColuTempIndex") == 0 ? "未设置" : "<a href=\"TemplateEdit.aspx?id="+Eval("IndexTemplate.fdTempID")+"\" title=\"修改模版\">"+Eval("IndexTemplate.fdTempName")+"</a>"%>
+                                <a href="TemplateColumn.aspx?ttype=1&type=1&id=<%#Eval("fdColuID") %>" title="设置模版"><img src="../public/images/set.gif" alt="设置模版" /></a>
+                            </td>
+                            <td>
+                                <%#(int)Eval("fdColuTempContent") == 0 ? "未设置" : "<a href=\"TemplateEdit.aspx?id=" + Eval("ContentTemplate.fdTempID") + "\" title=\"修改模版\">" + Eval("ContentTemplate.fdTempName") + "</a>"%>
+                                <a href="TemplateColumn.aspx?ttype=2&type=1&id=<%#Eval("fdColuID") %>" title="设置模版"><img src="../public/images/set.gif" alt="设置模版" /></a>
                             </td>
                             <td>
                                 <a href="ColumnEdit.aspx?id=<%# Eval("fdColuID")%>">修改</a> <a href="ColumnSort.aspx?type=up&id=<%# Eval("fdColuID")%>">
@@ -51,6 +65,14 @@
                                     </td>
                                     <td>
                                         <%# (int)Eval("fdColuShowIndex")==0?"<span style='color:red'>否</span>":"是" %>
+                                    </td>
+                                    <td>
+                                        <%#(int)Eval("fdColuTempIndex") == 0 ? "未设置" : "<a href=\"TemplateEdit.aspx?id="+Eval("IndexTemplate.fdTempID")+"\" title=\"修改模版\">"+Eval("IndexTemplate.fdTempName")+"</a>"%>
+                                        <a href="TemplateColumn.aspx?ttype=1&type=1&id=<%#Eval("fdColuID") %>" title="设置模版"><img src="../public/images/set.gif" alt="设置模版" /></a>
+                                    </td>
+                                    <td>
+                                        <%#(int)Eval("fdColuTempContent") == 0 ? "未设置" : "<a href=\"TemplateEdit.aspx?id=" + Eval("ContentTemplate.fdTempID") + "\" title=\"修改模版\">" + Eval("ContentTemplate.fdTempName") + "</a>"%>
+                                        <a href="TemplateColumn.aspx?ttype=2&type=1&id=<%#Eval("fdColuID") %>" title="设置模版"><img src="../public/images/set.gif" alt="设置模版" /></a>
                                     </td>
                                     <td>
                                         <a href="ColumnEdit.aspx?id=<%# Eval("fdColuID")%>">修改</a> <a href="ColumnSort.aspx?type=up&id=<%# Eval("fdColuID")%>">
@@ -72,5 +94,5 @@
         <ul class="Help">
             <li>栏目最多可支持二级栏目</li>
         </ul>
-    </div>
+    </div>  
 </asp:Content>

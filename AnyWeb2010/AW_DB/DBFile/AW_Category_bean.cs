@@ -101,6 +101,26 @@ namespace AnyWeb.AW_DL
 			set{_fdCateGoods = value;}
 		}
 
+        private int _fdCateTempIndex = 0;
+        /// <summary>
+        /// 首页模版
+        /// </summary>
+        public int fdCateTempIndex
+        {
+            get { return _fdCateTempIndex; }
+            set { _fdCateTempIndex = value; }
+        }
+
+        private int _fdCateTempContent;
+        /// <summary>
+        /// 内容模版
+        /// </summary>
+        public int fdCateTempContent
+        {
+            get { return _fdCateTempContent; }
+            set { _fdCateTempContent = value; }
+        }
+
 
 
 		/////////////////////////////////////////

@@ -49,6 +49,7 @@
     <Compile Include="ControlBase.cs" />
     <Compile Include="ItemControlBase.cs" />
     <Compile Include="ListControlBase.cs" />
+    <Compile Include="CPager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScriptControlBase.cs" />
     <Compile Include="TemplateItem.cs" />

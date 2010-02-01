@@ -10,9 +10,9 @@ using Studio.IO;
 
 public partial class Admin_TemplateAdd : PageAdmin
 {
-    protected void Page_Load(object sender, EventArgs e)
+    protected override void OnPreRender(EventArgs e)
     {
-
+        drpType.Attributes.Add("onchange", "changetype(this.value)");
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
@@ -22,12 +22,17 @@ public partial class Admin_TemplateAdd : PageAdmin
         bean.fdTempName = txtName.Text.Trim();
         bean.fdTempType = int.Parse(drpType.SelectedValue);      
         bean.fdTempContent = txtContent.Text;
+        bean.fdTempPath = txtPath.Text.Trim();
         bean.fdTempCreateAt = DateTime.Now;
 
         AW_Template_dao dao = new AW_Template_dao();
         if (dao.funcCheckIsExists(bean.fdTempName, 0))
         {
             WebAgent.AlertAndBack("文件名称已被占用");
+        }
+        if (drpType.SelectedValue == "4" && dao.funcCheckPathIsExists(bean.fdTempPath, 0))
+        {
+            WebAgent.AlertAndBack("访问路径已被占用");
         }
 
         if (dao.funcInsert(bean) > 0)

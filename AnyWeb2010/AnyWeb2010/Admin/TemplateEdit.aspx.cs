@@ -24,6 +24,8 @@ public partial class Admin_TemplateEdit : PageAdmin
         txtName.Text = bean.fdTempName;
         drpType.SelectedValue = bean.fdTempType.ToString();
         txtContent.Text = bean.fdTempContent;
+        //txtPath.Text = bean.fdTempPath;
+        drpType.Attributes.Add("onchange", "changetype(this.value)");
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
@@ -34,11 +36,17 @@ public partial class Admin_TemplateEdit : PageAdmin
         bean.fdTempName = txtName.Text.Trim();
         bean.fdTempType = int.Parse(drpType.SelectedValue);
         bean.fdTempContent = txtContent.Text;
+        bean.fdTempPath = txtPath.Text.Trim();
 
         AW_Template_dao dao = new AW_Template_dao();
         if (dao.funcCheckIsExists(bean.fdTempName, bean.fdTempID))
         {
             WebAgent.AlertAndBack("模板名称已被占用");
+        }
+        
+        if (drpType.SelectedValue == "4" && dao.funcCheckPathIsExists(bean.fdTempPath, 0))//扩展模版
+        {
+            WebAgent.AlertAndBack("访问路径已被占用");
         }
 
         if (dao.funcUpdate(bean) > 0)
@@ -57,7 +65,7 @@ public partial class Admin_TemplateEdit : PageAdmin
                     File.Delete(templateFile);
                 }
             }
-            WebAgent.SuccAndGo("修改模版成功", "TemplateList.aspx");
+            WebAgent.SuccAndGo("修改模版成功", RefUrl);
         }
     }
 }

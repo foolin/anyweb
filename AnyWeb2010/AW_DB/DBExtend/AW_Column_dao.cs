@@ -56,7 +56,7 @@ namespace AnyWeb.AW_DL
         }
 
         /// <summary>
-        /// 获取所有栏目(缓存)
+        /// 获取所有栏目
         /// </summary>
         /// <returns></returns>
         public List<AW_Column_bean> funcGetColumns()
@@ -67,38 +67,21 @@ namespace AnyWeb.AW_DL
             {
                 AW_Column_bean bean1 = new AW_Column_bean();
                 bean1.funcFromDataRow(row1);
+                bean1.IndexTemplate = new AW_Template_dao().funcGetTemplateInfo(bean1.fdColuTempIndex);
+                bean1.ContentTemplate = new AW_Template_dao().funcGetTemplateInfo(bean1.fdColuTempContent);
                 bean1.Children = new List<AW_Column_bean>();
                 foreach (DataRow row2 in ds.Tables[0].Select("fdColuParentID=" + bean1.fdColuID.ToString(), "fdColuSort ASC"))
                 {
                     AW_Column_bean bean2 = new AW_Column_bean();
                     bean2.funcFromDataRow(row2);
                     bean2.Parent = bean1;
+                    bean2.IndexTemplate = new AW_Template_dao().funcGetTemplateInfo(bean2.fdColuTempIndex);
+                    bean2.ContentTemplate = new AW_Template_dao().funcGetTemplateInfo(bean2.fdColuTempContent);
                     bean1.Children.Add(bean2);
                 }
                 list.Add(bean1);
             }
             return list;
-        }
-
-        public override int funcInsert(Bean_Base aBean)
-        {
-            int count = base.funcInsert(aBean);
-            HttpRuntime.Cache.Remove("NEWS_COLUMNS");
-            return count;
-        }
-
-        public override int funcDelete(int id)
-        {
-            int count = base.funcDelete(id);
-            HttpRuntime.Cache.Remove("NEWS_COLUMNS");
-            return count;
-        }
-
-        public override int funcUpdate(Bean_Base aBean)
-        {
-            int count = base.funcUpdate(aBean);
-            HttpRuntime.Cache.Remove("NEWS_COLUMNS");
-            return count;
         }
 
         /// <summary>
@@ -152,6 +135,36 @@ namespace AnyWeb.AW_DL
             funcUpdate(bean);
             funcUpdate(beanDown);
             return true;
+        }
+
+        /// <summary>
+        /// 更新栏目模版
+        /// </summary>
+        /// <param name="coluID"></param>
+        /// <param name="type"></param>
+        /// <param name="tempID"></param>
+        /// <param name="childUpdate"></param>
+        /// <returns></returns>
+        public int funcUpdateColumnTemplate(int coluID, int type, int tempID, bool childUpdate)
+        {
+            string cmdText = "";
+            if (type == 1)
+            {
+                cmdText = string.Format("UPDATE AW_Column SET fdColuTempIndex={0} WHERE fdColuID={1}", tempID, coluID);
+                if (childUpdate)
+                {
+                    cmdText += string.Format(" UPDATE AW_Column SET fdColuTempIndex={0} WHERE fdColuParentID={1}", tempID, coluID);
+                }
+            }
+            else
+            {
+                cmdText = string.Format("UPDATE AW_Column SET fdColuTempContent={0} WHERE fdColuID={1}", tempID, coluID);
+                if (childUpdate)
+                {
+                    cmdText += string.Format(" UPDATE AW_Column SET fdColuTempContent={0} WHERE fdColuParentID={1}", tempID, coluID);
+                }
+            }
+            return this.funcExecute(cmdText);
         }
     }
 }

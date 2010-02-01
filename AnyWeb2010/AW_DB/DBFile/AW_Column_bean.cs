@@ -76,6 +76,26 @@ namespace AnyWeb.AW_DL
             set { _fdColuShowIndex = value; }
         }
 
+        private int _fdColuTempIndex = 0;
+        /// <summary>
+        /// 首页模版
+        /// </summary>
+        public int fdColuTempIndex
+        {
+            get { return _fdColuTempIndex; }
+            set { _fdColuTempIndex = value; }
+        }
+
+        private int _fdColuTempContent;
+        /// <summary>
+        /// 内容模版
+        /// </summary>
+        public int fdColuTempContent
+        {
+            get { return _fdColuTempContent; }
+            set { _fdColuTempContent = value; }
+        }
+
 
 
         /////////////////////////////////////////

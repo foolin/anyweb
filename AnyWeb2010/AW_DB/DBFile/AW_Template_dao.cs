@@ -14,7 +14,7 @@ namespace AnyWeb.AW_DL
         {
             this._propTable = "AW_Template";
             this._propPK = "fdTempID";
-            this._propFields = "fdTempID,fdTempName,fdTempType,fdTempCreateAt,fdTempContent";
+            this._propFields = "fdTempID,fdTempName,fdTempType,fdTempCreateAt,fdTempContent,fdTempPath";
         }
 
         public List<AW_Template_bean> funcGetList()

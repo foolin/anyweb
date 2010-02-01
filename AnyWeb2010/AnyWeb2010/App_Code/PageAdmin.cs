@@ -24,15 +24,13 @@ public class PageAdmin : Page
         Response.Expires = 0;
         Response.CacheControl = "no-cache";
         Response.AppendHeader("Pragma", "No-Cache");
-    }
 
-    void PageAdmin_Load(object sender, EventArgs e)
-    {
         if (!this.IsPostBack && Request.UrlReferrer != null)
         {
             ViewState["REFURL"] = Request.UrlReferrer.PathAndQuery;
         }
     }
+
     protected string RefUrl
     {
         get

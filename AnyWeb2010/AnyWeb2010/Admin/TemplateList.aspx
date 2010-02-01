@@ -15,8 +15,10 @@
             模版类型：<asp:DropDownList ID="drpType" onchange="window.location='TemplateList.aspx?type='+this.value"
                 runat="server">
                 <asp:ListItem Value="0">所有模版</asp:ListItem>
-                <asp:ListItem Value="1">内容模版</asp:ListItem>
-                <asp:ListItem Value="2">嵌套模版</asp:ListItem>
+                <asp:ListItem Value="1">首页模版</asp:ListItem>
+                <asp:ListItem Value="2">内容模版</asp:ListItem>
+                <asp:ListItem Value="3">嵌套模版</asp:ListItem>
+                <asp:ListItem Value="4">扩展模版</asp:ListItem>
             </asp:DropDownList>
         </div>
         <div class="mbd">
@@ -44,7 +46,7 @@
                                 <%#Eval("fdTempName")%>
                             </td>
                             <td>
-                                <%#Eval("fdTempTypeStr") %>
+                                <%#Eval("fdTempTypeStr") %><%#(int)Eval("fdTempType") == 4 ? "【" + Eval("fdTempPath") + "】" : ""%>
                             </td>
                             <td>
                                 <%#Eval("fdTempCreateAt","{0:yyyy-MM-dd HH:mm}")%>

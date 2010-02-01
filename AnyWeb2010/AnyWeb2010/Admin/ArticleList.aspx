@@ -37,7 +37,7 @@
                     <ItemTemplate>
                         <tr align="center" class="editalt">
                             <td style="text-align: left;">
-                                <%#Eval("fdArtiTitle")%>
+                                <a href="<%#Eval("PathStr") %>" target="_blank"><%#Eval("fdArtiTitle")%></a>
                             </td>
                             <td>
                                 <%#Eval("Column.fdColuName")%><%#(int)Eval("Column.fdColuShowIndex") == 0 ? "<span style='color:red'>(不在首页显示)</span>" : ""%>

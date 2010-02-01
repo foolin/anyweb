@@ -93,5 +93,22 @@ namespace AnyWeb.AW_DL
         {
             HttpRuntime.Cache.Remove("MAPPING");
         }
+
+        /// <summary>
+        /// 通过路径获取映射
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        public AW_Mapping_bean funcGetMapping(string url)
+        {
+            foreach (AW_Mapping_bean bean in this.funcGetMappingList())
+            {
+                if (bean.fdMappPath.ToLower() == url)
+                {
+                    return bean;
+                }
+            }
+            return null;
+        }
 	}
 }

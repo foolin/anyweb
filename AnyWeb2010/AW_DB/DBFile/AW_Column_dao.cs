@@ -11,7 +11,7 @@ namespace AnyWeb.AW_DL
         {
             this._propTable = "AW_Column";
             this._propPK = "fdColuID";
-            this._propFields = "fdColuID,fdColuName,fdColuSort,fdColuDescription,fdColuPicture,fdColuShowIndex,fdColuParentID";
+            this._propFields = "fdColuID,fdColuName,fdColuSort,fdColuDescription,fdColuPicture,fdColuShowIndex,fdColuParentID,fdColuTempIndex,fdColuTempContent";
         }
 
         public List<AW_Column_bean> funcGetList()

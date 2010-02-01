@@ -40,6 +40,25 @@ namespace AnyWeb.AW_DL
             get { return _brand; }
             set { _brand = value; }
         }
-	
+
+        private string _pathStr;
+        /// <summary>
+        /// 访问路径
+        /// </summary>
+        public string PathStr
+        {
+            get
+            {
+                if (HttpContext.Current.Request.ApplicationPath == "/")
+                {
+                    return string.Format("/p/{0}/{1}.aspx", fdGoodCategoryID, fdGoodID);
+                }
+                else
+                {
+                    return string.Format("/{0}/p/{1}/{2}.aspx", HttpContext.Current.Request.ApplicationPath, fdGoodCategoryID, fdGoodID);
+                }
+            }
+            set { _pathStr = value; }
+        }
 	}
 }

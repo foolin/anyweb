@@ -15,7 +15,7 @@ namespace AnyWeb.AW_DL
         {
             this._propTable = "AW_Category";
             this._propPK = "fdCateID";
-            this._propFields = "fdCateID,fdCateName,fdCateCreateAt,fdCatePath,fdCateParent,fdCateIsShow,fdCateSort,fdCateIDPath,fdCateGoods";
+            this._propFields = "fdCateID,fdCateName,fdCateCreateAt,fdCatePath,fdCateParent,fdCateIsShow,fdCateSort,fdCateIDPath,fdCateGoods,fdCateTempIndex,fdCateTempContent";
         }
 
         public List<AW_Category_bean> funcGetList()

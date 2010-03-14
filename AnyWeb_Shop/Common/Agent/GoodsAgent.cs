@@ -320,6 +320,8 @@ namespace Common.Agent
                 gs.Clicks = (int)dr["Clicks"];
                 gs.CreateAt = (DateTime)dr["CreateAt"];
                 gs.IsRecommend = (bool)dr["IsRecommend"];
+                gs.IsPromotions = (bool)dr["IsPromotions"];
+                gs.PromotionsPrice = (double)dr["PromotionsPrice"];
                 gs.OfCategory = (Category)ShopInfo.Categorys.GetById((int)dr["CategoryID"]);
                 list.Add(gs);
             }

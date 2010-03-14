@@ -106,9 +106,10 @@ table.goods-list input{
                                         <td>
                         	                <ul>
                             	                <li><a href="Good.aspx?gid=<%#Eval("ID") %>"><%#Eval("GoodsName")%></a></li>
-                                                <li>市场价格：<s>￥ <%#Eval("MarketPrice")%>元</s></li>
-                                                <li>基团网价格：<%#(bool)Eval("IsRecommend") ? "<s>￥ " + Eval("Price").ToString() + "元</s>" : "￥ " + Eval("Price").ToString() + "元"%></li>
-                                                <%#(bool)Eval("IsRecommend") ? "<li>促销价格：￥ " + Eval("PromotionsPrice").ToString() + "元</li>" : ""%>
+                            	                <%# (double)Eval("MarketPrice") == 0 ? "" : "<li>市场价格：<s>￥" + Eval("MarketPrice") + "元</s></li>"%>
+                                                <%# 
+                                                    (bool)Eval("IsPromotions") ? ((double)Eval("Price") == 0 ? "<li>促销价格：￥" + Eval("PromotionsPrice") + "元</li>" : "<li>基团网价格：<s>￥" + Eval("Price") + "元</s></li>" + "<li>促销价格：￥" + Eval("PromotionsPrice") + "元</li>") : ((double)Eval("Price") == 0 ? "" : "<li>基团网价格：￥" + Eval("Price") + "元</li>")
+                                                %>
                                                 <li>存货：<%#GetGoodCount((int)Eval("Status"))%></li>
                                             </ul>
                                         </td>

@@ -56,6 +56,9 @@ public partial class GoodsEdit :AdminBase
 
             DropDownList type = (DropDownList)fv1.FindControl("drpType");
             DropDownList status = (DropDownList)fv1.FindControl("drpStatus");
+            TextBox txtMarkPrice = (TextBox)fv1.FindControl("txtMarkPrice");
+            TextBox txtPrice = (TextBox)fv1.FindControl("txtPrice");
+            TextBox txtProPrice = (TextBox)fv1.FindControl("txtProPrice");
 
             if (type.Items.Count <= 0)
             {
@@ -69,14 +72,29 @@ public partial class GoodsEdit :AdminBase
                 status.SelectedValue = gs.Status.ToString();
             }
 
+            if (gs != null)
+            {
+                if (gs.MarketPrice != 0)
+                {
+                    txtMarkPrice.Text = gs.MarketPrice.ToString();
+                }
+                if (gs.PromotionsPrice != 0)
+                {
+                    txtProPrice.Text = gs.PromotionsPrice.ToString();
+                }
+                if (gs.Price != 0)
+                {
+                    txtPrice.Text = gs.Price.ToString();
+                }
+            }
+
             if (QS("mode") == "insert")
             {
 
                 CheckBox chkComm = (CheckBox)fv1.FindControl("chkComm");
 
                 TextBox txtdata = (TextBox)fv1.FindControl("txtData");
-                TextBox txtdataend = (TextBox)fv1.FindControl("txtDataEnd");
-
+                TextBox txtdataend = (TextBox)fv1.FindControl("txtDataEnd");              
 
                 if (chkComm != null)
                 {
@@ -87,7 +105,7 @@ public partial class GoodsEdit :AdminBase
                     txtdata.Text = DateTime.Now.ToString("yyyy-MM-dd");
 
                 if (txtdataend != null)
-                    txtdataend.Text = DateTime.Now.AddDays(30).ToString("yyyy-MM-dd");
+                    txtdataend.Text = DateTime.Now.AddDays(30).ToString("yyyy-MM-dd");                
             }
         }
     }
@@ -96,6 +114,9 @@ public partial class GoodsEdit :AdminBase
     {
         FileUpload img = (FileUpload)fv1.FindControl( "txtImage" );
         DropDownList drptype = (DropDownList)fv1.FindControl( "drpType" );
+        TextBox txtMarkPrice = (TextBox)fv1.FindControl("txtMarkPrice");
+        TextBox txtPrice = (TextBox)fv1.FindControl("txtPrice");
+        TextBox txtProPrice = (TextBox)fv1.FindControl("txtProPrice");
 
         Goods gs = (Goods)e.InputParameters[0];
 
@@ -108,6 +129,28 @@ public partial class GoodsEdit :AdminBase
         {
             gs.Image = this.GetProductImg( img );
         }
+
+        bool hasPrice = false;
+
+        if (txtMarkPrice != null && !string.IsNullOrEmpty(txtMarkPrice.Text))
+        {
+            gs.MarketPrice = double.Parse(txtMarkPrice.Text);
+            hasPrice = true;
+        }
+
+        if (txtPrice != null && !string.IsNullOrEmpty(txtPrice.Text))
+        {
+            gs.Price = double.Parse(txtPrice.Text);
+            hasPrice = true;
+        }
+
+        if (txtProPrice != null && !string.IsNullOrEmpty(txtProPrice.Text))
+        {
+            gs.PromotionsPrice = double.Parse(txtProPrice.Text);
+            hasPrice = true;
+        }
+        if (!hasPrice)
+            WebAgent.AlertAndBack("市场价、商城优惠价和促销价不能同时为空！");
         gs.StartTime = DateTime.Now;
         gs.EndTime = DateTime.MaxValue;
     }
@@ -161,6 +204,9 @@ public partial class GoodsEdit :AdminBase
         FileUpload img = (FileUpload)fv1.FindControl( "txtImage" );
         DropDownList drptype = (DropDownList)fv1.FindControl( "drpType" );
         DropDownList status = (DropDownList)fv1.FindControl( "drpStatus" );
+        TextBox txtMarkPrice = (TextBox)fv1.FindControl("txtMarkPrice");
+        TextBox txtPrice = (TextBox)fv1.FindControl("txtPrice");
+        TextBox txtProPrice = (TextBox)fv1.FindControl("txtProPrice");
 
         Goods gs = (Goods)e.InputParameters[0];
         TextBox txtScore = (TextBox)fv1.FindControl( "txtScore" );
@@ -186,7 +232,27 @@ public partial class GoodsEdit :AdminBase
                 gs.Image = imgurl;
             }
         }
- 
+
+        bool hasPrice = false;
+        if (txtMarkPrice != null && !string.IsNullOrEmpty(txtMarkPrice.Text))
+        {
+            gs.MarketPrice = double.Parse(txtMarkPrice.Text);
+            hasPrice = true;
+        }
+
+        if (txtPrice != null && !string.IsNullOrEmpty(txtPrice.Text))
+        {
+            gs.Price = double.Parse(txtPrice.Text);
+            hasPrice = true;
+        }
+
+        if (txtProPrice != null && !string.IsNullOrEmpty(txtProPrice.Text))
+        {
+            gs.PromotionsPrice = double.Parse(txtProPrice.Text);
+            hasPrice = true;
+        }
+        if (!hasPrice)
+            WebAgent.AlertAndBack("市场价、商城优惠价和促销价不能同时为空！");
     }
 
     public string CheckStatus(int status , DateTime outDate)

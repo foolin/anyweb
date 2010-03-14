@@ -161,7 +161,7 @@
                                 </th>
                                 <td>
                                     <asp:TextBox ID="txtFactory" runat="server" Text='<%#Bind("Factory")%>' CssClass="input"
-                                        errmsg="请输入生产产商" MaxLength="50" require="1" Width="200px"></asp:TextBox>
+                                        MaxLength="50"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -179,9 +179,9 @@
                                     市场价格：
                                 </th>
                                 <td>
-                                    <asp:TextBox ID="txtMarkPrice" runat="server" Text='<%#Bind("MarketPrice")%>' CssClass="input"
-                                        errmsg="请输入正确的市场价格" MaxLength="10" require="1" Width="100px" datatype="double"></asp:TextBox>RMB
-                                    *该商品在市场上的流通价格，给顾客的参考价
+                                    <asp:TextBox ID="txtMarkPrice" runat="server" CssClass="input"
+                                        MaxLength="10" Width="100px"></asp:TextBox>RMB
+                                    该商品在市场上的流通价格，给顾客的参考价
                                 </td>
                             </tr>
                             <tr>
@@ -189,9 +189,9 @@
                                     商城优惠价：
                                 </th>
                                 <td>
-                                    <asp:TextBox ID="txtPrice" runat="server" Text='<%#Bind("Price")%>' CssClass="input"
-                                        errmsg="请输入正确的商城优惠价" MaxLength="10" require="1" Width="100px" datatype="double"></asp:TextBox>RMB
-                                    *该商品在本商城的价格
+                                    <asp:TextBox ID="txtPrice" runat="server" CssClass="input"
+                                        MaxLength="10" Width="100px"></asp:TextBox>RMB
+                                    该商品在本商城的价格
                                 </td>
                             </tr>
                             <tr>
@@ -202,7 +202,7 @@
                                     <asp:CheckBox ID="chkPromotions" runat="server" Checked='<%#Bind("IsPromotions") %>'
                                         onclick="Promotions()" />促销
                                     <label id="lblPromotions" style="display: none;">
-                                        价格：<asp:TextBox ID="txtProPrice" runat="server" Width="60" Text='<%#Bind("PromotionsPrice") %>'></asp:TextBox>元</label>
+                                        价格：<asp:TextBox ID="txtProPrice" runat="server" Width="60"></asp:TextBox>元</label>
                                 </td>
                             </tr>
                             <tr class="name">
@@ -319,7 +319,7 @@
                                 </th>
                                 <td>
                                     <asp:TextBox ID="txtFactory" runat="server" Text='<%#Bind("Factory")%>' CssClass="input"
-                                        errmsg="请输入生产产商" MaxLength="50" require="1" Width="200px"></asp:TextBox>
+                                        MaxLength="50" Width="200px"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -336,9 +336,9 @@
                                     市场价格：
                                 </th>
                                 <td>
-                                    <asp:TextBox ID="txtMarkPrice" runat="server" Text='<%#Bind("MarketPrice")%>' CssClass="input"
-                                        errmsg="请输入正确的市场价格" MaxLength="10" require="1" Width="100px" datatype="double"></asp:TextBox>RMB
-                                    *该商品在市场上的流通价格，给顾客的参考价
+                                    <asp:TextBox ID="txtMarkPrice" runat="server" CssClass="input"
+                                        MaxLength="10" Width="100px"></asp:TextBox>RMB
+                                    该商品在市场上的流通价格，给顾客的参考价
                                 </td>
                             </tr>
                             <tr>
@@ -346,9 +346,9 @@
                                     商城优惠价：
                                 </th>
                                 <td>
-                                    <asp:TextBox ID="txtPrice" runat="server" Text='<%#Bind("Price")%>' CssClass="input"
-                                        errmsg="请输入正确的商城优惠价" MaxLength="10" require="1" Width="100px" datatype="double"></asp:TextBox>RMB
-                                    *该商品在本商城的价格
+                                    <asp:TextBox ID="txtPrice" runat="server" CssClass="input"
+                                        MaxLength="10" Width="100px"></asp:TextBox>RMB
+                                    该商品在本商城的价格
                                 </td>
                             </tr>
                             <tr>

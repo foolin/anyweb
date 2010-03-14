@@ -38,8 +38,16 @@ public partial class Controls_PromotionIndex : ControlBase
             Repeater replist = (Repeater)e.Item.FindControl("repList");
             if (replist != null && c.PromotionList.Count > 1)
             {
-                replist.DataSource = c.PromotionList.GetRange(1, c.PromotionList.Count - 1);
-                replist.DataBind();
+                if (c.PromotionList.Count < 4)
+                {
+                    replist.DataSource = c.PromotionList.GetRange(1, c.PromotionList.Count - 1);
+                    replist.DataBind();
+                }
+                else
+                {
+                    replist.DataSource = c.PromotionList.GetRange(1, 3);
+                    replist.DataBind();
+                }
             }
         }
     }

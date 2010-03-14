@@ -13,11 +13,10 @@
                                 border="0" alt="<%#Eval("GoodsName")%>" /></a></dd>
                     <dd>
                         <a href="Good.aspx?gid=<%#Eval("ID") %>"><%#Eval("GoodsName")%></a></dd>
-                    <dd>
-                        <s>市场价：￥<%#Eval("MarketPrice")%>元</s></dd>
-                    <dd>
-                        商城优惠价：￥<%#Eval("PromotionsPrice")%>元
-                    </dd>
+                    <%#(double)Eval("MarketPrice") == 0 ? "" : "<dd>市场价：<s>￥" + Eval("MarketPrice") + "元</s></dd>"%>
+                    <%# 
+                        (bool)Eval("IsPromotions") ? ((double)Eval("Price") == 0 ? "<dd>促销价格：￥" + Eval("PromotionsPrice") + "元</dd>" : "<dd>商城优惠价：<s>￥" + Eval("Price") + "元</s></dd>" + "<dd>促销价格：￥" + Eval("PromotionsPrice") + "元</dd>") : ((double)Eval("Price") == 0 ? "" : "<dd>商城优惠价：￥" + Eval("Price") + "元</dd>")
+                    %>
                 </dl>
             </div>
             <!-- goods end -->

@@ -13,14 +13,13 @@
                                 border="0" alt="<%#Eval("GoodsName")%>" /></a></dd>
                     <dd>
                         <a href="Good.aspx?gid=<%#Eval("ID") %>"><%#Eval("GoodsName")%></a></dd>
-                    <%#(double)Eval("MarketPrice") == 0 ? "" : "<dd>市场价：<s>￥" + Eval("MarketPrice") + "元</s></dd>"%>
-                    <%#(double)Eval("Price") == 0 ? "" : "<dd>基团网价格：<s>￥" + Eval("Price") + "元</s></dd>"%>
+                    <%#(double)Eval("MarketPrice") == 0 ? "<dd>&nbsp;</dd>" : "<dd>市场价：<s>￥" + Eval("MarketPrice") + "元</s></dd>"%>
+                    <%#(double)Eval("Price") == 0 ? "<dd>&nbsp;</dd>" : "<dd>基团网价格：<s>￥" + Eval("Price") + "元</s></dd>"%>
                     <dd>
                         促销价：￥<%#Eval("PromotionsPrice")%>元
                     </dd>
                 </dl>
             </div>
-            <!-- goods end -->
         </ItemTemplate>
     </asp:Repeater>
     <div class="clear">

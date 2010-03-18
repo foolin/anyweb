@@ -48,6 +48,8 @@
         <xMenuItem url="/Admin/GoodsEdit.aspx" name="编辑商品"  description="编辑商品" visible="false" ></xMenuItem>
         <xMenuItem url="/Admin/GoodsImage.aspx" name="商品相关图片" description="商品相关图片" type="0" ></xMenuItem>
       </xMenuItem>
+      <xMenuItem url="/Admin/HotSellRankList.aspx" name="畅销商品管理"  description="畅销商品管理" type="0" >
+        </xMenuItem>
       </xMenuItem>
     </xMenuItem>
 

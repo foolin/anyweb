@@ -169,6 +169,7 @@
                 <div class="iSubmit">
                     <asp:Button ID="btnRec" runat="server" Text="批量推荐"  CssClass="submit" 
                         onclick="btnRec_Click" />
+                    <asp:Button ID="btnHotSellRank" runat="server" Text="添加畅销产品" CssClass="submit" OnClick="btnHotSellRank_Click" />    
                     <asp:Button ID="btnCancelRec" runat="server" Text="取消推荐"  CssClass="submit" 
                         onclick="btnCancelRec_Click" />
                     <asp:Button ID="btnCancelPro" runat="server" Text="取消促销" CssClass="submit" OnClick="btnPro_Click" />

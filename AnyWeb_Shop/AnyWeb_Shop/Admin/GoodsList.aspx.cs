@@ -178,4 +178,15 @@ public partial class GoodsList :AdminBase
             WebAgent.FailAndGo("请在要取消促销的商品项前打勾。", "GoodsList.aspx");
         }
     }
+    protected void btnHotSellRank_Click(object sender, EventArgs e)
+    {
+        if (Request.Form["ids"] + "" != "")
+        {
+            Response.Redirect("HotSellRankAdd.aspx?ids=" + Request.Form["ids"].ToString());
+        }
+        else
+        {
+            WebAgent.FailAndGo("请在要设置为畅销商品项前打勾。", "GoodsList.aspx");
+        }
+    }
 }

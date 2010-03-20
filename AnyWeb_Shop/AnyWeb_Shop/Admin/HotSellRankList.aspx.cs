@@ -9,10 +9,16 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 
-public partial class Admin_HotSellRankList : System.Web.UI.Page
+using Admin.Framework;
+using Studio.Web;
+using Common.Common;
+using Common.Agent;
+
+public partial class Admin_HotSellRankList : AdminBase
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        btnDel.Attributes["onclick"] = "javascript:return confirm('确定删除,是否继续？');";
 
     }
 
@@ -38,4 +44,21 @@ public partial class Admin_HotSellRankList : System.Web.UI.Page
         return s;
     }
 
+    protected void btnDel_Click(object sender, EventArgs e)
+    {
+        if (Request.Form["ids"] + "" != "")
+        {
+            using (HotSellRankAgent hsr = new HotSellRankAgent())
+            {
+                hsr.DeleteGoods(Request.Form["ids"]);
+                this.AddLog(EventID.Delete, "批量删除畅销产品", "批量删除产品，编号:" + Request.Form["ids"]);
+
+                WebAgent.SuccAndGo("删除成功。", "HotSellRankList.aspx");
+            }
+        }
+        else
+        {
+            WebAgent.FailAndGo("请在要删除的项前打勾。", "HotSellRankList.aspx");
+        }
+    }
 }

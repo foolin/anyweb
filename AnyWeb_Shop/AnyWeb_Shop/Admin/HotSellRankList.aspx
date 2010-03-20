@@ -1,19 +1,38 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="HotSellRankList.aspx.cs" Inherits="Admin_HotSellRankList" Title="无标题页" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="HotSellRankList.aspx.cs" Inherits="Admin_HotSellRankList" Title="畅销商品管理" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cph1" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
+
  <li> 添加畅销商品请到商品列表进行操作</li>  
+ 
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cph2" Runat="Server">
-    <div class="mod mEdit">
+<asp:Content ID="Content2" ContentPlaceHolderID="cph1" Runat="Server">
+
+    <script type="text/javascript">
+        function SelectAll(v) {
+            var e_all = document.all.tags('INPUT');
+            for (var i = 0; i < e_all.length; i++) {
+                if (e_all[i].tagName == "INPUT") {
+                    if ((e_all[i].type) && (e_all[i].name)) {
+                        if ((e_all[i].type == "checkbox") && (e_all[i].name != "boxAll")) {
+                            e_all[i].checked = v;
+                        }
+                    }
+                }
+            }
+        }	
+    </script>
+
+ <div class="mod mEdit">
         <div class="mhd">
             <div class="inner">
                 <h2>
-                    畅销商品<span class="listadd"><a href="GoodsList.aspx">添加畅销商品</a></span></h2>
+                    畅销商品管理</h2>
             </div>
         </div>
         <div class="mbd">
             <div class="inner">
                 <form id="form1" runat="server">
+                    
                 <table class="iList iArticle" id="tbGoods">
                     <thead>
                         <tr>
@@ -48,10 +67,10 @@
                             <ItemTemplate>
                                 <tr>
                                     <td>
-                                        <input type="checkbox" name="ids" value='<%#Eval("ID")%>' title="点击选择" />
+                                        <input type="checkbox" name="ids" value='<%#Eval("HotSellID")%>' title="点击选择" />
                                     </td>
                                     <td style="width: 140px; line-height: 23px;">
-                                        <a href='/Good.aspx?gid=<%#Eval( "HotSellID" )%>' target="_blank">
+                                        <a href='/Good.aspx?gid=<%#Eval( "GoodsID" )%>' target="_blank">
                                             <%#Eval( "OfGoods.GoodsName" )%>
                                         </a>
                                     </td>
@@ -81,19 +100,24 @@
                         </asp:Repeater>
                     </tbody>
                 </table>
-                <div class="iSubmit">               
+                <div class="iSubmit">
+                    <asp:Button ID="btnDel" runat="server" Text="批量删除" CssClass="submit" OnClick="btnDel_Click" />                    
                 </div>
                 </form>
+                <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetHotSellRankList" TypeName="Common.Agent.HotSellRankAgent">
+                    <SelectParameters>
+                        <asp:Parameter Direction="Output" Name="recordCount" Type="Int32" />
+                    </SelectParameters>
+                </asp:ObjectDataSource>
             </div>
         </div>
         <div class="mft">
         </div>
     </div>
 
-    <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetHotSellRankList" TypeName="Common.Agent.HotSellRankAgent">
-        <SelectParameters>
-            <asp:Parameter Direction="Output" Name="recordCount" Type="Int32" />
-        </SelectParameters>
-    </asp:ObjectDataSource>
+
+
+
+
 </asp:Content>
 

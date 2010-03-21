@@ -1,10 +1,14 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="HotSellRankAdd.aspx.cs" Inherits="Admin_HotSellRankAdd" Title="无标题页" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="HotSellRankAdd.aspx.cs" Inherits="Admin_HotSellRankAdd" Title="删除畅销商品" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
-<li> 添加畅销商品请到商品列表进行操作</li>  
+
+<li> <asp:Label ID="lblTips2" Font-Size="14px" ForeColor="Red" runat="server" Text=""></asp:Label></li>  
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" Runat="Server">
 
+                <form id="form1" runat="server">
+                    
    <script type="text/javascript">
         function SelectAll(v) {
             var e_all = document.all.tags('INPUT');
@@ -24,14 +28,17 @@
         <div class="mhd">
             <div class="inner">
                 <h2>
-                    畅销商品管理</h2>
+                    删除并添加新畅销商品 
+                    
+                </h2>
             </div>
         </div>
         <div class="mbd">
             <div class="inner">
-                <form id="form1" runat="server">
-                    
                 <table class="iList iArticle" id="tbGoods">
+                    <caption>
+                        <asp:Label ID="lblTips" Font-Size="14px" ForeColor="Red" runat="server" Text=""></asp:Label>
+                    </caption>
                     <thead>
                         <tr>
                             <th class="fst">
@@ -83,7 +90,6 @@
                                         <%#Eval("OfGoods.MarketPrice", "{0:c}")%>
                                     </td>
                                     <td>
-                                    <td>
                                         <%# CheckStatus((int)Eval("OfGoods.Status"))%>
                                     </td>
                                     <td>
@@ -99,11 +105,10 @@
                     </tbody>
                 </table>
                 <div class="iSubmit">
-                    <asp:TextBox ID="txbAddIds" runat="server" Text=""></asp:TextBox>
-                    <asp:Button ID="btnDel" runat="server" Text="批量删除" CssClass="submit" OnClick="btnDel_Click" />
-                    <asp:Button ID="btnCancel" runat="server" Text="重新选择" CssClass="submit" OnClick="btnCancel_Click" />                       
+                    <asp:TextBox ID="txbAddIds" runat="server" Text="" Visible="False"></asp:TextBox>
+                    <asp:Button ID="btnDel" runat="server" Text="删除并继续操作" CssClass="submit" OnClick="btnDel_Click" />
+                    <asp:Button ID="btnCancel" runat="server" Text="返回重新选择" CssClass="submit" OnClick="btnCancel_Click" />                       
                 </div>
-                </form>
                 <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetHotSellRankList" TypeName="Common.Agent.HotSellRankAgent">
                     <SelectParameters>
                         <asp:Parameter Direction="Output" Name="recordCount" Type="Int32" />
@@ -115,6 +120,9 @@
         </div>
     </div>
 
+
+                </form>
+                
 
 </asp:Content>
 

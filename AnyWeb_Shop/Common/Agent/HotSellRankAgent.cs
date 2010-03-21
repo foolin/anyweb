@@ -7,6 +7,7 @@ using Studio.Data;
 using System.Data;
 using Common.Common;
 using System.Web;
+using Studio.Web;
 
 namespace Common.Agent
 {
@@ -61,6 +62,43 @@ namespace Common.Agent
         }
 
         /// <summary>
+        /// 添加畅销商品
+        /// </summary>
+        /// <param name="goodsId"></param>
+        /// <returns></returns>
+        public int AddGoods(int goodsId)
+        {
+            int result = 0;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                result = db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_HotSellRankAdd",
+                                    this.NewParam("@GoodsId", goodsId),
+                                    this.NewParam("@Sort", 0));
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 添加畅销商品
+        /// </summary>
+        /// <param name="goodsId"></param>
+        /// <param name="sort"></param>
+        /// <returns></returns>
+        public int AddGoods(int goodsId, int sort)
+        {
+            int result = 0;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                result = db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_HotSellRankAdd",
+                                    this.NewParam("@GoodsId", goodsId),
+                                    this.NewParam("@Sort", sort));
+            }
+            return result;
+        }
+
+
+        /*
+        /// <summary>
         /// 添加商品
         /// </summary>
         /// <param name="addIds"></param>
@@ -69,21 +107,42 @@ namespace Common.Agent
         {
             string[] arrIds = addIds.Split(",".ToCharArray());  //按逗号将数据分割成一个数组
             int result = 0;
+            WebAgent.Alert("AddIds:" + addIds);
+            WebAgent.Alert("AddIds:" + arrIds.Length.ToString());
             for (int i = 0; i < arrIds.Length; i++)
             {
                 using (IDbExecutor db = this.NewExecutor())
                 {
-                    db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_HotSellRankAdd",
-                                        this.NewParam("@GoodsId", (int)addIds[i]),
-                                        this.NewParam("@Sort", 0));
-                    result++;
+                    if(db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_HotSellRankAdd",
+                                        this.NewParam("@GoodsId", addIds[i]),
+                                        this.NewParam("@Sort", 0))>0
+                        )
+                        result++;
                 }
             }
             return result;
 
         }
+        */
 
- 
+
+        /// <summary>
+        /// 更新记录
+        /// </summary>
+        /// <param name="goodsId"></param>
+        /// <param name="sort"></param>
+        /// <returns></returns>
+        public int UpdateGoods(int goodsId, int sort)
+        {
+            int result = 0;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                result = db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_HotSellRankUpdate",
+                                    this.NewParam("@GoodsId", goodsId),
+                                    this.NewParam("@Sort", sort));
+            }
+            return result;
+        }
 
 
         /// <summary>

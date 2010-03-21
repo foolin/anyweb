@@ -34,6 +34,9 @@
                 <form id="form1" runat="server">
                     
                 <table class="iList iArticle" id="tbGoods">
+                    <caption>
+                        <asp:Label ID="lblTips" Font-Size="14px" ForeColor="Red" runat="server" Text=""></asp:Label>
+                    </caption>
                     <thead>
                         <tr>
                             <th class="fst">
@@ -84,7 +87,6 @@
                                     <td>
                                         <%#Eval("OfGoods.MarketPrice", "{0:c}")%>
                                     </td>
-                                    <td>
                                     <td>
                                         <%# CheckStatus((int)Eval("OfGoods.Status"))%>
                                     </td>

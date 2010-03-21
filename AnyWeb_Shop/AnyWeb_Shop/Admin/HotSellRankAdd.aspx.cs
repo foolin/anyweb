@@ -30,15 +30,18 @@ public partial class Admin_HotSellRankAdd : AdminBase
             if (count + arrIds.Length > 20)
             {
                 //WebAgent.Alert("畅销商品数目已经超过20条，你必须删除" + (count + arrIds.Length - 20).ToString() + "条商品");
+                lblTips.Text = "畅销商品数目已经超过<font color='blue'>20</font>条，你必须删除<font color='blue'>" + (count + arrIds.Length - 20).ToString() + "</font>条商品,才能继续添加！";
+                lblTips2.Text = "新添加畅销商品数目为<font color='blue'>" + arrIds.Length.ToString() + "</font>条，已有畅销商品数目<font color='blue'>" + count.ToString() + "</font>条，已经超过<font color='blue'>20</font>条，你必须删除<font color='blue'>" + (count + arrIds.Length - 20).ToString() + "</font>条商品,才能继续添加！";
                 txbAddIds.Text = reqIds.ToString(); //保存传入增加为商品的ID
-                //WebAgent.ConfirmGo("畅销商品数目已经超过20条，你必须删除" + (count + arrIds.Length - 20).ToString() + "条商品，是否删除？", "HotSellRankAdd.aspx?mode=delete", "GoodsList.aspx");
+              
 
             }
             else
             {
                 using (HotSellRankAgent hsr = new HotSellRankAgent())
                 {
-                    hsr.AddGoods(reqIds);
+                    for (int i = 0; i < arrIds.Length; i++ )
+                        hsr.AddGoods(int.Parse(arrIds[i]));
                     this.AddLog(EventID.Insert, "添加畅销产品", "批量添加畅销产品，编号:" + reqIds);
                     WebAgent.SuccAndGo("添加畅销产品" + reqIds + "成功。", "HotSellRankList.aspx");
                 }
@@ -48,6 +51,8 @@ public partial class Admin_HotSellRankAdd : AdminBase
         {
             WebAgent.AlertAndBack("你未选择任何ID");
         }
+
+        btnDel.Attributes["onclick"] = "javascript:return confirm('确定删除,是否继续？');";
 
     }
 
@@ -77,11 +82,21 @@ public partial class Admin_HotSellRankAdd : AdminBase
     {
         if (Request.Form["ids"] + "" != "")
         {
+            string[] arrIds = txbAddIds.Text.ToString().Split(",".ToCharArray());  //按逗号将数据分割成一个数组
+            //判断是否选中够三条信息
+            int hasCount = new HotSellRankAgent().GetGoodsCount();  //存在记录数
+            int mustDelCount = arrIds.Length + hasCount - 20;              //必须删除记录数
+            int selDelCount = Request.Form["ids"].ToString().Split(",".ToCharArray()).Length;  //选中删除记录数
+            if (selDelCount < mustDelCount)
+            {
+                WebAgent.AlertAndBack("你选中删除的数目" + selDelCount.ToString() + "条，必须删除" + mustDelCount.ToString() + "条！");
+            }
             using (HotSellRankAgent hsr = new HotSellRankAgent())
             {
                 hsr.DeleteGoods(Request.Form["ids"]);
                 this.AddLog(EventID.Delete, "批量删除畅销产品", "批量删除产品，编号:" + Request.Form["ids"]);
-                hsr.AddGoods(txbAddIds.Text.ToString());
+                for (int i = 0; i < arrIds.Length; i++)
+                    hsr.AddGoods(int.Parse(arrIds[i]));
                 this.AddLog(EventID.Insert, "添加畅销产品", "批量添加产品，编号:" + txbAddIds.Text.ToString());
                 WebAgent.SuccAndGo("删除畅销产品[" + Request.Form["ids"] + "]，并添加畅销产品[" + txbAddIds.Text.ToString() + "]成功。", "HotSellRankList.aspx");
             }

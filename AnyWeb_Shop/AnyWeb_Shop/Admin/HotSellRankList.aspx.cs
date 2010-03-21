@@ -19,7 +19,9 @@ public partial class Admin_HotSellRankList : AdminBase
     protected void Page_Load(object sender, EventArgs e)
     {
         btnDel.Attributes["onclick"] = "javascript:return confirm('确定删除,是否继续？');";
-
+        int count = 0;
+        count = new HotSellRankAgent().GetGoodsCount();
+        lblTips.Text = "一共有" + count.ToString() + "条记录";
     }
 
     public string CheckStatus(int status)

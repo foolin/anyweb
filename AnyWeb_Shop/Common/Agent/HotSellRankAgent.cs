@@ -97,7 +97,7 @@ namespace Common.Agent
         }
 
 
-        /*
+        /**
         /// <summary>
         /// 添加商品
         /// </summary>

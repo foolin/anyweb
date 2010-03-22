@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="HotSellRankAdd.aspx.cs" Inherits="Admin_HotSellRankAdd" Title="删除畅销商品" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="HotSellRankAdd.aspx.cs" Inherits="Admin_HotSellRankAdd" Title="添加畅销商品" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
 
@@ -28,7 +28,7 @@
         <div class="mhd">
             <div class="inner">
                 <h2>
-                    删除并添加新畅销商品 
+                    替换并添加新畅销商品 
                     
                 </h2>
             </div>
@@ -59,9 +59,6 @@
                             <th>
                                 状态
                             </th>
-                            <th>
-                                排序
-                            </th>
                             <th class="end">
                                 操作
                             </th>
@@ -72,7 +69,7 @@
                             <ItemTemplate>
                                 <tr>
                                     <td>
-                                        <input type="checkbox" name="ids" value='<%#Eval("HotSellID")%>' title="点击选择" />
+                                        <input type="checkbox" name="ids" value='<%#Eval("GoodsID")%>' title="点击选择" />
                                     </td>
                                     <td style="width: 140px; line-height: 23px;">
                                         <a href='/Good.aspx?gid=<%#Eval( "GoodsID" )%>' target="_blank">
@@ -93,11 +90,7 @@
                                         <%# CheckStatus((int)Eval("OfGoods.Status"))%>
                                     </td>
                                     <td>
-                                        <%#Eval("Sort") %>
-                                    </td>
-                                    <td>
-                                        <a href="GoodsEdit.aspx?mode=update&gid=<%#Eval("HotSellID")%>">修改</a>
-                                        <a href="GoodsEdit.aspx?mode=select&gid=<%#Eval("GoodsID")%>">查看详情</a>
+                                        <a href="GoodsEdit.aspx?mode=select&gid=<%#Eval("GoodsID")%>" target="_blank">查看详情</a>
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -106,8 +99,8 @@
                 </table>
                 <div class="iSubmit">
                     <asp:TextBox ID="txbAddIds" runat="server" Text="" Visible="False"></asp:TextBox>
-                    <asp:Button ID="btnDel" runat="server" Text="删除并继续操作" CssClass="submit" OnClick="btnDel_Click" />
-                    <asp:Button ID="btnCancel" runat="server" Text="返回重新选择" CssClass="submit" OnClick="btnCancel_Click" />                       
+                    <asp:Button ID="btnDel" runat="server" Text="替换并继续操作" CssClass="submit" OnClick="btnDel_Click" />
+                    <input type="button" class="submit" value="返回重新选择" onclick="history.go(-1);" />            
                 </div>
                 <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetHotSellRankList" TypeName="Common.Agent.HotSellRankAgent">
                     <SelectParameters>

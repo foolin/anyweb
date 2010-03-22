@@ -35,7 +35,7 @@
                     
                 <table class="iList iArticle" id="tbGoods">
                     <caption>
-                        <asp:Label ID="lblTips" Font-Size="14px" ForeColor="Red" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblTips" Font-Size="12px" runat="server" Text=""></asp:Label>
                     </caption>
                     <thead>
                         <tr>
@@ -94,7 +94,8 @@
                                         <%#Eval("Sort") %>
                                     </td>
                                     <td>
-                                        <a href="GoodsEdit.aspx?mode=update&gid=<%#Eval("HotSellID")%>">修改</a>
+                                        <a href="HotSellRankSort.aspx?type=up&id=<%#Eval("GoodsID")%>">排前</a>
+                                        <a href="HotSellRankSort.aspx?type=down&id=<%#Eval("GoodsID")%>">排后</a>
                                         <a href="GoodsEdit.aspx?mode=select&gid=<%#Eval("GoodsID")%>">查看详情</a>
                                     </td>
                                 </tr>

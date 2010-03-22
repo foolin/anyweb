@@ -7,11 +7,14 @@
 <%@ Register Src="~/Controls/PromotionListIndex.ascx"TagName="PromotionList" TagPrefix="promot" %>
 <%@ Register Src="~/Controls/LinkIndex.ascx"TagName="Link" TagPrefix="link" %>
 
+<%@ Register src="Controls/HotSellRankList.ascx" tagname="HotSellRankList" tagprefix="uc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" runat="Server">
     <link href="/public/index.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/public/slidetrans.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="Server">
+    <form id="form1" runat="server">
     <div class="main">
         <div class="col-left">
             <!-- 栏目 -->
@@ -81,6 +84,19 @@
           </div>
           <!-- box end -->
           
+            <div class="box">
+            <div class="title">
+                畅销商品排行</div>
+                <div class="topic-box">
+                    <uc1:HotSellRankList ID="HotSellRankList1" runat="server" />
+&nbsp;<div style="height: 10px;">
+                        <!-- 分割 -->
+                    </div>
+                </div>
+            <!-- topic-box end -->
+          </div>
+          <!-- box end -->
+          
             <div style="margin:5px 0 0 5px;">
             <!-- 栏目 -->
             <div class="category">
@@ -100,4 +116,5 @@
     <script type="text/javascript">
         SetTitleCss(1);
     </script>
+    </form>
 </asp:Content>

@@ -42,6 +42,44 @@ namespace Common.Agent
                 hsr.OfGoods.Image = (string)dr["Image"];
                 hsr.OfGoods.Price = (double)dr["Price"];
                 hsr.OfGoods.MarketPrice = (double)dr["MarketPrice"];
+                hsr.OfGoods.Description = (string)dr["Description"];
+                hsr.OfGoods.Status = (int)dr["Status"];
+                list.Add(hsr);
+            }
+
+            return list;
+        }
+
+        /// <summary>
+        /// 获取商品列表
+        /// </summary>
+        /// <returns></returns>
+        public ArrayList GetHotSellRankList()
+        {
+            int recordCount = 0;
+            DataSet ds = new DataSet();
+
+            IDbDataParameter record = this.NewParam("@RecordCount", 0, DbType.Int32, 8, true);
+
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetHotSellRankList", record);
+            }
+            recordCount = (int)record.Value;
+
+            ArrayList list = new ArrayList();
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                HotSellRank hsr = new HotSellRank();
+                hsr.HotSellID = (int)dr["HotSellID"];
+                hsr.GoodsID = (int)dr["GoodsID"];
+                hsr.Sort = (short)dr["Sort"];
+                hsr.OfGoods = new Goods();
+                hsr.OfGoods.GoodsName = (string)dr["GoodsName"];
+                hsr.OfGoods.Image = (string)dr["Image"];
+                hsr.OfGoods.Price = (double)dr["Price"];
+                hsr.OfGoods.MarketPrice = (double)dr["MarketPrice"];
+                hsr.OfGoods.Description = (string)dr["Description"];
                 hsr.OfGoods.Status = (int)dr["Status"];
                 list.Add(hsr);
             }

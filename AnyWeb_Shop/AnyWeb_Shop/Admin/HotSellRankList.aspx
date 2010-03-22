@@ -23,15 +23,16 @@
     </script>
 
  <div class="mod mEdit">
+               <form id="form1" runat="server">
         <div class="mhd">
             <div class="inner">
                 <h2>
-                    畅销商品管理</h2>
+                    畅销商品管理 <span class="listadd"><asp:LinkButton ID="btnClearCache" OnClick="btnClearCache_Click" runat="server">刷新缓存</asp:LinkButton></span></h2> 
             </div>
         </div>
         <div class="mbd">
             <div class="inner">
-                <form id="form1" runat="server">
+
                     
                 <table class="iList iArticle" id="tbGoods">
                     <caption>
@@ -105,9 +106,9 @@
                 </table>
                 <div class="iSubmit">
                     <asp:Button ID="btnDel" runat="server" Text="批量删除" CssClass="submit" OnClick="btnDel_Click" />
-                    <asp:Button ID="btnClearCache" runat="server" Text="刷新缓存" CssClass="submit" OnClick="btnClearCache_Click" />                  
+                        
                 </div>
-                </form>
+
                 <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetHotSellRankList" TypeName="Common.Agent.HotSellRankAgent">
                     <SelectParameters>
                         <asp:Parameter Direction="Output" Name="recordCount" Type="Int32" />
@@ -120,7 +121,7 @@
     </div>
 
 
-
+                </form>
 
 
 </asp:Content>

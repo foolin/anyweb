@@ -72,4 +72,5 @@ public partial class Admin_HotSellRankList : AdminBase
         }
         WebAgent.AlertAndBack("更新缓存成功！");
     }
+
 }

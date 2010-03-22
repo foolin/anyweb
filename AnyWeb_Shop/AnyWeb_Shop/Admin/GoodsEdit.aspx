@@ -121,8 +121,8 @@
                                     查看该商品评论</button></span>
                             <asp:Button ID="btnDelete" runat="server" Text="删除该商品" CommandName="Delete" CssClass="submit">
                             </asp:Button>
-                            <button id="btnBack" onclick="window.location='GoodsList.aspx';" type="button">
-                                返回商品列表</button>
+                            <button id="btnBack" onclick="history.go(-1);" type="button">
+                                返回</button>
                         </div>
                     </ItemTemplate>
                     <EditItemTemplate>

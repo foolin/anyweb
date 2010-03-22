@@ -63,4 +63,13 @@ public partial class Admin_HotSellRankList : AdminBase
             WebAgent.FailAndGo("请在要删除的项前打勾。", "HotSellRankList.aspx");
         }
     }
+    protected void btnClearCache_Click(object sender, EventArgs e)
+    {
+        if (Cache["HotSellRankListShow"] != null && Cache["HotSellRankListTime"] != null)
+        {
+            HttpRuntime.Cache.Remove("HotSellRankListShow");
+            HttpRuntime.Cache.Remove("HotSellRankListTime");
+        }
+        WebAgent.AlertAndBack("更新缓存成功！");
+    }
 }

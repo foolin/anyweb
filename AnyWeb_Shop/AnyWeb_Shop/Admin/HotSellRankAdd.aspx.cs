@@ -43,7 +43,7 @@ public partial class Admin_HotSellRankAdd : AdminBase
                     if (hsr.AddGoods(reqIds, "") > 0)
                     {
                         this.AddLog(EventID.Insert, "添加畅销产品", "批量添加畅销产品，编号:" + reqIds);
-                        WebAgent.SuccAndGo("添加畅销产品" + reqIds + "成功。", "HotSellRankList.aspx");
+                        WebAgent.SuccAndGo("添加畅销产品成功。", "HotSellRankList.aspx");
                     }
                     else
                     {
@@ -106,7 +106,7 @@ public partial class Admin_HotSellRankAdd : AdminBase
                 {
                     this.AddLog(EventID.Delete, "批量删除畅销产品", "批量删除产品，编号:" + delIds);
                     this.AddLog(EventID.Insert, "添加畅销产品", "批量添加畅销产品，编号:" + addIds);
-                    WebAgent.SuccAndGo("替换畅销产品[" + delIds + "]，并添加畅销产品[" + addIds + "]成功。", "HotSellRankList.aspx");
+                    WebAgent.SuccAndGo("添加畅销产品成功。", "HotSellRankList.aspx");
                 }
                 else
                 {

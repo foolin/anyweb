@@ -90,7 +90,7 @@
                                         <%# CheckStatus((int)Eval("OfGoods.Status"))%>
                                     </td>
                                     <td>
-                                        <a href="GoodsEdit.aspx?mode=select&gid=<%#Eval("GoodsID")%>" target="_blank">查看详情</a>
+                                        <a href="GoodsEdit.aspx?mode=select&gid=<%#Eval("GoodsID")%>">查看详情</a>
                                     </td>
                                 </tr>
                             </ItemTemplate>

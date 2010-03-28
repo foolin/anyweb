@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Common.Agent;
 using Common.Common;
+using System.Collections;
 
 public partial class Controls_PromotionIndex : ControlBase
 {
@@ -15,7 +16,12 @@ public partial class Controls_PromotionIndex : ControlBase
 
     protected override void OnPreRender(EventArgs e)
     {
-        repRecomment.DataSource = new GoodsAgent().GetPromotGoodsByIndex();
+        ArrayList list = new GoodsAgent().GetPromotGoodsByIndex();
+        if (list.Count > 12)
+        {
+            list = list.GetRange(0, 11);
+        }
+        repRecomment.DataSource = list;
         repRecomment.DataBind();
     }
 
@@ -38,14 +44,14 @@ public partial class Controls_PromotionIndex : ControlBase
             Repeater replist = (Repeater)e.Item.FindControl("repList");
             if (replist != null && c.PromotionList.Count > 1)
             {
-                if (c.PromotionList.Count < 4)
+                if (c.PromotionList.Count < 3)
                 {
                     replist.DataSource = c.PromotionList.GetRange(1, c.PromotionList.Count - 1);
                     replist.DataBind();
                 }
                 else
                 {
-                    replist.DataSource = c.PromotionList.GetRange(1, 3);
+                    replist.DataSource = c.PromotionList.GetRange(1, 2);
                     replist.DataBind();
                 }
             }

@@ -1,21 +1,25 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="CategoryLeft.ascx.cs"
     Inherits="Controls_CategoryLeft" %>
-<div class="category">
+<div class="box">
     <div class="title">
-        商品分类</div>
-    <div class="content">
+        <div class="txt">
+            商品分类</div>
+        <div class="ico">
+            <img src="Images/box1_title_rbg.gif" width="66" height="33" /></div>
+    </div>
+    <div class="contentB">
         <asp:Repeater ID="repCate" runat="server" OnItemDataBound="repCategory_ItemDataBound">
             <ItemTemplate>
-                <h3>
-                    <a href="Category.aspx?cid=<%#Eval("ID") %>"><%#Eval("Name")%></a></h3>
-                <div class="line">
+                <h4>
+                    <a href="Category.aspx?cid=<%#Eval("ID") %>">
+                        <%#Eval("Name")%></a></h4>
+                <div class="link">
                     <asp:Repeater ID="repChiled" runat="server">
                         <ItemTemplate>
-                            <span><a href="Category.aspx?cid=<%#Eval("ID") %>"><%#Eval("Name")%></a></span>
+                            <a href="Category.aspx?cid=<%#Eval("ID") %>">
+                                <%#Eval("Name")%></a>
                         </ItemTemplate>
                     </asp:Repeater>
-                    <div class="clear">
-                    </div>
                 </div>
             </ItemTemplate>
         </asp:Repeater>

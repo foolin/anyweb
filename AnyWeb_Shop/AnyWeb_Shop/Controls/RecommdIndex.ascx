@@ -1,39 +1,45 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="RecommdIndex.ascx.cs"
     Inherits="Controls_RecommdIndex" %>
-<div class="title">
-    <span class="floatLeft">热荐商品</span>
-    <span style="float:right; font-size:12px; padding-right:10px;"><a href="Recomment.aspx">更多>></a></span>
-</div>
-<asp:Repeater ID="repRecomment" runat="server" OnItemDataBound="repCategory_ItemDataBound">
-    <ItemTemplate>
-        <asp:Repeater ID="repGood" runat="server">
+<div class="box2">
+    <div class="title">
+        <div class="txt">
+            热荐商品</div>
+        <div class="more">
+            <a href="Recomment.aspx">更多>></a></div>
+    </div>
+    <div class="content">
+        <div class="clear">
+        </div>
+        <asp:Repeater ID="repRecomment" runat="server" OnItemDataBound="repCategory_ItemDataBound">
             <ItemTemplate>
-                <div class="goods">
-                    <!-- Index Item -->
-                    <div class="index-item">
-                        <div class="pic">
-                            <a href="Good.aspx?gid=<%#Eval("ID") %>">
-                                <img width="125" height="95" src="<%#(string)Eval( "image" )=="" ? "../images/wait.jpg":(string)Eval( "image" ) %>"
-                                    border="0" alt="<%#Eval("GoodsName")%>" /></a>
-                        </div>
-                        <div class="name">
-                            <a href="Good.aspx?gid=<%#Eval("ID") %>">
-                                <%#Studio.Web.WebAgent.GetLeft((string)Eval("GoodsName"),12)%></a>
-                        </div>
-                    </div>
+                <div class="indexGoods">
+                    <asp:Repeater ID="repGood" runat="server">
+                        <ItemTemplate>
+                            <div class="indexItem">
+                                <div class="pic">
+                                    <a href="#test">
+                                        <img src="<%#(string)Eval( "image" )=="" ? "../images/wait.jpg":(string)Eval( "image" ) %>"
+                                            border="0" alt="<%#Eval("GoodsName")%>" /></a>
+                                </div>
+                                <div class="name">
+                                    <a href="Good.aspx?gid=<%#Eval("ID") %>">
+                                        <%#Studio.Web.WebAgent.GetLeft((string)Eval("GoodsName"),8)%></a>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <ul class="items">
+                        <asp:Repeater ID="repList" runat="server">
+                            <ItemTemplate>
+                                <li><a href="Good.aspx?gid=<%#Eval("ID") %>">
+                                    <%#Studio.Web.WebAgent.GetLeft((string)Eval("GoodsName"),8)%></a></li>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </ul>
+                </div>
             </ItemTemplate>
         </asp:Repeater>
-        <ul class="items">
-            <asp:Repeater ID="repList" runat="server">
-                <ItemTemplate>
-                    <li><a href="Good.aspx?gid=<%#Eval("ID") %>" title="<%#Eval("GoodsName")%>">
-                        <%#Studio.Web.WebAgent.GetLeft((string)Eval("GoodsName"),10)%></a></li>
-                </ItemTemplate>
-            </asp:Repeater>
-        </ul>
+        <div class="clear">
         </div>
-    </ItemTemplate>
-</asp:Repeater>
-<!-- goods end-->
-<div class="clear">
+    </div>
 </div>

@@ -24,9 +24,7 @@ public partial class Controls_HotSellRankList : System.Web.UI.UserControl
         ArrayList listStor = new ArrayList();
         ArrayList listShow = new ArrayList();
 
-        //HttpRuntime.Cache.Remove("HotSellRankListShow");测试用
-        if (Cache["HotSellRankListShow"] != null && Cache["HotSellRankListTime"] != null 
-            && IsIn2Hours((DateTime)Cache["HotSellRankListTime"]))
+        if (Cache["HotSellRankListShow"] != null && Cache["HotSellRankListTime"] != null)
         {
             listShow = (ArrayList)Cache["HotSellRankListShow"];
         }
@@ -40,8 +38,7 @@ public partial class Controls_HotSellRankList : System.Web.UI.UserControl
                 listShow.Add(listStor[index]);
                 listStor.Remove(listStor[index]);
             }
-            HttpRuntime.Cache.Insert("HotSellRankListShow", listShow, null, DateTime.MaxValue, TimeSpan.FromMinutes(120)); //存储数据
-            HttpRuntime.Cache.Insert("HotSellRankListTime", DateTime.Now, null, DateTime.MaxValue, TimeSpan.FromMinutes(120));   //存储时间
+            HttpRuntime.Cache.Insert("HotSellRankListShow", listShow, null, DateTime.Now.AddHours(2), TimeSpan.Zero);
         }
 
         repList.DataSource = listShow;

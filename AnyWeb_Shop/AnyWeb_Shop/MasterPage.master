@@ -1,14 +1,15 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
-<%@ Register Src="~/Controls/Help.ascx" TagName="Help" TagPrefix="help" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>基团网</title>
     <asp:ContentPlaceHolder ID="cphTitle" runat="server">
     </asp:ContentPlaceHolder>
-    <link href="/public/common.css" rel="stylesheet" type="text/css" />
+    <link href="/public/index.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="/public/slidetrans.js"></script>
 
     <script type="text/javascript">
         //判断浏览器是否为IE
@@ -37,83 +38,78 @@
 
 </head>
 <body>
-<div class="page-body">
-    <div class="wrapper">
-        <div class="header">
-            <div class="top">
-                <div class="logo">
-                    <a href="">
-                        <img src="images/logo.gif" width="200" height="50" border="0" /></a>
+    <div class="bodyWrap">
+        <div class="wrapper">
+            <div class="header">
+                <div class="top">
+                    <div class="logo">
+                        <a href="">
+                            <img src="images/logo.gif" width="276" height="48" border="0" /></a>
+                    </div>
+                    <div class="nav">
+                        <ul>
+                            <li class="navIndex"><a href="index.aspx" id="title1" class="select"></a></li>
+                            <li class="navGoods"><a href="Category.aspx" id="title2" class="noselect"></a></li>
+                            <li class="navReg"><a href="Register.aspx" id="title3" class="noselect"></a></li>
+                        </ul>
+                    </div>
+                    <div class="clear">
+                    </div>
                 </div>
-                <!-- logo end -->
-                <div class="nav">
-                    <ul>
-                        <li><a href="index.aspx" id="title1" class="select">首页</a></li>
-                        <li><a href="Category.aspx" id="title2" class="noselect">全部商品</a></li>
-                        <li><a href="Register.aspx" id="title3" class="noselect">用户注册</a></li>
-                        <!--<li><a href="#Login.aspx" id="title4" class="noselect">用户登录</a></li>-->
-                    </ul>
+                <div class="menuAndSearch">
+                    <div class="menu">
+                        <ul>
+                            <li>
+                                <img src="Images/icon_2.gif" height="18" border="0" />&nbsp;<a href="#" onclick="return HomePage.call(this);">设为首页</a></li>                                
+                            <li>
+                                <img src="Images/icon_3.gif" height="18" border="0" />&nbsp;<a href="Contact.aspx">联系我们</a></li>
+                            <li>
+                                <img src="Images/icon_1.gif" height="20" border="0" />&nbsp;<a href="AboutUs.aspx">关于我们</a></li>
+                        </ul>
+                    </div>
+                    <div class="search">
+                        <div class="search-form">
+                            <form action="search.aspx" method="get">
+                            <input name="keywords" id="keywords" type="text" onclick="if(this.value=='请输入关键词')this.value='';"
+                                value="请输入关键词" />
+                            <input class="button" id="searchBtn" type="submit" value="搜索" />
+                            <span class="hot-tags"><a href="AdvancedSearch.aspx">高级搜索</a></span>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="clear">
+                    </div>
                 </div>
-                <!-- nav end -->
-                <div class="sub-nav">
-                    <a href="AboutUs.aspx">关于我们</a> <a href="#" onclick="return HomePage.call(this);">设为首页</a>
-                    <a href="Contact.aspx">联系我们</a>
-                </div>
-                <!-- sub-nav end -->
-                <div class="clear">
+                <div class="banner">
+                    <%if (!string.IsNullOrEmpty(ShopInfo.Header))
+                      { %>
+                    <%=ShopInfo.Header %>
+                    <%} %>
                 </div>
             </div>
-            <!-- top end -->
-            <div class="search">
-                <div class="search-form">
-                    <form action="search.aspx" method="get">
-                    <label>
-                        搜索：</label>
-                    <input name="keywords" type="text" style="width:500px;" onclick="if(this.value=='请输入关键词')this.value='';"
-                        value="<%=!string.IsNullOrEmpty(QS("keywords"))?QS("keywords"):"请输入关键词" %>" />
-                    <input class="button" type="submit" value="搜索" />
-                    <span class="hot-tags"><a href="AdvancedSearch.aspx">高级搜索</a></span>
-                    </form>
+            <div class="mainBody">
+                <asp:ContentPlaceHolder ID="cphContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="ad-banner">
+                <%if (!string.IsNullOrEmpty(ShopInfo.Footer))
+                  { %>
+                <%=ShopInfo.Footer %>
+                <%} %>
+            </div>
+            <div class="footer">
+                <div class="bottom-link">
+                    <a href="AboutUs.aspx">关于我们</a> - <a href="copyright.aspx">版权声明</a> - <a href="Contact.aspx">
+                        联系我们</a> - <a href="LinkList.aspx">友情链接</a> - <a href="/Admin/Login.aspx" target="_blank">
+                            管理登录</a>
                 </div>
-                <!-- search-form -->
-            </div>
-            <!-- search end -->
-        </div>
-        <!-- header end -->
-        <div class="ad-banner">
-        <%if (!string.IsNullOrEmpty(ShopInfo.Header))
-          { %>
-            <%=ShopInfo.Header %>
-        <%} %>
-        </div>
-        <!-- ad-banner end -->
-        <asp:ContentPlaceHolder ID="cphContent" runat="server">
-        </asp:ContentPlaceHolder>
-        <div class="ad-banner">
-        <%if (!string.IsNullOrEmpty(ShopInfo.Footer))
-          { %>
-            <%=ShopInfo.Footer %>
-        <%} %>
-        </div>
-        <!-- ad-banner end -->
-        <help:Help runat="server" />
-        <!-- bottom-links end -->
-        <div class="footer">
-            <div class="bottom-link">
-                <a href="AboutUs.aspx">关于我们</a> - <a href="copyright.aspx">版权声明</a> - <a href="Contact.aspx">
-                    联系我们</a> - <a href="LinkList.aspx">友情链接</a> - <a href="/Admin/Login.aspx" target="_blank">
-                        管理登录</a>
-            </div>
-            <div class="copyright">
-                <a href="http://www.thshcoop.com">广州市天河区沙河供销合作社</a> ICP证号：粤ICP备09198729号<br />
-                地址：广州市天河区龙口东路139号后座二至四楼 电话：020-87590122<br />
-                Copyright&copy; 2009 Anyweb Studio， All rights reserved。
+                <div class="copyright">
+                    <a href="http://www.thshcoop.com">广州市天河区沙河供销合作社</a> ICP证号：粤ICP备09198729号<br />
+                    地址：广州市天河区龙口东路139号后座二至四楼 电话：020-87590122<br />
+                    Copyright&copy; 2009 Anyweb Studio， All rights reserved。
+                </div>
             </div>
         </div>
-        <!-- footer -->
     </div>
-    <!-- wrapper end -->
-</div>
-<!-- page-body end -->
 </body>
 </html>

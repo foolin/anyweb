@@ -1,120 +1,66 @@
 <%@ Page Title="基团网" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
     CodeFile="Index.aspx.cs" Inherits="Index" %>
-<%@ Register Src="~/Controls/CategoryLeft.ascx" TagName="CategoryLeft" TagPrefix="cate" %>
-<%@ Register Src="~/Controls/FlashList.ascx" TagName="FlashList" TagPrefix="flash" %>
-<%@ Register Src="~/Controls/RecommdIndex.ascx" TagName="RecommdIndex" TagPrefix="recomment" %>
-<%@ Register Src="~/Controls/PromotionIndex.ascx"TagName="PromotionIndex" TagPrefix="promot" %>
-<%@ Register Src="~/Controls/PromotionListIndex.ascx"TagName="PromotionList" TagPrefix="promot" %>
-<%@ Register Src="~/Controls/LinkIndex.ascx"TagName="Link" TagPrefix="link" %>
 
-<%@ Register src="Controls/HotSellRankList.ascx" tagname="HotSellRankList" tagprefix="uc1" %>
-
+<%@ Register Src="~/Controls/CategoryLeft.ascx" TagName="CategoryLeft" TagPrefix="uc" %>
+<%@ Register Src="~/Controls/FlashList.ascx" TagName="FlashList" TagPrefix="uc" %>
+<%@ Register Src="~/Controls/RecommdIndex.ascx" TagName="RecommdIndex" TagPrefix="uc" %>
+<%@ Register Src="~/Controls/PromotionIndex.ascx" TagName="PromotionIndex" TagPrefix="uc" %>
+<%@ Register Src="~/Controls/PromotionListIndex.ascx" TagName="PromotionList" TagPrefix="uc" %>
+<%@ Register Src="~/Controls/LinkIndex.ascx" TagName="Link" TagPrefix="uc" %>
+<%@ Register Src="Controls/HotSellRankList.ascx" TagName="HotSellRankList" TagPrefix="uc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" runat="Server">
-    <link href="/public/index.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="/public/slidetrans.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="Server">
-    <form id="form1" runat="server">
-    <div class="main">
-        <div class="col-left">
-            <!-- 栏目 -->
-            <cate:CategoryLeft runat="server" />
-            <!-- category end -->
-            
-            
-            <!-- 栏目 -->
-            <div class="category">
-                <div class="title">
+    <div class="indexMainCol1">
+        <uc:CategoryLeft ID="CategoryLeft1" runat="server" />
+        <div class="box">
+            <div class="title">
+                <div class="txt">
                     联系方式</div>
-                <div class="content">
-                    <h3>
-                        商城服务时间:  </h3>
-                    <div class="line">
-                         周一至周五<br />
-                        上午9:00至下午18:00<br />
-                    </div>
-                    <h3>
-                        联系方式</h3>
-                    <div class="line">
-                        联系电话：020-87590122<br />
-                        投诉电话：020-87590122 <br />
-                        传真：020-87597663 <br />
-                        邮箱： gzthshaheshe@163.com <br />
-                        邮编：510635 <br />
-                        地址：广州市天河区龙口东路139号后座二至四楼 <br />
-                    </div>
-                    <div class="clear">
-                    </div>
-                </div>
-                <!-- content end -->
+                <div class="ico">
+                    <img src="Images/box1_title_rbg.gif" width="66" height="33" alt="联系方式" /></div>
             </div>
-            <!-- category end -->
-            
-            
-            
-        </div>
-        <!-- col-left -->
-        <div class="col-main">
-            <flash:FlashList runat="server" />
-            <div class="container">
-                <div class="goods-container">
-                    <recomment:RecommdIndex runat="server" />
-                </div>
-                <!-- goods-container end -->
-                <div class="goods-container">
-                    <promot:PromotionIndex runat="server" />
-                </div>
-                <!-- goods-container end -->
+            <div class="contentB">
+                <dl>
+                    <dt>商城服务时间</dt>
+                    <dd>
+                        周一至周五</dd>
+                    <dt>联系方式</dt>
+                    <dd>
+                        联系电话：020-87590122</dd>
+                    <dd>
+                        投诉电话：020-87590122
+                    </dd>
+                    <dd>
+                        传真：020-87597663
+                    </dd>
+                    <dd>
+                        邮箱： gzthshaheshe@163.com</dd>
+                    <dd>
+                        邮编：510635
+                    </dd>
+                    <dd>
+                        地址：广州市天河区龙口东路139号后座二至四楼
+                    </dd>
+                </dl>
             </div>
-            <!-- container end -->
-        </div>
-        <!-- col-main -->
-        <div class="col-right">
-        
-            <div class="box">
-            <div class="title">
-                促销专题</div>
-                <div class="topic-box">
-                    <promot:PromotionList runat="server" />
-                    <div style="height: 10px;">
-                        <!-- 分割 -->
-                    </div>
-                </div>
-            <!-- topic-box end -->
-          </div>
-          <!-- box end -->
-          
-            <div class="box">
-            <div class="title">
-                畅销商品排行</div>
-                <div class="topic-box">
-                    <uc1:HotSellRankList ID="HotSellRankList1" runat="server" />
-&nbsp;<div style="height: 10px;">
-                        <!-- 分割 -->
-                    </div>
-                </div>
-            <!-- topic-box end -->
-          </div>
-          <!-- box end -->
-          
-            <div style="margin:5px 0 0 5px;">
-            <!-- 栏目 -->
-            <div class="category">
-                <link:Link ID="Link1" runat="server" />
-                <!-- content end -->
-            </div>
-            <!-- category end -->
-            </div>
-            
-
-        </div>
-        <!-- col-right -->
-        <div class="clear">
         </div>
     </div>
-    <!-- main end -->
+    <div class="indexMainCol2">
+        <uc:FlashList ID="Flash" runat="server" />
+        <uc:RecommdIndex ID="rec" runat="server" />
+        <uc:PromotionIndex ID="pro" runat="server" />
+    </div>
+    <div class="indexMainCol3">
+        <uc:PromotionList ID="PromotionList" runat="server" />
+        <uc:HotSellRankList ID="HotSellRankList" runat="server" />
+        <uc:Link ID="Link" runat="server" />
+    </div>
+    <div class="clear">
+    </div>
+
     <script type="text/javascript">
         SetTitleCss(1);
     </script>
-    </form>
+
 </asp:Content>

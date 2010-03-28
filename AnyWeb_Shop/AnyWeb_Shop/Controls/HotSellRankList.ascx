@@ -1,26 +1,33 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="HotSellRankList.ascx.cs" Inherits="Controls_HotSellRankList" %>
-
-<!-- 畅销排行开始 -->
-<asp:Repeater ID="repList" runat="server">
-    <ItemTemplate>
-        <div class="topic-goods"  style="overflow:hidden; width:99%;">
-            <div class="goods-pic">
-                <a href="Good.aspx?gid=<%#Eval("GoodsID") %>">
-                    <img src="<%#(string)Eval( "OfGoods.image" )=="" ? "../images/wait.jpg":(string)Eval( "OfGoods.image" ) %>" width="90" height="90" alt="" border="0" />
-                </a>
-            </div>
-            <div class="goods-intro">
-                <div class="content">
-                    <h5>
-                        <%#Studio.Web.WebAgent.GetLeft(Eval("OfGoods.GoodsName").ToString(), 11)%></h5>
-                    <%#Studio.Web.WebAgent.GetLeft(Studio.Web.WebAgent.stripHtml(Eval("OfGoods.Description").ToString()), 70)%>
+<div class="box" style="margin-left: 2px;">
+    <div class="title">
+        <div class="txt">
+            畅销商品排行</div>
+        <div class="ico">
+            <img src="Images/box1_title_rbg.gif" width="66" height="33" /></div>
+    </div>
+    <div class="content">
+        <asp:Repeater ID="repList" runat="server">
+            <ItemTemplate>
+                <div class="indexTopic">
+                    <div class="topicImage">
+                        <a href="Good.aspx?gid=<%#Eval("ID") %>">
+                            <img src="<%#(string)Eval( "image" )=="" ? "../images/wait.jpg":(string)Eval( "image" ) %>"
+                                alt="<%#Eval("GoodsName") %>" border="0" />
+                        </a>
+                    </div>
+                    <div class="topicDesc">
+                        <h4>
+                            <a href="Good.aspx?gid=<%#Eval("ID") %>">
+                                <%#Studio.Web.WebAgent.GetLeft(Eval("GoodsName").ToString(),11)%></a></h4>
+                        <%#Studio.Web.WebAgent.GetLeft(Studio.Web.WebAgent.stripHtml(Eval("Description").ToString()),70)%>
+                        <br />
+                        <a href="Good.aspx?gid=<%#Eval("ID") %>" class="more">详细信息</a>
+                    </div>
+                    <div class="clear">
+                    </div>
                 </div>
-                <div class="more">
-                    <a href="Good.aspx?gid=<%#Eval("GoodsID") %>">详细信息>></a></div>
-            </div>
-        </div>
-        <div class="clear">
-        </div>
-    </ItemTemplate>
-</asp:Repeater>
-<!-- 畅销排行结束 -->
+            </ItemTemplate>
+        </asp:Repeater>
+    </div>
+</div>

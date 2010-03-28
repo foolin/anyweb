@@ -7,7 +7,7 @@
                     <ItemTemplate>
                         <td>
                             <a href="<%#Eval("SlideLink") %>">
-                                <img src="<%=ShopInfo.DataPath%>/Slide<%#Eval("SlideFile") %>" /></a>
+                                <img src="<%=ShopInfo.DataPath%>/Slide<%#Eval("SlideFile") %>" width="461" height="241" /></a>
                         </td>
                     </ItemTemplate>
                 </asp:Repeater>
@@ -16,38 +16,52 @@
         <ul class="num" id="idNum">
         </ul>
     </div>
-    <!-- slide-container end -->
+    <%--<div id="slide-txt" class="slide-txt">
+        <ul id="txt-item">
+            <li><a href="#">置顶产品：信凤姐，得自信！</a> </li>
+            <li><a href="#">热门产品：信犀利哥，迷倒众生！</a> </li>
+            <li><a href="#">推荐产品：信曾哥，原地复活！</a> </li>
+            <li><a href="#">热评产品：信春哥，得永生！</a> </li>
+            <li><a href="#">打折产品：信芙蓉，得半身不遂！</a> </li>
+        </ul>
+    </div>--%>
 </div>
 <!-- container-images end -->
 
-<script>
-///////////////////////////////////////////////////////////
-var forEach = function(array, callback, thisObject){
-	if(array.forEach){
-		array.forEach(callback, thisObject);
-	}else{
-		for (var i = 0, len = array.length; i < len; i++) { callback.call(thisObject, array[i], i, array); }
-	}
-}
+<script type="text/javascript">
+//    var ShowTxt = function(i) {
+//        var txtId = $("slide-txt").childNodes[i];
+//        alert(i + ":" + txtId.innerHTML);
+//    }
+    
+    var forEach = function(array, callback, thisObject) {
+        if (array.forEach) {
+            array.forEach(callback, thisObject);
+        } else {
+            for (var i = 0, len = array.length; i < len; i++) { callback.call(thisObject, array[i], i, array); }
+        }
+    }
 
-var st = new SlideTrans("slide-container", "slide-images", 5, { Vertical: false });
+    var st = new SlideTrans("slide-container", "slide-images", 5, { Vertical: false });
+//    var sTxt = new SlideTrans("slide-txt", "txt-item", 5, { Vertical: true });
 
-var nums = [];
-//插入数字
-for(var i = 0, n = st._count - 1; i <= n;){
-	(nums[i] = $("idNum").appendChild(document.createElement("li"))).innerHTML = ++i;
-}
 
-forEach(nums, function(o, i){
-	o.onmouseover = function(){ o.className = "on"; st.Auto = false; st.Run(i); }
-	o.onmouseout = function(){ o.className = ""; st.Auto = true; st.Run(); }
-})
+    var nums = [];
+    //插入数字
+    for (var i = 0, n = st._count - 1; i <= n; ) {
+        (nums[i] = $("idNum").appendChild(document.createElement("li"))).innerHTML = ++i;
+    }
 
-//设置按钮样式
-st.onStart = function(){
-	forEach(nums, function(o, i){ o.className = st.Index == i ? "on" : ""; })
-}
+    forEach(nums, function(o, i) {
+        o.onmouseover = function() { o.className = "on"; st.Auto = false; st.Run(i); }
+        o.onmouseout = function() { o.className = ""; st.Auto = true; st.Run();}
+    })
 
-st.Run();
+    //设置按钮样式
+    st.onStart = function() {
+        forEach(nums, function(o, i) { o.className = st.Index == i ? "on" : ""; })
+    }
+
+    st.Run();
 </script>
 

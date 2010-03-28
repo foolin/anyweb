@@ -70,20 +70,15 @@ namespace Common.Agent
             ArrayList list = new ArrayList();
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                HotSellRank hsr = new HotSellRank();
-                hsr.HotSellID = (int)dr["HotSellID"];
-                hsr.GoodsID = (int)dr["GoodsID"];
-                hsr.Sort = (short)dr["Sort"];
-                hsr.OfGoods = new Goods();
-                hsr.OfGoods.GoodsName = (string)dr["GoodsName"];
-                hsr.OfGoods.Image = (string)dr["Image"];
-                hsr.OfGoods.Price = (double)dr["Price"];
-                hsr.OfGoods.MarketPrice = (double)dr["MarketPrice"];
-                hsr.OfGoods.Description = (string)dr["Description"];
-                hsr.OfGoods.Status = (int)dr["Status"];
-                list.Add(hsr);
+                Goods good = new Goods();
+                good.GoodsName = (string)dr["GoodsName"];
+                good.Image = (string)dr["Image"];
+                good.Price = (double)dr["Price"];
+                good.MarketPrice = (double)dr["MarketPrice"];
+                good.Description = (string)dr["Description"];
+                good.Status = (int)dr["Status"];
+                list.Add(good);
             }
-
             return list;
         }
 

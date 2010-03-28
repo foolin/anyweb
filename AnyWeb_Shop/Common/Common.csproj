@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{72F5E3B8-1B0A-4E05-BAA2-920E848DFC64}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -52,6 +52,7 @@
     <Compile Include="Agent\ComplaintsAgent.cs" />
     <Compile Include="Agent\EventLogAgent.cs" />
     <Compile Include="Agent\GoodsAgent.cs" />
+    <Compile Include="Agent\HotSellRankAgent.cs" />
     <Compile Include="Agent\LinkAgent.cs" />
     <Compile Include="Agent\MessageAgent.cs" />
     <Compile Include="Agent\ModeAgent.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Common\EventLog.cs" />
     <Compile Include="Common\Goods.cs" />
     <Compile Include="Common\GoodsImages.cs" />
+    <Compile Include="Common\HotSellRank.cs" />
     <Compile Include="Common\Link.cs" />
     <Compile Include="Common\Member.cs" />
     <Compile Include="Common\Message.cs" />

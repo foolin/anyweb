@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<%@ Register Src="Controls/ToolTip.ascx" TagName="ToolTip" TagPrefix="uc" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,9 +9,7 @@
     <asp:ContentPlaceHolder ID="cphTitle" runat="server">
     </asp:ContentPlaceHolder>
     <link href="/public/index.css" rel="stylesheet" type="text/css" />
-
     <script type="text/javascript" src="/public/slidetrans.js"></script>
-
     <script type="text/javascript">
         //判断浏览器是否为IE
         function isIE() {
@@ -49,7 +48,10 @@
                     <div class="nav">
                         <ul>
                             <li class="navIndex"><a href="index.aspx" id="title1" class="select"></a></li>
-                            <li class="navGoods"><a href="Category.aspx" id="title2" class="noselect"></a></li>
+                            <li class="navGoods">
+                                <a href="Category.aspx" id="title2" class="noselect"></a>
+                                <uc:ToolTip ID="toolTip" runat="server" />
+                            </li>
                             <li class="navReg"><a href="Register.aspx" id="title3" class="noselect"></a></li>
                         </ul>
                     </div>

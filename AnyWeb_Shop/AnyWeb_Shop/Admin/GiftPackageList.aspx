@@ -1,0 +1,136 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="GiftPackageList.aspx.cs" Inherits="Admin_GiftPackageList" Title="大礼包管理" %>
+<%@ Register Assembly="Studio" Namespace="Studio.Web" TagPrefix="cc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cph1" Runat="Server">
+
+    <script type="text/javascript">
+        function SelectAll(v) {
+            var e_all = document.all.tags('INPUT');
+            for (var i = 0; i < e_all.length; i++) {
+                if (e_all[i].tagName == "INPUT") {
+                    if ((e_all[i].type) && (e_all[i].name)) {
+                        if ((e_all[i].type == "checkbox") && (e_all[i].name != "boxAll")) {
+                            e_all[i].checked = v;
+                        }
+                    }
+                }
+            }
+        }	
+    </script>
+
+ <div class="mod mEdit">
+               <form id="form1" runat="server">
+        <div class="mhd">
+            <div class="inner">
+                <h2>
+                    大礼包管理 <span class="listadd"><a href="GiftPackageEdit.aspx?mode=insert">添加大礼包</a></span></h2> 
+            </div>
+        </div>
+        <div class="mbd">
+            <div class="inner">
+
+                    
+                <table class="iList iArticle" id="tbGoods">
+                    <caption>
+                        <asp:Label ID="lblTips" Font-Size="12px" runat="server" Text=""></asp:Label>
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th class="fst">
+                                <input type="checkbox" onclick="SelectAll(this.checked)" title="点击全选" />
+                            </th>
+                            <th>
+                                编号
+                            </th>
+                            <th style="width: 140px; line-height: 23px;">
+                                名称
+                            </th>
+                            <th>
+                                图片
+                            </th>
+                            <th>
+                                价格
+                            </th>
+                            <th>
+                                简介
+                            </th>
+                            <th>
+                                是否显示
+                            </th>
+                            <th>
+                                排序
+                            </th>
+                            <th class="end">
+                                操作
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <asp:Repeater ID="repCategory" runat="server" DataSourceID="ods3">
+                            <ItemTemplate>
+                                <tr>
+                                    <td>
+                                        <input type="checkbox" name="ids" value='<%#Eval("PackID")%>' title="点击选择" />
+                                    </td>
+                                    <td>
+                                        <%#Eval("PackNo")%>
+                                    </td>
+                                    <td style="width: 140px; line-height: 23px;">
+                                        <a href='/GiftPackDetails.aspx?gid=<%#Eval( "PackID" )%>' target="_blank">
+                                            <%#Eval( "PackName" )%>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <img src='<%#(string)Eval( "Image" )=="" ? "../images/wait.jpg":(string)Eval( "Image" ) %>'
+                                            alt="<%#Eval("PackName") %>" width="50px" />
+                                    </td>
+                                    <td>
+                                        <%#Eval("Price", "{0:c}")%>
+                                    </td>
+                                    <td>
+                                        <%#Eval("Intro") %>
+                                    </td>
+                                    <td>
+                                        <input id="chkIsShow" type="checkbox" onclick='javascript:IsShowSet(<%# Eval("PackID") %>,<%# ((bool)Eval("IsShow")) == true ? 1: 0 %>);'
+                                            <%#(bool)Eval("IsShow")==true ? "checked" :""%> title="点击推荐" />
+                                    </td>
+                                    <td>
+                                        <%#Eval("Sort") %>
+                                    </td>
+                                    <td>
+                                        <a href="GiftPackageEdit.aspx?mode=update&packID=<%#Eval("PackID")%>">编辑</a>
+                                        <a href="GiftPackageEdit.aspx?mode=select&packID=<%#Eval("PackID")%>">查看详情</a>
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </tbody>
+                </table>
+                <div class="iPagination">
+                    <cc1:PageNaver ID="PN1" StyleID="2" runat="server" PageSize="18">
+                    </cc1:PageNaver>
+                </div>
+                <div class="iSubmit">
+                    <asp:Button ID="btnDel" runat="server" Text="批量删除" CssClass="submit" OnClick="btnDel_Click" />  
+                </div>
+
+                <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetGiftPackageList" TypeName="Common.Agent.GiftPackageAgent">
+                    <SelectParameters>
+                        <asp:ControlParameter Type="Int32" PropertyName="pagesize" Name="pageSize" ControlID="PN1" />
+                        <asp:ControlParameter Type="Int32" PropertyName="pageindex" Name="pageNo" ControlID="PN1" />
+                        <asp:Parameter Name="isShow" Type="Boolean" DefaultValue="false" />
+                        <asp:Parameter Direction="Output" Name="recordCount" Type="Int32" />
+                    </SelectParameters>
+                </asp:ObjectDataSource>
+            </div>
+        </div>
+        <div class="mft">
+        </div>
+    </div>
+
+
+</form>
+
+</asp:Content>
+

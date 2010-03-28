@@ -52,6 +52,11 @@
         <xMenuItem url="/Admin/HotSellRankAdd.aspx" name="添加畅销商品"  description="添加畅销商品" visible="false" ></xMenuItem>
         </xMenuItem>
       </xMenuItem>
+      <xMenuItem url="/Admin/GiftPackageList.aspx" name="大礼包管理"  description="大礼包管理" type="0" >
+        <xMenuItem url="/Admin/GiftPackageList.aspx" name="大礼包管理"  description="大礼包管理" type="0"></xMenuItem>
+        <xMenuItem url="/Admin/GiftPackageEdit.aspx" name="编辑大礼包"  description="编辑大礼包" visible="false"></xMenuItem>
+        <xMenuItem url="/Admin/GiftPackGoodsEdit.aspx" name="编辑大礼包商品"  description="编辑大礼包商品" visible="false"></xMenuItem>
+      </xMenuItem>
     </xMenuItem>
 
 

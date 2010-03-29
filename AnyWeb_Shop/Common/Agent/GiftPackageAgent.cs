@@ -223,7 +223,7 @@ namespace Common.Agent
         {
             using (IDbExecutor db = this.NewExecutor())
             {
-                return db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_GiftPackageAdd",
+                return db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_GiftPackageDelete",
                                  this.NewParam("@PackIds", packIds));
             }
         }
@@ -237,8 +237,22 @@ namespace Common.Agent
         {
             using (IDbExecutor db = this.NewExecutor())
             {
-                return db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_GiftPackageAdd",
+                return db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_GiftPackageDelete",
                                  this.NewParam("@PackIds", packID.ToString()));
+            }
+        }
+
+        /// <summary>
+        /// 删除商品
+        /// </summary>
+        /// <param name="gp"></param>
+        /// <returns></returns>
+        public int DeleteGiftPackage(GiftPackage gp)
+        {
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                return db.ExecuteNonQuery(CommandType.StoredProcedure, "Shop_GiftPackageDelete",
+                                 this.NewParam("@PackIds", gp.PackID.ToString()));
             }
         }
 

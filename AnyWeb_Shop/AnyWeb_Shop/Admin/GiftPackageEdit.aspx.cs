@@ -43,22 +43,6 @@ public partial class Admin_GiftPackageEdit : AdminBase
 
     protected void fv1_DataBound(object sender, EventArgs e)
     {
-
-        /*
-        if (QS("mode") == "select")
-        {
-            if(QS("gid") == "")
-            {
-                WebAgent.AlertAndBack("非法参数");
-            }
-            GiftPackage gp = new GiftPackageAgent().GetGiftPackageByID(int.Parse(QS("gid")));
-            if (null == gp)
-            {
-                WebAgent.AlertAndBack("不存在该大礼包");
-            }
-            fv1.DataSource = gp;
-            fv1.DataBind();
-        }
         if (QS("mode") != "select")
         {
             GiftPackage gp = (GiftPackage)fv1.DataItem;
@@ -67,13 +51,7 @@ public partial class Admin_GiftPackageEdit : AdminBase
             TextBox txtGoodsIds = (TextBox)fv1.FindControl("txtGoodsIds");
             TextBox txtPrice = (TextBox)fv1.FindControl("txtPrice");
             TextBox txtIntro = (TextBox)fv1.FindControl("txtIntro");
-            TextBox txtDescription = (TextBox)fv1.FindControl("txtDescription");
-
-
-            if (QS("mode") == "insert")
-            {
-            }
-        }*/
+        }
 
     }
 
@@ -91,6 +69,7 @@ public partial class Admin_GiftPackageEdit : AdminBase
         FileUpload img = (FileUpload)fv1.FindControl("txtImage");
         TextBox txtSort = (TextBox)fv1.FindControl("txtSort");
         TextBox txtIntro = (TextBox)fv1.FindControl("txtIntro");
+        TextBox txtPrice = (TextBox)fv1.FindControl("txtPrice");
         //TextBox txtDescription = (TextBox)fv1.FindControl("txtDescription");
 
         GiftPackage gp = (GiftPackage)e.InputParameters[0];
@@ -121,11 +100,21 @@ public partial class Admin_GiftPackageEdit : AdminBase
         {
             gp.Intro = "暂无";
         }
-        /*
-        if (txtDescription == null || string.IsNullOrEmpty(txtDescription.Text))
+        if (txtPrice == null || string.IsNullOrEmpty(txtPrice.Text))
         {
-            gp.Description = "暂无";
-        }*/
+            WebAgent.AlertAndBack("价格输入不能为空，请输入！");
+        }
+        else
+        {
+            try
+            {
+                gp.Price = Convert.ToDouble(txtPrice.Text);
+            }
+            catch
+            {
+                WebAgent.AlertAndBack("价格输入必须为数字，请输入！");
+            }
+        }
     }
 
     protected void ods3_Inserted(object sender, ObjectDataSourceStatusEventArgs e)
@@ -202,6 +191,7 @@ public partial class Admin_GiftPackageEdit : AdminBase
         }
         GiftPackage gp = (GiftPackage)e.InputParameters[0];
         gp.PackID = int.Parse(QS("packID"));
+
     }
 
     protected void ods3_Deleted(object sender, ObjectDataSourceStatusEventArgs e)

@@ -1,9 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ToolTip.ascx.cs" Inherits="Controls_ToolTip" %>
-<style>
-    .tooltip{position:absolute; z-index:9999;width:500px;}
-    .tooltip a{color:#186100;font-size:14px;text-decoration:none;}
-</style>
-<div class="tooltip">
+<div id="tooltip" class="tooltip" onmouseout="ToolTipHide()">
+<div id="toolContent" class="toolContent">
     <asp:Repeater ID="repCate" runat="server" OnItemDataBound="repCategory_ItemDataBound">
         <ItemTemplate>
             <h4>
@@ -20,3 +17,18 @@
         </ItemTemplate>
     </asp:Repeater>
 </div>
+</div>
+<script type="text/javascript">
+    var tId = document.getElementById("tooltip");
+    var vWidth = "500";
+    var vHeight = "500";
+    tId.style.display = "none";
+    function ToolTipHide()
+    {
+        tId.style.display = "none";
+    }
+    function ToolTipShow()
+    {
+        tId.style.display = "block";
+    }
+</script>

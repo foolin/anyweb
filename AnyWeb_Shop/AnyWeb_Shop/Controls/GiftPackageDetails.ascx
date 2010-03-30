@@ -20,15 +20,17 @@
                             <dt>
                                 <%=giftPack.PackName %>
                             </dt>
-                            
+                            <dd>
+                                名称：<span class="vlue"><s><%=giftPack.PackName %></s></span></dd>
                             <dd>
                                 编号：<span class="vlue"><s><%=giftPack.PackNo %></s></span></dd>
                                 
                             <dd>
                                 价格：<span class="vlue"><s>￥<%=giftPack.Price %></s></span></dd>
-                                
+                              <!--  
                             <dd>
                                 商品ID：<span class="vlue"><a href="#goodsView"><%=giftPack.GoodsIds %></a></span></dd>
+                             -->
                             
                             <dd>介绍：<span class="vlue"><%=giftPack.Intro %></span></dd>
                             <!--
@@ -48,11 +50,11 @@
                         
                         
                         <a name="goodsView"></a>
-                        <table class="goodsList mainContainer">
+                        <table class="goodsList mainContainer" width="80%">
                         	<tr class="subTitle">
                             	<td width="50%">商品名称</td>
                                 <td>商品编号</td>
-                                <td class="10%">点击查看</td>
+                                <td class="20%">点击查看</td>
                             </tr>
                             <asp:Repeater ID="repList" runat="server">
                                 <ItemTemplate>

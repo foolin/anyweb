@@ -48,9 +48,9 @@ public partial class Admin_GiftPackageEdit : AdminBase
             GiftPackage gp = (GiftPackage)fv1.DataItem;
             TextBox txtPackName = (TextBox)fv1.FindControl("txtPackName");
             TextBox txtPackNo = (TextBox)fv1.FindControl("txtPackNo");
-            TextBox txtGoodsIds = (TextBox)fv1.FindControl("txtGoodsIds");
             TextBox txtPrice = (TextBox)fv1.FindControl("txtPrice");
             TextBox txtIntro = (TextBox)fv1.FindControl("txtIntro");
+            //HiddenField hdfGoodsIds = (HiddenField)fv1.FindControl("hdfGoodsIds");
         }
 
     }
@@ -141,6 +141,7 @@ public partial class Admin_GiftPackageEdit : AdminBase
         FileUpload img = (FileUpload)fv1.FindControl("txtImage");
         TextBox txtSort = (TextBox)fv1.FindControl("txtSort");
         TextBox txtIntro = (TextBox)fv1.FindControl("txtIntro");
+        HiddenField hdfGoodsIds = (HiddenField)fv1.FindControl("hdfGoodsIds");
 
         GiftPackage gp = (GiftPackage)e.InputParameters[0];
 
@@ -150,6 +151,12 @@ public partial class Admin_GiftPackageEdit : AdminBase
         {
             gp.Image = this.GetProductImg(img);
         }
+        if (hdfGoodsIds != null && !string.IsNullOrEmpty(hdfGoodsIds.Value))
+        {
+            gp.GoodsIds = hdfGoodsIds.Value;
+            
+        }
+        WebAgent.Alert(hdfGoodsIds.Value);
         if (txtSort == null || string.IsNullOrEmpty(txtSort.Text))
         {
             gp.Sort = 0;

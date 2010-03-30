@@ -40,6 +40,7 @@
                                 </th>
                                 <td>
                                     <%#Eval( "PackNo" )%>
+                                    
                                 </td>
                                 <td rowspan="5" style="text-align: center; width: 226px; background-color: White;
                                     border-left: solid 1px gray; border-right: solid 1px gray;">
@@ -108,11 +109,12 @@
                         <table class="iEditForm iEditBaseInf">
                             <tr>
                                 <th style="width: 120px;">
-                                    大礼包名称：
+                                    大礼包名称： 
                                 </th>
                                 <td>
                                     <asp:TextBox ID="txtPackName" runat="server" CssClass="input" errmsg="请输入正确的大礼包名称" MaxLength="50"
                                         require="1" Width="308px" Text='<%#Bind("PackName") %>'></asp:TextBox>&nbsp;不超过50个汉字。
+                                    
                                 </td>
                             </tr>
                             <tr class="name">
@@ -123,6 +125,9 @@
                                     <asp:TextBox ID="txtPackNo" runat="server" Text='<%#Bind("PackNo")%>' CssClass="input"
                                         errmsg="请输入正确的编号" MaxLength="50" require="1" Width="200px"></asp:TextBox>
                                         参考：AF0101-0108
+                                        
+                                        
+                                    <asp:HiddenField ID="hdfGoodsIds" runat="server" Value='<%# Bind("GoodsIds") %>'/> 
                                 </td>
                             </tr>
                             <tr>
@@ -185,6 +190,7 @@
                                 </td>
                             </tr>
                         </table>
+                        
                         <div class="iSubmit">
                             <asp:Button ID="btnSave" runat="server" Text="保存大礼包" CommandName="Update" CssClass="submit">
                             </asp:Button>
@@ -207,7 +213,7 @@
                                     <asp:TextBox ID="txtPackName" runat="server" CssClass="input" errmsg="请输入正确的大礼包名称" MaxLength="50"
                                         require="1" Width="308px" Text='<%#Bind("PackName") %>'></asp:TextBox>&nbsp;不超过50个汉字。
                                         
-                                    <asp:HiddenField ID="txtGoodsIds" runat="server" Value='<%# Bind("GoodsIds") %>'/>
+                                    
                                 </td>
                             </tr>
                             <tr class="name">
@@ -218,6 +224,9 @@
                                     <asp:TextBox ID="txtPackNo" runat="server" Text='<%#Bind("PackNo")%>' CssClass="input"
                                         errmsg="请输入正确的大礼包型号" MaxLength="50" require="1" Width="200px"></asp:TextBox>
                                         参考：AF0101-0108
+                                       
+                                    
+                                        
                                 </td>
                             </tr>
                        

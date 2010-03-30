@@ -1,6 +1,6 @@
-var $ = function (id) {
-	return "string" == typeof id ? document.getElementById(id) : id;
-};
+//var $ = function (id) {
+//	return "string" == typeof id ? document.getElementById(id) : id;
+//};
 
 var Extend = function(destination, source) {
 	for (var property in source) {
@@ -50,35 +50,37 @@ var Tween = {
 
 //容器对象,滑动对象,切换数量
 var SlideTrans = function(container, slider, count, options) {
-	this._slider = $(slider);
-	this._container = $(container);//容器对象
-	this._timer = null;//定时器
-	this._count = Math.abs(count);//切换数量
-	this._target = 0;//目标值
-	this._t = this._b = this._c = 0;//tween参数
-	
-	this.Index = 0;//当前索引
-	
-	this.SetOptions(options);
-	
-	this.Auto = !!this.options.Auto;
-	this.Duration = Math.abs(this.options.Duration);
-	this.Time = Math.abs(this.options.Time);
-	this.Pause = Math.abs(this.options.Pause);
-	this.Tween = this.options.Tween;
-	this.onStart = this.options.onStart;
-	this.onFinish = this.options.onFinish;
-	
-	var bVertical = !!this.options.Vertical;
-	this._css = bVertical ? "top" : "left";//方向
-	
-	//样式设置
-	var p = CurrentStyle(this._container).position;
-	p == "relative" || p == "absolute" || (this._container.style.position = "relative");
-	this._container.style.overflow = "hidden";
-	this._slider.style.position = "absolute";
-	
-	this.Change = this.options.Change ? this.options.Change :
+    //this._slider = $(slider);
+    this._slider = document.getElementById(slider);
+    //this._container = $(container); //容器对象
+    this._container = document.getElementById(container);
+    this._timer = null; //定时器
+    this._count = Math.abs(count); //切换数量
+    this._target = 0; //目标值
+    this._t = this._b = this._c = 0; //tween参数
+
+    this.Index = 0; //当前索引
+
+    this.SetOptions(options);
+
+    this.Auto = !!this.options.Auto;
+    this.Duration = Math.abs(this.options.Duration);
+    this.Time = Math.abs(this.options.Time);
+    this.Pause = Math.abs(this.options.Pause);
+    this.Tween = this.options.Tween;
+    this.onStart = this.options.onStart;
+    this.onFinish = this.options.onFinish;
+
+    var bVertical = !!this.options.Vertical;
+    this._css = bVertical ? "top" : "left"; //方向
+
+    //样式设置
+    var p = CurrentStyle(this._container).position;
+    p == "relative" || p == "absolute" || (this._container.style.position = "relative");
+    this._container.style.overflow = "hidden";
+    this._slider.style.position = "absolute";
+
+    this.Change = this.options.Change ? this.options.Change :
 		this._slider[bVertical ? "offsetHeight" : "offsetWidth"] / this._count;
 };
 SlideTrans.prototype = {

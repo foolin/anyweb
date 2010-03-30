@@ -36,7 +36,20 @@ a:hover{
 	width:980px;
 	background:url(../Images/body_bg.jpg) bottom center no-repeat;
 }
-
+.img{
+	margin:5px;
+	width:120px;
+}
+a .img{
+	border: solid 1px #8ec738;
+	padding:3px;
+	background:#D3EBD3;
+}
+a:hover .img{
+	border:solid #F00 1px;
+	padding:3px;
+	background:#FFF;
+}
 
 /** 顶部 **/
 .header{
@@ -100,6 +113,50 @@ a:hover{
 	width:90px;
 	background:url(../Images/nav_reg_on.gif) no-repeat;
 }
+/** 菜单下拉工具栏 **/
+.nav .tooltips{
+	position:absolute;
+	float:left;
+	width:250px;
+	border: solid 1px #8ec738;
+	padding:3px;
+	background:#D3EBD3;
+	z-index:99;
+	display:block;
+	overflow:visible;
+	display:none;
+}
+.nav .tooltips .toolContent{
+	background:#FFF;
+	padding:5px;
+	display:block;
+	overflow:inherit;
+}
+.nav .tooltips .toolContent a{
+	display:inline;
+	height:auto;
+	background:none;
+}
+.nav .tooltips .toolContent a:hover{
+	background:none;
+}
+.nav .tooltips h4, .nav .tooltips h4 a{
+	height:auto;
+	margin:0px;
+	padding:0px;
+	font-size:14px;
+	font-weight:bold;
+	color:#cd6702;
+
+}
+.nav .tooltips h4 a:hover{
+	color:#F00;
+	text-decoration:underline;
+}
+.nav .tooltips .link{
+	margin:0px;
+}
+
 .menuAndSearch{
 	height:48px;
 	background:url(../Images/menu_bg.gif) no-repeat;
@@ -168,7 +225,7 @@ a:hover{
 .mainBody{
 	clear:both;
 	padding-left:1px;
-	margin-top:2px;
+	margin-top:5px;
 }
 .indexMainCol1{
 	float:left;
@@ -304,7 +361,7 @@ a:hover{
 .indexGoods{
 	float:left;
 	width:33%;
-	height:210px;
+	height:170px;
 	overflow:hidden;
 }
 .indexGoods .indexItem{
@@ -393,7 +450,7 @@ a:hover{
 }
 .box .contentB{
 	margin:0px;
-	background:url(../Images/box1_contentB_bg.gif) repeat-x;
+	background:url(../Images/box1_contentB_bg.gif) repeat-x #FFF;
 	padding:5px 5px 5px 5px;
 }
 .box .content{
@@ -462,5 +519,216 @@ a:hover{
 	background:url(../Images/box2_content_bg.gif) repeat-x top left #FFF;
 	padding:5px;
 }
+
+/***********************************/
+/**    其它页面公共CSS              **/
+/***********************************/
+.col2MainSider{
+	float:left;
+	width:199px;
+	overflow:hidden;
+}
+.col2MainContent{
+	float:right;
+	width:771px;
+	overflow:hidden;
+}
+/** 主容器Table **/
+table.mainContainer{
+	width:100%;
+	border-collapse:collapse;
+	border:solid 1px #92d274;
+	font-size:14px;
+	background:#FFF;
+}
+table.mainContainer th,table.mainContainer td{
+	height:30px;
+	line-height:30px;
+	padding:0 5px;
+	border:solid 1px #92d274;
+}
+table.mainContainer .title{
+	height:39px;
+	background:url(../Images/rbox_title_bg.jpg) #7aa718;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+	text-align:left;
+	padding-left:10px;
+}
+table.mainContainer tr.subTitle td,table.mainContainer td.subTitle{
+	text-align:center;
+	color:#005d1e;
+	font-weight:bold;
+	background:url(../Images/rbox_subtitle_bg.jpg) repeat-x;
+}
+/*** 主容器Tabl  表格颜色 ****/
+.tdColor, .tdColorL{
+	text-align:left;
+	background:#eff8e5;
+
+}
+.tdColorR{
+	text-align:right;
+	background:#eff8e5;
+
+}
+.tdColorM{
+	text-align:center;
+	background:#eff8e5;
+
+}
+/** 主容器Div **/
+div.mainContainer{
+	width:99%;
+	border-collapse:collapse;
+	border:solid 1px #92d274;
+	font-size:14px;
+	line-height:30px;
+	background:#FFF;
+	overflow:hidden;
+}
+div.mainContainer .title{
+	height:39px;
+	line-height:39px;
+	background:url(../Images/rbox_title_bg.jpg) #7aa718;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+	text-align:left;
+	padding-left:10px;
+}
+div.mainContainer div.subTitle{
+	text-align:center;
+	color:#005d1e;
+	font-weight:bold;
+	background:url(../Images/rbox_subtitle_bg.jpg) repeat-x;
+	border-bottom:solid 1px #92d274;
+}
+div.mainContainer div.content{
+	background:#FFF;
+}
+/***  高级搜索 ***/
+.searchInput{
+	border:#716f63 solid 1px;
+	background:#f0f9e6;
+	padding:3px;
+}
+input.btn{
+	padding:3px 5px;
+}
+
+/*** 商品列表页 Table风格 ***/
+.goodsListItem{
+	font-size:12px;
+	line-height:1.5em;
+}
+.goodsListItem dt{
+	color:#cd6601;
+	font-weight:bold;
+}
+.goodsListItem dd{
+	margin-left:0px;
+}
+/* 风格2 */
+.goodsListEx{
+	width:100%;
+}
+.goodsListEx .goodsListItem{
+	float:left;
+	width:33.3%;
+	overflow:hidden;
+}
+.goodsListEx .goodsListItem dl{
+	margin:5px;
+	border:solid 1px #bdbbbc;
+	color:#005f1f;
+	background:#f0f9e6;
+	height:210px;
+	overflow:hidden;
+}
+.goodsListEx .goodsListItem .img{
+	width:130px;
+	height:100px;
+}
+.goodsListEx .goodsListItem dl dt, .goodsListEx .goodsListItem dl dt a{
+	text-align:center;
+	color:#cd6703;
+}
+.goodsListEx .goodsListItem dl dd{
+	text-align:left;
+	text-indent:4em;
+	padding:2px;
+}
+.goodsListEx .goodsListItem dl dt a:hover{
+	color:#F00;
+}
+/*** 商品详细页 ***/
+.goodsDetailsImage{
+	margin:20px auto;
+	width:90%;
+	background:#FFF;
+	border:solid 1px #CCC;
+}
+.goodsDetailsImage img{
+	margin:10px auto;
+	border:0;
+}
+dl.goodsDetailsItems{
+	margin:20px auto;
+	width:90%;
+	background:#FFF;
+}
+dl.goodsDetailsItems dt{
+	color:#ce6603;
+	font-weight:bold;
+}
+dl.goodsDetailsItems dd{
+	padding-left:5px;
+	padding-right:5px;
+	margin-left:0px;
+	border-bottom:dashed 1px #CCC;
+}
+dl.goodsDetailsItems .vlue{
+	color:#ce6603;
+}
+/*** 文字排版 ***/
+.word{
+	font-size:14px;
+	padding:5px 8px;
+	line-height:1.5em;
+}
+.word p{
+	margin:5px 0 0 0;
+	text-indent:2em;
+}
+
+/****** 分页样式 ******/
+.page{
+	margin:5px;
+	font-size:12px;
+	font-weight:bold;
+	text-align:center;
+}
+
+.page input{
+	width:20px;
+	border:solid 1px #999;
+}
+
+.page a{
+	margin-left:2px;
+	padding:3px 6px;
+	border:solid 1px #CCC;
+	background:#FFF;
+	text-decoration:none;
+}
+
+.page a:hover{
+	text-decoration:none;
+	border:solid 1px #F00;
+}
+
+
 
 

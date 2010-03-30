@@ -35,6 +35,7 @@ a:hover{
 	margin:0px auto;
 	width:980px;
 	background:url(../Images/body_bg.jpg) bottom center no-repeat;
+	overflow:hidden;
 }
 .img{
 	margin:5px;
@@ -215,12 +216,13 @@ a:hover .img{
 	font-weight:bold;
 	cursor:pointer;
 }
-.banner{
+.banner, .ad-banner{
 	margin-top:2px;
 	margin-bottom:2px;
 	width:970px;
-	height:130px;
+	background:#FFF;
 }
+
 
 /** 中间内容区域 **/
 .mainBody{

@@ -45,11 +45,14 @@
                 </dl>
             </div>
         </div>
+        
     </div>
     <div class="indexMainCol2">
+    <div class="mainCol2Space">
         <uc:FlashList ID="Flash" runat="server" />
         <uc:RecommdIndex ID="rec" runat="server" />
         <uc:PromotionIndex ID="pro" runat="server" />
+    </div>
     </div>
     <div class="indexMainCol3">
         <uc:PromotionList ID="PromotionList" runat="server" />

@@ -1,48 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xmenu xmlns="http://schema.anyp.com/xmenu-1.0">
   <xMenuItem url="/SetNavUrl.aspx?mode=default" name="商城首页"  description="商城首页">
-
-    <xMenuItem url="/Admin/default.aspx" name="首页"  description="首页" type="0">
-      
-      <xMenuItem url="/Admin/User/UserList.aspx"  name="会员管理" description="会员管理" type="2"></xMenuItem>
-      <xMenuItem url="/Admin/GoodsCategoryList.aspx" name="商品管理"  description="商品管理"  type="2"></xMenuItem>
+    <xMenuItem url="/Admin/default.aspx" name="首页"  description="首页" type="0">      
+      <xMenuItem url="/Admin/GoodsList.aspx" name="商品管理"  description="商品管理"  type="2"></xMenuItem>
+      <xMenuItem url="/Admin/SlideList.aspx" name="页面滚动管理"  description="页面滚动管理"  type="2"></xMenuItem>
+      <xMenuItem url="/Admin/Head.aspx" description ="特色标语管理" name ="特色标语管理"  type="2"></xMenuItem>
+      <xMenuItem url="/Admin/LinkList.aspx" name="友情链接管理" description="友情链接管理"  type="2"></xMenuItem>
+      <xMenuItem url="/Admin/LogList.aspx" name="日志管理" description="日志管理"  type="2"></xMenuItem>
     </xMenuItem>
-    
-    <xMenuItem url="/Admin/SetNavUrl.aspx?mode=user"  name="会员管理" description="会员管理" >
-      <xMenuItem url="/Admin/User/UserList.aspx"  name="会员信息管理" description="会员信息管理"  type="1">
-      <xMenuItem url="/Admin/User/UserList.aspx"  name="会员信息列表" description="会员信息列表"  type="0">
-        <xMenuItem url="/Admin/User/DeleteUser.aspx" name="冻结用户" description="冻结用户" type="0"></xMenuItem>
-      </xMenuItem>
-        <xMenuItem url="/Admin/User/UserInfo.aspx"  name="会员详细信息" visible="false" description="会员详细信息"></xMenuItem>
-      </xMenuItem>
-      
-      <xMenuItem url="/Admin/ComplaintsList.aspx" name="互动管理"  description="互动管理" type="1" >
-        <xMenuItem url="/Admin/ComplaintsList.aspx" name="投诉列表" description="投诉列表" type="0">
-        </xMenuItem>
-        <xMenuItem url="/Admin/ComplaintsEdit.aspx" name="回复投诉" description="回复投诉" visible="false"></xMenuItem>
-        <xMenuItem url="/Admin/MessageList.aspx" name="留言薄"  description="留言薄"  type="0">
-          <xMenuItem url="/Admin/MessageReplay.aspx" name="回复信息"  description="回复信息"  visible="false" ></xMenuItem>
-        </xMenuItem>
-      </xMenuItem>
- 
-      <xMenuItem url="/Admin/AfficheList.aspx" name="公告管理" description="公告管理" type="1">
-        <xMenuItem url="/Admin/AfficheList.aspx" name="系统公告列表" description="系统公告列表" type="0">
-          <xMenuItem url="/Admin/AfficheEdit.aspx" name="编辑系统公告"  visible="false" description="编辑系统公告"></xMenuItem>
-        </xMenuItem>
-        <xMenuItem url="/Admin/UserAfficheList.aspx" name="用户公告列表" description="用户公告列表" type="0">
-          <xMenuItem url="/Admin/UserAfficheEdit.aspx" name="编辑用户公告" description="编辑用户公告" visible="false"></xMenuItem>
-        </xMenuItem> 
-      </xMenuItem>
-    </xMenuItem>
-
     <xMenuItem url="/Admin/SetNavUrl.aspx?mode=goods" name="商品管理"  description="商品管理" type ="1">
     <xMenuItem url="/Admin/GoodsCategoryList.aspx" name="商品类别管理"  description="商品类别管理"  type="1">
       <xMenuItem url="/Admin/GoodsCategoryList.aspx" name="商品类别列表"  description="商品类别列表"  type="0">
         <xMenuItem url="/Admin/GoodsCategorhandle.aspx" name="编辑商品类别"  visible="false"  description="编辑商品类别" />
       </xMenuItem>
     </xMenuItem>
-
-
       <xMenuItem url="/Admin/GoodsList.aspx" name="商品管理"  description="商品管理" type="1" >
       <xMenuItem url="/Admin/GoodsList.aspx" name="商品管理"  description="商品管理" type="0" >
         <xMenuItem url="/Admin/GoodsEdit.aspx" name="编辑商品"  description="编辑商品" visible="false" ></xMenuItem>
@@ -59,21 +30,7 @@
         <xMenuItem url="/Admin/GiftPackGoodsEdit.aspx" name="编辑大礼包商品"  description="编辑大礼包商品" visible="false"></xMenuItem>
       </xMenuItem>
     </xMenuItem>
-
-
-    <xMenuItem url="/Admin/ShopArticleList.aspx" name="商城服务指南"  description="商城服务指南" >
-      <xMenuItem url="/Admin/ShopArticleList.aspx" name="商城服务指南" description="商城服务指南" type="1">
-        <xMenuItem url="/Admin/ShopArticleList.aspx" name="商城指南列表" description="商城指南列表" type="0">
-        <xMenuItem url="/Admin/ShopArticleEdit.aspx" name="商城指南编辑" description="商城指南编辑" visible="false"></xMenuItem>
-        </xMenuItem>        
-      </xMenuItem>
-    </xMenuItem>
-
-
     <xMenuItem url ="/Admin/SetNavUrl.aspx?mode=system" name ="系统设置" description ="系统设置" >
-      <xMenuItem url ="/Admin/BasicInfoManage.aspx" name ="商户资料管理" description ="商户资料管理"  type="1">
-        <xMenuItem url ="/Admin/BasicInfoManage.aspx" name ="修改商户资料" description ="修改商户资料"  type="0"></xMenuItem>
-      </xMenuItem>
       <xMenuItem url ="/Admin/AboutUs.aspx" name ="关于我们" description ="关于我们" type="1" >
         <xMenuItem url ="/Admin/AboutUs.aspx" name ="编辑关于我们" description ="编辑关于我们" type="0" >
         </xMenuItem>
@@ -84,24 +41,13 @@
       <xMenuItem url="/Admin/Service.aspx" name="服务条款" description="服务条款" visible="false" type="1">
         <xMenuItem url="/Admin/Service.aspx" name="编辑服务条款" description="编辑服务条款" type="0"></xMenuItem>
       </xMenuItem>
-
-      <xMenuItem url="/Admin/SetMailBox.aspx" name="邮箱管理" description="邮箱管理" type="1">
-        <xMenuItem url="/Admin/SetMailBox.aspx" name="设置邮箱" description="设置邮箱" type="0"></xMenuItem>
-      </xMenuItem>
       <xMenuItem url="/Admin/SetAdminPass.aspx" name="登陆信息管理" description="登陆信息管理" visible="false" type="1">
         <xMenuItem url="/Admin/SetAdminPass.aspx" name="设置登陆信息" description="设置登陆信息" type="0"></xMenuItem>
       </xMenuItem>
       <xMenuItem url="/Admin/LogList.aspx" name="日志管理" description="日志管理" type="1">
         <xMenuItem url="/Admin/LogList.aspx" name="日志列表" description="日志列表" type="0"></xMenuItem>
-      </xMenuItem>
-
-      <xMenuItem url="/Admin/User/Agreement.aspx"  name="会员注册协议管理" description="会员注册协议管理" type="1">
-        <xMenuItem url="/Admin/User/Agreement.aspx"  name="修改会员注册协议" description="修改会员注册协议" type="0"></xMenuItem>
-      </xMenuItem>
-      
+      </xMenuItem>      
     </xMenuItem >
-
-
     <xMenuItem  url="/Admin/SetNavUrl.aspx?mode=page" description="页面高级设置" name="页面高级设置" type="1">
       <xMenuItem url="/Admin/SlideList.aspx" name="图片滚动管理" description="图片滚动管理" type="1">
         <xMenuItem url="/Admin/SlideList.aspx" name="图片滚动管理" description="图片滚动管理" type="0">
@@ -109,56 +55,17 @@
           </xMenuItem>
         </xMenuItem>
       </xMenuItem>
-
       <xMenuItem url="/Admin/Head.aspx" description ="特色标语管理" name ="特色标语管理"  type="1">
-
         <xMenuItem url="/Admin/Head.aspx" description ="特色标语设置" name ="特色标语设置"  type="0">
         </xMenuItem>
         <xMenuItem url="/Admin/Footer.aspx" description ="专题活动设置" name ="专题活动设置"  type="0">
         </xMenuItem>
       </xMenuItem>
-
       <xMenuItem url="/Admin/LinkList.aspx" name="友情链接管理" description="友情链接管理"  type="1">
         <xMenuItem url="/Admin/LinkList.aspx" name="友情链接列表" description="友情链接列表"  type="0">
           <xMenuItem url="/Admin/LinkEdit.aspx" name="编辑友情链接" visible="false" description="编辑友情链接"></xMenuItem>
         </xMenuItem>
       </xMenuItem>
     </xMenuItem>
-   
-    
   </xMenuItem>
 </xmenu>
-
-<!--<xMenuItem url="/Admin/OrderList.aspx" name="订单管理"  description="订单管理" type="2"></xMenuItem>-->
-
-<!--<xMenuItem url="/Admin/SetNavUrl.aspx?mode=order" name="订单管理"  description="订单管理" >
-      <xMenuItem url="/Admin/OrderList.aspx" name="订单管理"  description="订单管理"  type="1">
-      <xMenuItem url="/Admin/OrderList.aspx" name="订单列表"  description="订单列表"  type="0">
-        <xMenuItem url="/Admin/OrderItem.aspx" name="订单明细"  visible="false" description="订单明细">
-        </xMenuItem>
-      </xMenuItem>
-      </xMenuItem>
-      <xMenuItem url ="/Admin/PaymentModeList.aspx" name ="支付方式管理" description ="支付方式管理"  type="1">
-        <xMenuItem url ="/Admin/PaymentModeList.aspx" name ="支付方式列表" description ="支付方式列表"  type="0">
-          <xMenuItem url ="/Admin/ModeHandle.aspx" name ="编辑支付方式" description ="编辑支付方式"  visible="false">
-          </xMenuItem>
-        </xMenuItem>
-        <xMenuItem url ="/Admin/SysPaymentMode.aspx" name ="系统支付方式" description ="系统支付方式"  visible="false" type="0">
-          <xMenuItem url="/Admin/SysPaymentModeParticular.aspx" name="系统支付详情"  description="系统支付详情" ></xMenuItem>
-        </xMenuItem>
-      </xMenuItem>
-      <xMenuItem url ="/Admin/DeliverMode.aspx" name ="配送方式管理" description ="配送方式管理" type="1" >
-        <xMenuItem url ="/Admin/DeliverMode.aspx" name ="配送方式列表" description ="配送方式列表" type="0" >
-          <xMenuItem url ="/Admin/DeliverModeHandle.aspx" name ="编辑配送方式"  visible="false" description ="编辑配送方式" >
-          </xMenuItem>
-        </xMenuItem>
-        <xMenuItem url ="/Admin/SysDeliverList.aspx" name ="系统配送方式" description ="系统配送方式"  visible="false" type="0">
-          <xMenuItem url ="/Admin/SysDeliverParticular.aspx" name ="配送方式详情" description ="配送方式详情"  type="0">
-          </xMenuItem>
-        </xMenuItem>
-      </xMenuItem>
-      <xMenuItem url="/Admin/ShopService.aspx" description ="退换货服务管理" name ="退换货服务管理"  type="1">
-        <xMenuItem url="/Admin/ShopService.aspx" description ="退换货服务管理" name ="退换货服务管理"  type="0">
-        </xMenuItem>
-      </xMenuItem>
-    </xMenuItem>-->

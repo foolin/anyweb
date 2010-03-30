@@ -41,7 +41,7 @@
                                 <td>
                                     <%#Eval( "PackNo" )%>
                                 </td>
-                                <td rowspan="8" style="text-align: center; width: 226px; background-color: White;
+                                <td rowspan="5" style="text-align: center; width: 226px; background-color: White;
                                     border-left: solid 1px gray; border-right: solid 1px gray;">
                                     <img src='<%#(string)Eval( "Image" )=="" ? "../images/wait.jpg":(string)Eval( "Image" ) %>'
                                         alt="点击查看原图" onload="javascript:if(this.width>200)this.width=200" onclick="window.open(this.src);"
@@ -206,6 +206,8 @@
                                 <td>
                                     <asp:TextBox ID="txtPackName" runat="server" CssClass="input" errmsg="请输入正确的大礼包名称" MaxLength="50"
                                         require="1" Width="308px" Text='<%#Bind("PackName") %>'></asp:TextBox>&nbsp;不超过50个汉字。
+                                        
+                                    <asp:HiddenField ID="txtGoodsIds" runat="server" Value='<%# Bind("GoodsIds") %>'/>
                                 </td>
                             </tr>
                             <tr class="name">

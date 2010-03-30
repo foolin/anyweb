@@ -7,7 +7,8 @@
             <img src="Images/box1_title_rbg.gif" width="66" height="33" /></div>
     </div>
     <div class="content">
-        <ul class="indexLink">
+        <div class="indexLink">
+		<ul>
             <asp:Repeater ID="repLink" runat="server">
                 <ItemTemplate>
                     <li><a href="<%#Eval("LinkUrl") %>">
@@ -15,5 +16,6 @@
                 </ItemTemplate>
             </asp:Repeater>
         </ul>
+		</div>
     </div>
 </div>

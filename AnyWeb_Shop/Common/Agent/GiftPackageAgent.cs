@@ -58,7 +58,7 @@ namespace Common.Agent
         }
 
         /// <summary>
-        /// 获取大礼包列表
+        /// 获取大礼包列表,重载
         /// </summary>
         /// <param name="pageSize"></param>
         /// <param name="pageNo"></param>
@@ -213,6 +213,53 @@ namespace Common.Agent
             return list;
         }
 
+
+        /// <summary>
+        /// 获取商品列表 重载
+        /// </summary>
+        /// <param name="packID"></param>
+        /// <returns></returns>
+        public ArrayList GetGoodsListByPackID(int packID)
+        {
+            int recordCount = 0;
+            DataSet ds;
+
+            IDbDataParameter record = this.NewParam("@RecordCount", 0, DbType.Int32, 8, true);
+            using (IDbExecutor db = this.NewExecutor())
+            {
+
+                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetGiftPackGoodsList",
+                                     this.NewParam("@PackID", packID),
+                                     record);
+            }
+            recordCount = (int)record.Value;
+
+            ArrayList list = new ArrayList();
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                Goods gs = new Goods();
+                gs.ID = (int)dr["GoodsID"];
+                gs.GoodsName = (string)dr["GoodsName"];
+                gs.Status = (int)dr["Status"];
+                gs.Price = (double)dr["Price"];
+                gs.MarketPrice = (double)dr["MarketPrice"];
+                gs.Image = (string)dr["Image"];
+                gs.CategoryID = (int)dr["CategoryID"];
+                gs.Clicks = (int)dr["Clicks"];
+                gs.Model = (string)dr["Model"];
+                gs.EndTime = (DateTime)dr["EndTime"];
+                gs.IsRecommend = (bool)dr["IsRecommend"];
+                gs.Order = (int)dr["Order"];
+                /*
+                gs.OfCategory = new Category();
+                gs.OfCategory.Name = (string)dr["CategoryName"];
+                gs.OfCategory.Path = (string)dr["Path"];
+                gs.OfCategory.OfShop = ShopInfo;
+                 */
+                list.Add(gs);
+            }
+            return list;
+        }
 
         /// <summary>
         /// 增加大礼包

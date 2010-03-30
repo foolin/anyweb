@@ -9,7 +9,7 @@ using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 
-public partial class GiftPackage : System.Web.UI.Page
+public partial class GiftPackage : PageBase
 {
     protected void Page_Load(object sender, EventArgs e)
     {

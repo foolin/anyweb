@@ -57,6 +57,50 @@ namespace Common.Agent
             return list;
         }
 
+        /// <summary>
+        /// 获取大礼包列表
+        /// </summary>
+        /// <param name="pageSize"></param>
+        /// <param name="pageNo"></param>
+        /// <param name="isShow"></param>
+        /// <param name="recordCount"></param>
+        /// <returns></returns>
+        public ArrayList GetGiftPackageList(int pageSize, int pageNo, bool isShow)
+        {
+            int recordCount;
+            DataSet ds;
+
+            IDbDataParameter record = this.NewParam("@RecordCount", 0, DbType.Int32, 8, true);
+            using (IDbExecutor db = this.NewExecutor())
+            {
+
+                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetGiftPackageList",
+                                     this.NewParam("@PageSize", pageSize),
+                                     this.NewParam("@PageNo", pageNo),
+                                     this.NewParam("@IsShow", isShow),
+                                     record);
+            }
+            recordCount = (int)record.Value;
+
+            ArrayList list = new ArrayList();
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                GiftPackage gp = new GiftPackage();
+                gp.PackID = (int)dr["PackID"];
+                gp.PackNo = (string)dr["PackNo"];
+                gp.PackName = (string)dr["PackName"];
+                gp.GoodsIds = (string)dr["GoodsIds"];
+                gp.Price = (double)dr["Price"];
+                gp.Image = (string)dr["Image"];
+                gp.Intro = (string)dr["Intro"];
+                gp.Description = (string)dr["Description"];
+                gp.IsShow = (bool)dr["IsShow"];
+                gp.Sort = (int)dr["Sort"];
+                list.Add(gp);
+            }
+            return list;
+        }
+
         public GiftPackage GetGiftPackageByID(int packID)
         {
             DataSet ds;

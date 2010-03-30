@@ -8,6 +8,7 @@
 <%@ Register Src="~/Controls/PromotionListIndex.ascx" TagName="PromotionList" TagPrefix="uc" %>
 <%@ Register Src="~/Controls/LinkIndex.ascx" TagName="Link" TagPrefix="uc" %>
 <%@ Register Src="Controls/HotSellRankList.ascx" TagName="HotSellRankList" TagPrefix="uc" %>
+<%@ Register Src="Controls/GiftPackageIndex.ascx" TagName="GiftPackageIndex" TagPrefix="uc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="Server">
@@ -45,6 +46,7 @@
                 </dl>
             </div>
         </div>
+        <uc:Link ID="Link" runat="server" />
         
     </div>
     <div class="indexMainCol2">
@@ -57,7 +59,7 @@
     <div class="indexMainCol3">
         <uc:PromotionList ID="PromotionList" runat="server" />
         <uc:HotSellRankList ID="HotSellRankList" runat="server" />
-        <uc:Link ID="Link" runat="server" />
+        <uc:GiftPackageIndex ID="GiftPackageIndex" runat="server" />
     </div>
     <div class="clear">
     </div>

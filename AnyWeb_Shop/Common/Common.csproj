@@ -51,6 +51,7 @@
     <Compile Include="Agent\CommentAgent.cs" />
     <Compile Include="Agent\ComplaintsAgent.cs" />
     <Compile Include="Agent\EventLogAgent.cs" />
+    <Compile Include="Agent\GiftPackageAgent.cs" />
     <Compile Include="Agent\GoodsAgent.cs" />
     <Compile Include="Agent\HotSellRankAgent.cs" />
     <Compile Include="Agent\LinkAgent.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Common\Complaints.cs" />
     <Compile Include="Common\Deposits.cs" />
     <Compile Include="Common\EventLog.cs" />
+    <Compile Include="Common\GiftPackage.cs" />
     <Compile Include="Common\Goods.cs" />
     <Compile Include="Common\GoodsImages.cs" />
     <Compile Include="Common\HotSellRank.cs" />

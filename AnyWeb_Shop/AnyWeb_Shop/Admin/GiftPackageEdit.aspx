@@ -11,8 +11,6 @@
             <div class="inner">
                 <h2>
                     <asp:Literal ID="litTitle" runat="server"></asp:Literal>
-                    <span class="listadd"><a href="GiftPackGoodsAdd.aspx?pid=<%=QS("packID") %>">添加商品</a></span>
-                    <span class="listadd"><a href="GiftPackGoodsEdit.aspx?pid=<%=QS("packID") %>">管理商品</a></span>
                 </h2>
                     
             </div>

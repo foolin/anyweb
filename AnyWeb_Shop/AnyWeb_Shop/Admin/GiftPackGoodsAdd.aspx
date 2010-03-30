@@ -30,11 +30,7 @@
         <div class="mhd">
             <div class="inner">
                 <h2>
-                    添加商品到大礼包
-                    
-                    <span class="listadd"><a href="GiftPackGoodsEdit.aspx?pid=<%=QS("pid") %>">查看该大礼包商品</a></span>
-                    <span class="listadd"><a href="GiftPackageEdit.aspx?mode=select&packID=<%=QS("pid") %>">查看该大礼包</a></span>
-                    
+                    添加商品到大礼包                    
                 </h2>
             </div>
         </div>
@@ -119,8 +115,6 @@
                 </div>
                 <div class="iSubmit">
                     <asp:Button ID="btnDel" runat="server" Text="添加到大礼包" CssClass="submit" OnClick="btnAdd_Click" />
-                    <button id="btnViewGiftPackage" onclick="window.location='GiftPackageEdit.aspx?mode=select&packID=<%=QS("pid") %>';" type="button">
-                                查看该大礼包</button>  
                     <button id="btnBack" onclick="history.go(-1);" type="button">
                                 返回</button>          
                 </div>

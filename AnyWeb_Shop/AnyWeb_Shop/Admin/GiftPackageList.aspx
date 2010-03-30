@@ -53,16 +53,13 @@
                                 价格
                             </th>
                             <th>
-                                简介
-                            </th>
-                            <th>
                                 是否显示
                             </th>
                             <th>
                                 排序
                             </th>
                             <th>
-                                商品
+                                所属商品
                             </th>
                             <th class="end">
                                 操作
@@ -92,9 +89,6 @@
                                         <%#Eval("Price", "{0:c}")%>
                                     </td>
                                     <td>
-                                        <%#Eval("Intro") %>
-                                    </td>
-                                    <td>
                                         <input name="chkShow" type="checkbox" onclick='javascript:SetShow(<%# Eval("PackID") %>,<%# ((bool)Eval("IsShow")) == true ? 1: 0 %>);'
                                             <%#(bool)Eval("IsShow")==true ? "checked" :""%> title="点击显示" />
                                     </td>
@@ -102,8 +96,7 @@
                                         <%#Eval("Sort") %>
                                     </td>
                                     <td>
-                                        <a href="GiftPackGoodsEdit.aspx?pid=<%#Eval("PackID")%>">查看</a>
-                                        <a href="GiftPackGoodsAdd.aspx?pid=<%#Eval("PackID")%>">添加</a>
+                                        <a href="GiftPackGoodsEdit.aspx?pid=<%#Eval("PackID")%>">查看商品</a>
                                     </td>
                                     <td>
                                         <a href="GiftPackageEdit.aspx?mode=update&packID=<%#Eval("PackID")%>">编辑</a>

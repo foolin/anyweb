@@ -1,26 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Promotion.aspx.cs" Inherits="Promotion" %>
 
-<%@ Register Src="~/Controls/PromotionCate.ascx" TagName="Promotion" TagPrefix="cate" %>
-<%@ Register Src="~/Controls/PromotionGoods.ascx"TagName="Promotion" TagPrefix="good" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" Runat="Server">
-    <link href="/public/category.css" rel="stylesheet" type="text/css" />
+<%@ Register Src="~/Controls/PromotionCate.ascx" TagName="PromotionCate" TagPrefix="uc" %>
+<%@ Register Src="~/Controls/PromotionGoods.ascx"TagName="PromotionGoods" TagPrefix="uc" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cphContent" Runat="Server">
-    <div class="main">
-        <div class="col-sider">
-            <!-- 栏目 -->
-            <!-- 栏目 -->
-        	<cate:Promotion runat="server" />
-            <!-- category end -->
-        </div>
-        <!-- col-sider end -->
-        <div class="col-main">
-            <good:Promotion runat="server" />
-            <!-- container end -->
-        </div>
-        <!-- col-main -->
-        <div class="clear">
-        </div>
+<asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="Server">
+    <div class="col2MainSider">
+        <uc:PromotionCate ID="PromotionCate" runat="server" />
     </div>
-    <!-- main end -->
+    <div class="col2MainContent">
+        <uc:PromotionGoods id="PromotionGoods" runat="server" />
+    </div>
+    <div class="clear">
+    </div>
 </asp:Content>

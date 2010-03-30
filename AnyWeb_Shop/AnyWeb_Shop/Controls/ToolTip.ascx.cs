@@ -23,7 +23,7 @@ public partial class Controls_ToolTip : System.Web.UI.UserControl
     {
 
         Category c = (Category)e.Item.DataItem;
-        Repeater rep2 = (Repeater)e.Item.FindControl("repChiled");
+        Repeater rep2 = (Repeater)e.Item.FindControl("repChild");
         if (rep2 != null)
         {
             using (CategoryAgent ca = new CategoryAgent())
@@ -31,7 +31,6 @@ public partial class Controls_ToolTip : System.Web.UI.UserControl
                 rep2.DataSource = ca.GetCategoryChildren(c.ID);
                 rep2.DataBind();
             }
-
         }
     }
 }

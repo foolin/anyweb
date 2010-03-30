@@ -7,7 +7,7 @@ using Studio.Web;
 using Common.Common;
 using Common.Agent;
 
-public partial class Controls_ProductInfo : ControlBase
+public partial class Controls_GoodDetail : ControlBase
 {
     protected void Page_Load(object sender, EventArgs e)
     {

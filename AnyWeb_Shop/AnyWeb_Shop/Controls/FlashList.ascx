@@ -16,23 +16,9 @@
         <ul class="num" id="idNum">
         </ul>
     </div>
-    <%--<div id="slide-txt" class="slide-txt">
-        <ul id="txt-item">
-            <li><a href="#">置顶产品：信凤姐，得自信！</a> </li>
-            <li><a href="#">热门产品：信犀利哥，迷倒众生！</a> </li>
-            <li><a href="#">推荐产品：信曾哥，原地复活！</a> </li>
-            <li><a href="#">热评产品：信春哥，得永生！</a> </li>
-            <li><a href="#">打折产品：信芙蓉，得半身不遂！</a> </li>
-        </ul>
-    </div>--%>
 </div>
-<!-- container-images end -->
 
 <script type="text/javascript">
-//    var ShowTxt = function(i) {
-//        var txtId = $("slide-txt").childNodes[i];
-//        alert(i + ":" + txtId.innerHTML);
-//    }
     
     var forEach = function(array, callback, thisObject) {
         if (array.forEach) {
@@ -43,13 +29,12 @@
     }
 
     var st = new SlideTrans("slide-container", "slide-images", 5, { Vertical: false });
-//    var sTxt = new SlideTrans("slide-txt", "txt-item", 5, { Vertical: true });
 
 
     var nums = [];
     //插入数字
     for (var i = 0, n = st._count - 1; i <= n; ) {
-        (nums[i] = $("idNum").appendChild(document.createElement("li"))).innerHTML = ++i;
+        (nums[i] = document.getElementById("idNum").appendChild(document.createElement("li"))).innerHTML = ++i;
     }
 
     forEach(nums, function(o, i) {

@@ -34,6 +34,17 @@ namespace Common.Agent
         }
 
         /// <summary>
+        /// 清空日志
+        /// </summary>
+        public void ClearLog()
+        {
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                db.ExecuteNonQuery(CommandType.StoredProcedure, "shop_ClearLog");
+            }
+        }
+
+        /// <summary>
         /// 获得所有日志
         /// </summary>
         /// <param name="pagesize"></param>

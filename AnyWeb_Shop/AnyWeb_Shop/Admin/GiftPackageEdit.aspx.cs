@@ -43,14 +43,14 @@ public partial class Admin_GiftPackageEdit : AdminBase
 
     protected void fv1_DataBound(object sender, EventArgs e)
     {
-        if (QS("mode") != "select")
+        if (QS("mode") == "update")
         {
             GiftPackage gp = (GiftPackage)fv1.DataItem;
-            TextBox txtPackName = (TextBox)fv1.FindControl("txtPackName");
-            TextBox txtPackNo = (TextBox)fv1.FindControl("txtPackNo");
             TextBox txtPrice = (TextBox)fv1.FindControl("txtPrice");
-            TextBox txtIntro = (TextBox)fv1.FindControl("txtIntro");
-            //HiddenField hdfGoodsIds = (HiddenField)fv1.FindControl("hdfGoodsIds");
+            if (txtPrice != null)
+            {
+                txtPrice.Text = gp.Price.ToString();
+            }
         }
 
     }
@@ -70,7 +70,6 @@ public partial class Admin_GiftPackageEdit : AdminBase
         TextBox txtSort = (TextBox)fv1.FindControl("txtSort");
         TextBox txtIntro = (TextBox)fv1.FindControl("txtIntro");
         TextBox txtPrice = (TextBox)fv1.FindControl("txtPrice");
-        //TextBox txtDescription = (TextBox)fv1.FindControl("txtDescription");
 
         GiftPackage gp = (GiftPackage)e.InputParameters[0];
 
@@ -142,6 +141,7 @@ public partial class Admin_GiftPackageEdit : AdminBase
         TextBox txtSort = (TextBox)fv1.FindControl("txtSort");
         TextBox txtIntro = (TextBox)fv1.FindControl("txtIntro");
         HiddenField hdfGoodsIds = (HiddenField)fv1.FindControl("hdfGoodsIds");
+        TextBox txtPrice = (TextBox)fv1.FindControl("txtPrice");
 
         GiftPackage gp = (GiftPackage)e.InputParameters[0];
 
@@ -172,6 +172,21 @@ public partial class Admin_GiftPackageEdit : AdminBase
         if (txtIntro == null || string.IsNullOrEmpty(txtIntro.Text))
         {
             gp.Intro = "暂无";
+        }
+        if (txtPrice == null || string.IsNullOrEmpty(txtPrice.Text))
+        {
+            WebAgent.AlertAndBack("价格输入不能为空，请输入！");
+        }
+        else
+        {
+            try
+            {
+                gp.Price = Convert.ToDouble(txtPrice.Text);
+            }
+            catch
+            {
+                WebAgent.AlertAndBack("价格输入必须为数字，请输入！");
+            }
         }
     }
 

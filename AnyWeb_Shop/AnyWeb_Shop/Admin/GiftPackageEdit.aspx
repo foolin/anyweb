@@ -1,18 +1,17 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true"
- CodeFile="GiftPackageEdit.aspx.cs" Inherits="Admin_GiftPackageEdit" Title="大礼包管理" %>
+    CodeFile="GiftPackageEdit.aspx.cs" Inherits="Admin_GiftPackageEdit" Title="大礼包管理" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
     <li>查看大礼包时，点击[编辑大礼包]可以编辑大礼包</li>
     <li>查看大礼包时，点击[管理商品]可以对该大礼包商品进行添加、删除</li>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cph1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
     <div class="mod mEdit">
         <div class="mhd">
             <div class="inner">
                 <h2>
                     <asp:Literal ID="litTitle" runat="server"></asp:Literal>
                 </h2>
-                    
             </div>
         </div>
         <div class="mbd">
@@ -38,7 +37,6 @@
                                 </th>
                                 <td>
                                     <%#Eval( "PackNo" )%>
-                                    
                                 </td>
                                 <td rowspan="5" style="text-align: center; width: 226px; background-color: White;
                                     border-left: solid 1px gray; border-right: solid 1px gray;">
@@ -65,7 +63,7 @@
                             </tr>
                             <tr>
                                 <th>
-                                  大礼包介绍
+                                    大礼包介绍
                                 </th>
                                 <td>
                                     <%#Eval("Intro")%>
@@ -76,9 +74,11 @@
                                     商品：
                                 </th>
                                 <td>
-                                    <%#Eval("GoodsIds")%>  &nbsp;&nbsp;<button id="btnViewGoods1" onclick="window.location='GiftPackGoodsEdit.aspx?pid=<%#Eval("PackID")%>';"
-                                type="button">
-                                查看商品</button>
+                                    <%#Eval("GoodsIds")%>
+                                    &nbsp;&nbsp;
+                                    <button id="btnViewGoods1" onclick="window.location='GiftPackGoodsEdit.aspx?pid=<%#Eval("PackID")%>';"
+                                        type="button">
+                                        查看商品</button>
                                 </td>
                             </tr>
                             <tr>
@@ -107,12 +107,11 @@
                         <table class="iEditForm iEditBaseInf">
                             <tr>
                                 <th style="width: 120px;">
-                                    大礼包名称： 
+                                    大礼包名称：
                                 </th>
                                 <td>
-                                    <asp:TextBox ID="txtPackName" runat="server" CssClass="input" errmsg="请输入正确的大礼包名称" MaxLength="50"
-                                        require="1" Width="308px" Text='<%#Bind("PackName") %>'></asp:TextBox>&nbsp;不超过50个汉字。
-                                    
+                                    <asp:TextBox ID="txtPackName" runat="server" CssClass="input" errmsg="请输入正确的大礼包名称"
+                                        MaxLength="50" require="1" Width="308px" Text='<%#Bind("PackName") %>'></asp:TextBox>&nbsp;不超过50个汉字。
                                 </td>
                             </tr>
                             <tr class="name">
@@ -122,10 +121,8 @@
                                 <td>
                                     <asp:TextBox ID="txtPackNo" runat="server" Text='<%#Bind("PackNo")%>' CssClass="input"
                                         errmsg="请输入正确的编号" MaxLength="50" require="1" Width="200px"></asp:TextBox>
-                                        参考：AF0101-0108
-                                        
-                                        
-                                    <asp:HiddenField ID="hdfGoodsIds" runat="server" Value='<%# Bind("GoodsIds") %>'/> 
+                                    参考：AF0101-0108
+                                    <asp:HiddenField ID="hdfGoodsIds" runat="server" Value='<%# Bind("GoodsIds") %>' />
                                 </td>
                             </tr>
                             <tr>
@@ -143,8 +140,7 @@
                                     价格：
                                 </th>
                                 <td>
-                                    <asp:TextBox ID="txtPrice" runat="server" CssClass="input"
-                                        MaxLength="10" Width="100px" Text='<%# Bind("Price") %>'></asp:TextBox>RMB
+                                    <asp:TextBox ID="txtPrice" runat="server" CssClass="input" MaxLength="10" Width="100px"></asp:TextBox>RMB
                                     该大礼包的价格
                                 </td>
                             </tr>
@@ -184,11 +180,11 @@
                                     排序：
                                 </th>
                                 <td>
-                                    <asp:TextBox ID="txtSort" runat="server" Text='<%#Bind("Sort") %>' CssClass="input" require="1" errmsg="请输入正确的排序"></asp:TextBox>
+                                    <asp:TextBox ID="txtSort" runat="server" Text='<%#Bind("Sort") %>' CssClass="input"
+                                        require="1" errmsg="请输入正确的排序"></asp:TextBox>
                                 </td>
                             </tr>
                         </table>
-                        
                         <div class="iSubmit">
                             <asp:Button ID="btnSave" runat="server" Text="保存大礼包" CommandName="Update" CssClass="submit">
                             </asp:Button>
@@ -197,9 +193,6 @@
                             <button id="btnBack" onclick="window.location='GiftPackageList.aspx';">
                                 取 消</button>
                         </div>
-
-                    
-
                     </EditItemTemplate>
                     <InsertItemTemplate>
                         <table class="iEditForm iEditBaseInf">
@@ -208,10 +201,8 @@
                                     大礼包名称：
                                 </th>
                                 <td>
-                                    <asp:TextBox ID="txtPackName" runat="server" CssClass="input" errmsg="请输入正确的大礼包名称" MaxLength="50"
-                                        require="1" Width="308px" Text='<%#Bind("PackName") %>'></asp:TextBox>&nbsp;不超过50个汉字。
-                                        
-                                    
+                                    <asp:TextBox ID="txtPackName" runat="server" CssClass="input" errmsg="请输入正确的大礼包名称"
+                                        MaxLength="50" require="1" Width="308px" Text='<%#Bind("PackName") %>'></asp:TextBox>&nbsp;不超过50个汉字。
                                 </td>
                             </tr>
                             <tr class="name">
@@ -221,13 +212,9 @@
                                 <td>
                                     <asp:TextBox ID="txtPackNo" runat="server" Text='<%#Bind("PackNo")%>' CssClass="input"
                                         errmsg="请输入正确的大礼包型号" MaxLength="50" require="1" Width="200px"></asp:TextBox>
-                                        参考：AF0101-0108
-                                       
-                                    
-                                        
+                                    参考：AF0101-0108
                                 </td>
                             </tr>
-                       
                             <tr>
                                 <th>
                                     商品图片：
@@ -242,9 +229,8 @@
                                     价格：
                                 </th>
                                 <td>
-                                    <asp:TextBox ID="txtPrice" runat="server" CssClass="input" Text='<%# Bind("Price") %>'
-                                        MaxLength="10" require="1" errmsg="请输入正确的大礼包价格"  Width="100px"></asp:TextBox>RMB
-                                    该大礼包销售价格
+                                    <asp:TextBox ID="txtPrice" runat="server" CssClass="input" MaxLength="10" require="1"
+                                        errmsg="请输入正确的大礼包价格" Width="100px"></asp:TextBox>RMB 该大礼包销售价格
                                 </td>
                             </tr>
                             <tr>
@@ -292,9 +278,6 @@
                             <button id="btnBack" onclick="window.location='GiftPackageList.aspx';" type="button">
                                 取 消</button>
                         </div>
-
-                     
-
                     </InsertItemTemplate>
                 </asp:FormView>
                 </form>
@@ -303,16 +286,14 @@
         <div class="mft">
         </div>
     </div>
-
-    <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetGiftPackageByID" TypeName="Common.Agent.GiftPackageAgent"
-        OnSelecting="ods3_Selecting" OnInserted="ods3_Inserted" OnInserting="ods3_Inserting"
-        OnUpdated="ods3_Updated" OnUpdating="ods3_Updating" DataObjectTypeName="Common.Common.GiftPackage"
-        InsertMethod="AddGiftPackage" UpdateMethod="UpdateGiftPackage" DeleteMethod="DeleteGiftPackage"
-        OnDeleted="ods3_Deleted" OnDeleting="ods3_Deleting">
+    <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetGiftPackageByID"
+        TypeName="Common.Agent.GiftPackageAgent" OnSelecting="ods3_Selecting" OnInserted="ods3_Inserted"
+        OnInserting="ods3_Inserting" OnUpdated="ods3_Updated" OnUpdating="ods3_Updating"
+        DataObjectTypeName="Common.Common.GiftPackage" InsertMethod="AddGiftPackage"
+        UpdateMethod="UpdateGiftPackage" DeleteMethod="DeleteGiftPackage" OnDeleted="ods3_Deleted"
+        OnDeleting="ods3_Deleting">
         <SelectParameters>
             <asp:Parameter Name="packID" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
-    
 </asp:Content>
-

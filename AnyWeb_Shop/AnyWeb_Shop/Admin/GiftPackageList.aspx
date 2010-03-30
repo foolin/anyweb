@@ -1,8 +1,10 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="GiftPackageList.aspx.cs" Inherits="Admin_GiftPackageList" Title="大礼包管理" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true"
+    CodeFile="GiftPackageList.aspx.cs" Inherits="Admin_GiftPackageList" Title="大礼包管理" %>
+
 <%@ Register Assembly="Studio" Namespace="Studio.Web" TagPrefix="cc1" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cph1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
 
     <script type="text/javascript">
         function SelectAll(v) {
@@ -19,18 +21,16 @@
         }	
     </script>
 
- <div class="mod mEdit">
-               <form id="form1" runat="server">
+    <div class="mod mEdit">
+        <form id="form1" runat="server">
         <div class="mhd">
             <div class="inner">
                 <h2>
-                    大礼包管理 <span class="listadd"><a href="GiftPackageEdit.aspx?mode=insert">添加大礼包</a></span></h2> 
+                    大礼包管理 <span class="listadd"><a href="GiftPackageEdit.aspx?mode=insert">添加大礼包</a></span></h2>
             </div>
         </div>
         <div class="mbd">
             <div class="inner">
-
-                    
                 <table class="iList iArticle" id="tbGoods">
                     <caption>
                         <asp:Label ID="lblTips" Font-Size="12px" runat="server" Text=""></asp:Label>
@@ -99,8 +99,8 @@
                                         <a href="GiftPackGoodsEdit.aspx?pid=<%#Eval("PackID")%>">查看商品</a>
                                     </td>
                                     <td>
-                                        <a href="GiftPackageEdit.aspx?mode=update&packID=<%#Eval("PackID")%>">编辑</a>
-                                        <a href="GiftPackageEdit.aspx?mode=select&packID=<%#Eval("PackID")%>">查看详情</a>
+                                        <a href="GiftPackageEdit.aspx?mode=update&packID=<%#Eval("PackID")%>">编辑</a> <a href="GiftPackageEdit.aspx?mode=select&packID=<%#Eval("PackID")%>">
+                                            查看详情</a>
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -112,10 +112,10 @@
                     </cc1:PageNaver>
                 </div>
                 <div class="iSubmit">
-                    <asp:Button ID="btnDel" runat="server" Text="批量删除" CssClass="submit" OnClick="btnDel_Click" />  
+                    <asp:Button ID="btnDel" runat="server" Text="批量删除" CssClass="submit" OnClick="btnDel_Click" />
                 </div>
-
-                <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetGiftPackageList" TypeName="Common.Agent.GiftPackageAgent">
+                <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetGiftPackageList"
+                    TypeName="Common.Agent.GiftPackageAgent">
                     <SelectParameters>
                         <asp:ControlParameter Type="Int32" PropertyName="pagesize" Name="pageSize" ControlID="PN1" />
                         <asp:ControlParameter Type="Int32" PropertyName="pageindex" Name="pageNo" ControlID="PN1" />
@@ -127,10 +127,8 @@
         </div>
         <div class="mft">
         </div>
+        </form>
     </div>
-
-
-</form>
 
     <script type="text/javascript">
 
@@ -196,4 +194,3 @@
     </script>
 
 </asp:Content>
-

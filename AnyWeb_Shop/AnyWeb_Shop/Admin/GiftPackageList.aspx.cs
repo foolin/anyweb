@@ -23,6 +23,22 @@ public partial class Admin_GiftPackageList : AdminBase
     }
     protected void btnDel_Click(object sender, EventArgs e)
     {
-
+        if (Request.Form["ids"] + "" == "")
+        {
+            WebAgent.AlertAndBack("请选择需要删除项");
+        }
+        string gpIds = Request.Form["ids"].ToString();
+        using (GiftPackageAgent gpAgent = new GiftPackageAgent())
+        {
+            if (gpAgent.DeleteGiftPackage(gpIds) > 0)
+            {
+                this.AddLog(EventID.Delete, "删除大礼包产品", "批量删除大礼包，编号:" + gpIds);
+                WebAgent.SuccAndGo("批量删除大礼包成功。", "GiftPackageList.aspx");
+            }
+            else
+            {
+                WebAgent.FailAndGo("批量删除大礼包失败！");
+            }
+        }
     }
 }

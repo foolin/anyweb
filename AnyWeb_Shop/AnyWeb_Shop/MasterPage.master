@@ -8,8 +8,9 @@
     <title>基团网</title>
     <asp:ContentPlaceHolder ID="cphTitle" runat="server">
     </asp:ContentPlaceHolder>
-    <link href="/public/css.css" rel="stylesheet" type="text/css" />
+    <link href="/public/index.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/public/slidetrans.js"></script>
+    <script type="text/javascript" src="/public/jquery-1.4.2.min.js"></script>
     <script type="text/javascript">
         //判断浏览器是否为IE
         function isIE() {
@@ -32,7 +33,18 @@
                 document.getElementById("title" + i).className = "noselect";
             }
             document.getElementById("title" + id).className = "select";
-        }        
+        }   
+        
+        $(document).ready(function() {
+            $("#navGoods").hover(
+                function() {
+                    $("#tooltip").slideDown(200);
+                },
+                function() {
+                    $("#tooltip").slideUp(200);
+                }
+            ); 
+        }); 
     </script>
 
 </head>
@@ -48,9 +60,9 @@
                     <div class="nav">
                         <ul>
                             <li class="navIndex"><a href="index.aspx" id="title1" class="select"></a></li>
-                            <li class="navGoods" onmousemove="ToolTipShow()">
+                            <li class="navGoods" id="navGoods">
                                 <a href="Category.aspx" id="title2" class="noselect"></a>
-                                <uc:ToolTip ID="toolTip" runat="server" />
+                                <uc:ToolTip ID="toolTips" runat="server" />
                             </li>
                             <li class="navReg"><a href="Register.aspx" id="title3" class="noselect"></a></li>
                         </ul>
@@ -112,6 +124,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>    
 </body>
 </html>

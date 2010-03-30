@@ -61,6 +61,9 @@
                             <th>
                                 排序
                             </th>
+                            <th>
+                                商品
+                            </th>
                             <th class="end">
                                 操作
                             </th>
@@ -92,11 +95,15 @@
                                         <%#Eval("Intro") %>
                                     </td>
                                     <td>
-                                        <input id="chkIsShow" type="checkbox" onclick='javascript:IsShowSet(<%# Eval("PackID") %>,<%# ((bool)Eval("IsShow")) == true ? 1: 0 %>);'
-                                            <%#(bool)Eval("IsShow")==true ? "checked" :""%> title="点击推荐" />
+                                        <input name="chkShow" type="checkbox" onclick='javascript:SetShow(<%# Eval("PackID") %>,<%# ((bool)Eval("IsShow")) == true ? 1: 0 %>);'
+                                            <%#(bool)Eval("IsShow")==true ? "checked" :""%> title="点击显示" />
                                     </td>
                                     <td>
                                         <%#Eval("Sort") %>
+                                    </td>
+                                    <td>
+                                        <a href="GiftPackGoodsEdit.aspx?pid=<%#Eval("PackID")%>">查看</a>
+                                        <a href="GiftPackGoodsAdd.aspx?pid=<%#Eval("PackID")%>">添加</a>
                                     </td>
                                     <td>
                                         <a href="GiftPackageEdit.aspx?mode=update&packID=<%#Eval("PackID")%>">编辑</a>
@@ -131,6 +138,69 @@
 
 
 </form>
+
+    <script type="text/javascript">
+
+        function SetShow(packID, isShow) {
+
+
+            var req = GetRequest();
+
+            var data = "pid=" + packID + "&type=" + isShow;
+
+            req.onreadystatechange = function handler() {
+                if (req.readyState == 4) {
+
+                    if (req.status == 200) {
+
+                        var result = req.responseText;
+
+                        if (result == "1") {
+                            alert("设置成功");
+                        }
+                        if (result == "0") {
+                            alert("设置失败");
+                        }
+                    }
+                }
+            }
+            req.open("post", "/Admin/GiftPackSetShow.aspx", true);
+            req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            req.send(data);
+        }
+
+        function GetRequest() {
+            var req = null;
+            if (window.XMLHttpRequest) {
+                req = new XMLHttpRequest();
+                if (req.overrideMimeType) {
+                    req.overrideMimeType("text/xml");
+                }
+            }
+            else {
+                if (window.ActiveXObject) {
+                    try {
+                        req = new ActiveXObject("Msxml3.XMLHTTP");
+                    }
+                    catch (e) {
+                        try {
+                            req = new ActiveXObject("Msxml2.XMLHTTP");
+                        }
+                        catch (e) {
+                            try {
+                                req = new ActiveXObject("Microsoft.XMLHTTP");
+                            }
+                            catch (e) {
+                            }
+                        }
+                    }
+                }
+            }
+
+            return req;
+        }
+    </script>
 
 </asp:Content>
 

@@ -112,10 +112,12 @@ namespace Common.Agent
                 gs.EndTime = (DateTime)dr["EndTime"];
                 gs.IsRecommend = (bool)dr["IsRecommend"];
                 gs.Order = (int)dr["Order"];
+                /*
                 gs.OfCategory = new Category();
                 gs.OfCategory.Name = (string)dr["CategoryName"];
                 gs.OfCategory.Path = (string)dr["Path"];
                 gs.OfCategory.OfShop = ShopInfo;
+                 */
                 list.Add(gs);
             }
             return list;

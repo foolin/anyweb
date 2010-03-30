@@ -2,13 +2,19 @@
  CodeFile="GiftPackageEdit.aspx.cs" Inherits="Admin_GiftPackageEdit" Title="大礼包管理" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
+    <li>查看大礼包时，点击[编辑大礼包]可以编辑大礼包</li>
+    <li>查看大礼包时，点击[管理商品]可以对该大礼包商品进行添加、删除</li>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" Runat="Server">
     <div class="mod mEdit">
         <div class="mhd">
             <div class="inner">
                 <h2>
-                    <asp:Literal ID="litTitle" runat="server"></asp:Literal></h2>
+                    <asp:Literal ID="litTitle" runat="server"></asp:Literal>
+                    <span class="listadd"><a href="GiftPackGoodsAdd.aspx?pid=<%=QS("packID") %>">添加商品</a></span>
+                    <span class="listadd"><a href="GiftPackGoodsEdit.aspx?pid=<%=QS("packID") %>">管理商品</a></span>
+                </h2>
+                    
             </div>
         </div>
         <div class="mbd">
@@ -71,7 +77,9 @@
                                     商品：
                                 </th>
                                 <td>
-                                    <%#Eval("GoodsIds")%>
+                                    <%#Eval("GoodsIds")%>  &nbsp;&nbsp;<button id="btnViewGoods1" onclick="window.location='GiftPackGoodsEdit.aspx?pid=<%#Eval("PackID")%>';"
+                                type="button">
+                                查看商品</button>
                                 </td>
                             </tr>
                             <tr>
@@ -84,10 +92,10 @@
                             </tr>
                         </table>
                         <div class="iSubmit">
-                            <button id="Button1" onclick="window.location='GiftPackGoodsList.aspx?mode=select&gid=<%#Eval("ID")%>';"
+                            <button id="btnViewGoods2" onclick="window.location='GiftPackGoodsEdit.aspx?pid=<%#Eval("PackID")%>';"
                                 type="button" class="submit">
-                                查看该大礼包商品</button>
-                            <button id="btnEdit" onclick="window.location='GiftPackageEdit.aspx?mode=update&gid=<%#Eval("ID")%>';"
+                                管理商品</button>
+                            <button id="btnEdit" onclick="window.location='GiftPackageEdit.aspx?mode=update&packID=<%#Eval("PackID")%>';"
                                 type="button" class="submit">
                                 编辑大礼包</button>
                             <asp:Button ID="btnDelete" runat="server" Text="删除该大礼包" CommandName="Delete" CssClass="submit">
@@ -296,5 +304,6 @@
             <asp:Parameter Name="packID" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
+    
 </asp:Content>
 

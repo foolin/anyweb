@@ -3,7 +3,7 @@
 <div class="box2">
     <div class="title">
         <div class="txt">
-            热荐商品</div>
+            促销商品</div>
         <div class="more">
             <a href="Promotion.aspx">更多>></a></div>
     </div>

@@ -109,7 +109,7 @@ namespace Admin.Framework
                 {
                     WebAgent.FailAndGo("admin.anyp.com/login.aspx", "您不是管理员,无权操作商城,请用管理员帐号登陆");
                 }
-                this.AddLog( EventID.Login , "由商城后台进入" , "由商城后台进入" );
+                //this.AddLog( EventID.Login , "由商城后台进入" , "由商城后台进入" );
             }
 
           

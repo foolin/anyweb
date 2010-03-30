@@ -8,12 +8,7 @@
       <xMenuItem url="/Admin/LinkList.aspx" name="友情链接管理" description="友情链接管理"  type="2"></xMenuItem>
       <xMenuItem url="/Admin/LogList.aspx" name="日志管理" description="日志管理"  type="2"></xMenuItem>
     </xMenuItem>
-    <xMenuItem url="/Admin/SetNavUrl.aspx?mode=goods" name="商品管理"  description="商品管理" type ="1">
-    <xMenuItem url="/Admin/GoodsCategoryList.aspx" name="商品类别管理"  description="商品类别管理"  type="1">
-      <xMenuItem url="/Admin/GoodsCategoryList.aspx" name="商品类别列表"  description="商品类别列表"  type="0">
-        <xMenuItem url="/Admin/GoodsCategorhandle.aspx" name="编辑商品类别"  visible="false"  description="编辑商品类别" />
-      </xMenuItem>
-    </xMenuItem>
+    <xMenuItem url="/Admin/SetNavUrl.aspx?mode=goods" name="商品管理"  description="商品管理" type ="1">    
       <xMenuItem url="/Admin/GoodsList.aspx" name="商品管理"  description="商品管理" type="1" >
       <xMenuItem url="/Admin/GoodsList.aspx" name="商品管理"  description="商品管理" type="0" >
         <xMenuItem url="/Admin/GoodsEdit.aspx" name="编辑商品"  description="编辑商品" visible="false" ></xMenuItem>
@@ -23,6 +18,11 @@
         <xMenuItem url="/Admin/HotSellRankAdd.aspx" name="添加畅销商品"  description="添加畅销商品" visible="false" ></xMenuItem>
         </xMenuItem>
       </xMenuItem>
+      <xMenuItem url="/Admin/GoodsCategoryList.aspx" name="商品类别管理"  description="商品类别管理"  type="1">
+        <xMenuItem url="/Admin/GoodsCategoryList.aspx" name="商品类别列表"  description="商品类别列表"  type="0">
+          <xMenuItem url="/Admin/GoodsCategorhandle.aspx" name="编辑商品类别"  visible="false"  description="编辑商品类别" />
+        </xMenuItem>
+      </xMenuItem>
       <xMenuItem url="/Admin/GiftPackageList.aspx" name="大礼包管理"  description="大礼包管理" type="0" >
         <xMenuItem url="/Admin/GiftPackageList.aspx" name="大礼包管理"  description="大礼包管理" type="0"></xMenuItem>
         <xMenuItem url="/Admin/GiftPackageEdit.aspx" name="编辑大礼包"  description="编辑大礼包" visible="false"></xMenuItem>
@@ -30,7 +30,7 @@
         <xMenuItem url="/Admin/GiftPackGoodsEdit.aspx" name="编辑大礼包商品"  description="编辑大礼包商品" visible="false"></xMenuItem>
       </xMenuItem>
     </xMenuItem>
-    <xMenuItem url ="/Admin/SetNavUrl.aspx?mode=system" name ="系统设置" description ="系统设置" >
+    <xMenuItem url ="/Admin/SetNavUrl.aspx?mode=system" name ="系统设置" description ="系统设置" type ="1">
       <xMenuItem url ="/Admin/AboutUs.aspx" name ="关于我们" description ="关于我们" type="1" >
         <xMenuItem url ="/Admin/AboutUs.aspx" name ="编辑关于我们" description ="编辑关于我们" type="0" >
         </xMenuItem>

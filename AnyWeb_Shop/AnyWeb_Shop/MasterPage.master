@@ -64,7 +64,6 @@
                                 <a href="Category.aspx" id="title2" class="noselect"></a>
                                 <uc:ToolTip ID="toolTips" runat="server" />
                             </li>
-                            <li class="navReg"><a href="Register.aspx" id="title3" class="noselect"></a></li>
                         </ul>
                     </div>
                     <div class="clear">

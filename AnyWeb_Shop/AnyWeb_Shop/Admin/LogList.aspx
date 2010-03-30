@@ -11,7 +11,7 @@
         <div class="mhd">
             <div class="inner">
                 <h2>
-                    日志列表</h2>
+                    日志列表<span class="listadd"><a href="LogClear.aspx"  onclick="javascript:return confirm('确定清空日志？')">清空日志</a></span></h2>
             </div>
         </div>
         <div class="mbd">

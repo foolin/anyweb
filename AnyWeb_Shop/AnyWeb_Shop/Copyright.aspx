@@ -1,26 +1,20 @@
 ﻿<%@ Page Title="版权声明" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
     CodeFile="Copyright.aspx.cs" Inherits="Copyright" %>
 
-<%@ Register Src="~/Controls/CategoryInner.ascx" TagName="CategoryInner" TagPrefix="cate" %>
+<%@ Register Src="~/Controls/CategoryLeft.ascx" TagName="CategoryLeft" TagPrefix="uc" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" runat="Server">
-    <link href="/public/goods_details.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="Server">
-    <div class="main">
-        <div class="col-sider">
-            <cate:CategoryInner ID="Categoryinner1" runat="server" />
-        </div>
-        <!-- col-sider end -->
-        <div class="col-main">
-            <div class="box">
-                <div class="box">
-                    <div class="title">
-                        版权声明
-                    </div>
-                </div>
-                <!-- gRight -->
-                <div class="gDetails">
-                    <p>
+    <div class="col2MainSider">
+        <uc:CategoryLeft ID="CategoryLeft" runat="server" />
+    </div>
+    <div class="col2MainContent">
+        <div class="mainContainer">
+            <div class="title">
+                版权声明
+            </div>
+            <div class="content word">
+                <p>
                         1、本网所有内容，版权均属广州天河区沙河供销社所有，任何媒体、网站或个人未经本网协议授权不得转载、链接、转贴或以其他方式复制发布/发表。已经本网协议授权的媒体、网站，在下载使用时必须注明"稿件来源：广州天河区沙河供销社"，违者本网将依法追究责任。凡本网注明"来源：XXX
                         "的文/图等稿件，本网转载出于传递更多信息之目的，并不意味着赞同其观点或证实其内容的真实性。</p>
                     <p>
@@ -54,13 +48,9 @@
                         6、对于不当转载或引用本网内容而引起的民事纷争、行政处理或其他损失，本网不承担责任。</p>
                     <p>
                         7、对不遵守本声明或其他违法、恶意使用本网内容者，本网保留追究其法律责任的权利。</p>
-                </div>
             </div>
-            <!-- container end -->
-        </div>
-        <!-- col-main -->
-        <div class="clear">
         </div>
     </div>
-    <!-- main end -->
+    <div class="clear">
+    </div>
 </asp:Content>

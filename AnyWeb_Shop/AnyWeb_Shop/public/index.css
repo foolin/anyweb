@@ -398,9 +398,16 @@ a:hover .img{
 	list-style:url(../Images/li-ico1.gif);
 }
 .indexLink{
+	margin-left:8px;
+	padding:5px;
 }
-
+.indexLink ul{
+	margin:0px;
+	padding-left:10px;
+}
 .indexLink li{
+	margin:0px;
+	padding:0px;
 	line-height:2em;
 	list-style:url(../Images/li-ico2.gif);
 }

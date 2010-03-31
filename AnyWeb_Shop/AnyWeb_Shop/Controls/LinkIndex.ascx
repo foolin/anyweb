@@ -16,6 +16,7 @@
                 </ItemTemplate>
             </asp:Repeater>
         </ul>
+        <div style="text-align:right;"><a href="LinkList.aspx">更多>></a></div>
 		</div>
     </div>
 </div>

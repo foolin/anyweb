@@ -3,25 +3,19 @@
 <%@ Register Src="~/Controls/LinkList.ascx" TagName="LinkList" TagPrefix="link" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" Runat="Server">
-    <link href="/public/category.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" Runat="Server">
-    <div class="main">
-        <div class="col-sider">
-            <!-- 栏目 -->
-            <!-- 栏目 -->
-        	<cate:CategoryInner ID="CategoryInner1" runat="server" />
-            <!-- category end -->
+
+ 		<div class="col2MainSider">
+            <cate:CategoryInner ID="CategoryInner1" runat="server" />
+        <!-- end 2colMainSider -->
         </div>
-        <!-- col-sider end -->
-        <div class="col-main">
-            <link:LinkList runat="server" />
-            <!-- container end -->
+        
+        <div class="col2MainContent">
+            <link:LinkList ID="LinkList1" runat="server" />
+        <!-- end 2colMainContent -->
         </div>
-        <!-- col-main -->
-        <div class="clear">
-        </div>
-    </div>
-    <!-- main end -->
+        <div class="clear"></div>
+        
 </asp:Content>
 

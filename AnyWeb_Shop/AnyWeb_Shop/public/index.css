@@ -171,12 +171,13 @@ a:hover .img{
 }
 .menu ul{
 	margin-top:10px;
-	padding-right:42px;
+	padding-right:30px;
 }
 .menu ul li{
 	float:right;
 	list-style:none;
 	width:100px;
+	line-height:32px;
 	text-align:center;
 }
 .menu ul li a{
@@ -185,7 +186,8 @@ a:hover .img{
 }
 .menu ul li a:hover{
 	text-decoration:none;
-	color:#F00;
+	color:#548903;
+	color:#FFF200;
 }
 .search{
 	float:left;

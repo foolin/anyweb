@@ -73,11 +73,11 @@
                     <div class="menu">
                         <ul>
                             <li>
-                                <img src="Images/icon_2.gif" height="18" border="0" />&nbsp;<a href="#" onclick="return HomePage.call(this);">设为首页</a></li>                                
+                                <!--<img src="Images/icon_2.gif" height="18" border="0" />-->&nbsp;<a href="#" onclick="return HomePage.call(this);">设为首页</a></li>                                
                             <li>
-                                <img src="Images/icon_3.gif" height="18" border="0" />&nbsp;<a href="Contact.aspx">联系我们</a></li>
+                                <!--<img src="Images/icon_3.gif" height="18" border="0" />-->&nbsp;<a href="Contact.aspx">联系我们</a></li>
                             <li>
-                                <img src="Images/icon_1.gif" height="20" border="0" />&nbsp;<a href="AboutUs.aspx">关于我们</a></li>
+                                <!--<img src="Images/icon_1.gif" height="20" border="0" />-->&nbsp;<a href="AboutUs.aspx">关于我们</a></li>
                         </ul>
                     </div>
                     <div class="search">

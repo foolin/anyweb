@@ -150,7 +150,7 @@
                                 </th>
                                 <td>
                                     <asp:TextBox ID="txtIntro" runat="server" Text='<%#Bind("Intro")%>' CssClass="input"
-                                        TextMode="MultiLine" MaxLength="1000" Height="60px" Width="500px"></asp:TextBox>不超过1000个字。
+                                        TextMode="MultiLine" MaxLength="250" Height="60px" Width="500px"></asp:TextBox>不超过250个字。
                                 </td>
                             </tr>
                             <tr>
@@ -167,7 +167,6 @@
                                     大礼包描述：
                                 </th>
                                 <td>
-                                    【请将字数控制在250字以内。】
                                 </td>
                             </tr>
                             <tr class="edit odd" style="text-align: center;">
@@ -247,7 +246,7 @@
                                 </th>
                                 <td>
                                     <asp:TextBox ID="txtIntro" runat="server" Text='<%#Bind("Intro")%>' CssClass="input"
-                                        TextMode="MultiLine" MaxLength="1000" Width="500px" Height="60px"></asp:TextBox>不超过250个字。
+                                        TextMode="MultiLine" MaxLength="250" Width="500px" Height="60px"></asp:TextBox>不超过250个字。
                                 </td>
                             </tr>
                             <tr>
@@ -255,7 +254,6 @@
                                     详细信息：
                                 </th>
                                 <td>
-                                    【请将字数控制在10000字以内。】
                                 </td>
                             </tr>
                             <tr class="edit odd" style="text-align: center;">

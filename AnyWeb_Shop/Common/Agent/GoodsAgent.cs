@@ -1369,8 +1369,6 @@ namespace Common.Agent
                 }
             }
 
-            //string strKeywords = goodsKeywords;
-
             DataSet ds;
 
             IDbDataParameter record = this.NewParam("@RecordCount", 0, DbType.Int32, 8, true);

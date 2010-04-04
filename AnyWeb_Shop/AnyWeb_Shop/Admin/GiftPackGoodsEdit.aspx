@@ -4,9 +4,7 @@
 <%@ Register Assembly="Studio" Namespace="Studio.Web" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
-
-<li> <asp:Label ID="lblTips2" Font-Size="14px" ForeColor="Red" runat="server" Text=""></asp:Label></li>  
-
+    <li><asp:Label ID="lblTips2" Font-Size="14px" ForeColor="Red" runat="server" Text=""></asp:Label></li>     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" Runat="Server">
 

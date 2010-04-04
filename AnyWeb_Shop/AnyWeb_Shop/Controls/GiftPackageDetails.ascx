@@ -26,18 +26,8 @@
                                 编号：<span class="vlue"><s><%=giftPack.PackNo %></s></span></dd>
                                 
                             <dd>
-                                价格：<span class="vlue"><s>￥<%=giftPack.Price %></s></span></dd>
-                              <!--  
-                            <dd>
-                                商品ID：<span class="vlue"><a href="#goodsView"><%=giftPack.GoodsIds %></a></span></dd>
-                             -->
-                            
+                                价格：<span class="vlue"><s>￥<%=giftPack.Price %></s></span></dd>                            
                             <dd>介绍：<span class="vlue"><%=giftPack.Intro %></span></dd>
-                            <!--
-                            <dd>
-                                <input type="button" name="buy" value="购买" />
-                                <input type="button" name="addToCart" value="加入购物车" /></dd>
-                                -->
                         </dl>
                 </td>
             </tr>
@@ -66,11 +56,6 @@
                                 </ItemTemplate>
                         </asp:Repeater>
                         </table>
-                        
-
-                        
- 
- 					<!-- end word -->
                     </div>
                 </td>
             </tr>

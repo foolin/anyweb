@@ -77,7 +77,7 @@
                                         <%#Eval("PackNo")%>
                                     </td>
                                     <td style="width: 140px; line-height: 23px;">
-                                        <a href='/GiftPackDetails.aspx?gid=<%#Eval( "PackID" )%>' target="_blank">
+                                        <a href='/GiftPackage.aspx?pid=<%#Eval( "PackID" )%>' target="_blank">
                                             <%#Eval( "PackName" )%>
                                         </a>
                                     </td>

@@ -31,7 +31,14 @@ public partial class Search : PageBase
             float highPrice = 99999999f;
 
             keywords = QS("keywords");
-
+            if (keywords.Contains("%"))
+            {
+                keywords = keywords.Replace("%", "[%]");
+            }
+            if (keywords.Contains("'"))
+            {
+                keywords = keywords.Replace("'", "''");
+            }
             if (!string.IsNullOrEmpty(QS("category")) || (!string.IsNullOrEmpty(QS("lowprice")) && !string.IsNullOrEmpty(QS("highprice"))))
             {
                 if (!int.TryParse(QS("category").ToString(), out categoryId))
@@ -56,8 +63,6 @@ public partial class Search : PageBase
             {
                 repGoods.DataSource = new GoodsAgent().GetGoodsBySearch(PN1.PageSize, PN1.PageIndex, keywords, out record);
             }
-            //WebAgent.Alert("lowprice:" + lowPrice);
-            //WebAgent.Alert("highprice:" + highPrice);
             repGoods.DataBind();
             PN1.SetPage(record);
             litKeywords.Text = keywords;

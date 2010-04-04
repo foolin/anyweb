@@ -3,9 +3,8 @@
 <%@ Register Assembly="Studio" Namespace="Studio.Web" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
-
-<li> 选中需要添加的商品，点击添加即可！</li>  
-
+    <li>选中需要添加的商品，点击添加即可！</li>  
+    <li>如所选商品已存在于大礼包商品列表中则不重复添加。</li>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" Runat="Server">
 

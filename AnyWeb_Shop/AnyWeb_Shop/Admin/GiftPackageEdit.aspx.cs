@@ -99,6 +99,10 @@ public partial class Admin_GiftPackageEdit : AdminBase
         {
             gp.Intro = "暂无";
         }
+        if (txtIntro.Text.Length > 250)
+        {
+            gp.Intro = txtIntro.Text.Substring(0, 250);
+        }
         if (txtPrice == null || string.IsNullOrEmpty(txtPrice.Text))
         {
             WebAgent.AlertAndBack("价格输入不能为空，请输入！");
@@ -172,6 +176,10 @@ public partial class Admin_GiftPackageEdit : AdminBase
         if (txtIntro == null || string.IsNullOrEmpty(txtIntro.Text))
         {
             gp.Intro = "暂无";
+        }
+        if (txtIntro.Text.Length > 250)
+        {
+            gp.Intro = txtIntro.Text.Substring(0, 250);
         }
         if (txtPrice == null || string.IsNullOrEmpty(txtPrice.Text))
         {

@@ -12,6 +12,7 @@
     <li>改变商品的状态，必须进入到修改页对商品状态进行处理。</li>
     <li>对查看商品的详细信息，并对其进行相关的操作。</li>
     <li>商品排序以商品类别在所有商品的状态为准。</li>
+    <li>添加畅销商品时，如所选商品已存在于畅销列表中则不重复添加。</li>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
 

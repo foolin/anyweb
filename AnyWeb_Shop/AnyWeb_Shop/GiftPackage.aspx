@@ -7,18 +7,10 @@ CodeFile="GiftPackage.aspx.cs" Inherits="GiftPackage" Title="畅销大礼包页"
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" Runat="Server">
   		<div class="col2MainSider">
-        
       	    <uc:CategoryLeft ID="CategoryLeft1" runat="server" />
-
-        
-        <!-- end 2colMainSider -->
         </div>
-        
         <div class="col2MainContent">
-
             <uc:GiftPackageDetails ID="GiftPackageDetails" runat="server" />
-
-        <!-- end 2colMainContent -->
         </div>
         <div class="clear"></div>
 </asp:Content>

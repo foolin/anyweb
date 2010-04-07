@@ -15,15 +15,14 @@
     body{
 	    margin:0 auto;
 	    font-size:12px;
+	    background:url(../images/login_bg.jpg) repeat-x;
     }
     .loginBody{
 	    background:#FFF;
     }
     .loginWrap{
 	    margin:0px auto;
-	    background:url(../images/login_bg.jpg) repeat-x;
 	    width:1024px;
-	    height:768px;
     }
     .loginDiv{
 	    margin:0px auto;
@@ -57,7 +56,7 @@
     -->
     </style>
 </head>
-<body class="loginBody">
+<body>
     <div class="loginWrap">
         <form runat="server" id="form1" onsubmit="javascript:return checkForm()">
         <div class="loginDiv">

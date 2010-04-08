@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/MasterPage.master" AutoEventWireup="true"
     CodeFile="ArticleEdit.aspx.cs" Inherits="Content_ArticleEdit" Title="修改文章" ValidateRequest="false" %>
 
-<%@ Register TagPrefix="ftb" Namespace="FreeTextBoxControls" Assembly="FreeTextBox" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
     修改文档
 </asp:Content>
@@ -51,12 +50,12 @@
                             文章内容：</td>
                         <td class="editor">
                             <div style="border: solid 1px gray;" colspan="2">
-                                <ftb:freetextbox id="edtContent" runat="Server" toolbarlayout="bold,italic,underline,strikethrough,removeformat,wordclean;fontfacesmenu,fontsizesmenu,FontForeColorPicker,fontforecolorsmenu,fontbackcolorsmenu;justifyleft,justifyright,justifycenter,justifyfull|bulletedlist,numberedlist,indent,outdent;cut,copy,paste,delete;undo,redo;createlink,unlink,insertimagefromgallery,profileupload,insertmedia,inserttable,insertrule;print" />
+                                <sw:TinyMce ID="edtContent" runat="server" Height="500px" />
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td align="right">
                             文章排序：</td>
                         <td>
                             <asp:TextBox ID="txtOrder" runat="server" Text="0" Width="50" require="1" datatype="number"

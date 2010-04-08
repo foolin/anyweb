@@ -1,8 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "E:\...\Web\", "Web\", "{C9F22462-5637-42D2-9993-9751468BF28E}"
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Web", "Web\", "{C9F22462-5637-42D2-9993-9751468BF28E}"
 	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "2.0"
 		ProjectReferences = "{A93C69CA-F165-4BBB-A8CB-9EB415B89AD4}|Studio.dll;{BBDDD2C1-2B22-42CD-BFB7-B21D0795B438}|AnyWeb_DL.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Web"
 		Debug.AspNetCompiler.PhysicalPath = "E:\Program Files\Microsoft Visual Studio\C#\AnyWeb\Web\"
@@ -25,7 +26,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Studio", "Studio\Studio.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnyWeb_DL", "AnyWeb_DL\AnyWeb_DL.csproj", "{BBDDD2C1-2B22-42CD-BFB7-B21D0795B438}"
 EndProject
-Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "AnyWeb", "..\published\AnyWeb\AnyWeb.wdproj", "{F9DB7E55-855F-4CB7-AE85-03AA9321E70F}"
+Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "AnyWeb", "..\publish\AnyWeb\AnyWeb.wdproj", "{A6C6D126-1FA8-423F-9401-B11664C327DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,16 +68,16 @@ Global
 		{BBDDD2C1-2B22-42CD-BFB7-B21D0795B438}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BBDDD2C1-2B22-42CD-BFB7-B21D0795B438}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{BBDDD2C1-2B22-42CD-BFB7-B21D0795B438}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{F9DB7E55-855F-4CB7-AE85-03AA9321E70F}.Debug|.NET.ActiveCfg = Debug|Any CPU
-		{F9DB7E55-855F-4CB7-AE85-03AA9321E70F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9DB7E55-855F-4CB7-AE85-03AA9321E70F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9DB7E55-855F-4CB7-AE85-03AA9321E70F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{F9DB7E55-855F-4CB7-AE85-03AA9321E70F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{F9DB7E55-855F-4CB7-AE85-03AA9321E70F}.Release|.NET.ActiveCfg = Release|Any CPU
-		{F9DB7E55-855F-4CB7-AE85-03AA9321E70F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9DB7E55-855F-4CB7-AE85-03AA9321E70F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F9DB7E55-855F-4CB7-AE85-03AA9321E70F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{F9DB7E55-855F-4CB7-AE85-03AA9321E70F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{A6C6D126-1FA8-423F-9401-B11664C327DE}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{A6C6D126-1FA8-423F-9401-B11664C327DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6C6D126-1FA8-423F-9401-B11664C327DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6C6D126-1FA8-423F-9401-B11664C327DE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{A6C6D126-1FA8-423F-9401-B11664C327DE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{A6C6D126-1FA8-423F-9401-B11664C327DE}.Release|.NET.ActiveCfg = Release|Any CPU
+		{A6C6D126-1FA8-423F-9401-B11664C327DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6C6D126-1FA8-423F-9401-B11664C327DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6C6D126-1FA8-423F-9401-B11664C327DE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{A6C6D126-1FA8-423F-9401-B11664C327DE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

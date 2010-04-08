@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/MasterPage.master" AutoEventWireup="true"
     CodeFile="ArticleAdd.aspx.cs" Inherits="Content_ArticleAdd" Title="添加文章" ValidateRequest="false" %>
-
-<%@ Register TagPrefix="ftb" Namespace="FreeTextBoxControls" Assembly="FreeTextBox" %>
+    
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
     添加文档
 </asp:Content>
@@ -52,11 +51,11 @@
                             文章内容：</td>
                         <td class="editor">
                             <div style="border: solid 1px gray;" colspan="2">
-                            <ftb:FreeTextBox ID="edtContent" runat="Server" ToolbarLayout="bold,italic,underline,strikethrough,removeformat,wordclean;fontfacesmenu,fontsizesmenu,FontForeColorPicker,fontforecolorsmenu,fontbackcolorsmenu;justifyleft,justifyright,justifycenter,justifyfull|bulletedlist,numberedlist,indent,outdent;cut,copy,paste,delete;undo,redo;createlink,unlink,insertimagefromgallery,profileupload,insertmedia,inserttable,insertrule;print" />
+                            <sw:TinyMce ID="edtContent" runat="server" Height="500px" />
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr align="right">
                         <td>文章排序：</td>
                         <td><asp:TextBox ID="txtOrder" runat="server" Text="0" Width="50" require="1" datatype="number" errmsg="文章排序格式不正确"></asp:TextBox></td>
                     </tr>

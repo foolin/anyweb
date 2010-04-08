@@ -1,0 +1,4 @@
+.panel_wrapper{height:90px !important;}
+.panel_wrapper label input{border:0;}
+#image_panel .imgtype{vertical-align:middle;height:120px;}
+#image_panel .warning td{color:red;text-align:center;}

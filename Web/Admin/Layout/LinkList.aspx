@@ -36,8 +36,6 @@
                         <td>
                             图片</td>
                         <td>
-                            URL</td>
-                        <td>
                             排序</td>
                         <td>
                             操作</td>
@@ -46,13 +44,10 @@
                         <ItemTemplate>
                             <tr onmouseover="this.style.background='#E6F2FF';" onmouseout="this.style.background='#FFFFFF'" style="height:60px;">
                                 <td>
-                                    <%#Eval("LinkName")%>
+                                    <a href="<%#Eval("LinkUrl") %>" target="_blank"><%#Eval("LinkName")%></a>
                                 </td>
                                 <td>
                                     <%#Eval("LinkImage").ToString() == "" ? "" : "<a href=\"" + Eval("LinkUrl") + "\" target=\"_blank\"><img src=\"" + Eval("LinkImage") + "\" class=\"img\" width=\"160\" height=\"50\" alt=\"" + Eval("LinkName") + "\" /></a>"%>
-                                    </td>
-                                <td>
-                                    <%#Eval("LinkUrl") %>
                                 </td>
                                 <td>
                                     <%#Eval("LinkSort") %>

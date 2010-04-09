@@ -6,6 +6,8 @@
 <head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>基团网</title>
+    <meta name="description" content="广州市天河区沙河供销合作社成立于一九五三年，是广州市天河区供销联社下属的分支机构之一。我社一直致力于为城乡企业、居民服务，诚信守法经营，拥有良好的社会信誉。我社现时的经营业务范围主要有：物业租赁及管理、龙口东市场经营及管理、广州市杰信人力资源有限公司经营及管理、商品经营等。"/>
+    <meta name="keywords" content="供销社,供销合作社,广州市天河区沙河供销合作社,沙河供销社,天河供销社,机团网,商品销售网,物业租赁,物业管理,市场经营,市场管理,人力资源,商品经营,网络商城,居民服务" />
     <asp:ContentPlaceHolder ID="cphTitle" runat="server">
     </asp:ContentPlaceHolder>
     <link href="/public/index.css" rel="stylesheet" type="text/css" />

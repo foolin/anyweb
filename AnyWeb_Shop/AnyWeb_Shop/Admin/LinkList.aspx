@@ -26,10 +26,6 @@
                                 <td>
                                     链接图片
                                 </td>
-                                
-                                <td>
-                                    链接地址
-                                </td>
                                 <td>
                                     创建时间
                                 </td>
@@ -42,15 +38,11 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                        <%#Eval("Name") %>
+                                        <a href="<%#Eval( "LinkUrl" )%>" target="_blank"><%#Eval("Name") %></a>
                                         </td>
                                          <td>
                                         <img src='<%#Eval("Image") %>' alt=""  style="display:<%#(string)Eval("Image")==""? "none":"block" %>; width:38px;"/>
                                         </td>
-                                       
-                                         <td>
-                                        <%#Eval( "LinkUrl" )%>
-                                        </td> 
                                          <td>
                                         <%#Eval("CreateAt","{0:yyyy-MM-dd}") %>
                                         </td>

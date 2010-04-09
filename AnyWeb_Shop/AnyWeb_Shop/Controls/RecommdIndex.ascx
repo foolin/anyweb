@@ -17,7 +17,7 @@
                         <ItemTemplate>
                             <div class="indexItem">
                                 <div class="pic">
-                                    <a href="#test">
+                                    <a href="Good.aspx?gid=<%#Eval("ID") %>">
                                         <img src="<%#(string)Eval( "image" )=="" ? "../images/wait.jpg":(string)Eval( "image" ) %>"
                                             border="0" alt="<%#Eval("GoodsName")%>" /></a>
                                 </div>

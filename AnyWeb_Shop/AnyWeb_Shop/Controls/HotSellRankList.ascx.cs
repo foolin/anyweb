@@ -24,7 +24,7 @@ public partial class Controls_HotSellRankList : System.Web.UI.UserControl
         ArrayList listStor = new ArrayList();
         ArrayList listShow = new ArrayList();
 
-        if (Cache["HotSellRankListShow"] != null && Cache["HotSellRankListTime"] != null)
+        if (Cache["HotSellRankListShow"] != null)
         {
             listShow = (ArrayList)Cache["HotSellRankListShow"];
         }

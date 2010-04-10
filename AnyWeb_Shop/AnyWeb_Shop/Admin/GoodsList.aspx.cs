@@ -84,7 +84,7 @@ public partial class GoodsList :AdminBase
 
                 this.AddLog( EventID.Delete , "批量删除订单" , "批量删除订单,订单编号:"+Request.Form["ids"] );
 
-                WebAgent.SuccAndGo( "删除成功。" , "GoodsList.aspx");
+                WebAgent.SuccAndGo("删除成功。", Request.UrlReferrer.ToString());
             }
         }
         else
@@ -151,7 +151,7 @@ public partial class GoodsList :AdminBase
 
                 this.AddLog(EventID.Delete, "取消批量推荐商品", "取消批量推荐商品,商品编号:" + Request.Form["ids"]);
 
-                WebAgent.SuccAndGo("取消推荐商品成功。", "GoodsList.aspx");
+                WebAgent.SuccAndGo("取消推荐商品成功。", Request.UrlReferrer.ToString());
             }
         }
         else
@@ -170,7 +170,7 @@ public partial class GoodsList :AdminBase
 
                 this.AddLog(EventID.Delete, "取消批量促销商品", "取消批量促销商品,商品编号:" + Request.Form["ids"]);
 
-                WebAgent.SuccAndGo("取消促销商品成功。", "GoodsList.aspx");
+                WebAgent.SuccAndGo("取消促销商品成功。", Request.UrlReferrer.ToString());
             }
         }
         else

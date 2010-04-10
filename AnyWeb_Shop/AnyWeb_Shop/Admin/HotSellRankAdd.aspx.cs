@@ -18,6 +18,17 @@ public partial class Admin_HotSellRankAdd : AdminBase
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!IsPostBack)
+        {
+            if (Request.UrlReferrer == null)
+            {
+                ViewState["BACK"] = "";
+            }
+            else
+            {
+                ViewState["BACK"] = Request.UrlReferrer.ToString();
+            }
+        }
 
         if (QS("ids").ToString() + "" != "")
         {
@@ -29,7 +40,6 @@ public partial class Admin_HotSellRankAdd : AdminBase
                 WebAgent.AlertAndBack("选择畅销商品最多20条！");
             if (count + arrIds.Length > 20)
             {
-                //WebAgent.Alert("畅销商品数目已经超过20条，你必须删除" + (count + arrIds.Length - 20).ToString() + "条商品");
                 lblTips.Text = "畅销商品数目已经超过<font color='blue'>20</font>条，你必须选择<font color='blue'>" + (count + arrIds.Length - 20).ToString() + "</font>条商品进行替换,才能继续添加！";
                 lblTips2.Text = "新添加畅销商品数目为<font color='blue'>" + arrIds.Length.ToString() + "</font>条，已有畅销商品数目<font color='blue'>" + count.ToString() + "</font>条，已经超过<font color='blue'>20</font>条，你必须选择<font color='blue'>" + (count + arrIds.Length - 20).ToString() + "</font>条商品替换,才能继续添加！";
                 txbAddIds.Text = reqIds.ToString(); //保存传入增加为商品的ID
@@ -40,14 +50,15 @@ public partial class Admin_HotSellRankAdd : AdminBase
             {
                 using (HotSellRankAgent hsr = new HotSellRankAgent())
                 {
-                    if (hsr.AddGoods(reqIds, "") > 0)
+                    hsr.AddGoods(reqIds, "");
+                    this.AddLog(EventID.Insert, "添加畅销产品", "批量添加畅销产品，编号:" + reqIds);
+                    if (string.IsNullOrEmpty((string)ViewState["BACK"]))
                     {
-                        this.AddLog(EventID.Insert, "添加畅销产品", "批量添加畅销产品，编号:" + reqIds);
                         WebAgent.SuccAndGo("添加畅销产品成功。", "HotSellRankList.aspx");
                     }
                     else
                     {
-                        WebAgent.FailAndGo("批量添加畅销商品失败！");
+                        WebAgent.SuccAndGo("添加畅销产品成功。", (string)ViewState["BACK"]);
                     }
                 }
             }
@@ -98,19 +109,20 @@ public partial class Admin_HotSellRankAdd : AdminBase
             int selDelCount = delIds.Split(",".ToCharArray()).Length;  //选中删除记录数
             if (selDelCount < mustDelCount)
                 WebAgent.AlertAndBack("你选中替换商品" + selDelCount.ToString() + "条，必须选择" + mustDelCount.ToString() + "条才能继续操作！");
-            
+
             //添加商品
             using (HotSellRankAgent hsr = new HotSellRankAgent())
             {
-                if (hsr.AddGoods(addIds, delIds) > 0)
+                hsr.AddGoods(addIds, delIds);
+                this.AddLog(EventID.Delete, "批量删除畅销产品", "批量删除产品，编号:" + delIds);
+                this.AddLog(EventID.Insert, "添加畅销产品", "批量添加畅销产品，编号:" + addIds);
+                if (string.IsNullOrEmpty((string)ViewState["BACK"]))
                 {
-                    this.AddLog(EventID.Delete, "批量删除畅销产品", "批量删除产品，编号:" + delIds);
-                    this.AddLog(EventID.Insert, "添加畅销产品", "批量添加畅销产品，编号:" + addIds);
                     WebAgent.SuccAndGo("添加畅销产品成功。", "HotSellRankList.aspx");
                 }
                 else
                 {
-                    WebAgent.FailAndGo("批量添加畅销商品失败！");
+                    WebAgent.SuccAndGo("添加畅销产品成功。", (string)ViewState["BACK"]);
                 }
             }
 
@@ -118,7 +130,6 @@ public partial class Admin_HotSellRankAdd : AdminBase
         else
         {
             WebAgent.AlertAndBack("请在要替换的项前打勾。");
-            //WebAgent.FailAndGo("请在要删除的项前打勾。", "HotSellRankList.aspx");
         }
     }
 
@@ -126,6 +137,4 @@ public partial class Admin_HotSellRankAdd : AdminBase
     {
         Response.Redirect("GoodsList.aspx");
     }
-
-
 }

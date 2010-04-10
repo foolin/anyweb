@@ -78,7 +78,6 @@
                             <asp:ListItem Value="1">有货商品</asp:ListItem>
                             <asp:ListItem Value="2">缺货商品</asp:ListItem>
                             <asp:ListItem Value="3">过期商品</asp:ListItem>
-                            <asp:ListItem Value="4">不显示于首页商品</asp:ListItem>
                         </asp:DropDownList>
                         商品名称：<asp:TextBox ID="txtName" runat="server" Width="100" CssClass="text"></asp:TextBox>
                         <a href="GoodsList.aspx?recommd=true">推荐商品</a>

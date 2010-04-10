@@ -233,8 +233,6 @@
                                 </th>
                                 <td>
                                     <asp:CheckBox ID="chkRecomm" runat="server" Checked='<%#Bind("IsRecommend")%>' />是否设置为推荐商品
-                                    <asp:CheckBox ID="chkComm" runat="server" Checked='<%#Bind("Recommend")%>' />是否允许评论
-                                    【不允许请留空。】
                                 </td>
                             </tr>
                             <tr>
@@ -368,8 +366,6 @@
                                 </th>
                                 <td>
                                     <asp:CheckBox ID="chkRecomm" runat="server" Checked='<%#Bind("IsRecommend")%>' />设置为推荐商品
-                                    <asp:CheckBox ID="chkComm" runat="server" Checked='<%#Bind("Recommend")%>' />是否允许评论
-                                    【不允许请留空。】
                                 </td>
                             </tr>
                             <tr>

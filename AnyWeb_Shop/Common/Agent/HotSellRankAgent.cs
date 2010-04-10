@@ -71,6 +71,7 @@ namespace Common.Agent
             foreach (DataRow dr in ds.Tables[0].Rows)
             {
                 Goods good = new Goods();
+                good.ID = (int)dr["goodsID"];
                 good.GoodsName = (string)dr["GoodsName"];
                 good.Image = (string)dr["Image"];
                 good.Price = (double)dr["Price"];

@@ -26,7 +26,7 @@
                                 编号：<span class="vlue"><s><%=giftPack.PackNo %></s></span></dd>
                                 
                             <dd>
-                                价格：<span class="vlue"><s>￥<%=giftPack.Price %></s></span></dd>                            
+                                价格：<span class="vlue">￥<%=giftPack.Price %></span></dd>                            
                             <dd>介绍：<span class="vlue"><%=giftPack.Intro %></span></dd>
                         </dl>
                 </td>
@@ -49,9 +49,9 @@
                             <asp:Repeater ID="repList" runat="server">
                                 <ItemTemplate>
                                 <tr>
-                                    <td><%#Eval("GoodsName") %></td>
+                                    <td><a href="Good.aspx?gid=<%#Eval("ID") %>" target="_blank"><%#Eval("GoodsName") %></a></td>
                                     <td><%#Eval("ID") %></td>
-                                    <td class="tdColorM"><a href="Good.aspx?gid=<%#Eval("ID") %>">查看详细</a></td>
+                                    <td class="tdColorM"><a href="Good.aspx?gid=<%#Eval("ID") %>" target="_blank">查看详细</a></td>
                                 </tr>
                                 </ItemTemplate>
                         </asp:Repeater>

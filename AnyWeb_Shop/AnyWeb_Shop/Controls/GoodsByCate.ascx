@@ -10,10 +10,10 @@
                     <div class="goodsListItem">
                         <dl>
                             <dd>
-                                <a href="Good.aspx?gid=<%#Eval("ID") %>">
+                                <a href="Good.aspx?gid=<%#Eval("ID") %>" target="_blank">
                                     <img src="<%#(string)Eval( "image" )=="" ? "../images/wait.jpg":(string)Eval( "image" ) %>"
                                         class="img" border="0" alt="<%#Eval("GoodsName")%>" /></a></dd>
-                            <dt><a href="Good.aspx?gid=<%#Eval("ID") %>">
+                            <dt><a href="Good.aspx?gid=<%#Eval("ID") %>" target="_blank">
                                 <%#Studio.Web.WebAgent.GetLeft((string)Eval("GoodsName"),16)%></a></dt>
                             <%#(double)Eval("MarketPrice") == 0 ? "<dd>&nbsp;</dd>" : "<dd>市场价：<s>￥" + Eval("MarketPrice") + "元</s></dd>"%>
                             <%# 

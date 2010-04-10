@@ -303,22 +303,6 @@ button.active,
 .iSubmit button,
 .iSubmit .submit{margin-right:6px;}
 
-/*Menu*/
-.iMenu{padding:0 1px;/*padding:1px;background:#fff;border:1px solid #A1B6C3;*/}
-.iMenu li{margin:1px 0;}
-.iMenu li.on a{background:url(../images/pointer.gif) 10px 9px no-repeat #e4f2ff;border-color:#dbe4ee;font-weight:bold; height:100%; padding-left:20px; width:auto;}
-.iMenu li.on a:hover{background:url(../images/pointer.gif) 10px 9px no-repeat #ffffe6; height:100%; padding-left:20px; width:auto;}
-.iMenu a{display:block;padding:6px 0;width:100%;border:1px solid #fff;border-width:1px 0; height:100%; padding-left:20px; width:auto;}
-.iMenu a:hover{background:#ffffe6;border:1px solid #eeefdc;border-width:1px 0;text-decoration:none; height:100%; padding-left:20px; width:auto;}
-.iMenu a img{float:left;display:inline;margin:-2px 5px 0 6px;width:16px;height:16px;}
-.iMenuExtra{border-top:1px solid #e0e0e0;}
-.iMenuExtra li.on a,
-.iMenuExtra li.on a:hover{background-image:none;}
-.iMenuOut{/**/background:#f5f5f5;}
-.iMenuOut li{border-top:1px solid #e0e0e0;}
-.iMenuOut li a{}
-.iMenuOut li a:hover{border-top-color:#fff;}
-
 /* Í·Ïñ */
 .iFace{padding:10px;}
 
@@ -441,8 +425,8 @@ button.active,
 /*Menu*/
 .iMenu{padding:0 1px;margin:0px;/*padding:1px;background:#fff;border:1px solid #A1B6C3;*/}
 .iMenu .li{margin:1px 0; list-style-type:none;padding:0px;}
-.iMenu .li.on a{background:url(../images/pointer.gif) 14px 9px no-repeat #e4f2ff;border-color:#dbe4ee;font-weight:bold;}
-.iMenu .li.on a:hover{background:url(../images/pointer.gif) 14px 9px no-repeat #ffffe6;}
+.iMenu .li.on a{border-color:#dbe4ee;font-weight:bold;}
+.iMenu .li.on a:hover{background-color:#ffffe6;}
 .iMenu a{display:block;padding:6px 0;width:100%;border:1px solid #fff;border-width:1px 0;}
 .iMenu a:hover{background:#ffffe6;border:1px solid #eeefdc;border-width:1px 0;text-decoration:none;}
 .iMenu a img{float:left;display:inline;margin:-2px 5px 0 6px;width:16px;height:16px;}

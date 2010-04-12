@@ -89,7 +89,7 @@ public partial class GoodsList :AdminBase
         }
         else
         {
-            WebAgent.FailAndGo("请在要删除的项前打勾。", "GoodsList.aspx");
+            WebAgent.FailAndGo("请在要删除的项前打勾。", Request.UrlReferrer.ToString());
         }
     }
 
@@ -131,14 +131,14 @@ public partial class GoodsList :AdminBase
             {
                 ga.GoodsRecommends(Request.Form["ids"], true);
 
-                this.AddLog(EventID.Delete, "批量推荐商品", "批量推荐商品,商品编号:" + Request.Form["ids"]);
+                this.AddLog(EventID.Delete, "批量添加热荐商品", "批量添加热荐商品,商品编号:" + Request.Form["ids"]);
 
-                WebAgent.SuccAndGo("推荐商品成功。", "GoodsList.aspx");
+                WebAgent.SuccAndGo("添加热荐商品成功。", Request.UrlReferrer.ToString());
             }
         }
         else
         {
-            WebAgent.FailAndGo("请在要推荐的商品项前打勾。", "GoodsList.aspx");
+            WebAgent.FailAndGo("请在要热荐的商品项前打勾。", Request.UrlReferrer.ToString());
         }
     }
     protected void btnCancelRec_Click(object sender, EventArgs e)
@@ -149,14 +149,14 @@ public partial class GoodsList :AdminBase
             {
                 ga.GoodsRecommends(Request.Form["ids"], false);
 
-                this.AddLog(EventID.Delete, "取消批量推荐商品", "取消批量推荐商品,商品编号:" + Request.Form["ids"]);
+                this.AddLog(EventID.Delete, "批量取消热荐商品", "批量取消热荐商品,商品编号:" + Request.Form["ids"]);
 
-                WebAgent.SuccAndGo("取消推荐商品成功。", Request.UrlReferrer.ToString());
+                WebAgent.SuccAndGo("取消热荐商品成功。", Request.UrlReferrer.ToString());
             }
         }
         else
         {
-            WebAgent.FailAndGo("请在要取消推荐的商品项前打勾。", "GoodsList.aspx");
+            WebAgent.FailAndGo("请在要取消热荐的商品项前打勾。", Request.UrlReferrer.ToString());
         }
     }
 
@@ -175,7 +175,7 @@ public partial class GoodsList :AdminBase
         }
         else
         {
-            WebAgent.FailAndGo("请在要取消促销的商品项前打勾。", "GoodsList.aspx");
+            WebAgent.FailAndGo("请在要取消促销的商品项前打勾。", Request.UrlReferrer.ToString());
         }
     }
     protected void btnHotSellRank_Click(object sender, EventArgs e)
@@ -186,7 +186,7 @@ public partial class GoodsList :AdminBase
         }
         else
         {
-            WebAgent.FailAndGo("请在要设置为畅销商品项前打勾。", "GoodsList.aspx");
+            WebAgent.FailAndGo("请在要设置为畅销商品项前打勾。", Request.UrlReferrer.ToString());
         }
     }
 }

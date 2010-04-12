@@ -11,7 +11,6 @@
     <li>可以批量删除商品。</li>
     <li>改变商品的状态，必须进入到修改页对商品状态进行处理。</li>
     <li>对查看商品的详细信息，并对其进行相关的操作。</li>
-    <li>商品排序以商品类别在所有商品的状态为准。</li>
     <li>添加畅销商品时，如所选商品已存在于畅销列表中则不重复添加。</li>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
@@ -105,7 +104,7 @@
                                 所属类别
                             </th>
                             <th>
-                                推荐
+                                热荐
                             </th>
                             <th>
                                 状态
@@ -145,7 +144,7 @@
                                     </td>
                                     <td>
                                         <input id="chkRecomm" type="checkbox" onclick='javascript:recommSet(<%# Eval("ID") %>,<%# ((bool)Eval("IsRecommend")) == true ? 1: 0 %>);'
-                                            <%#(bool)Eval("IsRecommend")==true ? "checked" :""%> title="点击推荐" />
+                                            <%#(bool)Eval("IsRecommend")==true ? "checked" :""%> title="点击热荐" />
                                     </td>
                                     <td>
                                         <%# CheckStatus((int)Eval( "Status" )  ,(DateTime)Eval( "EndTime" ) )%>
@@ -167,13 +166,13 @@
                     </cc1:PageNaver>
                 </div>
                 <div class="iSubmit">
-                    <asp:Button ID="btnRec" runat="server" Text="批量推荐"  CssClass="submit" 
+                    <asp:Button ID="btnRec" runat="server" Text="批量添加热荐商品"  CssClass="submit" 
                         onclick="btnRec_Click" />
-                    <asp:Button ID="btnHotSellRank" runat="server" Text="添加畅销产品" CssClass="submit" OnClick="btnHotSellRank_Click" />    
-                    <asp:Button ID="btnCancelRec" runat="server" Text="取消推荐"  CssClass="submit" 
+                    <asp:Button ID="btnHotSellRank" runat="server" Text="批量添加畅销商品" CssClass="submit" OnClick="btnHotSellRank_Click" />    
+                    <asp:Button ID="btnCancelRec" runat="server" Text="批量取消热荐商品"  CssClass="submit" 
                         onclick="btnCancelRec_Click" />
-                    <asp:Button ID="btnCancelPro" runat="server" Text="取消促销" CssClass="submit" OnClick="btnPro_Click" />
-                    <asp:Button ID="btnDel" runat="server" Text="批量删除" CssClass="submit" OnClick="btnDel_Click" />                    
+                    <asp:Button ID="btnCancelPro" runat="server" Text="批量取消促销商品" CssClass="submit" OnClick="btnPro_Click" />
+                    <asp:Button ID="btnDel" runat="server" Text="批量删除商品" CssClass="submit" OnClick="btnDel_Click" />                    
                 </div>
                 </form>
             </div>

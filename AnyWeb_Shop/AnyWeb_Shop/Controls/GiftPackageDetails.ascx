@@ -21,9 +21,9 @@
                                 <%=giftPack.PackName %>
                             </dt>
                             <dd>
-                                名称：<span class="vlue"><s><%=giftPack.PackName %></s></span></dd>
+                                名称：<span class="vlue"><%=giftPack.PackName %></span></dd>
                             <dd>
-                                编号：<span class="vlue"><s><%=giftPack.PackNo %></s></span></dd>
+                                编号：<span class="vlue"><%=giftPack.PackNo %></span></dd>
                                 
                             <dd>
                                 价格：<span class="vlue">￥<%=giftPack.Price %></span></dd>                            

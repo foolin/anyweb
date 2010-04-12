@@ -214,7 +214,6 @@
                                         <asp:ListItem Value="1">有货</asp:ListItem>
                                         <asp:ListItem Value="2">缺货</asp:ListItem>
                                         <asp:ListItem Value="3">过期</asp:ListItem>
-                                        <asp:ListItem Value="4">商品不显示在首页</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
                             </tr>

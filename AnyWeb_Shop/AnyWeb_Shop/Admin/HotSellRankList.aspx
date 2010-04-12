@@ -95,8 +95,6 @@
                                         <%#Eval("Sort") %>
                                     </td>
                                     <td>
-                                        <a href="HotSellRankSort.aspx?type=up&id=<%#Eval("GoodsID")%>">排前</a>
-                                        <a href="HotSellRankSort.aspx?type=down&id=<%#Eval("GoodsID")%>">排后</a>
                                         <a href="GoodsEdit.aspx?mode=select&gid=<%#Eval("GoodsID")%>">查看详情</a>
                                     </td>
                                 </tr>

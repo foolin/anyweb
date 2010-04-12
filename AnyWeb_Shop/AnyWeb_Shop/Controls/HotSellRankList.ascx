@@ -20,7 +20,7 @@
                         <h4>
                             <a href="Good.aspx?gid=<%#Eval("ID") %>">
                                 <%#Studio.Web.WebAgent.GetLeft(Eval("GoodsName").ToString(),11)%></a></h4>
-                        <%#Studio.Web.WebAgent.GetLeft(Studio.Web.WebAgent.stripHtml(Eval("Description").ToString()),70)%>
+                        <%#Studio.Web.WebAgent.GetLeft(Studio.Web.WebAgent.stripHtml(Eval("Description").ToString()), 55)%>
                         <br />
                         <a href="Good.aspx?gid=<%#Eval("ID") %>" class="more">详细信息</a>
                     </div>

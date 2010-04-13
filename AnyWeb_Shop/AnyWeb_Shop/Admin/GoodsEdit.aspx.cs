@@ -37,6 +37,15 @@ public partial class GoodsEdit :AdminBase
                     break;
 
             }
+
+            if (Request.UrlReferrer == null)
+            {
+                ViewState["BACK"] = "/Admin/GoodsList.aspx";
+            }
+            else
+            {
+                ViewState["BACK"] = Request.UrlReferrer.ToString();
+            }
         }
     }
     protected void ods3_Selecting(object sender , ObjectDataSourceSelectingEventArgs e)
@@ -162,11 +171,11 @@ public partial class GoodsEdit :AdminBase
 
             this.AddLog( EventID.Insert , "添加商品" , "添加商品" );
 
-            WebAgent.SuccAndGo( "添加成功!" , "GoodsList.aspx" );
+            WebAgent.SuccAndGo("添加成功!", ViewState["BACK"].ToString());
         }
         else
         {
-            WebAgent.FailAndGo( "添加失败,请重试!" , "GoodsList.aspx" );
+            WebAgent.AlertAndBack("添加失败,请重试!");
         }
     }
 
@@ -177,11 +186,11 @@ public partial class GoodsEdit :AdminBase
 
             this.AddLog( EventID.Insert , "修改商品信息" , "修改商品信息,商品编号：" + QS( "gid" ) );
 
-            WebAgent.SuccAndGo( "修改成功。" , "GoodsList.aspx" );
+            WebAgent.SuccAndGo("修改成功。", ViewState["BACK"].ToString());
         }
         else
         {
-            WebAgent.FailAndGo( "修改失败。" , "GoodsList.aspx" ); 
+            WebAgent.AlertAndBack("修改失败!"); 
         }
     }
 

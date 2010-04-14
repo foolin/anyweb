@@ -1,4 +1,4 @@
-<%@ Page Title="基团网" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
+<%@ Page Title="机团网" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
     CodeFile="Index.aspx.cs" Inherits="Index" %>
 
 <%@ Register Src="~/Controls/CategoryLeft.ascx" TagName="CategoryLeft" TagPrefix="uc" %>
@@ -12,7 +12,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphTitle" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphContent" runat="Server">
-    <div class="indexMainCol1">
+    <div class="indexMainCol1" style="margin-top:10px;">
         <uc:CategoryLeft ID="CategoryLeft1" runat="server" />
         <div class="box">
             <div class="title">
@@ -49,14 +49,14 @@
         <uc:Link ID="Link" runat="server" />
         
     </div>
-    <div class="indexMainCol2">
+    <div class="indexMainCol2" style="margin-top:10px;">
     <div class="mainCol2Space">
         <uc:FlashList ID="Flash" runat="server" />
         <uc:RecommdIndex ID="rec" runat="server" />
         <uc:PromotionIndex ID="pro" runat="server" />
     </div>
     </div>
-    <div class="indexMainCol3">
+    <div class="indexMainCol3" style="margin-top:10px;">
         <uc:PromotionList ID="PromotionList" runat="server" />
         <uc:HotSellRankList ID="HotSellRankList" runat="server" />
         <uc:GiftPackageIndex ID="GiftPackageIndex" runat="server" />

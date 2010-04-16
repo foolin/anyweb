@@ -36,7 +36,7 @@
                 <%if (good.Price != 0)
                   {%>
                 <dd>
-                    基团价：<span class="vlue"><s>￥<%=good.Price%>元</s></span></dd>
+                    机团价：<span class="vlue"><s>￥<%=good.Price%>元</s></span></dd>
                 <%} %>
                 <dd>
                     促销价格：<span class="vlue">￥<%=good.PromotionsPrice%>元</span></dd>
@@ -46,7 +46,7 @@
                 <%if (good.Price != 0)
                   { %>
                 <dd>
-                    基团价：<span class="vlue">￥<%=good.Price%>元</span></dd>
+                    机团价：<span class="vlue">￥<%=good.Price%>元</span></dd>
                 <%} %>
                 <%} %>
                 <%if (!string.IsNullOrEmpty(good.Factory))

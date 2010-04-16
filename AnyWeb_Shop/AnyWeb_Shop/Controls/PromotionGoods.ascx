@@ -18,7 +18,7 @@
                                 <%#Studio.Web.WebAgent.GetLeft((string)Eval("GoodsName"),16)%></a></dt>
                             <%#(double)Eval("MarketPrice") == 0 ? "<dd>&nbsp;</dd>" : "<dd>市场价：<s>￥" + Eval("MarketPrice") + "元</s></dd>"%>
                             <%# 
-                                (bool)Eval("IsPromotions") ? ((double)Eval("Price") == 0 ? "<dd>促销价格：￥" + Eval("PromotionsPrice") + "元</dd><dd>&nbsp;</dd>" : "<dd>基团网价格：<s>￥" + Eval("Price") + "元</s></dd>" + "<dd>促销价格：￥" + Eval("PromotionsPrice") + "元</dd>") : ((double)Eval("Price") == 0 ? "" : "<dd>基团网价格：￥" + Eval("Price") + "元</dd><dd>&nbsp;</dd>")
+                                (bool)Eval("IsPromotions") ? ((double)Eval("Price") == 0 ? "<dd>促销价格：￥" + Eval("PromotionsPrice") + "元</dd><dd>&nbsp;</dd>" : "<dd>机团网价格：<s>￥" + Eval("Price") + "元</s></dd>" + "<dd>促销价格：￥" + Eval("PromotionsPrice") + "元</dd>") : ((double)Eval("Price") == 0 ? "" : "<dd>机团网价格：￥" + Eval("Price") + "元</dd><dd>&nbsp;</dd>")
                             %>
                         </dl>
                     </div>

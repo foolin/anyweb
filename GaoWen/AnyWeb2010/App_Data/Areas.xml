@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<Provinces>
+	<Province id="6" name="广东">
+		<City id="84" name="广州">
+      <Area id="1001" name="荔湾"></Area>
+      <Area id="1002" name="越秀"></Area>
+      <Area id="1003" name="东山"></Area>
+      <Area id="1004" name="天河"></Area>
+      <Area id="1005" name="海珠"></Area>
+      <Area id="1006" name="黄埔"></Area>
+      <Area id="1007" name="芳村"></Area>
+      <Area id="1008" name="白云"></Area>
+      <Area id="1009" name="花都"></Area>
+      <Area id="1010" name="番禺"></Area>
+      <Area id="1011" name="从化"></Area>
+      <Area id="1012" name="增城"></Area>
+    </City>
+ </Province>
+</Provinces>
+

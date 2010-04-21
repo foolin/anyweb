@@ -1,0 +1,135 @@
+/*通行证管理界面样式表*/
+/*
+管理界面布局说明：
+整体为100%宽度，左右布局
+默认：侧栏居右，宽度为200px
+
+布局代码范例
+<div id="container">
+	<div id="main">
+		<div id="content">这里是主内容区域</div>
+	</div>
+	<div id="side">这里是侧栏区域</div>		
+</div>
+*/
+/*基本样式*/
+body{font-size:12px;margin:0px;font-family: Arial, Helvetica, sans-serif;color: #333333;line-height: 180%;padding:10px;background-color:#fff}
+td,li,div{font-size:12px; line-height:16px}
+a{color:#3169B5;text-decoration:none;}
+a:hover{color:#0088E4;text-decoration:underline;}
+a img{border:0;}
+a.hot{color:#f03309}
+.inputname{color: #316AC5}
+.important{color: #FF6600}
+.inputvalue{color:#3169B5;}
+.okinfo{color:darkgreen;height:22px;margin-left:5px;}
+.errinfo{color:red;background-color:#ffffcc;margin-left:5px;height:22px;padding:2 0 2 0;border:1px solid #cccccc;}
+.cont{height:60px;padding-left:10px;}
+
+a.btn{border:1px solid #336699;padding:2px;padding-left:8px;padding-right:8px;line-height:200%;background-color:#E9F2F8;color:#000;}
+a:hover.btn{background-color:#fff;text-decoration:none;color:#ff3333;}
+input.readonly{background-color:#f5f5f5}
+div.divBtn{border:1px solid #D89A07;background-color:#FEF1BE;padding:5px;margin-top:10px;border-left:0px;border-right:0px;}
+div.divRe{margin-bottom:10px;border-top:1px solid #333;border-bottom:1px solid #333;background-color:#f3f3f3;padding:4px;}
+div.divRemind{background-color:#E2FFE4;margin:5px;padding:5px;border:1px dashed #82B682;}
+
+/*页首与页脚*/
+#slogan{border-top:1px solid #CEDCF4;line-height:150%;color:#666;padding:5px;}
+#posnav{color:#fff;padding:4px;background-color:#A3C787;margin-bottom:3px;border-top:1px solid #006931;line-height:160%;padding-left:8px;}
+#posnav a{color:#006931;}
+#login{border:1px #A4C5FA solid;padding:2px;width:360px;background:url("/images/login.gif") no-repeat left;}
+#login .edit1{background:#12487D; border-bottom:1px solid #002C58;border-right:1px solid #002C58}
+#login td{ color:White}
+#logininfo{float:right;}
+#searchBar{background-color:#D3E8FD;border-top:2px solid #316AC5;clear:both;float:left;width:100%;}
+#copyright{text-align:center;}
+
+/*主区域样式*/
+#container{background-color:#fff;width:100%;}
+#main{float:left;margin:0px;color:#666666;width:expression( body.clientWidth-200);background-color:#fff; border:1px #ccc solid; margin-left:3px;}
+#main ul{padding-left:50px;margin:0px;margin-bottom:10px;clear:both;}
+#main li{width:150px;display:block;float:left;line-height:180%;}
+
+#help{clear:both;width:100%;}
+#help h2{color:#3169B5;line-height:150%;background-color:#ECF3F6;border-top:2px solid #083E7C;font-size:14px;padding:5px;}
+.maindir{color:#3169B5;clear:both;font-weight:bold;font-size:14px;padding-left:5px;padding-top:3px;padding-bottom:5px;background: url(http://pub.anyp.cn/images/admin/2006/title_bg3.gif) repeat-x top;}
+.helpbar{clear:both;padding-left:4px;padding-top:5px;background:url("http://pub.anyp.cn/images/admin/2006/title_bg2.gif") repeat-x top;height:25px;}
+.helpbar a{color:#0D688E;border-width:1px;padding:2px;}
+.helpbar a:hover{color:#0A4F89;border:1px solid #0E6BA0;background:url("http://pub.anyp.cn/images/admin/2006/title_bg3.gif") repeat-x;padding:2px;}
+.tblhead{background-color:#C0D8FD;border-bottom:1px #9CBAE8 solid;}
+.tb2head{background-color:#C0D8FD;border-bottom:1px #9CBAE8 solid;}
+#lblCreateAt{color:#3169B5;padding-right:15px;}
+#lblEmail{color:#3169B5;padding-right:15px;}
+#lblAP{color:#3169B5;padding-right:15px;}
+#lblVP{color:#3169B5;padding-right:15px;}
+#lblGradeID{color:#3169B5;padding-right:15px;}
+#lblGradeName{color:#3169B5;padding-right:15px;}
+#lblNextP{color:#3169B5;padding-right:15px;}
+#lblFeeling{color:#FF6600;padding-left:5px;}
+
+#content{padding-left:5px;}
+#content h1{font-size:18px;line-height:200%;margin-bottom:15px;}
+#content td{color:#3C76B1;}
+#content td a{color:navy;}
+tr.editalt{background-color:#f5f5f5;height:25px;}
+tr.firstCol{background-color:#f5f5f5;height:25px;font-weight:bold;}
+.edit{border-bottom:1px solid #8A8A8A;border-top:1px solid #FFFDF7;padding:5px;background-color:#eee;color:#333;}
+.edit1{background-color:#E6F3FF;color:#FFF;height:25px;border-top:1px #1D4D9B solid;font-weight:bold;}
+.edit1 a{color:#FFF}.edit2 a{color:#0303B1}
+#topdemo,.topdemo{border:5px solid #aaa;padding:5px;}
+
+/*侧栏样式*/
+#side{padding-left:0px;float:left; background-color:#6D8AA7;padding:5px;}
+#side a{color:#444;}
+#side h2{font-size:14px;color:#3169B5;font-weight:bold;background-color:#ECF3F6;padding-left:10px;line-height:210%;}
+#side li{line-height:150%;padding-left:0px;margin:0px;}
+#side ul{padding-left:10px;margin:0px;}
+#side ol{padding-left:30px;margin:0px;list-style-image:url("http://pub.anyp.cn/images/admin/2006/ico_list.gif");}
+#left{border:1px solid #ffffff}
+.lefttd{background-color:#E7E7CE;color:#444;}
+.lefttd a{color:#444;}
+.side_title{background-color:#E7E7CE;border-bottom:1px #FFF solid;margin:0px;height:25px;font-size:12px;padding-top:5px;font-weight:bold;padding-left:26px;cursor:hand;background-image:url(http://public.anyp.com/images/login/icon_01.gif);background-repeat:no-repeat;background-position:5px center;}
+.side_content{background-color:#EFEFDE;border-bottom:1px #FFF solid;padding-top:4px;padding-bottom:4px;}
+.side_content li{list-style:none;background-image:url(http://public.anyp.com/images/login/icon_02.gif);background-repeat:no-repeat;background-position:8px center;line-height:160%;}
+
+/*顶栏样式*/
+#adminHead{color:#026E35;line-height:200%;}
+#adminHead a{color:#026E35;}
+#adminHeadBar{float:right;}
+
+/*底部样式*/
+#adminBottom{text-align:center;clear:both;color:#026E35;border-top:2px solid #026E35;padding:4px;margin-top:5px; height:20px}
+#adminBottom a{color:#026E35;}
+
+/*其他样式*/
+.colorbar{border:1px solid Navy;width:50px;height:15px;}
+.btnspan{ cursor:pointer; font-size:12px;float:right} 
+
+/*留言*/
+.message_group{ padding-bottom:3px; font-weight: bold;font-size: 14px;color:#2D6AA9;padding-left:40px;background:url(/skins/101/images/icon_comment.gif) no-repeat left;}
+.message_container{border-top: #599ADE 2px solid;border-left: #599ADE 1px solid;border-right: #599ADE 1px solid;border-bottom: #599ADE 1px solid;margin:0px 0px 8px 0px;padding: 8px;}
+.message_title{width:100%;padding-left:6px;padding-bottom:1px;color:#2D6AA9;font-size: 12px;border-bottom: #abb6ba 1px dashed; text-align:left;}
+.message_content{padding: 10px;}
+.message_reply{border: #ccc 1px solid;padding: 3px 3px 3px 3px;background-color:#eee;}
+
+/*评论*/
+.comment_group{ padding-bottom:3px; font-weight: bold;font-size: 14px;color:#2D6AA9;padding-left:40px;background:url(/skins/101/images/icon_comment.gif) no-repeat left;}
+.comment_container{border-top: #599ADE 2px solid;border-left: #599ADE 1px solid;border-right: #599ADE 1px solid;border-bottom: #599ADE 1px solid;margin:0px 0px 8px 0px;padding: 8px;}
+.comment_title{width:100%;padding-left:6px;padding-bottom:1px;color:#2D6AA9;font-size: 12px;border-bottom: #abb6ba 1px dashed; text-align:left;}
+.comment_content{padding: 10px;}
+.comment_bar{border: #ccc 1px solid;padding: 3px 3px 3px 3px;}
+
+/*系统管理首页面板*/
+table#box{border:1px solid #444;background-color:#FFFFf0;width:550px;}
+table#box td{padding:2px;color:#555;}
+div.block{border:1px dashed #ccc;margin-bottom:10px;padding-bottom:10px;background-color:#FFFFe7;}
+div.block h2{font-size:12px;line-height:180%;margin-top:0px;margin-bottom:5px;text-align:center;color:#AD8719;}
+table#box a{border:1px solid #336699;padding:2px;margin:5px;padding-left:8px;padding-right:8px;background-color:#E9F2F8;color:#000;}
+table#box a:hover{background-color:#FEFFE6;color:#ff0000;}
+
+#AlbumList { WIDTH: 550px }
+#AlbumList LI { list-style:none;:200px;PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FLOAT: left; PADDING-BOTTOM: 5px; WIDTH: 95%; PADDING-TOP: 5px}
+.AlbumPic { text-align:center;BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; BORDER-LEFT: #cccccc 1px solid; WIDTH: 90%; PADDING-TOP: 5px; BORDER-BOTTOM: #cccccc 1px solid }
+#AlbumList2 { WIDTH: 570px }
+#AlbumList2 LI { list-style:none; height:200px; PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FLOAT: left; PADDING-BOTTOM: 5px; WIDTH: 100px; PADDING-TOP: 5px}
+.AlbumPic2 { text-align:center;BORDER-RIGHT: #cccccc 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #cccccc 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; BORDER-LEFT: #cccccc 1px solid; WIDTH: 120px; PADDING-TOP: 5px; BORDER-BOTTOM: #cccccc 1px solid}

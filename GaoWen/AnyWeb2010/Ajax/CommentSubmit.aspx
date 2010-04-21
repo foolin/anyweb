@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CommentSubmit.aspx.cs" Inherits="Ajax_CommentSubmit" %>

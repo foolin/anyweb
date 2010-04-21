@@ -1,0 +1,3 @@
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\Studio\bin\Release\Studio.dll
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\Studio\obj\Release\ResolveAssemblyReference.cache
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\Studio\obj\Release\Studio.dll

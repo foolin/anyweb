@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminPage.master.cs" Inherits="Shop_Admin_AdminPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head2" runat="server">
+    <title>商城管理系统</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link href="../public/class/style.css" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 6]>
+	<link href="../public/class/forIE6.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+
+    <script language="javascript" type="text/javascript" src="../Public/js/admin.js"></script>
+
+    <script type="text/javascript" src="../public/js/date.js"></script>
+
+    <script language="javascript" type="text/javascript" src="../public/js/jquery-1.2.5.js"></script>
+
+    <script language="javascript" type="text/javascript" src="../public/js/Validator.js"></script>
+
+</head>
+<body class="pInner">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td height="62" background="../public/images/nav04.gif">
+            <div class="Location" id="NavLocation" style="padding-left:20px;padding-bottom:30px; position:static;float:left;">
+                当前位置：<a href="mainfra.html">首页</a> &gt;
+                <asp:Literal ID="compPos" runat="server"></asp:Literal>
+            </div>
+            <div style="height:19px;">
+                <asp:ContentPlaceHolder ID="cph2" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            </td>
+        </tr>
+    </table>
+    <form id="form1" runat="server">
+    <asp:ContentPlaceHolder ID="cph1" runat="server">
+    </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

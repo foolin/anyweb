@@ -1,0 +1,9 @@
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\AW_UC\bin\Release\AW_UC.dll.config
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\AW_UC\bin\Release\AW_UC.dll
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\AW_UC\bin\Release\AW_UC.pdb
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\AW_UC\bin\Release\AW_DB.dll
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\AW_UC\bin\Release\Studio.dll
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\AW_UC\bin\Release\AW_DB.pdb
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\AW_UC\obj\Release\ResolveAssemblyReference.cache
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\AW_UC\obj\Release\AW_UC.dll
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\AW_UC\obj\Release\AW_UC.pdb

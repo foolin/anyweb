@@ -1,9 +1,9 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="Admin_Admin" %>
+ï»¿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="Admin_Admin" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head2" runat="server">
-    <title>µç×ÓÉÌ³Ç¡ª¡ªºóÌ¨</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=gb2312" />
+    <title>ç”µå­å•†åŸâ€”â€”åå°</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
    <link href="/Public/style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="/public/date.js"></script>
     <script type="text/javascript" src="/public/admin.js"></script>
@@ -28,11 +28,11 @@ body{width:1003px;min-width:1003px;margin:0px auto; }
 <body  class="pInner" style="padding: 0px;" onload="this.focus()">
     <div class="phd">
         <h1>
-            <img src="/images/top.jpg" alt="¹©ÏúÉçµç×ÓÉÌ³Ç" width="1003px" /></h1>
+            <img src="/images/top.jpg" alt="ä¾›é”€ç¤¾ç”µå­å•†åŸ" width="1003px" /></h1>
         <ul class="tools">
             <li>
-                <img src="/images/yl.gif" /><a href="/index.aspx" target="_blank">ä¯ÀÀÉÌ³Ç</a>|</li>
-            <li><img src="/images/r.gif" /><a class="navOut" href="/Admin/OutLogin.aspx">ÍË³öµÇÂ¼</a></li>
+                <img src="/images/yl.gif" /><a href="/index.aspx" target="_blank">æµè§ˆå•†åŸ</a>|</li>
+            <li><img src="/images/r.gif" /><a class="navOut" href="/Admin/OutLogin.aspx">é€€å‡ºç™»å½•</a></li>
         </ul>
         <ul class="nav" id="nav1">
             <asp:Repeater ID="rep1" runat="server" DataSourceID="ods1">
@@ -50,7 +50,7 @@ body{width:1003px;min-width:1003px;margin:0px auto; }
             <div class="mod">
                 <div class="mhd">
                     <h3 >
-                        ¹¦ÄÜµ¼º½</h3>
+                        åŠŸèƒ½å¯¼èˆª</h3>
                 </div>
                 <div class="mbd">
                     <div class="iMenu">
@@ -95,7 +95,7 @@ body{width:1003px;min-width:1003px;margin:0px auto; }
     
     <div class="pft">
         <p class="copyright">
-            Copyright 2003-2006 °æÈ¨ËùÓĞ AnyWeb¹¤×÷ÊÒ</p>
+            Copyright 2003-2006 ç‰ˆæƒæ‰€æœ‰ AnyWebå·¥ä½œå®¤</p>
     </div>
    
     <asp:ObjectDataSource ID="ods1" runat="server" SelectMethod="GetCurrentItems" TypeName="AnyP.BizBlog.Admin.XMenu">

@@ -133,6 +133,13 @@
                                     <div style="margin: 10px 0px;">
                                         <asp:FileUpload ID="txtImage" runat="server" Width="280px" />不更改请留空.</div>
                                     <asp:HiddenField ID="hidimg" runat="server" Value='<%# Bind("Image") %>' />
+                                    <div style="display:<%# (String)Eval("Image") == "" ? "none" : "" %>">
+                                    <img alt="" src="<%# Eval("Image") %>" />
+                                    <input type="hidden" name="pics" value="<%# Eval("Image") %>" />
+                                    <br />
+                                    <button onclick="delPicture(this);">
+                                        删除</button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -192,6 +199,12 @@
                             <button id="btnBack" onclick="window.location='GiftPackageList.aspx';">
                                 取 消</button>
                         </div>
+                        <script type="text/javascript">
+                            function delPicture(lnk) {
+                                lnk.parentNode.style.display = "none";
+                                lnk.parentNode.innerHTML = "";
+                            }
+                        </script>
                     </EditItemTemplate>
                     <InsertItemTemplate>
                         <table class="iEditForm iEditBaseInf">

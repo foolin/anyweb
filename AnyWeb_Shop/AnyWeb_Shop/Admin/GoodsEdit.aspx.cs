@@ -232,6 +232,11 @@ public partial class GoodsEdit :AdminBase
             gs.Status = int.Parse( status.SelectedValue );
         }
 
+        if (gs != null && Request.Form["pics"] == null)
+        {
+            gs.Image = "";
+        }
+
         if ( gs != null && img != null )
         {
             string imgurl = this.GetProductImg( img );

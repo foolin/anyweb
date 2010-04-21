@@ -41,4 +41,14 @@ public partial class Admin_GiftPackageList : AdminBase
             }
         }
     }
+
+    protected void ods3_Selected(object sender, ObjectDataSourceStatusEventArgs e)
+    {
+        if (e.OutputParameters["recordCount"] != null)
+        {
+            int record = (int)e.OutputParameters["recordCount"];
+            PN1.SetPage(record);
+
+        }
+    }
 }

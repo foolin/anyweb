@@ -115,7 +115,7 @@
                     <asp:Button ID="btnDel" runat="server" Text="批量删除" CssClass="submit" OnClick="btnDel_Click" />
                 </div>
                 <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetGiftPackageList"
-                    TypeName="Common.Agent.GiftPackageAgent">
+                    TypeName="Common.Agent.GiftPackageAgent" OnSelected="ods3_Selected">
                     <SelectParameters>
                         <asp:ControlParameter Type="Int32" PropertyName="pagesize" Name="pageSize" ControlID="PN1" />
                         <asp:ControlParameter Type="Int32" PropertyName="pageindex" Name="pageNo" ControlID="PN1" />

@@ -151,9 +151,19 @@ public partial class Admin_GiftPackageEdit : AdminBase
 
         gp.GoodsIds = "";
         gp.PackID = int.Parse(QS("packID"));
+
+        if (Request.Form["pics"] == null)
+        {
+            gp.Image = "";
+        }
+
         if (img != null)
         {
-            gp.Image = this.GetProductImg(img);
+            string imgurl = this.GetProductImg(img);
+            if (imgurl != "")
+            {
+                gp.Image = imgurl;
+            }
         }
         if (hdfGoodsIds != null && !string.IsNullOrEmpty(hdfGoodsIds.Value))
         {

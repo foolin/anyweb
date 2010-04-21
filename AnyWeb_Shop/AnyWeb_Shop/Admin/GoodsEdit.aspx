@@ -28,8 +28,6 @@
                                 </th>
                                 <td colspan="2">
                                     <%#Eval("GoodsName") %>
-                                    <img src="images/recommend.gif" style='display: <%#(bool)Eval( "IsRecommend" ) == true ? "" : "none"%>;
-                                        margin-left: 10px;' />
                                 </td>
                             </tr>
                             <tr>
@@ -121,7 +119,7 @@
                                     查看该商品评论</button></span>
                             <asp:Button ID="btnDelete" runat="server" Text="删除该商品" CommandName="Delete" CssClass="submit">
                             </asp:Button>
-                            <button id="btnBack" onclick="history.go(-1);" type="button">
+                            <button id="btnBack" onclick="history.back();" type="button">
                                 返回</button>
                         </div>
                     </ItemTemplate>
@@ -172,6 +170,13 @@
                                     <div style="margin: 10px 0px;">
                                         <asp:FileUpload ID="txtImage" runat="server" Width="280px" />不更改请留空.</div>
                                     <asp:HiddenField ID="hidimg" runat="server" Value='<%# Bind("Image") %>' />
+                                    <div style="display:<%# (String)Eval("Image") == "" ? "none" : "" %>">
+                                    <img alt="" src="<%# Eval("Image") %>" />
+                                    <input type="hidden" name="pics" value="<%# Eval("Image") %>" />
+                                    <br />
+                                    <button onclick="delPicture(this);">
+                                        删除</button>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -261,7 +266,7 @@
                             </asp:Button>
                             <asp:Button ID="btnDelete" runat="server" Text="删除该商品" CommandName="Delete" CssClass="submit">
                             </asp:Button>
-                            <button id="btnBack" onclick="window.location='GoodsList.aspx';">
+                            <button id="btnBack" onclick="history.back();" type="button">
                                 取 消</button>
                         </div>
 
@@ -277,6 +282,11 @@
                                 }
 
                                 Promotions();
+
+                                function delPicture(lnk) {
+                                    lnk.parentNode.style.display = "none";
+                                    lnk.parentNode.innerHTML = "";
+                                }
                         </script>
 
                     </EditItemTemplate>
@@ -401,7 +411,7 @@
                         <div class="iSubmit">
                             <asp:Button ID="btnSave" runat="server" Text=" 保存商品" CommandName="Insert" CssClass="submit">
                             </asp:Button>
-                            <button id="btnBack" onclick="window.location='GoodsList.aspx';" type="button">
+                            <button id="btnBack" onclick="history.back();" type="button">
                                 取 消</button>
                         </div>
 
@@ -432,7 +442,7 @@
         function showDesc() {
             document.getElementById("divDesc").style.display = document.getElementById("_ctl0_cph1_fv1_chkAutoDesc").checked ? 'none' : 'block';
 
-        }
+        }        
     </script>
 
     <asp:ObjectDataSource ID="ods3" runat="server" SelectMethod="GetGoodsByID" TypeName="Common.Agent.GoodsAgent"

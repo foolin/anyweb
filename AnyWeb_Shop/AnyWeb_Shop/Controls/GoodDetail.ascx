@@ -15,10 +15,10 @@
             <div class="goodsDetailsImage">
                 <a href="<%=good.Image=="" ? "../images/wait.jpg":good.Image.Replace("S_","") %>"
                     target="_blank">
-                    <img src="<%=good.Image=="" ? "../images/wait.jpg":good.Image.Replace("S_","") %>"
+                    <img src="<%=good.Image=="" ? "../images/wait.jpg":good.Image %>"
                         width="275" alt="<%=good.GoodsName %>" /></a>
                 <hr />
-                <a href="../images/wait.jpg" target="_blank" title="点击查看大图">
+                <a href="<%=good.Image=="" ? "../images/wait.jpg":good.Image.Replace("S_","") %>" target="_blank" title="点击查看大图">
                     <img src="Images/view_image_btn.gif" border="0" /></a>
             </div>
         </td>

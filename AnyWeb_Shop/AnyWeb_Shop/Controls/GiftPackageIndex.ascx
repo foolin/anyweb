@@ -19,8 +19,8 @@
                     <div class="topicDesc">
                         <h4>
                             <a href="GiftPackage.aspx?pid=<%#Eval("PackID") %>">
-                                <%#Studio.Web.WebAgent.GetLeft(Eval("PackName").ToString(),11)%></a></h4>
-                        <%#Studio.Web.WebAgent.GetLeft(Studio.Web.WebAgent.stripHtml(Eval("Intro").ToString()),55)%>
+                                <%#Studio.Web.WebAgent.GetLeft(Eval("PackName").ToString(),9)%></a></h4>
+                        <%#Studio.Web.WebAgent.GetLeft(Studio.Web.WebAgent.stripHtml(Eval("Intro").ToString()),24)%>
                         <br />
                         <a href="GiftPackage.aspx?pid=<%#Eval("PackID") %>" class="more">详细信息</a>
                     </div>

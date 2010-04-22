@@ -7,21 +7,68 @@
     </ul>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
+    <script type="text/javascript" src="/public/js/jquery.tablednd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#datas").tableDnD({
+                onDrop: function(table, row) {
+                    var rows = table.tBodies[0].rows;
+                    var articleId = row.id.replace("row_", "");
+                    var nextId = "0";
+                    var previewId = "0";
+                    var total = rows.length;
+                    if (total <= 1)
+                        return;
+                    for (i = 0; i < rows.length; i++) {
+                        rows[i].className = i % 2 == 0 ? "even" : "";
+                        if (rows[i].id == "row_" + articleId) {
+                            if (i == 0)
+                                nextId = rows[i + 1].id.replace("row_", "");
+                            else if (i + 1 == total)
+                                previewId = rows[i - 1].id.replace("row_", "");
+                            else
+                                previewId = rows[i - 1].id.replace("row_", "");
+                        }
+                    }
+
+                    var url = "ArticleSort.aspx?id=" + articleId + "&previewid=" + previewId + "&nextid=" + nextId;
+                    $.get(url, "", function(htm) { });
+                }
+            });
+        });
+        function SelectAll(v) {
+            var list = document.getElementsByTagName("input");
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].name == "ids" && list[i].type == "checkbox") {
+                    list[i].checked = v;
+                }
+            }
+        }
+        function columnchange() {
+            window.location = "ArticleList.aspx?id=" + $("#<%=drpColumn.ClientID %>").val() + "&cid=" + $("#<%=drpChildColumn.ClientID %>").val();
+        }
+    </script>
     <div class="Mod DataList">
         <div class="mhd">
             <h3>
                 文章管理</h3>
         </div>
         <div class="fi filter">
-            栏目：<asp:DropDownList ID="drpColumn" onchange="window.location='ArticleList.aspx?cid='+this.value"
-                runat="server">
+            栏目：<asp:DropDownList ID="drpColumn" onchange="columnchange()" runat="server">
+                <asp:ListItem Value="0">所有栏目</asp:ListItem>
+            </asp:DropDownList>
+            <asp:DropDownList ID="drpChildColumn" onchange="columnchange()" runat="server">
                 <asp:ListItem Value="0">所有栏目</asp:ListItem>
             </asp:DropDownList>
         </div>
         <div class="mbd">
-            <table>
+            <table id="datas">
                 <thead>
                     <tr>
+                        <th style="width: 80px">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox" onclick="SelectAll(this.checked)" />全选</label>
+                        </th>
                         <th>
                             标题
                         </th>
@@ -35,8 +82,11 @@
                 </thead>
                 <asp:Repeater ID="compRep" runat="server" EnableViewState="False">
                     <ItemTemplate>
-                        <tr align="center" class="editalt">
-                            <td style="text-align: left;">
+                        <tr align="center" class="editalt" id="row_<%# Eval("fdArtiID")%>">
+                            <td style="width: 30px;">
+                                <input type="checkbox" name="ids" value="<%# Eval("fdArtiID")%>" /><%# Eval("fdArtiID")%>
+                            </td>
+                            <td style="text-align: left;" class="dragTd" title="拖动排序">
                                 <a href="<%#Eval("PathStr") %>" target="_blank"><%#Eval("fdArtiTitle")%></a>
                             </td>
                             <td>
@@ -55,8 +105,10 @@
                 </sw:PageNaver>
             </div>
         </div>
-        <div class="mft">
-        </div>
+        <div class="mft">            
+        </div>    
+        <button onclick="setGoods(this,'del',0)" style="height: 28px;">
+            批量删除</button>
     </div>
     <div>
         <ul class="Help">

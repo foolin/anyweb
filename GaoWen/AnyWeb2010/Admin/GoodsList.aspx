@@ -227,7 +227,6 @@
         <button onclick="setGoods(this,'recommend',0)" style="height: 28px; display: none;">
             取消推荐</button>
     </div>
-    </div>
     <div>
         <ul class="Help">
             <li>存在订单数据的商品不能删除，但可设置状态为“下架”，前台不会显示下架商品。</li>

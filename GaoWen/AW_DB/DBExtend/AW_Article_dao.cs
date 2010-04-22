@@ -122,5 +122,92 @@ namespace AnyWeb.AW_DL
                 return null;
             }
         }
+
+        /// <summary>
+        /// 调整商品排序
+        /// </summary>
+        /// <param name="column"></param>
+        /// <param name="goodsId"></param>
+        /// <param name="nextId"></param>
+        /// <param name="previewId"></param>
+        public void funcSortArticle(int articleId, int nextId, int previewId)
+        {
+            AW_Article_bean article = AW_Article_bean.funcGetByID(articleId, "fdArtiID,fdArtiSort");
+            AW_Article_bean next = nextId == 0 ? null : AW_Article_bean.funcGetByID(nextId, "fdArtiID,fdArtiSort");
+            AW_Article_bean preview = previewId == 0 ? null : AW_Article_bean.funcGetByID(previewId, "fdArtiID,fdArtiSort");
+
+            this.propSelect = " fdArtiID,fdArtiSort";
+            this.propOrder = " ORDER BY fdArtiSort DESC";
+
+            this._propFields = "fdArtiID,fdArtiSort";
+
+            if (next != null)
+            {
+                if (article.fdArtiSort > next.fdArtiSort) //从上往下移
+                {
+                    this.propWhere += " AND fdArtiSort<=" + article.fdArtiSort + " AND fdArtiSort>" + next.fdArtiSort.ToString();
+                    List<AW_Article_bean> list = this.funcGetList();
+                    if (list.Count > 1)
+                    {
+                        article.fdArtiSort = list[list.Count - 1].fdArtiSort;
+                        this.funcUpdate(article);
+                        for (int i = 1; i < list.Count; i++)
+                        {
+                            list[i].fdArtiSort = list[i - 1].fdArtiSort;
+                            this.funcUpdate(list[i]);
+                        }
+                    }
+                }
+                else //从下往上移
+                {
+                    this.propWhere += " AND fdArtiSort>=" + article.fdArtiSort + " AND fdArtiSort<=" + next.fdArtiSort.ToString();
+                    List<AW_Article_bean> list = this.funcGetList();
+                    if (list.Count > 1)
+                    {
+                        article.fdArtiSort = list[0].fdArtiSort;
+                        this.funcUpdate(article);
+                        for (int i = 0; i < list.Count - 1; i++)
+                        {
+                            list[i].fdArtiSort = list[i + 1].fdArtiSort;
+                            this.funcUpdate(list[i]);
+                        }
+                    }
+                }
+            }
+            else if (preview != null)
+            {
+                if (article.fdArtiSort > preview.fdArtiSort) //从上往下移
+                {
+                    this.propWhere += " AND fdArtiSort<=" + article.fdArtiSort + " AND fdArtiSort>=" + preview.fdArtiSort.ToString();
+                    List<AW_Article_bean> list = this.funcGetList();
+                    if (list.Count > 1)
+                    {
+                        article.fdArtiSort = list[list.Count - 1].fdArtiSort;
+                        this.funcUpdate(article);
+                        for (int i = list.Count - 1; i > 0; i--)
+                        {
+                            list[i].fdArtiSort = list[i - 1].fdArtiSort;
+                            this.funcUpdate(list[i]);
+                        }
+                    }
+                }
+                else //从下往上移
+                {
+                    this.propWhere += " AND fdArtiSort>=" + article.fdArtiSort + " AND fdArtiSort<" + preview.fdArtiSort.ToString();
+                    List<AW_Article_bean> list = this.funcGetList();
+                    if (list.Count > 1)
+                    {
+                        article.fdArtiSort = list[0].fdArtiSort;
+                        this.funcUpdate(article);
+                        for (int i = 0; i < list.Count - 1; i++)
+                        {
+                            list[i].fdArtiSort = list[i + 1].fdArtiSort;
+                            this.funcUpdate(list[i]);
+                        }
+                    }
+
+                }
+            }
+        }
     }
 }

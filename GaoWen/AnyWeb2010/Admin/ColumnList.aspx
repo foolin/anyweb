@@ -10,7 +10,7 @@
     <div class="Mod DataList">
         <div class="mhd">
             <h3>
-                新闻栏目</h3>
+                文章栏目</h3>
         </div>
         <div class="mbd">
             <table>
@@ -18,6 +18,9 @@
                     <tr>
                         <th>
                             名称
+                        </th>
+                        <th>
+                            栏目图片
                         </th>
                         <th>
                             首页显示
@@ -34,6 +37,9 @@
                                 <a href="<%#Eval("PathStr") %>" target="_blank"><%#Eval("fdColuName")%></a>
                             </td>
                             <td>
+                                <img width="100" height="65" alt="<%#Eval("fdColuName")%>" src="<%#Eval("fdColuPicture") %>" style="display:<%#(String)Eval("fdColuPicture")==""?"none":"" %>" />
+                            </td>
+                            <td>
                                 <%# (int)Eval("fdColuShowIndex")==0?"<span style='color:red'>否</span>":"是" %>
                             </td>
                             <td>
@@ -48,6 +54,9 @@
                                 <tr align="center" class="editalt">
                                     <td title="<%#Eval("fdColuDescription") %>" style="text-align: left; padding-left: 40px;">
                                         <a href="<%#Eval("PathStr") %>" target="_blank"><%#Eval("fdColuName")%></a>
+                                    </td>
+                                    <td>
+                                        <img width="100" height="65" alt="<%#Eval("fdColuName")%>" src="<%#Eval("fdColuPicture") %>" style="display:<%#(String)Eval("fdColuPicture")==""?"none":"" %>" />
                                     </td>
                                     <td>
                                         <%# (int)Eval("fdColuShowIndex")==0?"<span style='color:red'>否</span>":"是" %>

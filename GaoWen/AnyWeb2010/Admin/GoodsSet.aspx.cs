@@ -11,7 +11,6 @@ using System.Web.UI.WebControls.WebParts;
 
 using Studio.Web;
 using AnyWeb.AW_DL;
-using AnyWeb.AW_DL;
 using System.Collections.Generic;
 
 public partial class Admin_GoodsSet : PageAdmin

@@ -21,7 +21,7 @@ namespace AnyWeb.AW.Configs
             set { _shopName = value; }
         }
 
-        private string _companyName = "广州市时代财富科技有限公司";
+        private string _companyName = "AnyWeb";
         /// <summary>
         /// 公司名称
         /// </summary>
@@ -31,7 +31,7 @@ namespace AnyWeb.AW.Configs
             set { _companyName = value; }
         }
 
-        private string _address = "广州市科韵路18号6楼";
+        private string _address = "广州市";
         /// <summary>
         /// 地址
         /// </summary>
@@ -41,7 +41,7 @@ namespace AnyWeb.AW.Configs
             set { _address = value; }
         }
 
-        private string _postcode = "510660";
+        private string _postcode = "";
         /// <summary>
         /// 邮编
         /// </summary>
@@ -51,7 +51,7 @@ namespace AnyWeb.AW.Configs
             set { _postcode = value; }
         }
 
-        private string _tel = "020-85537383";
+        private string _tel = "";
         /// <summary>
         /// 电话
         /// </summary>
@@ -61,7 +61,7 @@ namespace AnyWeb.AW.Configs
             set { _tel = value; }
         }
 
-        private string _fax = "020-85528003";
+        private string _fax = "";
         /// <summary>
         /// 传真
         /// </summary>
@@ -81,7 +81,7 @@ namespace AnyWeb.AW.Configs
             set { _mobile = value; }
         }
 
-        private string _qq = "99879123";
+        private string _qq = "";
         /// <summary>
         /// 客服QQ
         /// </summary>
@@ -91,7 +91,7 @@ namespace AnyWeb.AW.Configs
             set { _qq = value; }
         }
 
-        private string _msn = "test@fortuneage.com";
+        private string _msn = "";
         /// <summary>
         /// 客服MSN
         /// </summary>
@@ -101,7 +101,7 @@ namespace AnyWeb.AW.Configs
             set { _msn = value; }
         }
 
-        private string _email = "test@fortuneage.com";
+        private string _email = "";
         /// <summary>
         /// 客服邮件
         /// </summary>
@@ -243,6 +243,26 @@ namespace AnyWeb.AW.Configs
             set { _goodsListImageHeight = value; }
         }
 
+        private int _columnImageWidth = 120;
+        /// <summary>
+        /// 栏目图片宽度
+        /// </summary>
+        public int ColumnImageWidth
+        {
+            get { return _columnImageWidth; }
+            set { _columnImageWidth = value; }
+        }
+
+        private int _columnImageHeight = 120;
+        /// <summary>
+        /// 栏目图片高度
+        /// </summary>
+        public int ColumnImageHeight
+        {
+            get { return _columnImageHeight; }
+            set { _columnImageHeight = value; }
+        }
+
         private int _goodsImageWidth = 300;
         /// <summary>
         /// 商品图片宽度    
@@ -276,7 +296,7 @@ namespace AnyWeb.AW.Configs
 
         private string _goodsImageWatermarkUrl = "";
         /// <summary>
-        /// 商品图片水印图路径
+        /// 商品图片水印图片路径
         /// </summary>
         public string GoodsImageWatermarkUrl
         {
@@ -286,7 +306,7 @@ namespace AnyWeb.AW.Configs
 
         private string _goodsImageWatermarkText = "";
         /// <summary>
-        /// 商品图片水印文字路径
+        /// 商品图片水印文字
         /// </summary>
         public string GoodsImageWatermarkText
         {

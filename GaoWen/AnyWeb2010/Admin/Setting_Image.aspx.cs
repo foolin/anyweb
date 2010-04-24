@@ -37,14 +37,16 @@ public partial class Admin_Setting_Image : PageAdmin
         }
 
         GeneralConfigInfo config = GeneralConfigs.GetConfig();
-        txtBrandWdith.Text = config.BrandImageWidth.ToString();
-        txtBrandHeight.Text = config.BrandImageHeight.ToString();
-        txtGoodsHeight.Text = config.GoodsImageHeight.ToString();
-        txtGoodsWidth.Text = config.GoodsImageWidth.ToString();
-        txtGoodsListWidth.Text = config.GoodsListImageWidth.ToString();
-        txtGoodsListHeight.Text = config.GoodsListImageHeight.ToString();
-        txtMemberImageHeight.Text = config.MemberAvatorHeight.ToString();
-        txtMemberImageWidth.Text = config.MemberAvatorWidth.ToString();
+        //txtBrandWdith.Text = config.BrandImageWidth.ToString();
+        //txtBrandHeight.Text = config.BrandImageHeight.ToString();
+        //txtGoodsHeight.Text = config.GoodsImageHeight.ToString();
+        //txtGoodsWidth.Text = config.GoodsImageWidth.ToString();
+        //txtGoodsListWidth.Text = config.GoodsListImageWidth.ToString();
+        //txtGoodsListHeight.Text = config.GoodsListImageHeight.ToString();
+        //txtMemberImageHeight.Text = config.MemberAvatorHeight.ToString();
+        //txtMemberImageWidth.Text = config.MemberAvatorWidth.ToString();
+        txtColumnWidth.Text = config.ColumnImageWidth.ToString();
+        txtColumnHeight.Text = config.ColumnImageHeight.ToString();
         txtFlashWidth.Text = config.FlashWidth.ToString();
         txtFlashHeight.Text = config.FlashHeight.ToString();
 
@@ -68,22 +70,41 @@ public partial class Admin_Setting_Image : PageAdmin
     protected void btnOk_Click(object sender, EventArgs e)
     {
         GeneralConfigInfo config = GeneralConfigs.GetConfig();
-
-        config.BrandImageWidth = int.Parse(txtBrandWdith.Text);
-        config.BrandImageHeight = int.Parse(txtBrandHeight.Text);
-        config.GoodsImageHeight = int.Parse(txtGoodsHeight.Text);
-        config.GoodsImageWidth = int.Parse(txtGoodsWidth.Text);
-        config.GoodsListImageWidth = int.Parse(txtGoodsListWidth.Text);
-        config.GoodsListImageHeight = int.Parse(txtGoodsListHeight.Text);
-        config.MemberAvatorHeight = int.Parse(txtMemberImageHeight.Text);
-        config.MemberAvatorWidth = int.Parse(txtMemberImageWidth.Text);
-        config.FlashWidth = int.Parse(txtFlashWidth.Text);
-        config.FlashHeight = int.Parse(txtFlashHeight.Text);
+        int number = 0;
+        //config.BrandImageWidth = int.Parse(txtBrandWdith.Text);
+        //config.BrandImageHeight = int.Parse(txtBrandHeight.Text);
+        //config.GoodsImageHeight = int.Parse(txtGoodsHeight.Text);
+        //config.GoodsImageWidth = int.Parse(txtGoodsWidth.Text);
+        //config.GoodsListImageWidth = int.Parse(txtGoodsListWidth.Text);
+        //config.GoodsListImageHeight = int.Parse(txtGoodsListHeight.Text);
+        //config.MemberAvatorHeight = int.Parse(txtMemberImageHeight.Text);
+        //config.MemberAvatorWidth = int.Parse(txtMemberImageWidth.Text);
+        if (int.TryParse(txtColumnHeight.Text, out number))
+        {
+            config.ColumnImageHeight = number;
+        }
+        if (int.TryParse(txtColumnWidth.Text, out number))
+        {
+            config.ColumnImageWidth = number;
+        }
+        if (int.TryParse(txtFlashWidth.Text, out number))
+        {
+            config.FlashWidth = number;
+        }
+        if (int.TryParse(txtFlashHeight.Text, out number))
+        {
+            config.FlashHeight = number;
+        }
         config.GoodsImageWatermarkType = int.Parse(radioWaterType.SelectedValue);
         config.GoodsImageWatermarkPosition = int.Parse(radioWaterPosition.SelectedValue);
-
-        config.GoodsImageWatermarkFontsize = int.Parse(txtWaterFontSize.Text);
-        config.GoodsImageWatermarkTransparency = int.Parse(txtTransparency.Text);
+        if (int.TryParse(txtWaterFontSize.Text, out number))
+        {
+            config.GoodsImageWatermarkFontsize = number;
+        }
+        if (int.TryParse(txtTransparency.Text, out number))
+        {
+            config.GoodsImageWatermarkTransparency = number;
+        }
         config.GoodsImageWatermarkText = txtWaterText.Text.Trim();
 
 

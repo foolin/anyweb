@@ -4,6 +4,33 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
+    <script type="text/javascript">
+        var child = new Array;
+        <asp:Literal ID="litJs" runat="server"></asp:Literal>
+        function columnChange(){
+            var i, index;
+            index = document.getElementById("<%=drpColumn.ClientID %>").selectedIndex;
+            var objChild = document.getElementById("drpChild");
+            var iCount = child[index].length;
+            for (i = objChild.options.length - 1; i >= 0; i--) {
+                objChild.remove(i);
+            }
+            if (iCount == 0) {
+                objChild.style.display = "none";
+            }else {
+                for (i = 0; i <= iCount - 1; i++) {
+                    var option = document.createElement("OPTION");
+                    option.value = child[index][i].substring(0,child[index][i].indexOf(":"));
+                    option.text = child[index][i].substring(child[index][i].indexOf(":")+1,child[index][i].length);
+                    objChild.options.add(option);
+                }
+                objChild.style.display = "";
+            }
+        }
+         $(document).ready(function() {
+            columnChange();
+        });
+    </script>
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
@@ -23,12 +50,10 @@
                 <label>
                     所属栏目：</label>
                 <asp:DropDownList ID="drpColumn" DataTextField="fdColuName" DataValueField="fdColuID"
-                    runat="server">
+                    runat="server" onchange="columnChange()">
                 </asp:DropDownList>
-                <span class="required">*</span>
-                <sw:Validator ID="Validator2" ControlID="drpColumn" ValidateType="Required" ErrorText="请选择所属栏目"
-                    ErrorMessage="请选择所属栏目" runat="server">
-                </sw:Validator>
+                <select id="drpChild" name="drpChild">
+                </select>
             </div>
             <div class="fi">
                 <label>
@@ -40,12 +65,14 @@
             <div class="fi even">
                 <label>
                     文章排序：</label>
-                <asp:TextBox ID="txtSort" runat="server" Text="0"></asp:TextBox>
+                <asp:TextBox ID="txtSort" runat="server" Text="0" CssClass="text" Width="80"></asp:TextBox>
                 <span class="required">*</span>
                 <sw:Validator ID="Validator3" ControlID="txtSort" ValidateType="Required" ErrorText="请输入文章排序"
-                    ErrorMessage="请输入文章排序" runat="server"></sw:Validator>
-                <sw:Validator ID="Validator4" ControlID="txtSort" ValidateType="DataType" DataType="Integer" ErrorText="请输入正确的文章排序"
-                    ErrorMessage="请输入正确的文章排序" runat="server"></sw:Validator>
+                    ErrorMessage="请输入文章排序" runat="server">
+                </sw:Validator>
+                <sw:Validator ID="Validator4" ControlID="txtSort" ValidateType="DataType" DataType="Integer"
+                    ErrorText="请输入正确的文章排序" ErrorMessage="请输入正确的文章排序" runat="server">
+                </sw:Validator>
             </div>
             <div class="fi fiBtns">
                 <asp:Button ID="btnOk" runat="server" Text="保存" CssClass="submit" OnClick="btnOk_Click">
@@ -66,20 +93,20 @@
 
     <script type="text/javascript">
         tinyMCE.init({
-        mode : "exact",
-        elements : "<%=txtContent.ClientID%>",
-        theme : "advanced",
-        language : "zh",
-        plugins : "safari,pagebreak,style,layer,table,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,profile,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,pageseparator,iboximage",
-        content_css : "/tiny_mce/css/content.css",
-        template_external_list_url : "/tiny_mce/lists/template_list.js",
-        external_link_list_url : "/tiny_mce/lists/link_list.js",
-        external_image_list_url : "/tiny_mce/lists/image_list.js",
-        media_external_list_url : "/tiny_mce/lists/media_list.js",
-        template_replace_values : {
-        username : "Some User",
-        staffid : "991234"
-        }
+            mode: "exact",
+            elements: "<%=txtContent.ClientID%>",
+            theme: "advanced",
+            language: "zh",
+            plugins: "safari,pagebreak,style,layer,table,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,profile,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,pageseparator,iboximage",
+            content_css: "/tiny_mce/css/content.css",
+            template_external_list_url: "/tiny_mce/lists/template_list.js",
+            external_link_list_url: "/tiny_mce/lists/link_list.js",
+            external_image_list_url: "/tiny_mce/lists/image_list.js",
+            media_external_list_url: "/tiny_mce/lists/media_list.js",
+            template_replace_values: {
+                username: "Some User",
+                staffid: "991234"
+            }
         });
     </script>
 

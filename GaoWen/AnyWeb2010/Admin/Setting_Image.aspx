@@ -10,6 +10,7 @@
                 图片设置</h3>
         </div>
         <div class="mbd">
+        <%--
             <div class="fi">
                 <label>
                     商品列表图片：</label>
@@ -39,13 +40,34 @@
                     宽<asp:TextBox ID="txtMemberImageWidth" runat="server" MaxLength="4" CssClass="text"
                         Width="50px"></asp:TextBox>像素,高<asp:TextBox ID="txtMemberImageHeight" runat="server"
                             MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素</div>
+            </div>--%>
+            <div class="fi">
+                <label>
+                    栏目图片：</label>
+                <div class="cont">
+                    宽<asp:TextBox ID="txtColumnWidth" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素,高<asp:TextBox
+                        ID="txtColumnHeight" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素
+                    <sw:Validator ID="Validator1" ControlID="txtColumnWidth" ValidateType="Required" ErrorText="请输入栏目图片宽度"
+                        ErrorMessage="请输入栏目图片宽度" runat="server">
+                    </sw:Validator>
+                    <sw:Validator ID="Validator2" ControlID="txtColumnHeight" ValidateType="Required" ErrorText="请输入栏目图片高度"
+                        ErrorMessage="请输入栏目图片高度" runat="server">
+                    </sw:Validator>
+                </div>
             </div>
             <div class="fi">
                 <label>
                     幻灯图片：</label>
                 <div class="cont">
                     宽<asp:TextBox ID="txtFlashWidth" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素,高<asp:TextBox
-                        ID="txtFlashHeight" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素</div>
+                        ID="txtFlashHeight" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素
+                    <sw:Validator ID="Validator3" ControlID="txtFlashWidth" ValidateType="Required" ErrorText="请输入幻灯图片宽度"
+                        ErrorMessage="请输入幻灯图片宽度" runat="server">
+                    </sw:Validator>
+                    <sw:Validator ID="Validator4" ControlID="txtFlashHeight" ValidateType="Required" ErrorText="请输入幻灯图片高度"
+                        ErrorMessage="请输入幻灯图片高度" runat="server">
+                    </sw:Validator>
+                </div>
             </div>
             <div class="fi even">
                 <label>

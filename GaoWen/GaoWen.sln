@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW_DB", "AW_DB\AW_DB.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW_UC", "AW_UC\AW_UC.csproj", "{839A8212-0454-4FEA-8A48-F9764588D85D}"
 EndProject
+Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "GaoWen_deploy", "..\publish\GaoWen_deploy\GaoWen_deploy.wdproj", "{6D35B24D-22B0-45D8-848B-A0CAD6608C24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{839A8212-0454-4FEA-8A48-F9764588D85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{839A8212-0454-4FEA-8A48-F9764588D85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{839A8212-0454-4FEA-8A48-F9764588D85D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D35B24D-22B0-45D8-848B-A0CAD6608C24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D35B24D-22B0-45D8-848B-A0CAD6608C24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D35B24D-22B0-45D8-848B-A0CAD6608C24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D35B24D-22B0-45D8-848B-A0CAD6608C24}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

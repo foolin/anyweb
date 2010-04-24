@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections;
-using System.Configuration;
-using System.Data;
+using System.Collections.Generic;
 using System.Web;
-using System.Web.Security;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using Studio.Web;
 using AnyWeb.AW_DL;
+using Studio.Web;
 
-public partial class Admin_ArticleAdd : PageAdmin
+public partial class Admin_RelationAdd : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {
-        base.OnPreRender(e);
         int i = 0;
         foreach (AW_Column_bean bean1 in (new AW_Column_dao()).funcGetColumns())
         {
@@ -32,15 +26,6 @@ public partial class Admin_ArticleAdd : PageAdmin
 
         ListItem li = drpColumn.Items.FindByValue(QS("cid"));
         if (li != null) li.Selected = true;
-
-        if (!this.IsPostBack && Request.UrlReferrer != null)
-        {
-            ViewState["REFURL"] = Request.UrlReferrer.PathAndQuery;
-        }
-        else
-        {
-            ViewState["REFURL"] = "ArticleList.aspx";
-        }
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
@@ -48,8 +33,8 @@ public partial class Admin_ArticleAdd : PageAdmin
         if (String.IsNullOrEmpty(txtTitle.Text))
             WebAgent.AlertAndBack("标题不能为空");
 
-        if (String.IsNullOrEmpty(txtContent.Text))
-            WebAgent.AlertAndBack("内容不能为空");
+        if (String.IsNullOrEmpty(txtLink.Text))
+            WebAgent.AlertAndBack("链接地址不能为空");
 
         if (string.IsNullOrEmpty(txtSort.Text))
             WebAgent.AlertAndBack("排序不能为空");
@@ -57,29 +42,36 @@ public partial class Admin_ArticleAdd : PageAdmin
         if (!WebAgent.IsInt32(txtSort.Text.Trim()))
             WebAgent.AlertAndBack("排序格式不正确");
         string childColumn = Request.Form["drpChild"] + "";
-        using (AW_Article_dao dao = new AW_Article_dao())
+        using (AW_Relation_dao dao = new AW_Relation_dao())
         {
 
-            AW_Article_bean bean = new AW_Article_bean();
-            bean.fdArtiID = dao.funcNewID();
+            AW_Relation_bean bean = new AW_Relation_bean();
+            bean.fdRelaID = dao.funcNewID();
             if (!string.IsNullOrEmpty(childColumn))
             {
-                bean.fdArtiColumnID = int.Parse(childColumn);
+                bean.fdRelaColuID = int.Parse(childColumn);
             }
             else
             {
-                bean.fdArtiColumnID = int.Parse(drpColumn.SelectedValue);
+                bean.fdRelaColuID = int.Parse(drpColumn.SelectedValue);
             }
-            bean.fdArtiTitle = txtTitle.Text.Trim();
-            bean.fdArtiContent = txtContent.Text;
-            bean.fdArtiSort = int.Parse(txtSort.Text.Trim());
-            if (bean.fdArtiSort == 0)
-                bean.fdArtiSort = bean.fdArtiID * 100;
-            
+            bean.fdRelaTitle = txtTitle.Text.Trim();
+            if (txtLink.Text.Trim().ToLower().StartsWith("http://"))
+            {
+                bean.fdRelaLink = txtLink.Text.Trim().ToLower();
+            }
+            else
+            {
+                bean.fdRelaLink = "http://" + txtLink.Text.Trim().ToLower();
+            }
+            bean.fdRelaSort = int.Parse(txtSort.Text.Trim());
+            if (bean.fdRelaSort == 0)
+                bean.fdRelaSort = bean.fdRelaID * 100;
+
             int record = dao.funcInsert(bean);
             if (record > 0)
             {
-                Studio.Web.WebAgent.SuccAndGo("添加成功", ViewState["REFURL"].ToString());
+                Studio.Web.WebAgent.SuccAndGo("添加成功", string.Format("RelationList.aspx?id={0}&cid={1}", drpColumn.SelectedValue, childColumn));
             }
         }
     }

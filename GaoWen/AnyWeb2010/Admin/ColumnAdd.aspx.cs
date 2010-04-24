@@ -28,7 +28,7 @@ public partial class Admin_ColumnAdd : PageAdmin
     {
         if (String.IsNullOrEmpty(txtName.Text))
             WebAgent.AlertAndBack("栏目名称不能为空");
-
+        string pics = Request.Form["pics"] + "";
         using (AW_Column_dao dao = new AW_Column_dao())
         {
             AW_Column_bean bean = new AW_Column_bean();
@@ -37,8 +37,11 @@ public partial class Admin_ColumnAdd : PageAdmin
             bean.fdColuSort = bean.fdColuID;
             bean.fdColuDescription = txtDesc.Text;
             bean.fdColuParentID = int.Parse(drpParent.SelectedValue);
-
             bean.fdColuShowIndex = chkShowIndex.Checked ? 1 : 0;
+            if (pics.Length > 0)
+            {
+                bean.fdColuPicture = pics;
+            }
             int record = dao.funcInsert(bean);
             if (record > 0)
             {

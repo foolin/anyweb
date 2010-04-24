@@ -8,7 +8,13 @@
         <xMenuItem url ="/Admin/ArticleDel.aspx" name ="删除文章" type="3" ></xMenuItem>
       </xMenuItem>
       <xMenuItem id="402" url ="/Admin/ArticleAdd.aspx" name ="添加文章"></xMenuItem>
-      <xMenuItem id="403" url ="/Admin/ColumnList.aspx" name ="文章栏目" >
+      <xMenuItem id="403" url ="/Admin/RelationList.aspx" name ="信息关联" >
+        <xMenuItem url ="/Admin/RelationAdd.aspx" name ="添加信息关联" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/RelationEdit.aspx" name ="修改信息关联" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/RelationDel.aspx" name ="删除信息关联" type="3" ></xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="404" url ="/Admin/RelationAdd.aspx" name ="添加信息关联"></xMenuItem>
+      <xMenuItem id="405" url ="/Admin/ColumnList.aspx" name ="文章栏目" >
         <xMenuItem url ="/Admin/ColumnAdd.aspx" name ="添加栏目" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/ColumnEdit.aspx" name ="修改栏目" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/ColumnDel.aspx" name ="删除栏目" type="3" ></xMenuItem>

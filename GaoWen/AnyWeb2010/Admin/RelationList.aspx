@@ -1,12 +1,11 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
-    CodeFile="ArticleList.aspx.cs" Inherits="Admin_ArticleList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true" CodeFile="RelationList.aspx.cs" Inherits="Admin_RelationList" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
     <ul class="Opr">
-        <li><a href="ArticleAdd.aspx">添加文章</a></li>
+        <li><a href="RelationAdd.aspx">添加信息关联</a></li>
     </ul>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="cph1" Runat="Server">
     <script type="text/javascript" src="/public/js/jquery.tablednd.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -31,7 +30,7 @@
                         }
                     }
 
-                    var url = "ArticleSort.aspx?id=" + articleId + "&previewid=" + previewId + "&nextid=" + nextId;
+                    var url = "RelationSort.aspx?id=" + articleId + "&previewid=" + previewId + "&nextid=" + nextId;
                     $.get(url, "", function(htm) { });
                 }
             });
@@ -45,15 +44,15 @@
             }
         }
         function columnchange() {
-            window.location = "ArticleList.aspx?id=" + $("#<%=drpColumn.ClientID %>").val() + "&cid=" + $("#<%=drpChildColumn.ClientID %>").val();
+            window.location = "RelationList.aspx?id=" + $("#<%=drpColumn.ClientID %>").val() + "&cid=" + $("#<%=drpChildColumn.ClientID %>").val();
         }
-        function delArticles() {
+        function delRelations() {
             var list = document.getElementsByTagName("input");
             var selected = false;
             var form0;
             form0 = document.createElement("form");
             form0.method = "POST";
-            form0.action = "ArticlesDel.aspx";
+            form0.action = "RelationsDel.aspx";
             for (var i = 0; i < list.length; i++) {
                 if (list[i].name == "ids" && list[i].type == "checkbox" && list[i].checked) {
                     input1 = document.createElement("input");
@@ -78,7 +77,7 @@
     <div class="Mod DataList">
         <div class="mhd">
             <h3>
-                文章管理</h3>
+                信息关联管理</h3>
         </div>
         <div class="fi filter">
             栏目：<asp:DropDownList ID="drpColumn" onchange="columnchange()" runat="server">
@@ -109,18 +108,18 @@
                 </thead>
                 <asp:Repeater ID="compRep" runat="server" EnableViewState="False">
                     <ItemTemplate>
-                        <tr align="center" class="editalt" id="row_<%# Eval("fdArtiID")%>">
+                        <tr align="center" class="editalt" id="row_<%# Eval("fdRelaID")%>">
                             <td style="width: 30px;">
-                                <input type="checkbox" name="ids" value="<%# Eval("fdArtiID")%>" /><%# Eval("fdArtiID")%>
+                                <input type="checkbox" name="ids" value="<%# Eval("fdRelaID")%>" /><%# Eval("fdRelaID")%>
                             </td>
                             <td style="text-align: left;" class="dragTd" title="拖动排序">
-                                <a href="<%#Eval("PathStr") %>" target="_blank"><%#Eval("fdArtiTitle")%></a>
+                                <a href="<%#Eval("fdRelaLink") %>" target="_blank"><%#Eval("fdRelaTitle")%></a>
                             </td>
                             <td>
-                                <%#Eval("Column.fdColuName")%><%#(int)Eval("Column.fdColuShowIndex") == 0 ? "<span style='color:red'>(不在首页显示)</span>" : ""%>
+                                <%#Eval("Column.fdColuName")%>
                             </td>
                             <td>
-                                <a href="ArticleEdit.aspx?id=<%# Eval("fdArtiID")%>">修改</a> <a href="ArticleDel.aspx?id=<%# Eval("fdArtiID")%>"
+                                <a href="RelationEdit.aspx?id=<%# Eval("fdRelaID")%>">修改</a> <a href="RelationDel.aspx?id=<%# Eval("fdRelaID")%>"
                                     onclick="return confirm('您确定要删除吗?')">删除</a>
                             </td>
                         </tr>
@@ -134,7 +133,7 @@
         </div>
         <div class="mft">            
         </div>    
-        <button onclick="delArticles()" style="height: 28px;" type="button">
+        <button onclick="delRelations()" style="height: 28px;" type="button">
             批量删除</button>
     </div>
     <div>
@@ -143,3 +142,4 @@
         </ul>
     </div>
 </asp:Content>
+

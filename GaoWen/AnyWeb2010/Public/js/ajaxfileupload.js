@@ -120,7 +120,6 @@ jQuery.extend({
                     try {
                         jQuery(io).remove();
                         jQuery(form).remove();
-                        jQuery('#' + s.fileElementId).val('');
 
                     } catch (e) {
                         jQuery.handleError(s, xml, null, e);

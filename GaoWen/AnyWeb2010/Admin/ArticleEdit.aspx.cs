@@ -23,38 +23,68 @@ public partial class Admin_ArticleEdit : PageAdmin
         if (!WebAgent.IsInt32(id)) WebAgent.AlertAndBack("编号不正确!");
 
         article = AW_Article_bean.funcGetByID(QS("id"));
-
+        article.Column = AW_Column_bean.funcGetByID(article.fdArtiColumnID);
         if (article == null) WebAgent.AlertAndBack("文章不存在!");
+
+        if (!this.IsPostBack && Request.UrlReferrer != null)
+        {
+            ViewState["REFURL"] = Request.UrlReferrer.PathAndQuery;
+        }
+        else
+        {
+            ViewState["REFURL"] = "ArticleList.aspx";
+        }
 
         txtTitle.Text = article.fdArtiTitle;
         txtContent.Text = article.fdArtiContent;
         txtSort.Text = article.fdArtiSort.ToString();
-
+        int i = 0;
         foreach (AW_Column_bean bean1 in (new AW_Column_dao()).funcGetColumns())
         {
             drpColumn.Items.Add(new ListItem(bean1.fdColuName, bean1.fdColuID.ToString()));
+            litJs.Text += string.Format("child[{0}] = new Array;", i);
+            int j = 0;
             foreach (AW_Column_bean bean2 in bean1.Children)
             {
-                drpColumn.Items.Add(new ListItem(bean1.fdColuName + "-" + bean2.fdColuName, bean2.fdColuID.ToString()));
+                drpChild.Items.Add(new ListItem(bean2.fdColuName, bean2.fdColuID.ToString()));
+                litJs.Text += string.Format("child[{0}][{1}] = \"{2}:{3}\";", i, j, bean2.fdColuID, bean2.fdColuName);
+                j++;
             }
+            i++;
         }
-        drpColumn.SelectedValue = article.fdArtiColumnID.ToString();
+        if (article.Column.fdColuParentID == 0)
+        {
+            drpColumn.SelectedValue = article.Column.fdColuID.ToString();
+            drpChild.Attributes.Add("style", "display:none");
+        }
+        else
+        {
+            drpColumn.SelectedValue = article.Column.fdColuParentID.ToString();
+            drpChild.SelectedValue = article.Column.fdColuID.ToString();
+        }
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
         article = AW_Article_bean.funcGetByID(QS("id"));
+        string childColumn = Request.Form[drpChild.UniqueID] + "";
         using (AW_Article_dao dao = new AW_Article_dao())
         {
             article.fdArtiTitle = txtTitle.Text.Trim();
-            article.fdArtiColumnID = int.Parse(drpColumn.SelectedValue);
             article.fdArtiContent = txtContent.Text;
             article.fdArtiSort = int.Parse(txtSort.Text.Trim());
             if (article.fdArtiSort == 0)
                 article.fdArtiSort = article.fdArtiID * 100;
-
+            if (!string.IsNullOrEmpty(childColumn))
+            {
+                article.fdArtiColumnID = int.Parse(childColumn);
+            }
+            else
+            {
+                article.fdArtiColumnID = int.Parse(drpColumn.SelectedValue);
+            }
             dao.funcUpdate(article);
-            WebAgent.SuccAndGo("修改文章成功", "ArticleList.aspx?cid=" + article.fdArtiColumnID.ToString());
+            WebAgent.SuccAndGo("修改文章成功", ViewState["REFURL"].ToString());
         }
     }
 

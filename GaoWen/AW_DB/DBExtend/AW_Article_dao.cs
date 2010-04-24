@@ -124,7 +124,7 @@ namespace AnyWeb.AW_DL
         }
 
         /// <summary>
-        /// 调整商品排序
+        /// 调整文章排序
         /// </summary>
         /// <param name="column"></param>
         /// <param name="goodsId"></param>

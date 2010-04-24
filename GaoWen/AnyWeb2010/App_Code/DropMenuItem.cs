@@ -129,7 +129,7 @@ namespace AnyWeb.AW
 
         private int _type;
         /// <summary>
-        /// 项目类别，通常1表示普通，2表示分隔符，3表示内部操作，菜单不显示
+        /// 项目类别，通常1表示普通，2表示分隔符，3表示内部操作，菜单不显示，4表示快捷操作
         /// </summary>
         public int Type
         {

@@ -35,7 +35,7 @@ public partial class Admin_AdminEdit : PageAdmin
             radio1.Checked = true;
             radio2.Checked = false;
         }
-        if (bean.fdAdmiAccount == "admin")
+        if (bean.fdAdmiAccount == "superadmin")
             radio2.Enabled = false;
 
 
@@ -47,8 +47,15 @@ public partial class Admin_AdminEdit : PageAdmin
 
         DropMenu menu = DropMenu.GetMenuData(menuFile);
         DropMenuItem root = menu.RootItem;
-
-        repPurviews.DataSource = root.Children;
+        ArrayList menuList = new ArrayList();
+        foreach (DropMenuItem child in root.Children)
+        {
+            if (child.Type == 1)
+            {
+                menuList.Add(child);
+            }
+        }
+        repPurviews.DataSource = menuList;
         repPurviews.DataBind();
     }
 
@@ -77,6 +84,10 @@ public partial class Admin_AdminEdit : PageAdmin
         using (AW_Admin_dao dao = new AW_Admin_dao())
         {
             bean = dao.funcGetAdminInfo(int.Parse(QS("id")));
+            if (bean.fdAdmiAccount == "superadmin" && txtName.Text.Trim().ToLower() != "superadmin")
+            {
+                WebAgent.AlertAndBack("超管[superadmin]登陆帐号不允许更改！");
+            }
             bean.fdAdmiLevel = radio1.Checked ? 1 : 2;
             bean.fdAdmiCreateAt = DateTime.Now;
             bean.fdAdmiAccount = txtAcc.Text;

@@ -31,7 +31,7 @@
             <div class="fi">
                 <label>
                     登录密码：</label>
-                <asp:TextBox ID="txtPwd" MaxLength="50" runat="server" CssClass="text"></asp:TextBox>
+                <asp:TextBox ID="txtPwd" MaxLength="50" runat="server" CssClass="text" TextMode="Password"></asp:TextBox>
                 <span class="required">*</span>
                 <sw:Validator ID="Validator1" ControlID="txtPwd" ValidateType="Required" ErrorText="请输入登录密码"
                     ErrorMessage="请输入登录密码" runat="server">

@@ -185,7 +185,19 @@ public partial class GoodsEdit :AdminBase
         {
 
             this.AddLog( EventID.Insert , "修改商品信息" , "修改商品信息,商品编号：" + QS( "gid" ) );
-
+            int goodsID = int.Parse(QS("gid"));
+            if (Cache["HotSellRankListShow"] != null)
+            {
+                ArrayList listShow = (ArrayList)Cache["HotSellRankListShow"];
+                for (int i = 0; i < listShow.Count; i++)
+                {
+                    Goods good = (Goods)listShow[i];
+                    if (good.ID == goodsID)
+                    {
+                        listShow[i] = new GoodsAgent().GetGoodsByID(goodsID);
+                    }
+                }
+            }
             WebAgent.SuccAndGo("修改成功。", ViewState["BACK"].ToString());
         }
         else

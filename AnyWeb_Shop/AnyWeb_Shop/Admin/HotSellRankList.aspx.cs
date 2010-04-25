@@ -65,10 +65,9 @@ public partial class Admin_HotSellRankList : AdminBase
     }
     protected void btnClearCache_Click(object sender, EventArgs e)
     {
-        if (Cache["HotSellRankListShow"] != null && Cache["HotSellRankListTime"] != null)
+        if (Cache["HotSellRankListShow"] != null)
         {
             HttpRuntime.Cache.Remove("HotSellRankListShow");
-            HttpRuntime.Cache.Remove("HotSellRankListTime");
         }
         WebAgent.AlertAndBack("更新缓存成功！");
     }

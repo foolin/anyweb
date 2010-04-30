@@ -9,7 +9,7 @@ if (url = tinyMCEPopup.getParam("media_external_list_url"))
 
 function init() {
 	var pl = "", f, val;
-	var type = "flash", fe, i;
+	var type = "flaAW", fe, i;
 
 	ed = tinyMCEPopup.editor;
 

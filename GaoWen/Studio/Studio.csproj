@@ -181,6 +181,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Web\ImageCover.cs" />
+    <Compile Include="Web\ImageWaterMark.cs" />
     <Compile Include="Web\PageNaver.cs">
       <SubType>Code</SubType>
     </Compile>

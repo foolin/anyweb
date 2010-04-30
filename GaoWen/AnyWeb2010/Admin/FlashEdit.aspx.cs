@@ -12,7 +12,7 @@ using System.Web.UI.WebControls.WebParts;
 using AnyWeb.AW_DL;
 using Studio.Web;
 using System.IO;
-using AnyWeb.AW_DL;
+using AnyWeb.AW.Configs;
 
 public partial class Admin_FlashEdit : PageAdmin
 {
@@ -39,11 +39,66 @@ public partial class Admin_FlashEdit : PageAdmin
             bean.fdFlasUrl = txtUrl.Text;
             if (fileUpload.PostedFile.ContentLength > 0)
             {
-                bean.fdFlasPicture = "/Files/Flash/" + DL_helper.funcGetTicks().ToString() + Path.GetExtension(fileUpload.PostedFile.FileName);
-                fileUpload.PostedFile.SaveAs(Server.MapPath(bean.fdFlasPicture));
+                string fileName = DL_helper.funcGetTicks().ToString();
+                string savePath = "/Files/Flash/";
+                string path = savePath + fileName + Path.GetExtension(fileUpload.PostedFile.FileName);
+                uploadPic(fileName, savePath, path);
+                bean.fdFlasPicture = path;
             }
             dao.funcUpdate(bean);
             WebAgent.SuccAndGo("修改成功", "FlashList.aspx");
+        }
+    }
+
+    protected void uploadPic(string fileName,string savePath,string path)
+    {
+        ImageWaterMark wm = new ImageWaterMark();
+        switch (GeneralConfigs.GetConfig().ImageWatermarkType)
+        {
+            case 0:
+                WebAgent.SaveFile(fileUpload.PostedFile, Server.MapPath(path), GeneralConfigs.GetConfig().FlashWidth, GeneralConfigs.GetConfig().FlashHeight);
+                break;
+            case 1:
+                wm.SaveWaterMarkImageByText(
+                    fileUpload.PostedFile,
+                    fileName,
+                    Server.MapPath(savePath),
+                    GeneralConfigs.GetConfig().ImageWatermarkText,
+                    GeneralConfigs.GetConfig().ImageWatermarkFontFamily,
+                    GeneralConfigs.GetConfig().ImageWatermarkFontsize,
+                    GeneralConfigs.GetConfig().ImageWatermarkFontColor,
+                    GeneralConfigs.GetConfig().ImageWatermarkShadowColor,
+                    wm.GetTextCSS(GeneralConfigs.GetConfig().ImageWatermarkFontCss),
+                    GeneralConfigs.GetConfig().ImageWatermarkTransparency,
+                    3,
+                    -3,
+                    GeneralConfigs.GetConfig().ImageWatermarkAngle,
+                    wm.GetImageAlign(GeneralConfigs.GetConfig().ImageWatermarkPosition),
+                    GeneralConfigs.GetConfig().FlashWidth,
+                    GeneralConfigs.GetConfig().FlashHeight,
+                    0,
+                    0,
+                    false
+                    );
+                break;
+            case 2:
+                wm.SaveWaterMarkImageByPic(
+                    fileUpload.PostedFile,
+                    fileName,
+                    Server.MapPath(savePath),
+                    Server.MapPath(GeneralConfigs.GetConfig().ImageWatermarkUrl),
+                    GeneralConfigs.GetConfig().ImageWatermarkAngle,
+                    wm.GetImageAlign(GeneralConfigs.GetConfig().ImageWatermarkPosition),
+                    GeneralConfigs.GetConfig().FlashWidth,
+                    GeneralConfigs.GetConfig().FlashHeight,
+                    0,
+                    0,
+                    false
+                    );
+                break;
+            default:
+                WebAgent.SaveFile(fileUpload.PostedFile, Server.MapPath(path), GeneralConfigs.GetConfig().FlashWidth, GeneralConfigs.GetConfig().FlashHeight);
+                break;
         }
     }
 

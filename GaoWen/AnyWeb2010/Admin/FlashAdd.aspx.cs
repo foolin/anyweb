@@ -13,6 +13,7 @@ using AnyWeb.AW_DL;
 using AnyWeb.AW_DL;
 using System.IO;
 using Studio.Web;
+using AnyWeb.AW.Configs;
 
 public partial class Admin_FlashAdd : PageAdmin
 {
@@ -24,13 +25,65 @@ public partial class Admin_FlashAdd : PageAdmin
         if (!fileUpload.PostedFile.ContentType.ToLower().Contains("image"))
             WebAgent.AlertAndBack("您上次的文件不是图片格式");
 
+        string fileName = DL_helper.funcGetTicks().ToString();
+        string savePath = "/Files/Flash/";
+        string path = savePath + fileName + Path.GetExtension(fileUpload.PostedFile.FileName);
+
+        ImageWaterMark wm = new ImageWaterMark();
+        switch (GeneralConfigs.GetConfig().ImageWatermarkType)
+        {
+            case 0:
+                WebAgent.SaveFile(fileUpload.PostedFile, Server.MapPath(path), GeneralConfigs.GetConfig().FlashWidth, GeneralConfigs.GetConfig().FlashHeight);
+                break;
+            case 1:
+                wm.SaveWaterMarkImageByText(
+                    fileUpload.PostedFile,
+                    fileName,
+                    Server.MapPath(savePath),
+                    GeneralConfigs.GetConfig().ImageWatermarkText,
+                    GeneralConfigs.GetConfig().ImageWatermarkFontFamily,
+                    GeneralConfigs.GetConfig().ImageWatermarkFontsize,
+                    GeneralConfigs.GetConfig().ImageWatermarkFontColor,
+                    GeneralConfigs.GetConfig().ImageWatermarkShadowColor,
+                    wm.GetTextCSS(GeneralConfigs.GetConfig().ImageWatermarkFontCss),
+                    GeneralConfigs.GetConfig().ImageWatermarkTransparency,
+                    3,
+                    -3,
+                    GeneralConfigs.GetConfig().ImageWatermarkAngle,
+                    wm.GetImageAlign(GeneralConfigs.GetConfig().ImageWatermarkPosition),
+                    GeneralConfigs.GetConfig().FlashWidth,
+                    GeneralConfigs.GetConfig().FlashHeight,
+                    0,
+                    0,
+                    false
+                    );
+                break;
+            case 2:
+                wm.SaveWaterMarkImageByPic(
+                    fileUpload.PostedFile,
+                    fileName,
+                    Server.MapPath(savePath),
+                    Server.MapPath(GeneralConfigs.GetConfig().ImageWatermarkUrl),
+                    GeneralConfigs.GetConfig().ImageWatermarkAngle,
+                    wm.GetImageAlign(GeneralConfigs.GetConfig().ImageWatermarkPosition),
+                    GeneralConfigs.GetConfig().FlashWidth,
+                    GeneralConfigs.GetConfig().FlashHeight,
+                    0,
+                    0,
+                    false
+                    );
+                break;
+            default:
+                WebAgent.SaveFile(fileUpload.PostedFile, Server.MapPath(path), GeneralConfigs.GetConfig().FlashWidth, GeneralConfigs.GetConfig().FlashHeight);
+                break;
+        }
+
         using (AW_FlaAW_dao dao = new AW_FlaAW_dao())
         {
             AW_FlaAW_bean bean = new AW_FlaAW_bean();
             bean.fdFlasName = txtName.Text;
             bean.fdFlasUrl = txtUrl.Text;
-            bean.fdFlasPicture = "/Files/Flash/" + DL_helper.funcGetTicks().ToString() + Path.GetExtension(fileUpload.PostedFile.FileName);
-            fileUpload.PostedFile.SaveAs(Server.MapPath(bean.fdFlasPicture));
+            bean.fdFlasPicture = path;
             bean.fdFlasID = dao.funcNewID();
             bean.fdFlasSort = bean.fdFlasID;
             int record = dao.funcInsert(bean);

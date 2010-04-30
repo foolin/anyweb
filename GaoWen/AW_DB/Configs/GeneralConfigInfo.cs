@@ -283,75 +283,115 @@ namespace AnyWeb.AW.Configs
             set { _goodsImageHeight = value; }
         }
 
-        private int _goodsImageWaterType;
+        private int _imageWaterType;
         /// <summary>
         /// 水印类型 0未启用 1文字 2图片
         /// </summary>
-        public int GoodsImageWatermarkType
+        public int ImageWatermarkType
         {
-            get { return _goodsImageWaterType; }
-            set { _goodsImageWaterType = value; }
+            get { return _imageWaterType; }
+            set { _imageWaterType = value; }
         }
 	
 
-        private string _goodsImageWatermarkUrl = "";
+        private string _imageWatermarkUrl = "";
         /// <summary>
-        /// 商品图片水印图片路径
+        /// 水印图片路径
         /// </summary>
-        public string GoodsImageWatermarkUrl
+        public string ImageWatermarkUrl
         {
-            get { return _goodsImageWatermarkUrl; }
-            set { _goodsImageWatermarkUrl = value; }
+            get { return _imageWatermarkUrl; }
+            set { _imageWatermarkUrl = value; }
         }
 
-        private string _goodsImageWatermarkText = "";
+        private string _imageWatermarkText = "";
         /// <summary>
-        /// 商品图片水印文字
+        /// 水印文字
         /// </summary>
-        public string GoodsImageWatermarkText
+        public string ImageWatermarkText
         {
-            get { return _goodsImageWatermarkText; }
-            set { _goodsImageWatermarkText = value; }
+            get { return _imageWatermarkText; }
+            set { _imageWatermarkText = value; }
         }
 
-        private int _goodsImageWatermarkFontsize = 12;
+        private int _imageWatermarkFontsize = 3;
         /// <summary>
-        /// 商品图片水印文字大小
+        /// 图片水印文字大小
         /// </summary>
-        public int GoodsImageWatermarkFontsize
+        public int ImageWatermarkFontsize
         {
-            get { return _goodsImageWatermarkFontsize; }
-            set { _goodsImageWatermarkFontsize = value; }
+            get { return _imageWatermarkFontsize; }
+            set { _imageWatermarkFontsize = value; }
         }
 
-        private string _goodsImageWatermarkFontFamily = "宋体";
+        private string _imageWatermarkFontFamily = "宋体";
         /// <summary>
-        /// 商品图片水印文字字体
+        /// 图片水印文字字体
         /// </summary>
-        public string GoodsImageWatermarkFontFamily
+        public string ImageWatermarkFontFamily
         {
-            get { return _goodsImageWatermarkFontFamily; }
-            set { _goodsImageWatermarkFontFamily = value; }
+            get { return _imageWatermarkFontFamily; }
+            set { _imageWatermarkFontFamily = value; }
         }
 
-        private int _goodsImageWatermarkTransparency = 6;
+        private int _imageWatermarkTransparency = 80;
         /// <summary>
-        /// 商品图片水印透明度
+        /// 图片水印透明度
         /// </summary>
-        public int GoodsImageWatermarkTransparency
+        public int ImageWatermarkTransparency
         {
-            get { return _goodsImageWatermarkTransparency; }
-            set { _goodsImageWatermarkTransparency = value; }
+            get { return _imageWatermarkTransparency; }
+            set { _imageWatermarkTransparency = value; }
         }
 
-        private int _goodsImageWatermarkPosition = 9;
+        private int _imageWatermarkPosition = 9;
         /// <summary>
         /// 商品图片水印图位置  1左上 2上 3右上 4左 5中 6右 7左下 8下 9右下
         /// </summary>
-        public int GoodsImageWatermarkPosition
+        public int ImageWatermarkPosition
         {
-            get { return _goodsImageWatermarkPosition; }
-            set { _goodsImageWatermarkPosition = value; }
+            get { return _imageWatermarkPosition; }
+            set { _imageWatermarkPosition = value; }
+        }
+
+        private string _imageWatermarkFontColor = "#000000";
+        /// <summary>
+        /// 文字颜色
+        /// </summary>
+        public string ImageWatermarkFontColor
+        {
+            get { return _imageWatermarkFontColor; }
+            set { _imageWatermarkFontColor = value; }
+        }
+
+        private string _imageWatermarkShadowColor = "#000000";
+        /// <summary>
+        /// 阴影颜色
+        /// </summary>
+        public string ImageWatermarkShadowColor
+        {
+            get { return _imageWatermarkShadowColor; }
+            set { _imageWatermarkShadowColor = value; }
+        }
+
+        private int _imageWatermarkAngle;
+        /// <summary>
+        /// 旋转角度
+        /// </summary>
+        public int ImageWatermarkAngle
+        {
+            get { return _imageWatermarkAngle; }
+            set { _imageWatermarkAngle = value; }
+        }
+
+        private string _imageWatermarkFontCss;
+        /// <summary>
+        /// 文字形状
+        /// </summary>
+        public string ImageWatermarkFontCss
+        {
+            get { return _imageWatermarkFontCss; }
+            set { _imageWatermarkFontCss = value; }
         }
 
         #endregion

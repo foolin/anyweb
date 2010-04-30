@@ -10,6 +10,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.IO;
 using AnyWeb.AW_DL;
+using Studio.Web;
+using AnyWeb.AW.Configs;
 
 namespace BLOG.tiny_mce
 {
@@ -34,14 +36,60 @@ namespace BLOG.tiny_mce
             }
         }
 
-
         private void UploadFile()
         {
             string url = "";
-            HttpPostedFile file1 = Request.Files[0];
-            path = Request.ApplicationPath + "/Files/Others/" + DL_helper.funcGetTicks().ToString() + Path.GetExtension(file1.FileName);
-            
-            file1.SaveAs(Server.MapPath(path));
+            string fileName = DL_helper.funcGetTicks().ToString();
+            string savePath = Request.ApplicationPath + "/Files/Others/";
+            string path = savePath + fileName + Path.GetExtension(Request.Files[0].FileName);
+            ImageWaterMark wm = new ImageWaterMark();
+            switch (GeneralConfigs.GetConfig().ImageWatermarkType)
+            {
+                case 0:
+                    Request.Files[0].SaveAs(Server.MapPath(path));
+                    break;
+                case 1:
+                    wm.SaveWaterMarkImageByText(
+                        Request.Files[0],
+                        fileName,
+                        Server.MapPath(savePath),
+                        GeneralConfigs.GetConfig().ImageWatermarkText,
+                        GeneralConfigs.GetConfig().ImageWatermarkFontFamily,
+                        GeneralConfigs.GetConfig().ImageWatermarkFontsize,
+                        GeneralConfigs.GetConfig().ImageWatermarkFontColor,
+                        GeneralConfigs.GetConfig().ImageWatermarkShadowColor,
+                        wm.GetTextCSS(GeneralConfigs.GetConfig().ImageWatermarkFontCss),
+                        GeneralConfigs.GetConfig().ImageWatermarkTransparency,
+                        3,
+                        -3,
+                        GeneralConfigs.GetConfig().ImageWatermarkAngle,
+                        wm.GetImageAlign(GeneralConfigs.GetConfig().ImageWatermarkPosition),
+                        0,
+                        0,
+                        0,
+                        0,
+                        false
+                        );
+                    break;
+                case 2:
+                    wm.SaveWaterMarkImageByPic(
+                        Request.Files[0],
+                        fileName,
+                        Server.MapPath(savePath),
+                        Server.MapPath(GeneralConfigs.GetConfig().ImageWatermarkUrl),
+                        GeneralConfigs.GetConfig().ImageWatermarkAngle,
+                        wm.GetImageAlign(GeneralConfigs.GetConfig().ImageWatermarkPosition),
+                        0,
+                        0,
+                        0,
+                        0,
+                        false
+                        );
+                    break;
+                default:
+                    Request.Files[0].SaveAs(Server.MapPath(path));
+                    break;
+            }
             url = String.Format("http://{0}{1}{2}",
                 Request.Url.Host,
                 Request.Url.Port == 80 ? "" : (":" + Request.Url.Port.ToString()),

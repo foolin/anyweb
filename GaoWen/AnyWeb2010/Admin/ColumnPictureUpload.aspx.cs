@@ -10,6 +10,7 @@ using Studio.Web;
 
 public partial class Admin_ColumnPictureUpload : PageAdmin
 {
+    ImageWaterMark wm = new ImageWaterMark();
     protected override void OnPreRender(EventArgs e)
     {
         if (Request.Files.Count == 0)
@@ -26,8 +27,58 @@ public partial class Admin_ColumnPictureUpload : PageAdmin
         }
         else
         {
-            string path = "/Files/Articles/S_" + DL_helper.funcGetTicks().ToString() + Path.GetExtension(Request.Files[0].FileName);
-            WebAgent.SaveFile(Request.Files[0], Server.MapPath(path), GeneralConfigs.GetConfig().ColumnImageWidth, GeneralConfigs.GetConfig().ColumnImageHeight);
+            string fileName = DL_helper.funcGetTicks().ToString();
+            string savePath = "/Files/Articles/";
+            string path = savePath + fileName + Path.GetExtension(Request.Files[0].FileName);
+            ImageWaterMark wm = new ImageWaterMark();
+            switch (GeneralConfigs.GetConfig().ImageWatermarkType)
+            {
+                case 0:
+                    WebAgent.SaveFile(Request.Files[0], Server.MapPath(path), GeneralConfigs.GetConfig().ColumnImageWidth, GeneralConfigs.GetConfig().ColumnImageHeight);
+                    break;
+                case 1:
+                    wm.SaveWaterMarkImageByText(
+                        Request.Files[0],
+                        fileName,
+                        Server.MapPath(savePath),
+                        GeneralConfigs.GetConfig().ImageWatermarkText,
+                        GeneralConfigs.GetConfig().ImageWatermarkFontFamily,
+                        GeneralConfigs.GetConfig().ImageWatermarkFontsize,
+                        GeneralConfigs.GetConfig().ImageWatermarkFontColor,
+                        GeneralConfigs.GetConfig().ImageWatermarkShadowColor,
+                        wm.GetTextCSS(GeneralConfigs.GetConfig().ImageWatermarkFontCss),
+                        GeneralConfigs.GetConfig().ImageWatermarkTransparency,
+                        3,
+                        -3,
+                        GeneralConfigs.GetConfig().ImageWatermarkAngle,
+                        wm.GetImageAlign(GeneralConfigs.GetConfig().ImageWatermarkPosition),
+                        GeneralConfigs.GetConfig().ColumnImageWidth,
+                        GeneralConfigs.GetConfig().ColumnImageHeight,
+                        0,
+                        0,
+                        false
+                        );
+                    break;
+                case 2:
+                    wm.SaveWaterMarkImageByPic(
+                        Request.Files[0],
+                        fileName,
+                        Server.MapPath(savePath),
+                        Server.MapPath(GeneralConfigs.GetConfig().ImageWatermarkUrl),
+                        GeneralConfigs.GetConfig().ImageWatermarkAngle,
+                        wm.GetImageAlign(GeneralConfigs.GetConfig().ImageWatermarkPosition),
+                        GeneralConfigs.GetConfig().ColumnImageWidth,
+                        GeneralConfigs.GetConfig().ColumnImageHeight,
+                        0,
+                        0,
+                        false
+                        );
+                    break;
+                default:
+                    WebAgent.SaveFile(Request.Files[0], Server.MapPath(path), GeneralConfigs.GetConfig().ColumnImageWidth, GeneralConfigs.GetConfig().ColumnImageHeight);
+                    break;
+            }
+            
             Response.Write("0:" + path);
         }
     }

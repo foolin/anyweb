@@ -84,7 +84,7 @@ public partial class Admin_AdminEdit : PageAdmin
         using (AW_Admin_dao dao = new AW_Admin_dao())
         {
             bean = dao.funcGetAdminInfo(int.Parse(QS("id")));
-            if (bean.fdAdmiAccount == "superadmin" && txtName.Text.Trim().ToLower() != "superadmin")
+            if (bean.fdAdmiAccount == "superadmin" && txtAcc.Text.Trim().ToLower() != "superadmin")
             {
                 WebAgent.AlertAndBack("超管[superadmin]登陆帐号不允许更改！");
             }

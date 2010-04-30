@@ -12,7 +12,7 @@
         <div class="mbd">
             <div class="fi">
                 <label>
-                    商城名称：</label>
+                    网站名称：</label>
                 <asp:TextBox ID="txtShopName" runat="server" CssClass="text" require="1" errmsg="请输入商城名称"></asp:TextBox>
             </div>
             <div class="fi even">

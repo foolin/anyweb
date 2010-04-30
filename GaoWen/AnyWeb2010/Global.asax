@@ -10,11 +10,11 @@
 
     protected void Application_BeginRequest(object sender, EventArgs e)
     {
-        string path = Request.Path.ToLower();
-        if (!path.Contains("/admin/"))
-        {
-            Context.RewritePath("~/Index.aspx", Request.PathInfo, Request.QueryString.ToString());
-        }
+        //string path = Request.Path.ToLower();
+        //if (!path.Contains("/admin/"))
+        //{
+        //    Context.RewritePath("~/Index.aspx", Request.PathInfo, Request.QueryString.ToString());
+        //}
     }
     
     void Application_End(object sender, EventArgs e) 

@@ -62,7 +62,7 @@ public partial class Admin_ArticleAdd : PageAdmin
 
             AW_Article_bean bean = new AW_Article_bean();
             bean.fdArtiID = dao.funcNewID();
-            if (!string.IsNullOrEmpty(childColumn))
+            if (childColumn != "0")
             {
                 bean.fdArtiColumnID = int.Parse(childColumn);
             }

@@ -17,8 +17,11 @@ public partial class Shop_Admin_AdminPage : System.Web.UI.MasterPage
 
         _adminInfo = (new AW_Admin_dao()).funcGetAdminFromCookie();
         if (_adminInfo == null)
-            Response.Redirect("~/Admin/Login.aspx");
-
+        {
+            Response.Write("<script language=javascript>parent.location.href='Login.aspx';</script>");
+            Response.Flush();
+            Response.End();
+        }
         if (_adminInfo.Purviews != null)
         {
             DropMenu menu = DropMenu.GetMenuData("~/App_Data/Menus.xml");
@@ -77,17 +80,17 @@ public partial class Shop_Admin_AdminPage : System.Web.UI.MasterPage
             {
                 if (dmi.Parent.Parent == null)
                 {
-                    pos = string.Format("{0}&gt; {1}", dmi.Parent.Name, dmi.Name);
+                    pos = string.Format("{0}", dmi.Name);
                 }
                 else
                 {
                     if (dmi.Parent.Parent.Parent == null)
                     {
-                        pos = string.Format("{0} &gt; {1}", dmi.Parent.Name, dmi.Name);
+                        pos = string.Format("{0}", dmi.Name);
                     }
                     else
                     {
-                        pos = string.Format("{0} &gt; {1} &gt; {2}", dmi.Parent.Parent.Name, dmi.Parent.Name, dmi.Name);
+                        pos = string.Format("<a href=\"{0}\">{1}</a> &gt; {2}", dmi.Parent.Url, dmi.Parent.Name, dmi.Name);
                     }
 
                 }

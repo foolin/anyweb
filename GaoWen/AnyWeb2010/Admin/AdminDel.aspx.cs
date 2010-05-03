@@ -26,8 +26,8 @@ public partial class Admin_AdminDel : PageAdmin
         if (admin == null)
             Response.Redirect("adminlist.aspx");
 
-        if (admin.fdAdmiAccount == "admin")
-            WebAgent.AlertAndBack("admin帐号不可删除");
+        if (admin.fdAdmiAccount == "SuperAdmin")
+            WebAgent.AlertAndBack("SuperAdmin帐号不可删除");
 
         (new AW_Admin_dao()).funcDelete(admin.fdAdmiID);
         Response.Redirect("adminlist.aspx");

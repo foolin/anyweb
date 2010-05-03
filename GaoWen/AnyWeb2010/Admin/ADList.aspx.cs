@@ -10,14 +10,16 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using AnyWeb.AW_DL;
 
-public partial class Shop_Admin_Logout : System.Web.UI.Page
+public partial class Admin_ADList : PageAdmin
 {
-    protected void Page_Load(object sender, EventArgs e)
+    protected override void OnPreRender(EventArgs e)
     {
-        using (AW_Admin_dao dao = new AW_Admin_dao())
+        base.OnPreRender(e);
+
+        using (AW_AD_dao dao = new AW_AD_dao())
         {
-            dao.funcLogout();
-            Response.Redirect("login.aspx");
+            compRep.DataSource = dao.funcGetList();
+            compRep.DataBind();
         }
     }
 }

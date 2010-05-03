@@ -100,19 +100,33 @@
             </div>
             <div class="fi">
                 <label>
-                    幻灯图片：</label>
+                    大型广告：</label>
                 <div class="cont">
-                    宽<asp:TextBox ID="txtFlashWidth" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素,高<asp:TextBox
-                        ID="txtFlashHeight" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素
-                    <sw:Validator ID="Validator3" ControlID="txtFlashWidth" ValidateType="Required" ErrorText="请输入幻灯图片宽度"
-                        ErrorMessage="请输入幻灯图片宽度" runat="server">
+                    宽<asp:TextBox ID="txtBigADWidth" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素,高<asp:TextBox
+                        ID="txtBigADHeight" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素
+                    <sw:Validator ID="Validator8" ControlID="txtBigADWidth" ValidateType="Required" ErrorText="请输入大型广告图片宽度"
+                        ErrorMessage="请输入大型广告图片宽度" runat="server">
                     </sw:Validator>
-                    <sw:Validator ID="Validator4" ControlID="txtFlashHeight" ValidateType="Required" ErrorText="请输入幻灯图片高度"
-                        ErrorMessage="请输入幻灯图片高度" runat="server">
+                    <sw:Validator ID="Validator9" ControlID="txtBigADHeight" ValidateType="Required" ErrorText="请输入大型广告图片高度"
+                        ErrorMessage="请输入大型广告图片高度" runat="server">
                     </sw:Validator>
                 </div>
             </div>
             <div class="fi even">
+                <label>
+                    中型广告：</label>
+                <div class="cont">
+                    宽<asp:TextBox ID="txtSmallAdWidth" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素,高<asp:TextBox
+                        ID="txtSmallAdHeight" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素
+                    <sw:Validator ID="Validator3" ControlID="txtSmallAdWidth" ValidateType="Required" ErrorText="请输入中型广告图片宽度"
+                        ErrorMessage="请输入中型广告图片宽度" runat="server">
+                    </sw:Validator>
+                    <sw:Validator ID="Validator4" ControlID="txtSmallAdHeight" ValidateType="Required" ErrorText="请输入中型广告图片高度"
+                        ErrorMessage="请输入中型广告图片高度" runat="server">
+                    </sw:Validator>
+                </div>
+            </div>
+            <div class="fi">
                 <label>
                     水印类型：</label>
                 <div class="cont">
@@ -124,7 +138,7 @@
                     </asp:RadioButtonList>
                 </div>
             </div>
-            <div class="fi">
+            <div class="fi even">
                 <label>
                     水印图片：</label>
                 <div class="cont">
@@ -174,14 +188,14 @@
                     </div>
                 </div>
             </div>
-            <div class="fi even">
+            <div class="fi">
                 <label>
                     水印文字：</label>
                 <div class="cont">
-                    <asp:TextBox ID="txtWaterText" runat="server" CssClass="text" MaxLength="100"></asp:TextBox>
+                    <asp:TextBox ID="txtWaterText" runat="server" CssClass="text" MaxLength="100"></asp:TextBox>                    
                 </div>
             </div>
-            <div class="fi">
+            <div class="fi even">
                 <label>
                     水印字体：</label>
                 <div class="cont">
@@ -189,9 +203,12 @@
                     </asp:DropDownList>
                     大小<asp:TextBox ID="txtWaterFontSize" runat="server" MaxLength="3" CssClass="text"
                         Width="80px"></asp:TextBox>像素
+                    <sw:Validator ID="Validator7" ControlID="txtWaterFontSize" ValidateType="Required" ErrorText="请输入水印字体大小"
+                        ErrorMessage="请输入水印字体大小" runat="server">
+                    </sw:Validator>
                 </div>
             </div>
-            <div class="fi even">
+            <div class="fi">
                 <label>
                     文字形状：</label>
                 <asp:DropDownList ID="drpFontCss" runat="server">
@@ -220,6 +237,9 @@
                     水印透明度：</label>
                 <div class="cont">
                     <asp:TextBox ID="txtTransparency" runat="server" MaxLength="3" CssClass="text" Width="35px"></asp:TextBox>%
+                    <sw:Validator ID="Validator6" ControlID="txtTransparency" ValidateType="Required" ErrorText="请输入水印透明度"
+                        ErrorMessage="请输入水印透明度" runat="server">
+                    </sw:Validator>
                 </div>
             </div>
             <div class="fi">
@@ -227,7 +247,10 @@
                     旋转角度：</label>
                 <div class="cont">
                     <asp:TextBox ID="txtAngle" runat="server" MaxLength="3" CssClass="text" Width="35px"></asp:TextBox>
-                </div>
+                    <sw:Validator ID="Validator5" ControlID="txtAngle" ValidateType="Required" ErrorText="请输入旋转角度"
+                        ErrorMessage="请输入旋转角度" runat="server">
+                    </sw:Validator>
+                </div>                
             </div>
             <div class="fi">
                 <label>

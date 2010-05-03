@@ -92,9 +92,8 @@
             <table id="datas">
                 <thead>
                     <tr>
-                        <th style="width: 80px">
-                            <label class="checkbox">
-                                <input type="checkbox" class="checkbox" onclick="SelectAll(this.checked)" />全选</label>
+                        <th style="width: 30px;">
+                             <input type="checkbox" class="checkbox" onclick="SelectAll(this.checked)" title="全选" />
                         </th>
                         <th>
                             标题
@@ -111,7 +110,7 @@
                     <ItemTemplate>
                         <tr align="center" class="editalt" id="row_<%# Eval("fdArtiID")%>">
                             <td style="width: 30px;">
-                                <input type="checkbox" name="ids" value="<%# Eval("fdArtiID")%>" /><%# Eval("fdArtiID")%>
+                                <input type="checkbox" name="ids" value="<%# Eval("fdArtiID")%>" />
                             </td>
                             <td style="text-align: left;" class="dragTd" title="拖动排序">
                                 <a href="<%#Eval("PathStr") %>" target="_blank"><%#Eval("fdArtiTitle")%></a>
@@ -139,7 +138,7 @@
     </div>
     <div>
         <ul class="Help">
-            <li></li>
+            <li>文章列表根据文章排序从大到小排序。</li>
         </ul>
     </div>
 </asp:Content>

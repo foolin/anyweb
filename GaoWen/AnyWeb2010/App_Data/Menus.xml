@@ -8,7 +8,7 @@
         <xMenuItem url ="/Admin/ArticleDel.aspx" name ="删除文章" type="3" ></xMenuItem>
       </xMenuItem>
       <xMenuItem id="402" url ="/Admin/ArticleAdd.aspx" name ="添加文章" type="4"></xMenuItem>
-      <xMenuItem id="403" url ="/Admin/RelationList.aspx" name ="信息关联" >
+      <xMenuItem id="403" url ="/Admin/RelationList.aspx" name ="信息关联列表" >
         <xMenuItem url ="/Admin/RelationAdd.aspx" name ="添加信息关联" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/RelationEdit.aspx" name ="修改信息关联" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/RelationDel.aspx" name ="删除信息关联" type="3" ></xMenuItem>
@@ -20,6 +20,7 @@
         <xMenuItem url ="/Admin/ColumnDel.aspx" name ="删除栏目" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/ColumnSort.aspx" name ="栏目排序" type="3" ></xMenuItem>
       </xMenuItem>
+      <xMenuItem id="406" url ="/Admin/ColumnAdd.aspx" name ="添加栏目" type="4"></xMenuItem>
     </xMenuItem>
 
     <xMenuItem id="5" name="配置" module="5">
@@ -31,11 +32,8 @@
       </xMenuItem>
       <xMenuItem id="508" url ="/Admin/Setting_SearchSplit.aspx" name ="搜索分词" >
       </xMenuItem>
-      <xMenuItem id="108" url ="/Admin/FlashList.aspx" name ="首页幻灯" >
-        <xMenuItem url ="/Admin/FlashAdd.aspx" name ="添加幻灯图片" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/FlashInfo.aspx" name ="图片信息" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/FlashEdit.aspx" name ="修改图片" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/FlashDel.aspx" name ="删除图片" type="3" ></xMenuItem>
+      <xMenuItem id="108" url ="/Admin/ADList.aspx" name ="首页广告" >
+        <xMenuItem url ="/Admin/ADEdit.aspx" name ="修改图片" type="3" ></xMenuItem>
       </xMenuItem>
     </xMenuItem>
 

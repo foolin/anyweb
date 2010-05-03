@@ -47,7 +47,7 @@ public partial class Admin_RelationAdd : PageAdmin
 
             AW_Relation_bean bean = new AW_Relation_bean();
             bean.fdRelaID = dao.funcNewID();
-            if (!string.IsNullOrEmpty(childColumn))
+            if (childColumn != "0")
             {
                 bean.fdRelaColuID = int.Parse(childColumn);
             }
@@ -66,7 +66,9 @@ public partial class Admin_RelationAdd : PageAdmin
             }
             bean.fdRelaSort = int.Parse(txtSort.Text.Trim());
             if (bean.fdRelaSort == 0)
+            {
                 bean.fdRelaSort = bean.fdRelaID * 100;
+            }
 
             int record = dao.funcInsert(bean);
             if (record > 0)

@@ -1,62 +1,48 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
-    CodeFile="AdminList.aspx.cs" Inherits="Admin_AdminList" %>
+    CodeFile="ADList.aspx.cs" Inherits="Admin_ADList" Title="首页轮换幻灯图片管理" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
-    <ul class="Opr">
-        <li><a href="adminadd.aspx">添加用户</a></li>
-    </ul>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
     <div class="Mod DataList">
         <div class="mhd">
             <h3>
-                用户管理</h3>
+                幻灯图片</h3>
         </div>
         <div class="mbd">
             <table>
                 <thead>
                     <tr>
                         <th>
-                            帐号
-                        </th>
-                        <th>
                             名称
                         </th>
                         <th>
-                            级别
+                            图片
                         </th>
                         <th>
-                            登录时间
-                        </th>
-                        <th>
-                            登录IP
+                            链接
                         </th>
                         <th class="end">
                             操 作
                         </th>
                     </tr>
                 </thead>
-                <asp:Repeater ID="repAdmins" runat="server" EnableViewState="False">
+                <asp:Repeater ID="compRep" runat="server" EnableViewState="False">
                     <ItemTemplate>
                         <tr align="center" class="editalt">
                             <td>
-                                <%# Eval("fdAdmiAccount")%>
+                                <%#Eval("fdAdName")%>
                             </td>
                             <td>
-                                <%# Eval("fdAdmiName")%>
+                                <a href="<%#Eval("fdAdPic")%>" target="_blank">
+                                    <img src="<%#Eval("fdAdPic")%>" width="100" height="65" /></a>
                             </td>
                             <td>
-                                <%# Eval("fdAdmiLevel").ToString() == "1" ? "超管" : "普通"%>
+                                <a href="<%#Eval("fdAdLink")%>" target="_blank">
+                                    <%#Studio.Web.WebAgent.GetLeft((string)Eval("fdAdLink"),50)%></a>
                             </td>
                             <td>
-                                <%# Eval("fdAdmiLoginAt")%>
-                            </td>
-                            <td>
-                                <%# Eval("fdAdmiLoginIP")%>
-                            </td>
-                            <td style="text-align: left; padding-left: 10px">
-                                <a href="adminedit.aspx?id=<%# Eval("fdAdmiID")%>">修改</a> <a href="admindel.aspx?id=<%# Eval("fdAdmiID")%>"
-                                    onclick="return confirm('您确定要删除吗?')">删除</a>
+                                <a href="ADEdit.aspx?id=<%# Eval("fdAdID")%>">修改</a>
                             </td>
                         </tr>
                     </ItemTemplate>
@@ -68,7 +54,7 @@
     </div>
     <div>
         <ul class="Help">
-            <li>SuperAdmin用户不能删除。</li>
+            <li>图片应小于500k，jpg或gif格式。建议为<%=AnyWeb.AW.Configs.GeneralConfigs.GetConfig().FlashWidth%>x<%=AnyWeb.AW.Configs.GeneralConfigs.GetConfig().FlashHeight%>像素。</li>
         </ul>
     </div>
 </asp:Content>

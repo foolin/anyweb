@@ -44,18 +44,30 @@ public partial class Admin_ArticleEdit : PageAdmin
             drpColumn.Items.Add(new ListItem(bean1.fdColuName, bean1.fdColuID.ToString()));
             litJs.Text += string.Format("child[{0}] = new Array;", i);
             int j = 0;
-            foreach (AW_Column_bean bean2 in bean1.Children)
+            if (bean1.fdColuID == article.Column.fdColuParentID || bean1.fdColuID == article.Column.fdColuID)
             {
-                drpChild.Items.Add(new ListItem(bean2.fdColuName, bean2.fdColuID.ToString()));
-                litJs.Text += string.Format("child[{0}][{1}] = \"{2}:{3}\";", i, j, bean2.fdColuID, bean2.fdColuName);
-                j++;
+                drpChild.Items.Add(new ListItem("不选择二级栏目", "0"));
+                foreach (AW_Column_bean bean2 in bean1.Children)
+                {
+                    drpChild.Items.Add(new ListItem(bean2.fdColuName, bean2.fdColuID.ToString()));
+                    litJs.Text += string.Format("child[{0}][{1}] = \"{2}:{3}\";", i, j, bean2.fdColuID, bean2.fdColuName);
+                    j++;
+                }
+            }
+            else
+            {
+                foreach (AW_Column_bean bean2 in bean1.Children)
+                {
+                    litJs.Text += string.Format("child[{0}][{1}] = \"{2}:{3}\";", i, j, bean2.fdColuID, bean2.fdColuName);
+                    j++;
+                }
             }
             i++;
         }
         if (article.Column.fdColuParentID == 0)
         {
             drpColumn.SelectedValue = article.Column.fdColuID.ToString();
-            drpChild.Attributes.Add("style", "display:none");
+            drpChild.SelectedValue = "0";
         }
         else
         {
@@ -75,7 +87,7 @@ public partial class Admin_ArticleEdit : PageAdmin
             article.fdArtiSort = int.Parse(txtSort.Text.Trim());
             if (article.fdArtiSort == 0)
                 article.fdArtiSort = article.fdArtiID * 100;
-            if (!string.IsNullOrEmpty(childColumn))
+            if (childColumn != "0")
             {
                 article.fdArtiColumnID = int.Parse(childColumn);
             }

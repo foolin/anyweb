@@ -21,18 +21,7 @@ public partial class Admin_ColumnDel : PageAdmin
         if (QS("id") == "" || !WebAgent.IsInt32(QS("id")))
             Response.Redirect(backUrl);
 
-        AW_Column_bean column = (new AW_Column_dao()).funcGetColumnInfo(int.Parse(QS("id")));
-
-        if (column == null)
-            Response.Redirect(backUrl);
-
-        if (column.Children != null && column.Children.Count > 0)
-            WebAgent.FailAndGo("该栏目下存在子栏目，不能删除！", backUrl);
-
-        if ((new AW_Article_dao()).funcGetArticleCount(column.fdColuID) > 0)
-            WebAgent.FailAndGo("该栏目下存在文章，不能删除！", backUrl);
-
-        (new AW_Column_dao()).funcDelete(column.fdColuID);
+        (new AW_Column_dao()).funcDelete(int.Parse(QS("id")));
         WebAgent.SuccAndGo("删除成功", backUrl);
     }
 }

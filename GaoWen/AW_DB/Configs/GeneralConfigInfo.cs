@@ -283,6 +283,46 @@ namespace AnyWeb.AW.Configs
             set { _goodsImageHeight = value; }
         }
 
+        private int _bigADImageHeight = 300;
+        /// <summary>
+        /// 大型广告图片高度
+        /// </summary>
+        public int BigADImageHeight
+        {
+            get { return _bigADImageHeight; }
+            set { _bigADImageHeight = value; }
+        }
+
+        private int _bigADImageWidth = 300;
+        /// <summary>
+        /// 大型广告图片宽度
+        /// </summary>
+        public int BigADImageWidth
+        {
+            get { return _bigADImageWidth; }
+            set { _bigADImageWidth = value; }
+        }
+
+        private int _smallADImageHeight = 300;
+        /// <summary>
+        /// 中型广告图片高度
+        /// </summary>
+        public int SmallADImageHeight
+        {
+            get { return _smallADImageHeight; }
+            set { _smallADImageHeight = value; }
+        }
+
+        private int _smallADImageWidth = 300;
+        /// <summary>
+        /// 中型广告宽度
+        /// </summary>
+        public int SmallADImageWidth
+        {
+            get { return _smallADImageWidth; }
+            set { _smallADImageWidth = value; }
+        }
+
         private int _imageWaterType;
         /// <summary>
         /// 水印类型 0未启用 1文字 2图片

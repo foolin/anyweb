@@ -13,17 +13,16 @@
             var iCount = child[index].length;
             for (i = objChild.options.length - 1; i >= 0; i--) {
                 objChild.remove(i);
-            }
-            if (iCount == 0) {
-                objChild.style.display = "none";
-            }else {
-                for (i = 0; i <= iCount - 1; i++) {
-                    var option = document.createElement("OPTION");
-                    option.value = child[index][i].substring(0,child[index][i].indexOf(":"));
-                    option.text = child[index][i].substring(child[index][i].indexOf(":")+1,child[index][i].length);
-                    objChild.options.add(option);
-                }
-                objChild.style.display = "";
+            }            
+            var option = document.createElement("OPTION");
+            option.value = "0";
+            option.text = "不选择二级栏目";
+            objChild.options.add(option);
+            for (i = 0; i <= iCount - 1; i++) {
+                var option = document.createElement("OPTION");
+                option.value = child[index][i].substring(0,child[index][i].indexOf(":"));
+                option.text = child[index][i].substring(child[index][i].indexOf(":")+1,child[index][i].length);
+                objChild.options.add(option);
             }
         }
     </script>

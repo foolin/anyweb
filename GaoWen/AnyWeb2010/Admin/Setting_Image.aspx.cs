@@ -48,8 +48,12 @@ public partial class Admin_Setting_Image : PageAdmin
         //txtMemberImageWidth.Text = config.MemberAvatorWidth.ToString();
         txtColumnWidth.Text = config.ColumnImageWidth.ToString();
         txtColumnHeight.Text = config.ColumnImageHeight.ToString();
-        txtFlashWidth.Text = config.FlashWidth.ToString();
-        txtFlashHeight.Text = config.FlashHeight.ToString();
+        //txtFlashWidth.Text = config.FlashWidth.ToString();
+        //txtFlashHeight.Text = config.FlashHeight.ToString();
+        txtBigADHeight.Text = config.BigADImageHeight.ToString();
+        txtBigADWidth.Text = config.BigADImageWidth.ToString();
+        txtSmallAdHeight.Text = config.SmallADImageHeight.ToString();
+        txtSmallAdWidth.Text = config.SmallADImageWidth.ToString();
 
         ListItem li;
         li = radioWaterType.Items.FindByValue(config.ImageWatermarkType.ToString());
@@ -98,32 +102,112 @@ public partial class Admin_Setting_Image : PageAdmin
         //config.GoodsListImageHeight = int.Parse(txtGoodsListHeight.Text);
         //config.MemberAvatorHeight = int.Parse(txtMemberImageHeight.Text);
         //config.MemberAvatorWidth = int.Parse(txtMemberImageWidth.Text);
+        //if (int.TryParse(txtFlashHeight.Text, out number))
+        //{
+        //    config.FlashHeight = number;
+        //}
+        //else
+        //{
+        //    WebAgent.AlertAndBack("幻灯图片高度格式错误");
+        //}
+        //if (int.TryParse(txtFlashWidth.Text, out number))
+        //{
+        //    config.FlashWidth = number;
+        //}
+        //else
+        //{
+        //    WebAgent.AlertAndBack("幻灯图片高度格式错误");
+        //}
         if (int.TryParse(txtColumnHeight.Text, out number))
         {
             config.ColumnImageHeight = number;
         }
+        else
+        {
+            WebAgent.AlertAndBack("栏目图片高度格式错误");
+        }
+
         if (int.TryParse(txtColumnWidth.Text, out number))
         {
             config.ColumnImageWidth = number;
         }
-        if (int.TryParse(txtFlashWidth.Text, out number))
+        else
         {
-            config.FlashWidth = number;
+            WebAgent.AlertAndBack("栏目图片宽度格式错误");
         }
-        if (int.TryParse(txtFlashHeight.Text, out number))
+
+        if (int.TryParse(txtBigADWidth.Text, out number))
         {
-            config.FlashHeight = number;
+            config.BigADImageWidth = number;
         }
+        else
+        {
+            WebAgent.AlertAndBack("大型广告图片宽度格式错误");
+        }
+
+        if (int.TryParse(txtBigADHeight.Text, out number))
+        {
+            config.BigADImageHeight = number;
+        }
+        else
+        {
+            WebAgent.AlertAndBack("大型广告图片高度格式错误");
+        }
+
+        if (int.TryParse(txtSmallAdWidth.Text, out number))
+        {
+            config.SmallADImageWidth = number;
+        }
+        else
+        {
+            WebAgent.AlertAndBack("中型广告图片宽度格式错误");
+        }
+
+        if (int.TryParse(txtSmallAdHeight.Text, out number))
+        {
+            config.SmallADImageHeight = number;
+        }
+        else
+        {
+            WebAgent.AlertAndBack("中型广告图片高度格式错误");
+        }
+        
         config.ImageWatermarkType = int.Parse(radioWaterType.SelectedValue);
         config.ImageWatermarkPosition = int.Parse(radioWaterPosition.SelectedValue);
+
         if (int.TryParse(txtWaterFontSize.Text, out number))
         {
             config.ImageWatermarkFontsize = number;
         }
+        else
+        {
+            WebAgent.AlertAndBack("水印字体大小格式错误");
+        }
+
         if (int.TryParse(txtTransparency.Text, out number))
         {
-            config.ImageWatermarkTransparency = number;
+            if (int.Parse(txtTransparency.Text) >= 0 && int.Parse(txtTransparency.Text) <= 100)
+            {
+                config.ImageWatermarkTransparency = number;
+            }
+            else
+            {
+                WebAgent.AlertAndBack("水印透明度格式错误，只能输入0－100之间的数字");
+            }
         }
+        else
+        {
+            WebAgent.AlertAndBack("水印透明度格式错误，只能输入0－100之间的数字");
+        }
+        if (int.TryParse(txtAngle.Text, out number))
+        {
+            config.ImageWatermarkAngle = number;
+        }
+        else
+        {
+            WebAgent.AlertAndBack("旋转角度格式错误");
+        }
+
         config.ImageWatermarkText = txtWaterText.Text.Trim();
 
         config.ImageWatermarkUrl = pics;
@@ -134,9 +218,22 @@ public partial class Admin_Setting_Image : PageAdmin
             config.ImageWatermarkType = 0;
 
         config.SetupConfigImage = true;
-        config.ImageWatermarkFontColor = txtFontColor.Text;
-        config.ImageWatermarkShadowColor = txtShadowColor.Text;
-        config.ImageWatermarkAngle = int.Parse(txtAngle.Text);
+        if (!string.IsNullOrEmpty(txtFontColor.Text) && txtFontColor.Text.StartsWith("#") && txtFontColor.Text.Length == 7)
+        {
+            config.ImageWatermarkFontColor = txtFontColor.Text;
+        }
+        else
+        {
+            WebAgent.AlertAndBack("文字颜色格式错误");
+        }
+        if (!string.IsNullOrEmpty(txtShadowColor.Text) && txtShadowColor.Text.StartsWith("#") && txtShadowColor.Text.Length == 7)
+        {
+            config.ImageWatermarkShadowColor = txtShadowColor.Text;
+        }
+        else
+        {
+            WebAgent.AlertAndBack("阴影颜色格式错误");
+        }
         config.ImageWatermarkFontCss = drpFontCss.SelectedValue;
 
         GeneralConfigs.Serialiaze(GeneralConfigs.GetConfig(), DefaultConfigFileManager.ConfigFilePath);

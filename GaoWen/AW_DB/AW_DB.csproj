@@ -108,6 +108,8 @@
     <Compile Include="DBExtend\AW_Template_dao.cs" />
     <Compile Include="DBFile\AW_Admin_bean.cs" />
     <Compile Include="DBFile\AW_Admin_dao.cs" />
+    <Compile Include="DBFile\AW_AD_bean.cs" />
+    <Compile Include="DBFile\AW_AD_dao.cs" />
     <Compile Include="DBFile\AW_Article_bean.cs" />
     <Compile Include="DBFile\AW_Article_dao.cs" />
     <Compile Include="DBFile\AW_Brand_bean.cs" />

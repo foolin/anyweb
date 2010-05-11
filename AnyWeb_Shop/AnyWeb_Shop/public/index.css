@@ -329,11 +329,12 @@ a:hover .img{
 }
 .indexTopic .topicImage{
 	float:left;
-	width:40%;
+	width:47%;
 	overflow:hidden;
 }
 .indexTopic .topicImage img{
-	width:90px;
+	width:120px;
+	height:90px;
 }
 .indexTopic .topicImage a img{
 	border: solid 1px #8ec738;
@@ -347,7 +348,7 @@ a:hover .img{
 }
 .indexTopic .topicDesc{
 	float:right;
-	width:60%;
+	width:53%;
 }
 .indexTopic .topicDesc h4{
 	margin-top:0px;

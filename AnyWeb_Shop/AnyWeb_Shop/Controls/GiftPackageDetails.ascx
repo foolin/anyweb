@@ -10,7 +10,7 @@
             	<td class="tdColorM" width="45%" valign="top">
                 	<div class="goodsDetailsImage">
             			<a href="<%=giftPack.Image=="" ? "../images/wait.jpg":giftPack.Image.Replace("S_","") %>" target="_blank">
-                		<img src="<%=giftPack.Image=="" ? "../images/wait.jpg":giftPack.Image.Replace("S_","") %>" width="275" alt="<%=giftPack.PackName %>" /></a>
+                		<img src="<%=giftPack.Image=="" ? "../images/wait.jpg":giftPack.Image.Replace("S_","") %>" alt="<%=giftPack.PackName %>" width="220px" height="220" /></a>
                         <hr />
                         <a href="<%=giftPack.Image=="" ? "../images/wait.jpg":giftPack.Image.Replace("S_","") %>" target="_blank" title="点击查看大图"><img src="Images/view_image_btn.gif"  border="0"/></a>
                     </div>

@@ -14,7 +14,7 @@
                     <div class="topicImage">
                         <a href="Good.aspx?gid=<%#Eval("ID") %>">
                             <img src="<%#(string)Eval( "image" )=="" ? "../images/wait.jpg":(string)Eval( "image" ) %>"
-                                alt="<%#Eval("GoodsName") %>" border="0" />
+                                alt="<%#Eval("GoodsName") %>" border="0" width="130px" height="90px" />
                         </a>
                     </div>
                     <div class="topicDesc">

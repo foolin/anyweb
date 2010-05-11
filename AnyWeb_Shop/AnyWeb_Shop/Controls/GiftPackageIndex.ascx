@@ -13,7 +13,7 @@
                     <div class="topicImage">
                         <a href="GiftPackage.aspx?pid=<%#Eval("PackID") %>">
                             <img src="<%#(string)Eval( "Image" )=="" ? "../images/wait.jpg":(string)Eval( "Image" ) %>"
-                                alt="<%#Eval("PackName") %>" border="0" />
+                                alt="<%#Eval("PackName") %>" border="0" width="130px" height="90px" />
                         </a>
                     </div>
                     <div class="topicDesc">

@@ -25,7 +25,7 @@
         <li><a href="Column.aspx?id=1">最新新闻</a></li>
         <li><a href="Column.aspx?id=2">社务动态</a></li>
         <li><a href="Column.aspx?id=3">政策法规</a></li>
-        <li><a href="GoodsSell.aspx">商品销售</a></li>
+        <li><a href="http://shop.thshcoop.com" target="_blank">商品销售</a></li>
         <li><a href="LkdMarket.aspx">龙口东市场</a></li>
         <li><a href="HR.aspx">人力资源</a></li>
         <li><a href="Contact.aspx">联系我们</a></li>

@@ -326,10 +326,11 @@ a:hover .img{
 }
 .indexTopic{
 	clear:both;
+	padding-bottom:4px;
 }
 .indexTopic .topicImage{
 	float:left;
-	width:47%;
+	width:48%;
 	overflow:hidden;
 }
 .indexTopic .topicImage img{
@@ -348,7 +349,7 @@ a:hover .img{
 }
 .indexTopic .topicDesc{
 	float:right;
-	width:53%;
+	width:52%;
 }
 .indexTopic .topicDesc h4{
 	margin-top:0px;
@@ -487,11 +488,15 @@ a:hover .img{
 .box dl dt, .box dl dd{
 	margin:3px;
 	padding-left:0px;
-	color:145f00;
+	color:#145f00;
 }
 .box .link{
 	margin-left:5px;
 	font-size:14px;
+}
+.box .link a
+{
+	padding-left:5px;
 }
 .box2{
 	margin:3px;

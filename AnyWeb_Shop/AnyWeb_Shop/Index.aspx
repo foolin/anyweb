@@ -47,7 +47,9 @@
             </div>
         </div>
         <uc:Link ID="Link" runat="server" />
-        
+        <div class="box">
+            <img src="images/adleft.jpg" alt="网购新选择－机团网" title="网购新选择－机团网" width="197" height="410" />
+        </div>
     </div>
     <div class="indexMainCol2" style="margin-top:10px;">
     <div class="mainCol2Space">

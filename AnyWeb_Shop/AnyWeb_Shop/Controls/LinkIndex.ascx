@@ -12,7 +12,7 @@
             <asp:Repeater ID="repLink" runat="server">
                 <ItemTemplate>
                     <li><a href="<%#Eval("LinkUrl") %>">
-                        <%#Eval("Name")%></a></li>
+                        <%#Studio.Web.WebAgent.GetLeft((string)Eval("Name"),11)%></a></li>
                 </ItemTemplate>
             </asp:Repeater>
         </ul>

@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWeb.AW_DL;
+using AnyWeb.AW.Configs;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
@@ -16,5 +17,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         repHot.DataSource = new AW_Article_dao().funcGetHotArticle(4);
         repHot.DataBind();
+    }
+
+    public GeneralConfigInfo config
+    {
+        get 
+        {
+            return GeneralConfigs.GetConfig();
+        }
     }
 }

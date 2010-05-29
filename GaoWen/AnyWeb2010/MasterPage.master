@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>高闻顾问</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="public/class/index.css" rel="stylesheet" type="text/css" />
+    <link href="Public/class/chromestyle.css" rel="stylesheet" type="text/css" />
+    <script src="Public/js/jquery-1.2.5.js" type="text/javascript"></script>
+    <script src="Public/js/chrome.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <div class="logo">
+                <a href="http://gaowen.thshcoop.com">
+                    <img src="public/images/logo.jpg" width="306" height="48" border="0" /></a>
+            </div>
+            <div class="search">
+                <input type="text" name="keyword" id="keyword" class="searchInput" value="" />
+                <input type="submit" value="" class="searchBtn" />
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <div class="midMain">
+            <div class="guide1">
+                <div class="guideList">
+                    <asp:Repeater ID="repHot" runat="server">
+                        <ItemTemplate>
+                            · <a href="article.aspx?id=<%#Eval("fdArtiID") %>"><%#Studio.Web.WebAgent.GetLeft((string)Eval("fdArtiTitle"),10)%></a><br />
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <a href="#">
+                        <img src="public/Images/more2.png" width="44" height="15" alt="more" border="0" /></a>
+                </div>
+                <!-- 导向图片作为背景图片，这里写文字-->
+            </div>
+            <div class="guide2">
+                <div class="guideContent">
+                    如何看流动比率？
+                    <br />
+                    <br />
+                    <a href="#">
+                        <img src="public/Images/more2.png" width="44" height="15" alt="more" border="0" /></a>
+                </div>
+            </div>
+            <div class="guide3">
+                <div class="guideContent">
+                    重新了解贵公司账目
+                    <br />
+                    <br />
+                    <a href="#">
+                        <img src="public/Images/more2.png" width="44" height="15" alt="more" border="0" /></a>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="footer">
+            &copy; 2010 高闻顾问有限公司. 版权所有 &copy; GaoWen Consultancy Ltd. All rights reserved. &nbsp;&nbsp;
+        </div>
+    </div>
+</body>
+</html>

@@ -60,6 +60,7 @@
     <Compile Include="Dao_Base.cs" />
     <Compile Include="DBExtend\AW_Admin_bean.cs" />
     <Compile Include="DBExtend\AW_Admin_dao.cs" />
+    <Compile Include="DBExtend\AW_AD_dao.cs" />
     <Compile Include="DBExtend\AW_Article_bean.cs" />
     <Compile Include="DBExtend\AW_Article_dao.cs" />
     <Compile Include="DBExtend\AW_Brand_bean.cs" />

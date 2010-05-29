@@ -1,0 +1,247 @@
+﻿@charset "utf-8";
+
+/*****************************************************/
+/* @Purpose: Css for anyweb shop                     */
+/* @Author : Foolin                                  */
+/* @Created: 2010-3-11 10:14:13                      */
+/* Copyright(c)2010 Anywell Team, All Rights Reserved */
+/*****************************************************/
+
+
+/** 全局 ***/
+body{
+	margin:0px;
+	font-size:12px;
+	background:White;
+	line-height:1.5em;
+}
+a{
+	color:#767397;
+	text-decoration:none;
+}
+a:hover{
+	color:#F00;
+	text-decoration:underline;
+}
+.clear{
+	clear:both;
+}
+.wrapper {
+	margin:0px auto;
+	width:985px;
+	background:#FFF;
+}
+
+/***** 顶部 *****/
+.header{
+	height:116px;
+	line-height:110px;
+}
+
+.logo{
+	float:left;
+	width:50%;
+}
+.logo img{
+	margin-left:30px;
+	margin-top:25px;
+}
+.search{
+	float:right;
+	width:49%;
+	text-align:right;
+}
+
+.search form{
+	margin-top:25px;
+	margin-right:50px;
+}
+
+.search .searchInput{
+	width:130px;
+	height:20px;
+	background:url(../Images/search_input.png) no-repeat;
+	border:0px;
+	padding-left:33px;
+	line-height:18px;
+}
+
+.search .searchBtn{
+	background:url(../Images/search_btn.png) no-repeat;
+	width:50px;
+	height:20px;
+	border:0px;
+	padding-left:20px;
+	cursor:pointer;
+}
+/**** topMain *******/
+.topMain{
+	padding-bottom:20px;
+}
+
+.colMain{
+	float:left;
+	width:807px;
+}
+
+.colSider{
+	float:right;
+	width:173px;
+}
+
+.menu{
+	margin-top:0;
+	background:url(../Images/menu_bg.gif) no-repeat right !important;
+	background:url(../Images/menu_bg.gif) no-repeat;
+}
+.menu ul{
+	margin:0px;
+	list-style:none;
+	line-height:45px;
+	height:45px;
+	font-weight:bold;
+	font-size:12pt;
+	color:#767397;
+}
+.menu ul li{
+	float:left;
+	margin-left:50px;
+}
+.menu ul li a{
+	color:#928ec0;
+	padding-left:8px;
+	padding-right:8px;
+	text-decoration:none;
+	display:inline-block;
+	/*display:block;*/
+}
+.menu ul li a:hover{
+	background:#928ec0;
+	color:#FFF;
+	height:45px;
+	padding-left:8px;
+	padding-right:8px;
+	line-height:45px;
+	text-decoration:none;
+	display:inline-block;
+	/*display:block;*/
+
+}
+
+.dropmenudiv{
+position:absolute;
+top: 0;
+border: 1px solid #8a89a8; /*THEME CHANGE HERE*/
+border-bottom-width: 0;
+font:normal 12px Verdana;
+line-height:22px;
+z-index:100;
+background-color:#504d78;
+width: 200px;
+visibility: hidden;
+filter: progid:DXImageTransform.Microsoft.Shadow(color=#CACACA,direction=135,strength=4); /*Add Shadow in IE. Remove if desired*/
+}
+
+.dropmenudiv a{
+width: 100%;
+display: block;
+border: 0px solid #ADED7C; /*THEME CHANGE HERE*/
+padding: 3px 2px;
+text-indent:1.2em;
+text-decoration: none;
+color:#FFF;
+background-color:#504d78;
+}
+
+.dropmenudiv a:hover{ /*THEME CHANGE HERE*/
+background-color: #928ec0;
+color:#fff;
+text-decoration:none;
+}
+
+.focus{
+}
+.focus img{
+	width:806px;
+	border:0px;
+}
+
+.colBox{
+	width:174px;
+}
+.colBox .colTitle{
+	height:47px;
+	background:url(../Images/box_title.jpg) no-repeat;
+}
+.colBox .colContent{
+	background:url(../Images/col_content_bg.gif) repeat-y;
+	padding:5px;
+	line-height:1.2em;
+}
+.colBox .colButtomCorner{
+	background:url(../Images/col_buttom_bg.gif) no-repeat;
+	height:8px;
+}
+
+/****** MidMain *****/
+.midMain{
+	padding-bottom:20px;
+}
+.guide1{
+	float:left;
+	width:33.5%;
+	height:152px;
+	background:url(../Images/guide_nav1.gif) no-repeat left;
+}
+.guide2{
+	float:left;
+	width:33.5%;
+	height:152px;
+	background:url(../Images/guide_nav2.gif) no-repeat left;
+}
+.guide3{
+	float:right;
+	width:33%;
+	height:152px;
+	background:url(../Images/guide_nav3.gif) no-repeat left;
+}
+.guideList{
+	margin-top:50px;
+	margin-left:28px;
+	width:160px;
+	height:90px;
+	line-height:1.5em;
+	overflow:hidden;
+}
+.guideList a{
+	color:#0e0b17;
+	text-decoration:none;
+}
+.guideList a:hover{
+	color:#F00;
+	text-decoration:underline;
+}
+.guideContent{
+	margin-top:80px;
+	margin-left:28px;
+	width:160px;
+	height:90px;
+	line-height:1.5em;
+	overflow:hidden;
+}
+
+
+.text{
+	padding:5px;
+	line-height:2em;
+}
+
+/**** 底部 ****/
+.footer{
+	margin-bottom:30px;
+	height:25px;
+	line-height:25px;
+	text-align:right;
+	color:#FFF;
+	background:url(../Images/footer.jpg) no-repeat;
+}

@@ -8,32 +8,6 @@ namespace AnyWeb.AW_DL
 {
     public partial class AW_Column_dao
     {
-        ///// <summary>
-        ///// 获取栏目信息
-        ///// </summary>
-        ///// <param name="path"></param>
-        ///// <returns></returns>
-        //public AW_Column_bean funcGetColumnInfo(string path)
-        //{
-        //    if (path == "")
-        //        return null;
-
-        //    if (WebAgent.IsInt32(path))
-        //        return this.funcGetColumnInfo(int.Parse(path));
-
-        //    foreach (AW_Column_bean bean1 in this.funcGetColumns())
-        //    {
-        //        if (bean1.fdColuPath == path)
-        //            return bean1;
-        //        foreach (AW_Column_bean bean2 in bean1.Children)
-        //        {
-        //            if (bean2.fdColuPath == path)
-        //                return bean2;
-        //        }
-        //    }
-        //    return null;
-        //}
-
         /// <summary>
         /// 获取栏目信息
         /// </summary>
@@ -85,6 +59,41 @@ namespace AnyWeb.AW_DL
         }
 
         /// <summary>
+        /// 获取首页所有栏目
+        /// </summary>
+        /// <returns></returns>
+        public List<AW_Column_bean> funcGetIndexColumns()
+        {
+            List<AW_Column_bean> list = (List<AW_Column_bean>)HttpRuntime.Cache["COLUMNS"];
+            if (list != null)
+            {
+                return list;
+            }
+            list = new List<AW_Column_bean>();
+            DataSet ds = this.funcCommon();
+            foreach (DataRow row1 in ds.Tables[0].Select("fdColuParentID=0 AND fdColuShowIndex=1", "fdColuSort ASC"))
+            {
+                AW_Column_bean bean1 = new AW_Column_bean();
+                bean1.funcFromDataRow(row1);
+                bean1.IndexTemplate = new AW_Template_dao().funcGetTemplateInfo(bean1.fdColuTempIndex);
+                bean1.ContentTemplate = new AW_Template_dao().funcGetTemplateInfo(bean1.fdColuTempContent);
+                bean1.Children = new List<AW_Column_bean>();
+                foreach (DataRow row2 in ds.Tables[0].Select("fdColuParentID=" + bean1.fdColuID.ToString() + " AND fdColuShowIndex=1", "fdColuSort ASC"))
+                {
+                    AW_Column_bean bean2 = new AW_Column_bean();
+                    bean2.funcFromDataRow(row2);
+                    bean2.Parent = bean1;
+                    bean2.IndexTemplate = new AW_Template_dao().funcGetTemplateInfo(bean2.fdColuTempIndex);
+                    bean2.ContentTemplate = new AW_Template_dao().funcGetTemplateInfo(bean2.fdColuTempContent);
+                    bean1.Children.Add(bean2);
+                }
+                list.Add(bean1);
+            }
+            HttpRuntime.Cache.Insert("COLUMNS", list, null, DateTime.MaxValue, TimeSpan.FromMinutes(5));
+            return list;
+        }
+
+        /// <summary>
         /// 排序调前
         /// </summary>
         /// <param name="CategoryID"></param>
@@ -108,6 +117,10 @@ namespace AnyWeb.AW_DL
             bean.fdColuSort = temp;
             funcUpdate(bean);
             funcUpdate(beanUp);
+            if (HttpRuntime.Cache["COLUMNS"] != null)
+            {
+                HttpRuntime.Cache.Remove("COLUMNS");
+            }
             return true;
         }
 
@@ -134,6 +147,10 @@ namespace AnyWeb.AW_DL
             bean.fdColuSort = temp;
             funcUpdate(bean);
             funcUpdate(beanDown);
+            if (HttpRuntime.Cache["COLUMNS"] != null)
+            {
+                HttpRuntime.Cache.Remove("COLUMNS");
+            }
             return true;
         }
 
@@ -165,6 +182,51 @@ namespace AnyWeb.AW_DL
                 }
             }
             return this.funcExecute(cmdText);
+        }
+
+        /// <summary>
+        /// 重写栏目删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public override int funcDelete(int id)
+        {
+            string sql = string.Format("DELETE AW_Column WHERE fdColuID={0} OR fdColuParentID={0}", id);
+            if (HttpRuntime.Cache["COLUMNS"] != null)
+            {
+                HttpRuntime.Cache.Remove("COLUMNS");
+            }
+            return this.funcExecute(sql);
+        }
+
+        /// <summary>
+        /// 重写添加栏目
+        /// </summary>
+        /// <param name="aBean"></param>
+        /// <returns></returns>
+        public override int funcInsert(Bean_Base aBean)
+        {
+            int result = base.funcInsert(aBean);
+            if (HttpRuntime.Cache["COLUMNS"] != null)
+            {
+                HttpRuntime.Cache.Remove("COLUMNS");
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 重写修改栏目
+        /// </summary>
+        /// <param name="aBean"></param>
+        /// <returns></returns>
+        public override int funcUpdate(Bean_Base aBean)
+        {
+            int result = base.funcUpdate(aBean);
+            if (HttpRuntime.Cache["COLUMNS"] != null)
+            {
+                HttpRuntime.Cache.Remove("COLUMNS");
+            }
+            return result;
         }
     }
 }

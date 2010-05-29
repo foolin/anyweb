@@ -66,6 +66,16 @@ namespace AnyWeb.AW_DL
             set { _fdArtiSort = value; }
         }
 
+        private int _fdArtiCount = 0;
+        /// <summary>
+        /// 点击数
+        /// </summary>
+        public int fdArtiCount
+        {
+            get { return _fdArtiCount; }
+            set { _fdArtiCount = value; }
+        }
+
 
         /////////////////////////////////////////
 

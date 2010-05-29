@@ -38,6 +38,7 @@ public partial class Admin_ArticleEdit : PageAdmin
         txtTitle.Text = article.fdArtiTitle;
         txtContent.Text = article.fdArtiContent;
         txtSort.Text = article.fdArtiSort.ToString();
+        txtCount.Text = article.fdArtiCount.ToString();
         int i = 0;
         foreach (AW_Column_bean bean1 in (new AW_Column_dao()).funcGetColumns())
         {
@@ -85,6 +86,7 @@ public partial class Admin_ArticleEdit : PageAdmin
             article.fdArtiTitle = txtTitle.Text.Trim();
             article.fdArtiContent = txtContent.Text;
             article.fdArtiSort = int.Parse(txtSort.Text.Trim());
+            article.fdArtiCount = int.Parse(txtCount.Text.Trim());
             if (article.fdArtiSort == 0)
                 article.fdArtiSort = article.fdArtiID * 100;
             if (childColumn != "0")

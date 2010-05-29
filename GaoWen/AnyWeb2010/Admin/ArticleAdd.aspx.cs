@@ -56,6 +56,13 @@ public partial class Admin_ArticleAdd : PageAdmin
 
         if (!WebAgent.IsInt32(txtSort.Text.Trim()))
             WebAgent.AlertAndBack("排序格式不正确");
+
+        if (string.IsNullOrEmpty(txtCount.Text))
+            WebAgent.AlertAndBack("点击数不能为空");
+
+        if (!WebAgent.IsInt32(txtCount.Text.Trim()))
+            WebAgent.AlertAndBack("点击数格式不正确");
+
         string childColumn = Request.Form["drpChild"] + "";
         using (AW_Article_dao dao = new AW_Article_dao())
         {
@@ -73,13 +80,14 @@ public partial class Admin_ArticleAdd : PageAdmin
             bean.fdArtiTitle = txtTitle.Text.Trim();
             bean.fdArtiContent = txtContent.Text;
             bean.fdArtiSort = int.Parse(txtSort.Text.Trim());
+            bean.fdArtiCount = int.Parse(txtCount.Text.Trim());
             if (bean.fdArtiSort == 0)
                 bean.fdArtiSort = bean.fdArtiID * 100;
             
             int record = dao.funcInsert(bean);
             if (record > 0)
             {
-                Studio.Web.WebAgent.SuccAndGo("添加成功", ViewState["REFURL"].ToString());
+                Studio.Web.WebAgent.SuccAndGo("添加成功", "ArticleList.aspx");
             }
         }
     }

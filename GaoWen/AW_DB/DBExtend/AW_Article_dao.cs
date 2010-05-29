@@ -209,5 +209,68 @@ namespace AnyWeb.AW_DL
                 }
             }
         }
+
+        /// <summary>
+        /// 获取前几篇热门文章
+        /// </summary>
+        /// <param name="top"></param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetHotArticle(int top) 
+        {
+            List<AW_Article_bean> list = (List<AW_Article_bean>)HttpRuntime.Cache["HOTARTICLE"];
+            if (list != null)
+                return list;
+            list = new List<AW_Article_bean>();
+            this.propOrder = "ORDER BY fdArtiCount DESC,fdArtiId DESC";
+            this.propTopCount = top;
+            list = this.funcGetList();
+            HttpRuntime.Cache.Insert("HOTARTICLE", list, null, DateTime.MaxValue, TimeSpan.FromMinutes(5));
+            return list;
+        }
+
+        /// <summary>
+        /// 重写插入文章
+        /// </summary>
+        /// <param name="aBean"></param>
+        /// <returns></returns>
+        public override int funcInsert(Bean_Base aBean)
+        {
+            int result = base.funcInsert(aBean);
+            if (HttpRuntime.Cache["HOTARTICLE"] != null)
+            {
+                HttpRuntime.Cache.Remove("HOTARTICLE");
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 重写修改文章
+        /// </summary>
+        /// <param name="aBean"></param>
+        /// <returns></returns>
+        public override int funcUpdate(Bean_Base aBean)
+        {
+            int result = base.funcUpdate(aBean);
+            if (HttpRuntime.Cache["HOTARTICLE"] != null)
+            {
+                HttpRuntime.Cache.Remove("HOTARTICLE");
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 重写删除文章
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public override int funcDelete(int id)
+        {
+            int result = base.funcDelete(id);
+            if (HttpRuntime.Cache["HOTARTICLE"] != null)
+            {
+                HttpRuntime.Cache.Remove("HOTARTICLE");
+            }
+            return result;
+        }
     }
 }

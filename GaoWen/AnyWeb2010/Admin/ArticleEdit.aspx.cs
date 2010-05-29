@@ -11,6 +11,7 @@ using System.Web.UI.WebControls.WebParts;
 
 using AnyWeb.AW_DL;
 using Studio.Web;
+using System.IO;
 
 public partial class Admin_ArticleEdit : PageAdmin
 {
@@ -96,6 +97,11 @@ public partial class Admin_ArticleEdit : PageAdmin
             else
             {
                 article.fdArtiColumnID = int.Parse(drpColumn.SelectedValue);
+            }
+            string pdfPath = Server.MapPath(string.Format("/pdf/{0}.pdf", article.fdArtiID));
+            if (File.Exists(pdfPath))
+            {
+                File.Delete(pdfPath);
             }
             dao.funcUpdate(article);
             WebAgent.SuccAndGo("修改文章成功", ViewState["REFURL"].ToString());

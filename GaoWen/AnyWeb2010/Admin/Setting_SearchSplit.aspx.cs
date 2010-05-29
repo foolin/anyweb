@@ -42,29 +42,29 @@ public partial class Admin_Setting_SearchSplit : PageAdmin
             }
         }
 
-        if (txtWord.Text == "")
-        {
-            foreach (AW_Category_bean category1 in (new AW_Category_dao()).funcGetCategories())
-            {
-                txtWord.Text += category1.fdCateName + "\r\n";
-                foreach (AW_Category_bean category2 in category1.Children)
-                {
-                    txtWord.Text += category2.fdCateName + "\r\n";
-                    foreach (AW_Category_bean category3 in category2.Children)
-                    {
-                        txtWord.Text += category3.fdCateName + "\r\n";
-                    }
-                }
-            }
-            foreach (AW_Brand_bean brand1 in (new AW_Brand_dao()).funcGetBrands())
-            {
-                txtWord.Text += brand1.fdBranName + "\r\n";
-                foreach (AW_Brand_bean brand2 in brand1.Children)
-                {
-                    txtWord.Text += brand2.fdBranName + "\r\n";
-                }
-            }
-        }
+        //if (txtWord.Text == "")
+        //{
+        //    foreach (AW_Category_bean category1 in (new AW_Category_dao()).funcGetCategories())
+        //    {
+        //        txtWord.Text += category1.fdCateName + "\r\n";
+        //        foreach (AW_Category_bean category2 in category1.Children)
+        //        {
+        //            txtWord.Text += category2.fdCateName + "\r\n";
+        //            foreach (AW_Category_bean category3 in category2.Children)
+        //            {
+        //                txtWord.Text += category3.fdCateName + "\r\n";
+        //            }
+        //        }
+        //    }
+        //    foreach (AW_Brand_bean brand1 in (new AW_Brand_dao()).funcGetBrands())
+        //    {
+        //        txtWord.Text += brand1.fdBranName + "\r\n";
+        //        foreach (AW_Brand_bean brand2 in brand1.Children)
+        //        {
+        //            txtWord.Text += brand2.fdBranName + "\r\n";
+        //        }
+        //    }
+        //}
 
     }
 
@@ -79,6 +79,7 @@ public partial class Admin_Setting_SearchSplit : PageAdmin
         }
         sb.AppendLine("</words>");
         FileAgent.WriteText(Server.MapPath("~/App_Data/SearchSplit.xml"), sb.ToString(), false);
+        SearchKeyWord.refresh();
         WebAgent.SuccAndGo("保存成功", "Setting_SearchSplit.aspx");
     }
 }

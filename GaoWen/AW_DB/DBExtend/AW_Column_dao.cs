@@ -196,6 +196,10 @@ namespace AnyWeb.AW_DL
             {
                 HttpRuntime.Cache.Remove("COLUMNS");
             }
+            if (HttpRuntime.Cache["HOTARTICLE"] != null)
+            {
+                HttpRuntime.Cache.Remove("HOTARTICLE");
+            }
             return this.funcExecute(sql);
         }
 
@@ -210,6 +214,10 @@ namespace AnyWeb.AW_DL
             if (HttpRuntime.Cache["COLUMNS"] != null)
             {
                 HttpRuntime.Cache.Remove("COLUMNS");
+            }
+            if (HttpRuntime.Cache["HOTARTICLE"] != null)
+            {
+                HttpRuntime.Cache.Remove("HOTARTICLE");
             }
             return result;
         }
@@ -226,7 +234,53 @@ namespace AnyWeb.AW_DL
             {
                 HttpRuntime.Cache.Remove("COLUMNS");
             }
+            if (HttpRuntime.Cache["HOTARTICLE"] != null)
+            {
+                HttpRuntime.Cache.Remove("HOTARTICLE");
+            }
             return result;
+        }
+
+        /// <summary>
+        /// 前台获取栏目信息
+        /// </summary>
+        /// <param name="columnId"></param>
+        /// <returns></returns>
+        public AW_Column_bean funcGetColumnIndex(int columnId)
+        {
+            foreach (AW_Column_bean bean1 in this.funcGetIndexColumns())
+            {
+                if (bean1.fdColuID == columnId)
+                    return bean1;
+                foreach (AW_Column_bean bean2 in bean1.Children)
+                {
+                    if (bean2.fdColuID == columnId)
+                        return bean2;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// 获取内页左侧栏目列表
+        /// </summary>
+        /// <param name="columnId"></param>
+        /// <returns></returns>
+        public List<AW_Column_bean> funcGetColumnList(int columnId)
+        {
+            List<AW_Column_bean> list = new List<AW_Column_bean>();
+            foreach (AW_Column_bean bean1 in this.funcGetIndexColumns())
+            {
+                if (bean1.fdColuID == columnId)
+                {
+                    foreach (AW_Column_bean bean2 in bean1.Children)
+                    {
+                        list.Add(bean2);
+                    }
+                    break;
+                }
+            }
+            return list;
         }
     }
 }

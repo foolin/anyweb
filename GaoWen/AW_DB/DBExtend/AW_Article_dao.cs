@@ -221,6 +221,9 @@ namespace AnyWeb.AW_DL
             if (list != null)
                 return list;
             list = new List<AW_Article_bean>();
+            this.propSelect = "a.*";
+            this.propTableApp = "a INNER JOIN AW_Column c ON fdColuID=fdArtiColumnID";
+            this.propWhere = "fdColuShowIndex=1";
             this.propOrder = "ORDER BY fdArtiCount DESC,fdArtiId DESC";
             this.propTopCount = top;
             list = this.funcGetList();
@@ -271,6 +274,26 @@ namespace AnyWeb.AW_DL
                 HttpRuntime.Cache.Remove("HOTARTICLE");
             }
             return result;
+        }
+
+        /// <summary>
+        /// 获取搜索结果
+        /// </summary>
+        /// <param name="querryString"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="recordCount"></param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetSearchArtcile(string querryString,int pageIndex,int pageSize,out int recordCount)
+        {
+            this.propPage = pageIndex;
+            this.propPageSize = pageSize;
+            this.propGetCount = true;
+            this.propWhere = querryString;
+            this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
+            List<AW_Article_bean> list = this.funcGetList();
+            recordCount = this.propCount;
+            return list;
         }
     }
 }

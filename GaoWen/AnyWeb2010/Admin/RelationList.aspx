@@ -92,8 +92,7 @@
                 <thead>
                     <tr>
                         <th style="width: 80px">
-                            <label class="checkbox">
-                                <input type="checkbox" class="checkbox" onclick="SelectAll(this.checked)" />全选</label>
+                            <input type="checkbox" class="checkbox" onclick="SelectAll(this.checked)" title="全选" />
                         </th>
                         <th>
                             标题
@@ -110,7 +109,7 @@
                     <ItemTemplate>
                         <tr align="center" class="editalt" id="row_<%# Eval("fdRelaID")%>">
                             <td style="width: 30px;">
-                                <input type="checkbox" name="ids" value="<%# Eval("fdRelaID")%>" /><%# Eval("fdRelaID")%>
+                                <input type="checkbox" name="ids" value="<%# Eval("fdRelaID")%>" />
                             </td>
                             <td style="text-align: left;" class="dragTd" title="拖动排序">
                                 <a href="<%#Eval("fdRelaLink") %>" target="_blank"><%#Eval("fdRelaTitle")%></a>

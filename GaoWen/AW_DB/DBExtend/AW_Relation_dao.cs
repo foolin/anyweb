@@ -48,6 +48,19 @@ namespace AnyWeb.AW_DL
         }
 
         /// <summary>
+        /// 获取首页关联列表
+        /// </summary>
+        /// <param name="columnID"></param>
+        /// <returns></returns>
+        public List<AW_Relation_bean> funcGetRelationList(int columnID)
+        {
+            this.propTopCount = 20;
+            this.propWhere = "fdRelaColuID=" + columnID;            
+            this.propOrder = "ORDER BY fdRelaSort DESC,fdRelaID DESC";
+            return this.funcGetList();
+        }
+
+        /// <summary>
         /// 调整信息关联排序
         /// </summary>
         /// <param name="column"></param>

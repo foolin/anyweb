@@ -98,8 +98,9 @@ public partial class getpdf : System.Web.UI.Page
     void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
     {
         WebBrowser Browser = (WebBrowser)sender;
-        Browser.ScriptErrorsSuppressed = true;
+        Browser.ScriptErrorsSuppressed = false;
         Browser.ScrollBarsEnabled = false;
+        
         if (Width == -1)
         {
             Browser.Width = Browser.Document.Body.ScrollRectangle.Width;

@@ -88,7 +88,7 @@ namespace AnyWeb.AW_DL
         /// <returns></returns>
         public AW_Article_bean funcGetNextArticle(int articleID)
         {
-            string cmdText = "SELECT TOP 1 * FROM AW_Article WHERE fdArtiColumnID=(SELECT fdArtiColumnID FROM AW_Article WHERE fdArtiID=@fdArtiID) AND fdArtiSort<(SELECT fdArtiSort FROM AW_Article WHERE fdArtiID=@fdArtiID) ORDER BY fdArtiSort DESC";
+            string cmdText = string.Format("SELECT TOP 1 * FROM AW_Article WHERE fdArtiColumnID=(SELECT fdArtiColumnID FROM AW_Article WHERE fdArtiID={0}) AND fdArtiSort<(SELECT fdArtiSort FROM AW_Article WHERE fdArtiID={0}) ORDER BY fdArtiSort DESC", articleID);
             DataSet ds = this.funcGet(cmdText);
             if (ds.Tables[0].Rows.Count > 0)
             {
@@ -109,7 +109,7 @@ namespace AnyWeb.AW_DL
         /// <returns></returns>
         public AW_Article_bean funcGetPreviousArticle(int articleID)
         {
-            string cmdText = "SELECT TOP 1 fdArtiID FROM FA_Article WHERE fdArtiColuID=(SELECT fdArtiColuID FROM FA_Article WHERE fdArtiID=@fdArtiID) AND fdArtiSort>(SELECT fdArtiSort FROM FA_Article WHERE fdArtiID=@fdArtiID) ORDER BY fdArtiSort";
+            string cmdText = string.Format("SELECT TOP 1 * FROM AW_Article WHERE fdArtiColumnID=(SELECT fdArtiColumnID FROM AW_Article WHERE fdArtiID={0}) AND fdArtiSort>(SELECT fdArtiSort FROM AW_Article WHERE fdArtiID={0}) ORDER BY fdArtiSort", articleID);
             DataSet ds = this.funcGet(cmdText);
             if (ds.Tables[0].Rows.Count > 0)
             {

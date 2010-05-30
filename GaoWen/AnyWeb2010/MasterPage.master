@@ -15,13 +15,13 @@
     <div class="wrapper">
         <div class="header">
             <div class="logo">
-                <a href="http://gaowen.thshcoop.com">
+                <a href="/">
                     <img src="public/images/logo.jpg" width="306" height="48" border="0" /></a>
             </div>
             <div class="search">
                 <form action="search.aspx" id="searchForm" method="post">
                     <input type="text" name="keyword" id="keyword" class="searchInput" value="" />
-                    <input type="submit" value="" class="searchBtn" />
+                    <input type="submit" value="搜索" class="searchBtn" />
                 </form>
             </div>
             <div class="clear">
@@ -29,7 +29,7 @@
         </div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
-        <div class="midMain">
+        <div class="guide">
             <div class="guide1">
                 <div class="guideList">
                     <asp:Repeater ID="repHot" runat="server">
@@ -41,7 +41,6 @@
                     <a href="#">
                         <img src="public/Images/more2.png" width="44" height="15" alt="more" border="0" /></a>
                 </div>
-                <!-- 导向图片作为背景图片，这里写文字-->
             </div>
             <div class="guide2">
                 <div class="guideContent">

@@ -113,7 +113,7 @@
                                 <input type="checkbox" name="ids" value="<%# Eval("fdArtiID")%>" />
                             </td>
                             <td style="text-align: left;" class="dragTd" title="拖动排序">
-                                <a href="<%#Eval("PathStr") %>" target="_blank"><%#Eval("fdArtiTitle")%></a>
+                                <a href="/article.aspx?id=<%#Eval("fdArtiID") %>" target="_blank"><%#Eval("fdArtiTitle")%></a>
                             </td>
                             <td>
                                 <%#Eval("Column.fdColuName")%><%#(int)Eval("Column.fdColuShowIndex") == 0 ? "<span style='color:red'>(不在首页显示)</span>" : ""%>

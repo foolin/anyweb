@@ -34,8 +34,8 @@ a:hover{
 
 /***** 顶部 *****/
 .header{
-	height:116px;
-	line-height:110px;
+	height:80px;
+	line-height:80px;
 }
 
 .logo{
@@ -76,7 +76,6 @@ a:hover{
 }
 /**** topMain *******/
 .topMain{
-	padding-bottom:20px;
 }
 
 .colMain{
@@ -93,6 +92,7 @@ a:hover{
 	margin-top:0;
 	background:url(../Images/menu_bg.gif) no-repeat right !important;
 	background:url(../Images/menu_bg.gif) no-repeat;
+	font-family:Georgia, "Times New Roman", Times, serif;
 }
 .menu ul{
 	margin:0px;
@@ -139,24 +139,29 @@ z-index:100;
 background-color:#504d78;
 width: 200px;
 visibility: hidden;
-filter: progid:DXImageTransform.Microsoft.Shadow(color=#CACACA,direction=135,strength=4); /*Add Shadow in IE. Remove if desired*/
+/*filter: progid:DXImageTransform.Microsoft.Shadow(color=#CACACA,direction=135,strength=4); /*Add Shadow in IE. Remove if desired*/
 }
 
 .dropmenudiv a{
-width: 100%;
-display: block;
-border: 0px solid #ADED7C; /*THEME CHANGE HERE*/
-padding: 3px 2px;
-text-indent:1.2em;
-text-decoration: none;
-color:#FFF;
-background-color:#504d78;
+	width: 100%;
+	display: block;
+	border: 0px solid #ADED7C;
+	padding: 3px 2px;
+	text-indent:1.2em;
+	text-decoration: none;
+	color:#fff;
+	background-color:#504d78;
 }
 
-.dropmenudiv a:hover{ /*THEME CHANGE HERE*/
-background-color: #928ec0;
-color:#fff;
-text-decoration:none;
+.dropmenudiv a:hover{
+	width: 100%;
+	display: block;
+	border: 0px solid #ADED7C;
+	padding: 3px 2px;
+	text-indent:1.2em;
+	background-color: #928ec0;
+	color:#fff;
+	text-decoration:none;
 }
 
 .focus{
@@ -173,19 +178,42 @@ text-decoration:none;
 	height:47px;
 	background:url(../Images/box_title.jpg) no-repeat;
 }
+.colBox .titleGwxzs{
+	height:47px;
+	background:url(../Images/box_gwxzs.jpg) no-repeat;
+}
+.colBox .titleClpt{ /** 触类旁通 ***/
+	height:35px;
+	background:url(../Images/box_title_clpt.jpg) no-repeat;
+}
 .colBox .colContent{
 	background:url(../Images/col_content_bg.gif) repeat-y;
 	padding:5px;
 	line-height:1.2em;
+}
+.colBox .colContent ul{
+	margin:5px;
+	padding:0px;
+	list-style:url(../Images/list_ico.gif);
+	line-height:22px;
+}
+.colBox .colContent ul li{
+	margin-left:20px;
+}
+.colBox .colContent ul a{
+	color:#000;
+}
+.colBox .colContent ul a:hover{
+	color:#f00;
 }
 .colBox .colButtomCorner{
 	background:url(../Images/col_buttom_bg.gif) no-repeat;
 	height:8px;
 }
 
-/****** MidMain *****/
-.midMain{
-	padding-bottom:20px;
+/****** Guide *****/
+.guide{
+	margin-top:20px;
 }
 .guide1{
 	float:left;
@@ -238,6 +266,7 @@ text-decoration:none;
 
 /**** 底部 ****/
 .footer{
+	margin-top:20px;
 	margin-bottom:30px;
 	height:25px;
 	line-height:25px;
@@ -246,35 +275,40 @@ text-decoration:none;
 	background:url(../Images/footer.jpg) no-repeat;
 }
 
+/***  page css ***/
 
-/****** 页面CSS 与首页有些不同 ****/
+.pageTopMain{
+	width:100%;
+	padding:0;
+	margin-top:20px;
+}
 
 .pageMenu{
-	margin-top:0;
-	padding:0px;
-	background:url(../Images/page_menu_bg.gif) no-repeat right !important;
-	background:url(../Images/page_menu_bg.gif) no-repeat;
-	background:#F00;
-
+	padding:0;
+	margin:0;
+	width:100%;
+	height:47px;
 }
 .pageMenu ul{
-	width:100%;
-	margin:0px;
-	padding:0px;
+	margin:0;
+	padding:0;
+	padding-left:20px;
+	height:47px;
 	list-style:none;
-	line-height:45px;
-	height:45px;
-	overflow:hidden;
+	clear:both;
+	background:url(../Images/page_menu_bg.gif) no-repeat right !important;
+	background:url(../Images/page_menu_bg.gif) no-repeat;
 	font-weight:bold;
 	font-size:11pt;
-	color:#767397;
 }
 .pageMenu ul li{
 	float:left;
-	margin-left:50px;
+	line-height:47px;
+	padding:0 20px;
 }
 .pageMenu ul li a{
 	color:#928ec0;
+	margin-left:30px;
 	padding-left:8px;
 	padding-right:8px;
 	text-decoration:none;
@@ -283,15 +317,12 @@ text-decoration:none;
 .pageMenu ul li a:hover{
 	background:#928ec0;
 	color:#FFF;
-	height:45px;
 	padding-left:8px;
 	padding-right:8px;
-	line-height:45px;
 	text-decoration:none;
 	display:inline-block;
 
 }
-
 .pageFocus{
 	margin:0px;
 }
@@ -404,5 +435,77 @@ text-decoration:none;
 .article .content p{
 	margin-top:5px;
 	margin-bottom:5px;
-	letter-spacing:0.14em;
+	letter-spacing:1.1pt;
 }
+
+.article .preNextLink{
+	margin-top:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+	border-top:1px solid #c6cae7;
+}
+.article .preNextLink span{
+	background:url(../Images/prenext_ico.gif) no-repeat;
+	text-indent:2em;
+	display:block;
+}
+
+/*** list *****/
+.article .list{
+}
+
+.article .list dl{
+	float:left;
+	margin-left:6px;
+	margin-bottom:10px;
+	width:205px;
+	height:115px;
+	background:url(../Images/list_item_bg.gif) no-repeat;
+}
+
+.article .list dl dt, .article .list dl dt a{
+	font-size:18px;
+	font-weight:bold;
+	font-family:微软雅黑, Georgia, "Times New Roman", Times, serif;
+	padding-top:10px;
+	padding-left:10px;
+	color:#FFF;
+	text-decoration:none;
+}
+.article .list dl dt a:hover{
+	color:#F00;
+	text-decoration:none;
+}
+.article .list dl dd{
+	margin:0;
+	padding-left:10px;
+	padding-top:20px;
+	padding-right:10px;
+}
+
+
+/*** page ***/
+.page 
+{
+	margin-top:5px;
+	margin-bottom:5px;
+	font-size: 14px;
+}
+
+.page a{
+	color:#767397;
+	border:solid 1px #ccc;
+	padding-left:5px;
+	padding-right:5px;
+	height:25px;
+	line-height:25px;
+	text-decoration:none;
+	display:inline-block;
+	margin-right:3px;
+}
+.page a:hover{
+	text-decoration:none;
+	color:#F00;
+	border:solid 1px #F00;
+}
+

@@ -1,19 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="article.aspx.cs" Inherits="article" %>
+    CodeFile="column.aspx.cs" Inherits="column" %>
 
 <%@ Register Src="Control/innermenu.ascx" TagName="menu" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/columntip.ascx" TagName="tip" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-
-    <script type="text/javascript" src="public/js/fontZoom.js"></script>
-
     <div class="pageTopMain">
         <uc1:menu ID="menu1" runat="server" />
         <div class="pageFocus">
-            <%if (!string.IsNullOrEmpty(column.fdColuPicture))
+            <%if (!string.IsNullOrEmpty(bean.fdColuPicture))
               {%>
             <a href="#">
-                <img src="<%=column.fdColuPicture %>" alt="焦点图片" border="0" /></a>
+                <img src="<%=bean.fdColuPicture %>" alt="焦点图片" border="0" /></a>
             <%} %>
         </div>
         <!-- end pageTopMain -->
@@ -22,13 +19,13 @@
         <div class="pageColSiderA">
             <div class="service">
                 <div class="serviceTitle">
-                    <%if (column.fdColuParentID == 0)
+                    <%if (bean.fdColuParentID == 0)
                       { %>
-                    <img src="public/images/<%=column.fdColuID %>.jpg" border="0" alt="" />
+                    <img src="public/images/<%=bean.fdColuID %>.jpg" border="0" alt="" />
                     <%}
                       else
                       { %>
-                    <img src="public/images/<%=column.Parent.fdColuID %>.jpg" border="0" alt="" />
+                    <img src="public/images/<%=bean.Parent.fdColuID %>.jpg" border="0" alt="" />
                     <%} %>
                 </div>
                 <div class="serviceNav">
@@ -48,31 +45,27 @@
                 <div class="navigation">
                     <uc1:tip ID="tip1" runat="server" />
                 </div>
-                <div class="articleFontSize">
-                    [字体：<a href="javascript:fontZoomMax()">大</a> <a href="javascript:fontZoomMid(12)">中</a>
-                    <a href="javascript:fontZoomMin()">小</a>] &nbsp;[<a href="javascript:window.print()">打印</a>]
-                    &nbsp;[<a href="javascript:window.close()">关闭</a>]
-                </div>
                 <div class="article">
                     <div class="title">
-                        <%=bean.fdArtiTitle %>
-                    </div>
-                    <div class="content" id="art-content">
-                        <%=bean.fdArtiContent %>
-                        <div style="text-align: right">
-                            <a href="#more">
-                                <img src="public/images/more_contantUs.gif" border="0" width="150" height="24" alt="想了解更多吗？请联系我们" /></a>
+                        <img src="public/images/list_title.gif" width="132" height="28" /></div>
+                    <div class="list">
+                        <asp:Repeater ID="repArticle" runat="server">
+                            <ItemTemplate>
+                                <dl>
+                                    <dt><a href="article.aspx?id=<%#Eval("fdArtiID") %>">
+                                        <%#Eval("fdArtiTitle") %></a></dt>
+                                    <dd>
+                                        <%#Studio.Web.WebAgent.GetLeft(Studio.Web.WebAgent.GetText((string)Eval("fdArtiContent")),18) %>
+                                    </dd>
+                                </dl>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                        <div class="clear">
                         </div>
                     </div>
-                    <div class="preNextLink">
-                        <%if (preArticle != null)
-                          { %>
-                        <span>上一篇：<a href="article.aspx?id=<%=preArticle.fdArtiID %>"><%=preArticle.fdArtiTitle%></a></span>
-                        <%} %>
-                        <%if (nextArticle != null)
-                          { %>
-                        <span>下一篇：<a href="article.aspx?id=<%=nextArticle.fdArtiID %>"><%=nextArticle.fdArtiTitle%></a></span>
-                        <%} %>
+                    <div class="page">
+                        <sw:PageNaver ID="PN1" runat="server" StyleID="4" PageSize="9">
+                        </sw:PageNaver>
                     </div>
                 </div>
             </div>

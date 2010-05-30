@@ -34,7 +34,7 @@
                     <ItemTemplate>
                         <tr align="center" class="editalt">
                             <td title="<%#Eval("fdColuDescription") %>" style="text-align: left; padding-left: 20px;">
-                                <a href="<%#Eval("PathStr") %>" target="_blank"><%#Eval("fdColuName")%></a>
+                                <a href="/column.aspx?id=<%#Eval("fdColuID") %>" target="_blank"><%#Eval("fdColuName")%></a>
                             </td>
                             <td>
                                 <img width="100" height="65" alt="<%#Eval("fdColuName")%>" src="<%#Eval("fdColuPicture") %>" style="display:<%#(String)Eval("fdColuPicture")==""?"none":"" %>" />
@@ -53,7 +53,7 @@
                             <ItemTemplate>
                                 <tr align="center" class="editalt">
                                     <td title="<%#Eval("fdColuDescription") %>" style="text-align: left; padding-left: 40px;">
-                                        <a href="<%#Eval("PathStr") %>" target="_blank"><%#Eval("fdColuName")%></a>
+                                        <a href="/column.aspx?id=<%#Eval("fdColuID") %>" target="_blank"><%#Eval("fdColuName")%></a>
                                     </td>
                                     <td>
                                         <img width="100" height="65" alt="<%#Eval("fdColuName")%>" src="<%#Eval("fdColuPicture") %>" style="display:<%#(String)Eval("fdColuPicture")==""?"none":"" %>" />

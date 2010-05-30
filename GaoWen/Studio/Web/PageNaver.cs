@@ -68,7 +68,7 @@ namespace Studio.Web
 			{
 				case 2:RendStyle2(writer);break;
                 case 3: RendStyle3(writer); break;
-                //case 4: RendStyle4(writer); break;
+                case 4: RendStyle4(writer); break;
 				default:RendStyle1(writer);break;
 			}
 		}
@@ -282,73 +282,120 @@ namespace Studio.Web
             }
         }
 
-        //void RendStyle4(HtmlTextWriter writer)
-        //{
-        //    int begin, end, pages = PageCount;
+        void RendStyle4(HtmlTextWriter writer)
+        {
+            if (Thread.CurrentThread.CurrentCulture != null && Thread.CurrentThread.CurrentCulture.ToString() == ("en-US"))
+            {
+                int begin, end, pages = PageCount;
 
-        //    writer.Write("<span>");
-        //    writer.Write("&nbsp;<a {0}><font face='webdings'>9</font></a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlFormat.Replace("_{pid}", "") + "\")' title='Goto page:{0}'", 1) : "disabled");
+                writer.Write("<span>");
+                writer.Write("&nbsp;<a class='pagenaver' {0}>首页</a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlPrefix + "\" + {0})' title='Goto {0} Page'", 1) : "disabled");
+                writer.Write("&nbsp;<a class='pagenaver' {0}>上一页</a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlPrefix + "\" + {0})' title='Goto {0} Page'", PageIndex - 1) : "disabled");
 
-        //    if (PageIndex == 2)
-        //    {
-        //        writer.Write("&nbsp;<a {0}><font face='webdings'>3</font></a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlFormat.Replace("_{pid}", "") + "\")' title='Goto page:{0}'", PageIndex - 1) : "disabled");
-        //    }
-        //    else
-        //    {
-        //        writer.Write("&nbsp;<a {0}><font face='webdings'>3</font></a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlFormat.Replace("{pid}", (PageIndex - 1).ToString()) + "\")' title='Goto page:{0}'", PageIndex - 1) : "disabled");
-        //    }
+                if (PageCount > 10)
+                {
+                    if (PageIndex % 10 == 0)
+                    {
+                        begin = PageIndex - 9;
+                        end = PageIndex;
+                    }
+                    else
+                    {
+                        begin = PageIndex / 10 * 10 + 1;
+                        end = PageIndex / 10 * 10 + 10;
+                    }
 
-        //    if (PageCount > 10)
-        //    {
-        //        if (PageIndex % 10 == 0)
-        //        {
-        //            begin = PageIndex - 9;
-        //            end = PageIndex;
-        //        }
-        //        else
-        //        {
-        //            begin = PageIndex / 10 * 10 + 1;
-        //            end = PageIndex / 10 * 10 + 10;
-        //        }
+                    if (end > PageCount)
+                    {
+                        end = PageCount;
+                    }
 
-        //        if (end > PageCount)
-        //        {
-        //            end = PageCount;
-        //        }
+                    if (PageIndex > 10)
+                    {
+                        writer.Write("&nbsp;<a href='javascript:GoToPage(\"" + UrlPrefix + "{0}\")' title='Goto Page {0}' class='pagenaver'>...</a>", (begin - 1).ToString());
+                    }
+                }
+                else
+                {
+                    begin = 1;
+                    end = pages;
+                }
 
-        //        if (PageIndex > 10)
-        //        {
-        //            writer.Write("&nbsp;<a href='javascript:GoToPage(\"" + UrlFormat.Replace("{pid}", (begin - 1).ToString()) + "\")' title='Goto page:{0}'>...</a>", (begin - 1).ToString());
-        //        }
-        //    }
-        //    else
-        //    {
-        //        begin = 1;
-        //        end = pages;
-        //    }
+                for (int i = begin; i <= end; i++)
+                {
+                    if (i == PageIndex)
+                        writer.Write("&nbsp;<font color='red'><b>{0}</b></font>", i);
+                    else
+                        writer.Write("&nbsp;<a href='" + UrlPrefix + "{0}' title='Goto Page {0}' class='pagenaver'>{0}</a>", i);
+                }
 
-        //    for (int i = begin; i <= end; i++)
-        //    {
-        //        if (i == PageIndex)
-        //            writer.Write("&nbsp;<font color='red'><b>{0}</b></font>", i);
-        //        else
-        //            writer.Write("&nbsp;<a href='" + UrlFormat.Replace("{pid}", i.ToString()) + "' title='Goto page:{0}'>{0}</a>", i);
-        //    }
+                if (PageCount > end)
+                {
+                    writer.Write("&nbsp;<a href='" + UrlPrefix + "{0}' title='Goto Page {0}' class='pagenaver'>...</a>", (end + 1).ToString());
+                }
 
-        //    if (PageCount > end)
-        //    {
-        //        writer.Write("&nbsp;<a href='" + UrlFormat.Replace("{pid}", (end + 1).ToString()) + "' title='Goto page:{0}'>...</a>", (end + 1).ToString());
-        //    }
+                writer.Write("&nbsp;<a {0} class='pagenaver'><font face='webdings'>4</font></a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='Goto {0} Page'", PageIndex + 1) : "disabled");
+                writer.Write("&nbsp;<a {0} class='pagenaver'><font face='webdings'>:</font></a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='Goto {0} Page'", pages) : "disabled");
 
-        //    writer.Write("&nbsp;<a {0}><font face='webdings'>4</font></a>", PageIndex < pages ? String.Format("href='" + UrlFormat.Replace("{pid}", (PageIndex + 1).ToString()) + "' title='Goto page:{0}'", PageIndex + 1) : "disabled");
-        //    writer.Write("&nbsp;<a {0}><font face='webdings'>:</font></a>", PageIndex < pages ? String.Format("href='" + UrlFormat.Replace("{pid}", pages.ToString()) + "' title='Goto page:{0}'", pages) : "disabled");
+                writer.Write("</span>");
+            }
+            else
+            {
+                int begin, end, pages = PageCount;
 
-        //    writer.Write("&nbsp;<span><input type='text' value='{0}' id='" + this.ClientID + "_pageindex' style='width:25px'>", PageIndex);
-        //    string btnStr = string.Format("<input type='button' value='Go' onclick='javascript:GoToPage(\"{0}\"", this.UrlFormat);
-        //    btnStr += ".replace(\"{pid}\",document.getElementById(\"" + this.ClientID + "_pageindex\").value).replace(\"_1\",\"\"))' /></span>";
-        //    writer.Write(btnStr);
-        //    writer.Write("</span>");
-        //}
+                writer.Write("<span>");
+                writer.Write("&nbsp;<a class='pagenaver' {0}>首页</a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlPrefix + "\" + {0})' title='首页'", 1) : "disabled");
+                writer.Write("&nbsp;<a class='pagenaver' {0}>上一页</a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlPrefix + "\" + {0})' title='上一页'", PageIndex - 1) : "disabled");
+
+                if (PageCount > 10)
+                {
+                    if (PageIndex % 10 == 0)
+                    {
+                        begin = PageIndex - 9;
+                        end = PageIndex;
+                    }
+                    else
+                    {
+                        begin = PageIndex / 10 * 10 + 1;
+                        end = PageIndex / 10 * 10 + 10;
+                    }
+
+                    if (end > PageCount)
+                    {
+                        end = PageCount;
+                    }
+
+                    if (PageIndex > 10)
+                    {
+                        writer.Write("&nbsp;<a href='javascript:GoToPage(\"" + UrlPrefix + "{0}\")' title='转到第{0}页' class='pagenaver'>...</a>", (begin - 1).ToString());
+                    }
+                }
+                else
+                {
+                    begin = 1;
+                    end = pages;
+                }
+
+                for (int i = begin; i <= end; i++)
+                {
+                    if (i == PageIndex)
+                        writer.Write("&nbsp;<font color='red'><b>{0}</b></font>", i);
+                    else
+                        writer.Write("&nbsp;<a href='" + UrlPrefix + "{0}' title='转到第{0}页' class='pagenaver'>{0}</a>", i);
+                }
+
+                if (PageCount > end)
+                {
+                    writer.Write("&nbsp;<a href='" + UrlPrefix + "{0}' title='转到第{0}页' class='pagenaver'>...</a>", (end + 1).ToString());
+                }
+
+                writer.Write("&nbsp;<a {0} class='pagenaver'>下一页</a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='下一页'", PageIndex + 1) : "disabled");
+                writer.Write("&nbsp;<a {0} class='pagenaver'>尾页</a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='尾页'", pages) : "disabled");
+
+                writer.Write("</span>");
+            }
+        }
+
 		/// <summary>
 		/// 分页标记(url参数)
 		/// </summary>

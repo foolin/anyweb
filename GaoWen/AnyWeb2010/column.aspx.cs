@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWeb.AW_DL;
 using Studio.Web;
+using AnyWeb.AW.Configs;
 
 public partial class column : System.Web.UI.Page
 {
@@ -26,6 +27,8 @@ public partial class column : System.Web.UI.Page
         {
             WebAgent.AlertAndBack("栏目不存在！");
         }
+        
+        this.Title = bean.fdColuName + GeneralConfigs.GetConfig().TitleExtension;
         if (bean.fdColuParentID == 0)
         {
             repColumn.DataSource = new AW_Column_dao().funcGetColumnList(bean.fdColuID);
@@ -38,12 +41,26 @@ public partial class column : System.Web.UI.Page
         }
         repRelation.DataSource = new AW_Relation_dao().funcGetRelationList(bean.fdColuID);
         repRelation.DataBind();
-        using (AW_Article_dao dao = new AW_Article_dao())
-        {
-            repArticle.DataSource = dao.funcGetArticle(bean, PN1.PageSize, PN1.PageIndex);
-            repArticle.DataBind();
-            PN1.SetPage(dao.propCount);
-        }
         Context.Items.Add("COLUMN", bean);
+    }
+
+    public int getSkin(AW_Column_bean bean)
+    {
+        int columnID = 0;
+        if (bean.fdColuParentID == 0)
+        {
+            columnID = bean.fdColuID;
+        }
+        else        
+        {
+            columnID = bean.Parent.fdColuID;
+        }
+        switch (columnID)
+        {
+            case 125:
+                return 2;
+            default:
+                return 1;
+        }
     }
 }

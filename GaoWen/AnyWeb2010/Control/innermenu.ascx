@@ -3,7 +3,7 @@
     <ul>
         <asp:Repeater ID="repColumn" runat="server" EnableViewState="False">
             <ItemTemplate>
-                <li><a href="column.aspx?id=<%#Eval("fdColuID") %>" rel="dropmenu<%#Eval("fdColuID") %>"><%#Eval("fdColuName")%></a></li>
+                <li><a href="column.aspx?id=<%#Eval("fdColuID") %>" rel="dropmenu<%#Eval("fdColuID") %>" class="<%#(int)Eval("fdColuID")==columnID?"pageMenuSelected":"" %>"><%#Eval("fdColuName")%></a></li>
             </ItemTemplate>
         </asp:Repeater>
     </ul>

@@ -323,6 +323,14 @@ visibility: hidden;
 	display:inline-block;
 
 }
+.pageMenuSelected{
+	background:#928ec0;
+	color:#FFF !important;
+	padding-left:8px;
+	padding-right:8px;
+	text-decoration:none;
+	display:inline-block;	
+}
 .pageFocus{
 	margin:0px;
 }
@@ -380,6 +388,17 @@ visibility: hidden;
 }
 
 .service .serviceNav ul li a:hover{
+	margin-top:5px;
+	margin-bottom:5px;
+	display:block;
+	padding-right:20px;
+	line-height:20px;
+	background:url(../Images/page_nav_active.gif) no-repeat;
+	text-decoration:none;
+	color:#fff;
+}
+
+.serviceSelected{
 	margin-top:5px;
 	margin-bottom:5px;
 	display:block;

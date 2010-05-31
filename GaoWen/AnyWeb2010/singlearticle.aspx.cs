@@ -7,11 +7,9 @@ using Studio.Web;
 using AnyWeb.AW_DL;
 using AnyWeb.AW.Configs;
 
-public partial class article : System.Web.UI.Page
+public partial class singlearticle : System.Web.UI.Page
 {
     public AW_Article_bean bean;
-    public AW_Article_bean nextArticle;
-    public AW_Article_bean preArticle;
     public AW_Column_bean column;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -31,8 +29,6 @@ public partial class article : System.Web.UI.Page
             WebAgent.AlertAndBack("文章不存在！");
         }
         this.Title = bean.fdArtiTitle + GeneralConfigs.GetConfig().TitleExtension;
-        nextArticle = new AW_Article_dao().funcGetNextArticle(bean.fdArtiID);   //获取下一篇文章
-        preArticle = new AW_Article_dao().funcGetPreviousArticle(bean.fdArtiID);    //获取前一篇文章
         column = new AW_Column_dao().funcGetColumnIndex(bean.fdArtiColumnID);   //获取所属栏目
         if (column.fdColuParentID == 0)
         {

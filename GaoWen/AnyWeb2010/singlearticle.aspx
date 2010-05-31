@@ -1,14 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="article.aspx.cs" Inherits="article" %>
+    CodeFile="singlearticle.aspx.cs" Inherits="singlearticle" %>
 
 <%@ Register Src="Control/innermenu.ascx" TagName="menu" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/columntip.ascx" TagName="tip" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
     <script type="text/javascript" src="public/js/fontZoom.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
-        $.get("addclick.aspx?id=<%=bean.fdArtiID %>"); 
+            $.get("addclick.aspx?id=<%=bean.fdArtiID %>");
         });
     </script>
 
@@ -58,25 +59,12 @@
                     &nbsp;[<a href="javascript:window.close()">关闭</a>]
                 </div>
                 <div class="article">
-                    <div class="title">
-                        <%=bean.fdArtiTitle %>
-                    </div>
                     <div class="content" id="art-content">
                         <%=bean.fdArtiContent %>
                         <div style="text-align: right">
                             <a href="#more">
                                 <img src="public/images/more_contantUs.gif" border="0" width="150" height="24" alt="想了解更多吗？请联系我们" /></a>
                         </div>
-                    </div>
-                    <div class="preNextLink">
-                        <%if (preArticle != null)
-                          { %>
-                        <span>上一篇：<a href="article.aspx?id=<%=preArticle.fdArtiID %>"><%=preArticle.fdArtiTitle%></a></span>
-                        <%} %>
-                        <%if (nextArticle != null)
-                          { %>
-                        <span>下一篇：<a href="article.aspx?id=<%=nextArticle.fdArtiID %>"><%=nextArticle.fdArtiTitle%></a></span>
-                        <%} %>
                     </div>
                 </div>
             </div>

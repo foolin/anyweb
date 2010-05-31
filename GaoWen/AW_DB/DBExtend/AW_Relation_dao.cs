@@ -54,7 +54,7 @@ namespace AnyWeb.AW_DL
         /// <returns></returns>
         public List<AW_Relation_bean> funcGetRelationList(int columnID)
         {
-            this.propTopCount = 20;
+            this.propTopCount = 14;
             this.propWhere = "fdRelaColuID=" + columnID;            
             this.propOrder = "ORDER BY fdRelaSort DESC,fdRelaID DESC";
             return this.funcGetList();

@@ -295,5 +295,49 @@ namespace AnyWeb.AW_DL
             recordCount = this.propCount;
             return list;
         }
+
+        /// <summary>
+        /// 首页获取栏目文章
+        /// </summary>
+        /// <param name="column"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetIndexArticleList(AW_Column_bean column, int pageSize, int pageIndex)
+        {
+            this.propWhere = "fdArtiColumnID=" + column.fdColuID;
+            this.propOrder = "ORDER BY a.fdArtiSort DESC,fdArtiID DESC";
+            List<AW_Article_bean> list = this.funcGetList();
+            if (list.Count == 1)
+            {
+                return list;
+            }
+            else
+            {
+                if (column != null)
+                {
+                    this.propWhere = " fdArtiColumnID = " + column.fdColuID.ToString();
+                    if (column.Children != null)
+                    {
+                        foreach (AW_Column_bean child in column.Children)
+                            this.propWhere += " OR fdArtiColumnID = " + child.fdColuID.ToString();
+                    }
+                }
+                this.propPageSize = pageSize;
+                this.propPage = pageIndex;
+                this.propGetCount = true;
+                return this.funcGetList();
+            }
+        }
+
+        /// <summary>
+        /// 增加文章点击数
+        /// </summary>
+        /// <param name="artiID"></param>
+        public void funcAddClick(int artiID)
+        {
+            string cmdText = "UPDATE AW_Article SET fdArtiCount=fdArtiCount+1 WHERE fdArtiID=" + artiID;
+            this.funcExecute(cmdText);
+        }
     }
 }

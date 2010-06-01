@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Studio.Web;
 using AnyWeb.AW_DL;
+using AnyWeb.AW.Configs;
 
 public partial class search : System.Web.UI.Page
 {
@@ -15,6 +16,7 @@ public partial class search : System.Web.UI.Page
 
     protected override void OnPreRender(EventArgs e)
     {
+        this.Title = "高闻顾问" + GeneralConfigs.GetConfig().TitleExtension;
         if (Request.Form["keyword"] == null)
         {
             WebAgent.AlertAndBack("请输入搜索关键词！");
@@ -30,6 +32,15 @@ public partial class search : System.Web.UI.Page
         }
         string querryString = SearchKeyWord.getQueryString(keyword);
         int record = 0;
-        List<AW_Article_bean> list = new AW_Article_dao().funcGetSearchArtcile(querryString, 1, 20, out record);
+        using (AW_Article_dao dao = new AW_Article_dao())
+        {
+            List<AW_Article_bean> list = dao.funcGetSearchArtcile(querryString, 1, 20, out record);
+            repArticle.DataSource = list;
+            repHot.DataSource = dao.funcGetHotArticle(14);
+            repHot.DataBind();
+        }
+        repArticle.DataBind();
+        repColumn.DataSource = new AW_Column_dao().funcGetIndexColumns();
+        repColumn.DataBind();
     }
 }

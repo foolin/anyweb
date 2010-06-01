@@ -40,8 +40,6 @@ public partial class singlearticle : System.Web.UI.Page
             repColumn.DataSource = new AW_Column_dao().funcGetColumnList(column.Parent.fdColuID);
             repColumn.DataBind();
         }
-        repRelation.DataSource = new AW_Relation_dao().funcGetRelationList(column.fdColuID);    //获取关联文章
-        repRelation.DataBind();
         Context.Items.Add("COLUMN", column);
     }
 }

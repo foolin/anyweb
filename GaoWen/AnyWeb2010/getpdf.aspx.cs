@@ -124,8 +124,8 @@ public partial class getpdf : System.Web.UI.Page
 
         int minPoint = 0;   //起始坐标
         int pageHeight = 1200;  //pdf页面高度
-        int imageHeight = Browser.Height > pageHeight ? pageHeight : Browser.Height;    //生成图片高度
-        int docHeight = Browser.Height; //页面总高度
+        int imageHeight = Browser.Height > pageHeight ? pageHeight : Browser.Height + 20;    //生成图片高度
+        int docHeight = Browser.Height + 20; //页面总高度
         int pageNo = 1; //图片编号
 
         while (docHeight > 0)

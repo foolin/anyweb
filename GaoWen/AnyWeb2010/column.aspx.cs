@@ -39,8 +39,6 @@ public partial class column : System.Web.UI.Page
             repColumn.DataSource = new AW_Column_dao().funcGetColumnList(bean.Parent.fdColuID);
             repColumn.DataBind();
         }
-        repRelation.DataSource = new AW_Relation_dao().funcGetRelationList(bean.fdColuID);
-        repRelation.DataBind();
         Context.Items.Add("COLUMN", bean);
     }
 
@@ -57,10 +55,10 @@ public partial class column : System.Web.UI.Page
         }
         switch (columnID)
         {
-            case 125:
-                return 2;
-            default:
+            case 122:
                 return 1;
+            default:
+                return 2;
         }
     }
 }

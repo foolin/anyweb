@@ -29,7 +29,7 @@ public class SearchKeyWord
                 XmlNode root = xml.SelectSingleNode("words");
                 foreach (XmlNode node in root.SelectNodes("word"))
                 {
-                    _keyString += node.InnerText + "|";
+                    _keyString += "|" + node.InnerText;
                 }
             }
             catch
@@ -51,6 +51,14 @@ public class SearchKeyWord
     public static string getQueryString(string searchKeyword)
     {
         string queryString = "fdArtiTitle LIKE '%" + searchKeyword + "%'";
+        if (string.IsNullOrEmpty(_keyString))
+        {
+            refresh();
+        }
+        if (string.IsNullOrEmpty(_keyString))
+        {
+            return queryString;
+        }
         MatchCollection mc = Regex.Matches(searchKeyword, _keyString);
         if (mc.Count > 0)
         {

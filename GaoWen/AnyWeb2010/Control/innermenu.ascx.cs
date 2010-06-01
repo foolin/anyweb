@@ -16,13 +16,16 @@ public partial class Control_innermenu : System.Web.UI.UserControl
     protected override void OnPreRender(EventArgs e)
     {
         AW_Column_bean column = (AW_Column_bean)Context.Items["COLUMN"];
-        if (column.fdColuParentID == 0)
+        if (column != null)
         {
-            columnID = column.fdColuID;
-        }
-        else
-        {
-            columnID = column.Parent.fdColuID;
+            if (column.fdColuParentID == 0)
+            {
+                columnID = column.fdColuID;
+            }
+            else
+            {
+                columnID = column.Parent.fdColuID;
+            }
         }
         List<AW_Column_bean> columnList = new AW_Column_dao().funcGetIndexColumns();
         repColumn.DataSource = columnList;

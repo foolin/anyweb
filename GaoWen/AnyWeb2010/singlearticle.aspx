@@ -3,6 +3,7 @@
 
 <%@ Register Src="Control/innermenu.ascx" TagName="menu" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/columntip.ascx" TagName="tip" TagPrefix="uc1" %>
+<%@ Register Src="~/Control/rightclpt.ascx" TagName="clpt" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
     <script type="text/javascript" src="public/js/fontZoom.js"></script>
@@ -40,7 +41,7 @@
                     <ul>
                         <asp:Repeater ID="repColumn" runat="server">
                             <ItemTemplate>
-                                <li><a href="column.aspx?id=<%#Eval("fdColuID") %>" class="<%#(int)Eval("fdColuID")==column.fdColuID?"serviceSelected":"" %>">
+                                <li class="<%#(int)Eval("fdColuID")==column.fdColuID?"on":"" %>"><a href="column.aspx?id=<%#Eval("fdColuID") %>">
                                     <%#Eval("fdColuName")%></a></li>
                             </ItemTemplate>
                         </asp:Repeater>
@@ -55,8 +56,7 @@
                 </div>
                 <div class="articleFontSize">
                     [字体：<a href="javascript:fontZoomMax()">大</a> <a href="javascript:fontZoomMid(12)">中</a>
-                    <a href="javascript:fontZoomMin()">小</a>] &nbsp;[<a href="javascript:window.print()">打印</a>]
-                    &nbsp;[<a href="javascript:window.close()">关闭</a>]
+                    <a href="javascript:fontZoomMin()">小</a>] &nbsp;<a href="getpdf.aspx?id=<%=bean.fdArtiID %>" target="_blank"><img alt="PDF" src="Public/images/pdf.jpg" style=" border:0; padding-top:2px;" /></a>
                 </div>
                 <div class="article">
                     <div class="content" id="art-content">
@@ -71,22 +71,7 @@
         </div>
         <div class="pageColSiderB">
             <div class="colBox">
-                <div class="colTitle">
-                </div>
-                <div class="colContent">
-                    <div class="text">
-                        <ul>
-                            <asp:Repeater ID="repRelation" runat="server">
-                                <ItemTemplate>
-                                    <li><a href="<%#Eval("fdRelaLink") %>">
-                                        <%#Eval("fdRelaTitle")%></a></li>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                        </ul>
-                    </div>
-                </div>
-                <div class="colButtomCorner">
-                </div>
+                <uc1:clpt ID="clpt1" runat="server" />
             </div>
         </div>
         <div class="clear">

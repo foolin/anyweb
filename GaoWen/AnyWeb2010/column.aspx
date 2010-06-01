@@ -5,14 +5,14 @@
 <%@ Register Src="~/Control/columntip.ascx" TagName="tip" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/columnskin1.ascx" TagName="skin1" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/columnskin2.ascx" TagName="skin2" TagPrefix="uc1" %>
+<%@ Register Src="~/Control/rightclpt.ascx" TagName="clpt" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="pageTopMain">
         <uc1:menu ID="menu1" runat="server" />
         <div class="pageFocus">
             <%if (!string.IsNullOrEmpty(bean.fdColuPicture))
               {%>
-            <a href="#">
-                <img src="<%=bean.fdColuPicture %>" alt="焦点图片" border="0" /></a>
+                <img src="<%=bean.fdColuPicture %>" alt="焦点图片" border="0" />
             <%} %>
         </div>
         <!-- end pageTopMain -->
@@ -34,7 +34,7 @@
                     <ul>
                         <asp:Repeater ID="repColumn" runat="server">
                             <ItemTemplate>
-                                <li><a href="column.aspx?id=<%#Eval("fdColuID") %>" class="<%#(int)Eval("fdColuID")==bean.fdColuID?"serviceSelected":"" %>">
+                                <li class="<%#(int)Eval("fdColuID")==bean.fdColuID?"on":"" %>"><a href="column.aspx?id=<%#Eval("fdColuID") %>">
                                     <%#Eval("fdColuName")%></a></li>
                             </ItemTemplate>
                         </asp:Repeater>
@@ -61,23 +61,7 @@
         </div>
         <div class="pageColSiderB">
             <div class="colBox">
-                <div class="titleClpt">
-                </div>
-                <div class="colContent">
-                    <div style="text-align: center">
-                        <img src="public/images/clpt.jpg" border="0" width="146" height="90" />
-                    </div>
-                    <ul>
-                        <asp:Repeater ID="repRelation" runat="server">
-                            <ItemTemplate>
-                                <li><a href="<%#Eval("fdRelaLink") %>">
-                                    <%#Eval("fdRelaTitle")%></a></li>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </ul>
-                </div>
-                <div class="colButtomCorner">
-                </div>
+                <uc1:clpt ID="clpt1" runat="server" />
             </div>
         </div>
         <div class="clear">

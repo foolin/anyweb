@@ -225,10 +225,17 @@ namespace AnyWeb.AW_DL
             this.propTableApp = "a INNER JOIN AW_Column c ON fdColuID=fdArtiColumnID";
             this.propWhere = "fdColuShowIndex=1";
             this.propOrder = "ORDER BY fdArtiCount DESC,fdArtiId DESC";
-            this.propTopCount = top;
+            this.propTopCount = 14;
             list = this.funcGetList();
             HttpRuntime.Cache.Insert("HOTARTICLE", list, null, DateTime.MaxValue, TimeSpan.FromMinutes(5));
-            return list;
+            if (list.Count <= top)
+            {
+                return list;
+            }
+            else
+            {
+                return list.GetRange(0, top);
+            }
         }
 
         /// <summary>

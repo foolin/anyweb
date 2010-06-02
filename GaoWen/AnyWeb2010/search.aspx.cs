@@ -17,7 +17,7 @@ public partial class search : System.Web.UI.Page
     protected override void OnPreRender(EventArgs e)
     {
         this.Title = "高闻顾问" + GeneralConfigs.GetConfig().TitleExtension;
-        if (Request.Form["keyword"] == null)
+        if (Request.Form["keyword"] == null || string.IsNullOrEmpty(Request.Form["keyword"]))
         {
             WebAgent.AlertAndBack("请输入搜索关键词！");
         }
@@ -36,6 +36,11 @@ public partial class search : System.Web.UI.Page
         {
             List<AW_Article_bean> list = dao.funcGetSearchArtcile(querryString, 1, 20, out record);
             repArticle.DataSource = list;
+            PN1.SetPage(dao.propCount);
+            if (list.Count == 0)
+            {
+                litNull.Text = "找不到符合条件的文章！";
+            }
             repHot.DataSource = dao.funcGetHotArticle(14);
             repHot.DataBind();
         }

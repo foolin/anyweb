@@ -63,10 +63,13 @@
                     </div>
                     <div class="content" id="art-content">
                         <%=bean.fdArtiContent %>
+                        <%if (bean.fdArtiID != 1065)
+                          { %>
                         <div style="text-align: right">
-                            <a href="#more">
+                            <a href="article.aspx?id=1065">
                                 <img src="public/images/more_contantUs.gif" border="0" width="150" height="24" alt="想了解更多吗？请联系我们" /></a>
                         </div>
+                        <%} %>
                     </div>
                     <div class="preNextLink">
                         <%if (preArticle != null)

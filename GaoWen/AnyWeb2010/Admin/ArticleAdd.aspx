@@ -106,6 +106,7 @@
     <script type="text/javascript">
         tinyMCE.init({
             mode: "exact",
+            verify_html: false,
             elements: "<%=txtContent.ClientID%>",
             theme: "advanced",
             language: "zh",

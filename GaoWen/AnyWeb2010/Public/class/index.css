@@ -246,18 +246,25 @@ visibility: hidden;
 	width:33.5%;
 	height:152px;
 	background:url(../Images/guide_nav1.gif) no-repeat left;
+	margin-left:-6px;
 }
 .guide2{
 	float:left;
 	width:33.5%;
 	height:152px;
-	background:url(../Images/guide_nav2.gif) no-repeat left;
+}
+.guide2 img{
+	border:0px;
 }
 .guide3{
 	float:right;
 	width:33%;
 	height:152px;
-	background:url(../Images/guide_nav3.gif) no-repeat left;
+	border:0px;
+}
+.guide3 img{
+	border:0px;
+	margin-left:-7px;
 }
 .guideList{
 	margin-top:50px;
@@ -386,7 +393,7 @@ visibility: hidden;
 }
 
 .service .serviceNav{
-	height:580px;
+	height:447px;
 	background:url(../Images/page_nav_bg.jpg) no-repeat;
 }
 .service .serviceNav1{

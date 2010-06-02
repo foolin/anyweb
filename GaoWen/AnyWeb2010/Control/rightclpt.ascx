@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="rightclpt.ascx.cs" Inherits="Control_rightclpt" %>
-<div class="colTitle">
+<div class="titleClpt">
 </div>
 <div class="colContent">
     <div class="text">

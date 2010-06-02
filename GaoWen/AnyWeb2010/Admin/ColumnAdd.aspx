@@ -60,7 +60,7 @@
                 <label>
                     父级栏目：</label>
                 <asp:DropDownList ID="drpParent" runat="server">
-                    <asp:ListItem Value="0">没有上级栏目</asp:ListItem>
+                    <%--<asp:ListItem Value="0">没有上级栏目</asp:ListItem>--%>
                 </asp:DropDownList>
                 <sw:Validator ID="Validator2" ControlID="drpParent" ValidateType="Required" ErrorText="请选择父级栏目"
                     ErrorMessage="请选择父级栏目" runat="server">

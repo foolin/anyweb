@@ -50,6 +50,7 @@
                                 </ItemTemplate>
                             </asp:Repeater>
                         </ul>
+                        <asp:Literal ID="litNull" runat="server"></asp:Literal>
                     </div>
                     <div class="page">
                         <sw:PageNaver ID="PN1" runat="server" StyleID="4" PageSize="9">

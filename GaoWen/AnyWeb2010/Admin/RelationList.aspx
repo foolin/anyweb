@@ -91,7 +91,7 @@
             <table id="datas">
                 <thead>
                     <tr>
-                        <th style="width: 80px">
+                        <th style="width: 30px;text-align:center;">
                             <input type="checkbox" class="checkbox" onclick="SelectAll(this.checked)" title="全选" />
                         </th>
                         <th>
@@ -107,8 +107,8 @@
                 </thead>
                 <asp:Repeater ID="compRep" runat="server" EnableViewState="False">
                     <ItemTemplate>
-                        <tr align="center" class="editalt" id="row_<%# Eval("fdRelaID")%>">
-                            <td style="width: 30px;">
+                        <tr class="editalt" id="row_<%# Eval("fdRelaID")%>">
+                            <td style="width: 30px;text-align:center;">
                                 <input type="checkbox" name="ids" value="<%# Eval("fdRelaID")%>" />
                             </td>
                             <td style="text-align: left;" class="dragTd" title="拖动排序">

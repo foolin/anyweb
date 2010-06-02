@@ -24,8 +24,6 @@
     </xMenuItem>
 
     <xMenuItem id="5" name="配置" module="5">
-      <xMenuItem id="501" url ="/Admin/Setting_General.aspx" name ="基本配置" >
-      </xMenuItem>
       <xMenuItem id="503" url ="/Admin/Setting_Seo.aspx" name ="搜索引擎优化" >
       </xMenuItem>
       <xMenuItem id="506" url ="/Admin/Setting_Image.aspx" name ="图片配置" >

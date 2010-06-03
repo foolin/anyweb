@@ -11,7 +11,7 @@
     </ul>
 </div>
 <div class="page">
-    <sw:PageNaver ID="PN1" runat="server" StyleID="4" PageSize="9">
+    <sw:PageNaver ID="PN1" runat="server" StyleID="4" PageSize="12">
     </sw:PageNaver>
 </div>
 

@@ -7,7 +7,7 @@
     <div class="pageTopMain">
         <uc1:menu ID="menu1" runat="server" />
         <div class="pageFocus">
-            <img src="public/images/page_banner.jpg" alt="焦点图片" border="0" />
+            <img src="public/images/page_banner.jpg" alt="高闻顾问" border="0" />
         </div>
     </div>
     <div class="pageMidMain">

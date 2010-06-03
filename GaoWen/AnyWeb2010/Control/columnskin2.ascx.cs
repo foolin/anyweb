@@ -20,7 +20,14 @@ public partial class Control_columnskin2 : System.Web.UI.UserControl
             List<AW_Article_bean> articleList = dao.funcGetArticle(column, PN1.PageSize, PN1.PageIndex);
             if (articleList.Count == 1) //如果当前栏目仅有一篇文章
             {
-                Response.Redirect("singlearticle.aspx?id=" + articleList[0].fdArtiID);
+                if (!string.IsNullOrEmpty(Request.QueryString["byadmin"]) && Request.QueryString["byadmin"] == "1")
+                {
+                    Response.Redirect("singlearticle.aspx?id=" + articleList[0].fdArtiID + "&byadmin=1");
+                }
+                else
+                {
+                    Response.Redirect("singlearticle.aspx?id=" + articleList[0].fdArtiID);
+                }
             }
             repArticle.DataSource = dao.funcGetArticle(column, PN1.PageSize, PN1.PageIndex);
             repArticle.DataBind();

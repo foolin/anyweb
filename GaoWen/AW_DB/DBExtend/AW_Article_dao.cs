@@ -17,7 +17,7 @@ namespace AnyWeb.AW_DL
         /// <returns></returns>
         public List<AW_Article_bean> funcGetArticle(AW_Column_bean column, int pageSize, int pageIndex)
         {
-            this.propSelect = "a.*,c.fdColuName,c.fdColuPicture";
+            this.propSelect = "a.fdArtiID,a.fdArtiTitle,a.fdArtiCount,c.fdColuName,c.fdColuShowIndex";
             this.propTableApp = " a INNER JOIN AW_Column c ON a.fdArtiColumnID = c.fdColuID";
             this.propOrder = "ORDER BY a.fdArtiSort DESC,fdArtiID DESC";
             if (column != null)
@@ -25,8 +25,7 @@ namespace AnyWeb.AW_DL
                 this.propWhere = " c.fdColuID = " + column.fdColuID.ToString();
                 if (column.Children != null)
                 {
-                    foreach (AW_Column_bean child in column.Children)
-                        this.propWhere += " OR c.fdColuID = " + child.fdColuID.ToString();
+                    this.propWhere += " OR c.fdColuParentID = " + column.fdColuID.ToString();
                 }
             }
             this.propPageSize = pageSize;

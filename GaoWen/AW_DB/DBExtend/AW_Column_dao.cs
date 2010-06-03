@@ -282,5 +282,27 @@ namespace AnyWeb.AW_DL
             }
             return list;
         }
+
+        /// <summary>
+        /// 获取内页左侧栏目列表(预览模式)
+        /// </summary>
+        /// <param name="columnId"></param>
+        /// <returns></returns>
+        public List<AW_Column_bean> funcGetColumnListByAdmin(int columnId)
+        {
+            List<AW_Column_bean> list = new List<AW_Column_bean>();
+            foreach (AW_Column_bean bean1 in this.funcGetColumns())
+            {
+                if (bean1.fdColuID == columnId)
+                {
+                    foreach (AW_Column_bean bean2 in bean1.Children)
+                    {
+                        list.Add(bean2);
+                    }
+                    break;
+                }
+            }
+            return list;
+        }
     }
 }

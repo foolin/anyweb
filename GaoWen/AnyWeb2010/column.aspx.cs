@@ -22,23 +22,45 @@ public partial class column : System.Web.UI.Page
         {
             WebAgent.AlertAndBack("栏目不存在！");
         }
-        bean = new AW_Column_dao().funcGetColumnIndex(int.Parse(columnID));
-        if (bean == null)
+        if (!string.IsNullOrEmpty(Request.QueryString["byadmin"] + ""))
         {
-            WebAgent.AlertAndBack("栏目不存在！");
-        }
-        
-        this.Title = bean.fdColuName + GeneralConfigs.GetConfig().TitleExtension;
-        if (bean.fdColuParentID == 0)
-        {
-            repColumn.DataSource = new AW_Column_dao().funcGetColumnList(bean.fdColuID);
-            repColumn.DataBind();
+            bean = new AW_Column_dao().funcGetColumnInfo(int.Parse(columnID));
+            if (bean == null)
+            {
+                WebAgent.AlertAndBack("栏目不存在！");
+            }
+
+            if (bean.fdColuParentID == 0)
+            {
+                repColumn.DataSource = new AW_Column_dao().funcGetColumnListByAdmin(bean.fdColuID);
+                repColumn.DataBind();
+            }
+            else
+            {
+                repColumn.DataSource = new AW_Column_dao().funcGetColumnListByAdmin(bean.Parent.fdColuID);
+                repColumn.DataBind();
+            }
         }
         else
         {
-            repColumn.DataSource = new AW_Column_dao().funcGetColumnList(bean.Parent.fdColuID);
-            repColumn.DataBind();
+            bean = new AW_Column_dao().funcGetColumnIndex(int.Parse(columnID));
+            if (bean == null)
+            {
+                WebAgent.AlertAndBack("栏目不存在！");
+            }
+
+            if (bean.fdColuParentID == 0)
+            {
+                repColumn.DataSource = new AW_Column_dao().funcGetColumnList(bean.fdColuID);
+                repColumn.DataBind();
+            }
+            else
+            {
+                repColumn.DataSource = new AW_Column_dao().funcGetColumnList(bean.Parent.fdColuID);
+                repColumn.DataBind();
+            }
         }
+        this.Title = bean.fdColuName + GeneralConfigs.GetConfig().TitleExtension;
         Context.Items.Add("COLUMN", bean);
     }
 
@@ -56,6 +78,7 @@ public partial class column : System.Web.UI.Page
         switch (columnID)
         {
             case 122:
+            case 124:
                 return 1;
             default:
                 return 2;

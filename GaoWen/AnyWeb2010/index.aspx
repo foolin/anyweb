@@ -8,7 +8,7 @@
         <div class="colMain">
             <uc1:menu ID="menu1" runat="server" />
             <div class="focus">
-                <a href="<%=adList[0].fdAdLink %>"><img src="<%=adList[0].fdAdPic %>" alt="焦点图片" border="0" /></a>
+                <a href="<%=adList[0].fdAdLink %>"><img src="<%=adList[0].fdAdPic %>" alt="高闻顾问" border="0" /></a>
             </div>
             <div class="clear">
             </div>

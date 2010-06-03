@@ -2,13 +2,13 @@
 <xmenu xmlns="http://schema.fortuneage.com/xmenu-1.0">
 	<xMenuItem id="1" url="Index.aspx" name="商城管理系统" module="0">
     <xMenuItem id="4" name="文章" module="4">
-      <xMenuItem id="401" url ="/Admin/ArticleList.aspx" name ="文章列表" >
+      <xMenuItem id="401" url ="/Admin/ArticleList.aspx" name ="文章管理" >
         <xMenuItem url ="/Admin/ArticleAdd.aspx" name ="添加文章" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/ArticleEdit.aspx" name ="修改文章" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/ArticleDel.aspx" name ="删除文章" type="3" ></xMenuItem>
       </xMenuItem>
       <xMenuItem id="402" url ="/Admin/ArticleAdd.aspx" name ="添加文章" type="4"></xMenuItem>
-      <xMenuItem id="403" url ="/Admin/RelationList.aspx" name ="信息关联列表" >
+      <xMenuItem id="403" url ="/Admin/RelationList.aspx" name ="信息关联管理" >
         <xMenuItem url ="/Admin/RelationAdd.aspx" name ="添加信息关联" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/RelationEdit.aspx" name ="修改信息关联" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/RelationDel.aspx" name ="删除信息关联" type="3" ></xMenuItem>

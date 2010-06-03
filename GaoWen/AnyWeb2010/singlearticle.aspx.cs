@@ -29,16 +29,33 @@ public partial class singlearticle : System.Web.UI.Page
             WebAgent.AlertAndBack("文章不存在！");
         }
         this.Title = bean.fdArtiTitle + GeneralConfigs.GetConfig().TitleExtension;
-        column = new AW_Column_dao().funcGetColumnIndex(bean.fdArtiColumnID);   //获取所属栏目
-        if (column.fdColuParentID == 0)
+        if (!string.IsNullOrEmpty(Request.QueryString["byadmin"]) && Request.QueryString["byadmin"] == "1")
         {
-            repColumn.DataSource = new AW_Column_dao().funcGetColumnList(column.fdColuID);
-            repColumn.DataBind();
+            column = new AW_Column_dao().funcGetColumnInfo(bean.fdArtiColumnID);   //获取所属栏目
+            if (column.fdColuParentID == 0)
+            {
+                repColumn.DataSource = new AW_Column_dao().funcGetColumnListByAdmin(column.fdColuID);
+                repColumn.DataBind();
+            }
+            else
+            {
+                repColumn.DataSource = new AW_Column_dao().funcGetColumnListByAdmin(column.Parent.fdColuID);
+                repColumn.DataBind();
+            }
         }
         else
         {
-            repColumn.DataSource = new AW_Column_dao().funcGetColumnList(column.Parent.fdColuID);
-            repColumn.DataBind();
+            column = new AW_Column_dao().funcGetColumnIndex(bean.fdArtiColumnID);   //获取所属栏目
+            if (column.fdColuParentID == 0)
+            {
+                repColumn.DataSource = new AW_Column_dao().funcGetColumnList(column.fdColuID);
+                repColumn.DataBind();
+            }
+            else
+            {
+                repColumn.DataSource = new AW_Column_dao().funcGetColumnList(column.Parent.fdColuID);
+                repColumn.DataBind();
+            }
         }
         Context.Items.Add("COLUMN", column);
     }

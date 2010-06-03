@@ -12,7 +12,7 @@
         <div class="pageFocus">
             <%if (!string.IsNullOrEmpty(bean.fdColuPicture))
               {%>
-                <img src="<%=bean.fdColuPicture %>" alt="焦点图片" border="0" />
+                <img src="<%=bean.fdColuPicture %>" alt="高闻顾问" border="0" />
             <%} %>
         </div>
         <!-- end pageTopMain -->

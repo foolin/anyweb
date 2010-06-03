@@ -34,30 +34,16 @@
                 <div class="guideList">
                     <asp:Repeater ID="repHot" runat="server">
                         <ItemTemplate>
-                            · <a href="article.aspx?id=<%#Eval("fdArtiID") %>">
+                            <a href="article.aspx?id=<%#Eval("fdArtiID") %>">
                                 <%#Studio.Web.WebAgent.GetLeft((string)Eval("fdArtiTitle"),10)%></a><br />
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
             </div>
             <div class="guide2">
-                <%--<div class="guideContent">
-                    如何看流动比率？
-                    <br />
-                    <br />
-                    <a href="#">
-                        <img src="public/Images/more2.png" width="44" height="15" alt="more" border="0" /></a>
-                </div>--%>
                 <a href="#"><img src="public/images/guide_nav2.gif" alt="" /></a>
             </div>
             <div class="guide3">
-                <%--<div class="guideContent">
-                    重新了解贵公司账目
-                    <br />
-                    <br />
-                    <a href="#">
-                        <img src="public/Images/more2.png" width="44" height="15" alt="more" border="0" /></a>
-                </div>--%>
                 <a href="#"><img src="public/images/guide_nav3.gif" alt="" /></a>
             </div>
             <div class="clear">

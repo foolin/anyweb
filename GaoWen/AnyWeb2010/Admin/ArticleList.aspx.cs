@@ -22,7 +22,7 @@ public partial class Admin_ArticleList : PageAdmin
     {
         base.OnPreRender(e);
 
-        foreach(AW_Column_bean bean1 in (new AW_Column_dao()).funcGetColumns())
+        foreach (AW_Column_bean bean1 in (new AW_Column_dao()).funcGetColumns())
         {
             drpColumn.Items.Add(new ListItem(bean1.fdColuName, bean1.fdColuID.ToString()));
             if (!string.IsNullOrEmpty(QS("id")) && bean1.fdColuID == int.Parse(QS("id")))

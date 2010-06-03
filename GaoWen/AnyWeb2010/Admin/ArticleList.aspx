@@ -99,13 +99,10 @@
                             标题
                         </th>
                         <th>
-                            文章点击数
-                        </th>
-                        <th>
-                            文章排序
-                        </th>
-                        <th>
                             栏目
+                        </th>
+                        <th>
+                            文章点击数
                         </th>
                         <th class="end">
                             操 作
@@ -119,16 +116,13 @@
                                 <input type="checkbox" name="ids" value="<%# Eval("fdArtiID")%>" />
                             </td>
                             <td style="text-align: left;" class="dragTd" title="拖动排序">
-                                <a href="/article.aspx?id=<%#Eval("fdArtiID") %>" target="_blank"><%#Eval("fdArtiTitle")%></a>
-                            </td>
-                            <td>
-                                <%#Eval("fdArtiCount") %>
-                            </td>
-                            <td>
-                                <%#Eval("fdArtiSort") %>
+                                <a href="/article.aspx?id=<%#Eval("fdArtiID") %>&byadmin=1" target="_blank"><%#Eval("fdArtiTitle")%></a>
                             </td>
                             <td>
                                 <%#Eval("Column.fdColuName")%><%#(int)Eval("Column.fdColuShowIndex") == 0 ? "<span style='color:red'>(不在首页显示)</span>" : ""%>
+                            </td>
+                            <td>
+                                <%#Eval("fdArtiCount") %>
                             </td>
                             <td>
                                 <a href="ArticleEdit.aspx?id=<%# Eval("fdArtiID")%>">修改</a> <a href="ArticleDel.aspx?id=<%# Eval("fdArtiID")%>"

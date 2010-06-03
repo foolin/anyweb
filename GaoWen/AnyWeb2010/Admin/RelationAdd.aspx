@@ -35,7 +35,7 @@
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
-                添加文章</h3>
+                添加信息关联</h3>
         </div>
         <div class="mbd">
             <div class="fi">

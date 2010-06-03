@@ -19,8 +19,7 @@
         <div class="pageFocus">
             <%if (!string.IsNullOrEmpty(column.fdColuPicture))
               {%>
-            <a href="#">
-                <img src="<%=column.fdColuPicture %>" alt="焦点图片" border="0" /></a>
+                <img src="<%=column.fdColuPicture %>" alt="高闻顾问" border="0" />
             <%} %>
         </div>
     </div>

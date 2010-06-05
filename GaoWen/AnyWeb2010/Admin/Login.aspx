@@ -1,10 +1,10 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Shop_Admin_Login" %>
+Ôªø<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Shop_Admin_Login" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-    <title>AnyWebœÓƒøπ‹¿ÌœµÕ≥</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>AnyWebÈ°πÁõÆÁÆ°ÁêÜÁ≥ªÁªü</title>
     <style type="text/css">
         <!-- 
         body
@@ -57,20 +57,20 @@
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
                         <td width="31%" height="35" class="login-text02">
-                            ’  ∫≈£∫<br />
+                            Â∏ê Âè∑Ôºö<br />
                         </td>
                         <td width="69%">
                             <asp:TextBox ID="txtUserName" runat="server" MaxLength="20" Width="150"></asp:TextBox>
-                            <sw:Validator ID="valName" ControlID="txtUserName" ValidateType="Required" ErrorMessage="«Î ‰»Î’ ∫≈£°" runat="server"></sw:Validator>
+                            <sw:Validator ID="valName" ControlID="txtUserName" ValidateType="Required" ErrorMessage="ËØ∑ËæìÂÖ•Â∏êÂè∑ÔºÅ" runat="server"></sw:Validator>
                         </td>
                     </tr>
                     <tr>
                         <td height="35" class="login-text02">
-                            √‹ ¬Î£∫<br />
+                            ÂØÜ Á†ÅÔºö<br />
                         </td>
                         <td>
                             <asp:TextBox ID="txtPassword" runat="server" MaxLength="20" TextMode="Password" Width="150"></asp:TextBox>
-                            <sw:Validator ID="valPwd" ControlID="txtPassword" ValidateType="Required" ErrorMessage="«Î ‰»Î√‹¬Î£°" runat="server"></sw:Validator>
+                            <sw:Validator ID="valPwd" ControlID="txtPassword" ValidateType="Required" ErrorMessage="ËØ∑ËæìÂÖ•ÂØÜÁ†ÅÔºÅ" runat="server"></sw:Validator>
                         </td>
                     </tr>
                     <tr>
@@ -78,8 +78,8 @@
                             &nbsp;
                         </td>
                         <td>
-                            <asp:Button ID="submit" OnClick="submit_Click" runat="server" Text="µ« ¬Ω" CssClass="right-button01"></asp:Button>
-                            <input type="reset" class="right-button01" value="÷ÿ ÷√" />
+                            <asp:Button ID="submit" OnClick="submit_Click" runat="server" Text="Áôª ÈôÜ" CssClass="right-button01"></asp:Button>
+                            <input type="reset" class="right-button01" value="Èáç ÁΩÆ" />
                         </td>
                     </tr>
                 </table>

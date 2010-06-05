@@ -35,12 +35,12 @@
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
-                添加信息关联</h3>
+                添加触类旁通</h3>
         </div>
         <div class="mbd">
             <div class="fi">
                 <label>
-                    信息标题：</label>
+                    标题：</label>
                 <asp:TextBox ID="txtTitle" MaxLength="200" Width="400px" runat="server" CssClass="text"></asp:TextBox>
                 <span class="required">*</span>
                 <sw:Validator ID="Validator1" ControlID="txtTitle" ValidateType="Required" ErrorText="请输入标题"
@@ -67,7 +67,7 @@
             </div>
             <div class="fi even">
                 <label>
-                    文章排序：</label>
+                    排序：</label>
                 <asp:TextBox ID="txtSort" runat="server" Text="0" CssClass="text" Width="80"></asp:TextBox>
                 <span class="required">*</span>
                 <sw:Validator ID="Validator3" ControlID="txtSort" ValidateType="Required" ErrorText="请输入排序"

@@ -1,10 +1,10 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Left.aspx.cs" Inherits="Admin_Left" %>
+ï»¿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Left.aspx.cs" Inherits="Admin_Left" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <meta http-equiv="Content-Type" content="text/html;charset=gb2312" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <style type="text/css">
         <!-- 
         body
@@ -62,19 +62,19 @@
                                         <img src="../public/images/ico02.gif" width="35" height="35" />
                                     </td>
                                     <td width="75%" height="22" class="left-font01">
-                                        ÄúºÃ£¬<span class="left-font02"><%=admin.fdAdmiName%></span>
+                                        æ‚¨å¥½ï¼Œ<span class="left-font02"><%=admin.fdAdmiName%></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td height="22" class="left-font01">
-                                        [&nbsp;<a href="Logout.aspx" target="_top" class="left-font01">ÍË³ö</a>&nbsp;]
+                                        [&nbsp;<a href="Logout.aspx" target="_top" class="left-font01">é€€å‡º</a>&nbsp;]
                                     </td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
                 </table>
-                <!--  ÈÎÎñÏµÍ³¿ªÊ¼    -->
+                <!--  ä»»åŠ¡ç³»ç»Ÿå¼€å§‹    -->
                 <asp:Repeater ID="repMenu" runat="server" OnItemDataBound="repMenu_ItemDataBound">
                     <ItemTemplate>
                         <table width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
@@ -111,7 +111,7 @@
                         </table>
                     </ItemTemplate>
                 </asp:Repeater>
-                <!--  ÈÎÎñÏµÍ³½áÊø    -->
+                <!--  ä»»åŠ¡ç³»ç»Ÿç»“æŸ    -->
             </td>
         </tr>
     </table>

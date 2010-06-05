@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
     <ul class="Opr">
-        <li><a href="RelationAdd.aspx">添加信息关联</a></li>
+        <li><a href="RelationAdd.aspx">添加触类旁通</a></li>
     </ul>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" Runat="Server">
@@ -64,10 +64,10 @@
                 }
             }
             if (selected == false) {
-                alert("请选择文章");
+                alert("请选择触类旁通");
                 return;
             }
-            var msg = "你确认要删除选定的文章吗?";
+            var msg = "你确认要删除选定的触类旁通吗?";
             if (confirm(msg)) {
                 document.body.insertBefore(form0);
                 form0.submit();
@@ -77,7 +77,7 @@
     <div class="Mod DataList">
         <div class="mhd">
             <h3>
-                信息关联管理</h3>
+                触类旁通管理</h3>
         </div>
         <div class="fi filter">
             栏目：<asp:DropDownList ID="drpColumn" onchange="columnchange()" runat="server">

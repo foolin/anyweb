@@ -35,9 +35,9 @@
                         <tr align="center" class="editalt">
                             <td title="<%#Eval("fdColuDescription") %>" style="text-align: left; padding-left: 20px;">
                                 <a href="/column.aspx?id=<%#Eval("fdColuID") %>&byadmin=1" target="_blank">
-                                    <%#Eval("fdColuName")%></a>
-                                    <a href="javascript:childShow(<%#Eval("fdColuID") %>)" id="show_<%#Eval("fdColuID") %>" style="color:blue">[展开]</a>
-                                    <a href="javascript:childHide(<%#Eval("fdColuID") %>)" id="hide_<%#Eval("fdColuID") %>" style="display:none;color:blue;">[收缩]</a>
+                                    <%#Eval("fdColuName")%></a> <a href="javascript:childShow(<%#Eval("fdColuID") %>)"
+                                        id="show_<%#Eval("fdColuID") %>" style="color: blue">[展开]</a> <a href="javascript:childHide(<%#Eval("fdColuID") %>)"
+                                            id="hide_<%#Eval("fdColuID") %>" style="display: none; color: blue;">[收缩]</a>
                             </td>
                             <td>
                                 <img width="100" height="65" alt="<%#Eval("fdColuName")%>" src="<%#Eval("fdColuPicture") %>"
@@ -53,7 +53,7 @@
                         </tr>
                         <asp:Repeater ID="compChild" runat="server" DataSource='<%#Eval("Children") %>'>
                             <ItemTemplate>
-                                <tr align="center" class="editalt" name="child_<%#Eval("Parent.fdColuID") %>" style="display:none;">
+                                <tr align="center" class="editalt" name="child_<%#Eval("Parent.fdColuID") %>" style="display: none;">
                                     <td title="<%#Eval("fdColuDescription") %>" style="text-align: left; padding-left: 40px;">
                                         <a href="/column.aspx?id=<%#Eval("fdColuID") %>&byadmin=1" target="_blank">
                                             <%#Eval("fdColuName")%></a>
@@ -86,6 +86,7 @@
             <li>栏目最多可支持二级栏目</li>
         </ul>
     </div>
+
     <script type="text/javascript">
         function childShow(obj) {
             $("tr[name='child_" + obj + "']").show();
@@ -98,4 +99,5 @@
             $("#hide_" + obj).hide();
         }
     </script>
+
 </asp:Content>

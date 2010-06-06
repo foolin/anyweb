@@ -17,7 +17,7 @@
             <div class="colBox">
                 <div class="colTitle">
                 </div>
-                <div class="colContent">
+                <div class="colContent" style="height:317px; overflow:hidden;">
                     <div class="text">
                         <a href="<%=adList[1].fdAdLink %>">
                             <img src="<%=adList[1].fdAdPic %>" alt="more" border="0" /></a><br />

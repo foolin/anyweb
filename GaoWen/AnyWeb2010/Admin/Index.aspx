@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>AnyWeb项目管理系统</title>
+    <title>高闻顾问后台管理系统</title>
 </head>
 <frameset rows="59,*" cols="*" frameborder="no" border="0" framespacing="0">
   <frame src="top.aspx" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />

@@ -69,7 +69,7 @@
             <div class="fi">
                 <label>
                     栏目名称：</label>
-                <asp:TextBox ID="txtName" MaxLength="100" runat="server" CssClass="text" ReadOnly="true"></asp:TextBox>
+                <asp:TextBox ID="txtName" MaxLength="100" runat="server" CssClass="text"></asp:TextBox>
                 <span class="required">*</span>
                 <sw:Validator ID="Validator1" ControlID="txtName" ValidateType="Required" ErrorText="请输入栏目名"
                     ErrorMessage="请输入栏目名" runat="server">

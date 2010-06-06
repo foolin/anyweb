@@ -30,6 +30,7 @@ public partial class Admin_ColumnEdit : PageAdmin
         if (column.fdColuParentID == 0)
         {
             drpParent.Items.Add(new ListItem("没有上级栏目", "0"));
+            txtName.ReadOnly = true;
         }
         else
         {

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>AnyWeb项目管理系统</title>
+    <title>高闻顾问后台管理系统</title>
     <style type="text/css">
         <!-- 
         body

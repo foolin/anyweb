@@ -27,10 +27,17 @@ public partial class Admin_ColumnEdit : PageAdmin
         if (column == null) 
             WebAgent.AlertAndBack("新闻栏目不存在!");
 
-        foreach (AW_Column_bean bean in (new AW_Column_dao()).funcGetColumns())
+        if (column.fdColuParentID == 0)
         {
-            if( bean.fdColuID != column.fdColuID)
-                drpParent.Items.Add(new ListItem(bean.fdColuName, bean.fdColuID.ToString()));
+            drpParent.Items.Add(new ListItem("没有上级栏目", "0"));
+        }
+        else
+        {
+            foreach (AW_Column_bean bean in (new AW_Column_dao()).funcGetColumns())
+            {
+                if (bean.fdColuID != column.fdColuID)
+                    drpParent.Items.Add(new ListItem(bean.fdColuName, bean.fdColuID.ToString()));
+            }
         }
 
         txtName.Text = column.fdColuName;

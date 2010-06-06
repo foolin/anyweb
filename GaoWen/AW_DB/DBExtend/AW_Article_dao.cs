@@ -217,16 +217,17 @@ namespace AnyWeb.AW_DL
         public List<AW_Article_bean> funcGetHotArticle(int top) 
         {
             List<AW_Article_bean> list = (List<AW_Article_bean>)HttpRuntime.Cache["HOTARTICLE"];
-            if (list != null)
-                return list;
-            list = new List<AW_Article_bean>();
-            this.propSelect = "a.*";
-            this.propTableApp = "a INNER JOIN AW_Column c ON fdColuID=fdArtiColumnID";
-            this.propWhere = "fdColuShowIndex=1";
-            this.propOrder = "ORDER BY fdArtiCount DESC,fdArtiId DESC";
-            this.propTopCount = 14;
-            list = this.funcGetList();
-            HttpRuntime.Cache.Insert("HOTARTICLE", list, null, DateTime.MaxValue, TimeSpan.FromMinutes(5));
+            if (list == null)
+            {
+                list = new List<AW_Article_bean>();
+                this.propSelect = "a.*";
+                this.propTableApp = "a INNER JOIN AW_Column c ON fdColuID=fdArtiColumnID";
+                this.propWhere = "fdColuShowIndex=1";
+                this.propOrder = "ORDER BY fdArtiCount DESC,fdArtiId DESC";
+                this.propTopCount = 14;
+                list = this.funcGetList();
+                HttpRuntime.Cache.Insert("HOTARTICLE", list, null, DateTime.MaxValue, TimeSpan.FromMinutes(5));
+            }
             if (list.Count <= top)
             {
                 return list;
@@ -344,6 +345,42 @@ namespace AnyWeb.AW_DL
         {
             string cmdText = "UPDATE AW_Article SET fdArtiCount=fdArtiCount+1 WHERE fdArtiID=" + artiID;
             this.funcExecute(cmdText);
+        }
+
+        /// <summary>
+        /// 根据栏目获取文章列表(前台)
+        /// </summary>
+        /// <param name="column"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetIndexArticle(AW_Column_bean column, int pageSize, int pageIndex)
+        {
+            this.propSelect = "a.fdArtiID,a.fdArtiTitle,a.fdArtiCount,a.fdArtiContent,c.fdColuName,c.fdColuShowIndex";
+            this.propTableApp = " a INNER JOIN AW_Column c ON a.fdArtiColumnID = c.fdColuID";
+            this.propOrder = "ORDER BY a.fdArtiSort DESC,fdArtiID DESC";
+            if (column != null)
+            {
+                this.propWhere = " c.fdColuID = " + column.fdColuID.ToString();
+                if (column.Children != null)
+                {
+                    this.propWhere += " OR c.fdColuParentID = " + column.fdColuID.ToString();
+                }
+            }
+            this.propPageSize = pageSize;
+            this.propPage = pageIndex;
+            this.propGetCount = true;
+            DataSet ds = this.funcCommon();
+            List<AW_Article_bean> list = new List<AW_Article_bean>();
+            foreach (DataRow r in ds.Tables[0].Rows)
+            {
+                AW_Article_bean bean = new AW_Article_bean();
+                bean.funcFromDataRow(r);
+                bean.Column = new AW_Column_bean();
+                bean.Column.funcFromDataRow(r);
+                list.Add(bean);
+            }
+            return list;
         }
     }
 }

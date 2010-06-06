@@ -47,7 +47,7 @@
                                 <%# (int)Eval("fdColuShowIndex")==0?"<span style='color:red'>否</span>":"是" %>
                             </td>
                             <td>
-                                <a href="ColumnSort.aspx?type=up&id=<%# Eval("fdColuID")%>">排前</a> <a href="ColumnSort.aspx?type=down&id=<%# Eval("fdColuID")%>">
+                               <a href="ColumnEdit.aspx?id=<%# Eval("fdColuID")%>">修改</a> <a href="ColumnSort.aspx?type=up&id=<%# Eval("fdColuID")%>">排前</a> <a href="ColumnSort.aspx?type=down&id=<%# Eval("fdColuID")%>">
                                     排后</a>
                             </td>
                         </tr>

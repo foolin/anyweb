@@ -8,7 +8,7 @@
                 <dt><a href="article.aspx?id=<%#Eval("fdArtiID") %>">
                     <%#Eval("fdArtiTitle") %></a></dt>
                 <dd>
-                    <%#Studio.Web.WebAgent.GetLeft(Studio.Web.WebAgent.GetText((string)Eval("fdArtiContent")),18) %>
+                    <%#Studio.Web.WebAgent.GetLeft(Studio.Web.WebAgent.GetText((string)Eval("fdArtiContent")),40,false) %>
                 </dd>
             </dl>
         </ItemTemplate>

@@ -13,7 +13,7 @@
 
 <asp:Repeater ID="repParent" runat="server" EnableViewState="False">
     <ItemTemplate>
-        <div id="dropmenu<%#Eval("fdColuID") %>" class="dropmenudiv" style="width: 150px;">
+        <div id="dropmenu<%#Eval("fdColuID") %>" class="dropmenudiv_1">
         <asp:Repeater ID="repChild" runat="server" DataSource='<%#Eval("Children") %>' EnableViewState="False">
             <ItemTemplate>
                 <a href="column.aspx?id=<%#Eval("fdColuID") %>"><%#Eval("fdColuName")%></a>

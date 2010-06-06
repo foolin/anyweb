@@ -24,7 +24,7 @@
                     <tr>
                         <td width="1%">
                             <a href="../index.aspx" target="_blank">
-                                <img src="../public/images/Logo.png" height="59" border="0" /></a>
+                                <img src="../public/images/Logo.png" border="0" /></a>
                         </td>
                     </tr>
                 </table>

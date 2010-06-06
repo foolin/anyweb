@@ -15,7 +15,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected override void OnPreRender(EventArgs e)
     {
-        repHot.DataSource = new AW_Article_dao().funcGetHotArticle(5);
+        repHot.DataSource = new AW_Article_dao().funcGetHotArticle(3);
         repHot.DataBind();
     }
 

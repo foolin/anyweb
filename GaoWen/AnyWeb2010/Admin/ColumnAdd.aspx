@@ -149,7 +149,7 @@
     </div>
     <div>
         <ul class="Help">
-            <li>访问路径不能重复，允许使用英文或数字的组合，不允许使用符合或纯数字，可设置为栏目的英文单词，例如"market",则商城前台可以通过"/newslist-market.aspx"访问列表.</li>
+            <li></li>
         </ul>
     </div>
 </asp:Content>

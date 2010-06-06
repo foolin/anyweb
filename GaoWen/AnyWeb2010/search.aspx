@@ -14,7 +14,7 @@
         <div class="pageColSiderA">
             <div class="service">
                 <div class="serviceTitle">
-                    <img src="public/images/contact.jpg" border="0" alt="" />
+                    <img src="public/images/contact.jpg" border="0" alt="" style="margin-right:0px;" />
                 </div>
                 <div class="serviceNav">
                     <ul>
@@ -37,7 +37,7 @@
                     <div class="innersearch">
                         <form action="search.aspx" id="searchForm" method="post">
                         <input type="text" name="keyword" id="keyword" class="searchInput" value="<%=Request.Form["keyword"] %>" />
-                        <input type="submit" value="搜索" class="searchBtn" />
+                        <input type="submit" value="" class="searchBtn" />
                         </form>
                     </div>
                     <div class="list">

@@ -23,6 +23,7 @@ public partial class getpdf : System.Web.UI.Page
     private int Width;
     private int Height;
     private List<pdfImage> list = new List<pdfImage>();
+    bool error = false;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -41,6 +42,10 @@ public partial class getpdf : System.Web.UI.Page
         }
 
         GenerateBitmap(articleID, string.Format("{0}/renderarticle.aspx?id={1}", ConfigurationManager.AppSettings["Host"], articleID), -1, -1);
+        if (error)
+        {
+            WebAgent.FailAndGo("下载pdf失败，请稍后再试！", "/index.aspx");
+        }
         if (list.Count > 0)
         {
             createPdf(pdfPath);
@@ -86,12 +91,23 @@ public partial class getpdf : System.Web.UI.Page
 
     private void CreateBrowser()
     {
+        DateTime date = DateTime.Now;
         WebBrowser Browser = new WebBrowser();
         Browser.ScrollBarsEnabled = false;
         Browser.Navigate(Url);
         Browser.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(Browser_DocumentCompleted);
         while (Browser.ReadyState != WebBrowserReadyState.Complete)
-            System.Windows.Forms.Application.DoEvents();
+        {
+            if ((DateTime.Now - date).TotalSeconds <= 60)   //增加时间校验，防止死锁
+            {
+                System.Windows.Forms.Application.DoEvents();
+            }
+            else
+            {
+                error = true;
+                break;
+            }
+        }
         Browser.Dispose();
     }
 

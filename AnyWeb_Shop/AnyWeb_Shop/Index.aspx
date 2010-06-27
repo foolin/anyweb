@@ -15,6 +15,10 @@
     <div class="indexMainCol1" style="margin-top:10px;">
         <uc:CategoryLeft ID="CategoryLeft1" runat="server" />
         <div class="box">
+            <img src="images/adleft.jpg" alt="网购新选择－机团网" title="网购新选择－机团网" width="197" height="410" />
+        </div>
+        <uc:Link ID="Link" runat="server" />
+        <div class="box">
             <div class="title">
                 <div class="txt">
                     联系方式</div>
@@ -46,10 +50,6 @@
                 </dl>
             </div>
         </div>
-        <uc:Link ID="Link" runat="server" />
-        <div class="box">
-            <img src="images/adleft.jpg" alt="网购新选择－机团网" title="网购新选择－机团网" width="197" height="410" />
-        </div>
     </div>
     <div class="indexMainCol2" style="margin-top:10px;">
     <div class="mainCol2Space">
@@ -59,9 +59,9 @@
     </div>
     </div>
     <div class="indexMainCol3" style="margin-top:10px;">
+        <uc:GiftPackageIndex ID="GiftPackageIndex" runat="server" />
         <uc:PromotionList ID="PromotionList" runat="server" />
         <uc:HotSellRankList ID="HotSellRankList" runat="server" />
-        <uc:GiftPackageIndex ID="GiftPackageIndex" runat="server" />
     </div>
     <div class="clear">
     </div>

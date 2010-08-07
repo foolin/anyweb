@@ -141,7 +141,7 @@
             if( num.length < 4) num = "0" + num;
             document.forms[0].valcode.value = num;
             img.src = "/Admin/imageval.aspx?id=" + num;
-        }	
+        }
     </script>
 
 </body>

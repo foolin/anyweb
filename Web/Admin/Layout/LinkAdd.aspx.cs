@@ -22,7 +22,9 @@ public partial class Layout_LinkAdd : AdminBase
 
     protected override void OnPreRender(EventArgs e)
     {
-        txtLinkSort.Text = (SiteInfo.SiteLinkCount + 1).ToString();
+        drpSort.DataSource = new SortAgent().GetSortListByLink();
+        drpSort.DataBind();
+        txtLinkOrder.Text = (this.SiteInfo.SiteLinkCount + 1).ToString();
     }
 
     protected void btnAddLink_Click(object sender, EventArgs e)
@@ -30,16 +32,11 @@ public partial class Layout_LinkAdd : AdminBase
         LinkAgent agent = new LinkAgent();
         Link lnk = new Link();
         lnk.LinkName = this.txtLinkName.Text;
+        lnk.LinkSortID = int.Parse(drpSort.SelectedValue);
         lnk.LinkUrl = this.txtLinkUrl.Text;
         if (!lnk.LinkUrl.ToLower().StartsWith("http://"))
             lnk.LinkUrl = "http://" + lnk.LinkUrl;
-        lnk.LinkSort = int.Parse(this.txtLinkSort.Text);
-        if (this.imgupload.PostedFile.ContentLength > 0)
-        {
-            lnk.LinkImage = UploadImage();
-        }
-        else
-            WebAgent.AlertAndBack("请上传图片！");
+        lnk.LinkOrder = int.Parse(this.txtLinkOrder.Text);
         if (agent.AddLink(lnk))
         {
             SiteInfo.SiteLinkCount += 1;
@@ -53,21 +50,5 @@ public partial class Layout_LinkAdd : AdminBase
         }
         else
             WebAgent.AlertAndBack("添加友情链接失败");
-    }
-
-    protected string UploadImage()
-    {
-        if (this.imgupload.PostedFile.ContentType.IndexOf("image") == -1)
-        {
-            WebAgent.AlertAndBack("请选择一个文件");
-            return "";
-        }
-
-        string photo = "/SiteData/Link/";
-        if (!Directory.Exists(Server.MapPath(photo)))
-            Directory.CreateDirectory(Server.MapPath(photo));
-        photo += DateTime.Now.ToString("yyMMddHHmmssfff") + Path.GetExtension(this.imgupload.PostedFile.FileName);
-        WebAgent.SaveFile(this.imgupload.PostedFile, Server.MapPath(photo), 160, 50, true);
-        return photo;
     }
 }

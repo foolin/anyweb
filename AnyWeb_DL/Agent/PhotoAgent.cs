@@ -17,14 +17,18 @@ namespace AnyWeb.AnyWeb_DL
         /// <param name="PageSize"></param>
         /// <param name="PageIndex"></param>
         /// <param name="RecordCount"></param>
+        /// <param name="SortID"></param>
+        /// <param name="Name"></param>
         /// <returns></returns>
-        public ArrayList GetPhotoList(int PageSize, int PageIndex, out int RecordCount)
+        public ArrayList GetPhotoList(int SortID, string Name, int PageSize, int PageIndex, out int RecordCount)
         {
             DataSet ds;
             using (IDbExecutor db = this.NewExecutor())
             {
                 IDbDataParameter record = this.NewParam("@RecordCount", 0, DbType.Int32, 4, true);
                 ds = db.GetDataSet(CommandType.StoredProcedure, "GetPhotoList",
+                    this.NewParam("@SortID", SortID),
+                    this.NewParam("@PhotName", Name),
                     this.NewParam("@PageSize", PageSize),
                     this.NewParam("@PageNo", PageIndex),
                     record);
@@ -34,6 +38,7 @@ namespace AnyWeb.AnyWeb_DL
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 Photo phot = new Photo(row);
+                phot.PhotSortName = (string)row["SortName"];
                 list.Add(phot);
             }
             return list;
@@ -72,6 +77,7 @@ namespace AnyWeb.AnyWeb_DL
             {
                 return db.ExecuteNonQuery(CommandType.StoredProcedure, "AddPhoto",
                     this.NewParam("@PhotName", phot.PhotName),
+                    this.NewParam("@SortID", phot.PhotSortID),
                     this.NewParam("@PhotUrl", phot.PhotUrl),
                     this.NewParam("@PhotPath", phot.PhotPath),
                     this.NewParam("@PhotOrder", phot.PhotOrder),
@@ -91,6 +97,7 @@ namespace AnyWeb.AnyWeb_DL
                 return db.ExecuteNonQuery(CommandType.StoredProcedure, "UpdatePhotoInfo",
                     this.NewParam("@PhotID", phot.PhotID),
                     this.NewParam("@PhotName", phot.PhotName),
+                    this.NewParam("@SortID", phot.PhotSortID),
                     this.NewParam("@PhotUrl", phot.PhotUrl),
                     this.NewParam("@PhotPath", phot.PhotPath),
                     this.NewParam("@PhotOrder", phot.PhotOrder),

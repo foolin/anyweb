@@ -35,7 +35,8 @@
                         <td width="15%" align="right">
                             文章栏目：</td>
                         <td width="85%" align="left">
-                            <asp:DropDownList ID="drpColumn" runat="server" DataTextField="ColuName" DataValueField="ColuID">
+                            <asp:DropDownList ID="drpColumn" runat="server" DataTextField="ColuName" 
+                                DataValueField="ColuID" Height="16px">
                             </asp:DropDownList></td>
                     </tr>
                     <tr>

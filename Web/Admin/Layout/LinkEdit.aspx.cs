@@ -27,13 +27,14 @@ public partial class Layout_LinkEdit : AdminBase
         Link lnk = new LinkAgent().GetLinkInfo(int.Parse(QS("id")));
         if (lnk == null)
             WebAgent.AlertAndBack("友情链接不存在");
+
+        drpSort.DataSource = new SortAgent().GetSortListByLink();
+        drpSort.DataBind();
+
+        drpSort.SelectedValue = lnk.LinkSortID.ToString();
         txtLinkName.Text = lnk.LinkName;
         txtLinkUrl.Text = lnk.LinkUrl;
-        if (string.IsNullOrEmpty(lnk.LinkImage))
-            imgPhoto.Visible = false;
-        else
-            imgPhoto.ImageUrl = lnk.LinkImage;
-        txtLinkSort.Text = lnk.LinkSort.ToString();
+        txtLinkOrder.Text = lnk.LinkOrder.ToString();
     }
 
     protected void btnEditLink_Click(object sender, EventArgs e)
@@ -41,10 +42,9 @@ public partial class Layout_LinkEdit : AdminBase
         LinkAgent agent = new LinkAgent();
         Link lnk = new LinkAgent().GetLinkInfo(int.Parse(QS("id")));
         lnk.LinkName = this.txtLinkName.Text;
+        lnk.LinkSortID = int.Parse(drpSort.SelectedValue);
         lnk.LinkUrl = this.txtLinkUrl.Text;
-        lnk.LinkSort = int.Parse(txtLinkSort.Text);
-        if (this.imgupload.PostedFile.ContentLength > 0)
-            lnk.LinkImage = UploadImage();
+        lnk.LinkOrder = int.Parse(txtLinkOrder.Text);
         if (new LinkAgent().UpdateLinkInfo(lnk) > 0)
         {
             EventLog log = new EventLog();
@@ -57,21 +57,5 @@ public partial class Layout_LinkEdit : AdminBase
         }
         else
             WebAgent.AlertAndBack("修改友情链接失败");
-    }
-
-    protected string UploadImage()
-    {
-        if (this.imgupload.PostedFile.ContentType.IndexOf("image") == -1)
-        {
-            WebAgent.AlertAndBack("请选择一个文件");
-            return "";
-        }
-
-        string photo = "/SiteData/Link/";
-        if (!Directory.Exists(Server.MapPath(photo)))
-            Directory.CreateDirectory(Server.MapPath(photo));
-        photo += DateTime.Now.ToString("yyMMddHHmmssfff") + Path.GetExtension(this.imgupload.PostedFile.FileName);
-        WebAgent.SaveFile(this.imgupload.PostedFile, Server.MapPath(photo), 160, 50, true);
-        return photo;
     }
 }

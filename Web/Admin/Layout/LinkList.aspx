@@ -29,28 +29,34 @@
     <div id="main_content">
         <div id="content">
             <div class="NewsList">
+                <div>
+                    分类：<asp:DropDownList ID="drpSort" runat="server" DataTextField="LinkSortName" DataValueField="LinkSortID">
+                    </asp:DropDownList>
+                    <asp:TextBox ID="txtName" runat="server" ToolTip="连接名称"></asp:TextBox>
+                    <input type="button" value="分类" id="btnsearch" onclick="return searchLink();" />
+                </div>
                 <table width="100%" cellspacing="0" border="0">
                     <tr bgcolor="#E6F2FF">
                         <td>
                             名称</td>
                         <td>
-                            图片</td>
+                            类别</td>
                         <td>
                             排序</td>
                         <td>
                             操作</td>
                     </tr>
-                    <asp:Repeater ID="drpLink" runat="server">
+                    <asp:Repeater ID="repLink" runat="server">
                         <ItemTemplate>
                             <tr onmouseover="this.style.background='#E6F2FF';" onmouseout="this.style.background='#FFFFFF'" style="height:60px;">
                                 <td>
                                     <a href="<%#Eval("LinkUrl") %>" target="_blank"><%#Eval("LinkName")%></a>
                                 </td>
                                 <td>
-                                    <%#Eval("LinkImage").ToString() == "" ? "" : "<a href=\"" + Eval("LinkUrl") + "\" target=\"_blank\"><img src=\"" + Eval("LinkImage") + "\" class=\"img\" width=\"160\" height=\"50\" alt=\"" + Eval("LinkName") + "\" /></a>"%>
+                                    <%#Eval("LinkSortName")%>
                                 </td>
                                 <td>
-                                    <%#Eval("LinkSort") %>
+                                    <%#Eval("LinkOrder") %>
                                 </td>
                                 <td>
                                     <a href="LinkEdit.aspx?id=<%#Eval("LinkID") %>" title="修改友情链接">修改</a> <a href="LinkDel.aspx?id=<%#Eval("LinkID") %>"
@@ -66,4 +72,12 @@
             </div>
         </div>
     </div>
+    <script type="text/jscript">
+        function searchLink()
+        {
+            var url="?c="+document.getElementById("<%=drpSort.ClientID %>").value;
+            url+="&t="+document.getElementById("<%=txtName.ClientID %>").value;
+            window.location=url;
+        }
+    </script>
 </asp:Content>

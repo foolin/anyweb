@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{BBDDD2C1-2B22-42CD-BFB7-B21D0795B438}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -46,6 +46,7 @@
     <Compile Include="Agent\NoticeAgent.cs" />
     <Compile Include="Agent\PhotoAgent.cs" />
     <Compile Include="Agent\SiteAgent.cs" />
+    <Compile Include="Agent\SortAgent.cs" />
     <Compile Include="Agent\UserAgent.cs" />
     <Compile Include="Common\Active.cs" />
     <Compile Include="Common\Article.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Common\Photo.cs" />
     <Compile Include="Common\Site.cs" />
     <Compile Include="Common\Slide.cs" />
+    <Compile Include="Common\Sort.cs" />
     <Compile Include="Common\User.cs" />
     <Compile Include="Common\VoteAnswer.cs" />
     <Compile Include="Common\VoteQuestion.cs" />

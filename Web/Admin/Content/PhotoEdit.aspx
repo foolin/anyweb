@@ -30,6 +30,14 @@
                 <table cellpadding="0" cellspacing="0" width="100%">
                     <tr>
                         <td width="15%" align="right">
+                            图片类别：</td>
+                        <td width="85%" align="left">
+                            <asp:DropDownList ID="drpSort" runat="server" DataTextField="SortName" 
+                                DataValueField="SortID" Height="16px">
+                            </asp:DropDownList></td>
+                    </tr>
+                    <tr>
+                        <td width="15%" align="right">
                             图片名称：</td>
                         <td width="85%" align="left">
                             <asp:TextBox ID="txtPhotName" runat="server" Width="200" MaxLength="50" require="1" errmsg="请输入图片名称" ToolTip="最多50个字符"></asp:TextBox>

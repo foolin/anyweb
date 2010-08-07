@@ -14,9 +14,9 @@ namespace AnyWeb.AnyWeb_DL
         {
             this.LinkID = (int)row["LinkID"];
             this.LinkName = (string)row["LinkName"];
-            this.LinkImage = (string)row["LinkImage"];
             this.LinkUrl = (string)row["LinkUrl"];
-            this.LinkSort = (int)row["LinkSort"];
+            this.LinkOrder = (int)row["LinkOrder"];
+            this.LinkSortID = (int)row["LinkSortID"];
         }
 
         private int _LinkID;
@@ -48,25 +48,36 @@ namespace AnyWeb.AnyWeb_DL
             get { return _LinkUrl; }
             set { _LinkUrl = value; }
         }
+        
 
-        private string _LinkImage;
-        /// <summary>
-        /// 图片路径
-        /// </summary>
-        public string LinkImage
-        {
-            get { return _LinkImage; }
-            set { _LinkImage = value; }
-        }
-
-        private int _LinkSort;
+        private int _LinkOrder;
         /// <summary>
         /// 排序
         /// </summary>
-        public int LinkSort
+        public int LinkOrder
         {
-            get { return _LinkSort; }
-            set { _LinkSort = value; }
+            get { return _LinkOrder; }
+            set { _LinkOrder = value; }
+        }
+
+        private int _LinkSortID;
+        /// <summary>
+        /// 类别ID
+        /// </summary>
+        public int LinkSortID
+        {
+            get { return _LinkSortID; }
+            set { _LinkSortID = value; }
+        }
+
+        private string _LinkSortName;
+        /// <summary>
+        /// 类别名称
+        /// </summary>
+        public string LinkSortName
+        {
+            get { return _LinkSortName; }
+            set { _LinkSortName = value; }
         }
     }
 }

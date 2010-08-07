@@ -28,10 +28,18 @@
      <div id="main_content">
         <div id="content">
             <div class="NewsList">
+                <div>
+                    分类：<asp:DropDownList ID="drpSort" runat="server" DataTextField="SortName" DataValueField="SortID">
+                    </asp:DropDownList>
+                    <asp:TextBox ID="txtName" runat="server" ToolTip="图片名称"></asp:TextBox>
+                    <input type="button" value="搜索" id="btnsearch" onclick="return searchPhoto();" />
+                </div>
                 <table width="100%" cellspacing="0" border="0">
                     <tr bgcolor="#E6F2FF">
                         <td>
                             名称</td>
+                        <td>
+                            类别</td>
                         <td>
                             图片</td>
                         <td>
@@ -41,11 +49,14 @@
                         <td>
                             操作</td>
                     </tr>
-                    <asp:Repeater ID="drpPhoto" runat="server">
+                    <asp:Repeater ID="repPhoto" runat="server">
                         <ItemTemplate>
                             <tr onmouseover="this.style.background='#E6F2FF';" onmouseout="this.style.background='#FFFFFF'" style="height:60px;">
                                 <td>
                                     <%#Eval("PhotName")%>
+                                </td>
+                                <td>
+                                    <%#Eval("PhotSortName")%>
                                 </td>
                                 <td>
                                     <a href="<%#Eval("PhotPath")%>" target="_blank" title="点击查看大图"><img src="<%#Eval("PhotPath")%>" width="150" height="100" class="img" alt="<%#Eval("PhotName")%>" /></a>
@@ -70,5 +81,13 @@
             </div>
         </div>
     </div>   
+    <script type="text/jscript">
+        function searchPhoto()
+        {
+            var url="?c="+document.getElementById("<%=drpSort.ClientID %>").value;
+            url+="&t="+document.getElementById("<%=txtName.ClientID %>").value;
+            window.location=url;
+        }
+    </script>
 </asp:Content>
 

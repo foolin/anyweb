@@ -1,0 +1,7 @@
+C:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\bin\Release\AnyWeb_DL.dll
+C:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\bin\Release\AnyWeb_DL.pdb
+C:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\bin\Release\Studio.dll
+C:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\bin\Release\Studio.pdb
+C:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\obj\Release\AnyWeb_DL.dll
+C:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\obj\Release\AnyWeb_DL.pdb

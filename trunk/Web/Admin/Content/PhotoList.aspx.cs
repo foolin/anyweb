@@ -19,9 +19,18 @@ public partial class Admin_Content_PhotoList : AdminBase
 
     protected override void OnPreRender(EventArgs e)
     {
+        drpSort.DataSource = new SortAgent().GetSortListByPhoto();
+        drpSort.DataBind();
+        drpSort.Items.Insert(0, new ListItem("所有类别", "0"));
+
+        if (QS("s") != "")
+            drpSort.SelectedValue = QS("s");
+        if (QS("n") != "")
+            txtName.Text = QS("n");
+
         int RecordCount = 0;
-        drpPhoto.DataSource = new PhotoAgent().GetPhotoList(PN1.PageSize, PN1.PageIndex, out RecordCount);
-        drpPhoto.DataBind();
+        repPhoto.DataSource = new PhotoAgent().GetPhotoList(int.Parse(drpSort.SelectedValue), txtName.Text, PN1.PageSize, PN1.PageIndex, out RecordCount);
+        repPhoto.DataBind();
         PN1.SetPage(RecordCount);
     }
 }

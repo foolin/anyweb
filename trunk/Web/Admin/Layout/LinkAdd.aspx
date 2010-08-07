@@ -30,6 +30,13 @@
                 <table cellpadding="0" cellspacing="0" width="100%">
                     <tr>
                         <td width="15%" align="right">
+                            链接类别：</td>
+                        <td width="85%" align="left">
+                            <asp:DropDownList ID="drpSort" runat="server" DataTextField="LinkSortName" DataValueField="LinkSortID">
+                            </asp:DropDownList></td>
+                    </tr>
+                    <tr>
+                        <td width="15%" align="right">
                             链接名称：</td>
                         <td width="85%" align="left">
                             <asp:TextBox ID="txtLinkName" runat="server" Width="200" MaxLength="50" require="1" errmsg="请输入链接名称" ToolTip="最多50个字符"></asp:TextBox>
@@ -42,17 +49,11 @@
                             <asp:TextBox ID="txtLinkUrl" runat="server" Width="200" MaxLength="200" require="1" errmsg="链接URL格式不正确" datatype="url" ToolTip="最多200个字符" Text="http://"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr id="trupload">
-                        <td align="right">
-                            链接图片：</td>
-                        <td>
-                            <asp:FileUpload ID="imgupload" runat="server" Width="275" /></td>
-                    </tr>
                     <tr>
                         <td align="right">
                             链接排序：</td>
                         <td>
-                            <asp:TextBox ID="txtLinkSort" runat="server" Width="50" require="1" errmsg="排序格式不正确" datatype="number" Text="0"></asp:TextBox> （必须为数字）
+                            <asp:TextBox ID="txtLinkOrder" runat="server" Width="50" require="1" errmsg="排序格式不正确" datatype="number" Text="0"></asp:TextBox> （必须为数字）
                         </td>
                     </tr>
                     <tr>

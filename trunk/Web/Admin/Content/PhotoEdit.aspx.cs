@@ -27,6 +27,11 @@ public partial class Admin_Content_PhotoEdit : AdminBase
         Photo phot = new PhotoAgent().GetPhotoInfo(int.Parse(QS("id")));
         if (phot == null)
             WebAgent.AlertAndBack("图片不存在");
+
+        drpSort.DataSource = new SortAgent().GetSortListByPhoto();
+        drpSort.DataBind();
+
+        drpSort.SelectedValue = phot.PhotSortID.ToString();
         txtPhotName.Text = phot.PhotName;
         txtPhotUrl.Text = phot.PhotUrl;
         imgPhoto.ImageUrl = phot.PhotPath;
@@ -40,6 +45,7 @@ public partial class Admin_Content_PhotoEdit : AdminBase
         phot.PhotName = this.txtPhotName.Text;
         phot.PhotUrl = this.txtPhotUrl.Text;
         phot.PhotOrder = int.Parse(this.txtPhotSort.Text);
+        phot.PhotSortID = int.Parse(drpSort.SelectedValue);
         phot.PhotPath = imgPhoto.ImageUrl;
         phot.PhotUploadAt = DateTime.Now;
         if (phot.PhotName == "")

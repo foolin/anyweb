@@ -21,6 +21,7 @@ namespace AnyWeb.AnyWeb_DL
             this.PhotPath = (string)row["PhotPath"];
             this.PhotOrder = (int)row["PhotOrder"];
             this.PhotUploadAt = (DateTime)row["PhotUploadAt"];
+            this.PhotSortID = (int)row["PhotSortID"];
         }
 
         private int _PhotID;
@@ -82,6 +83,25 @@ namespace AnyWeb.AnyWeb_DL
             get { return _PhotUploadAt; }
             set { _PhotUploadAt = value; }
         }
-	
+
+        private int _PhotSortID;
+        /// <summary>
+        /// À¸Ä¿ID
+        /// </summary>
+        public int PhotSortID
+        {
+            get { return _PhotSortID; }
+            set { _PhotSortID = value; }
+        }
+
+        private string _PhotSortName;
+        /// <summary>
+        /// À¸Ä¿Ãû³Æ
+        /// </summary>
+        public string PhotSortName
+        {
+            get { return _PhotSortName; }
+            set { _PhotSortName = value; }
+        }
     }
 }

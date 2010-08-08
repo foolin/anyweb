@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
@@ -21,7 +21,7 @@ namespace AnyWeb.AnyWeb_DL
 
         private int _LinkID;
         /// <summary>
-        /// 链接ID
+        /// 閾炬帴ID
         /// </summary>
         public int LinkID
         {
@@ -31,7 +31,7 @@ namespace AnyWeb.AnyWeb_DL
 
         private string _LinkName;
         /// <summary>
-        /// 链接名称
+        /// 閾炬帴鍚嶇О
         /// </summary>
         public string LinkName
         {
@@ -41,7 +41,7 @@ namespace AnyWeb.AnyWeb_DL
 
         private string _LinkUrl;
         /// <summary>
-        /// 链接地址
+        /// 閾炬帴鍦板潃
         /// </summary>
         public string LinkUrl
         {
@@ -51,7 +51,7 @@ namespace AnyWeb.AnyWeb_DL
 
         private int _LinkOrder;
         /// <summary>
-        /// 排序
+        /// 鎺掑簭
         /// </summary>
         public int LinkOrder
         {
@@ -61,7 +61,7 @@ namespace AnyWeb.AnyWeb_DL
 
         private int _LinkCateID;
         /// <summary>
-        /// 类别ID
+        /// 绫诲埆ID
         /// </summary>
         public int LinkCateID
         {

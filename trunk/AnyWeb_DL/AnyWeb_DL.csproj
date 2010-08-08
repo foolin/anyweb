@@ -42,7 +42,9 @@
     <Compile Include="Agent\ArticleAgent.cs" />
     <Compile Include="Agent\ColumnAgent.cs" />
     <Compile Include="Agent\EventLogAgent.cs" />
+    <Compile Include="Agent\LinkAgent.cs" />
     <Compile Include="Agent\NoticeAgent.cs" />
+    <Compile Include="Agent\PhotoAgent.cs" />
     <Compile Include="Agent\SiteAgent.cs" />
     <Compile Include="Agent\UserAgent.cs" />
     <Compile Include="Common\Active.cs" />
@@ -50,8 +52,10 @@
     <Compile Include="Common\Column.cs" />
     <Compile Include="Common\EventLog.cs" />
     <Compile Include="Common\Leave.cs" />
+    <Compile Include="Common\Link.cs" />
     <Compile Include="Common\Navigation.cs" />
     <Compile Include="Common\Notice.cs" />
+    <Compile Include="Common\Photo.cs" />
     <Compile Include="Common\Site.cs" />
     <Compile Include="Common\Slide.cs" />
     <Compile Include="Common\Sort.cs" />

@@ -32,8 +32,13 @@
                         <td width="15%" align="right">
                             链接类别：</td>
                         <td width="85%" align="left">
-                            <asp:DropDownList ID="drpSort" runat="server" DataTextField="LinkSortName" DataValueField="LinkSortID">
-                            </asp:DropDownList></td>
+                             <asp:DropDownList ID="type" runat="server" onchange="searchLink()">
+                                <asp:ListItem Text="政府部门网站" Value="1"></asp:ListItem>
+                                <asp:ListItem Text="省外供销网站" Value="2"></asp:ListItem>
+                                <asp:ListItem Text="广州市供销合作社" Value="3"></asp:ListItem>
+                                <asp:ListItem Text="社有企业网站" Value="4"></asp:ListItem>
+                            </asp:DropDownList>
+                        </td>
                     </tr>
                     <tr>
                         <td width="15%" align="right">

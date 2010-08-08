@@ -28,10 +28,7 @@ public partial class Layout_LinkEdit : AdminBase
         if (lnk == null)
             WebAgent.AlertAndBack("友情链接不存在");
 
-        drpSort.DataSource = new SortAgent().GetSortListByLink();
-        drpSort.DataBind();
-
-        drpSort.SelectedValue = lnk.LinkSortID.ToString();
+        type.SelectedValue = lnk.LinkCateID.ToString();
         txtLinkName.Text = lnk.LinkName;
         txtLinkUrl.Text = lnk.LinkUrl;
         txtLinkOrder.Text = lnk.LinkOrder.ToString();
@@ -42,7 +39,7 @@ public partial class Layout_LinkEdit : AdminBase
         LinkAgent agent = new LinkAgent();
         Link lnk = new LinkAgent().GetLinkInfo(int.Parse(QS("id")));
         lnk.LinkName = this.txtLinkName.Text;
-        lnk.LinkSortID = int.Parse(drpSort.SelectedValue);
+        lnk.LinkCateID = int.Parse(type.SelectedValue);
         lnk.LinkUrl = this.txtLinkUrl.Text;
         lnk.LinkOrder = int.Parse(txtLinkOrder.Text);
         if (new LinkAgent().UpdateLinkInfo(lnk) > 0)

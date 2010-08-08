@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using AnyWeb.AnyWeb_DL;
+using Studio.Web;
 
 public partial class Layout_LinkList : AdminBase
 {
@@ -19,18 +20,22 @@ public partial class Layout_LinkList : AdminBase
 
     protected override void OnPreRender(EventArgs e)
     {
-        drpSort.DataSource = new SortAgent().GetSortListByLink();
-        drpSort.DataBind();
-        drpSort.Items.Insert(0, new ListItem("所有类别", "0"));
-
-        if (QS("s") != "")
-            drpSort.SelectedValue = QS("s");
-        if (QS("n") != "")
-            txtName.Text = QS("n");
-
+        type.SelectedValue = QS("type");
         int RecordCount = 0;
-        repLink.DataSource = new LinkAgent().GetLinkList(int.Parse(drpSort.SelectedValue), txtName.Text, PN1.PageSize, PN1.PageIndex, out RecordCount);
+        repLink.DataSource = new LinkAgent().GetLinkList(int.Parse(type.SelectedValue), PN1.PageSize, PN1.PageIndex, out RecordCount);
         repLink.DataBind();
         PN1.SetPage(RecordCount);
+    }
+
+    protected string getCateName(int cateID)
+    {
+        switch (cateID)
+        {
+            case 1: return "政府部门网站";
+            case 2: return "省外供销网站";
+            case 3: return "广州市供销合作社";
+            case 4: return "社有企业网站";
+            default: return "政府部门网站";
+        }
     }
 }

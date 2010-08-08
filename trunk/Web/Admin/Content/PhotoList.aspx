@@ -29,10 +29,13 @@
         <div id="content">
             <div class="NewsList">
                 <div>
-                    分类：<asp:DropDownList ID="drpSort" runat="server" DataTextField="SortName" DataValueField="SortID">
+                    分类：
+                    <asp:DropDownList ID="type" runat="server" onchange="searchPhoto()">
+                        <asp:ListItem Text="首页幻灯片" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="网上菜篮子" Value="2"></asp:ListItem>
+                        <asp:ListItem Text="知名合作企业" Value="3"></asp:ListItem>
+                        <asp:ListItem Text="先进单位" Value="4"></asp:ListItem>
                     </asp:DropDownList>
-                    <asp:TextBox ID="txtName" runat="server" ToolTip="图片名称"></asp:TextBox>
-                    <input type="button" value="搜索" id="btnsearch" onclick="return searchPhoto();" />
                 </div>
                 <table width="100%" cellspacing="0" border="0">
                     <tr bgcolor="#E6F2FF">
@@ -56,7 +59,7 @@
                                     <%#Eval("PhotName")%>
                                 </td>
                                 <td>
-                                    <%#Eval("PhotSortName")%>
+                                    <%#getCateName((int)Eval("PhotCateID")) %>
                                 </td>
                                 <td>
                                     <a href="<%#Eval("PhotPath")%>" target="_blank" title="点击查看大图"><img src="<%#Eval("PhotPath")%>" width="150" height="100" class="img" alt="<%#Eval("PhotName")%>" /></a>
@@ -84,8 +87,7 @@
     <script type="text/jscript">
         function searchPhoto()
         {
-            var url="?c="+document.getElementById("<%=drpSort.ClientID %>").value;
-            url+="&t="+document.getElementById("<%=txtName.ClientID %>").value;
+            var url="?type="+document.getElementById("<%=type.ClientID %>").value;
             window.location=url;
         }
     </script>

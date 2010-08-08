@@ -28,14 +28,11 @@ public partial class Admin_Content_PhotoEdit : AdminBase
         if (phot == null)
             WebAgent.AlertAndBack("图片不存在");
 
-        drpSort.DataSource = new SortAgent().GetSortListByPhoto();
-        drpSort.DataBind();
-
-        drpSort.SelectedValue = phot.PhotSortID.ToString();
+        type.SelectedValue = phot.PhotCateID.ToString();
         txtPhotName.Text = phot.PhotName;
         txtPhotUrl.Text = phot.PhotUrl;
         imgPhoto.ImageUrl = phot.PhotPath;
-        txtPhotSort.Text = phot.PhotOrder.ToString();
+        txtPhotOrder.Text = phot.PhotOrder.ToString();
     }
     protected void btnEidtPhoto_Click(object sender, EventArgs e)
     {
@@ -44,8 +41,8 @@ public partial class Admin_Content_PhotoEdit : AdminBase
         phot.PhotID = int.Parse(QS("id"));
         phot.PhotName = this.txtPhotName.Text;
         phot.PhotUrl = this.txtPhotUrl.Text;
-        phot.PhotOrder = int.Parse(this.txtPhotSort.Text);
-        phot.PhotSortID = int.Parse(drpSort.SelectedValue);
+        phot.PhotOrder = int.Parse(this.txtPhotOrder.Text);
+        phot.PhotCateID = int.Parse(type.SelectedValue);
         phot.PhotPath = imgPhoto.ImageUrl;
         phot.PhotUploadAt = DateTime.Now;
         if (phot.PhotName == "")

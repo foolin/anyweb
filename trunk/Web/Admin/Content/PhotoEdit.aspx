@@ -32,9 +32,13 @@
                         <td width="15%" align="right">
                             图片类别：</td>
                         <td width="85%" align="left">
-                            <asp:DropDownList ID="drpSort" runat="server" DataTextField="SortName" 
-                                DataValueField="SortID" Height="16px">
-                            </asp:DropDownList></td>
+                            <asp:DropDownList ID="type" runat="server" onchange="searchPhoto()">
+                                <asp:ListItem Text="首页幻灯片" Value="1"></asp:ListItem>
+                                <asp:ListItem Text="网上菜篮子" Value="2"></asp:ListItem>
+                                <asp:ListItem Text="知名合作企业" Value="3"></asp:ListItem>
+                                <asp:ListItem Text="先进单位" Value="4"></asp:ListItem>
+                            </asp:DropDownList>
+                        </td>
                     </tr>
                     <tr>
                         <td width="15%" align="right">
@@ -65,7 +69,7 @@
                         <td align="right">
                             图片排序：</td>
                         <td>
-                            <asp:TextBox ID="txtPhotSort" runat="server" Width="50" require="1" errmsg="排序格式不正确" datatype="number" Text="0"></asp:TextBox> （必须为数字）
+                            <asp:TextBox ID="txtPhotOrder" runat="server" Width="50" require="1" errmsg="排序格式不正确" datatype="number" Text="0"></asp:TextBox> （必须为数字）
                         </td>
                     </tr>
                     <tr>

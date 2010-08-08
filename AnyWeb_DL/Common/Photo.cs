@@ -21,7 +21,7 @@ namespace AnyWeb.AnyWeb_DL
             this.PhotPath = (string)row["PhotPath"];
             this.PhotOrder = (int)row["PhotOrder"];
             this.PhotUploadAt = (DateTime)row["PhotUploadAt"];
-            this.PhotSortID = (int)row["PhotSortID"];
+            this.PhotCateID = (int)row["PhotCateID"];
         }
 
         private int _PhotID;
@@ -84,24 +84,14 @@ namespace AnyWeb.AnyWeb_DL
             set { _PhotUploadAt = value; }
         }
 
-        private int _PhotSortID;
+        private int _PhotCateID;
         /// <summary>
-        /// 栏目ID
+        /// 类别ID
         /// </summary>
-        public int PhotSortID
+        public int PhotCateID
         {
-            get { return _PhotSortID; }
-            set { _PhotSortID = value; }
-        }
-
-        private string _PhotSortName;
-        /// <summary>
-        /// 栏目名称
-        /// </summary>
-        public string PhotSortName
-        {
-            get { return _PhotSortName; }
-            set { _PhotSortName = value; }
+            get { return _PhotCateID; }
+            set { _PhotCateID = value; }
         }
     }
 }

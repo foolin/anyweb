@@ -22,8 +22,6 @@ public partial class Layout_LinkAdd : AdminBase
 
     protected override void OnPreRender(EventArgs e)
     {
-        drpSort.DataSource = new SortAgent().GetSortListByLink();
-        drpSort.DataBind();
         txtLinkOrder.Text = (this.SiteInfo.SiteLinkCount + 1).ToString();
     }
 
@@ -32,7 +30,7 @@ public partial class Layout_LinkAdd : AdminBase
         LinkAgent agent = new LinkAgent();
         Link lnk = new Link();
         lnk.LinkName = this.txtLinkName.Text;
-        lnk.LinkSortID = int.Parse(drpSort.SelectedValue);
+        lnk.LinkCateID = int.Parse(type.SelectedValue);
         lnk.LinkUrl = this.txtLinkUrl.Text;
         if (!lnk.LinkUrl.ToLower().StartsWith("http://"))
             lnk.LinkUrl = "http://" + lnk.LinkUrl;

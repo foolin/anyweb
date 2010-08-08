@@ -22,9 +22,7 @@ public partial class Admin_Content_PhotoAdd : AdminBase
 
     protected override void OnPreRender(EventArgs e)
     {
-        drpSort.DataSource = new SortAgent().GetSortListByPhoto();
-        drpSort.DataBind();
-        txtPhotSort.Text = (this.SiteInfo.SitePicCount + 1).ToString();    
+        txtPhotOrder.Text = (this.SiteInfo.SitePicCount + 1).ToString();    
     }
 
     protected void btnAddPhoto_Click(object sender, EventArgs e)
@@ -33,8 +31,8 @@ public partial class Admin_Content_PhotoAdd : AdminBase
         Photo phot = new Photo();
         phot.PhotName = this.txtPhotName.Text;
         phot.PhotUrl = this.txtPhotUrl.Text;
-        phot.PhotOrder = int.Parse(this.txtPhotSort.Text);
-        phot.PhotSortID = int.Parse(drpSort.SelectedValue);
+        phot.PhotOrder = int.Parse(this.txtPhotOrder.Text);
+        phot.PhotCateID = int.Parse(type.SelectedValue);
         phot.PhotUploadAt = DateTime.Now;
         if (phot.PhotName == "")
         {

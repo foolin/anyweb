@@ -1356,3 +1356,382 @@ Message:System.Web.HttpCompileException: e:\Program Files\Microsoft Visual Studi
    在 System.Web.UI.TemplateParser.ProcessMainDirective(IDictionary mainDirective)
 
 
+Time:2010-08-07 20:06:30
+IP:127.0.0.1
+Url:http://localhost/index.aspx
+UrlRef:
+Message:System.Data.SqlClient.SqlException: 在建立与服务器的连接时出错。在连接到 SQL Server 2005 时，在默认的设置下 SQL Server 不允许进行远程连接可能会导致此失败。 (provider: 命名管道提供程序, error: 40 - 无法打开到 SQL Server 的连接)
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 C:\Documents and Settings\Administrator\桌面\anyweb\Studio\Data\SqlDbExecutor.cs:行号 223
+   在 AnyWeb.AnyWeb_DL.NoticeAgent.GetNoticeList() 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\NoticeAgent.cs:行号 63
+   在 Controls_Notice.Page_Load(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\Notice.ascx.cs:行号 17
+   在 System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   在 System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   在 System.Web.UI.Control.OnLoad(EventArgs e)
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Control.LoadRecursive()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-07 20:08:13
+IP:127.0.0.1
+Url:http://localhost/Admin/Login.aspx
+UrlRef:http://localhost/Admin/Login.aspx
+Message:System.Data.SqlClient.SqlException: 在建立与服务器的连接时出错。在连接到 SQL Server 2005 时，在默认的设置下 SQL Server 不允许进行远程连接可能会导致此失败。 (provider: 命名管道提供程序, error: 40 - 无法打开到 SQL Server 的连接)
+   在 Studio.Data.SqlDbExecutor.ExecuteProcedure(String procedureName, IDbDataParameter[] parameters) 位置 C:\Documents and Settings\Administrator\桌面\anyweb\Studio\Data\SqlDbExecutor.cs:行号 254
+   在 AnyWeb.AnyWeb_DL.SiteAgent.Login(String UserAcc, String Password) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\SiteAgent.cs:行号 25
+   在 LoginIn.submit_Click(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Login.aspx.cs:行号 40
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-07 20:08:13
+IP:127.0.0.1
+Url:http://localhost/Admin/Login.aspx
+UrlRef:http://localhost/Admin/Login.aspx
+Message:System.Data.SqlClient.SqlException: 在建立与服务器的连接时出错。在连接到 SQL Server 2005 时，在默认的设置下 SQL Server 不允许进行远程连接可能会导致此失败。 (provider: 命名管道提供程序, error: 40 - 无法打开到 SQL Server 的连接)
+   在 Studio.Data.SqlDbExecutor.ExecuteProcedure(String procedureName, IDbDataParameter[] parameters) 位置 C:\Documents and Settings\Administrator\桌面\anyweb\Studio\Data\SqlDbExecutor.cs:行号 254
+   在 AnyWeb.AnyWeb_DL.SiteAgent.Login(String UserAcc, String Password) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\SiteAgent.cs:行号 25
+   在 LoginIn.submit_Click(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Login.aspx.cs:行号 40
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-07 20:09:48
+IP:127.0.0.1
+Url:http://localhost/Admin/Login.aspx
+UrlRef:http://localhost/Admin/Login.aspx
+Message:System.Data.SqlClient.SqlException: 在建立与服务器的连接时出错。在连接到 SQL Server 2005 时，在默认的设置下 SQL Server 不允许进行远程连接可能会导致此失败。 (provider: 命名管道提供程序, error: 40 - 无法打开到 SQL Server 的连接)
+   在 Studio.Data.SqlDbExecutor.ExecuteProcedure(String procedureName, IDbDataParameter[] parameters) 位置 C:\Documents and Settings\Administrator\桌面\anyweb\Studio\Data\SqlDbExecutor.cs:行号 254
+   在 AnyWeb.AnyWeb_DL.SiteAgent.Login(String UserAcc, String Password) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\SiteAgent.cs:行号 25
+   在 LoginIn.submit_Click(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Login.aspx.cs:行号 40
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-07 20:32:47
+IP:127.0.0.1
+Url:http://localhost/Admin/Login.aspx
+UrlRef:http://localhost/Admin/Login.aspx
+Message:System.Data.SqlClient.SqlException: 用户 'liqibiao666' 登录失败。该用户与可信 SQL Server 连接无关联。
+   在 Studio.Data.SqlDbExecutor.ExecuteProcedure(String procedureName, IDbDataParameter[] parameters) 位置 C:\Documents and Settings\Administrator\桌面\anyweb\Studio\Data\SqlDbExecutor.cs:行号 254
+   在 AnyWeb.AnyWeb_DL.SiteAgent.Login(String UserAcc, String Password) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\SiteAgent.cs:行号 25
+   在 LoginIn.submit_Click(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Login.aspx.cs:行号 40
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-07 20:40:14
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Sort”不包含名为“LinkSortName”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName, String format)
+   在 System.Web.UI.WebControls.ListControl.PerformDataBinding(IEnumerable dataSource)
+   在 System.Web.UI.WebControls.ListControl.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.ListControl.PerformSelect()
+   在 System.Web.UI.WebControls.BaseDataBoundControl.DataBind()
+   在 Layout_LinkList.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Layout\LinkList.aspx.cs:行号 23
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-07 20:50:51
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Sort”不包含名为“LinkSortName”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName, String format)
+   在 System.Web.UI.WebControls.ListControl.PerformDataBinding(IEnumerable dataSource)
+   在 System.Web.UI.WebControls.ListControl.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.ListControl.PerformSelect()
+   在 System.Web.UI.WebControls.BaseDataBoundControl.DataBind()
+   在 Layout_LinkList.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Layout\LinkList.aspx.cs:行号 23
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-07 20:50:54
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Sort”不包含名为“LinkSortName”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName, String format)
+   在 System.Web.UI.WebControls.ListControl.PerformDataBinding(IEnumerable dataSource)
+   在 System.Web.UI.WebControls.ListControl.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.ListControl.PerformSelect()
+   在 System.Web.UI.WebControls.BaseDataBoundControl.DataBind()
+   在 Layout_LinkList.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Layout\LinkList.aspx.cs:行号 23
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-07 20:50:58
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Sort”不包含名为“LinkSortName”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName, String format)
+   在 System.Web.UI.WebControls.ListControl.PerformDataBinding(IEnumerable dataSource)
+   在 System.Web.UI.WebControls.ListControl.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.ListControl.PerformSelect()
+   在 System.Web.UI.WebControls.BaseDataBoundControl.DataBind()
+   在 Layout_LinkList.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Layout\LinkList.aspx.cs:行号 23
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-08 02:15:54
+IP:127.0.0.1
+Url:http://localhost/Index.aspx
+UrlRef:
+Message:System.InvalidCastException: 指定的转换无效。
+   在 AnyWeb.AnyWeb_DL.Photo..ctor(DataRow row) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Common\Photo.cs:行号 24
+   在 AnyWeb.AnyWeb_DL.PhotoAgent.GetPhotoListByWeb() 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\PhotoAgent.cs:行号 140
+   在 Controls_ImagesCtl.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\ImagesCtl.ascx.cs:行号 22
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-08 11:43:18
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkEdit.aspx?id=54
+UrlRef:http://localhost/Admin/Layout/LinkEdit.aspx?id=54
+Message:System.Data.SqlClient.SqlException: 过程或函数 'UpdateLinkInfo' 需要参数 '@CateID'，但未提供该参数。
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\Studio\Data\SqlDbExecutor.cs:行号 186
+   在 AnyWeb.AnyWeb_DL.LinkAgent.UpdateLinkInfo(Link lnk) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\LinkAgent.cs:行号 114
+   在 Layout_LinkEdit.btnEditLink_Click(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Layout\LinkEdit.aspx.cs:行号 45
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-08 14:05:17
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkEdit.aspx?id=54
+UrlRef:http://localhost/Admin/Layout/LinkEdit.aspx?id=54
+Message:System.Data.SqlClient.SqlException: 过程或函数 'UpdateLinkInfo' 需要参数 '@CateID'，但未提供该参数。
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\Studio\Data\SqlDbExecutor.cs:行号 186
+   在 AnyWeb.AnyWeb_DL.LinkAgent.UpdateLinkInfo(Link lnk) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\LinkAgent.cs:行号 114
+   在 Layout_LinkEdit.btnEditLink_Click(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Layout\LinkEdit.aspx.cs:行号 45
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-08 14:06:51
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkEdit.aspx?id=54
+UrlRef:http://localhost/Admin/Layout/LinkEdit.aspx?id=54
+Message:System.Data.SqlClient.SqlException: 过程或函数 'UpdateLinkInfo' 需要参数 '@CateID'，但未提供该参数。
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\Studio\Data\SqlDbExecutor.cs:行号 186
+   在 AnyWeb.AnyWeb_DL.LinkAgent.UpdateLinkInfo(Link lnk) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\LinkAgent.cs:行号 114
+   在 Layout_LinkEdit.btnEditLink_Click(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Layout\LinkEdit.aspx.cs:行号 45
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-08 14:11:14
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkEdit.aspx?id=54
+UrlRef:http://localhost/Admin/Layout/LinkEdit.aspx?id=54
+Message:System.Data.SqlClient.SqlException: 过程或函数 'UpdateLinkInfo' 需要参数 '@CateID'，但未提供该参数。
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\Studio\Data\SqlDbExecutor.cs:行号 186
+   在 AnyWeb.AnyWeb_DL.LinkAgent.UpdateLinkInfo(Link lnk) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\LinkAgent.cs:行号 114
+   在 Layout_LinkEdit.btnEditLink_Click(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Layout\LinkEdit.aspx.cs:行号 45
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-08 14:25:06
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkEdit.aspx?id=54
+UrlRef:http://localhost/Admin/Layout/LinkEdit.aspx?id=54
+Message:System.Data.SqlClient.SqlException: 过程或函数 'UpdateLinkInfo' 需要参数 '@CateID'，但未提供该参数。
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\Studio\Data\SqlDbExecutor.cs:行号 186
+   在 AnyWeb.AnyWeb_DL.LinkAgent.UpdateLinkInfo(Link lnk) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\LinkAgent.cs:行号 114
+   在 Layout_LinkEdit.btnEditLink_Click(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Layout\LinkEdit.aspx.cs:行号 45
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-08 14:33:55
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkAdd.aspx
+UrlRef:http://localhost/Admin/Layout/LinkAdd.aspx
+Message:System.Data.SqlClient.SqlException: 过程或函数 'AddLink' 需要参数 '@CateID'，但未提供该参数。
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\Studio\Data\SqlDbExecutor.cs:行号 186
+   在 AnyWeb.AnyWeb_DL.LinkAgent.AddLink(Link lnk) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\LinkAgent.cs:行号 96
+   在 Layout_LinkAdd.btnAddLink_Click(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Layout\LinkAdd.aspx.cs:行号 38
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-08 14:53:29
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkAdd.aspx
+UrlRef:http://localhost/Admin/Layout/LinkAdd.aspx
+Message:System.Data.SqlClient.SqlException: 过程或函数 'AddLink' 需要参数 '@CateID'，但未提供该参数。
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\Studio\Data\SqlDbExecutor.cs:行号 186
+   在 AnyWeb.AnyWeb_DL.LinkAgent.AddLink(Link lnk) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\LinkAgent.cs:行号 96
+   在 Layout_LinkAdd.btnAddLink_Click(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Layout\LinkAdd.aspx.cs:行号 38
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-08 14:59:31
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkAdd.aspx
+UrlRef:http://localhost/Admin/Layout/LinkAdd.aspx
+Message:System.Data.SqlClient.SqlException: 过程或函数 'AddLink' 需要参数 '@CateID'，但未提供该参数。
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\Studio\Data\SqlDbExecutor.cs:行号 186
+   在 AnyWeb.AnyWeb_DL.LinkAgent.AddLink(Link lnk) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\LinkAgent.cs:行号 96
+   在 Layout_LinkAdd.btnAddLink_Click(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Layout\LinkAdd.aspx.cs:行号 38
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-08 14:59:58
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkAdd.aspx
+UrlRef:http://localhost/Admin/Layout/LinkAdd.aspx
+Message:System.Data.SqlClient.SqlException: 过程或函数 'AddLink' 需要参数 '@CateID'，但未提供该参数。
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\Studio\Data\SqlDbExecutor.cs:行号 186
+   在 AnyWeb.AnyWeb_DL.LinkAgent.AddLink(Link lnk) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\LinkAgent.cs:行号 96
+   在 Layout_LinkAdd.btnAddLink_Click(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Layout\LinkAdd.aspx.cs:行号 38
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-08 15:20:46
+IP:127.0.0.1
+Url:http://localhost/Admin/Layout/LinkAdd.aspx
+UrlRef:http://localhost/Admin/Layout/LinkAdd.aspx
+Message:System.Data.SqlClient.SqlException: 过程或函数 'AddLink' 需要参数 '@CateID'，但未提供该参数。
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\Studio\Data\SqlDbExecutor.cs:行号 186
+   在 AnyWeb.AnyWeb_DL.LinkAgent.AddLink(Link lnk) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\LinkAgent.cs:行号 96
+   在 Layout_LinkAdd.btnAddLink_Click(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Layout\LinkAdd.aspx.cs:行号 38
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-08 17:29:01
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/PhotoList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.ArgumentException: 列“PhotSortID”不属于表 Table。
+   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 AnyWeb.AnyWeb_DL.Photo..ctor(DataRow row) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Common\Photo.cs:行号 24
+   在 AnyWeb.AnyWeb_DL.PhotoAgent.GetPhotoList(Int32 CateID, Int32 PageSize, Int32 PageIndex, Int32& RecordCount) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\PhotoAgent.cs:行号 38
+   在 Admin_Content_PhotoList.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Content\PhotoList.aspx.cs:行号 25
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-08 17:31:03
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/PhotoList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.ArgumentException: 列“PhotSortID”不属于表 Table。
+   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 AnyWeb.AnyWeb_DL.Photo..ctor(DataRow row) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Common\Photo.cs:行号 24
+   在 AnyWeb.AnyWeb_DL.PhotoAgent.GetPhotoList(Int32 CateID, Int32 PageSize, Int32 PageIndex, Int32& RecordCount) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\PhotoAgent.cs:行号 38
+   在 Admin_Content_PhotoList.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Content\PhotoList.aspx.cs:行号 25
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-08 17:32:26
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/PhotoList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.ArgumentException: 列“PhotSortID”不属于表 Table。
+   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 AnyWeb.AnyWeb_DL.Photo..ctor(DataRow row) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Common\Photo.cs:行号 24
+   在 AnyWeb.AnyWeb_DL.PhotoAgent.GetPhotoList(Int32 CateID, Int32 PageSize, Int32 PageIndex, Int32& RecordCount) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\PhotoAgent.cs:行号 38
+   在 Admin_Content_PhotoList.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Content\PhotoList.aspx.cs:行号 25
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-08 17:35:10
+IP:127.0.0.1
+Url:http://localhost/Admin/Content/PhotoList.aspx
+UrlRef:http://localhost/Admin/Default.aspx
+Message:System.ArgumentException: 列“PhotSortID”不属于表 Table。
+   在 System.Data.DataRow.GetDataColumn(String columnName)
+   在 System.Data.DataRow.get_Item(String columnName)
+   在 AnyWeb.AnyWeb_DL.Photo..ctor(DataRow row) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Common\Photo.cs:行号 24
+   在 AnyWeb.AnyWeb_DL.PhotoAgent.GetPhotoList(Int32 CateID, Int32 PageSize, Int32 PageIndex, Int32& RecordCount) 位置 E:\Documents and Settings\Administrator\桌面\anyweb\AnyWeb_DL\Agent\PhotoAgent.cs:行号 38
+   在 Admin_Content_PhotoList.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Admin\Content\PhotoList.aspx.cs:行号 25
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

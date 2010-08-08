@@ -30,10 +30,13 @@
         <div id="content">
             <div class="NewsList">
                 <div>
-                    分类：<asp:DropDownList ID="drpSort" runat="server" DataTextField="LinkSortName" DataValueField="LinkSortID">
+                    分类：
+                    <asp:DropDownList ID="type" runat="server" onchange="searchLink()">
+                        <asp:ListItem Text="政府部门网站" Value="1"></asp:ListItem>
+                        <asp:ListItem Text="省外供销网站" Value="2"></asp:ListItem>
+                        <asp:ListItem Text="广州市供销合作社" Value="3"></asp:ListItem>
+                        <asp:ListItem Text="社有企业网站" Value="4"></asp:ListItem>
                     </asp:DropDownList>
-                    <asp:TextBox ID="txtName" runat="server" ToolTip="连接名称"></asp:TextBox>
-                    <input type="button" value="分类" id="btnsearch" onclick="return searchLink();" />
                 </div>
                 <table width="100%" cellspacing="0" border="0">
                     <tr bgcolor="#E6F2FF">
@@ -53,7 +56,7 @@
                                     <a href="<%#Eval("LinkUrl") %>" target="_blank"><%#Eval("LinkName")%></a>
                                 </td>
                                 <td>
-                                    <%#Eval("LinkSortName")%>
+                                    <%#getCateName((int)Eval("LinkCateID")) %>
                                 </td>
                                 <td>
                                     <%#Eval("LinkOrder") %>
@@ -75,8 +78,7 @@
     <script type="text/jscript">
         function searchLink()
         {
-            var url="?c="+document.getElementById("<%=drpSort.ClientID %>").value;
-            url+="&t="+document.getElementById("<%=txtName.ClientID %>").value;
+            var url="?type="+document.getElementById("<%=type.ClientID %>").value;
             window.location=url;
         }
     </script>

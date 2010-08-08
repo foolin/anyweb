@@ -19,18 +19,23 @@ public partial class Admin_Content_PhotoList : AdminBase
 
     protected override void OnPreRender(EventArgs e)
     {
-        drpSort.DataSource = new SortAgent().GetSortListByPhoto();
-        drpSort.DataBind();
-        drpSort.Items.Insert(0, new ListItem("所有类别", "0"));
-
-        if (QS("s") != "")
-            drpSort.SelectedValue = QS("s");
-        if (QS("n") != "")
-            txtName.Text = QS("n");
+        type.SelectedValue = QS("type");
 
         int RecordCount = 0;
-        repPhoto.DataSource = new PhotoAgent().GetPhotoList(int.Parse(drpSort.SelectedValue), txtName.Text, PN1.PageSize, PN1.PageIndex, out RecordCount);
+        repPhoto.DataSource = new PhotoAgent().GetPhotoList(int.Parse(type.SelectedValue), PN1.PageSize, PN1.PageIndex, out RecordCount);
         repPhoto.DataBind();
         PN1.SetPage(RecordCount);
+    }
+
+    protected string getCateName(int cateID)
+    {
+        switch (cateID)
+        {
+            case 1: return "首页幻灯片";
+            case 2: return "网上菜篮子";
+            case 3: return "知名合作企业";
+            case 4: return "先进单位";
+            default: return "首页幻灯片";
+        }
     }
 }

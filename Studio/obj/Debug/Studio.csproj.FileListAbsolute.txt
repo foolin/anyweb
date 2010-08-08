@@ -3,3 +3,8 @@ E:\Program Files\Microsoft Visual Studio\C#\Sales\Studio\bin\Debug\Studio.pdb
 E:\Program Files\Microsoft Visual Studio\C#\Sales\Studio\obj\Debug\ResolveAssemblyReference.cache
 E:\Program Files\Microsoft Visual Studio\C#\Sales\Studio\obj\Debug\Studio.dll
 E:\Program Files\Microsoft Visual Studio\C#\Sales\Studio\obj\Debug\Studio.pdb
+E:\Documents and Settings\Administrator\桌面\anyweb\Studio\bin\Debug\Studio.dll
+E:\Documents and Settings\Administrator\桌面\anyweb\Studio\bin\Debug\Studio.pdb
+E:\Documents and Settings\Administrator\桌面\anyweb\Studio\obj\Debug\ResolveAssemblyReference.cache
+E:\Documents and Settings\Administrator\桌面\anyweb\Studio\obj\Debug\Studio.dll
+E:\Documents and Settings\Administrator\桌面\anyweb\Studio\obj\Debug\Studio.pdb

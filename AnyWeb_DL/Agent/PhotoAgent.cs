@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections.Generic;
 using System.Text;
 using Studio.Data;
@@ -12,7 +12,7 @@ namespace AnyWeb.AnyWeb_DL
         public PhotoAgent() : base(SysSetting.GetSettings().DbType, SysSetting.GetSettings().DbConnectionString) { }
 
         /// <summary>
-        /// 获取图片列表
+        /// 鑾峰彇鍥剧墖鍒楄〃
         /// </summary>
         /// <param name="PageSize"></param>
         /// <param name="PageIndex"></param>
@@ -42,7 +42,7 @@ namespace AnyWeb.AnyWeb_DL
         }
 
         /// <summary>
-        /// 获取图片信息
+        /// 鑾峰彇鍥剧墖淇℃伅
         /// </summary>
         /// <param name="PhotID"></param>
         /// <returns></returns>
@@ -64,7 +64,7 @@ namespace AnyWeb.AnyWeb_DL
         }
 
         /// <summary>
-        /// 添加图片
+        /// 娣诲姞鍥剧墖
         /// </summary>
         /// <param name="phot"></param>
         /// <returns></returns>
@@ -83,7 +83,7 @@ namespace AnyWeb.AnyWeb_DL
         }
 
         /// <summary>
-        /// 更新图片信息
+        /// 鏇存柊鍥剧墖淇℃伅
         /// </summary>
         /// <param name="phot"></param>
         /// <returns></returns>
@@ -103,7 +103,7 @@ namespace AnyWeb.AnyWeb_DL
         }
 
         /// <summary>
-        /// 删除图片信息
+        /// 鍒犻櫎鍥剧墖淇℃伅
         /// </summary>
         /// <param name="PhotID"></param>
         /// <returns></returns>
@@ -117,7 +117,7 @@ namespace AnyWeb.AnyWeb_DL
         }
 
         /// <summary>
-        /// 前台获取图片
+        /// 鍓嶅彴鑾峰彇鍥剧墖
         /// </summary>
         /// <returns></returns>
         public List<Photo> GetPhotoListByWeb()

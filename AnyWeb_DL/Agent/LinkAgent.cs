@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 using Studio.Data;
@@ -12,7 +12,7 @@ namespace AnyWeb.AnyWeb_DL
         public LinkAgent() : base(SysSetting.GetSettings().DbType, SysSetting.GetSettings().DbConnectionString) { }
 
         /// <summary>
-        /// »ñÈ¡Á¬½ÓÁĞ±í
+        /// è·å–è¿æ¥åˆ—è¡¨
         /// </summary>
         /// <param name="PageSize"></param>
         /// <param name="PageIndex"></param>
@@ -27,8 +27,8 @@ namespace AnyWeb.AnyWeb_DL
                 IDbDataParameter record = this.NewParam("@RecordCount", 0, DbType.Int32, 4, true);
                 ds = db.GetDataSet(CommandType.StoredProcedure, "GetLinkList",
                     this.NewParam("@CateID", CateID),
-                    this.NewParam("@PageSize",PageSize),
-                    this.NewParam("@PageNo",PageIndex),
+                    this.NewParam("@PageSize", PageSize),
+                    this.NewParam("@PageNo", PageIndex),
                     record);
                 RecordCount = (int)record.Value;
             }
@@ -42,7 +42,7 @@ namespace AnyWeb.AnyWeb_DL
         }
 
         /// <summary>
-        /// »ñÈ¡ËùÓĞÓÑÇéÁ´½Ó
+        /// è·å–æ‰€æœ‰å‹æƒ…é“¾æ¥
         /// </summary>
         /// <returns></returns>
         public List<Link> GetLinkList()
@@ -62,7 +62,7 @@ namespace AnyWeb.AnyWeb_DL
         }
 
         /// <summary>
-        /// »ñÈ¡Á¬½ÓĞÅÏ¢
+        /// è·å–è¿æ¥ä¿¡æ¯
         /// </summary>
         /// <param name="LinkID"></param>
         /// <returns></returns>
@@ -84,7 +84,7 @@ namespace AnyWeb.AnyWeb_DL
         }
 
         /// <summary>
-        /// Ìí¼ÓÁ¬½Ó
+        /// æ·»åŠ è¿æ¥
         /// </summary>
         /// <param name="Link"></param>
         /// <returns></returns>
@@ -102,7 +102,7 @@ namespace AnyWeb.AnyWeb_DL
 
 
         /// <summary>
-        /// ĞŞ¸ÄÁ¬½ÓĞÅÏ¢
+        /// ä¿®æ”¹è¿æ¥ä¿¡æ¯
         /// </summary>
         /// <param name="Link"></param>
         /// <returns></returns>
@@ -120,7 +120,7 @@ namespace AnyWeb.AnyWeb_DL
         }
 
         /// <summary>
-        /// É¾³ıÁ¬½Ó
+        /// åˆ é™¤è¿æ¥
         /// </summary>
         /// <param name="LinkID"></param>
         /// <returns></returns>

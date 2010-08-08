@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
@@ -6,7 +6,7 @@ using System.Data;
 namespace AnyWeb.AnyWeb_DL
 {
     /// <summary>
-    /// ͼƬչʾ
+    /// 图片展示
     /// </summary>
     public class Photo
     {
@@ -26,7 +26,7 @@ namespace AnyWeb.AnyWeb_DL
 
         private int _PhotID;
         /// <summary>
-        /// ͼƬID
+        /// 图片ID
         /// </summary>
         public int PhotID
         {
@@ -36,7 +36,7 @@ namespace AnyWeb.AnyWeb_DL
 
         private string _PhotName;
         /// <summary>
-        /// ͼƬ����
+        /// 图片名称
         /// </summary>
         public string PhotName
         {
@@ -46,7 +46,7 @@ namespace AnyWeb.AnyWeb_DL
 
         private string _PhotUrl;
         /// <summary>
-        /// ͼƬ����
+        /// 图片描述
         /// </summary>
         public string PhotUrl
         {
@@ -56,7 +56,7 @@ namespace AnyWeb.AnyWeb_DL
 
         private string _PhotPath;
         /// <summary>
-        /// ͼƬ·��
+        /// 图片路径
         /// </summary>
         public string PhotPath
         {
@@ -66,7 +66,7 @@ namespace AnyWeb.AnyWeb_DL
 
         private int _PhotOrder;
         /// <summary>
-        /// ����
+        /// 排序
         /// </summary>
         public int PhotOrder
         {
@@ -76,7 +76,7 @@ namespace AnyWeb.AnyWeb_DL
 
         private DateTime _PhotUploadAt;
         /// <summary>
-        /// �ϴ�ʱ��
+        /// 上传时间
         /// </summary>
         public DateTime PhotUploadAt
         {
@@ -86,7 +86,7 @@ namespace AnyWeb.AnyWeb_DL
 
         private int _PhotCateID;
         /// <summary>
-        /// ���ID
+        /// 类别ID
         /// </summary>
         public int PhotCateID
         {

@@ -19,11 +19,11 @@
                         <span class="titletxt">--==友情链接==--</span>
                     </div>
                     <div class="box-content">
-                        <div class="picLinks" style="text-align:center;">
-                            <asp:Repeater ID="repImage" runat="server">
+                        <div class="Links" style="text-align:center;">
+                            <asp:Repeater ID="repLink" runat="server">
                                 <ItemTemplate>
                                     <a href="<%#Eval("LinkUrl") %>" target="_blank">
-                                        <img src="<%#Eval("LinkImage") %>" class="img"  width="170" height="80" alt="<%#Eval("LinkName") %>" /></a>
+                                        <%#Eval("LinkName") %></a>
                                 </ItemTemplate>
                             </asp:Repeater>
                         </div>

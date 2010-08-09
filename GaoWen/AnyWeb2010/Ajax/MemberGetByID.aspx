@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="MemberGetByID.aspx.cs" Inherits="Ajax_MemberGetByID" %>

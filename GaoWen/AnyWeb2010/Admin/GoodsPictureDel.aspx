@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="GoodsPictureDel.aspx.cs" Inherits="Admin_GoodsPictureDel" %>

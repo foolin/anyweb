@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="MemberIDExists.aspx.cs" Inherits="Ajax_MemberIDExists" %>

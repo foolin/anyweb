@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="RelationsDel.aspx.cs" Inherits="Admin_RelationsDel" %>

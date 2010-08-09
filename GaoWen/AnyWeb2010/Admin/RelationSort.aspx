@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="RelationSort.aspx.cs" Inherits="Admin_RelationSort" %>

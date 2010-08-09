@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="GoodsFavorite.aspx.cs" Inherits="Ajax_GoodsFavorite" %>

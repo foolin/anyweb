@@ -19,7 +19,7 @@ public partial class LinkList : System.Web.UI.Page
 
     protected override void OnPreRender(EventArgs e)
     {
-        repImage.DataSource = new LinkAgent().GetLinkList();
-        repImage.DataBind();
+        repLink.DataSource = new LinkAgent().GetLinkList();
+        repLink.DataBind();
     }
 }

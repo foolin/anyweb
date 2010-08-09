@@ -1735,3 +1735,206 @@ Message:System.ArgumentException: 列“PhotSortID”不属于表 Table。
    在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
 
 
+Time:2010-08-09 11:39:14
+IP:127.0.0.1
+Url:http://localhost/Index.aspx
+UrlRef:
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Link”不包含名为“LinkImage”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 System.Web.UI.DataBinder.Eval(Object container, String expression)
+   在 System.Web.UI.TemplateControl.Eval(String expression)
+   在 ASP.controls_linklist_ascx.__DataBind__control3(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\LinkList.ascx:行号 9
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.Repeater.DataBind()
+   在 Controls_LinkList.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\LinkList.ascx.cs:行号 34
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-09 11:42:20
+IP:127.0.0.1
+Url:http://localhost/Index.aspx
+UrlRef:
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Link”不包含名为“LinkImage”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 System.Web.UI.DataBinder.Eval(Object container, String expression)
+   在 System.Web.UI.TemplateControl.Eval(String expression)
+   在 ASP.controls_linklist_ascx.__DataBind__control3(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\LinkList.ascx:行号 9
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.Repeater.DataBind()
+   在 Controls_LinkList.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\LinkList.ascx.cs:行号 34
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-09 11:42:24
+IP:127.0.0.1
+Url:http://localhost/Index.aspx
+UrlRef:
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Link”不包含名为“LinkImage”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 System.Web.UI.DataBinder.Eval(Object container, String expression)
+   在 System.Web.UI.TemplateControl.Eval(String expression)
+   在 ASP.controls_linklist_ascx.__DataBind__control3(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\LinkList.ascx:行号 9
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.Repeater.DataBind()
+   在 Controls_LinkList.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\LinkList.ascx.cs:行号 34
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-09 11:42:37
+IP:127.0.0.1
+Url:http://localhost/Index.aspx
+UrlRef:
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Link”不包含名为“LinkImage”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 System.Web.UI.DataBinder.Eval(Object container, String expression)
+   在 System.Web.UI.TemplateControl.Eval(String expression)
+   在 ASP.controls_linklist_ascx.__DataBind__control3(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\LinkList.ascx:行号 9
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.Repeater.DataBind()
+   在 Controls_LinkList.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\LinkList.ascx.cs:行号 34
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-09 11:43:06
+IP:127.0.0.1
+Url:http://localhost/Index.aspx
+UrlRef:
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Link”不包含名为“LinkImage”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 System.Web.UI.DataBinder.Eval(Object container, String expression)
+   在 System.Web.UI.TemplateControl.Eval(String expression)
+   在 ASP.controls_linklist_ascx.__DataBind__control3(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\LinkList.ascx:行号 9
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.Repeater.DataBind()
+   在 Controls_LinkList.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\LinkList.ascx.cs:行号 34
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-09 11:52:59
+IP:127.0.0.1
+Url:http://localhost/Index.aspx
+UrlRef:
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Link”不包含名为“LinkImage”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 System.Web.UI.DataBinder.Eval(Object container, String expression)
+   在 System.Web.UI.TemplateControl.Eval(String expression)
+   在 ASP.controls_linklist_ascx.__DataBind__control3(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\LinkList.ascx:行号 9
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.Repeater.DataBind()
+   在 Controls_LinkList.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\LinkList.ascx.cs:行号 34
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+
+Time:2010-08-09 11:53:00
+IP:127.0.0.1
+Url:http://localhost/Index.aspx
+UrlRef:
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Link”不包含名为“LinkImage”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 System.Web.UI.DataBinder.Eval(Object container, String expression)
+   在 System.Web.UI.TemplateControl.Eval(String expression)
+   在 ASP.controls_linklist_ascx.__DataBind__control3(Object sender, EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\LinkList.ascx:行号 9
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.Repeater.DataBind()
+   在 Controls_LinkList.OnPreRender(EventArgs e) 位置 e:\Documents and Settings\Administrator\桌面\anyweb\web\Controls\LinkList.ascx.cs:行号 34
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

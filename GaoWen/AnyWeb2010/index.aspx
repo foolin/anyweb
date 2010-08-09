@@ -162,7 +162,7 @@
                 </div>
             </div>
             <div class="footHomePos">
-                <a href="#">免责声明</a> <a href="#">私隐政策</a> <a href="#">条款及条件</a> <a href="#">版权告示</a>
+                <a href="http://gaowenconsultancy.com/disclaimer-chs.html">免责声明</a> <a href="http://gaowenconsultancy.com/privacy-policy-chs.html">私隐政策</a> <a href="http://gaowenconsultancy.com/terms-conditions-chs.html">条款及条件</a> <a href="http://gaowenconsultancy.com/copyright-notice-chs.html">版权告示</a>
                 © 2010 高闻顾问有限公司. 版权所有
             </div>
         </div>

@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{67EDE50C-1A2F-4B66-B336-11EFBE1B8802}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AW_DB</RootNamespace>
+    <AssemblyName>AW_DB</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bean_Base.cs" />
+    <Compile Include="Configs\AreaConfigs.cs" />
+    <Compile Include="Configs\DefaultConfigFileManager.cs" />
+    <Compile Include="Configs\GeneralConfigFileManager.cs" />
+    <Compile Include="Configs\GeneralConfigInfo.cs" />
+    <Compile Include="Configs\GeneralConfigs.cs" />
+    <Compile Include="Configs\IConfigInfo.cs" />
+    <Compile Include="Configs\PaymentConfigInfo.cs" />
+    <Compile Include="Configs\SerializationHelper.cs" />
+    <Compile Include="Configs\SmtpAgent.cs" />
+    <Compile Include="Dao_Base.cs" />
+    <Compile Include="DBExtend\AW_Admin_bean.cs" />
+    <Compile Include="DBExtend\AW_Admin_dao.cs" />
+    <Compile Include="DBExtend\AW_AD_dao.cs" />
+    <Compile Include="DBExtend\AW_Article_bean.cs" />
+    <Compile Include="DBExtend\AW_Article_dao.cs" />
+    <Compile Include="DBExtend\AW_Brand_bean.cs" />
+    <Compile Include="DBExtend\AW_Brand_dao.cs" />
+    <Compile Include="DBExtend\AW_Category_bean.cs" />
+    <Compile Include="DBExtend\AW_Category_dao.cs" />
+    <Compile Include="DBExtend\AW_Column_bean.cs" />
+    <Compile Include="DBExtend\AW_Column_dao.cs" />
+    <Compile Include="DBExtend\AW_EventLog_bean.cs" />
+    <Compile Include="DBExtend\AW_EventLog_dao.cs" />
+    <Compile Include="DBExtend\AW_Favorite_bean.cs" />
+    <Compile Include="DBExtend\AW_Favorite_dao.cs" />
+    <Compile Include="DBExtend\AW_Flash_bean.cs" />
+    <Compile Include="DBExtend\AW_Flash_dao.cs" />
+    <Compile Include="DBExtend\AW_Goods_bean.cs" />
+    <Compile Include="DBExtend\AW_Goods_Brand_bean.cs" />
+    <Compile Include="DBExtend\AW_Goods_Brand_dao.cs" />
+    <Compile Include="DBExtend\AW_Goods_Comment_bean.cs" />
+    <Compile Include="DBExtend\AW_Goods_Comment_dao.cs" />
+    <Compile Include="DBExtend\AW_Goods_dao.cs" />
+    <Compile Include="DBExtend\AW_Goods_Picture_bean.cs" />
+    <Compile Include="DBExtend\AW_Goods_Picture_dao.cs" />
+    <Compile Include="DBExtend\AW_Help_bean.cs" />
+    <Compile Include="DBExtend\AW_Help_dao.cs" />
+    <Compile Include="DBExtend\AW_Help_Type_bean.cs" />
+    <Compile Include="DBExtend\AW_Help_Type_dao.cs" />
+    <Compile Include="DBExtend\AW_KeyWord_bean.cs" />
+    <Compile Include="DBExtend\AW_KeyWord_dao.cs" />
+    <Compile Include="DBExtend\AW_Link_bean.cs" />
+    <Compile Include="DBExtend\AW_Link_dao.cs" />
+    <Compile Include="DBExtend\AW_Mapping_bean.cs" />
+    <Compile Include="DBExtend\AW_Mapping_dao.cs" />
+    <Compile Include="DBExtend\AW_Member_bean.cs" />
+    <Compile Include="DBExtend\AW_Member_Contact_bean.cs" />
+    <Compile Include="DBExtend\AW_Member_Contact_dao.cs" />
+    <Compile Include="DBExtend\AW_Member_dao.cs" />
+    <Compile Include="DBExtend\AW_Order_bean.cs" />
+    <Compile Include="DBExtend\AW_Order_dao.cs" />
+    <Compile Include="DBExtend\AW_Order_Item_bean.cs" />
+    <Compile Include="DBExtend\AW_Order_Item_dao.cs" />
+    <Compile Include="DBExtend\AW_Relation_bean.cs" />
+    <Compile Include="DBExtend\AW_Relation_dao.cs" />
+    <Compile Include="DBExtend\AW_TableId_bean.cs" />
+    <Compile Include="DBExtend\AW_TableId_dao.cs" />
+    <Compile Include="DBExtend\AW_Template_bean.cs" />
+    <Compile Include="DBExtend\AW_Template_dao.cs" />
+    <Compile Include="DBFile\AW_Admin_bean.cs" />
+    <Compile Include="DBFile\AW_Admin_dao.cs" />
+    <Compile Include="DBFile\AW_AD_bean.cs" />
+    <Compile Include="DBFile\AW_AD_dao.cs" />
+    <Compile Include="DBFile\AW_Article_bean.cs" />
+    <Compile Include="DBFile\AW_Article_dao.cs" />
+    <Compile Include="DBFile\AW_Brand_bean.cs" />
+    <Compile Include="DBFile\AW_Brand_dao.cs" />
+    <Compile Include="DBFile\AW_Category_bean.cs" />
+    <Compile Include="DBFile\AW_Category_dao.cs" />
+    <Compile Include="DBFile\AW_Column_bean.cs" />
+    <Compile Include="DBFile\AW_Column_dao.cs" />
+    <Compile Include="DBFile\AW_EventLog_bean.cs" />
+    <Compile Include="DBFile\AW_EventLog_dao.cs" />
+    <Compile Include="DBFile\AW_Favorite_bean.cs" />
+    <Compile Include="DBFile\AW_Favorite_dao.cs" />
+    <Compile Include="DBFile\AW_Flash_bean.cs" />
+    <Compile Include="DBFile\AW_Flash_dao.cs" />
+    <Compile Include="DBFile\AW_Goods_bean.cs" />
+    <Compile Include="DBFile\AW_Goods_Brand_bean.cs" />
+    <Compile Include="DBFile\AW_Goods_Brand_dao.cs" />
+    <Compile Include="DBFile\AW_Goods_Comment_bean.cs" />
+    <Compile Include="DBFile\AW_Goods_Comment_dao.cs" />
+    <Compile Include="DBFile\AW_Goods_dao.cs" />
+    <Compile Include="DBFile\AW_Goods_Picture_bean.cs" />
+    <Compile Include="DBFile\AW_Goods_Picture_dao.cs" />
+    <Compile Include="DBFile\AW_Help_bean.cs" />
+    <Compile Include="DBFile\AW_Help_dao.cs" />
+    <Compile Include="DBFile\AW_Help_Type_bean.cs" />
+    <Compile Include="DBFile\AW_Help_Type_dao.cs" />
+    <Compile Include="DBFile\AW_KeyWord_bean.cs" />
+    <Compile Include="DBFile\AW_KeyWord_dao.cs" />
+    <Compile Include="DBFile\AW_Link_bean.cs" />
+    <Compile Include="DBFile\AW_Link_dao.cs" />
+    <Compile Include="DBFile\AW_Mapping_bean.cs" />
+    <Compile Include="DBFile\AW_Mapping_dao.cs" />
+    <Compile Include="DBFile\AW_Member_bean.cs" />
+    <Compile Include="DBFile\AW_Member_Contact_bean.cs" />
+    <Compile Include="DBFile\AW_Member_Contact_dao.cs" />
+    <Compile Include="DBFile\AW_Member_dao.cs" />
+    <Compile Include="DBFile\AW_Order_bean.cs" />
+    <Compile Include="DBFile\AW_Order_dao.cs" />
+    <Compile Include="DBFile\AW_Order_Item_bean.cs" />
+    <Compile Include="DBFile\AW_Order_Item_dao.cs" />
+    <Compile Include="DBFile\AW_Relation_bean.cs" />
+    <Compile Include="DBFile\AW_Relation_dao.cs" />
+    <Compile Include="DBFile\AW_TableId_bean.cs" />
+    <Compile Include="DBFile\AW_TableId_dao.cs" />
+    <Compile Include="DBFile\AW_Template_bean.cs" />
+    <Compile Include="DBFile\AW_Template_dao.cs" />
+    <Compile Include="DL_helper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SmtpSetting.cs" />
+    <Compile Include="UserCookie.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Studio\Studio.csproj">
+      <Project>{2FEB2769-C1A2-40C6-ACB0-2214C1E7DF41}</Project>
+      <Name>Studio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

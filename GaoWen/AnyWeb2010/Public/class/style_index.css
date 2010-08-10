@@ -69,6 +69,7 @@
 .lside .fontSize a{ color:#000;}
 .lside .fontSize .cur{ color:#D01413; text-decoration:underline; font-size:13px;}
 .lside .ConDetail{ padding:8px 0px 0px 0px;}
+.lside .ConDetail p{ line-height:30px;}
 /*.lside .content h3{ font-weight:bold; line-height:24px; margin-bottom:5px; font-size:16px;}
 .lside .content p{ padding-bottom:1em; line-height:22px;}*/
 /*moreList style*/

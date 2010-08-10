@@ -22,7 +22,7 @@
                         <%}
                           else if (column.fdColuParentID != 0 && !string.IsNullOrEmpty(column.Parent.fdColuPicture))
                           { %>
-                            <img src="<%=column.fdColuPicture %>" width="679" />
+                            <img src="<%=column.Parent.fdColuPicture %>" width="679" />
                         <%} %>
                     </div>
                     <div class="conBg">
@@ -40,9 +40,9 @@
                     </div>
                 </div>
                 <div class="moreAbout">
-                    <%if (bean.fdArtiID != 1065)
+                    <%if (bean.fdArtiID != 1128)
                       { %>
-                        <a href="article.aspx?id=1065" class="btn19H"><b>想了解更多？请联系我们</b></a>
+                        <a href="article.aspx?id=1128" class="btn19H"><b>想了解更多？请联系我们</b></a>
                     <%} %>
                     <div class="blank12px">
                     </div>

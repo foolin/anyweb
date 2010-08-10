@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="moreAbout">
-                    <a href="article.aspx?id=1065" class="btn19H"><b>想了解更多？请联系我们</b></a>
+                    <a href="article.aspx?id=1128" class="btn19H"><b>想了解更多？请联系我们</b></a>
                     <div class="blank12px">
                     </div>
                    <%-- <div class="moreList">

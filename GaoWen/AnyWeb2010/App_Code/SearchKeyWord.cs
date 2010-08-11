@@ -50,7 +50,7 @@ public class SearchKeyWord
     /// <returns></returns>
     public static string getQueryString(string searchKeyword)
     {
-        string queryString = "fdArtiTitle LIKE '%" + searchKeyword + "%'";
+        string queryString = string.Format("fdArtiTitle LIKE '%{0}%' OR fdArtiContent LIKE '%{0}%'", searchKeyword);
         if (string.IsNullOrEmpty(_keyString))
         {
             refresh();
@@ -64,7 +64,7 @@ public class SearchKeyWord
         {
             foreach (Match m in mc)
             {
-                queryString += " OR fdArtiTitle LIKE '%" + m.Value + "%'";
+                queryString += string.Format(" OR fdArtiTitle LIKE '%{0}%' OR fdArtiContent LIKE '%{0}%'", m.Value);
             }
         }
         return queryString;

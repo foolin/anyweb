@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="public/class/default_index.css" />
     <link rel="stylesheet" type="text/css" href="public/class/style_index.css" />
     <script type="text/javascript" src="public/js/jquery-1.2.5.js"></script>
+    <script type="text/javascript" src="public/js/jquery.cookie.js"></script>
     <script type="text/javascript" src="public/js/chrome.js"></script>
     <script src="public/js/swfobject_modified.js" type="text/javascript"></script>
     <script type="text/javascript" src="public/js/common.js"></script>
@@ -15,6 +16,9 @@
 </head>
 <body>
     <div id="flash">
+        <script type="text/javascript">
+            $("body").css("background-color", "#726A8B");
+        </script>
         <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="400"
             height="200">
             <param name="movie" value="public/images/welcome.swf" />
@@ -79,6 +83,7 @@
             </div>
 
             <script type="text/javascript">
+                var cookieName = "gaowen";
                 var time = 0;
                 if(<%=flashList.Count %>==0){
                     $("#content").show();
@@ -95,16 +100,28 @@
                     </ItemTemplate>
                 </asp:Repeater>
                 function checkStatus() {
-                    if ((true<asp:Repeater ID="repJs2" runat="server">
-                        <ItemTemplate>
-                            <%# "&&image"+(Container.ItemIndex+1) %>
-                        </ItemTemplate>
-                    </asp:Repeater>)||time>=10){
+                    if(!$.cookie(cookieName)){
+                        if ((true<asp:Repeater ID="repJs2" runat="server">
+                            <ItemTemplate>
+                                <%# "&&image"+(Container.ItemIndex+1) %>
+                            </ItemTemplate>
+                        </asp:Repeater>)&&time>=10){
+                            $("#content").show();
+                            $("#flash").hide();
+                            window.clearInterval(interval);
+                            
+                            var date = new Date();
+                            date.setTime(date.getTime() + (1 * 24 * 60 * 60 * 1000)); 
+                            $.cookie(cookieName,"1", { path: '/', expires: date });
+                            $("body").css("background-color", "#E5D9E9");
+                        }
+                        time++;
+                    }else{
                         $("#content").show();
                         $("#flash").hide();
                         window.clearInterval(interval);
+                        $("body").css("background-color", "#E5D9E9");
                     }
-                    time++;
                 }
                 
                 

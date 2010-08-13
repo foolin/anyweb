@@ -15,7 +15,7 @@
 /*checkWays*/
 .homeFocus .checkWays{ width:283px; height:33px; background:url(../images/bg_checkWays.png) no-repeat;_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="/public/images/bg_checkWays.png"); _background:none; position:absolute; bottom:304px; left:90px; cursor:pointer; z-index:50;}
 /*homeColumns*/
-.homeColumns{ height:152px; width:955px; position:absolute; left:22px; bottom:87px; line-height:18px; z-index:50;}
+.homeColumns{ height:152px; width:955px; position:absolute; left:22px; bottom:52px; line-height:18px; z-index:50;}
 .homeColumns .gap6px{ margin-right:6px;}
 .hotArcticle{ background:url(../images/bg_hotArticle.png) no-repeat;_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="/public/images/bg_hotArticle.png");}
 .financialStatements{ background:url(../images/bg_financialStatements.png) no-repeat;_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="/public/images/bg_financialStatements.png");}
@@ -108,7 +108,7 @@
 .rside .Rsbanner img{border-top:1px solid #DEDEDE;}
 /*foot style*/
 .foot{ height:90px; color:#fff; width:950px; text-align:right; margin:0px auto; padding:0px 5px; line-height:20px;}
-.footHomePos{ position:absolute; height:70px; text-align:right; color:#fff; bottom:0px;left:20px; z-index:50;width:950px;padding:0px 5px;}
+.footHomePos{ position:absolute; height:70px; text-align:right; color:#fff; bottom:-35px;left:20px; z-index:50;width:950px;padding:0px 5px;}
 .foot a,.footHomePos a{  margin-right:16px; color:#fff; text-decoration:none;}
 
 /*botton style*/

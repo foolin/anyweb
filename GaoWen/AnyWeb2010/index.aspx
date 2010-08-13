@@ -139,7 +139,7 @@
                     play();
                 })
                 function play() {
-                    _h = setTimeout("auto()", 5000);
+                    _h = setTimeout("auto()", 10000);
                 }
                 function change(i) {
                     $('#TurnNum > a').removeClass().eq(i).addClass('cur').blur();

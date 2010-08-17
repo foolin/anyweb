@@ -17,11 +17,11 @@ public partial class search : System.Web.UI.Page
     protected override void OnPreRender(EventArgs e)
     {
         this.Title = "高闻顾问" + GeneralConfigs.GetConfig().TitleExtension;
-        if (Request.Form["keyword"] == null || string.IsNullOrEmpty(Request.Form["keyword"]))
+        if (string.IsNullOrEmpty(Request.QueryString["keyword"] + ""))
         {
             WebAgent.AlertAndBack("请输入搜索关键词！");
         }
-        string keyword = Request.Form["keyword"];
+        string keyword = Request.QueryString["keyword"];
         if (keyword.Contains("%"))
         {
             keyword = keyword.Replace("%", "[%]");

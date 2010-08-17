@@ -61,7 +61,7 @@
 .lside .crumb{ height:31px; padding:25px 0px 0px 55px; background:url(../images/bg_lsTop.gif) no-repeat; font-size:13px; color:#514D78;}
 .lside .box678{ padding:0px 3px 0px 5px;}
 .lside .Lsbanner{ height:146px; overflow:hidden;}
-.lside .conBg{ background-color:#EEF1F9; padding-left:172px;}
+.lside .conBg{ background-color:#DEDFF0; padding-left:172px;}
 .lside .content{ background-color:#F5F5F5; padding:52px 30px 40px 15px; color:#737199; overflow:hidden;}
 .lside .content h1{ font-size:24px; line-height:34px; margin-bottom:27px; font-weight:bold; }
 .lside .content .h1Img{ height:23px;}
@@ -73,7 +73,7 @@
 .lside .content p{ padding-bottom:1em; line-height:22px;}*/
 /*moreList style*/
 .lside .moreAbout{ padding:30px 0px 0px 177px;}
-.lside .moreList{ border:1px solid #CCC; width:462px;}
+.lside .moreList{ border:1px solid #CCC;width:462px;}
 .lside .moreList dl{ overflow:hidden;}
 .lside .moreList dt{ line-height:36px; padding-left:20px; clear:both; font-size:14px; font-weight:bold;}
 .lside .moreList dd{ width:200px; padding-left:20px; height:24px; overflow:hidden; float:left;}
@@ -83,7 +83,7 @@
 .lside .moreList a:hover{text-decoration:underline;}
 .articleList{width:462px;}
 .articleList li{ width:400px; padding-left:20px; height:24px; overflow:hidden;}
-.articleList a{ color:#545454; text-decoration:none;font-size:large;}
+.articleList li a{ color:#545454; text-decoration:none;font-size:large;}
 .articleList a:hover{text-decoration:underline;}
 /*innerPage rightSide*/
 .rside{ width:284px; float:right; background:url(../images/bg_rsCon.gif) repeat-y;}
@@ -151,3 +151,5 @@ visibility: hidden;
 	text-decoration:none;
 }
 #flash{ width:400px; height:200px;}
+.page{padding-left:16px;font-size:15px;padding-top:10px;}
+.page a{color:#545454;}

@@ -13,7 +13,7 @@
                     </div>
                     <div class="conBg">
                         <div class="content">
-                            <div class="moreList">
+                            <div class="articleList">
                                 <div class="blank5px">
                                 </div>
                                 <ul>

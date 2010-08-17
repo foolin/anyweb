@@ -34,7 +34,7 @@ function AddFavorite() {
 }
 function search() {
     if ($("#keyword").val()) {
-        $("#search").submit();
+        window.location = "search.aspx?keyword=" + encodeURI($.trim($("#keyword").val()));
     } else {
         alert("请输入搜索关键词！");
     }

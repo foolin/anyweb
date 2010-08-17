@@ -26,7 +26,7 @@
                 <div class="search">
                     <div class="searInputBg">
                         <form action="search.aspx" id="search" method="post">
-                            <input type="text" id="keyword" name="keyword" value="<%=Request.Form["keyword"] %>" />
+                            <input type="text" id="keyword" name="keyword" value="<%=Request.QueryString["keyword"]+"" %>" />
                             <a href="javascript:search();" class="btnSear"></a>
                         </form>
                     </div>

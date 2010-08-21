@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Data;
-using System.Configuration;
-using System.Collections;
+using System.Collections.Generic;
 using System.Web;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Web.UI.HtmlControls;
-using AnyWeb.AnyWeb_DL;
 using Studio.Web;
+using AnyWeb.AnyWeb_DL;
 
 public partial class Article : System.Web.UI.Page
 {
@@ -22,10 +17,28 @@ public partial class Article : System.Web.UI.Page
     {
         if (string.IsNullOrEmpty(Request.QueryString["id"]) || !WebAgent.IsInt32(Request.QueryString["id"]))
             Response.Redirect("/index.aspx");
-        AnyWeb.AnyWeb_DL.Column col = new ColumnAgent().GetColumnByArticle(int.Parse(Request.QueryString["id"]));
-        if (col != null)
-            HotList1.ColumnID = col.ColuID;
-        else
-            Response.Redirect("/index.aspx");
+        AnyWeb.AnyWeb_DL.Article ar = new ArticleAgent().GetArticleInfo(int.Parse(Request.QueryString["id"]));
+        if (ar == null)
+            WebAgent.FailAndGo("文章不存在");
+        switch (ar.ArtiColumnID) 
+        {
+            case 1: 
+                strColumn = "ZXXW";
+                break;
+            case 2:
+                strColumn = "SWDT";
+                break;
+            case 3:
+                strColumn = "ZCFG";
+                break;
+            default:
+                strColumn = "SY";
+                break;
+        }
+        this.Title = string.Format("广州市天河区沙河供销合作社 - {0}", ar.ArtiTitle);
+        litTitle.Text = ar.ArtiTitle;
+        litContent.Text = ar.ArtiContent;
     }
+
+    protected string strColumn;
 }

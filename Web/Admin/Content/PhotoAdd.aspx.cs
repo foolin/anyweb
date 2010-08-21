@@ -40,7 +40,7 @@ public partial class Admin_Content_PhotoAdd : AdminBase
         }
         if (phot.PhotUrl == "")
         {
-            WebAgent.AlertAndBack("请填写连接地址");
+            WebAgent.AlertAndBack("请填写链接地址");
         }
         if (this.imgupload.PostedFile.ContentLength > 0)
         {

@@ -20,20 +20,16 @@ public partial class Controls_LinkList : System.Web.UI.UserControl
 
     protected override void OnPreRender(EventArgs e)
     {
-        drpLink.Attributes.Add("onchange", "linkSelect()");
-        List<Link> list = new LinkAgent().GetLinkList();
-        if (list.Count <= 10)
-        {
-            repImage.DataSource = list;
-            repImage.DataBind();
-            drpLink.Visible = false;
-        }
-        else
-        {
-            repImage.DataSource = list.GetRange(0, 10);
-            repImage.DataBind();
-            drpLink.DataSource = list.GetRange(10, list.Count - 10);
-            drpLink.DataBind();
-        }
+        repZFWZ.DataSource = new LinkAgent().GetLinkListByCateID(1);
+        repZFWZ.DataBind();
+
+        repGXWZ.DataSource = new LinkAgent().GetLinkListByCateID(2);
+        repGXWZ.DataBind();
+
+        repGXHZS.DataSource = new LinkAgent().GetLinkListByCateID(3);
+        repGXHZS.DataBind();
+
+        repSYWZ.DataSource = new LinkAgent().GetLinkListByCateID(4);
+        repSYWZ.DataBind();
     }
 }

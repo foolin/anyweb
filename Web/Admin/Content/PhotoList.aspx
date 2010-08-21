@@ -13,7 +13,6 @@
             <dt>使用帮助</dt>
             <dd>
                 <ul>
-                    <li>首页显示前8张图片</li>
                     <li>图片排序数字越大图片越靠前。</li>
                     <li>图片删除将不能恢复。</li>
                 </ul>
@@ -46,8 +45,6 @@
                         <td>
                             图片</td>
                         <td>
-                            连接地址</td>
-                        <td>
                             排序</td>
                         <td>
                             操作</td>
@@ -56,16 +53,13 @@
                         <ItemTemplate>
                             <tr onmouseover="this.style.background='#E6F2FF';" onmouseout="this.style.background='#FFFFFF'" style="height:60px;">
                                 <td>
-                                    <%#Eval("PhotName")%>
+                                    <a href="<%#Eval("PhotUrl") %>" target="_blank" title="点击链接地址"><%#Eval("PhotName")%></a>
                                 </td>
                                 <td>
                                     <%#getCateName((int)Eval("PhotCateID")) %>
                                 </td>
                                 <td>
                                     <a href="<%#Eval("PhotPath")%>" target="_blank" title="点击查看大图"><img src="<%#Eval("PhotPath")%>" width="150" height="100" class="img" alt="<%#Eval("PhotName")%>" /></a>
-                                    </td>
-                                <td>
-                                    <%#Eval("PhotUrl") %>  <a href="<%#Eval("PhotUrl") %> " target="_blank">[查看]</a>
                                 </td>
                                 <td>
                                     <%#Eval("PhotOrder")%>
@@ -84,7 +78,7 @@
             </div>
         </div>
     </div>   
-    <script type="text/jscript">
+    <script type="text/javascript">
         function searchPhoto()
         {
             var url="?type="+document.getElementById("<%=type.ClientID %>").value;

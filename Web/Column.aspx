@@ -1,35 +1,36 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Web.master" AutoEventWireup="true" CodeFile="Column.aspx.cs"
-    Inherits="Column" Title="最新新闻" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Inner.master" AutoEventWireup="true"
+    CodeFile="Column.aspx.cs" Inherits="Column" %>
 
-<%@ Register Src="Controls/ColumnArticle.ascx" TagName="ColumnArticle" TagPrefix="uc4" %>
-
-<%@ Register Src="Controls/HotList.ascx" TagName="HotList" TagPrefix="uc3" %>
-
-<%@ Register Src="Controls/ImagesCtl.ascx" TagName="ImagesCtl" TagPrefix="uc2" %>
-
-<%@ Register Src="Controls/Contact.ascx" TagName="Contact" TagPrefix="uc1" %>
-
+<%@ Register TagPrefix="cc1" Namespace="Studio.Web" Assembly="Studio" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div class="main">
-        <div class="container">
-            <div class="column-sider">
-                <!--栏目-->
-                <uc3:HotList id="HotList1" runat="server"></uc3:HotList>
-                <!--栏目-->
-                <div class="boxA">
-                    <uc1:Contact ID="Contact1" runat="server" />
-                </div>
-            </div>
-            <div class="column-main">
-                <!--栏目-->
-                <div class="box">
-                    <uc4:ColumnArticle id="ColumnArticle1" runat="server">
-                    </uc4:ColumnArticle>    
-                </div>
-            </div>
-            <!-- column-main end -->
+    <div class="ConBox column">
+        <div class="tit">
+            <h2>
+                <asp:Literal ID="litTitle" runat="server"></asp:Literal></h2>
         </div>
-        <!--container end -->
+        <div class="blank10px">
+        </div>
+        <div class="newsList">
+            <ul>
+                <asp:Repeater ID="repArticle" runat="server">
+                    <ItemTemplate>
+                        <li><span class="right">
+                            <%#Eval("ArtiCreateAt","{0:yyyy-MM-dd HH:mm}") %></span><a href="article.aspx?id=<%#Eval("ArtiID") %>"
+                                title="<%#Eval("ArtiTitle") %>"><%#Studio.Web.WebAgent.GetLeft((string)Eval("ArtiTitle"), 42, true)%></a></li>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </ul>
+        </div>
+        <div class="blank12px">
+        </div>
+        <div class="newsList_page">
+            <cc1:PageNaver ID="PN1" runat="server" StyleID="2" PageSize="16">
+            </cc1:PageNaver>
+        </div>
     </div>
-    <!-- main end -->
+
+    <script type="text/javascript">
+        $(document).ready(function() { selMenu("<%=strColumn %>"); });
+    </script>
+
 </asp:Content>

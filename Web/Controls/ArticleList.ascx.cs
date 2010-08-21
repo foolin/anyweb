@@ -14,7 +14,6 @@ public partial class Controls_ArticleList : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        litTitle.Text = new ColumnAgent().GetColumnInfo(ColumnID).ColuName;
         repArticle.DataSource = new ArticleAgent().GetArticleList(ColumnID);
         repArticle.DataBind();
     }

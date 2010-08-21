@@ -32,7 +32,7 @@
                         <td width="15%" align="right">
                             图片类别：</td>
                         <td width="85%" align="left">
-                            <asp:DropDownList ID="type" runat="server" onchange="searchPhoto()">
+                            <asp:DropDownList ID="type" runat="server">
                                 <asp:ListItem Text="首页幻灯片" Value="1"></asp:ListItem>
                                 <asp:ListItem Text="网上菜篮子" Value="2"></asp:ListItem>
                                 <asp:ListItem Text="知名合作企业" Value="3"></asp:ListItem>

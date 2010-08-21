@@ -19,7 +19,6 @@
             <dd>
                 <ul>
                     <li>友情链接按序号从小到大排序</li>
-                    <li>前台显示方式：前10条友情链接以图片显示，其它以下拉框方式呈现</li>
                 </ul>
             </dd>
         </dl>
@@ -75,7 +74,7 @@
             </div>
         </div>
     </div>
-    <script type="text/jscript">
+    <script type="text/javascript">
         function searchLink()
         {
             var url="?type="+document.getElementById("<%=type.ClientID %>").value;

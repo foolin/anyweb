@@ -4,6 +4,7 @@ using System.Text;
 using Studio.Data;
 using System.Data;
 using System.Collections;
+using System.Web;
 
 namespace AnyWeb.AnyWeb_DL
 {
@@ -72,13 +73,15 @@ namespace AnyWeb.AnyWeb_DL
         {
             using (IDbExecutor db = this.NewExecutor())
             {
-                return db.ExecuteNonQuery(CommandType.StoredProcedure, "AddPhoto",
+                bool result = db.ExecuteNonQuery(CommandType.StoredProcedure, "AddPhoto",
                     this.NewParam("@PhotName", phot.PhotName),
                     this.NewParam("@CateID", phot.PhotCateID),
                     this.NewParam("@PhotUrl", phot.PhotUrl),
                     this.NewParam("@PhotPath", phot.PhotPath),
                     this.NewParam("@PhotOrder", phot.PhotOrder),
                     this.NewParam("@PhotUploadAt", phot.PhotUploadAt)) > 0;
+                this.clearCache();
+                return result;
             }
         }
 
@@ -91,7 +94,7 @@ namespace AnyWeb.AnyWeb_DL
         {
             using (IDbExecutor db = this.NewExecutor())
             {
-                return db.ExecuteNonQuery(CommandType.StoredProcedure, "UpdatePhotoInfo",
+                int result = db.ExecuteNonQuery(CommandType.StoredProcedure, "UpdatePhotoInfo",
                     this.NewParam("@PhotID", phot.PhotID),
                     this.NewParam("@PhotName", phot.PhotName),
                     this.NewParam("@CateID", phot.PhotCateID),
@@ -99,6 +102,8 @@ namespace AnyWeb.AnyWeb_DL
                     this.NewParam("@PhotPath", phot.PhotPath),
                     this.NewParam("@PhotOrder", phot.PhotOrder),
                     this.NewParam("@PhotUploadAt", phot.PhotUploadAt));
+                this.clearCache();
+                return result;
             }
         }
 
@@ -111,8 +116,10 @@ namespace AnyWeb.AnyWeb_DL
         {
             using (IDbExecutor db = this.NewExecutor())
             {
-                return db.ExecuteNonQuery(CommandType.StoredProcedure, "DeletePhoto",
+                int result = db.ExecuteNonQuery(CommandType.StoredProcedure, "DeletePhoto",
                     this.NewParam("@PhotID", PhotID));
+                this.clearCache();
+                return result;
             }
         }
 
@@ -122,22 +129,51 @@ namespace AnyWeb.AnyWeb_DL
         /// <returns></returns>
         public List<Photo> GetPhotoListByWeb()
         {
+            List<Photo> list = (List<Photo>)HttpRuntime.Cache["PHOTO"];
+            if (list != null)
+                return list;
+            list = new List<Photo>();
             DataSet ds;
             using (IDbExecutor db = this.NewExecutor())
             {
                 ds = db.GetDataSet(CommandType.StoredProcedure, "GetPhotoListByWeb");
             }
-            if (ds.Tables[0].Rows.Count == 0)
-                return null;
-            else
+            foreach (DataRow row in ds.Tables[0].Rows)
             {
-                List<Photo> list = new List<Photo>();
-                foreach (DataRow row in ds.Tables[0].Rows)
+                Photo pt = new Photo(row);
+                list.Add(pt);
+            }
+            HttpRuntime.Cache.Insert("PHOTO", list, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes(5));
+            return list;
+        }
+
+        /// <summary>
+        /// 前台根据类别获取图片
+        /// </summary>
+        /// <param name="cateID"></param>
+        /// <returns></returns>
+        public List<Photo> getPhotoListByCateID(int cateID) 
+        {
+            List<Photo> list = this.GetPhotoListByWeb();
+            List<Photo> photoList = new List<Photo>();
+            foreach (Photo photo in list)
+            {
+                if (photo.PhotCateID == cateID)
                 {
-                    Photo pt = new Photo(row);
-                    list.Add(pt);
+                    photoList.Add(photo);
                 }
-                return list;
+            }
+            return photoList;
+        }
+
+        /// <summary>
+        /// 移除缓存
+        /// </summary>
+        public void clearCache() 
+        {
+            if (HttpRuntime.Cache["PHOTO"] != null)
+            {
+                HttpRuntime.Cache.Remove("PHOTO");
             }
         }
     }

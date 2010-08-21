@@ -1,33 +1,21 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Web.master" AutoEventWireup="true" CodeFile="Company.aspx.cs" Inherits="Company" Title="供销社介绍" %>
-
-<%@ Register Src="Controls/CompanyNav.ascx" TagName="CompanyNav" TagPrefix="uc1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Inner.master" AutoEventWireup="true"
+    CodeFile="Company.aspx.cs" Inherits="Company" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div class="main">
-        <div class="container">
-            <div class="column-sider">
-                <!--栏目-->
-                    <uc1:companynav id="CompanyNav1" runat="server"></uc1:companynav>
-                <!--栏目-->
-            </div>
-            <div class="column-main">
-            
-            
-            
-                <div class="article"> 
-                    <h3 class="art-title"> 
-                        
-                        广州市天河区沙河供销合作社
-                    </h3> 
-                    <div class="art-info"> 
-                        [字体： <a href="javascript:fontZoomMax()">大</a> <a href="javascript:fontZoomMid()">中</a> <a href="javascript:fontZoomMin()">小</a> ] &nbsp;[<a href="javascript:window.print()">打印</a> ] &nbsp;[<a href="javascript:window.close()">关闭</a>]
-                        <script language="javascript" type="text/javascript" src="/JS/fontzoom.js"></script>
-                    </div> 
-                    <!-- art-info end --> 
-                    <div class="art-content" id="art-content"> 
-                      
-                      
-                      <p>广州市天河区沙河供销合作社成立于一九五三年，是广州市天河区供销联社下属的分支机构之一。我社一直致力于为城乡企业、居民服务，诚信守法经营，拥有良好的社会信誉。我社现时的经营业务范围主要有：物业租赁及管理、龙口东市场经营及管理、广州市杰信人力资源有限公司经营及管理、商品经营等。<br />
+    <div class="ConBox detailTopBg column">
+        <div class="DetTop">
+            <h1>
+                广州市天河区沙河供销合作社
+            </h1>
+            <p class="subMark">
+                [ 字体：<a href="javascript:void(0);" onclick="changeFontSize(this,'f14');">大</a> <a
+                    href="javascript:void(0);" onclick="changeFontSize(this,'f13');">中</a> <a href="javascript:void(0);"
+                        onclick="changeFontSize(this,'f12');" class="cur">小</a> ] [ <a href="javascript:window.print();">
+                            打印</a> ] [ <a href="javascript:window.close();">关闭</a> ]
+            </p>
+        </div>
+        <div class="DetCon" id="ConDetail">
+            <p>广州市天河区沙河供销合作社成立于一九五三年，是广州市天河区供销联社下属的分支机构之一。我社一直致力于为城乡企业、居民服务，诚信守法经营，拥有良好的社会信誉。我社现时的经营业务范围主要有：物业租赁及管理、龙口东市场经营及管理、广州市杰信人力资源有限公司经营及管理、商品经营等。<br />
                  </p>
                  <p>
                  我社相关的主营业务介绍：</p>
@@ -92,20 +80,9 @@ text-indent:21.0pt;mso-char-indent-count:2.0;line-height:150%"><span>&nbsp;</spa
                  
                  
                  </p>
-                 
-                 
-                    </div> 
-                    <!-- art-content end --> 
-                </div> 
-                <!-- article end --> 
-                
-                
-
-             </div>
-            <!-- column-main end -->
         </div>
-        <!--container end -->
     </div>
-    <!-- main end -->
+    <script type="text/javascript">
+        $(document).ready(function() { selMenu("QYJS"); });
+    </script>
 </asp:Content>
-

@@ -32,7 +32,7 @@
                         <td width="15%" align="right">
                             图片类别：</td>
                         <td width="85%" align="left">
-                            <asp:DropDownList ID="type" runat="server" onchange="searchPhoto()">
+                            <asp:DropDownList ID="type" runat="server">
                                 <asp:ListItem Text="首页幻灯片" Value="1"></asp:ListItem>
                                 <asp:ListItem Text="网上菜篮子" Value="2"></asp:ListItem>
                                 <asp:ListItem Text="知名合作企业" Value="3"></asp:ListItem>
@@ -58,10 +58,10 @@
                         <td>
                             上传图片：
                         </td>
-                        <td colspan="2" align="center">
+                        <td colspan="2">
                             <asp:FileUpload ID="imgupload" runat="server" Width="275" />
                             <div>
-                                <asp:Image ID="imgPhoto" Width="600" runat="server" />
+                                <asp:Image ID="imgPhoto" Width="275" Height="180" runat="server" />
                             </div>
                         </td>
                     </tr>

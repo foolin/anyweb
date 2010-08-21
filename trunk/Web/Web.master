@@ -1,50 +1,58 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Web.master.cs" Inherits="Web" %>
-<%@ Register Src="Controls/Header.ascx" TagName="Header" TagPrefix="uc1" %>
-<%@ Register Src="Controls/Footer.ascx" TagName="Footer" TagPrefix="uc2" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Web.master.cs" Inherits="Web" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-    <title>�����������ɳ�ӹ���������</title>
-    <link href="/Css/common.css" rel="stylesheet" type="text/css" />
-    <link href="/Css/article.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>广州市天河区沙河供销合作社</title>
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
 
-    <script language="javascript" type="text/javascript" src="/JS/common.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
 
-    <script language="javascript" type="text/javascript" src="/JS/flash.js"></script>
+    <script type="text/javascript" src="js/function.js"></script>
 
-    <script language="javascript" type="text/javascript" src="/JS/slide-effect.js"></script>
-
-    <style type="text/css">
-        <!--
-        .subcontainer{ clear:both;}
-        .subcolumn-A{ width:55%; float:left;}
-        .subcolumn-B{ width:45%; float:left;}
-        .subcolumn-C{ width:50%; float:left;}
-        .column-P3 { width:33.3%; float:left;}	/* 30%Ư�� */
-        +html .hr-IE7bug{ height:1px;}	/*Hack: �޸�IE7�µ�bug*/
-        /* 30%Ư�� */
-        .column-P3 { width:33.3%; float:left;}
-        /*Hack: �޸�IE7�µ�bug*/
-        * +html .hr-IE7bug{ height:1px;}
-        /* �������Ź̶��߶� */
-        .fixh-A{ height:270px; overflow:hidden;}
-        /* ����̬�����ɷ���̶��߶� */
-        .fixh-B{ height:290px; overflow:hidden;}
-        /* ��ҵ���̶ܹ��߶� */
-        .fixh-intro{ height:300px; overflow:hidden;} 
-        -->
-    </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div class="wrapper">
-            <uc1:Header ID="Header1" runat="server" />
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-            <uc2:Footer ID="Footer1" runat="server" />
+    <div class="wrap">
+        <div class="top">
+            <i><a href="javascript:setHomepage();">设为首页</a></i> <i><a href="javascript:addCookie();">
+                添加收藏</a></i> <i class="last"><a href="Contact.aspx">联系我们</a></i>
         </div>
-        <!-- wrapper end -->
-    </form>
+        <div class="companyName">
+            广州市天河区沙河供销合作社</div>
+        <div class="nav">
+            <div class="ls">
+            </div>
+            <div class="ms">
+                <div class="menu" id="menu">
+                    <i id="SY"><a href="index.aspx">首页</a></i> <i id="QYJS"><a href="Company.aspx">企业介绍</a></i>
+                    <i id="SWDT"><a href="Column.aspx?id=2">社务动态</a></i> <i id="ZXXW"><a href="Column.aspx?id=1">
+                        最新新闻</a></i> <i id="ZCFG"><a href="Column.aspx?id=3">政策法规</a></i> <i id="SPXS"><a
+                            href="http://shop.thshcoop.com" target="_blank">商品销售</a></i> <i id="WSCLZ"><a href="LkdMarket.aspx">
+                                网上菜篮子</a></i> <i id="JXRLZY"><a href="HR.aspx">杰信人力资源</a></i> <i id="LXWM"><a href="Contact.aspx">
+                                    联系我们</a></i>
+                </div>
+            </div>
+            <div class="rs">
+            </div>
+        </div>
+        <div class="blank6px">
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <div class="foot">
+        <p class="dgreen">
+            <a href="Company.aspx">关于我们</a> - <a href="copyright.aspx">版权声明</a> - <a href="Contact.aspx">
+                联系我们</a> - <a href="LinkList.aspx">友情链接</a> - <a href="/Admin/Login.aspx" target="_blank">
+                    管理登录</a>
+        </p>
+        <p class="lgreen">
+            广州市天河区沙河供销合作社 ICP证号：粤ICP备09198729号<br />
+            地址：广州市天河区龙口东路139号后座二至四楼 电话：020-87590122<br />
+            Copyright© 2009 Anywell Studio， All rights reserved。
+        </p>
+    </div>
 </body>
 </html>

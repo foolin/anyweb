@@ -18,6 +18,11 @@ namespace BLOG.tiny_mce
         string path = "";
         protected void Page_Load(object sender, System.EventArgs e)
         {
+            
+        }
+
+        protected override void OnPreRender(EventArgs e)
+        {
             if (Request.Files.Count == 0 || Request.Files[0].ContentLength == 0)
             {
                 Failed("请选择文件");
@@ -33,8 +38,6 @@ namespace BLOG.tiny_mce
                 Failed(String.Format("{1}：\n{0}", ex.Message, "上传文件错误"));
             }
         }
-
-
 
 
         private void UploadFile()

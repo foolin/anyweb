@@ -18,6 +18,11 @@ namespace BLOG.tiny_mce
         string path = "";
         protected void Page_Load(object sender, System.EventArgs e)
         {
+            
+        }
+
+        protected override void OnPreRender(EventArgs e)
+        {
             if (Request.Files.Count == 0 || Request.Files[0].ContentLength == 0)
             {
                 Failed("请选择文件");

@@ -70,6 +70,7 @@
     <Compile Include="IO\LogAgent.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Net\HttpAgent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\Decryptor.cs" />
     <Compile Include="Security\DecryptTransformer.cs" />

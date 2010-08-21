@@ -1,0 +1,35 @@
+﻿<p>
+                                    <span style="color: #666699;"><span style="line-height: 30px;"><span style="font-size: x-large;">
+                                        <span style="font-family: 黑体;">免责声明</span></span></span></span></p>
+                                <p>
+                                    <span style="font-size: medium;"><span style="font-family: 宋体;"><span style="line-height: 30px;">
+                                        <span style="color: #333333;"><span style="font-size: x-large;"><span style="color: #666699;">
+                                            <span style="font-family: 黑体;">&nbsp;</span></span></span></span></span></span></span></p>
+                                <p>
+                                    &nbsp;<span style="color: #000000;"><span style="line-height: 30px;"><span style="font-size: xx-large;"><span
+                                        style="font-family: 宋体;">高</span></span></span><span style="line-height: 30px;"><span
+                                            style="font-size: medium;"><span style="font-family: 宋体;">闻顾问有限公司（下称&ldquo;高闻&rdquo;）载于&ldquo;香港高闻网站&rdquo;（下称&ldquo;高闻网&rdquo;）的资料，只作一般性质及说明用途。对该等资料，高闻不会就任何错误、遗漏、或错误陈述或失实陈述（不论明示或默示的）承担任何责任。对任何因使用或不当使用或依据&ldquo;高闻网&rdquo;所载的资料而引致或所涉及的损失、毁坏或损害
+                                                (包括但不限于相应而生的损失、毁坏或损害)，高闻概不承担任何义务、责任或法律责任。</span></span></span></span></p>
+                                <p>
+                                    <span style="color: #000000;">
+                                        <br />
+                                        <span style="line-height: 30px;"><span style="font-size: medium;"><span style="font-family: 宋体;">
+                                            高闻所提供的&ldquo;高闻网&rdquo;电子服务是获取高闻服务的另一途径。对任何因使用或不当使用或依据&ldquo;高闻网&rdquo;所载的资料而引致或所涉及的损失、毁坏或损害
+                                            (包括但不限于相应而生的损失、毁坏或损害)，高闻概不承担任何义务、责任或法律责任。</span></span></span></span></p>
+                                <p>
+                                    <span style="color: #000000;"><span style="line-height: 30px;"><span style="font-size: medium;">
+                                        <span style="font-family: 宋体;">
+                                            <br />
+                                            为方便使用者查阅由其他人士/团体或通过其他人士/团体提供的资讯，&ldquo;高闻网&rdquo;的网页可能会提供或协助提供超连结至外界网站。提供或协助提供该等超连结，并不构成高闻就赞同或没有不赞同该等网站之内容作出任何明示或暗示的声明、陈述或保证；对任何因使用或不当使用或依据通过&ldquo;高闻网&rdquo;传递或提供的外界网站的内容而引致或所涉及的损失、毁坏或损害
+                                            (包括但不限于相应而生的损失、毁坏或损害)，高闻概不承担任何义务、责任或法律责任。</span></span></span></span></p>
+                                <p>
+                                    <span style="color: #000000;"><span style="line-height: 30px;"><span style="font-size: medium;">
+                                        <span style="font-family: 宋体;">
+                                            <br />
+                                            此中文免责条款九为英文版本译本，如中、英文两个版本有任何抵触或不相符之处，应以英文版本为准。 对任何因使用或不当使用或依据英文版本或中文版本而引致或所涉及的损失、毁坏或损害
+                                            (包括但不限于相应而生的损失、毁坏或损害)，高闻概不承担任何义务、责任或法律责任。</span></span></span></span></p>
+                                <p>
+                                    <span style="color: #000000;"><span style="line-height: 30px;"><span style="font-size: medium;">
+                                        <span style="font-family: 宋体;">
+                                            <br />
+                                            当你一旦使用&ldquo;高闻网&rdquo;，即表示你无条件接受上述所载的免责条款以及任何高闻不时在无须预先通知你的情况下而对上述条款所作出的修改及/或修订。请定期浏览此网页查阅任何修改及/或修订。</span></span></span></span></p>

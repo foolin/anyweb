@@ -5,8 +5,7 @@
     <div id="menu" class="ms">
         <asp:Repeater ID="repColumn" runat="server" EnableViewState="False">
             <ItemTemplate>
-                <a class="<%#(int)Eval("fdColuID")==columnID?"cur":"" %>" href="column.aspx?id=<%#Eval("fdColuID") %>"
-                    rel="dropmenu<%#Eval("fdColuID") %>">
+                <a class="<%#(int)Eval("fdColuID")==columnID?"cur":"" %>" rel="dropmenu<%#Eval("fdColuID") %>">
                     <%#Eval("fdColuName")%></a>
             </ItemTemplate>
         </asp:Repeater>

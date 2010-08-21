@@ -1,0 +1,46 @@
+﻿<p>
+                                    <span style="font-size: x-large;"><span style="color: #333333;"><span style="font-family: 黑体;">
+                                        私隐政策</span></span></span></p>
+                                <p>
+                                    <span style="font-size: medium;"><span style="font-family: 宋体;"><span style="line-height: 30px;">
+                                        <span style="color: #333333;"><span style="font-size: x-large;"><span style="color: #666699;">
+                                            <span style="font-family: 黑体;">&nbsp;</span></span></span></span></span></span></span></p>
+                                <p>
+                                    <span style="color: #000000;"><span style="line-height: 30px;"><span style="font-size: xx-large;">
+                                        <span style="font-family: 宋体;">高</span></span></span><span style="font-family: 宋体;"><span
+                                            style="line-height: 30px;"><span style="font-size: medium;">闻顾问有限公司在阁下没有输入任何可核对身份的资料的情况下,
+                                                高闻顾问有限公司并不会对任何个人资料的作配置. 意即除非阁下自愿向我们提供资料或成功登录到您个人化网页或需要您个人身份证明的服务. 本公司不会收到阁下任何身份证明,
+                                                电邮地址或其他敏感讯息.</span></span></span></span></p>
+                                <p>
+                                    <span style="color: #000000;"><span style="font-family: 宋体;"><span style="line-height: 30px;">
+                                        <span style="font-size: medium;"></span></span>
+                                        <br />
+                                        <span style="line-height: 30px;"><span style="font-size: medium;">本公司网站会严格遵守个人私隐条款以保障任何用户以自愿性质所提供之个人资料与身份证明.
+                                            例: 如果您需要取回用户名称及密码. 系统会要求您提供您的姓名, 身份证/护照号码\或电邮地址. 每次成功登录后, 将记录用户网络所支援的途径:</span></span></span></span></p>
+                                <p>
+                                    <span style="color: #000000;">
+                                        <br />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="line-height: 30px;"><span style="font-size: medium;"><span
+                                            style="font-family: 宋体;"> -&nbsp;&nbsp;&nbsp; 互联网通讯协定(IP ADDRESS)</span></span></span></span><span
+                                                style="color: #000000;"><span style="line-height: 30px;"><span style="font-size: medium;"><span
+                                                    style="font-family: 宋体;"><br />
+                                                    &nbsp;&nbsp;&nbsp;&nbsp; -&nbsp;&nbsp;&nbsp; 浏览器信息</span></span></span></span><span
+                                                        style="color: #000000;"><span style="line-height: 30px;"><span style="font-size: medium;"><span
+                                                            style="font-family: 宋体;"><br />
+                                                            &nbsp;&nbsp;&nbsp;&nbsp; -&nbsp;&nbsp;&nbsp; 作业系统信息&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></span></p>
+                                <p>
+                                    <span style="color: #000000;"><span style="line-height: 30px;"><span style="font-size: medium;">
+                                        <span style="font-family: 宋体;">
+                                            <br />
+                                            未经阁下事先同意, 高闻顾问有限公司不会出售, 交换或披露任何客户提供的信息予任何第三方. 然而, 我们的工作人员有权以行政理由使用您的个人资料.</span></span></span></span></p>
+                                <p>
+                                    <span style="color: #000000;"><span style="line-height: 30px;"><span style="font-size: medium;">
+                                        <span style="font-family: 宋体;">
+                                            <br />
+                                            高闻顾问有限公司亦保留您所提供的资料使用权以作统计及数据分析用途. 并以此资料公布所有研究结果.</span></span></span></span></p>
+                                <p>
+                                    <span style="color: #000000;"><span style="line-height: 30px;"><span style="font-size: medium;">
+                                        <span style="font-family: 宋体;">
+                                            <br />
+                                            高闻顾问有限公司使用Cookies 以加快您所浏览网页的经过. Cookie 是一小块短暂贮存在您网页浏览器内的容器. 在未设置Cookies 的情况下, 不会有存取任何网页的功能.
+                                            而Cookies在您浏览器内所存取的网页不包含您的个人资料. 亦不会破坏或改变您的系统文件. Cookies 只会进行单一次数的访问网站及存取网站纪录, 关闭浏览器后记录将会消失.</span></span></span></span></p>

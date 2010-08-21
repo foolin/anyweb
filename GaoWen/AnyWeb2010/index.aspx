@@ -1,24 +1,32 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="index.aspx.cs" Inherits="index" %>
-<%@ Register src="Control/menu.ascx" tagname="menu" tagprefix="uc1" %>
 
+<%@ Register Src="Control/menu.ascx" TagName="menu" TagPrefix="uc1" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="public/class/default_index.css" />
     <link rel="stylesheet" type="text/css" href="public/class/style_index.css" />
+
     <script type="text/javascript" src="public/js/jquery-1.2.5.js"></script>
+
     <script type="text/javascript" src="public/js/jquery.cookie.js"></script>
+
     <script type="text/javascript" src="public/js/chrome.js"></script>
+
     <script src="public/js/swfobject_modified.js" type="text/javascript"></script>
+
     <script type="text/javascript" src="public/js/common.js"></script>
+
     <title></title>
 </head>
 <body>
     <div id="flash">
+
         <script type="text/javascript">
             $("body").css("background-color", "#726A8B");
         </script>
+
         <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="400"
             height="200">
             <param name="movie" value="public/images/welcome.swf" />
@@ -53,9 +61,7 @@
                 </div>
                 <div class="search">
                     <div class="searInputBg">
-                        <form action="search.aspx" id="search" method="post">
                         <input type="text" id="keyword" name="keyword" /><a href="javascript:search();" class="btnSear"></a>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -67,7 +73,8 @@
             <div id="focus" class="focus">
                 <asp:Repeater ID="repFlash" runat="server">
                     <ItemTemplate>
-                        <img id="image<%#Container.ItemIndex+1 %>" src="<%#Eval("fdFlasPicture") %>" width="1004" height="710" border="0" usemap="#Map<%#Container.ItemIndex+1 %>" />
+                        <img id="image<%#Container.ItemIndex+1 %>" src="<%#Eval("fdFlasPicture") %>" width="1004"
+                            height="710" border="0" usemap="#Map<%#Container.ItemIndex+1 %>" />
                         <map name="Map<%#Container.ItemIndex+1 %>" id="Map<%#Container.ItemIndex+1 %>">
                             <area shape="rect" coords="4,156,1003,470" href="<%#Eval("fdFlasUrl") %>" />
                         </map>
@@ -77,7 +84,8 @@
             <div id="TurnNum" class="TurnNum">
                 <asp:Repeater ID="repFlashNum" runat="server">
                     <ItemTemplate>
-                        <a href="javascript:void(0);" alt="<%#Container.ItemIndex+1 %>" class="<%#Container.ItemIndex==0?"cur":"" %>"><%#Container.ItemIndex+1 %></a>
+                        <a href="javascript:void(0);" alt="<%#Container.ItemIndex+1 %>" class="<%#Container.ItemIndex==0?"cur":"" %>">
+                            <%#Container.ItemIndex+1 %></a>
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
@@ -126,6 +134,7 @@
                 
                 
             </script>
+
             <script type="text/javascript">
                 var _c = _h = 0;
                 $(document).ready(function() {
@@ -154,17 +163,16 @@
                     change(_c);
                 }
             </script>
+
             <div class="homeColumns">
                 <div class="hotArcticle gap6px left">
                     <ul class="list black relate">
                         <asp:Repeater ID="repHot" runat="server">
-                        <ItemTemplate>
-                            <li>
-                            <a href="article.aspx?id=<%#Eval("fdArtiID") %>">
-                                <%#Studio.Web.WebAgent.GetLeft((string)Eval("fdArtiTitle"),10)%></a>
-                            </li>
-                        </ItemTemplate>
-                    </asp:Repeater>
+                            <ItemTemplate>
+                                <li><a href="article.aspx?id=<%#Eval("fdArtiID") %>">
+                                    <%#Studio.Web.WebAgent.GetLeft((string)Eval("fdArtiTitle"),10)%></a> </li>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </ul>
                 </div>
                 <div class="financialStatements left">
@@ -179,8 +187,9 @@
                 </div>
             </div>
             <div class="footHomePos">
-                <a href="http://gaowenconsultancy.com/disclaimer-chs.html" target="_blank">免责声明</a> <a href="http://gaowenconsultancy.com/privacy-policy-chs.html" target="_blank">私隐政策</a> <a href="http://gaowenconsultancy.com/terms-conditions-chs.html" target="_blank">条款及条件</a> <a href="http://gaowenconsultancy.com/copyright-notice-chs.html" target="_blank">版权告示</a>
-                © 2010 高闻顾问有限公司. 版权所有
+                <a href="/disclaimer-chs.aspx">免责声明</a> <a href="/privacy-policy-chs.aspx">私隐政策</a>
+                <a href="/terms-conditions-chs.aspx">条款及条件</a> <a href="/copyright-notice-chs.aspx">
+                    版权告示</a> © 2010 高闻顾问有限公司. 版权所有
             </div>
         </div>
     </div>

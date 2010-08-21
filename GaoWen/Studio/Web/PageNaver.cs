@@ -334,8 +334,8 @@ namespace Studio.Web
                     writer.Write("&nbsp;<a href='" + UrlPrefix + "{0}' title='Goto Page {0}' class='pagenaver'>...</a>", (end + 1).ToString());
                 }
 
-                writer.Write("&nbsp;<a {0} class='pagenaver'><font face='webdings'>4</font></a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='Goto {0} Page'", PageIndex + 1) : "disabled");
-                writer.Write("&nbsp;<a {0} class='pagenaver'><font face='webdings'>:</font></a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='Goto {0} Page'", pages) : "disabled");
+                writer.Write("&nbsp;<a {0} class='pagenaver'>下一页</a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='Goto {0} Page'", PageIndex + 1) : "disabled");
+                writer.Write("&nbsp;<a {0} class='pagenaver'>尾页</a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='Goto {0} Page'", pages) : "disabled");
 
                 writer.Write("</span>");
             }
@@ -344,8 +344,8 @@ namespace Studio.Web
                 int begin, end, pages = PageCount;
 
                 writer.Write("<span>");
-                writer.Write("&nbsp;<a class='pagenaver' {0}>首页</a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlPrefix + "\" + {0})' title='首页'", 1) : "disabled");
-                writer.Write("&nbsp;<a class='pagenaver' {0}>上一页</a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlPrefix + "\" + {0})' title='上一页'", PageIndex - 1) : "disabled");
+                writer.Write("&nbsp;<a {0} class='pagenaver'>首页</a>", PageIndex > 1 ? String.Format("href='" + UrlPrefix + "{0}' title='首页'", 1) : "disabled");
+                writer.Write("&nbsp;<a {0} class='pagenaver'>上一页</a>", PageIndex > 1 ? String.Format("href='" + UrlPrefix + "{0}' title='上一页'", PageIndex - 1) : "disabled");
 
                 if (PageCount > 10)
                 {

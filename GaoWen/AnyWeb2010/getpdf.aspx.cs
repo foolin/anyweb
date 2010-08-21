@@ -30,7 +30,7 @@ public partial class getpdf : System.Web.UI.Page
         string articleID = Request.QueryString["id"] + "";
         string pdfPath = "";    //PDF路径
 
-        if (string.IsNullOrEmpty(articleID) || !WebAgent.IsInt32(articleID))
+        if (string.IsNullOrEmpty(articleID))
         {
             WebAgent.AlertAndBack("文章不存在！");
         }
@@ -44,8 +44,14 @@ public partial class getpdf : System.Web.UI.Page
         {
             Response.Redirect(pdfPath);
         }
-
-        GenerateBitmap(articleID, string.Format("{0}/renderarticle.aspx?id={1}", ConfigurationManager.AppSettings["Host"], articleID), -1, -1);
+        if (WebAgent.IsInt32(articleID))
+        {
+            GenerateBitmap(articleID, string.Format("{0}/renderarticle.aspx?id={1}", ConfigurationManager.AppSettings["Host"], articleID), -1, -1);
+        }
+        else
+        {
+            GenerateBitmap(articleID, string.Format("{0}/renderFooter.aspx?id={1}", ConfigurationManager.AppSettings["Host"], articleID), -1, -1);
+        }
         if (error)
         {
             WebAgent.FailAndGo("下载pdf失败，请稍后再试！", "/index.aspx");

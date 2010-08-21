@@ -5,7 +5,7 @@
             <ItemTemplate>
                 <li>
                     <h3>
-                        <a href="<%#Eval("fdRelaLink") %>" target="_blank">
+                        <a href="<%#Eval("fdRelaLink") %>">
                             <%#Eval("fdRelaTitle")%></a></h3>
                     <p>
                         <%#Eval("fdRelaDesc") %></p>

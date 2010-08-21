@@ -51,7 +51,7 @@ namespace Studio.Web
                 RendNavigator(writer);
                 if (_keyIndex == 1)
                 {
-                    writer.Write("<script language='javascript'>function GoToPage(url){document.location.href=url;}</script>");
+                    writer.Write("<script language='javascript'>function GoToPage(url){document.location.href=url;}function jumpPage(obj,url){var i=parseInt($(obj).prev().val());if(!i&&i!=0)return false;if(i<=0)i=1;if(i>" + PageCount + ")i=" + PageCount + ";GoToPage(url + i);}</script>");
                 }
             }
             else
@@ -138,8 +138,8 @@ namespace Studio.Web
                 int begin, end, pages = PageCount;
 
                 writer.Write("<span>");
-                writer.Write("&nbsp;<a class='pagenaver' {0}><font face='webdings' class='pagenaver'>9</font></a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlPrefix + "\" + {0})' title='Goto {0} Page'", 1) : "disabled");
-                writer.Write("&nbsp;<a class='pagenaver' {0}><font face='webdings' class='pagenaver'>3</font></a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlPrefix + "\" + {0})' title='Goto {0} Page'", PageIndex - 1) : "disabled");
+                writer.Write("&nbsp;<a class='pagenaver' {0}>首页</a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlPrefix + "\" + {0})' title='Goto {0} Page'", 1) : "disabled");
+                writer.Write("&nbsp;<a class='pagenaver' {0}>上一页</a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlPrefix + "\" + {0})' title='Goto {0} Page'", PageIndex - 1) : "disabled");
 
                 if (PageCount > 10)
                 {
@@ -183,10 +183,11 @@ namespace Studio.Web
                     writer.Write("&nbsp;<a href='" + UrlPrefix + "{0}' title='Goto Page {0}' class='pagenaver'>...</a>", (end + 1).ToString());
                 }
 
-                writer.Write("&nbsp;<a {0} class='pagenaver'><font face='webdings'>4</font></a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='Goto {0} Page'", PageIndex + 1) : "disabled");
-                writer.Write("&nbsp;<a {0} class='pagenaver'><font face='webdings'>:</font></a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='Goto {0} Page'", pages) : "disabled");
+                writer.Write("&nbsp;<a {0} class='pagenaver'>下一页</a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='Goto {0} Page'", PageIndex + 1) : "disabled");
+                writer.Write("&nbsp;<a {0} class='pagenaver'>尾页</a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='Goto {0} Page'", pages) : "disabled");
 
-                writer.Write("&nbsp;<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='javascript:GoToPage(\"" + UrlPrefix + "\" + this.parentElement.children[0].value);'></span>", PageIndex);
+                //writer.Write("&nbsp;<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='javascript:GoToPage(\"" + UrlPrefix + "\" + this.parentElement.children[0].value);'></span>", PageIndex);
+                writer.Write("&nbsp;<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='jumpPage(this,\"" + UrlPrefix + "\")'></span>", PageIndex);
                 writer.Write("</span>");
             }
             else
@@ -194,8 +195,8 @@ namespace Studio.Web
                 int begin, end, pages = PageCount;
 
                 writer.Write("<span>");
-                writer.Write("&nbsp;<a class='pagenaver' {0}><font face='webdings' class='pagenaver'>9</font></a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlPrefix + "\" + {0})' title='转到第{0}页'", 1) : "disabled");
-                writer.Write("&nbsp;<a class='pagenaver' {0}><font face='webdings' class='pagenaver'>3</font></a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlPrefix + "\" + {0})' title='转到第{0}页'", PageIndex - 1) : "disabled");
+                writer.Write("&nbsp;<a class='pagenaver' {0}>首页</a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlPrefix + "\" + {0})' title='转到第{0}页'", 1) : "disabled");
+                writer.Write("&nbsp;<a class='pagenaver' {0}>上一页</a>", PageIndex > 1 ? String.Format("href='javascript:GoToPage(\"" + UrlPrefix + "\" + {0})' title='转到第{0}页'", PageIndex - 1) : "disabled");
 
                 if (PageCount > 10)
                 {
@@ -239,10 +240,11 @@ namespace Studio.Web
                     writer.Write("&nbsp;<a href='" + UrlPrefix + "{0}' title='转到第{0}页' class='pagenaver'>...</a>", (end + 1).ToString());
                 }
 
-                writer.Write("&nbsp;<a {0} class='pagenaver'><font face='webdings'>4</font></a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='转到第{0}页'", PageIndex + 1) : "disabled");
-                writer.Write("&nbsp;<a {0} class='pagenaver'><font face='webdings'>:</font></a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='转到第{0}页'", pages) : "disabled");
+                writer.Write("&nbsp;<a {0} class='pagenaver'>下一页</a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='转到第{0}页'", PageIndex + 1) : "disabled");
+                writer.Write("&nbsp;<a {0} class='pagenaver'>尾页</a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='转到第{0}页'", pages) : "disabled");
 
-                writer.Write("&nbsp;<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='javascript:GoToPage(\"" + UrlPrefix + "\" + this.parentElement.children[0].value);'></span>", PageIndex);
+                //writer.Write("&nbsp;<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='javascript:GoToPage(\"" + UrlPrefix + "\" + this.parentElement.children[0].value);'></span>", PageIndex);
+                writer.Write("&nbsp;<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='jumpPage(this,\"" + UrlPrefix + "\")'></span>", PageIndex);
                 writer.Write("</span>");
             }
         }

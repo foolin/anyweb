@@ -1,9 +1,0 @@
-tinyMCE.addI18n('zh.profile_dlg',{
-title:"\u63D2\u5165\u9644\u4EF6",
-name:"\u9644\u4EF6\u540D\u79F0",
-profile_source:"\u9644\u4EF6\u6765\u6E90",
-profile_haspic:"\u7F51\u7EDC\u9644\u4EF6",
-profile_localpic:"\u672C\u5730\u9644\u4EF6",
-profile_netaddr:"\u7F51\u7EDC\u5730\u5740",
-profile_localdisk:"\u672C\u5730\u8DEF\u5F84"
-});

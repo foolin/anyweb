@@ -187,7 +187,8 @@ namespace Studio.Web
                 writer.Write("&nbsp;<a {0} class='pagenaver'>尾页</a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='Goto {0} Page'", pages) : "disabled");
 
                 //writer.Write("&nbsp;<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='javascript:GoToPage(\"" + UrlPrefix + "\" + this.parentElement.children[0].value);'></span>", PageIndex);
-                writer.Write("&nbsp;<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='jumpPage(this,\"" + UrlPrefix + "\")'></span>", PageIndex);
+                //writer.Write("&nbsp;<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='jumpPage(this,\"" + UrlPrefix + "\")'></span>", PageIndex);
+                writer.Write("<span style=\"display: inline-block; width: 80px; position: relative;top:-2px; *top: -4px;\"><input type=\"text\" style=\"width: 25px;\" value=\"{0}\"> <input type=\"button\" onclick='jumpPage(this,\"" + UrlPrefix + "\")' value=\"Go\"></span>", PageIndex);
                 writer.Write("</span>");
             }
             else
@@ -244,7 +245,8 @@ namespace Studio.Web
                 writer.Write("&nbsp;<a {0} class='pagenaver'>尾页</a>", PageIndex < pages ? String.Format("href='" + UrlPrefix + "{0}' title='转到第{0}页'", pages) : "disabled");
 
                 //writer.Write("&nbsp;<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='javascript:GoToPage(\"" + UrlPrefix + "\" + this.parentElement.children[0].value);'></span>", PageIndex);
-                writer.Write("&nbsp;<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='jumpPage(this,\"" + UrlPrefix + "\")'></span>", PageIndex);
+                //writer.Write("&nbsp;<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='jumpPage(this,\"" + UrlPrefix + "\")'></span>", PageIndex);
+                writer.Write("<span style=\"display: inline-block; width: 80px; position: relative;top:-2px; *top: -4px;\"><input type=\"text\" style=\"width: 25px;\" value=\"{0}\"> <input type=\"button\" onclick='jumpPage(this,\"" + UrlPrefix + "\")' value=\"Go\"></span>", PageIndex);
                 writer.Write("</span>");
             }
         }

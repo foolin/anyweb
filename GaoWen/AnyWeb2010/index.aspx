@@ -177,19 +177,19 @@
                 </div>
                 <div class="financialStatements left">
                     <ul class="list black  relate">
-                        <li><a href="/article.aspx?id=1081">如何看流动比率？</a></li>
+                        <li><a href="/pdf/TeamBuilding.pdf" target="_blank">人物檢查&團隊訓練</a></li>
                     </ul>
                 </div>
                 <div class="EHC right">
                     <ul class="list black  relate">
-                        <li><a href="/article.aspx?id=1091">重新了解贵司的账目</a></li>
+                        <li><a href="/pdf/EHC.pdf" target="_blank">企業健康度檢查</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footHomePos">
-                <a href="/disclaimer-chs.aspx">免责声明</a> <a href="/privacy-policy-chs.aspx">私隐政策</a>
-                <a href="/terms-conditions-chs.aspx">条款及条件</a> <a href="/copyright-notice-chs.aspx">
-                    版权告示</a> © 2010 高闻顾问有限公司. 版权所有
+                <a href="/index.aspx">回到首頁</a><a href="/disclaimer-chs.aspx">免責聲明</a> <a href="/privacy-policy-chs.aspx">私隱政策</a>
+                <a href="/terms-conditions-chs.aspx">條款及條件</a> <a href="/copyright-notice-chs.aspx">
+                    版權公示</a> © 2010 高聞顧問有限公司. 版权所有
             </div>
         </div>
     </div>

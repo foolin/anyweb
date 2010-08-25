@@ -8,7 +8,7 @@
 </head>
 <body>
     <div style="width:810px;">
-    <img src="public/images/pdflog.jpg" alt="" />
+    <img src="public/images/pdflog.jpg" alt="" style="width: 295px; height: 119px; margin-left: 510px;" />
     <div style="width:800px;">
         <asp:Literal ID="lit" runat="server"></asp:Literal>
     </div>

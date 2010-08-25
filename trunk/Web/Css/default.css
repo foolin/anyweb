@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	margin:0;
+	padding:0;
+	font-family:"宋体",Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#000;
+}
+div,form,p,img,ul,li,ol,dl,dt,dd{margin:0; padding:0; border:0;}
+li{list-style:none;}
+h1,h2,h3,h4,h5{font-size:100%; font-weight:normal; margin:0; padding:0;}
+img{ border:0px; vertical-align:middle;}
+table{border-collapse:collapse;border-spacing:0;}
+input,select,img,textarea{vertical-align:middle;font-size:12px;}
+
+/*----default link-----*/
+a{ text-decoration:none;}
+a:hover{ }
+/*----text color-----*/
+.black,.black a{color:#000; text-decoration:none;}
+.black a:hover{color:#000; text-decoration:underline;}
+.white,.white a{color:#FFF; text-decoration:none;}
+.white a:hover{color:#FFF;}
+.red,.red a{color:#FD0100; text-decoration:none;}
+.red a:hover{color:#FD0100;}
+.blue,.blue a{ color:#0166b4; text-decoration:none;}
+.blue a:hover{color:#0166b4;}
+.dblue,dblue a{ color:#00366F;}
+.dblue a:hover{color:#00366F;}
+.lblue,.lblue a{ color:#0483ad; text-decoration:none;}
+.lblue a:hover{color:#0483ad;}
+.gray,.gray a{ color:#666666; text-decoration:none;}
+.gray a:hover{color:#666666; text-decoration:none;}
+.green,.green a{ color:#00918e; text-decoration:none;}
+.green a:hover{color:#00918e;}
+.orange,.orange a{ color:#FB8402; text-decoration:none;}
+.orange a:hover{color:#FB8402;}
+.dorange,dorange a{ color:#F04B22;}
+.dorange a:hover{color:#F04B22;}
+.brown,.brown a{ color:#3a0505; text-decoration:none;}
+.brown a:hover{color:#3a0505;}
+.yellow,.yellow a{ color:#e4ff00; text-decoration:none;}
+.yellow a:hover{color:#e4ff00;}
+/*----font-weight-----*/
+.fbold{font-weight:bold;}
+.fnormal{font-weight:normal;}
+/*----font-size-----*/
+.f9{font-size:9px;}
+.f12{font-size:12px;}
+.f13{font-size:13px;}
+.f14{font-size:14px;}
+/*----line-height-----*/
+.lh18{line-height:18px;}
+.lh20{line-height:20px;}
+.lh22{line-height:22px;}
+.lh24{line-height:24px;}
+.lh26{line-height:26px;}
+.lh30{line-height:30px;}
+/*----word direction-----*/
+.tl{text-align:left;}
+.tc{text-align:center;}
+.tr{text-align:right;}
+/*----float direction-----*/
+.left{float:left;}
+.right{float:right;}
+.clear{width:1px; line-height:1px; height:0; visibility:hidden; clear:both; font-size:1px;}
+/*----layer state-----*/
+.hidden{display:none;}
+.block{display:block;}
+.inline{display:inline;}
+.flowhidden{ overflow:hidden;}
+.borderBtm{ border-bottom:1px dashed #e4e4e4;}
+/*----font decoration-----*/
+.unline,.unline a{text-decoration:none;}
+.line,.line a{ text-decoration:underline;}
+/*----clear space-----*/
+.noborder{border:0px;}
+.nomar{ margin:0;}
+.nopad{ padding:0;}
+.nobg{ background-image:none;}
+/*--------blank gap---------*/
+.blank5px,.blank6px,.blank8px,.blank10px,.blank12px,.blank15px,.blank20px,.blank30px{display:block; clear:both; font-size:1px; overflow:hidden;}
+.blank5px{height:5px; line-height:5px;}
+.blank6px{height:6px; line-height:6px;}
+.blank8px{height:8px; line-height:8px;}
+.blank10px{height:10px; line-height:10px;}
+.blank12px{height:12px; line-height:12px;}
+.blank15px{height:15px; line-height:15px;}
+.blank20px{height:20px; line-height:20px;}
+.blank30px{height:30px; line-height:30px;}
+/*--------padding space 1em---------*/
+.padt1em{ padding-top:1em;}
+.padr1em{ padding-right:1em;}
+.padb1em{ padding-bottom:1em;}
+.padl1em{ padding-left:1em;}
+/*--------position---------*/
+.relate{ position:relative;}
+.absolute{ position:absolute;}
+
+

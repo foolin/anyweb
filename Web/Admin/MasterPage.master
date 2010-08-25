@@ -1,0 +1,66 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>后台Demo演示</title>
+    <link href="/Admin/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="/Admin/css/news.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/Admin/JS/date.js"></script>
+    <script type="text/javascript" src="/Admin/JS/Ajax.js"></script>
+    <script type="text/javascript" src="/Admin/JS/Validator.js"></script>
+    <script   language="javascript" type="text/javascript">   
+        window.attachEvent("onload",function(){
+            Validator.BoundControls();
+        });
+    </script>  
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div id="top">
+            </div>
+            <div id="nav">
+                    <a href="/Admin/Default.aspx">首页</a> | 
+                    <a href="/Admin/Content/ArticleList.aspx">内容管理</a> | 
+                    <a href="/Admin/Setting/UserList.aspx">用户管理</a> | 
+                    <a href="/Admin/Layout/LinkList.aspx">链接管理</a> | 
+                    <a href="/Admin/Content/NoticeList.aspx">流动通知</a> | 
+                    <a href="/Admin/Content/PhotoList.aspx">图片管理</a> | 
+                    <a href="/Admin/Setting/LogList.aspx">操作记录</a> | 
+               		<a href="/Admin/Logout.aspx">注销【<asp:Label ID="LoginUserName" runat="server" Text="Label"></asp:Label>】登录</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <form id="form1" runat="server">
+            <div id="container">
+                <div id="main_side" class="part">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div id="main_content" class="part">
+                    <div class="Location">
+                        当前位置：<a href="/Admin/Default.aspx">首页</a>&gt;
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </form>
+        <div class="clear">
+        </div>
+        <div id="footer">
+            <div id="bottomlink">
+                <a href="/Index.aspx" target="_blank">门户网首页</a> | <a href="/Admin/Default.aspx">首页</a>
+            </div>
+            <div id="copyright">
+                <a href="http://www.thshcoop.com">广州市天河区沙河供销合作社</a><br />
+                地址：广州市天河区龙口东路139号后座二至四楼 电话：020-87590122<br />
+                ICP证号：粤ICP备09198729号<br />
+            </div>
+        </div>
+    </div>
+</body>
+</html>

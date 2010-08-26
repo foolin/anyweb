@@ -64,7 +64,7 @@
                     <tr>
                         <td colspan="2">
                             <asp:Button ID="btnAddLink" runat="server" Text="添加链接" OnClick="btnAddLink_Click" />
-                            <a href="LinkList.aspx">取消</a>
+                            <a href="javascript:history.back();">取消</a>
                         </td>
                     </tr>
                 </table>

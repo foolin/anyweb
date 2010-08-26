@@ -33,7 +33,7 @@ public partial class Layout_LinkDel : AdminBase
             log.EvenIP = HttpContext.Current.Request.UserHostAddress;
             log.EvenUserAcc = this.LoginUser.UserAcc;
             new EventLogAgent().AddLog(log);
-            if (ViewState["BACK"] != "/Admin/Default.aspx")
+            if (ViewState["BACK"].ToString() != "/Admin/Default.aspx")
             {
                 WebAgent.SuccAndGo("删除链接成功", ViewState["BACK"].ToString());
             }

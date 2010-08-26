@@ -44,7 +44,7 @@ public partial class Layout_LinkAdd : AdminBase
             log.EvenIP = HttpContext.Current.Request.UserHostAddress;
             log.EvenUserAcc = this.LoginUser.UserAcc;
             new EventLogAgent().AddLog(log);
-            WebAgent.SuccAndGo("添加友情链接成功", "LinkList.aspx");
+            WebAgent.SuccAndGo("添加友情链接成功", "LinkList.aspx?type=" + lnk.LinkCateID);
         }
         else
             WebAgent.AlertAndBack("添加友情链接失败");

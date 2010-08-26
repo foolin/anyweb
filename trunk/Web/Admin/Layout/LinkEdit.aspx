@@ -56,7 +56,7 @@
                     <tr>
                         <td colspan="2" style="height: 24px">
                             <asp:Button ID="btnEditLink" runat="server" Text="保存链接" OnClick="btnEditLink_Click" />
-                            <a href="LinkList.aspx">取消</a>
+                            <a href="javascript:history.back();">取消</a>
                         </td>
                     </tr>
                 </table>

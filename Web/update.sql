@@ -224,5 +224,16 @@ BEGIN
 END
 GO
 
+--获取文章内容
+CREATE PROCEDURE [dbo].[GetArticleInfoByAdmin]
+	@ArtiID INT
+AS
+BEGIN
+	SELECT ArtiID,ArtiTitle,ArtiContent,ArtiCreateAt,ArtiColumnID,ArtiStatus,ArtiIsTop,ArtiClicks,ArtiOrder,ArtiUserID,ArtiUserName,ArtiPic
+	FROM Article
+	WHERE ArtiID=@ArtiID
+END
+GO
+
 /*手动操作*/
 1、修改Article和Notice表的外键关系为级联删除。

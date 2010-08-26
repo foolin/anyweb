@@ -70,7 +70,7 @@
                     <tr>
                         <td colspan="2" style="padding-left:40px;">
                             <asp:Button ID="btnAddPhoto" runat="server" Text="添加图片" OnClick="btnAddPhoto_Click" />
-                            <input type="button" onclick="window.top.location.href='PhotoList.aspx';" value="取消" />
+                            <a href="javascript:history.back();">取消</a>
                         </td>
                     </tr>
                 </table>

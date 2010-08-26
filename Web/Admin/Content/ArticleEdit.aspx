@@ -65,7 +65,7 @@
                     <tr>
                         <td colspan="2">
                             <asp:Button ID="btnAddUser" runat="server" Text="保存文章" OnClick="btnSaveArticle_Click" />
-                            <a href="ArticleList.aspx">取消</a>
+                            <a href="javascript:history.back();">取消</a>
                         </td>
                     </tr>
                 </table>

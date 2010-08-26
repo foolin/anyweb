@@ -23,7 +23,7 @@ public partial class Content_ArticleEdit : AdminBase
     {
         if (QS("id") == "" || !WebAgent.IsInt32(QS("id")))
             WebAgent.AlertAndBack("参数错误");
-        Article ar = new ArticleAgent().GetArticleInfo(int.Parse(QS("id")));
+        Article ar = new ArticleAgent().GetArticleInfoByAdmin(int.Parse(QS("id")));
         if (ar == null)
             WebAgent.AlertAndBack("文章不存在");
 
@@ -38,7 +38,7 @@ public partial class Content_ArticleEdit : AdminBase
 
     protected void btnSaveArticle_Click(object sender, EventArgs e)
     {
-        Article ar = new ArticleAgent().GetArticleInfo(int.Parse(QS("id")));
+        Article ar = new ArticleAgent().GetArticleInfoByAdmin(int.Parse(QS("id")));
         ar.ArtiTitle = txtTitle.Text;
         ar.ArtiContent = edtContent.Text;
         ar.ArtiOrder = int.Parse(txtOrder.Text);
@@ -52,7 +52,10 @@ public partial class Content_ArticleEdit : AdminBase
             log.EvenIP = HttpContext.Current.Request.UserHostAddress;
             log.EvenUserAcc = this.LoginUser.UserAcc;
             new EventLogAgent().AddLog(log);
-            WebAgent.SuccAndGo("修改文章成功", "ArticleList.aspx");
+            if (ViewState["BACK"].ToString() == "/Admin/Default.aspx")
+                WebAgent.SuccAndGo("修改文章成功", "ArticleList.aspx");
+            else
+                WebAgent.SuccAndGo("修改文章成功", ViewState["BACK"].ToString());
         }
         else
             WebAgent.AlertAndBack("修改修改失败");

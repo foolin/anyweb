@@ -36,14 +36,14 @@
                         <td align="right">
                             通知排序：</td>
                         <td>
-                            <asp:TextBox ID="txtOrder" runat="server" Width="50" MaxLength="50" require="1"
-                                errmsg="请输入通知排序"></asp:TextBox>
+                            <asp:TextBox ID="txtOrder" runat="server" Width="50" MaxLength="50" require="1" datatype="number"
+                                errmsg="通知排序格式不正确"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
                             <asp:Button ID="btnAddNotice" runat="server" Text="保存通知" OnClick="btnAddNotice_Click" />
-                            <a href="NoticeList.aspx">取消</a>
+                            <a href="javascript:history.back();">取消</a>
                         </td>
                     </tr>
                 </table>

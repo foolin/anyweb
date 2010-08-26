@@ -66,7 +66,10 @@ public partial class Admin_Content_PhotoEdit : AdminBase
             log.EvenIP = HttpContext.Current.Request.UserHostAddress;
             log.EvenUserAcc = this.LoginUser.UserAcc;
             new EventLogAgent().AddLog(log);
-            WebAgent.SuccAndGo("修改图片信息成功", "PhotoList.aspx");
+            if (ViewState["BACK"].ToString() == "/Admin/Default.aspx")
+                WebAgent.SuccAndGo("修改图片信息成功", "PhotoList.aspx");
+            else
+                WebAgent.SuccAndGo("修改图片信息成功", ViewState["BACK"].ToString());
         }
         else
             WebAgent.AlertAndBack("修改图片信息失败");

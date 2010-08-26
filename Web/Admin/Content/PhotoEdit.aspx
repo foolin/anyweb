@@ -73,9 +73,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" align="center">
+                        <td colspan="2" style="padding-left:40px;">
                             <asp:Button ID="btnEditPhoto" runat="server" Text="修改图片" OnClick="btnEidtPhoto_Click" />
-                            <input type="button" onclick="window.top.location.href='PhotoList.aspx';" value="取消" />
+                            <a href="javascript:history.back();">取消</a>
                         </td>
                     </tr>
                 </table>

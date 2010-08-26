@@ -41,7 +41,10 @@ public partial class Admin_Content_NoticeEdit : AdminBase
             log.EvenIP = HttpContext.Current.Request.UserHostAddress;
             log.EvenUserAcc = this.LoginUser.UserAcc;
             new EventLogAgent().AddLog(log);
-            WebAgent.SuccAndGo("修改流动通知成功", "NoticeList.aspx");
+            if (ViewState["BACK"].ToString() == "/Admin/Default.aspx")
+                WebAgent.SuccAndGo("修改流动通知成功", "NoticeList.aspx");
+            else
+                WebAgent.SuccAndGo("修改流动通知成功", ViewState["BACK"].ToString());
         }
         else
             WebAgent.AlertAndBack("修改流动通知失败");

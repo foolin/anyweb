@@ -1240,3 +1240,17 @@ Message:System.Data.SqlClient.SqlException: DELETE 语句与 REFERENCE 约束"FK_Noti
    在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
 
 
+Time:2010-08-26 21:01:17
+IP:::1
+Url:http://localhost/Admin/Content/ArticleEdit.aspx?id=15
+UrlRef:http://localhost:802/Admin/Content/ArticleEdit.aspx?id=15
+Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Content_ArticleEdit.btnSaveArticle_Click(Object sender, EventArgs e) 位置 e:\Program Files\PROJECT\DOTNET\AnyWeb\Web\Admin\Content\ArticleEdit.aspx.cs:行号 42
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.WebControls.Button.System.Web.UI.IPostBackEventHandler.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(NameValueCollection postData)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

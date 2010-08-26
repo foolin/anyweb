@@ -50,7 +50,10 @@ public partial class Layout_LinkEdit : AdminBase
             log.EvenIP = HttpContext.Current.Request.UserHostAddress;
             log.EvenUserAcc = this.LoginUser.UserAcc;
             new EventLogAgent().AddLog(log);
-            WebAgent.SuccAndGo("修改友情成功", "LinkList.aspx");
+            if (ViewState["BACK"].ToString() == "/Admin/Default.aspx")
+                WebAgent.SuccAndGo("修改友情成功", "LinkList.aspx");
+            else
+                WebAgent.SuccAndGo("修改友情成功", ViewState["BACK"].ToString());
         }
         else
             WebAgent.AlertAndBack("修改友情链接失败");

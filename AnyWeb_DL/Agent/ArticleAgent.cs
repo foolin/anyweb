@@ -120,6 +120,29 @@ namespace AnyWeb.AnyWeb_DL
         }
 
         /// <summary>
+        /// 获取文章内容
+        /// </summary>
+        /// <param name="ArtiID"></param>
+        /// <returns></returns>
+        public Article GetArticleInfoByAdmin(int ArtiID)
+        {
+            DataSet ds;
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "GetArticleInfoByAdmin",
+                    this.NewParam("@ArtiID", ArtiID));
+            }
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                Article ar = new Article(ds.Tables[0].Rows[0]);
+                ar.ArtiContent = (string)ds.Tables[0].Rows[0]["ArtiContent"];
+                return ar;
+            }
+            else
+                return null;
+        }
+
+        /// <summary>
         /// 修改文章内容
         /// </summary>
         /// <param name="ar"></param>

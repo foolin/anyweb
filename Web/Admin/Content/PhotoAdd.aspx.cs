@@ -56,7 +56,7 @@ public partial class Admin_Content_PhotoAdd : AdminBase
             log.EvenIP = HttpContext.Current.Request.UserHostAddress;
             log.EvenUserAcc = this.LoginUser.UserAcc;
             new EventLogAgent().AddLog(log);
-            WebAgent.SuccAndGo("添加图片成功", "PhotoList.aspx");
+            WebAgent.SuccAndGo("添加图片成功", "PhotoList.aspx?type=" + phot.PhotCateID);
         }
         else
             WebAgent.AlertAndBack("添加图片失败");

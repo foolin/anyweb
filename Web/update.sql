@@ -235,5 +235,9 @@ BEGIN
 END
 GO
 
+INSERT INTO [Column]([ColuID],[ColuName],[ColuCreateAt],[ColuDesc])
+VALUES (4,'杰信人力资源','2009-05-23 18:54:50.250','杰信人力资源')
+GO
+
 /*手动操作*/
 1、修改Article和Notice表的外键关系为级联删除。

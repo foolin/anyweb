@@ -36,7 +36,10 @@ public partial class Admin_Content_PhotoDel : AdminBase
             log.EvenIP = HttpContext.Current.Request.UserHostAddress;
             log.EvenUserAcc = this.LoginUser.UserAcc;
             new EventLogAgent().AddLog(log);
-            WebAgent.SuccAndGo("删除图片成功", "PhotoList.aspx");
+            if (ViewState["BACK"].ToString() == "/Admin/Default.aspx")
+                WebAgent.SuccAndGo("删除图片成功", "PhotoList.aspx");
+            else
+                WebAgent.SuccAndGo("删除图片成功", ViewState["BACK"].ToString());
         }
         else
             WebAgent.AlertAndBack("删除图片失败");

@@ -25,8 +25,10 @@ public partial class Column : System.Web.UI.Page
             strColumn = "ZXXW";
         else if (column.ColuID == 2)
             strColumn = "SWDT";
-        else
+        else if (column.ColuID == 3)
             strColumn = "ZCFG";
+        else
+            strColumn = "JXRLZY";
 
         this.Title = string.Format("广州市天河区沙河供销合作社 - {0}", column.ColuName);
         litTitle.Text = column.ColuName;

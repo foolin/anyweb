@@ -31,6 +31,9 @@ public partial class Article : System.Web.UI.Page
             case 3:
                 strColumn = "ZCFG";
                 break;
+            case 4:
+                strColumn = "JXRLZY";
+                break;
             default:
                 strColumn = "SY";
                 break;

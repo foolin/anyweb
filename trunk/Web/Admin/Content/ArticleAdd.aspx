@@ -55,8 +55,8 @@
                             </div>
                         </td>
                     </tr>
-                    <tr align="right">
-                        <td>文章排序：</td>
+                    <tr>
+                        <td align="right">文章排序：</td>
                         <td><asp:TextBox ID="txtOrder" runat="server" Text="0" Width="50" require="1" datatype="number" errmsg="文章排序格式不正确"></asp:TextBox></td>
                     </tr>
                     <tr>

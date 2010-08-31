@@ -23,11 +23,8 @@
                     <div class="conBg">
                         <div class="content">
                             <div class="fontSize">
-                                [ 字体：<a href="javascript:void(0);" onclick="changeFontSize(this,'f14');">大</a><a
-                                    href="javascript:void(0);" onclick="changeFontSize(this,'f13');">中</a><a href="javascript:void(0);"
-                                        onclick="changeFontSize(this,'f12');" class="cur">小</a> ] <a href="getpdf.aspx?id=mzsm"
-                                            target="_blank">
-                                            <img src="public/images/icon_fontsize.gif" /></a>
+                                <a href="getpdf.aspx?id=SYZC" target="_blank">
+                                    <img src="public/images/icon_fontsize.gif" /></a>
                             </div>
                             <div id="ConDetail" class="ConDetail">
                                 <asp:Literal ID="lit" runat="server"></asp:Literal>

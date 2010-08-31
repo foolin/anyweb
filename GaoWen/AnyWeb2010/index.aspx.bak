@@ -21,7 +21,37 @@
     <title></title>
 </head>
 <body>
-    <div id="content" class="wrap_Home">
+    <div id="flash">
+
+        <script type="text/javascript">
+            $("body").css("background-color", "#726A8B");
+        </script>
+
+        <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="400"
+            height="200">
+            <param name="movie" value="public/images/welcome.swf" />
+            <param name="quality" value="high" />
+            <param name="wmode" value="opaque" />
+            <param name="swfversion" value="6.0.65.0" />
+            <param name="expressinstall" value="public/js/expressInstall.swf" />
+            <object type="application/x-shockwave-flash" data="public/images/welcome.swf" width="400"
+                height="200">
+                <param name="quality" value="high" />
+                <param name="wmode" value="opaque" />
+                <param name="swfversion" value="6.0.65.0" />
+                <param name="expressinstall" value="public/js/expressInstall.swf" />
+                <div>
+                    <h4>
+                        此页面上的内容需要较新版本的 Adobe Flash Player。</h4>
+                    <p>
+                        <a href="http://www.adobe.com/go/getflashplayer">
+                            <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif"
+                                alt="获取 Adobe Flash Player" width="112" height="33" /></a></p>
+                </div>
+            </object>
+        </object>
+    </div>
+    <div id="content" class="wrap_Home" style="display: none">
         <div class="topArea relate navIndex">
             <div class="topLs">
                 <a href="/" class="logo" title="高闻顾问">高闻顾问</a>
@@ -59,6 +89,52 @@
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
+
+            <script type="text/javascript">
+                var cookieName = "gaowen";
+                var time = 0;
+                if(<%=flashList.Count %>==0){
+                    $("#content").show();
+                    $("#flash").hide();
+                }
+                var interval = window.setInterval(checkStatus, 1000);
+                <asp:Repeater ID="repJs1" runat="server">
+                    <ItemTemplate>
+                        var image<%#Container.ItemIndex+1 %>;
+                        $("#image<%#Container.ItemIndex+1 %>").load(function() {
+                            image<%#Container.ItemIndex+1 %> = true;
+                            checkStatus();
+                        });
+                    </ItemTemplate>
+                </asp:Repeater>
+                function checkStatus() {
+                    if(!$.cookie(cookieName)){
+                        if ((true<asp:Repeater ID="repJs2" runat="server">
+                            <ItemTemplate>
+                                <%# "&&image"+(Container.ItemIndex+1) %>
+                            </ItemTemplate>
+                        </asp:Repeater>)&&time>=15){
+                            $("#content").show();
+                            $("#flash").hide();
+                            window.clearInterval(interval);
+                            
+                            var date = new Date();
+                            date.setTime(date.getTime() + (1 * 24 * 60 * 60 * 1000)); 
+                            $.cookie(cookieName,"1", { path: '/', expires: date });
+                            $("body").css("background-color", "#E5D9E9");
+                        }
+                        time++;
+                    }else{
+                        $("#content").show();
+                        $("#flash").hide();
+                        window.clearInterval(interval);
+                        $("body").css("background-color", "#E5D9E9");
+                    }
+                }
+                
+                
+            </script>
+
             <script type="text/javascript">
                 var _c = _h = 0;
                 $(document).ready(function() {

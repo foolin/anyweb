@@ -25,10 +25,10 @@ public partial class index : System.Web.UI.Page
         repFlash.DataBind();
         repFlashNum.DataSource = flashList;
         repFlashNum.DataBind();
-        repJs1.DataSource = flashList;
-        repJs1.DataBind();
-        repJs2.DataSource = flashList;
-        repJs2.DataBind();
+        //repJs1.DataSource = flashList;
+        //repJs1.DataBind();
+        //repJs2.DataSource = flashList;
+        //repJs2.DataBind();
     }
 
     public List<AW_FlaAW_bean> flashList;

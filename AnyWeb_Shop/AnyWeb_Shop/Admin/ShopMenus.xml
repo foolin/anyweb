@@ -7,15 +7,16 @@
       <xMenuItem url="/Admin/Head.aspx" description ="特色标语管理" name ="特色标语管理"  type="2"></xMenuItem>
       <xMenuItem url="/Admin/LinkList.aspx" name="友情链接管理" description="友情链接管理"  type="2"></xMenuItem>
       <xMenuItem url="/Admin/LogList.aspx" name="日志管理" description="日志管理"  type="2"></xMenuItem>
+      <xMenuItem url="/Admin/AdminList.aspx" name="用户管理" description="用户管理"  type="2"></xMenuItem>
     </xMenuItem>
     <xMenuItem url="/Admin/SetNavUrl.aspx?mode=goods" name="商品管理"  description="商品管理" type ="1">    
       <xMenuItem url="/Admin/GoodsList.aspx" name="商品管理"  description="商品管理" type="1" >
-      <xMenuItem url="/Admin/GoodsList.aspx" name="商品管理"  description="商品管理" type="0" >
-        <xMenuItem url="/Admin/GoodsEdit.aspx" name="编辑商品"  description="编辑商品" visible="false" ></xMenuItem>
-        <xMenuItem url="/Admin/GoodsImage.aspx" name="商品相关图片" description="商品相关图片" type="0" ></xMenuItem>
-      </xMenuItem>
-      <xMenuItem url="/Admin/HotSellRankList.aspx" name="畅销商品管理"  description="畅销商品管理" type="0" >
-        <xMenuItem url="/Admin/HotSellRankAdd.aspx" name="添加畅销商品"  description="添加畅销商品" visible="false" ></xMenuItem>
+        <xMenuItem url="/Admin/GoodsList.aspx" name="商品管理"  description="商品管理" type="0" >
+          <xMenuItem url="/Admin/GoodsEdit.aspx" name="编辑商品"  description="编辑商品" visible="false" ></xMenuItem>
+          <xMenuItem url="/Admin/GoodsImage.aspx" name="商品相关图片" description="商品相关图片" type="0" ></xMenuItem>
+        </xMenuItem>
+        <xMenuItem url="/Admin/HotSellRankList.aspx" name="畅销商品管理"  description="畅销商品管理" type="0" >
+          <xMenuItem url="/Admin/HotSellRankAdd.aspx" name="添加畅销商品"  description="添加畅销商品" visible="false" ></xMenuItem>
         </xMenuItem>
       </xMenuItem>
       <xMenuItem url="/Admin/GoodsCategoryList.aspx" name="商品类别管理"  description="商品类别管理"  type="1">
@@ -65,6 +66,12 @@
         <xMenuItem url="/Admin/LinkList.aspx" name="友情链接列表" description="友情链接列表"  type="0">
           <xMenuItem url="/Admin/LinkEdit.aspx" name="编辑友情链接" visible="false" description="编辑友情链接"></xMenuItem>
         </xMenuItem>
+      </xMenuItem>
+      <xMenuItem url="/Admin/AdminList.aspx" name="用户管理" description="用户管理"  type="1">
+        <xMenuItem url="/Admin/AdminList.aspx" name="用户列表" description="用户列表"  type="0">
+          <xMenuItem url="/Admin/AdminEdit.aspx?mode=update" name="编辑用户" visible="false" description="编辑用户"></xMenuItem>
+        </xMenuItem>
+        <xMenuItem url="/Admin/AdminEdit.aspx?mode=insert" name="添加用户" description="添加用户"></xMenuItem>
       </xMenuItem>
     </xMenuItem>
   </xMenuItem>

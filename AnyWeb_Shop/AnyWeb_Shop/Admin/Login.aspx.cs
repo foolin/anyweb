@@ -37,11 +37,11 @@ public partial class Login1 : System.Web.UI.Page
 
         if (shopid > 10000)
         {
-            HttpCookie co = new HttpCookie("USERACC");
+            HttpCookie co = new HttpCookie("ADMINACC");
             co.Value = txtUserName.Text;
             Response.SetCookie(co);
 
-            HttpCookie co1 = new HttpCookie("USERPASS");
+            HttpCookie co1 = new HttpCookie("ADMINPASS");
             co1.Value = Secure.Md5(txtPassword.Text);
             Response.SetCookie(co1);
 

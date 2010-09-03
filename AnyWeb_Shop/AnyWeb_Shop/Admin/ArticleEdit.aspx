@@ -162,7 +162,7 @@
                                 </tr>
                                 <tr>
                                     <th>
-                                        是否允许评论：
+                                        是否允许评论：E:\Documents and Settings\Administrator\桌面\AnyWeb_Shop\Common\Common\Complaints.cs
                                     </th>
                                     <td>
                                         <asp:CheckBox ID="chkComm" runat="server" Checked='<%#Bind("IsComment")%>' />允许评论 【不允许请留空。】

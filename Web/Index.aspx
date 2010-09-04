@@ -155,7 +155,7 @@
                         <div class="TitBg">
                             <div class="mark icon_2">
                                 杰信人力资源公司</div>
-                            <span class="subMark"><a href="/HR.aspx">由此进入>></a></span>
+                            <span class="subMark"><a href="/Column.aspx?id=4">由此进入>></a></span>
                         </div>
                     </div>
                     <div class="con conBg">

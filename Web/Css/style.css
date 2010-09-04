@@ -61,7 +61,7 @@
 .focus{ width:273px; height:256px; float:left; margin:4px 0px 0px 16px; display:inline;}
 .focus .focusBg{ height:217px; padding:13px 0px 0px 12px; background:url(../images/bg_focus.png) no-repeat;}
 .focus .focusBg .dImg{ width:247px; height:176px; overflow:hidden; position:relative;}
-.focus .focusBg .dImg_1{ width:247px; height:176px; overflow:hidden;position:absolute; width:18000px;}
+.focus .focusBg .dImg_1{ width:247px; height:176px; overflow:hidden;position:absolute; width:1800px;}
 .focus .focusBg .dImg_1 a{}
 .focus .focusBg .dImg_1 img,
 .focus .focusBg .dImg_1 a{ width:247px; height:176px; display:block; float:left; margin:0; padding:0;}
@@ -92,8 +92,8 @@
 .HomeColTwo .friendLink .con{ text-align:center;}
 .HomeColTwo .select{ margin:10px 0px 7px 0px;}
 
-.HomeColTwo .gTit{ border:1px solid #54C102; height:26px; padding:1px; background-color:#BFDF5F;}
-.HomeColTwo .gTit .TitBg{ background-color:#99CC00; height:26px; display:block;}
+.HomeColTwo .gTit{ border:1px solid #9EBA49; height:26px; padding:1px; background-color:#BFDF5F;}
+.HomeColTwo .gTit .TitBg{ background-color:#99CC00; background:url(../images/bg_tit_3.gif) top repeat-x;  height:26px; display:block;}
 .HomeColTwo .gTit .mark{ float:left; height:26px; line-height:26px; color:#095C01; font-weight:bold; font-size:14px;}
 .HomeColTwo .gTit .subMark{ float:right; padding-right:10px; line-height:26px;}
 .HomeColTwo .gTit .subMark a{ color:#000; text-decoration:none;}
@@ -128,13 +128,13 @@
 .proSale ul li a{color:#049132; font-size:14px; text-decoration:none;}
 .proSale ul li a:hover{ text-decoration:underline;}
 .icon_1{ background:url(../images/icon_arrow_1.gif) 6px center no-repeat; padding-left:38px;}
-.icon_2{ background:url(../images/icon_jiexin.gif) 3px center no-repeat; padding-left:70px;}
+.icon_2{ background:url(../images/icon_jiexin.gif) 7px center no-repeat; padding-left:64px;}
 
 
 .HomeColThree{ height:232px;}
 .HomeColThree h2{ height:33px; background-color:#479B04; padding-left:18px; line-height:33px; font-weight:bold; font-size:14px; color:#fff;}
-.HomeColThree .conBox{ height:198px; border-bottom:1px solid #DADADA; background-color:#F3F3F3; padding-left:3px;}
-.HomeColThree .conBox ul{ padding-top:35px;}
+.HomeColThree .conBox{ height:138px; border-bottom:1px solid #DADADA; background-color:#F3F3F3; padding-left:3px;}
+.HomeColThree .conBox ul{ padding-top:15px;}
 .HomeColThree .conBox li{ float:left; margin:0px 7px; width:178px; display:inline;}
 
 .InnerPage{}

@@ -50,6 +50,7 @@ public partial class Admin_Content_PhotoAdd : AdminBase
             WebAgent.AlertAndBack("请上传图片！");
         if (agent.AddPhoto(phot))
         {
+            this.SiteInfo.SitePicCount += 1;
             EventLog log = new EventLog();
             log.EvenDesc = "添加图片" + phot.PhotName + "成功.";
             log.EvenAt = DateTime.Now;

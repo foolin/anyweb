@@ -35,33 +35,50 @@ public partial class AdminEdit : AdminBase
                     if (admin == null)
                         Response.Redirect("AdminList.aspx");
 
-                    if (admin.AdminAcc == "SuperAdmin")
-                        WebAgent.FailAndGo("SuperAdmin帐号不可删除", "AdminList.aspx");
+                    if (admin.AdminAcc == "superadmin")
+                        WebAgent.AlertAndBack("superadmin帐号不允许删除");
 
                     if (aa.DeleteAdmin(admin) > 0)
                     {
                         WebAgent.SuccAndGo("删除成功", "AdminList.aspx");
                     }
-
-                    /*if (WebAgent.IsInt32(QS("aid")))
-                    {
-                        using (AdminAgent aa = new AdminAgent())
-                        {
-                            Common.Common.Admin a = new Common.Common.Admin();
-                            a.ID = int.Parse(QS("aid"));
-                            if (aa.AdminDelete(a) > 0)
-                            {
-                                WebAgent.SuccAndGo("删除成功", "AdminList.aspx");
-                            }
-                        }
-                    }
-                    */
                     break;
                 default:
                     this.fv1.ChangeMode(FormViewMode.Insert);
                     litTitle.Text = "添加用户";
                     break;
             }
+        }
+    }
+
+    protected void ods3_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
+    {
+        Article ar = (Article)e.InputParameters[0];
+
+        if (WebAgent.IsInt32(QS("aid")))
+        {
+            e.InputParameters["aid"] = int.Parse(QS("aid"));
+        }
+        else
+        {
+            WebAgent.AlertAndBack("参数不正确");
+        }
+    }
+
+    protected void ods3_Selected(object sender, ObjectDataSourceStatusEventArgs e)
+    {
+        if (e.ReturnValue == null)
+        {
+            WebAgent.AlertAndBack("用户不存在");
+        }
+    }
+
+    protected void ods3_Inserting(object sender, ObjectDataSourceMethodEventArgs e)
+    {
+        TextBox txtAcc = (TextBox)fv1.FindControl("txtAcc");
+        if (new AdminAgent().checkAdminExists(txtAcc.Text))
+        {
+            WebAgent.AlertAndBack("登录帐号已经存在");
         }
     }
 
@@ -84,13 +101,6 @@ public partial class AdminEdit : AdminBase
     {
         Common.Common.Admin a = (Common.Common.Admin)e.InputParameters[0];
         TextBox txtPwd = (TextBox)fv1.FindControl("txtPwd");
-        HttpCookie cookie = Request.Cookies["ADMINACC"];
-        string acc = (string)cookie.Value;
-
-        if (a.AdminAcc == acc)
-        {
-            WebAgent.AlertAndBack("当前登陆帐号不允许更改！");
-        }
         if (txtPwd.Text.Length <= 0)
             a.AdminPass = Studio.Security.Secure.Md5(a.AdminPass);
     }
@@ -111,6 +121,19 @@ public partial class AdminEdit : AdminBase
         }
     }
 
+    protected void ods3_Deleting(object sender, ObjectDataSourceMethodEventArgs e)
+    {
+        if (QS("aid") == "" || !WebAgent.IsInt32(QS("aid")))
+        {
+            WebAgent.AlertAndBack("参数不正确");
+        }
+        Common.Common.Admin admin = new AdminAgent().GetAdminByID(int.Parse(QS("aid")));
+        if (admin.AdminAcc == "superadmin")
+        {
+            WebAgent.AlertAndBack("superadmin帐号不允许删除");
+        }
+    }
+    
     protected void ods3_Deleted(object sender, ObjectDataSourceStatusEventArgs e)
     {
         if ((int)e.ReturnValue > 0)

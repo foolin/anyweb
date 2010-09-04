@@ -13,29 +13,16 @@ namespace Common.Agent
     public class AdminAgent : AgentBase
     {
         /// <summary>
-        /// 获取所有用户(缓存)
+        /// 获取所有用户
         /// </summary>
         /// <returns></returns>
-        public List<Admin> GetAdmins(int pageSize, int pageNo, out int recordCount)
+        public List<Admin> GetAdmins()
         {
-            List<Admin> admins = (List<Admin>)HttpRuntime.Cache["PageAdmins"];
-            if (admins != null)
-            {
-                recordCount = admins.Count;
-                return admins;
-            }
-            admins = new List<Admin>();
-
+            List<Admin> admins = new List<Admin>();
             DataSet ds = new DataSet();
             using (IDbExecutor db = this.NewExecutor())
             {
-                IDbDataParameter recount = this.NewParam("@RecordCount", 0, DbType.Int32, 8, true);
-
-                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetAdmins",
-                                    this.NewParam("@PageSize", pageSize),
-                                    this.NewParam("@PageNo", pageNo),
-                                    recount);
-                recordCount = (int)recount.Value;
+                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetAdmins");
             }
 
             foreach (DataRow row in ds.Tables[0].Rows)
@@ -43,9 +30,6 @@ namespace Common.Agent
                 Admin a = new Admin(row);
                 admins.Add(a);
             }
-
-            HttpRuntime.Cache.Insert("PageAdmins", admins, null, DateTime.MaxValue, TimeSpan.FromMinutes(5));
-
             return admins;
         }
 
@@ -62,15 +46,21 @@ namespace Common.Agent
                 ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_GetAdminByID",
                                    this.NewParam("@AdminID", aid));
             }
-
-            Admin admin = new Admin();
-            foreach (DataRow dr in ds.Tables[0].Rows)
+            if (ds.Tables[0].Rows.Count > 0)
             {
-                Admin a = new Admin(dr);
-                admin = a;
-            }
+                Admin admin = new Admin();
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    Admin a = new Admin(dr);
+                    admin = a;
+                }
 
-            return admin;
+                return admin;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -85,7 +75,7 @@ namespace Common.Agent
                                             this.NewParam("@AdminAcc", a.AdminAcc),
                                             this.NewParam("@AdminName", a.AdminName),
                                             this.NewParam("@AdminPass", Studio.Security.Secure.Md5(a.AdminPass)));
-                if(value>0)
+                if (value > 0)
                     HttpRuntime.Cache.Remove("PageAdmins");
 
                 return value;
@@ -125,6 +115,48 @@ namespace Common.Agent
                     HttpRuntime.Cache.Remove("PageAdmins");
 
                 return value;
+            }
+        }
+
+        /// <summary>
+        /// 检查帐号是否存在
+        /// </summary>
+        /// <param name="adminAcc"></param>
+        /// <returns>true:存在;false:不存在</returns>
+        public bool checkAdminExists(string adminAcc)
+        {
+            DataSet ds;
+
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_CheckAdminExists",
+                                   this.NewParam("@AdminAcc", adminAcc));
+            }
+
+            if (ds.Tables[0].Rows.Count > 0)
+                return true;
+            else
+                return false;
+        }
+
+        public Admin Login(string adminAcc, string adminPass)
+        {
+            DataSet ds;
+
+            using (IDbExecutor db = this.NewExecutor())
+            {
+                ds = db.GetDataSet(CommandType.StoredProcedure, "Shop_Login",
+                                   this.NewParam("@AdminAcc", adminAcc),
+                                   this.NewParam("@AdminPass", Studio.Security.Secure.Md5(adminPass)));
+            }
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                return new Admin(ds.Tables[0].Rows[0]);
+            }
+            else
+            {
+                return null;
             }
         }
     }

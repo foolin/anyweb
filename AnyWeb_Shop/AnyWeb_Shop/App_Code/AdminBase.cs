@@ -96,23 +96,10 @@ namespace Admin.Framework
 
         protected override void OnInit(EventArgs e)
         {
-            if (this.RequireSignIn == true && Request.Cookies["USERACC"] == null)
+            if (this.RequireSignIn == true && Request.Cookies["ADMINACC"] == null)
             {
                 WebAgent.FailAndGo("未登陆,禁止查看该页面!","/Admin/login.aspx?back="+this.Request.RawUrl);
-            }
-
-          
-
-            if ( Request.Cookies["USERACC"] != null && Request.Cookies["SHOPID"] != null )
-            {
-                if ( this.ShopInfo.AdminAcc != Request.Cookies["USERACC"].Value && Request.Cookies["USERACC"].Value.ToLower() != "superadmin" )
-                {
-                    WebAgent.FailAndGo("admin.anyp.com/login.aspx", "您不是管理员,无权操作商城,请用管理员帐号登陆");
-                }
-                //this.AddLog( EventID.Login , "由商城后台进入" , "由商城后台进入" );
-            }
-
-          
+            }         
             
             base.OnInit(e);
         }

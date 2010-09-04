@@ -335,7 +335,7 @@ button.active,
 .iList .fst{border-left:0;}
 .iList .end{border-right:0;}
 .iList thead{background:url(../images/tableTrBg.gif) 0 0 repeat-x;height:25px;color:#888;}
-.iList th{border:1px solid #ccc;border-width:0 1px;}
+.iList th{border:1px solid #ccc;border-width:0 1px;line-height:23px;}
 .iList tr.select{background:url(../images/tableTrBg.gif) 0 -25px repeat-x #EFF7FE;}
 .iList tr.hover{background:url(../images/tableTrBg.gif) 0 -25px repeat-x #FDFCF0;}
 .iList td{height:30px;border-top:1px solid #e0e0e0;}
@@ -442,7 +442,7 @@ button.active,
 .iMenu .up a{cursor:hand;background:url(../images/modhdPointer.gif) no-repeat 150px -26px #E4F2FF;}
 .iMenu .down a{cursor:hand;background:url(../images/modhdPointer.gif) no-repeat 150px -1px #E4F2FF;}
 
-.listadd{float:right; padding-left:6px; font-size:14px; margin-right:26px; border:none; margin-top:-16px; background:url(../images/ico_add.gif) 5px 5px no-repeat;line-height:26px !important;}
+.listadd{float:right; padding-left:6px; font-size:14px; margin-right:26px; border:none; /*margin-top:-16px;*/ background:url(../images/ico_add.gif) 5px 5px no-repeat;line-height:26px !important;}
 
 .mbd.inner.tbweiget a:hover{cursor:pointer!important;}
 

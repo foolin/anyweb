@@ -20,21 +20,4 @@ public partial class Admin_AdminList : AdminBase
     {
 
     }
-
-    /*protected override void OnPreRender(EventArgs e)
-    {
-        int RecordCount = 0;
-        repAdmins.DataSource = new AdminAgent().GetAdmins(PN1.PageSize, PN1.PageIndex, out RecordCount);
-        repAdmins.DataBind();
-        PN1.SetPage(RecordCount);
-    }*/
-
-    protected void ods3_Selected(object sender, ObjectDataSourceStatusEventArgs e)
-    {
-        if (e.OutputParameters["recordCount"] != null)
-        {
-            int record = (int)e.OutputParameters["recordCount"];
-            PN1.SetPage(record);
-        }
-    }
 }

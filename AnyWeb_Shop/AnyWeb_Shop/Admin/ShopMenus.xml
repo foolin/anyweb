@@ -32,6 +32,12 @@
       </xMenuItem>
     </xMenuItem>
     <xMenuItem url ="/Admin/SetNavUrl.aspx?mode=system" name ="系统设置" description ="系统设置" type ="1">
+      <xMenuItem url="/Admin/AdminList.aspx" name="用户管理" description="用户管理"  type="1">
+        <xMenuItem url="/Admin/AdminList.aspx" name="用户列表" description="用户列表"  type="0">
+          <xMenuItem url="/Admin/AdminEdit.aspx?mode=update" name="编辑用户" visible="false" description="编辑用户"></xMenuItem>
+        </xMenuItem>
+        <xMenuItem url="/Admin/AdminEdit.aspx?mode=insert" name="添加用户" description="添加用户" visible="false"></xMenuItem>
+      </xMenuItem>
       <xMenuItem url ="/Admin/AboutUs.aspx" name ="关于我们" description ="关于我们" type="1" >
         <xMenuItem url ="/Admin/AboutUs.aspx" name ="编辑关于我们" description ="编辑关于我们" type="0" >
         </xMenuItem>
@@ -66,12 +72,6 @@
         <xMenuItem url="/Admin/LinkList.aspx" name="友情链接列表" description="友情链接列表"  type="0">
           <xMenuItem url="/Admin/LinkEdit.aspx" name="编辑友情链接" visible="false" description="编辑友情链接"></xMenuItem>
         </xMenuItem>
-      </xMenuItem>
-      <xMenuItem url="/Admin/AdminList.aspx" name="用户管理" description="用户管理"  type="1">
-        <xMenuItem url="/Admin/AdminList.aspx" name="用户列表" description="用户列表"  type="0">
-          <xMenuItem url="/Admin/AdminEdit.aspx?mode=update" name="编辑用户" visible="false" description="编辑用户"></xMenuItem>
-        </xMenuItem>
-        <xMenuItem url="/Admin/AdminEdit.aspx?mode=insert" name="添加用户" description="添加用户"></xMenuItem>
       </xMenuItem>
     </xMenuItem>
   </xMenuItem>

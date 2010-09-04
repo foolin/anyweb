@@ -31,7 +31,7 @@ public partial class Controls_HotSellRankList : System.Web.UI.UserControl
         else
         {
             listStor = new HotSellRankAgent().GetHotSellRankList();
-            for (int i = 0; i < 5 && i < listStor.Count; i++)
+            for (int i = 0; i < 5 && listStor.Count > 0; i++)
             {
                 Random ra = new Random();
                 int index = ra.Next(listStor.Count);

@@ -32,11 +32,11 @@ public partial class Login1 : System.Web.UI.Page
             }
         }
 
-        int shopid = (new ShopAgent()).AdminLogin(txtUserName.Text,txtPassword.Text);
+        Common.Common.Admin admin = new AdminAgent().Login(txtUserName.Text, txtPassword.Text);
 
-
-        if (shopid > 10000)
+        if (admin != null)
         {
+            int shopid = 10015;
             HttpCookie co = new HttpCookie("ADMINACC");
             co.Value = txtUserName.Text;
             Response.SetCookie(co);
@@ -51,9 +51,9 @@ public partial class Login1 : System.Web.UI.Page
 
             Shop s = (new ShopAgent()).GetShopInfo(shopid);
 
-            if ( Context.Items["SHOP_INFO"] == null )
+            if (Context.Items["SHOP_INFO"] == null)
             {
-                Context.Items.Add( "SHOP_INFO" , s );
+                Context.Items.Add("SHOP_INFO", s);
             }
             else
             {
@@ -64,31 +64,10 @@ public partial class Login1 : System.Web.UI.Page
 
             Response.Redirect("/Admin/Default.aspx");
         }
-
-        switch ( shopid )
+        else
         {
-            case 1: //用户不存在
-
-                WebAgent.FailAndGo( "帐号不存在" , Request.RawUrl );
-                break;
-            case 2: //密码错误
-                WebAgent.FailAndGo( "密码错误" , Request.RawUrl );
-                break;
-            case 3: //未开通
-
-                WebAgent.FailAndGo("商城暂未开通", Request.RawUrl);
-                break;
-            case 4: //锁定
-                WebAgent.FailAndGo( "商城已被锁定" , Request.RawUrl );
-                break;
-            case 5: //过期
-                WebAgent.FailAndGo( "商城已过期" , Request.RawUrl );
-                break;
-            default: //登录失败
-                WebAgent.FailAndGo( "登陆失败" , Request.RawUrl );
-                break;
+            WebAgent.AlertAndBack("登录失败，用户名或密码错误！");
         }
-
     }
     protected string valcode = "1234";
     protected void Page_Load(object sender, EventArgs e)

@@ -30,7 +30,7 @@ public partial class SetNavUrl : AdminBase
                     url = "/Admin/ArticleList.aspx";
                     break;
                 case "system":
-                    url = "/Admin/AboutUs.aspx";
+                    url = "/Admin/AdminList.aspx";
                     break;
                 case "page":
                     url = "/Admin/SlideList.aspx";

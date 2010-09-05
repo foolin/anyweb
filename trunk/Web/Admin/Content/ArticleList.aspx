@@ -53,6 +53,8 @@
                         <td>
                             创建时间</td>
                         <td>
+                            点击数</td>
+                        <td>
                             操作</td>
                     </tr>
                     <asp:Repeater ID="repArticle" runat="server">
@@ -71,6 +73,9 @@
                                 </td>
                                 <td>
                                     <%#Eval("ArtiCreateAt")%>
+                                </td>
+                                <td>
+                                    <%#Eval("ArtiClicks") %>
                                 </td>
                                 <td>
                                     <a href="ArticleEdit.aspx?id=<%#Eval("ArtiID") %>" title="修改栏目信息">修改</a></td>

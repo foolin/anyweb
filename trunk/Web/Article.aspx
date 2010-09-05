@@ -19,6 +19,13 @@
         </div>
     </div>
     <script type="text/javascript">
-        $(document).ready(function() { selMenu("<%=strColumn %>"); });
+        $(document).ready(function() {
+            selMenu("<%=strColumn %>");
+            $.ajax({
+                type: "GET",
+                url: 'AddClick.aspx?id=<%=Request.QueryString["id"] %>',
+                cache: false
+            });
+        });
     </script>
 </asp:Content>

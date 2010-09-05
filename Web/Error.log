@@ -1254,3 +1254,28 @@ Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
    在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
 
 
+Time:2010-09-05 16:22:14
+IP:::1
+Url:http://localhost/Admin/Content/ArticleList.aspx
+UrlRef:http://localhost:802/Admin/Default.aspx
+Message:System.Web.HttpException: DataBinding:“AnyWeb.AnyWeb_DL.Article”不包含名为“ArtiClick”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 System.Web.UI.DataBinder.Eval(Object container, String expression)
+   在 System.Web.UI.TemplateControl.Eval(String expression)
+   在 ASP.admin_content_articlelist_aspx.__DataBind__control3(Object sender, EventArgs e) 位置 e:\Program Files\PROJECT\DOTNET\AnyWeb\Web\Admin\Content\ArticleList.aspx:行号 78
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBind()
+   在 System.Web.UI.WebControls.Repeater.CreateItem(Int32 itemIndex, ListItemType itemType, Boolean dataBind, Object dataItem)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 System.Web.UI.WebControls.Repeater.DataBind()
+   在 Content_ArticleList.OnPreRender(EventArgs e) 位置 e:\Program Files\PROJECT\DOTNET\AnyWeb\Web\Admin\Content\ArticleList.aspx.cs:行号 38
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+
+

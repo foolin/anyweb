@@ -128,7 +128,8 @@
                         <div class="TitBg">
                             <div class="mark icon_1">
                                 网上菜篮子平台</div>
-                            <span class="subMark"><a href="/LkdMarket.aspx">由此进入>></a></span>
+                            <span class="subMark"><a href="http://www.wsclz.com/portal/modules/greenmkt/index.html?oln=spdnmsc"
+                                target="_blank">由此进入>></a></span>
                         </div>
                     </div>
                     <div class="con conBg">
@@ -303,7 +304,7 @@
 
         var scrollid = document.getElementById("Scroll_1");
         var imglen = scrollid.getElementsByTagName("img").length;
-        if (imglen > 2) {
+        if (imglen > 3) {
             scrollPic_01.initialize(); //初始化
         }
         else
@@ -328,7 +329,7 @@
 
         var scrollid = document.getElementById("Scroll_1");
         var imglen = scrollid.getElementsByTagName("img").length;
-        if (imglen > 3) {
+        if (imglen > 5) {
             scrollPic_02.initialize(); //初始化
         }
         else

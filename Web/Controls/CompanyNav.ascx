@@ -9,9 +9,10 @@
     <ul>
         <li>--- <a href="Company.aspx">供销社介绍</a> --- </li>
         <li>--- <a href="Department.aspx">部门架构</a> ---</li>
-        <li>--- <a href="LkdMarket.aspx">网上菜篮子</a> --- </li>
-        <li>--- <a href="GoodsSell.aspx">商品销售</a> --- </li>
-        <li>--- <a href="HR.aspx">杰信人力资源</a> --- </li>
+        <li>--- <a href="http://www.wsclz.com/portal/modules/greenmkt/index.html?oln=spdnmsc"
+            target="_blank">网上菜篮子</a> --- </li>
+        <li>--- <a href="http://shop.thshcoop.com" target="_blank">商品销售</a> --- </li>
+        <li>--- <a href="/Column.aspx?id=4">杰信人力资源</a> --- </li>
         <li>--- <a href="Leadership.aspx">领导分工</a> --- </li>
         <li>--- <a href="LeaderContact.aspx">领导邮箱</a> --- </li>
         <li>--- <a href="Contact.aspx">联系电话</a> --- </li>

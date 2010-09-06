@@ -21,6 +21,9 @@
     <title></title>
 </head>
 <body>
+    <div id="loading" style="width: 100%; text-align: center; display: none;">
+        <img src="public/images/Loading.jpg" alt="載入中，請稍候。。。" title="載入中，請稍候。。。" />
+    </div>
     <div id="content" class="wrap_Home">
         <div class="topArea relate navIndex">
             <div class="topLs">
@@ -50,6 +53,29 @@
                         </map>
                     </ItemTemplate>
                 </asp:Repeater>
+                <script type="text/javascript">
+                    if (!$.cookie("gaowen")) {
+                        $("#loading").show();
+                        $("#content").hide();
+                        $("body").css("background-color", "#270037");
+                    }
+                    var count = 0;
+                    $("#focus").find("img").load(function() {
+                        if (!$.cookie("gaowen")) {
+                            count++;
+                            if(count==<%=flashList.Count %>){
+                                $("#content").show();
+                                $("#loading").hide();
+                                $("body").css("background-color", "#E5D9E9");
+
+                                var cookieName = "gaowen";
+                                var date = new Date();
+                                date.setTime(date.getTime() + (1 * 24 * 60 * 60 * 1000));
+                                $.cookie(cookieName, "1", { path: '/', expires: date });
+                            }
+                        }
+                    });
+                </script>
             </div>
             <div id="TurnNum" class="TurnNum">
                 <asp:Repeater ID="repFlashNum" runat="server">
@@ -59,9 +85,11 @@
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
+
             <script type="text/javascript">
                 var _c = _h = 0;
                 $(document).ready(function() {
+                    
                     $('#TurnNum > a').click(function() {
                         var i = $(this).attr('alt') - 1;
                         _c = i;
@@ -111,22 +139,11 @@
                 </div>
             </div>
             <div class="footHomePos">
-                <a href="/index.aspx">回到首頁</a><a href="/disclaimer-chs.aspx">免責聲明</a> <a href="/privacy-policy-chs.aspx">私隱政策</a>
-                <a href="/terms-conditions-chs.aspx">條款及條件</a> <a href="/copyright-notice-chs.aspx">
-                    版權公示</a> © 2010 高聞顧問有限公司. 版权所有
+                <a href="/index.aspx">回到首頁</a><a href="/disclaimer-chs.aspx">免責聲明</a> <a href="/privacy-policy-chs.aspx">
+                    私隱政策</a> <a href="/terms-conditions-chs.aspx">條款及條件</a> <a href="/copyright-notice-chs.aspx">
+                        版權公示</a> © 2010 高聞顧問有限公司. 版权所有
             </div>
         </div>
     </div>
-
-    <script type="text/javascript">
-        var flash = document.getElementById("flash");
-        flash.style.position = "absolute";
-        flash.style.top = (document.documentElement.clientHeight - flash.offsetHeight) / 2 + "px";
-        flash.style.left = (document.documentElement.clientWidth - flash.offsetWidth) / 2 + "px";
-        window.onload = function() {
-        }
-        swfobject.registerObject("FlashID");
-    </script>
-
 </body>
 </html>

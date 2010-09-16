@@ -1,8 +1,0 @@
-E:\Program Files\PROJECT\DOTNET\JieXin\AW_DB\bin\Release\AW_DB.dll
-E:\Program Files\PROJECT\DOTNET\JieXin\AW_DB\bin\Release\AW_DB.pdb
-E:\Program Files\PROJECT\DOTNET\JieXin\AW_DB\bin\Release\DBBase.dll
-E:\Program Files\PROJECT\DOTNET\JieXin\AW_DB\bin\Release\Studio.dll
-E:\Program Files\PROJECT\DOTNET\JieXin\AW_DB\bin\Release\DBBase.pdb
-E:\Program Files\PROJECT\DOTNET\JieXin\AW_DB\obj\Release\ResolveAssemblyReference.cache
-E:\Program Files\PROJECT\DOTNET\JieXin\AW_DB\obj\Release\AW_DB.dll
-E:\Program Files\PROJECT\DOTNET\JieXin\AW_DB\obj\Release\AW_DB.pdb

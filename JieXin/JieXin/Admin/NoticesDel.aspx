@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="NoticesDel.aspx.cs" Inherits="Admin_NoticesDel" %>

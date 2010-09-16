@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>{#profile_dlg.title}</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="js/profile.js"></script>
+	<script type="text/javascript" src="../../utils/mctabs.js"></script>
+	<script type="text/javascript" src="../../utils/validate.js"></script>
+	<script type="text/javascript" src="../../utils/form_utils.js"></script>
+	<script type="text/javascript" src="../../utils/editable_selects.js"></script>
+	<link href="css/profile.css" rel="stylesheet" type="text/css" />
+	<base target="_self" />
+</head>
+<body style="display: none">
+    <form onsubmit="insertProfile();return false;" action="#" method="post" enctype="multipart/form-data" target="innerF">
+		<div class="tabs">
+		</div>
+
+		<div class="panel_wrapper">
+			<div id="general_panel" class="panel current" style="height:auto;">
+				<fieldset>
+					<legend>{#profile_dlg.title}</legend>
+
+					<table border="0" cellpadding="4" cellspacing="0">
+							<tr>
+								<td class="column1"><label id="namelabel" for="name">{#profile_dlg.name}</label></td>
+								<td colspan="2"><table border="0" cellspacing="0" cellpadding="0">
+									<tr> 
+									  <td>
+										<input name="profilename" type="text" id="profilename" value="" class="mceFocus" style="width:230px;" />
+									  </td> 
+									  <td>&nbsp;</td>
+									</tr>
+								  </table></td>
+							</tr>
+							<tr>
+								<td class="column1"><label id="srclabel" for="src">{#profile_dlg.profile_source}</label></td>
+								<td colspan="2"><table border="0" cellspacing="0" cellpadding="0">
+									<tr> 
+									  <td>
+										<label><input type="radio" name="srctype" id="type1" onclick="changeSource(1)" style="border:0;width:20px;" checked="checked"/>{#profile_dlg.profile_haspic}</label>
+										<label><input type="radio" name="srctype" id="type2" onclick="changeSource(2)" style="border:0;width:20px;"/>{#profile_dlg.profile_localpic}</label>
+									  </td> 
+									  <td>&nbsp;</td>
+									</tr>
+								  </table></td>
+							</tr>
+							<tr id="rowNetwork" style="display:;">
+								<td class="column1"><label id="srclabel" for="src">{#profile_dlg.profile_netaddr}</label></td>
+								<td colspan="2"><table border="0" cellspacing="0" cellpadding="0">
+									<tr> 
+									  <td><input name="src" type="text" id="src" value="" class="mceFocus" style="width:230px;"/></td> 
+									  <td id="filebrowsercontainer">&nbsp;</td>
+									</tr>
+								  </table></td>
+							</tr>
+							<tr id="rowLocal" style="display:none;">
+								<td class="column1"><label id="localdisklabel" for="profile_localdisk">{#profile_dlg.profile_localdisk}</label></td>
+								<td colspan="2"><table border="0" cellspacing="0" cellpadding="0">
+									<tr> 
+									  <td><input id="localfile" type="file" name="localfile" class="mceFocus" size="30" style="width:230px"></td> 
+									  <td>&nbsp;</td>
+									</tr>
+								  </table></td>
+							</tr>
+					</table>
+				</fieldset>
+			</div>
+		</div>
+
+		<div class="mceActionPanel">
+			<div style="float: left">
+				<input type="submit" id="insert" name="insert" value="{#insert}" />
+			</div>
+
+			<div style="float: right">
+				<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+			</div>
+		</div>
+	</form>
+	<iframe id="innerF" name="innerF" style="width:0px;height:0px"></iframe>
+</body>
+</html>

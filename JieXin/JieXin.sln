@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "JieXin", "JieXin\", "{8F050A87-CA74-4949-84E3-74119B693985}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "2.0"
+		ProjectReferences = "{401EF005-C192-4D83-9F90-CD0F3C77F5EC}|AW_DB.dll;{38CFCC22-2926-4205-B784-594ABB80231D}|AW_UC.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/JieXin"
+		Debug.AspNetCompiler.PhysicalPath = "JieXin\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\JieXin\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/JieXin"
+		Release.AspNetCompiler.PhysicalPath = "JieXin\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\JieXin\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "12635"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW_DB", "AW_DB\AW_DB.csproj", "{401EF005-C192-4D83-9F90-CD0F3C77F5EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW_UC", "AW_UC\AW_UC.csproj", "{38CFCC22-2926-4205-B784-594ABB80231D}"
+EndProject
+Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "JieXin_deploy", "..\publish\JieXin_deploy\JieXin_deploy.wdproj", "{F84AAA15-9292-400C-9A51-B5318C58512A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F050A87-CA74-4949-84E3-74119B693985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F050A87-CA74-4949-84E3-74119B693985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F050A87-CA74-4949-84E3-74119B693985}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F050A87-CA74-4949-84E3-74119B693985}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{401EF005-C192-4D83-9F90-CD0F3C77F5EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{401EF005-C192-4D83-9F90-CD0F3C77F5EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{401EF005-C192-4D83-9F90-CD0F3C77F5EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{401EF005-C192-4D83-9F90-CD0F3C77F5EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38CFCC22-2926-4205-B784-594ABB80231D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38CFCC22-2926-4205-B784-594ABB80231D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38CFCC22-2926-4205-B784-594ABB80231D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38CFCC22-2926-4205-B784-594ABB80231D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F84AAA15-9292-400C-9A51-B5318C58512A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F84AAA15-9292-400C-9A51-B5318C58512A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F84AAA15-9292-400C-9A51-B5318C58512A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F84AAA15-9292-400C-9A51-B5318C58512A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

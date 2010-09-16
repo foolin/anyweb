@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ADPicUpload.aspx.cs" Inherits="Admin_ADPicUpload" %>

@@ -7,7 +7,7 @@
     <title>文章</title>
 </head>
 <body>
-    <aw:Article ID="article" runat="server" IDName="id" ErrorMsg="文章不存在！" ErrorPage="/index.aspx">
+    <aw:Article ID="article" runat="server" ArticleID="4" IDName="id" ErrorMsg="文章不存在！" ErrorPage="/index.aspx">
         <ItemTemplate>
             标题:<%#Eval("fdArtiTitle") %>
         </ItemTemplate>

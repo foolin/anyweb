@@ -32,6 +32,11 @@
       <xMenuItem id="202" url ="/Admin/CompanyADAdd.aspx" name ="添加企业图片广告"></xMenuItem>
     </xMenuItem>
     <xMenuItem id="5" name="配置" module="5">
+      <xMenuItem id="501" url ="/Admin/NavigationList.aspx" name ="导航栏设置" >
+        <xMenuItem url ="/Admin/NavigationAdd.aspx" name ="添加导航栏" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/NavigationEdit.aspx" name ="修改导航栏" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/NavigationDel.aspx" name ="删除导航栏" type="3" ></xMenuItem>
+      </xMenuItem>
       <xMenuItem id="502" url ="/Admin/Setting_Register.aspx" name ="用户注册" >
       </xMenuItem>
       <xMenuItem id="503" url ="/Admin/Setting_Seo.aspx" name ="搜索引擎优化" >

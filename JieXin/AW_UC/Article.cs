@@ -20,13 +20,16 @@ namespace AnyWell.AW_UC
         {
             get
             {
-                if (this.IsContext)
+                if (this._articleID == 0)
                 {
-                    int.TryParse(this.ContextItem(this.IDName), out this._articleID);
-                }
-                else
-                {
-                    int.TryParse(this.QS(this.IDName), out this._articleID);
+                    if (this.IsContext)
+                    {
+                        int.TryParse(this.ContextItem(this.IDName), out this._articleID);
+                    }
+                    else
+                    {
+                        int.TryParse(this.QS(this.IDName), out this._articleID);
+                    }
                 }
                 switch (this.ItemType)
                 {

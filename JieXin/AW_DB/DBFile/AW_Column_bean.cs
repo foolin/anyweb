@@ -28,15 +28,6 @@ namespace AnyWell.AW_DL
 			get{return _fdColuName;}
 			set{_fdColuName = value;}
 		}
-		private string _fdColuPicture = "";
-		 /// <summary>
-		 /// 栏目图片 200 varchar
-		 /// </summary>
-		public string fdColuPicture
-		{
-			get{return _fdColuPicture;}
-			set{_fdColuPicture = value;}
-		}
 		private int _fdColuSort = 0;
 		 /// <summary>
 		 /// 排序

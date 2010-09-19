@@ -44,23 +44,12 @@ public partial class Admin_ColumnEdit : PageAdmin
         txtDesc.Text = column.fdColuDescription;
         ListItem li = drpParent.Items.FindByValue(column.fdColuParentID.ToString());
         if (li != null) li.Selected = true;
-        if (!string.IsNullOrEmpty(column.fdColuPicture))
-        {
-            hasPic = true;
-            picUrl = column.fdColuPicture;
-        }
-        else
-        {
-            hasPic = false;
-            picUrl = "";
-        }
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
         if (String.IsNullOrEmpty(txtName.Text))
             WebAgent.AlertAndBack("栏目名称不能为空");
-        string pics = Request.Form["pics"] + "";
         using (AW_Column_dao dao = new AW_Column_dao())
         {
             AW_Column_bean column = dao.funcGetColumnInfo(int.Parse(QS("id")));
@@ -68,7 +57,6 @@ public partial class Admin_ColumnEdit : PageAdmin
             column.fdColuName = txtName.Text.Trim();
             column.fdColuDescription = txtDesc.Text.Trim();
             column.fdColuParentID = int.Parse(drpParent.SelectedValue);
-            column.fdColuPicture = pics;
             dao.funcUpdate(column);
             WebAgent.SuccAndGo("修改文章栏目成功", "ColumnList.aspx");
         }

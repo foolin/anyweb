@@ -19,9 +19,6 @@
                         <th>
                             名称
                         </th>
-                        <th>
-                            栏目图片
-                        </th>
                         <th class="end">
                             操 作
                         </th>
@@ -37,10 +34,6 @@
                                             id="hide_<%#Eval("fdColuID") %>" style="display: none; color: blue;">[收缩]</a>
                             </td>
                             <td>
-                                <img width="100" height="65" alt="<%#Eval("fdColuName")%>" src="<%#Eval("fdColuPicture") %>"
-                                    style="display: <%#(String)Eval("fdColuPicture")==""?"none":"" %>" />
-                            </td>
-                            <td>
                                 <a href="ColumnEdit.aspx?id=<%# Eval("fdColuID")%>">修改</a> <a href="ColumnSort.aspx?type=up&id=<%# Eval("fdColuID")%>">
                                     排前</a> <a href="ColumnSort.aspx?type=down&id=<%# Eval("fdColuID")%>">排后</a><a href="ColumnDel.aspx?id=<%# Eval("fdColuID")%>"
                                         onclick="return confirm('您确定要删除吗?')"> 删除</a>
@@ -52,10 +45,6 @@
                                     <td title="<%#Eval("fdColuDescription") %>" style="text-align: left; padding-left: 40px;">
                                         <a href="/column.aspx?id=<%#Eval("fdColuID") %>&byadmin=1" target="_blank">
                                             <%#Eval("fdColuName")%></a>
-                                    </td>
-                                    <td>
-                                        <img width="100" height="65" alt="<%#Eval("fdColuName")%>" src="<%#string.IsNullOrEmpty((string)Eval("fdColuPicture"))?string.IsNullOrEmpty((string)Eval("Parent.fdColuPicture"))?"":Eval("Parent.fdColuPicture"):Eval("fdColuPicture") %>"
-                                            style="display: <%#((String)Eval("fdColuPicture")==""&&(String)Eval("Parent.fdColuPicture")=="")?"none":"" %>" />
                                     </td>
                                     <td>
                                         <a href="ColumnEdit.aspx?id=<%# Eval("fdColuID")%>">修改</a> <a href="ColumnSort.aspx?type=up&id=<%# Eval("fdColuID")%>">

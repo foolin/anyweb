@@ -16,5 +16,13 @@ namespace AnyWell.AW_DL
             get { return _Column; }
             set { _Column = value; }
         }
+
+        public string fdArtiPath
+        {
+            get 
+            {
+                return string.Format("/a/{0}.aspx", this.fdArtiID);
+            }
+        }
 	}
 }

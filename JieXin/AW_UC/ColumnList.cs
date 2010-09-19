@@ -4,6 +4,7 @@ using System.Text;
 using AnyWell.AW_DL;
 using System.ComponentModel;
 using Studio.Web;
+using System.Web;
 
 namespace AnyWell.AW_UC
 {
@@ -17,13 +18,32 @@ namespace AnyWell.AW_UC
         {
             get
             {
-                if (this.IsContext)
+                if (this.FromArticle)
                 {
-                    int.TryParse(this.ContextItem(this.IDName), out this._columnID);
+                    int articleID = 0;
+                    AW_Article_bean article = new AW_Article_bean();
+                    int.TryParse(this.ContextItem("ARTICLEID"), out articleID);
+                    if (articleID == 0)
+                    {
+                        goErrorPage();
+                    }
+                    else
+                    {
+                        if (HttpContext.Current.Items["ARTICLE_" + articleID] != null)
+                        {
+                            article = (AW_Article_bean)HttpContext.Current.Items["ARTICLE_" + articleID];
+                        }
+                        else
+                        {
+                            article = AW_Article_bean.funcGetByID(articleID);
+                            HttpContext.Current.Items.Add("ARTICLE_" + articleID, article);
+                        }
+                        this._columnID = article.fdArtiColumnID;
+                    }
                 }
-                else
+                else if (this._columnID == 0)
                 {
-                    int.TryParse(this.QS(this.IDName), out this._columnID);
+                    int.TryParse(this.ContextItem("COLUMNID"), out this._columnID);
                 }
                 return this._columnID;
             }
@@ -41,27 +61,33 @@ namespace AnyWell.AW_UC
             set { _getParent = value; }
         }
 
+        private bool _fromArticle = false;
+        /// <summary>
+        /// 是否文章中读取栏目编号
+        /// </summary>
+        public bool FromArticle
+        {
+            get { return _fromArticle; }
+            set { _fromArticle = value; }
+        }
+
         protected override object GetDataObject()
         {
             if (this.ColumnID == 0)
             {
-                if (string.IsNullOrEmpty(this.ErrorMsg))
-                {
-                    this.ErrorMsg = "栏目不存在！";
-                }
-                WebAgent.FailAndGo(this.ErrorMsg, this.ErrorPage);
+                goErrorPage();
                 return null;
             }
             else
             {
-                AW_Column_bean bean = AW_Column_bean.funcGetByID(this.ColumnID);
-                if (bean == null)
+                if (this.ColumnID != -1)
                 {
-                    if (string.IsNullOrEmpty(this.ErrorMsg))
+                    AW_Column_bean bean = AW_Column_bean.funcGetByID(this.ColumnID);
+                    if (bean == null)
                     {
-                        this.ErrorMsg = "栏目不存在！";
+                        goErrorPage();
+                        return null;
                     }
-                    WebAgent.FailAndGo(this.ErrorMsg, this.ErrorPage);
                 }
                 return new AW_Column_dao().funcGetColumnListByUC(this.ColumnID, this.GetParent, this.TopCount, this.Where, this.Order, this.CacheName);
             }

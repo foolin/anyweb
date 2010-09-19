@@ -52,6 +52,9 @@
     <Compile Include="ControlBase.cs" />
     <Compile Include="ItemControlBase.cs" />
     <Compile Include="ListControlBase.cs" />
+    <Compile Include="Navigation.cs" />
+    <Compile Include="Notice.cs" />
+    <Compile Include="NoticeList.cs" />
     <Compile Include="Pager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TemplateItem.cs" />

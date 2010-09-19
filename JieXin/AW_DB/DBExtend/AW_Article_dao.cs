@@ -278,13 +278,20 @@ namespace AnyWell.AW_DL
 
             this.propTableApp = ",AW_Column ";
 
-            if (getChild)
+            if (columnID != -1)
             {
-                this.propWhere = "(fdColuID = @fdColuID OR fdColuParentID=@fdColuID)";
+                if (getChild)
+                {
+                    this.propWhere = "(fdColuID = @fdColuID OR fdColuParentID=@fdColuID)";
+                }
+                else
+                {
+                    this.propWhere = "fdColuID = @fdColuID";
+                }
             }
             else
             {
-                this.propWhere = "fdColuID = @fdColuID";
+                this.propWhere = "1=1";
             }
 
             this.propWhere += " AND fdColuID=fdArtiColumnID ";

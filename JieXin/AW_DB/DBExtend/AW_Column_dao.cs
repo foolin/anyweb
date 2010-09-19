@@ -222,13 +222,16 @@ namespace AnyWell.AW_DL
 
             this.propWhere = "1=1";
 
-            if (parent)
+            if (columnID != -1)
             {
-                this.propWhere += " AND fdColuParentID=(SELECT fdColuParentID FROM AW_Column WHERE fdColuID=@fdColuID)";
-            }
-            else
-            {
-                this.propWhere += " AND fdColuParentID=@fdColuID";
+                if (parent)
+                {
+                    this.propWhere += " AND fdColuParentID=(SELECT fdColuParentID FROM AW_Column WHERE fdColuID=@fdColuID)";
+                }
+                else
+                {
+                    this.propWhere += " AND fdColuParentID=@fdColuID";
+                }
             }
 
             if (string.IsNullOrEmpty(where) == false)

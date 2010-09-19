@@ -17,14 +17,34 @@ namespace AnyWell.AW_UC
         {
             get 
             {
-                if (this.IsContext)
+                if (this.FromArticle)
                 {
-                    int.TryParse(this.ContextItem(this.IDName), out this._columnID);
+                    int articleID = 0;
+                    AW_Article_bean article = new AW_Article_bean();
+                    int.TryParse(this.ContextItem("ARTICLEID"), out articleID);
+                    if (articleID == 0)
+                    {
+                        goErrorPage();
+                    }
+                    else
+                    {
+                        if (HttpContext.Current.Items["ARTICLE_" + articleID] != null)
+                        {
+                            article = (AW_Article_bean)HttpContext.Current.Items["ARTICLE_" + articleID];
+                        }
+                        else
+                        {
+                            article = AW_Article_bean.funcGetByID(articleID);
+                            HttpContext.Current.Items.Add("ARTICLE_" + articleID, article);
+                        }
+                        this._columnID = article.fdArtiColumnID;
+                    }
                 }
-                else
+                else if (this._columnID == 0)
                 {
-                    int.TryParse(this.QS(this.IDName), out this._columnID);
+                    int.TryParse(this.ContextItem("COLUMNID"), out this._columnID);
                 }
+
                 switch (this.ItemType)
                 {
                     case ItemObjectType.Next:
@@ -56,6 +76,16 @@ namespace AnyWell.AW_UC
             set { _columnID = value; }
         }
 
+        private bool _fromArticle = false;
+        /// <summary>
+        /// 是否文章中读取栏目编号
+        /// </summary>
+        public bool FromArticle
+        {
+            get { return _fromArticle; }
+            set { _fromArticle = value; }
+        }
+
         protected override object GetItemObject()
         {
             AW_Column_bean column;
@@ -64,11 +94,7 @@ namespace AnyWell.AW_UC
             {
                 if (this.ItemType == ItemObjectType.Current)
                 {
-                    if (string.IsNullOrEmpty(this.ErrorMsg))
-                    {
-                        this.ErrorMsg = "栏目不存在！";
-                    }
-                    WebAgent.FailAndGo(this.ErrorMsg, this.ErrorPage);
+                    goErrorPage();
                 }
                 else
                 {
@@ -93,11 +119,7 @@ namespace AnyWell.AW_UC
             }
             if (column == null)
             {
-                if (string.IsNullOrEmpty(this.ErrorMsg))
-                {
-                    this.ErrorMsg = "栏目不存在！";
-                }
-                WebAgent.FailAndGo(this.ErrorMsg, this.ErrorPage);
+                goErrorPage();
             }
 
             return column;

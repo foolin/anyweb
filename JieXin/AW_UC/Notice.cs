@@ -3,38 +3,34 @@ using System.Collections.Generic;
 using System.Text;
 using AnyWell.AW_DL;
 using System.Web;
-using Studio.Web;
 
 namespace AnyWell.AW_UC
 {
-    /// <summary>
-    /// 单个文章组件，可展示单一篇文章的某个属性或一组属性
-    /// </summary>
-    public class Article : ItemControlBase
+    public class Notice : ItemControlBase
     {
-        private int _articleID;
+        private int _noticeID;
         /// <summary>
-        /// 文章编号
+        /// 公告编号
         /// </summary>
-        public int ArticleID
+        public int NoticeID
         {
             get
             {
-                if (this._articleID == 0)
+                if (this._noticeID == 0)
                 {
-                    int.TryParse(this.ContextItem("ARTICLEID"), out this._articleID);
+                    int.TryParse(this.ContextItem("NOTICEID"), out this._noticeID);
                 }
                 switch (this.ItemType)
                 {
                     case ItemObjectType.Next:
                         {
 
-                            this._articleID = new AW_Article_dao().funcGetNextArticleIDByUC(this._articleID);
+                            this._noticeID = new AW_Notice_dao().funcGetNextNoticeIDByUC(this._noticeID);
                             break;
                         }
                     case ItemObjectType.Previous:
                         {
-                            this._articleID = new AW_Article_dao().funcGetPreviousArticleIDByUC(this._articleID);
+                            this._noticeID = new AW_Notice_dao().funcGetPreviousNoticeIDByUC(this._noticeID);
                             break;
                         }
                     default:
@@ -42,16 +38,16 @@ namespace AnyWell.AW_UC
                             break;
                         }
                 }
-                return this._articleID;
+                return this._noticeID;
             }
-            set { _articleID = value; }
+            set { _noticeID = value; }
         }
 
         protected override object GetItemObject()
         {
-            AW_Article_bean article;
+            AW_Notice_bean notice;
 
-            if (this.ArticleID == 0)
+            if (this.NoticeID == 0)
             {
                 if (this.ItemType == ItemObjectType.Current)
                 {
@@ -65,25 +61,25 @@ namespace AnyWell.AW_UC
             }
             else
             {
-                //从上下文中读取该文章，如果该文章存在的话
-                if (HttpContext.Current.Items["ARTICLE_" + this.ArticleID] != null)
+                //从上下文中读取该公告，如果该公告存在的话
+                if (HttpContext.Current.Items["NOTICEID_" + this.NoticeID] != null)
                 {
-                    article = (AW_Article_bean)HttpContext.Current.Items["ARTICLE_" + this.ArticleID];
+                    notice = (AW_Notice_bean)HttpContext.Current.Items["NOTICEID_" + this.NoticeID];
                 }
                 else
                 {
-                    article = AW_Article_bean.funcGetByID(this.ArticleID);
-                    HttpContext.Current.Items.Add("ARTICLE_" + this.ArticleID, article);
+                    notice = AW_Notice_bean.funcGetByID(this.NoticeID);
+                    HttpContext.Current.Items.Add("NOTICEID_" + this.NoticeID, notice);
                 }
 
-                if (article == null && this.ItemType == ItemObjectType.Current)
+                if (notice == null && this.ItemType == ItemObjectType.Current)
                 {
                     HttpContext.Current.Response.Redirect("/Error.html");
                     return null;
                 }
             }
 
-            return article;
+            return notice;
         }
     }
 }

@@ -29,5 +29,16 @@ namespace AnyWell.AW_DL
             get { return _children; }
             set { _children = value; }
         }
+
+        /// <summary>
+        /// 访问路径
+        /// </summary>
+        public string fdColuPath
+        {
+            get 
+            {
+                return string.Format("/c/{0}.aspx", this.fdColuID);
+            }
+        }
 	}
 }

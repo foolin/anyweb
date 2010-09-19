@@ -161,7 +161,7 @@ namespace AnyWell.AW_UC
 
             if (this.ShowGo == true)
             {
-                writer.Write("<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='javascript:GoToPage(\"" + _urlPrefix + "\", this.parentElement.children[0].value);'></span>", PageID);
+                writer.Write("<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='javascript:GoToPage(\"" + _urlPrefix + "\", this.previousSibling.value);'></span>", PageID);
             }
             writer.Write("</span>");
             writer.Write("</div>");
@@ -349,26 +349,26 @@ namespace AnyWell.AW_UC
 
                 if (string.IsNullOrEmpty(_urlPrefix))
                 {
-                    string url = Context.Request.Url.PathAndQuery;
+                    string query = Context.Request.QueryString.ToString();
                     if (string.IsNullOrEmpty(this.UrlFormat) == true)
                     {
                         this.UrlFormat = this.PageIDKey + "={0}";
                     }
                     string reg = "(?<=" + this.UrlFormat.Substring(0, this.UrlFormat.IndexOf("{0}")) + ")\\d+";
 
-                    if (Regex.IsMatch(url, reg))
+                    if (Regex.IsMatch(query, reg))
                     {
-                        _urlPrefix = Regex.Replace(url, reg, "_pid");
+                        _urlPrefix = "?" + Regex.Replace(query, reg, "_pid");
                     }
                     else
                     {
-                        if (string.IsNullOrEmpty(Context.Request.Url.Query) == false)
+                        if (string.IsNullOrEmpty(query) == false)
                         {
-                            _urlPrefix = url + '&' + this.PageIDKey + "=_pid";
+                            _urlPrefix = "?" + query + '&' + this.PageIDKey + "=_pid";
                         }
                         else
                         {
-                            _urlPrefix = url + '?' + this.PageIDKey + '=' + "=_pid";
+                            _urlPrefix = "?" + this.PageIDKey + "=_pid";
                         }
                     }
                 }

@@ -4,6 +4,7 @@ using System.Text;
 using System.ComponentModel;
 using Studio.Web;
 using AnyWell.AW_DL;
+using System.Web;
 
 namespace AnyWell.AW_UC
 {
@@ -18,13 +19,9 @@ namespace AnyWell.AW_UC
         {
             get
             {
-                if (this.IsContext)
+                if (this._columnID == 0)
                 {
-                    int.TryParse(this.ContextItem(this.IDName), out this._columnID);
-                }
-                else
-                {
-                    int.TryParse(this.QS(this.IDName), out this._columnID);
+                    int.TryParse(this.ContextItem("COLUMNID"), out this._columnID);
                 }
                 return this._columnID;
             }
@@ -49,8 +46,8 @@ namespace AnyWell.AW_UC
         [Description("是否获取文章内容"), DefaultValue(false)]
         public bool GetContent
         {
-            get { return _getChild; }
-            set { _getChild = value; }
+            get { return _getContent; }
+            set { _getContent = value; }
         }
 
         private string _pagerID;
@@ -83,23 +80,19 @@ namespace AnyWell.AW_UC
         {
             if (this.ColumnID == 0)
             {
-                if (string.IsNullOrEmpty(this.ErrorMsg))
-                {
-                    this.ErrorMsg = "栏目不存在！";
-                }
-                WebAgent.FailAndGo(this.ErrorMsg, this.ErrorPage);
+                goErrorPage();
                 return null;
             }
             else
             {
-                AW_Column_bean bean = AW_Column_bean.funcGetByID(this.ColumnID);
-                if (bean == null)
+                if (this.ColumnID != -1)
                 {
-                    if (string.IsNullOrEmpty(this.ErrorMsg))
+                    AW_Column_bean bean = AW_Column_bean.funcGetByID(this.ColumnID);
+                    if (bean == null)
                     {
-                        this.ErrorMsg = "栏目不存在！";
+                        goErrorPage();
+                        return null;
                     }
-                    WebAgent.FailAndGo(this.ErrorMsg, this.ErrorPage);
                 }
                 List<AW_Article_bean> articles;
                 if (this.Pager == null)

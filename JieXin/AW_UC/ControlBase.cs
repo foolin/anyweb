@@ -11,48 +11,6 @@ namespace AnyWell.AW_UC
 {
     public abstract class ControlBase : CompositeDataBoundControl
     {
-        private string _IDName;
-        /// <summary>
-        /// 数据项名称
-        /// </summary>
-        public string IDName
-        {
-            get { return _IDName; }
-            set { _IDName = value; }
-        }
-
-        private bool _IsContext = false;
-        /// <summary>
-        /// 是否从上下文中读取
-        /// </summary>
-        [Description("设置参数是否从上下文中读取"), DefaultValue(false)]
-        public bool IsContext
-        {
-            get { return _IsContext; }
-            set { _IsContext = value; }
-        }
-
-        private string _errorMsg;
-        /// <summary>
-        /// 设置错误信息
-        /// </summary>
-        public string ErrorMsg
-        {
-            get { return _errorMsg; }
-            set
-            { _errorMsg = value; }
-        }
-
-        private string _errorPage = "/";
-        /// <summary>
-        /// 设置错误页面
-        /// </summary>
-        public string ErrorPage
-        {
-            get { return _errorPage; }
-            set { _errorPage = value; }
-        }
-
         private ITemplate _itemTemplate;
         /// <summary>
         /// 内容模板，可包含任意html内容和嵌套对象
@@ -101,24 +59,27 @@ namespace AnyWell.AW_UC
         /// <param name="e"></param>
         protected override void OnPreRender(EventArgs e)
         {
-            object data = this.GetDataObject();
-            if (data != null)
+            if (this.DataSource == null)
             {
-                if (data is string || this.ItemTemplate == null)
+                object data = this.GetDataObject();
+                if (data != null)
                 {
-                    Controls.Add(new LiteralControl(data.ToString()));//当数据不是一个集合类型时直接返回字符串结果
-                }
-                else
-                {
-                    if (data is IEnumerable == false)
+                    if (data is string || this.ItemTemplate == null)
                     {
-                        this.DataSource = new object[] { data };
+                        Controls.Add(new LiteralControl(data.ToString()));//当数据不是一个集合类型时直接返回字符串结果
                     }
                     else
                     {
-                        this.DataSource = data;
+                        if (data is IEnumerable == false)
+                        {
+                            this.DataSource = new object[] { data };
+                        }
+                        else
+                        {
+                            this.DataSource = data;
+                        }
+                        this.DataBind();
                     }
-                    this.DataBind();
                 }
             }
             base.OnPreRender(e);
@@ -142,6 +103,14 @@ namespace AnyWell.AW_UC
         protected string ContextItem(string name)
         {
             return HttpContext.Current.Items[name] + "";
+        }
+
+        /// <summary>
+        /// 跳转到错误页面
+        /// </summary>
+        protected void goErrorPage()
+        {
+            HttpContext.Current.Response.Redirect("/Error.html");
         }
     }
 }

@@ -7,19 +7,19 @@
     <title>文章</title>
 </head>
 <body>
-    <aw:Article ID="article" runat="server" ArticleID="4" IDName="id" ErrorMsg="文章不存在！" ErrorPage="/index.aspx">
+    <aw:Article ID="article" runat="server" ArticleID="4">
         <ItemTemplate>
             标题:<%#Eval("fdArtiTitle") %>
         </ItemTemplate>
     </aw:Article>
-    <aw:Article ID="pre" runat="server" IDName="id" ItemType="Previous">
+    <aw:Article ID="pre" runat="server" ItemType="Previous">
         <ItemTemplate>
-            上一篇：<a href="article_temp.aspx?id=<%#Eval("fdArtiID") %>"><%#Eval("fdArtiTitle") %></a>
+            上一篇：<a href="<%#Eval("fdArtiPath") %>"><%#Eval("fdArtiTitle") %></a>
         </ItemTemplate>
     </aw:Article>
-    <aw:Article ID="Article1" runat="server" IDName="id" ItemType="Next">
+    <aw:Article ID="Article1" runat="server" ItemType="Next">
         <ItemTemplate>
-            上一篇：<a href="article_temp.aspx?id=<%#Eval("fdArtiID") %>"><%#Eval("fdArtiTitle") %></a>
+            下一篇：<a href="<%#Eval("fdArtiPath") %>"><%#Eval("fdArtiTitle") %></a>
         </ItemTemplate>
     </aw:Article>
 </body>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ArticleList_temp.aspx.cs" Inherits="ArticleList_temp" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="NoticeList_Temp.aspx.cs" Inherits="NoticeList_Temp" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -7,11 +7,11 @@
     <title></title>
 </head>
 <body>
-    <aw:ArticleList ID="article" runat="server" ColumnID="-1" GetChild="true" PagerID="page1" Order="fdArtiID ASC">
+    <AW:NOTICELIST ID="notice" runat="server" PagerID="page1">
         <ItemTemplate>
-            <%#Eval("fdArtiTitle") %><br />
+            <a href="<%#Eval("fdNotiPath") %>"><%#Eval("fdNotiTitle") %></a><br />
         </ItemTemplate>
-    </aw:ArticleList>
+    </AW:NOTICELIST>
     <aw:Pager ID="page1" runat="server" PageSize="1"></aw:Pager>
 </body>
 </html>

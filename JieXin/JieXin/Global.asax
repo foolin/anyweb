@@ -67,5 +67,70 @@
         //设置为 StateServer 或 SQLServer，则不会引发该事件。
 
     }
+
+    protected void Application_BeginRequest(Object sender, EventArgs e)
+    {
+        string actualPath;
+        AnalyseRequest(out actualPath);
+        if (actualPath == string.Empty || actualPath == null) 
+            actualPath = "/index.aspx";
+        Context.RewritePath(actualPath, Request.PathInfo, Request.QueryString.ToString());
+    }
+
+    void AnalyseRequest(out string realPath)
+    {
+        realPath = "/index.aspx";
+        string requestPath = Request.Path.ToLower();
+        if (requestPath == "/" || requestPath == "/index.aspx") //首页
+        {
+            return; 
+        }
+        if (requestPath.IndexOf("/admin") > -1)  //管理后台
+        {
+            realPath = Request.Path;
+            return; 
+        }
+        requestPath = Request.Path.ToLower().Replace("\\", "/").Replace(".aspx", "").Substring(1);
+
+        if (requestPath.EndsWith("/"))
+            requestPath = requestPath.Remove(requestPath.Length - 1, 1);
+
+        string[] urlInfo = requestPath.Split('/');
+        if (urlInfo.Length < 2) 
+        {
+            realPath = "/Error.html";
+        }
+        switch (urlInfo[0])
+        {
+            case "c":   //文章列表页
+                {
+                    realPath = "/ArticleList_temp.aspx";
+                    Context.Items.Add("COLUMNID", urlInfo[1]);
+                    break;
+                }
+            case "a":   //文章内容页
+                {
+                    realPath = "/Article_Temp.aspx";
+                    Context.Items.Add("ARTICLEID", urlInfo[1]);
+                    break;
+                }
+            case "notice":  //公告列表页
+                {
+                    realPath = "/NoticeList_Temp.aspx";
+                    break;
+                }
+            case "n":   //公告内容页
+                {
+                    realPath = "/Notice_Temp.aspx";
+                    Context.Items.Add("NOTICEID", urlInfo[1]);
+                    break;
+                }
+            default:
+                {
+                    realPath = "/Error.html";
+                    break;
+                }
+        }
+    }
        
 </script>

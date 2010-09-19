@@ -7,25 +7,25 @@
     <title></title>
 </head>
 <body>
-    <aw:Column ID="column" runat="server" IDName="id" ErrorMsg="栏目不存在！" ErrorPage="/index.aspx">
+    <aw:Column ID="column" runat="server">
         <ItemTemplate>
             <%#Eval("fdColuName")%>
         </ItemTemplate>
     </aw:Column>
     父级栏目：
-    <aw:Column ID="column1" runat="server" IDName="id" ErrorMsg="栏目不存在！" ErrorPage="/index.aspx" ItemType="Parent">
+    <aw:Column ID="column1" runat="server" ItemType="Parent">
         <ItemTemplate>
             <%#Eval("fdColuName")%>
         </ItemTemplate>
     </aw:Column>
     前一栏目：
-    <aw:Column ID="column2" runat="server" IDName="id" ItemType="Previous">
+    <aw:Column ID="column2" runat="server" ItemType="Previous">
         <ItemTemplate>
             <a href="column_temp.aspx?id=<%#Eval("fdColuID") %>"><%#Eval("fdColuName")%></a>
         </ItemTemplate>
     </aw:Column>
     后一栏目：
-    <aw:Column ID="column3" runat="server" IDName="id" ItemType="Next">
+    <aw:Column ID="column3" runat="server" ItemType="Next">
         <ItemTemplate>
             <a href="column_temp.aspx?id=<%#Eval("fdColuID") %>"><%#Eval("fdColuName")%></a>
         </ItemTemplate>

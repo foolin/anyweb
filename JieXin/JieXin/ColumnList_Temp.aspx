@@ -7,7 +7,7 @@
     <title></title>
 </head>
 <body>
-    <aw:ColumnList ID="columnList" runat="server" IDName="id">
+    <aw:ColumnList ID="columnList" runat="server">
         <ItemTemplate>
             <a href="columnlist_temp.aspx?id=<%#Eval("fdColuID") %>"><%#Eval("fdColuName") %></a>
         </ItemTemplate>

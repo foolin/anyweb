@@ -75,6 +75,16 @@
                         </td>
                     </tr>
                     <tr>
+                        <td height="35" class="login-text02">
+                            验证码：<br />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtCode" runat="server" MaxLength="5" Width="40"></asp:TextBox>
+                            <img align="absbottom" id="checkCode" src="" alt="验证码" style="width:60px;height:24px;" /> <a onclick="refreshCode();" class="login-text02" style="cursor:pointer">看不清？</a>
+                            <sw:Validator ID="Validator1" ControlID="txtCode" ValidateType="Required" ErrorMessage="请输入验证码！" runat="server"></sw:Validator>
+                        </td>
+                    </tr>
+                    <tr>
                         <td height="35">
                             &nbsp;
                         </td>
@@ -88,5 +98,11 @@
         </tr>
     </table>
     </form>
+    <script type="text/javascript">
+        function refreshCode() {
+            $("#checkCode").attr("src", "CheckCode.aspx?rd=" + Math.random());
+        }
+        $("#checkCode").attr("src", "CheckCode.aspx?rd=" + Math.random());
+    </script>
 </body>
 </html>

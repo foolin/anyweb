@@ -37,6 +37,15 @@ namespace AnyWell.AW_DL
 			get{return _fdUserPwd;}
 			set{_fdUserPwd = value;}
 		}
+		private string _fdUserEmail = "";
+		 /// <summary>
+		 /// 用户邮箱 100 varchar
+		 /// </summary>
+		public string fdUserEmail
+		{
+			get{return _fdUserEmail;}
+			set{_fdUserEmail = value;}
+		}
 		private int _fdUserStatus = 0;
 		 /// <summary>
 		 /// 用户状态：0正常1冻结2删除

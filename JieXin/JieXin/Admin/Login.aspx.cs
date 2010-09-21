@@ -15,6 +15,11 @@ public partial class Shop_Admin_Login : System.Web.UI.Page
 {
     protected void submit_Click(object sender, EventArgs e)
     {
+        string code = Session["CHECK_CODE"].ToString();
+        if (txtCode.Text.ToLower() != code)
+        {
+            WebAgent.AlertAndBack("验证码输入错误！");
+        }
         using (AW_Admin_dao dao = new AW_Admin_dao())
         {
             if (dao.funcLogin(txtUserName.Text, txtPassword.Text))

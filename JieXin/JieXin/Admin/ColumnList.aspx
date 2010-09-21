@@ -28,7 +28,7 @@
                     <ItemTemplate>
                         <tr align="center" class="editalt">
                             <td title="<%#Eval("fdColuDescription") %>" style="text-align: left; padding-left: 20px;">
-                                <a href="/column.aspx?id=<%#Eval("fdColuID") %>&byadmin=1" target="_blank">
+                                <a href="<%#Eval("fdColuPath") %>" target="_blank">
                                     <%#Eval("fdColuName")%></a> <a href="javascript:childShow(<%#Eval("fdColuID") %>)"
                                         id="show_<%#Eval("fdColuID") %>" style="color: blue">[展开]</a> <a href="javascript:childHide(<%#Eval("fdColuID") %>)"
                                             id="hide_<%#Eval("fdColuID") %>" style="display: none; color: blue;">[收缩]</a>
@@ -43,7 +43,7 @@
                             <ItemTemplate>
                                 <tr align="center" class="editalt" name="child_<%#Eval("Parent.fdColuID") %>" style="display: none;">
                                     <td title="<%#Eval("fdColuDescription") %>" style="text-align: left; padding-left: 40px;">
-                                        <a href="/column.aspx?id=<%#Eval("fdColuID") %>&byadmin=1" target="_blank">
+                                        <a href="<%#Eval("fdColuPath") %>" target="_blank">
                                             <%#Eval("fdColuName")%></a>
                                     </td>
                                     <td>

@@ -7,7 +7,9 @@
     </ul>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
+
     <script type="text/javascript" src="js/jquery.tablednd.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
             $("#datas").tableDnD({
@@ -75,6 +77,7 @@
             }
         }
     </script>
+
     <div class="Mod DataList">
         <div class="mhd">
             <h3>
@@ -93,7 +96,7 @@
                 <thead>
                     <tr>
                         <th style="width: 30px;">
-                             <input type="checkbox" class="checkbox" onclick="SelectAll(this.checked)" title="全选" />
+                            <input type="checkbox" class="checkbox" onclick="SelectAll(this.checked)" title="全选" />
                         </th>
                         <th>
                             标题
@@ -113,7 +116,8 @@
                                 <input type="checkbox" name="ids" value="<%# Eval("fdArtiID")%>" />
                             </td>
                             <td style="text-align: left;" class="dragTd" title="拖动排序">
-                                <a href="/article.aspx?id=<%#Eval("fdArtiID") %>&byadmin=1" target="_blank"><%#Eval("fdArtiTitle")%></a>
+                                <a href="<%#Eval("fdArtiPath") %>" target="_blank">
+                                    <%#Eval("fdArtiTitle")%></a>
                             </td>
                             <td>
                                 <%#Eval("Column.fdColuName")%>
@@ -131,8 +135,8 @@
                 </sw:PageNaver>
             </div>
         </div>
-        <div class="mft">            
-        </div>    
+        <div class="mft">
+        </div>
         <button onclick="delArticles()" style="height: 28px;" type="button">
             批量删除</button>
     </div>

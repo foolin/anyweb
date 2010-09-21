@@ -76,6 +76,8 @@
     <Compile Include="DBExtend\AW_Industry_dao.cs" />
     <Compile Include="DBExtend\AW_Job_bean.cs" />
     <Compile Include="DBExtend\AW_Job_dao.cs" />
+    <Compile Include="DBExtend\AW_Major_bean.cs" />
+    <Compile Include="DBExtend\AW_Major_dao.cs" />
     <Compile Include="DBExtend\AW_Navigation_bean.cs" />
     <Compile Include="DBExtend\AW_Navigation_dao.cs" />
     <Compile Include="DBExtend\AW_Notice_bean.cs" />
@@ -86,6 +88,8 @@
     <Compile Include="DBExtend\AW_Resume_dao.cs" />
     <Compile Include="DBExtend\AW_SiteInfo_bean.cs" />
     <Compile Include="DBExtend\AW_SiteInfo_dao.cs" />
+    <Compile Include="DBExtend\AW_Skill_bean.cs" />
+    <Compile Include="DBExtend\AW_Skill_dao.cs" />
     <Compile Include="DBExtend\AW_TableId_bean.cs" />
     <Compile Include="DBExtend\AW_TableId_dao.cs" />
     <Compile Include="DBExtend\AW_User_bean.cs" />
@@ -112,6 +116,8 @@
     <Compile Include="DBFile\AW_Industry_dao.cs" />
     <Compile Include="DBFile\AW_Job_bean.cs" />
     <Compile Include="DBFile\AW_Job_dao.cs" />
+    <Compile Include="DBFile\AW_Major_bean.cs" />
+    <Compile Include="DBFile\AW_Major_dao.cs" />
     <Compile Include="DBFile\AW_Navigation_bean.cs" />
     <Compile Include="DBFile\AW_Navigation_dao.cs" />
     <Compile Include="DBFile\AW_Notice_bean.cs" />
@@ -122,6 +128,8 @@
     <Compile Include="DBFile\AW_Resume_dao.cs" />
     <Compile Include="DBFile\AW_SiteInfo_bean.cs" />
     <Compile Include="DBFile\AW_SiteInfo_dao.cs" />
+    <Compile Include="DBFile\AW_Skill_bean.cs" />
+    <Compile Include="DBFile\AW_Skill_dao.cs" />
     <Compile Include="DBFile\AW_TableId_bean.cs" />
     <Compile Include="DBFile\AW_TableId_dao.cs" />
     <Compile Include="DBFile\AW_User_bean.cs" />

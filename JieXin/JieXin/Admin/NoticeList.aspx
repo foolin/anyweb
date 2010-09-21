@@ -107,7 +107,7 @@
                                 <input type="checkbox" name="ids" value="<%# Eval("fdNotiID")%>" />
                             </td>
                             <td style="text-align: left;" class="dragTd" title="拖动排序">
-                                <a href="/notice.aspx?id=<%#Eval("fdNotiID") %>" target="_blank">
+                                <a href="<%#Eval("fdNotiPath") %>" target="_blank">
                                     <%#Eval("fdNotiTitle")%></a>
                             </td>
                             <td>

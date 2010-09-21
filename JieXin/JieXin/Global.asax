@@ -90,6 +90,11 @@
             realPath = Request.Path;
             return; 
         }
+        if (requestPath == "/import.aspx")
+        {
+            realPath = requestPath;
+            return; 
+        }
         requestPath = Request.Path.ToLower().Replace("\\", "/").Replace(".aspx", "").Substring(1);
 
         if (requestPath.EndsWith("/"))

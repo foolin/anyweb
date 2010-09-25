@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{401EF005-C192-4D83-9F90-CD0F3C77F5EC}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -33,11 +33,11 @@
   <ItemGroup>
     <Reference Include="DBBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\AnyWell_DLL\DBBase\obj\Release\DBBase.dll</HintPath>
+      <HintPath>..\JieXin\Bin\DBBase.dll</HintPath>
     </Reference>
     <Reference Include="Studio, Version=1.0.3906.27098, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\AnyWell_DLL\Studio\obj\Release\Studio.dll</HintPath>
+      <HintPath>..\JieXin\Bin\Studio.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -56,6 +56,8 @@
     <Compile Include="Configs\IConfigInfo.cs" />
     <Compile Include="Configs\SerializationHelper.cs" />
     <Compile Include="Configs\SmtpAgent.cs" />
+    <Compile Include="DBExtend\AW_ADManage_bean.cs" />
+    <Compile Include="DBExtend\AW_ADManage_dao.cs" />
     <Compile Include="DBExtend\AW_Admin_bean.cs" />
     <Compile Include="DBExtend\AW_Admin_dao.cs" />
     <Compile Include="DBExtend\AW_AD_bean.cs" />
@@ -86,6 +88,8 @@
     <Compile Include="DBExtend\AW_Picture_dao.cs" />
     <Compile Include="DBExtend\AW_Resume_bean.cs" />
     <Compile Include="DBExtend\AW_Resume_dao.cs" />
+    <Compile Include="DBExtend\AW_ScrollAD_bean.cs" />
+    <Compile Include="DBExtend\AW_ScrollAD_dao.cs" />
     <Compile Include="DBExtend\AW_SiteInfo_bean.cs" />
     <Compile Include="DBExtend\AW_SiteInfo_dao.cs" />
     <Compile Include="DBExtend\AW_Skill_bean.cs" />
@@ -96,6 +100,8 @@
     <Compile Include="DBExtend\AW_User_dao.cs" />
     <Compile Include="DBExtend\AW_Work_bean.cs" />
     <Compile Include="DBExtend\AW_Work_dao.cs" />
+    <Compile Include="DBFile\AW_ADManage_bean.cs" />
+    <Compile Include="DBFile\AW_ADManage_dao.cs" />
     <Compile Include="DBFile\AW_Admin_bean.cs" />
     <Compile Include="DBFile\AW_Admin_dao.cs" />
     <Compile Include="DBFile\AW_AD_bean.cs" />
@@ -126,6 +132,8 @@
     <Compile Include="DBFile\AW_Picture_dao.cs" />
     <Compile Include="DBFile\AW_Resume_bean.cs" />
     <Compile Include="DBFile\AW_Resume_dao.cs" />
+    <Compile Include="DBFile\AW_ScrollAD_bean.cs" />
+    <Compile Include="DBFile\AW_ScrollAD_dao.cs" />
     <Compile Include="DBFile\AW_SiteInfo_bean.cs" />
     <Compile Include="DBFile\AW_SiteInfo_dao.cs" />
     <Compile Include="DBFile\AW_Skill_bean.cs" />

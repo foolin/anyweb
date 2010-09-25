@@ -30,6 +30,8 @@
         <xMenuItem url ="/Admin/CompanyADDel.aspx" name ="删除企业图片广告" type="3" ></xMenuItem>
       </xMenuItem>
       <xMenuItem id="202" url ="/Admin/CompanyADAdd.aspx" name ="添加企业图片广告"></xMenuItem>
+      <xMenuItem id="203" url ="/Admin/ScrollADList.aspx" name ="滚动广告管理" ></xMenuItem>
+      <xMenuItem id="204" url ="/Admin/ADList.aspx" name ="广告管理" ></xMenuItem>
     </xMenuItem>
     <xMenuItem id="5" name="配置" module="5">
       <xMenuItem id="501" url ="/Admin/NavigationList.aspx" name ="导航栏设置" >

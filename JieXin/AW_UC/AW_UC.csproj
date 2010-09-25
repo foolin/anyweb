@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{38CFCC22-2926-4205-B784-594ABB80231D}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -33,11 +33,11 @@
   <ItemGroup>
     <Reference Include="DBBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\AnyWell_DLL\DBBase\obj\Release\DBBase.dll</HintPath>
+      <HintPath>..\JieXin\Bin\DBBase.dll</HintPath>
     </Reference>
     <Reference Include="Studio, Version=1.0.3906.27098, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\AnyWell_DLL\Studio\obj\Release\Studio.dll</HintPath>
+      <HintPath>..\JieXin\Bin\Studio.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

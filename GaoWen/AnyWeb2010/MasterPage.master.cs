@@ -15,13 +15,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected override void OnPreRender(EventArgs e)
     {
-    }
-
-    public GeneralConfigInfo config
-    {
-        get 
-        {
-            return GeneralConfigs.GetConfig();
-        }
+        this.lt_description.Text = string.Format("<meta name=\"description\" content=\"{0}\" />", GeneralConfigs.GetConfig().MetaDescription);
+        this.lt_keywords.Text = string.Format("<meta name=\"keywords\" content=\"{0}\" />", GeneralConfigs.GetConfig().MetaKeywords);
     }
 }

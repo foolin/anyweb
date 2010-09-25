@@ -16,6 +16,8 @@ public partial class index : System.Web.UI.Page
     protected override void OnPreRender(EventArgs e)
     {
         this.Title = "高闻顾问" + GeneralConfigs.GetConfig().TitleExtension;
+        this.lt_description.Text = string.Format("<meta name=\"description\" content=\"{0}\" />", GeneralConfigs.GetConfig().MetaDescription);
+        this.lt_keywords.Text = string.Format("<meta name=\"keywords\" content=\"{0}\" />", GeneralConfigs.GetConfig().MetaKeywords);
 
         repHot.DataSource = new AW_Article_dao().funcGetHotArticle(3);
         repHot.DataBind();

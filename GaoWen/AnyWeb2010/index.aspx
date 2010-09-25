@@ -5,6 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <asp:Literal ID="lt_description" runat="server" />
+    <asp:Literal ID="lt_keywords" runat="server" />
     <link rel="stylesheet" type="text/css" href="public/class/default_index.css" />
     <link rel="stylesheet" type="text/css" href="public/class/style_index.css" />
 
@@ -53,29 +55,40 @@
                         </map>
                     </ItemTemplate>
                 </asp:Repeater>
+
                 <script type="text/javascript">
+                    var interval,picStatus;
+                    var count = 0;
+                    var time = 0;                    
                     if (!$.cookie("gaowen")) {
                         $("#loading").show();
                         $("#content").hide();
                         $("body").css("background-color", "#270037");
+                        interval = window.setInterval(into, 1000);
                     }
-                    var count = 0;
+                    function into(){
+                        time++;
+                        if(picStatus&&time>3){                            
+                            $("#content").show();
+                            $("#loading").hide();
+                            $("body").css("background-color", "#E5D9E9");
+                            window.clearInterval(interval);
+                        }
+                    }
                     $("#focus").find("img").load(function() {
                         if (!$.cookie("gaowen")) {
                             count++;
                             if(count==<%=flashList.Count %>){
-                                $("#content").show();
-                                $("#loading").hide();
-                                $("body").css("background-color", "#E5D9E9");
-
                                 var cookieName = "gaowen";
                                 var date = new Date();
                                 date.setTime(date.getTime() + (1 * 24 * 60 * 60 * 1000));
                                 $.cookie(cookieName, "1", { path: '/', expires: date });
+                                picStatus = true;
                             }
                         }
                     });
                 </script>
+
             </div>
             <div id="TurnNum" class="TurnNum">
                 <asp:Repeater ID="repFlashNum" runat="server">

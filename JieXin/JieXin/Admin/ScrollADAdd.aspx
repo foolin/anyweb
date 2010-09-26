@@ -1,11 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
-    CodeFile="CompanyADAdd.aspx.cs" Inherits="Admin_CompanyADAdd" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true" CodeFile="ScrollADAdd.aspx.cs" Inherits="Admin_ScrollADAdd" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
-
-    <script type="text/javascript" src="js/ajaxfileupload.js"></script>
+<asp:Content ID="Content2" ContentPlaceHolderID="cph1" Runat="Server">
+<script type="text/javascript" src="js/ajaxfileupload.js"></script>
 
     <script type="text/javascript">
         function uploadPictures() {
@@ -53,16 +51,15 @@
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
-                添加企业图片</h3>
+                添加滚动图片</h3>
         </div>
         <div class="mbd">
             <div class="fi even">
                 <label>
                     类型：</label>
                 <asp:DropDownList ID="drpType" runat="server">
-                <asp:ListItem Value="1" Text="大型企业图片"></asp:ListItem>
-                <asp:ListItem Value="2" Text="中型企业图片"></asp:ListItem>
-                <asp:ListItem Value="3" Text="小型企业图片"></asp:ListItem>
+                    <asp:ListItem Value="4" Text="合作院校"></asp:ListItem>
+                    <asp:ListItem Value="5" Text="专题图片"></asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="fi">
@@ -129,8 +126,8 @@
                     链接：</label>
                 <asp:TextBox ID="txtLink" MaxLength="200" runat="server" CssClass="text" Text="http://"></asp:TextBox>
                 <span class="required">*</span>
-                <sw:Validator ID="Validator2" ControlID="txtLink" ValidateType="Required" ErrorText="请输入企业链接"
-                    ErrorMessage="请输入企业链接" runat="server">
+                <sw:Validator ID="Validator2" ControlID="txtLink" ValidateType="Required" ErrorText="请输入链接"
+                    ErrorMessage="请输入链接" runat="server">
                 </sw:Validator>
             </div>
             <div class="fi even">
@@ -160,3 +157,4 @@
         </ul>
     </div>
 </asp:Content>
+

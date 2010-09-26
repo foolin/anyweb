@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
-    CodeFile="CompanyADAdd.aspx.cs" Inherits="Admin_CompanyADAdd" %>
+    CodeFile="ScrollADEdit.aspx.cs" Inherits="Admin_ScrollADEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
 </asp:Content>
@@ -53,16 +53,15 @@
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
-                添加企业图片</h3>
+                修改滚动图片</h3>
         </div>
         <div class="mbd">
             <div class="fi even">
                 <label>
                     类型：</label>
                 <asp:DropDownList ID="drpType" runat="server">
-                <asp:ListItem Value="1" Text="大型企业图片"></asp:ListItem>
-                <asp:ListItem Value="2" Text="中型企业图片"></asp:ListItem>
-                <asp:ListItem Value="3" Text="小型企业图片"></asp:ListItem>
+                    <asp:ListItem Value="4" Text="合作院校"></asp:ListItem>
+                    <asp:ListItem Value="5" Text="专题图片"></asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="fi">
@@ -76,7 +75,7 @@
             </div>
             <div class="fi even">
                 <label>
-                    图片：</label>
+                    企业图片：</label>
                 <div class="cont">
                     <asp:FileUpload ID="fileImage" runat="server" CssClass="text" Width="185" />&nbsp;
                     <button onclick="uploadPictures()" style="height: 20px;" type="button">
@@ -113,11 +112,11 @@
                             cursor: pointer;
                         }
                     </style>
-                    <div id="images" style="display: none">
+                    <div id="images" style="display: <%=hasPic?"":"none"%>">
                         <ul>
                             <li>
-                                <img id="imgColumn" alt="" src="" />
-                                <input id="imgUrl" type="hidden" name="pics" value="" />
+                                <img id="imgColumn" alt="" src="<%=picUrl %>" />
+                                <input id="imgUrl" type="hidden" name="pics" value="<%=picUrl %>" />
                                 <button onclick="delPicture(this);" type="button">
                                     删除</button></li>
                         </ul>
@@ -148,7 +147,7 @@
             <div class="fi fiBtns">
                 <asp:Button ID="btnOk" runat="server" Text="保存" CssClass="submit" OnClick="btnOk_Click">
                 </asp:Button>
-                <a href="CompanyADList.aspx">返回列表</a>
+                <a href="javascript:history.back()">返回列表</a>
             </div>
         </div>
         <div class="mft">

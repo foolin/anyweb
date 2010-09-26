@@ -24,14 +24,19 @@
       <xMenuItem id="107" url ="/Admin/SiteInfoList.aspx" name ="基本信息"></xMenuItem>
     </xMenuItem>
     <xMenuItem id="2" name="广告" module="2">
-      <xMenuItem id="201" url ="/Admin/CompanyADList.aspx" name ="企业图片广告" >
-        <xMenuItem url ="/Admin/CompanyADAdd.aspx" name ="添加企业图片广告" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/CompanyADEdit.aspx" name ="修改企业图片广告" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/CompanyADDel.aspx" name ="删除企业图片广告" type="3" ></xMenuItem>
+      <xMenuItem id="201" url ="/Admin/CompanyADList.aspx" name ="企业图片管理" >
+        <xMenuItem url ="/Admin/CompanyADAdd.aspx" name ="添加企业图片" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/CompanyADEdit.aspx" name ="修改企业图片" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/CompanyADDel.aspx" name ="删除企业图片" type="3" ></xMenuItem>
       </xMenuItem>
-      <xMenuItem id="202" url ="/Admin/CompanyADAdd.aspx" name ="添加企业图片广告"></xMenuItem>
-      <xMenuItem id="203" url ="/Admin/ScrollADList.aspx" name ="滚动广告管理" ></xMenuItem>
-      <xMenuItem id="204" url ="/Admin/ADList.aspx" name ="广告管理" ></xMenuItem>
+      <xMenuItem id="203" url ="/Admin/ScrollADList.aspx" name ="滚动图片管理" >
+        <xMenuItem url ="/Admin/ScrollADAdd.aspx" name ="添加滚动图片" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/ScrollADEdit.aspx" name ="修改滚动图片" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/ScrollADDel.aspx" name ="删除滚动图片" type="3" ></xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="204" url ="/Admin/ADList.aspx" name ="广告管理" >
+        <xMenuItem url ="/Admin/ADEdit.aspx" name ="修改广告" type="3" ></xMenuItem>
+      </xMenuItem>
     </xMenuItem>
     <xMenuItem id="5" name="配置" module="5">
       <xMenuItem id="501" url ="/Admin/NavigationList.aspx" name ="导航栏设置" >
@@ -39,9 +44,14 @@
         <xMenuItem url ="/Admin/NavigationEdit.aspx" name ="修改导航栏" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/NavigationDel.aspx" name ="删除导航栏" type="3" ></xMenuItem>
       </xMenuItem>
-      <xMenuItem id="502" url ="/Admin/Setting_Register.aspx" name ="用户注册" >
+      <xMenuItem id="502" url ="/Admin/KeyWordList.aspx" name ="热门搜索" >
+        <xMenuItem url ="/Admin/KeyWordAdd.aspx" name ="添加关键词" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/KeyWordEdit.aspx" name ="修改关键词" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/KeyWordDel.aspx" name ="删除关键词" type="3" ></xMenuItem>
       </xMenuItem>
-      <xMenuItem id="503" url ="/Admin/Setting_Seo.aspx" name ="搜索引擎优化" >
+      <xMenuItem id="503" url ="/Admin/Setting_Register.aspx" name ="用户注册" >
+      </xMenuItem>
+      <xMenuItem id="504" url ="/Admin/Setting_Seo.aspx" name ="搜索引擎优化" >
       </xMenuItem>
       <xMenuItem id="505" url ="/Admin/Setting_Email.aspx" name ="邮件设置" >
       </xMenuItem>

@@ -80,8 +80,6 @@
             <h3>
                 公告管理</h3>
         </div>
-        <div class="fi filter">
-        </div>
         <div class="mbd">
             <table id="datas">
                 <thead>

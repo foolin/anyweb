@@ -305,7 +305,7 @@ input[type=file]{height:18px;}
 .Location{clear:both;padding-left:190px;line-height:35px;margin-bottom:-35px;position:relative;z-index:998;}
 
 
-.Opr{float:right;clear:both;padding-right:10px;line-height:19px;position:relative;z-index:998;padding-bottom:30px;}
+.Opr{float:right;clear:both;padding-right:10px;line-height:19px;position:relative;z-index:998;padding-top:4px;}
 .Opr li{float:left;display:inline;margin:0 3px;border-right:1px solid #C0E1E9;border-bottom:1px solid #C0E1E9;}
 .Opr li a{display:block;padding:0 15px;float:left;background:#fff;border:1px solid #bbb;}
 .Opr li a:hover,.Opr li .on{background:#ffe;border-color:#c60;text-decoration:none;}

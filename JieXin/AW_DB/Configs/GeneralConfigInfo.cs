@@ -448,16 +448,6 @@ namespace AnyWell.Configs
             set { _regEnable = value; }
         }
 
-        private bool _regMobile = false;
-        /// <summary>
-        /// 允许手机作为登录帐号注册
-        /// </summary>
-        public bool RegMobile
-        {
-            get { return _regMobile; }
-            set { _regMobile = value; }
-        }
-
         private string _regAgreement = @"1 遵守国家法律法规
 2 遵守所有与网络服务有关的网络协议、规定和程序
 3 不得为任何非法目的而使用网络服务系统";
@@ -468,26 +458,6 @@ namespace AnyWell.Configs
         {
             get { return _regAgreement; }
             set { _regAgreement = value; }
-        }
-
-        private string _regEmailBlocked = "";
-        /// <summary>
-        /// 拒绝注册的邮件地址后缀
-        /// </summary>
-        public string RegEmailBlocked
-        {
-            get { return _regEmailBlocked; }
-            set { _regEmailBlocked = value; }
-        }
-
-        private string _regEmailEnabled = "";
-        /// <summary>
-        /// 允许注册的邮件地址后缀
-        /// </summary>
-        public string RegEmailEnabled
-        {
-            get { return _regEmailEnabled; }
-            set { _regEmailEnabled = value; }
         }
 
         #endregion

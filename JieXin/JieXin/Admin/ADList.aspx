@@ -6,37 +6,6 @@
     <script type="text/javascript" src="js/jquery.tablednd.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function() 
-        {
-            $("#datas").tableDnD({
-                onDrop: function(table, row) 
-                {
-                    var rows = table.tBodies[0].rows;
-                    var ADId = row.id.replace("row_", "");
-                    var nextId = "0";
-                    var previewId = "0";
-                    var total = rows.length;
-                    if (total <= 1)
-                        return;
-                    for (i = 0; i < rows.length; i++) 
-                    {
-                        rows[i].className = i % 2 == 0 ? "even" : "";
-                        if (rows[i].id == "row_" + ADId) 
-                        {
-                            if (i == 0)
-                                nextId = rows[i + 1].id.replace("row_", "");
-                            else if (i + 1 == total)
-                                previewId = rows[i - 1].id.replace("row_", "");
-                            else
-                                previewId = rows[i - 1].id.replace("row_", "");
-                        }
-                    }
-
-                    var url = "ADSort.aspx?id=" + ADId + "&previewid=" + previewId + "&nextid=" + nextId;
-                    $.get(url, "", function(htm) { });
-                }
-            });
-        });
         function columnchange() 
         {
             window.location = "ADList.aspx?type=" + $("#<%=drpType.ClientID %>").val();
@@ -66,18 +35,23 @@
                         <th>
                             图片
                         </th>
+                        <th class="end">
+                            操 作
+                        </th>
                     </tr>
                 </thead>
                 <asp:Repeater ID="compRep" runat="server" EnableViewState="False">
                     <ItemTemplate>
-                        <tr align="center" class="editalt" id="row_<%# Eval("fdAdManageID")%>">
-                            <td style="text-align: left;" class="dragTd" title="拖动排序">
-                                <a href="<%#Eval("fdAdManageLink") %>" target="_blank">
-                                    <%#Eval("fdAdManageName")%></a>
+                        <tr align="center" class="editalt">
+                            <td style="text-align: left;">
+                                <a href="<%#Eval("fdAdLink") %>" target="_blank">
+                                    <%#Eval("fdAdName")%></a>
                             </td>
                             <td>
-                                <a href="<%#Eval("fdAdManagePic") %>" target="_blank">
-                                    <img src="<%#Eval("fdAdManagePic") %>" alt="" width="100" height="65" /></a>
+                                <%# (string)Eval("fdAdPic") != ""?string.Format("<a href=\"{0}\" target=\"_blank\"><img src=\"{0}\" alt=\"\" width=\"100\" height=\"65\" /></a>",Eval("fdAdPic")):"" %>
+                            </td>
+                            <td>
+                                <a href="ADEdit.aspx?id=<%# Eval("fdAdID")%>">修改</a>
                             </td>
                         </tr>
                     </ItemTemplate>

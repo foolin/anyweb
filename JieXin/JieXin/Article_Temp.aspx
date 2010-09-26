@@ -7,7 +7,7 @@
     <title>文章</title>
 </head>
 <body>
-    <aw:Article ID="article" runat="server" ArticleID="4">
+    <aw:Article ID="article" runat="server">
         <ItemTemplate>
             标题:<%#Eval("fdArtiTitle") %>
         </ItemTemplate>

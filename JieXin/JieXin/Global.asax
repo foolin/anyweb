@@ -21,35 +21,38 @@
     /// <param name="e"></param>
     protected void Application_Error(object sender, EventArgs e)
     {
-        HttpContext Context = ((HttpApplication)sender).Context;
-        foreach (Exception ex in Context.AllErrors)
+        if (ConfigurationManager.AppSettings["LogEnable"] == "1")
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendFormat("Time:{0}\r\n", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-            if (HttpContext.Current != null && HttpContext.Current.Request != null)
+            HttpContext Context = ((HttpApplication)sender).Context;
+            foreach (Exception ex in Context.AllErrors)
             {
-                sb.AppendFormat("IP:{0}\r\n", HttpContext.Current.Request.UserHostAddress)
-                    .AppendFormat("Url:{0}\r\n", HttpContext.Current.Request.RawUrl)
-                    .AppendFormat("UrlRef:{0}\r\n", HttpContext.Current.Request.UrlReferrer == null ? "" : HttpContext.Current.Request.UrlReferrer.ToString())
-                    .AppendFormat("Message:{0}\r\n\r\n", ex.ToString());
-            }
-            else
-            {
-                sb.Append(ex.ToString())
-                    .Append("\r\n");
-            }
-
-            try
-            {
-                FileInfo fi = new FileInfo(Server.MapPath("/Error.log"));
-                if (fi.Exists && fi.Length > 1024 * 1024 * 100)
+                StringBuilder sb = new StringBuilder();
+                sb.AppendFormat("Time:{0}\r\n", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                if (HttpContext.Current != null && HttpContext.Current.Request != null)
                 {
-                    fi.MoveTo(Server.MapPath(string.Format("/Error_{0}.log", DateTime.Now.ToString("yyyyMMddHHmmss"))));
+                    sb.AppendFormat("IP:{0}\r\n", HttpContext.Current.Request.UserHostAddress)
+                        .AppendFormat("Url:{0}\r\n", HttpContext.Current.Request.RawUrl)
+                        .AppendFormat("UrlRef:{0}\r\n", HttpContext.Current.Request.UrlReferrer == null ? "" : HttpContext.Current.Request.UrlReferrer.ToString())
+                        .AppendFormat("Message:{0}\r\n\r\n", ex.ToString());
                 }
-                Studio.IO.FileAgent.WriteText(Server.MapPath("/Error.log"), sb.ToString(), true);
+                else
+                {
+                    sb.Append(ex.ToString())
+                        .Append("\r\n");
+                }
+
+                try
+                {
+                    FileInfo fi = new FileInfo(Server.MapPath("/Error.log"));
+                    if (fi.Exists && fi.Length > 1024 * 1024 * 100)
+                    {
+                        fi.MoveTo(Server.MapPath(string.Format("/Error_{0}.log", DateTime.Now.ToString("yyyyMMddHHmmss"))));
+                    }
+                    Studio.IO.FileAgent.WriteText(Server.MapPath("/Error.log"), sb.ToString(), true);
+                }
+                finally
+                { }
             }
-            finally
-            { }
         }
     }
 

@@ -59,18 +59,6 @@
             </div>
             <div class="fi even">
                 <label>
-                    点击数：</label>
-                <asp:TextBox ID="txtCount" runat="server" Text="0" CssClass="text" Width="80"></asp:TextBox>
-                <span class="required">*</span>
-                <sw:Validator ID="Validator2" ControlID="txtCount" ValidateType="Required" ErrorText="请输入文章点击数"
-                    ErrorMessage="请输入文章点击数" runat="server">
-                </sw:Validator>
-                <sw:Validator ID="Validator5" ControlID="txtCount" ValidateType="DataType" DataType="Integer"
-                    ErrorText="请输入正确的文章点击数" ErrorMessage="请输入正确的文章点击数" runat="server">
-                </sw:Validator>
-            </div>
-            <div class="fi">
-                <label>
                     文章排序：</label>
                 <asp:TextBox ID="txtSort" runat="server" Text="0"></asp:TextBox>
                 <span class="required">*</span>

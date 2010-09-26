@@ -10,6 +10,12 @@ public partial class Admin_ArticleSort : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {
+        Response.Buffer = true;
+        Response.ExpiresAbsolute = System.DateTime.Now.AddSeconds(-1);
+        Response.Expires = 0;
+        Response.CacheControl = "no-cache";
+        Response.AppendHeader("Pragma", "No-Cache");
+
         int articleId = 0;
         int previewId = 0;
         int nextId = 0;

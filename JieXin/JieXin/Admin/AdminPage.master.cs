@@ -50,7 +50,7 @@ public partial class Shop_Admin_AdminPage : System.Web.UI.MasterPage
 
             if (allow == false)
             {
-                WebAgent.AlertAndBack("对不起，你没有访问该页面的权限。");
+                WebAgent.FailAndGo("对不起，你没有访问该页面的权限。", "mainfra.html");
             }
         }
 

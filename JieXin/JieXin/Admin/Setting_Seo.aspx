@@ -38,7 +38,7 @@
     </div>
     <div>
         <ul class="Help">
-            <li></li>
+            <li>Meta Keywords有多个关键词，一般以逗号分隔。</li>
         </ul>
     </div>
 </asp:Content>

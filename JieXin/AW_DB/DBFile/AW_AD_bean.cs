@@ -48,7 +48,7 @@ namespace AnyWell.AW_DL
 		}
 		private int _fdAdType = 0;
 		 /// <summary>
-		 /// 广告类型(1大型2中型3大型)
+        /// 广告类型(1大型2中型3大型4合作院校5专题图片6企业介绍7动态标语8移动广告)
 		 /// </summary>
 		public int fdAdType
 		{

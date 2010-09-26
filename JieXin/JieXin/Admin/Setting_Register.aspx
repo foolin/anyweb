@@ -19,26 +19,8 @@
             <div class="fi even">
                 <label>
                     注册协议：</label>
-                <asp:TextBox ID="txtAgreement" runat="server" CssClass="text" Height="120px" Width="400px"
+                <asp:TextBox ID="txtAgreement" runat="server" CssClass="text" Height="320px" Width="700px"
                     TextMode="MultiLine"></asp:TextBox>
-            </div>
-            <div class="fi">
-                <label>
-                    Email 允许地址：</label>
-                <asp:TextBox ID="txtEmailEnable" runat="server" CssClass="text" Height="120px" Width="400px"
-                    TextMode="MultiLine"></asp:TextBox>
-            </div>
-            <div class="fi even">
-                <label>
-                    Email 禁止地址：</label>
-                <asp:TextBox ID="txtEmailBlocked" runat="server" CssClass="text" Height="120px" Width="400px"
-                    TextMode="MultiLine"></asp:TextBox>
-            </div>
-            <div class="fi">
-                <label>
-                    手机注册：</label>
-                <div class="cont">
-                    <asp:CheckBox ID="boxMobileReg" runat="server" Text="允许" CssClass="checkbox" /></div>
             </div>
             <div class="fi fiBtns">
                 <asp:Button ID="btnOk" runat="server" Text="保存配置" OnClick="btnOk_Click" CssClass="submit">

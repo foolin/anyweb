@@ -1,22 +1,22 @@
-Ôªø<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
-    CodeFile="ScrollADList.aspx.cs" Inherits="Admin_ScrollADList" %>
+<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true" CodeFile="KeyWordList.aspx.cs" Inherits="Admin_KeyWordList" Title="À—À˜πÿº¸◊÷π‹¿Ì" %>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="cph2" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
     <ul class="Opr">
-        <li><a href="ScrollADAdd.aspx">Ê∑ªÂä†ÊªöÂä®ÂõæÁâá</a></li>
+        <li><a href="KeyWordList.aspx?s=1" <%= status == 1 ? "class='on'" : "" %>>œ‘ æ</a></li>
+        <li><a href="KeyWordList.aspx?s=2" <%= status == 2 ? "class='on'" : "" %>>≤ªœ‘ æ</a></li>
+        <li><a href="KeyWordList.aspx?s=-1" <%= status == -1 ? "class='on'" : "" %>>»´≤ø</a></li>
+        <li><a href="KeyWordAdd.aspx">ÃÌº”πÿº¸◊÷</a></li>
     </ul>
 </asp:Content>
-<asp:Content ID="Content1" ContentPlaceHolderID="cph1" runat="Server">
-
-    <script type="text/javascript" src="js/jquery.tablednd.js"></script>
+<asp:Content ID="Content2" ContentPlaceHolderID="cph1" Runat="Server">
+<script type="text/javascript" src="js/jquery.tablednd.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
             $("#datas").tableDnD({
                 onDrop: function(table, row) {
-                    var type = $("#<%=drpType.ClientID %>").val();
                     var rows = table.tBodies[0].rows;
-                    var adId = row.id.replace("row_", "");
+                    var articleId = row.id.replace("row_", "");
                     var nextId = "0";
                     var previewId = "0";
                     var total = rows.length;
@@ -24,7 +24,7 @@
                         return;
                     for (i = 0; i < rows.length; i++) {
                         rows[i].className = i % 2 == 0 ? "even" : "";
-                        if (rows[i].id == "row_" + adId) {
+                        if (rows[i].id == "row_" + articleId) {
                             if (i == 0)
                                 nextId = rows[i + 1].id.replace("row_", "");
                             else if (i + 1 == total)
@@ -34,14 +34,11 @@
                         }
                     }
 
-                    var url = "ADSort.aspx?type=" + type + "&id=" + adId + "&previewid=" + previewId + "&nextid=" + nextId;
+                    var url = "KeyWordsSort.aspx?id=" + articleId + "&previewid=" + previewId + "&nextid=" + nextId;
                     $.get(url, "", function(htm) { });
                 }
             });
         });
-        function columnchange() {
-            window.location = "ScrollADList.aspx?type=" + $("#<%=drpType.ClientID %>").val();
-        }
         function SelectAll(v) {
             var list = document.getElementsByTagName("input");
             for (var i = 0; i < list.length; i++) {
@@ -50,13 +47,13 @@
                 }
             }
         }
-        function delCompanyADs() {
+        function delKeyWords() {
             var list = document.getElementsByTagName("input");
             var selected = false;
             var form0;
             form0 = document.createElement("form");
             form0.method = "POST";
-            form0.action = "ScrollADsDel.aspx";
+            form0.action = "KeyWordsDel.aspx";
             for (var i = 0; i < list.length; i++) {
                 if (list[i].name == "ids" && list[i].type == "checkbox" && list[i].checked) {
                     input1 = document.createElement("input");
@@ -68,10 +65,10 @@
                 }
             }
             if (selected == false) {
-                alert("ËØ∑ÈÄâÊã©ÊªöÂä®ÂõæÁâá");
+                alert("«Î—°‘Òπÿº¸¥ ");
                 return;
             }
-            var msg = "‰Ω†Á°ÆËÆ§Ë¶ÅÂà†Èô§ÈÄâÂÆöÁöÑÊªöÂä®ÂõæÁâáÂêó?";
+            var msg = "ƒ„»∑»œ“™…æ≥˝—°∂®µƒπÿº¸¥ ¬?";
             if (confirm(msg)) {
                 document.body.appendChild(form0);
                 form0.submit();
@@ -82,49 +79,41 @@
     <div class="Mod DataList">
         <div class="mhd">
             <h3>
-                ÊªöÂä®ÂõæÁâáÁÆ°ÁêÜ</h3>
-        </div>
-        <div class="fi filter">
-            Á±ªÂûãÔºö
-            <asp:DropDownList ID="drpType" onchange="columnchange()" runat="server">
-                <asp:ListItem Value="4" Text="Âêà‰ΩúÈô¢Ê†°"></asp:ListItem>
-                <asp:ListItem Value="5" Text="‰∏ìÈ¢òÂõæÁâá"></asp:ListItem>
-            </asp:DropDownList>
+                »»√≈À—À˜</h3>
         </div>
         <div class="mbd">
             <table id="datas">
                 <thead>
                     <tr>
                         <th style="width: 30px;">
-                            <input type="checkbox" class="checkbox" onclick="SelectAll(this.checked)" title="ÂÖ®ÈÄâ" />
+                            <input type="checkbox" class="checkbox" onclick="SelectAll(this.checked)" title="»´—°" />
                         </th>
                         <th>
-                            Ê†áÈ¢ò
+                            πÿº¸¥ 
                         </th>
                         <th>
-                            ÂõæÁâá
+                            ¥¥Ω® ±º‰
                         </th>
                         <th class="end">
-                            Êìç ‰Ωú
+                            ≤Ÿ ◊˜
                         </th>
                     </tr>
                 </thead>
                 <asp:Repeater ID="compRep" runat="server" EnableViewState="False">
                     <ItemTemplate>
-                        <tr align="center" class="editalt" id="row_<%# Eval("fdAdID")%>">
+                        <tr align="center" class="editalt" id="row_<%# Eval("fdKeyWID")%>">
                             <td style="width: 30px;">
-                                <input type="checkbox" name="ids" value="<%# Eval("fdAdID")%>" />
+                                <input type="checkbox" name="ids" value="<%# Eval("fdKeyWID")%>" />
                             </td>
-                            <td style="text-align: left;" class="dragTd" title="ÊãñÂä®ÊéíÂ∫è">
-                                <a href="<%#Eval("fdAdLink") %>" target="_blank">
-                                    <%#Eval("fdAdName")%></a>
-                            </td>
-                            <td>
-                                <%# (string)Eval("fdAdPic") != ""?string.Format("<a href=\"{0}\" target=\"_blank\"><img src=\"{0}\" alt=\"\" width=\"100\" height=\"65\" /></a>",Eval("fdAdPic")):"" %>
+                            <td style="text-align: left;" class="dragTd" title="Õœ∂Ø≈≈–Ú">
+                                <%#Eval("fdKeyWName")%><%# (int)Eval("fdKeyWIsShow")==2 ? "<span style='color:red'> (≤ªœ‘ æ)</span>" : "" %>
                             </td>
                             <td>
-                                <a href="ScrollADEdit.aspx?id=<%# Eval("fdAdID")%>">‰øÆÊîπ</a> <a href="ScrollADDel.aspx?id=<%# Eval("fdAdID")%>"
-                                    onclick="return confirm('ÊÇ®Á°ÆÂÆöË¶ÅÂà†Èô§Âêó?')">Âà†Èô§</a>
+                                <%#Eval("fdKeyWCreateAt","{0:yyyy-MM-dd HH:mm}")%>
+                            </td>
+                            <td>
+                                <a href="KeyWordEdit.aspx?id=<%#Eval("fdKeyWID") %>">–ﬁ∏ƒ</a>
+                                        <a href="KeyWordDel.aspx?id=<%#Eval("fdKeyWID") %>" onclick="return confirm('ƒ˙»∑∂®“™…æ≥˝¬?')">…æ≥˝</a>
                             </td>
                         </tr>
                     </ItemTemplate>
@@ -137,12 +126,13 @@
         </div>
         <div class="mft">
         </div>
-        <button onclick="delCompanyADs()" style="height: 28px;" type="button">
-            ÊâπÈáèÂà†Èô§</button>
+        <button onclick="delKeyWords()" style="height: 28px;" type="button">
+            ≈˙¡ø…æ≥˝</button>
     </div>
     <div>
         <ul class="Help">
-            <li></li>
+            <li>∏√“≥œ‘ æÀ˘”–À—À˜πÿº¸¥ ¡–±Ì£¨∞¥≈≈–ÚΩµ–Ú≈≈¡–£¨ø…‘⁄–ﬁ∏ƒƒ⁄…Ë÷√≈≈–Ú∫≈∫Õπÿº¸◊÷ «∑Ò‘⁄«∞Ã®»»√≈À—À˜¥¶œ‘ æ°£</li>
         </ul>
     </div>
 </asp:Content>
+

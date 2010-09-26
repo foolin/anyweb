@@ -7,7 +7,7 @@
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
-                添加用户</h3>
+                修改用户</h3>
         </div>
         <div class="mbd">
             <div class="fi">

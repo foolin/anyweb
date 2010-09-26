@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
     <ul class="Opr">
-        <li><a href="CompanyADAdd.aspx">添加广告</a></li>
+        <li><a href="CompanyADAdd.aspx">添加企业图片</a></li>
     </ul>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
@@ -14,8 +14,9 @@
         $(document).ready(function() {
             $("#datas").tableDnD({
                 onDrop: function(table, row) {
+                    var type = $("#<%=drpType.ClientID %>").val();
                     var rows = table.tBodies[0].rows;
-                    var articleId = row.id.replace("row_", "");
+                    var adId = row.id.replace("row_", "");
                     var nextId = "0";
                     var previewId = "0";
                     var total = rows.length;
@@ -23,7 +24,7 @@
                         return;
                     for (i = 0; i < rows.length; i++) {
                         rows[i].className = i % 2 == 0 ? "even" : "";
-                        if (rows[i].id == "row_" + articleId) {
+                        if (rows[i].id == "row_" + adId) {
                             if (i == 0)
                                 nextId = rows[i + 1].id.replace("row_", "");
                             else if (i + 1 == total)
@@ -33,7 +34,7 @@
                         }
                     }
 
-                    var url = "CompanyADSort.aspx?id=" + articleId + "&previewid=" + previewId + "&nextid=" + nextId;
+                    var url = "ADSort.aspx?type=" + type + "&id=" + adId + "&previewid=" + previewId + "&nextid=" + nextId;
                     $.get(url, "", function(htm) { });
                 }
             });
@@ -67,10 +68,10 @@
                 }
             }
             if (selected == false) {
-                alert("请选择广告");
+                alert("请选择企业图片");
                 return;
             }
-            var msg = "你确认要删除选定的广告吗?";
+            var msg = "你确认要删除选定的企业图片吗?";
             if (confirm(msg)) {
                 document.body.appendChild(form0);
                 form0.submit();
@@ -81,14 +82,14 @@
     <div class="Mod DataList">
         <div class="mhd">
             <h3>
-                企业图片广告</h3>
+                企业图片管理</h3>
         </div>
         <div class="fi filter">
             类型：
             <asp:DropDownList ID="drpType" onchange="columnchange()" runat="server">
-                <asp:ListItem Value="1" Text="大型广告"></asp:ListItem>
-                <asp:ListItem Value="2" Text="中型广告"></asp:ListItem>
-                <asp:ListItem Value="3" Text="小型广告"></asp:ListItem>
+                <asp:ListItem Value="1" Text="大型企业图片"></asp:ListItem>
+                <asp:ListItem Value="2" Text="中型企业图片"></asp:ListItem>
+                <asp:ListItem Value="3" Text="小型企业图片"></asp:ListItem>
             </asp:DropDownList>
         </div>
         <div class="mbd">
@@ -120,8 +121,7 @@
                                     <%#Eval("fdAdName")%></a>
                             </td>
                             <td>
-                                <a href="<%#Eval("fdAdPic") %>" target="_blank">
-                                    <img src="<%#Eval("fdAdPic") %>" alt="" width="100" height="65" /></a>
+                                <%# (string)Eval("fdAdPic") != ""?string.Format("<a href=\"{0}\" target=\"_blank\"><img src=\"{0}\" alt=\"\" width=\"100\" height=\"65\" /></a>",Eval("fdAdPic")):"" %>
                             </td>
                             <td>
                                 <a href="CompanyADEdit.aspx?id=<%# Eval("fdAdID")%>">修改</a> <a href="CompanyADDel.aspx?id=<%# Eval("fdAdID")%>"

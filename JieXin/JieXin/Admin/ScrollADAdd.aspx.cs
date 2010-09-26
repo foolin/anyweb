@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using AnyWell.AW_DL;
 using Studio.Web;
+using AnyWell.AW_DL;
 
-public partial class Admin_CompanyADAdd : PageAdmin
+public partial class Admin_ScrollADAdd : PageAdmin
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -16,7 +16,7 @@ public partial class Admin_CompanyADAdd : PageAdmin
     protected void btnOk_Click(object sender, EventArgs e)
     {
         if (string.IsNullOrEmpty(txtName.Text))
-            WebAgent.AlertAndBack("企业名称不能为空！");
+            WebAgent.AlertAndBack("名称不能为空！");
         if (string.IsNullOrEmpty(txtLink.Text))
             WebAgent.AlertAndBack("链接不能为空！");
         if (string.IsNullOrEmpty(txtSort.Text))
@@ -46,7 +46,7 @@ public partial class Admin_CompanyADAdd : PageAdmin
                 bean.fdAdSort = bean.fdAdID * 100;
             }
             dao.funcInsert(bean);
-            WebAgent.SuccAndGo("添加成功！", "CompanyADList.aspx?type=" + bean.fdAdType);
+            WebAgent.SuccAndGo("添加成功！", "ScrollADList.aspx?type=" + bean.fdAdType);
         }
     }
 }

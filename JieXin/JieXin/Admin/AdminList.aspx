@@ -49,7 +49,7 @@
                                 <%# Eval("fdAdmiLevel").ToString() == "1" ? "超管" : "普通"%>
                             </td>
                             <td>
-                                <%# Eval("fdAdmiLoginAt")%>
+                                <%# ((DateTime)Eval("fdAdmiLoginAt")).ToString("yyyy-MM-dd") == "1900-01-01" ? "未登录" : Eval("fdAdmiLoginAt", "{0:yyyy-MM-dd HH:mm}")%>
                             </td>
                             <td>
                                 <%# Eval("fdAdmiLoginIP")%>

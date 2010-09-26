@@ -18,34 +18,44 @@
         -->
     </style>
     <link href="class/css.css" rel="stylesheet" type="text/css" />
-
+    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript">
         var selected = "";
         function select(idt) {
             var nametu = "xiaotu" + idt;
             if (selected != "") {
-                document.getElementById(selected).src = "images/ico06.gif";
+                $("#" + selected).attr("src", "images/ico06.gif");
             }
-            var tp = document.getElementById(nametu);
-            tp.src = "images/ico05.gif";
+            $("#" + nametu).attr("src", "images/ico05.gif");
             selected = nametu;
         }
 
         function list(idstr) {
             var name1 = "subtree" + idstr;
             var name2 = "img" + idstr;
-            var objectobj = document.getElementById(name1);
-            var imgobj = document.getElementById(name2);
-            if (objectobj.style.display == "none") {
-                objectobj.style.display = "";
-                imgobj.src = "images/ico03.gif";
+            if ($("#" + name1).css("display") != "none") {
+                $("#" + name1).hide();
+                $("#" + name2).attr("src", "images/ico04.gif");
+                return;
+            }
+            hideAll();
+            if ($("#" + name1).css("display") == "none") {
+                $("#" + name1).show();
+                $("#" + name2).attr("src", "images/ico03.gif");
             }
             else {
-                objectobj.style.display = "none";
-                imgobj.src = "images/ico04.gif";
+                $("#" + name1).hide();
+                $("#" + name2).attr("src", "images/ico04.gif");
             }
         }
-
+        function hideAll() {
+            $("table[id^='subtree']").each(function() {
+                if ($(this).css("display") != "none") {
+                    $(this).hide();
+                    $("#img" + $(this).attr("id").substr(7)).attr("src", "images/ico04.gif");
+                }
+            });
+        }
     </script>
 
 </head>
@@ -74,7 +84,6 @@
                         </td>
                     </tr>
                 </table>
-                <!--  任务系统开始    -->
                 <asp:Repeater ID="repMenu" runat="server" OnItemDataBound="repMenu_ItemDataBound">
                     <ItemTemplate>
                         <table width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03">
@@ -111,7 +120,6 @@
                         </table>
                     </ItemTemplate>
                 </asp:Repeater>
-                <!--  任务系统结束    -->
             </td>
         </tr>
     </table>

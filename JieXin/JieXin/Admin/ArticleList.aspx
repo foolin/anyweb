@@ -62,7 +62,7 @@
                     input1.type = "hidden";
                     input1.name = "ids";
                     input1.value = list[i].value;
-                    form0.insertBefore(input1);
+                    form0.appendChild(input1);
                     selected = true;
                 }
             }
@@ -72,7 +72,7 @@
             }
             var msg = "你确认要删除选定的文章吗?";
             if (confirm(msg)) {
-                document.body.insertBefore(form0);
+                document.body.appendChild(form0);
                 form0.submit();
             }
         }

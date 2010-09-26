@@ -53,7 +53,7 @@
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
-                添加企业图片广告</h3>
+                修改企业图片广告</h3>
         </div>
         <div class="mbd">
             <div class="fi even">

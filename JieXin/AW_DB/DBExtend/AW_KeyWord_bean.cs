@@ -8,7 +8,7 @@ using Studio.Data;
 
 namespace AnyWell.AW_DL
 {
-    public partial class AW_ADManage_bean
-    {
-    }
+	public partial class AW_KeyWord_bean
+	{
+	}
 }

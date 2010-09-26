@@ -18,7 +18,7 @@ namespace AnyWell.AW_DL
         /// <param name="pageIndex"></param>
         /// <param name="recordCount"></param>
         /// <returns></returns>
-        public List<AW_AD_bean> funcGetCompanyADList(int type,int pageSize,int pageIndex,out int recordCount)
+        public List<AW_AD_bean> funcGetADList(int type,int pageSize,int pageIndex,out int recordCount)
         {
             this.propWhere = "fdAdType=" + type;
             this.propOrder = "ORDER BY fdAdSort DESC,fdAdID DESC";
@@ -33,11 +33,11 @@ namespace AnyWell.AW_DL
         /// <summary>
         /// 调整图片广告排序
         /// </summary>
-        /// <param name="column"></param>
-        /// <param name="goodsId"></param>
+        /// <param name="type"></param>
+        /// <param name="noticeId"></param>
         /// <param name="nextId"></param>
         /// <param name="previewId"></param>
-        public void funcSortAD(int noticeId, int nextId, int previewId)
+        public void funcSortAD(int type,int noticeId, int nextId, int previewId)
         {
             AW_AD_bean ad = AW_AD_bean.funcGetByID(noticeId, "fdAdID,fdAdSort");
             AW_AD_bean next = nextId == 0 ? null : AW_AD_bean.funcGetByID(nextId, "fdAdID,fdAdSort");
@@ -52,7 +52,7 @@ namespace AnyWell.AW_DL
             {
                 if (ad.fdAdSort > next.fdAdSort) //从上往下移
                 {
-                    this.propWhere += " AND fdAdSort<=" + ad.fdAdSort + " AND fdAdSort>" + next.fdAdSort.ToString();
+                    this.propWhere += string.Format(" AND fdAdSort<={0} AND fdAdSort>{1} AND fdAdType={2}", ad.fdAdSort, next.fdAdSort, type);
                     List<AW_AD_bean> list = this.funcGetList();
                     if (list.Count > 1)
                     {
@@ -67,7 +67,7 @@ namespace AnyWell.AW_DL
                 }
                 else //从下往上移
                 {
-                    this.propWhere += " AND fdAdSort>=" + ad.fdAdSort + " AND fdAdSort<=" + next.fdAdSort.ToString();
+                    this.propWhere += string.Format(" AND fdAdSort>={0} AND fdAdSort<={1} AND fdAdType={2}", ad.fdAdSort, next.fdAdSort, type);
                     List<AW_AD_bean> list = this.funcGetList();
                     if (list.Count > 1)
                     {
@@ -85,7 +85,7 @@ namespace AnyWell.AW_DL
             {
                 if (ad.fdAdSort > preview.fdAdSort) //从上往下移
                 {
-                    this.propWhere += " AND fdAdSort<=" + ad.fdAdSort.ToString() + " AND fdAdSort>=" + preview.fdAdSort.ToString();
+                    this.propWhere += string.Format(" AND fdAdSort<={0} AND fdAdSort>={1} AND fdAdType={2}", ad.fdAdSort, preview.fdAdSort, type);
                     List<AW_AD_bean> list = this.funcGetList();
                     if (list.Count > 1)
                     {
@@ -100,7 +100,7 @@ namespace AnyWell.AW_DL
                 }
                 else //从下往上移
                 {
-                    this.propWhere += " AND fdAdSort>=" + ad.fdAdSort + " AND fdAdSort<" + preview.fdAdSort;
+                    this.propWhere += string.Format(" AND fdAdSort>={0} AND fdAdSort<{1} AND fdAdType={2}", ad.fdAdSort, preview.fdAdSort, type);
                     List<AW_AD_bean> list = this.funcGetList();
                     if (list.Count > 1)
                     {

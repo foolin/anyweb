@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ScrollADDel.aspx.cs" Inherits="Admin_ScrollADDel" %>

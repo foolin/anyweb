@@ -15,6 +15,12 @@ public partial class Admin_NoticeSort : PageAdmin
 
     protected override void OnPreRender(EventArgs e)
     {
+        Response.Buffer = true;
+        Response.ExpiresAbsolute = System.DateTime.Now.AddSeconds(-1);
+        Response.Expires = 0;
+        Response.CacheControl = "no-cache";
+        Response.AppendHeader("Pragma", "No-Cache");
+
         int noticeId = 0;
         int previewId = 0;
         int nextId = 0;

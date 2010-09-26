@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{401EF005-C192-4D83-9F90-CD0F3C77F5EC}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -56,8 +56,6 @@
     <Compile Include="Configs\IConfigInfo.cs" />
     <Compile Include="Configs\SerializationHelper.cs" />
     <Compile Include="Configs\SmtpAgent.cs" />
-    <Compile Include="DBExtend\AW_ADManage_bean.cs" />
-    <Compile Include="DBExtend\AW_ADManage_dao.cs" />
     <Compile Include="DBExtend\AW_Admin_bean.cs" />
     <Compile Include="DBExtend\AW_Admin_dao.cs" />
     <Compile Include="DBExtend\AW_AD_bean.cs" />
@@ -78,6 +76,8 @@
     <Compile Include="DBExtend\AW_Industry_dao.cs" />
     <Compile Include="DBExtend\AW_Job_bean.cs" />
     <Compile Include="DBExtend\AW_Job_dao.cs" />
+    <Compile Include="DBExtend\AW_KeyWord_bean.cs" />
+    <Compile Include="DBExtend\AW_KeyWord_dao.cs" />
     <Compile Include="DBExtend\AW_Major_bean.cs" />
     <Compile Include="DBExtend\AW_Major_dao.cs" />
     <Compile Include="DBExtend\AW_Navigation_bean.cs" />
@@ -122,6 +122,8 @@
     <Compile Include="DBFile\AW_Industry_dao.cs" />
     <Compile Include="DBFile\AW_Job_bean.cs" />
     <Compile Include="DBFile\AW_Job_dao.cs" />
+    <Compile Include="DBFile\AW_KeyWord_bean.cs" />
+    <Compile Include="DBFile\AW_KeyWord_dao.cs" />
     <Compile Include="DBFile\AW_Major_bean.cs" />
     <Compile Include="DBFile\AW_Major_dao.cs" />
     <Compile Include="DBFile\AW_Navigation_bean.cs" />

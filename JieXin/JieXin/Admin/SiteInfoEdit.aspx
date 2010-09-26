@@ -37,8 +37,9 @@
         </div>
     </div>
     <div>
+        
         <ul class="Help">
-            <li></li>
+            <li>基本信息的标题不允许修改。</li>
         </ul>
     </div>
 </asp:Content>

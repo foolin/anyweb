@@ -20,20 +20,14 @@ public partial class Admin_Setting_Register : PageAdmin
 
         GeneralConfigInfo config = GeneralConfigs.GetConfig();
         boxEnable.Checked = config.RegEnable;
-        boxMobileReg.Checked = config.RegMobile;
         txtAgreement.Text = config.RegAgreement;
-        txtEmailBlocked.Text = config.RegEmailBlocked;
-        txtEmailEnable.Text = config.RegEmailEnabled;
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
         GeneralConfigInfo config = GeneralConfigs.GetConfig();
         config.RegEnable = boxEnable.Checked;
-        config.RegMobile = boxMobileReg.Checked;
         config.RegAgreement = txtAgreement.Text;
-        config.RegEmailBlocked = txtEmailBlocked.Text;
-        config.RegEmailEnabled = txtEmailEnable.Text;
 
         config.SetupConfigMember = true;
 

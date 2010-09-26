@@ -1,12 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
+using System.Configuration;
+using System.Data;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+
 using Studio.Web;
+using System.Collections.Generic;
 using AnyWell.AW_DL;
 
-public partial class Admin_ADSort : PageAdmin
+
+public partial class Admin_KeyWordsSort : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {
@@ -16,13 +24,12 @@ public partial class Admin_ADSort : PageAdmin
         Response.CacheControl = "no-cache";
         Response.AppendHeader("Pragma", "No-Cache");
 
-        int adId = 0;
+        int keyWId = 0;
         int previewId = 0;
         int nextId = 0;
-        int type = 0;
 
         if (QS("id") != "" && WebAgent.IsInt32(QS("id")))
-            adId = int.Parse(QS("id"));
+            keyWId = int.Parse(QS("id"));
 
         if (QS("previewid") != "" && WebAgent.IsInt32(QS("previewid")))
             previewId = int.Parse(QS("previewid"));
@@ -30,14 +37,11 @@ public partial class Admin_ADSort : PageAdmin
         if (QS("nextid") != "" && WebAgent.IsInt32(QS("nextid")))
             nextId = int.Parse(QS("nextid"));
 
-        if (QS("type") != "" && WebAgent.IsInt32(QS("type")))
-            type = int.Parse(QS("type"));
-
-        if (adId > 0 && (previewId > 0 || nextId > 0))
+        if (keyWId > 0 && (previewId > 0 || nextId > 0))
         {
-            using (AW_AD_dao dao = new AW_AD_dao())
+            using (AW_KeyWord_dao dao = new AW_KeyWord_dao())
             {
-                dao.funcSortAD(type, adId, nextId, previewId);
+                dao.funcSortKeyWords(keyWId, nextId, previewId);
                 Response.Write("ok");
             }
         }

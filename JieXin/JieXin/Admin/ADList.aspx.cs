@@ -19,7 +19,7 @@ public partial class Admin_ADList : PageAdmin
             WebAgent.AlertAndBack("参数错误！");
         drpType.SelectedValue = QS("type");
         int recordCount = 0;
-        compRep.DataSource = new AW_ADManage_dao().funcGetADList(int.Parse(drpType.SelectedValue), PN1.PageSize, PN1.PageIndex, out recordCount);
+        compRep.DataSource = new AW_AD_dao().funcGetADList(int.Parse(drpType.SelectedValue), PN1.PageSize, PN1.PageIndex, out recordCount);
         compRep.DataBind();
         PN1.SetPage(recordCount);
     }

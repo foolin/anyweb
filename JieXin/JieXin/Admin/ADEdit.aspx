@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
-    CodeFile="CompanyADAdd.aspx.cs" Inherits="Admin_CompanyADAdd" %>
+    CodeFile="ADEdit.aspx.cs" Inherits="Admin_ADEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
 </asp:Content>
@@ -53,26 +53,13 @@
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
-                添加企业图片</h3>
+                修改广告</h3>
         </div>
         <div class="mbd">
-            <div class="fi even">
-                <label>
-                    类型：</label>
-                <asp:DropDownList ID="drpType" runat="server">
-                <asp:ListItem Value="1" Text="大型企业图片"></asp:ListItem>
-                <asp:ListItem Value="2" Text="中型企业图片"></asp:ListItem>
-                <asp:ListItem Value="3" Text="小型企业图片"></asp:ListItem>
-                </asp:DropDownList>
-            </div>
             <div class="fi">
                 <label>
-                    名称：</label>
-                <asp:TextBox ID="txtName" MaxLength="50" runat="server" CssClass="text"></asp:TextBox>
-                <span class="required">*</span>
-                <sw:Validator ID="Validator1" ControlID="txtName" ValidateType="Required" ErrorText="请输入名称"
-                    ErrorMessage="请输入名称" runat="server">
-                </sw:Validator>
+                    广告名称：</label>
+                <asp:Literal ID="txtName" runat="server"></asp:Literal>
             </div>
             <div class="fi even">
                 <label>
@@ -113,11 +100,11 @@
                             cursor: pointer;
                         }
                     </style>
-                    <div id="images" style="display: none">
+                    <div id="images" style="display: <%=hasPic?"":"none"%>">
                         <ul>
                             <li>
-                                <img id="imgColumn" alt="" src="" />
-                                <input id="imgUrl" type="hidden" name="pics" value="" />
+                                <img id="imgColumn" alt="" src="<%=picUrl %>" />
+                                <input id="imgUrl" type="hidden" name="pics" value="<%=picUrl %>" />
                                 <button onclick="delPicture(this);" type="button">
                                     删除</button></li>
                         </ul>
@@ -133,22 +120,10 @@
                     ErrorMessage="请输入企业链接" runat="server">
                 </sw:Validator>
             </div>
-            <div class="fi even">
-                <label>
-                    排序：</label>
-                <asp:TextBox ID="txtSort" runat="server" Text="0" CssClass="text" Width="80"></asp:TextBox>
-                <span class="required">*</span> <span>排序数字越大，呈现位置越靠前。</span>
-                <sw:Validator ID="Validator3" ControlID="txtSort" ValidateType="Required" ErrorText="请输入排序"
-                    ErrorMessage="请输入排序" runat="server">
-                </sw:Validator>
-                <sw:Validator ID="Validator4" ControlID="txtSort" ValidateType="DataType" DataType="Integer"
-                    ErrorText="请输入正确的排序" ErrorMessage="请输入正确的排序" runat="server">
-                </sw:Validator>
-            </div>
             <div class="fi fiBtns">
                 <asp:Button ID="btnOk" runat="server" Text="保存" CssClass="submit" OnClick="btnOk_Click">
                 </asp:Button>
-                <a href="CompanyADList.aspx">返回列表</a>
+                <a href="javascript:history.back()">返回列表</a>
             </div>
         </div>
         <div class="mft">

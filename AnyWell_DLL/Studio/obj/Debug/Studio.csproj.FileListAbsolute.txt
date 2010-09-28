@@ -1,0 +1,15 @@
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\Studio\bin\Debug\Studio.dll
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\Studio\bin\Debug\Studio.pdb
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\Studio\obj\Debug\ResolveAssemblyReference.cache
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\Studio\obj\Debug\Studio.dll
+E:\Program Files\PROJECT\DOTNET\AnyWeb2010\Studio\obj\Debug\Studio.pdb
+E:\Program Files\PROJECT\DOTNET\GaoWen\Studio\bin\Debug\Studio.dll
+E:\Program Files\PROJECT\DOTNET\GaoWen\Studio\bin\Debug\Studio.pdb
+E:\Program Files\PROJECT\DOTNET\GaoWen\Studio\obj\Debug\ResolveAssemblyReference.cache
+E:\Program Files\PROJECT\DOTNET\GaoWen\Studio\obj\Debug\Studio.dll
+E:\Program Files\PROJECT\DOTNET\GaoWen\Studio\obj\Debug\Studio.pdb
+E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\Studio\bin\Debug\Studio.dll
+E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\Studio\bin\Debug\Studio.pdb
+E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\Studio\obj\Debug\ResolveAssemblyReference.cache
+E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\Studio\obj\Debug\Studio.dll
+E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\Studio\obj\Debug\Studio.pdb

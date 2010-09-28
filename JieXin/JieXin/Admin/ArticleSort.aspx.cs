@@ -31,9 +31,15 @@ public partial class Admin_ArticleSort : PageAdmin
 
         if (articleId > 0 && (previewId > 0 || nextId > 0))
         {
+            AW_Article_bean article = AW_Article_bean.funcGetByID(articleId);
+            if (articleId == null)
+            {
+                return;
+            }
             using (AW_Article_dao dao = new AW_Article_dao())
             {
                 dao.funcSortArticle(articleId, nextId, previewId);
+                this.AddLog(EventType.Update, "修改文章排序", "修改文章[" + article.fdArtiTitle + "]排序");
                 Response.Write("ok");
             }
         }

@@ -102,6 +102,7 @@ public partial class Admin_ArticleEdit : PageAdmin
                 File.Delete(pdfPath);
             }
             dao.funcUpdate(article);
+            this.AddLog(EventType.Update, "修改文章", "修改文章[" + article.fdArtiTitle + "]");
             WebAgent.SuccAndGo("修改文章成功", ViewState["REFURL"].ToString());
         }
     }

@@ -86,6 +86,7 @@ public partial class Admin_ArticleAdd : PageAdmin
             int record = dao.funcInsert(bean);
             if (record > 0)
             {
+                this.AddLog(EventType.Insert, "添加文章", "栏目[" + drpColumn.SelectedItem.Text + "]添加文章[" + bean.fdArtiTitle + "]");
                 Studio.Web.WebAgent.SuccAndGo("添加成功", "ArticleList.aspx");
             }
         }

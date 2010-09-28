@@ -64,6 +64,15 @@ namespace AnyWell.AW_DL
 			get{return _fdLogIP;}
 			set{_fdLogIP = value;}
 		}
+		private DateTime _fdLogCreateAt = DateTime.Now;
+		 /// <summary>
+		 /// 操作时间
+		 /// </summary>
+		public DateTime fdLogCreateAt
+		{
+			get{return _fdLogCreateAt;}
+			set{_fdLogCreateAt = value;}
+		}
 
 
 		/////////////////////////////////////////

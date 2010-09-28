@@ -19,6 +19,7 @@ public partial class Admin_ArticlesDel : PageAdmin
         int record = new AW_Article_dao().funcDeletes(ids);
         if (record > 0)
         {
+            this.AddLog(EventType.Delete, "批量删除文章", "批量删除文章编号[" + ids + "]");
             Studio.Web.WebAgent.SuccAndGo("删除成功", url);
         }
     }

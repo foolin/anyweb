@@ -8,7 +8,7 @@ using Studio.Data;
 
 namespace AnyWell.AW_DL
 {
-    public partial class AW_ScrollAD_bean
-    {
-    }
+	public partial class AW_Log_dao
+	{
+	}
 }

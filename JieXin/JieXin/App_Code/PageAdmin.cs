@@ -97,4 +97,25 @@ public class PageAdmin : Page
         HtmlForm form1 = (HtmlForm)this.Master.FindControl("form1");
         form1.Enctype = "multipart/form-data";
     }
+
+    /// <summary>
+    /// 添加操作日志
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="name"></param>
+    /// <param name="description"></param>
+    protected void AddLog(EventType type, string name, string description)
+    {
+        using (AW_Log_dao dao = new AW_Log_dao())
+        {
+            AW_Log_bean log = new AW_Log_bean();
+            log.fdLogID = dao.funcNewID();
+            log.fdLogType = (int)type;
+            log.fdLogName = name;
+            log.fdLogDesc = description;
+            log.fdLogAccount = AdminInfo.fdAdmiAccount;
+            log.fdLogIP = Request.UserHostAddress;
+            dao.funcInsert(log);
+        }
+    }
 }

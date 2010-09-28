@@ -78,6 +78,8 @@
     <Compile Include="DBExtend\AW_Job_dao.cs" />
     <Compile Include="DBExtend\AW_KeyWord_bean.cs" />
     <Compile Include="DBExtend\AW_KeyWord_dao.cs" />
+    <Compile Include="DBExtend\AW_Log_bean.cs" />
+    <Compile Include="DBExtend\AW_Log_dao.cs" />
     <Compile Include="DBExtend\AW_Major_bean.cs" />
     <Compile Include="DBExtend\AW_Major_dao.cs" />
     <Compile Include="DBExtend\AW_Navigation_bean.cs" />
@@ -88,8 +90,6 @@
     <Compile Include="DBExtend\AW_Picture_dao.cs" />
     <Compile Include="DBExtend\AW_Resume_bean.cs" />
     <Compile Include="DBExtend\AW_Resume_dao.cs" />
-    <Compile Include="DBExtend\AW_ScrollAD_bean.cs" />
-    <Compile Include="DBExtend\AW_ScrollAD_dao.cs" />
     <Compile Include="DBExtend\AW_SiteInfo_bean.cs" />
     <Compile Include="DBExtend\AW_SiteInfo_dao.cs" />
     <Compile Include="DBExtend\AW_Skill_bean.cs" />
@@ -100,8 +100,6 @@
     <Compile Include="DBExtend\AW_User_dao.cs" />
     <Compile Include="DBExtend\AW_Work_bean.cs" />
     <Compile Include="DBExtend\AW_Work_dao.cs" />
-    <Compile Include="DBFile\AW_ADManage_bean.cs" />
-    <Compile Include="DBFile\AW_ADManage_dao.cs" />
     <Compile Include="DBFile\AW_Admin_bean.cs" />
     <Compile Include="DBFile\AW_Admin_dao.cs" />
     <Compile Include="DBFile\AW_AD_bean.cs" />
@@ -124,6 +122,8 @@
     <Compile Include="DBFile\AW_Job_dao.cs" />
     <Compile Include="DBFile\AW_KeyWord_bean.cs" />
     <Compile Include="DBFile\AW_KeyWord_dao.cs" />
+    <Compile Include="DBFile\AW_Log_bean.cs" />
+    <Compile Include="DBFile\AW_Log_dao.cs" />
     <Compile Include="DBFile\AW_Major_bean.cs" />
     <Compile Include="DBFile\AW_Major_dao.cs" />
     <Compile Include="DBFile\AW_Navigation_bean.cs" />
@@ -134,8 +134,6 @@
     <Compile Include="DBFile\AW_Picture_dao.cs" />
     <Compile Include="DBFile\AW_Resume_bean.cs" />
     <Compile Include="DBFile\AW_Resume_dao.cs" />
-    <Compile Include="DBFile\AW_ScrollAD_bean.cs" />
-    <Compile Include="DBFile\AW_ScrollAD_dao.cs" />
     <Compile Include="DBFile\AW_SiteInfo_bean.cs" />
     <Compile Include="DBFile\AW_SiteInfo_dao.cs" />
     <Compile Include="DBFile\AW_Skill_bean.cs" />

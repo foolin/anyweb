@@ -8,26 +8,26 @@ using Studio.Data;
 
 namespace AnyWell.AW_DL
 {
-    public partial class AW_ADManage_dao : Dao_Base
-    {
-        public AW_ADManage_dao()
+	public partial class AW_Log_dao : Dao_Base
+	{
+		public AW_Log_dao()
         {
-            this._propTable = "AW_AD";
-            this._propPK = "fdAdID";
-            this._propFields = "fdAdID,fdAdName,fdAdPic,fdAdLink,fdAdType,fdAdSort";
+            this._propTable = "AW_Log";
+            this._propPK = "fdLogID";
+            this._propFields = "fdLogID,fdLogName,fdLogDesc,fdLogAccount,fdLogType,fdLogIP";
         }
 
-        public List<AW_ADManage_bean> funcGetList()
+        public List<AW_Log_bean> funcGetList()
         {
             DataSet ds = base.funcCommon();
-            List<AW_ADManage_bean> list = new List<AW_ADManage_bean>();
+            List<AW_Log_bean> list = new List<AW_Log_bean>();
             foreach (DataRow r in ds.Tables[0].Rows)
             {
-                AW_ADManage_bean bean = new AW_ADManage_bean();
+                AW_Log_bean bean = new AW_Log_bean();
                 bean.funcFromDataRow(r);
                 list.Add(bean);
             }
             return list;
         }
-    }//
+	}//
 }//

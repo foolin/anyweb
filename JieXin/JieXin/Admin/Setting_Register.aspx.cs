@@ -32,6 +32,7 @@ public partial class Admin_Setting_Register : PageAdmin
         config.SetupConfigMember = true;
 
         GeneralConfigs.Serialiaze(GeneralConfigs.GetConfig(), DefaultConfigFileManager.ConfigFilePath);
+        this.AddLog(EventType.Update, "修改用户注册设置", "修改用户注册设置");
         WebAgent.SuccAndGo("保存成功", "Setting_Register.aspx");
     }
 }

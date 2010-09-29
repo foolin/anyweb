@@ -20,6 +20,7 @@ public partial class Admin_ScrollADsDel : PageAdmin
         int record = new AW_AD_dao().funcDeletes(ids);
         if (record > 0)
         {
+            this.AddLog(EventType.Delete, "批量删除滚动图片", "批量删除滚动图片编号[" + ids + "]");
             WebAgent.SuccAndGo("删除成功", url);
         }
     }

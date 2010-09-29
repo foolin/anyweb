@@ -105,7 +105,7 @@ public partial class Admin_AdminEdit : PageAdmin
             }
 
             dao.funcUpdate(bean);
-
+            this.AddLog(EventType.Update, "修改用户", "修改用户[" + bean.fdAdmiAccount + "]");
             WebAgent.SuccAndGo("修改用户成功", "adminlist.aspx");
         }
     }

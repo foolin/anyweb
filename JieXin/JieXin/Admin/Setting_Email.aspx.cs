@@ -40,19 +40,23 @@ public partial class Admin_Setting_Email : PageAdmin
         SmtpAgent.GetAgent().Smtps.Add(smtp);
 
         SmtpAgent.GetAgent().Save();
+        this.AddLog(EventType.Insert, "添加邮件设置", "添加邮件设置[" + smtp.Sender + "]");
         WebAgent.SuccAndGo("添加成功","?rd=" + (new Random()).Next(1000,9999).ToString());
     }
 
     protected void repSmtp_ItemCommand(object source, RepeaterCommandEventArgs e)
     {
         Label lbl = (Label)e.Item.FindControl("lblID");
+        string addr = "";
         if (e.CommandName == "Delete")
         {
             for (int i = 0; i < SmtpAgent.GetAgent().Smtps.Count; i++)
             {
                 if (SmtpAgent.GetAgent().Smtps[i].ID == int.Parse(lbl.Text))
                 {
+                    addr = SmtpAgent.GetAgent().Smtps[i].Sender;
                     SmtpAgent.GetAgent().Smtps.RemoveAt(i);
+                    this.AddLog(EventType.Delete, "删除邮件设置", "批量删除关键词编号[" + addr + "]");
                     break;
                 }
             }
@@ -80,6 +84,7 @@ public partial class Admin_Setting_Email : PageAdmin
                     smtp.ServerAddress = txtServerAddress1.Text;
                     smtp.UserName = txtUserName1.Text;
                     smtp.EnableSsl = box.Checked;
+                    this.AddLog(EventType.Update, "修改邮件设置", "修改邮件设置[" + smtp.Sender + "]");
                 }
             }
         }

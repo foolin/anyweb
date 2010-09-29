@@ -34,7 +34,7 @@
             <div>
                 <label>
                     是否显示：</label>
-                <input type="checkbox" id="chkStatus" runat="server" />显示
+                <input type="checkbox" id="chkStatus" runat="server" checked="checked" />显示
             </div>
             <div class="fi fiBtns">
                 <asp:Button ID="Button1" runat="server" Text="保存" CssClass="submit" OnClick="btnOk_Click">

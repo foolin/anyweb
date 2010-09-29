@@ -52,6 +52,7 @@ public partial class Admin_KeyWordEdit : PageAdmin
             bean.fdKeyWSort = bean.fdKeyWID * 100;
         bean.fdKeyWIsShow = chkStatus.Checked ? 1 : 2;
         new AW_KeyWord_dao().funcUpdate(bean);
+        this.AddLog(EventType.Update, "修改关键词", "修改关键词[" + bean.fdKeyWName + "]");
         WebAgent.SuccAndGo("修改成功！", (string)ViewState["REFURL"]);
     }
 }

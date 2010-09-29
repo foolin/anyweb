@@ -40,6 +40,7 @@ public partial class Admin_NoticeAdd : PageAdmin
                 bean.fdNotiOrder = int.Parse(txtSort.Text);
             }
             dao.funcInsert(bean);
+            this.AddLog(EventType.Insert, "添加公告", "添加公告[" + bean.fdNotiTitle + "]");
             WebAgent.SuccAndGo("添加成功", "NoticeList.aspx");
         }
     }

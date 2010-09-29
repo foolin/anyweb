@@ -46,6 +46,7 @@ public partial class Admin_ScrollADAdd : PageAdmin
                 bean.fdAdSort = bean.fdAdID * 100;
             }
             dao.funcInsert(bean);
+            this.AddLog(EventType.Insert, "添加滚动图片", "添加滚动图片[" + bean.fdAdName + "]");
             WebAgent.SuccAndGo("添加成功！", "ScrollADList.aspx?type=" + bean.fdAdType);
         }
     }

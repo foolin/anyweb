@@ -42,6 +42,7 @@ public partial class Admin_NoticeEdit : PageAdmin
         if (bean.fdNotiOrder == 0)
             bean.fdNotiOrder = bean.fdNotiID * 100;
         new AW_Notice_dao().funcUpdate(bean);
+        this.AddLog(EventType.Update, "修改公告", "修改公告[" + bean.fdNotiTitle + "]");
         WebAgent.SuccAndGo("修改公告成功", ViewState["REFURL"].ToString());
     }
 }

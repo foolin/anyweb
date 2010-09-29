@@ -75,6 +75,7 @@ public partial class Admin_ScrollADEdit : PageAdmin
             }
             bean.fdAdPic = pics;
             dao.funcUpdate(bean);
+            this.AddLog(EventType.Update, "修改滚动图片", "修改滚动图片[" + bean.fdAdName + "]");
             WebAgent.SuccAndGo("修改成功", ViewState["REFURL"].ToString());
         }
     }

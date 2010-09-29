@@ -64,7 +64,7 @@ public partial class Admin_AdminAdd : PageAdmin
 
             bean.fdAdmiID = dao.funcNewID();
             dao.funcInsert(bean);
-
+            this.AddLog(EventType.Insert, "添加用户", "添加用户[" + bean.fdAdmiAccount + "]");
             WebAgent.SuccAndGo("添加用户成功", "adminlist.aspx");
         }
     }

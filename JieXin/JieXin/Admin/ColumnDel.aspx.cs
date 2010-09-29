@@ -19,9 +19,16 @@ public partial class Admin_ColumnDel : PageAdmin
         string backUrl = "ColumnList.aspx";
 
         if (QS("id") == "" || !WebAgent.IsInt32(QS("id")))
-            Response.Redirect(backUrl);
-
-        (new AW_Column_dao()).funcDeleteColumn(int.Parse(QS("id")));
+        {
+            WebAgent.AlertAndBack("栏目编号错误！");
+        }
+        AW_Column_bean bean = AW_Column_bean.funcGetByID(int.Parse(QS("id")));
+        if (bean == null)
+        {
+            WebAgent.AlertAndBack("栏目不存在！");
+        }
+        (new AW_Column_dao()).funcDeleteColumn(bean.fdColuID);
+        this.AddLog(EventType.Delete, "删除栏目", "删除栏目[" + bean.fdColuName + "]");
         WebAgent.SuccAndGo("删除成功", backUrl);
     }
 }

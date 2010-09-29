@@ -61,6 +61,7 @@ public partial class Admin_NavigationAdd : PageAdmin
             bean.fdNaviTitle = txtTitle.Text;
             bean.fdNaviSort = bean.fdNaviID;
             dao.funcInsert(bean);
+            this.AddLog(EventType.Insert, "添加导航栏", "添加导航栏[" + bean.fdNaviTitle + "]");
             WebAgent.SuccAndGo("添加成功", "NavigationList.aspx");
         }
     }

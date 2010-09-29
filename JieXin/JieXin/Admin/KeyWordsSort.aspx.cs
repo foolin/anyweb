@@ -39,9 +39,15 @@ public partial class Admin_KeyWordsSort : PageAdmin
 
         if (keyWId > 0 && (previewId > 0 || nextId > 0))
         {
+            AW_KeyWord_bean bean = AW_KeyWord_bean.funcGetByID(keyWId);
+            if (bean == null)
+            {
+                return;
+            }
             using (AW_KeyWord_dao dao = new AW_KeyWord_dao())
             {
                 dao.funcSortKeyWords(keyWId, nextId, previewId);
+                this.AddLog(EventType.Update, "修改关键词排序", "修改关键词[" + bean.fdKeyWName + "]排序");
                 Response.Write("ok");
             }
         }

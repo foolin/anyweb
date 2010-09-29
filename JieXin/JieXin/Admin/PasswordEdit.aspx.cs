@@ -26,6 +26,7 @@ public partial class Admin_PasswordEdit : PageAdmin
         {
             admin.fdAdmiPwd = Secure.Md5(txtNew.Text);
             (new AW_Admin_dao()).funcUpdate(admin);
+            this.AddLog(EventType.Update, "修改密码", "管理员" + admin.fdAdmiAccount + "修改登录密码");
             WebAgent.SuccAndGo("修改密码成功", "PasswordEdit.aspx");
         }
     }

@@ -18,8 +18,12 @@ public partial class Admin_ColumnSort : PageAdmin
     {
         string type = QS("type");
         int columnId = int.Parse(QS("id"));
+        AW_Column_bean bean = AW_Column_bean.funcGetByID(columnId);
+        if (bean == null)
+        {
+            WebAgent.AlertAndBack("栏目不存在！");
+        }
         AW_Column_dao dao = new AW_Column_dao();
-
         if (type == "up")
         {
             if (!dao.funcUp(columnId))
@@ -30,7 +34,7 @@ public partial class Admin_ColumnSort : PageAdmin
             if (!dao.funcDown(columnId))
                 WebAgent.AlertAndBack("已经是最后了");
         }
-
+        this.AddLog(EventType.Update, "修改栏目排序", "修改栏目[" + bean.fdColuName + "]排序");
         Response.Redirect(Request.UrlReferrer == null ? "ColumnList.aspx" : Request.UrlReferrer.AbsoluteUri);
     }
 }

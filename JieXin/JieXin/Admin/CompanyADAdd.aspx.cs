@@ -46,6 +46,7 @@ public partial class Admin_CompanyADAdd : PageAdmin
                 bean.fdAdSort = bean.fdAdID * 100;
             }
             dao.funcInsert(bean);
+            this.AddLog(EventType.Insert, "添加企业图片", "添加企业图片[" + bean.fdAdName + "]");
             WebAgent.SuccAndGo("添加成功！", "CompanyADList.aspx?type=" + bean.fdAdType);
         }
     }

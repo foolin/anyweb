@@ -29,6 +29,7 @@ public partial class Admin_AdminDel : PageAdmin
             WebAgent.AlertAndBack("SuperAdmin帐号不可删除");
 
         (new AW_Admin_dao()).funcDelete(admin.fdAdmiID);
+        this.AddLog(EventType.Delete, "删除用户", "删除用户[" + admin.fdAdmiAccount + "]");
         Response.Redirect("adminlist.aspx");
     }
 }

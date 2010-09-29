@@ -29,8 +29,8 @@ public partial class Admin_LogList : PageAdmin
         {
             case 1: return "登录";
             case 2: return "添加";
-            case 3: return "修改";
-            case 4: return "删除";
+            case 3: return "删除";
+            case 4: return "修改";
             default: return "未知";
         }
     }

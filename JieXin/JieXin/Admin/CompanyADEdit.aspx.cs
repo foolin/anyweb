@@ -75,6 +75,7 @@ public partial class Admin_CompanyADEdit : PageAdmin
             }
             bean.fdAdPic = pics;
             dao.funcUpdate(bean);
+            this.AddLog(EventType.Update, "修改企业图片", "修改企业图片[" + bean.fdAdName + "]");
             WebAgent.SuccAndGo("修改成功", ViewState["REFURL"].ToString());
         }
     }

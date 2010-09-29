@@ -38,6 +38,7 @@ public partial class Admin_ColumnAdd : PageAdmin
             int record = dao.funcInsert(bean);
             if (record > 0)
             {
+                this.AddLog(EventType.Insert, "添加栏目", "添加栏目[" + bean.fdColuName + "]");
                 Studio.Web.WebAgent.SuccAndGo("添加成功", "ColumnList.aspx");
             }
         }

@@ -19,6 +19,7 @@ public partial class Admin_CompanyADsDel : PageAdmin
         int record = new AW_AD_dao().funcDeletes(ids);
         if (record > 0)
         {
+            this.AddLog(EventType.Delete, "批量删除企业图片", "批量删除企业图片编号[" + ids + "]");
             Studio.Web.WebAgent.SuccAndGo("删除成功", url);
         }
     }

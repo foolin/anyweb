@@ -58,6 +58,7 @@ public partial class Admin_ColumnEdit : PageAdmin
             column.fdColuDescription = txtDesc.Text.Trim();
             column.fdColuParentID = int.Parse(drpParent.SelectedValue);
             dao.funcUpdate(column);
+            this.AddLog(EventType.Update, "修改栏目", "修改栏目[" + column.fdColuName + "]");
             WebAgent.SuccAndGo("修改文章栏目成功", "ColumnList.aspx");
         }
     }    

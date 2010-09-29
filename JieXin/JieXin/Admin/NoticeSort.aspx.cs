@@ -36,9 +36,15 @@ public partial class Admin_NoticeSort : PageAdmin
 
         if (noticeId > 0 && (previewId > 0 || nextId > 0))
         {
+            AW_Notice_bean bean = AW_Notice_bean.funcGetByID(noticeId);
+            if (bean == null)
+            {
+                return;
+            }
             using (AW_Notice_dao dao = new AW_Notice_dao())
             {
                 dao.funcSortNotice(noticeId, nextId, previewId);
+                this.AddLog(EventType.Update, "修改公告排序", "修改公告[" + bean.fdNotiTitle + "]排序");
                 Response.Write("ok");
             }
         }

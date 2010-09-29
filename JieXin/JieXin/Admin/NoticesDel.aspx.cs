@@ -24,6 +24,7 @@ public partial class Admin_NoticesDel : PageAdmin
         int record = new AW_Notice_dao().funcDeletes(ids);
         if (record > 0)
         {
+            this.AddLog(EventType.Delete, "批量删除公告", "批量删除公告编号[" + ids + "]");
             Studio.Web.WebAgent.SuccAndGo("删除成功", url);
         }
     }

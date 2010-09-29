@@ -35,6 +35,7 @@ public partial class Admin_SiteInfoEdit : PageAdmin
         bean.fdSiInTitle = txtTitle.Text;
         bean.fdSiInContent = txtContent.Text;
         new AW_SiteInfo_dao().funcUpdate(bean);
+        this.AddLog(EventType.Update, "修改基本信息", "修改基本信息[" + bean.fdSiInTitle + "]");
         WebAgent.SuccAndGo("修改基本信息成功", ViewState["REFURL"].ToString());
     }
 }

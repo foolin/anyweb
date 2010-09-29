@@ -35,9 +35,15 @@ public partial class Admin_ADSort : PageAdmin
 
         if (adId > 0 && (previewId > 0 || nextId > 0))
         {
+            AW_AD_bean bean = AW_AD_bean.funcGetByID(adId);
+            if (bean == null)
+            {
+                return;
+            }
             using (AW_AD_dao dao = new AW_AD_dao())
             {
                 dao.funcSortAD(type, adId, nextId, previewId);
+                this.AddLog(EventType.Update, "修改图片广告排序", "修改图片广告[" + bean.fdAdName + "]排序");
                 Response.Write("ok");
             }
         }

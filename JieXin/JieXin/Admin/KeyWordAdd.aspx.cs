@@ -37,6 +37,7 @@ public partial class Admin_KeyWordAdd : PageAdmin
             else
                 bean.fdKeyWIsShow = 2;
             dao.funcInsert(bean);
+            this.AddLog(EventType.Insert, "添加关键词", "添加关键词[" + bean.fdKeyWName + "]");
         }
         WebAgent.SuccAndGo("添加成功！", "KeyWordList.aspx");
     }

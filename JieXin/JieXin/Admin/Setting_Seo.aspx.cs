@@ -34,6 +34,7 @@ public partial class Admin_Setting_Seo : PageAdmin
         config.SetupConfigSeo = true;
 
         GeneralConfigs.Serialiaze(GeneralConfigs.GetConfig(), DefaultConfigFileManager.ConfigFilePath);
+        this.AddLog(EventType.Update, "修改搜索引擎优化", "修改搜索引擎优化");
         WebAgent.SuccAndGo("保存成功", "Setting_Seo.aspx");
     }
 }

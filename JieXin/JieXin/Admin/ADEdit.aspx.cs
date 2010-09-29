@@ -18,7 +18,7 @@ public partial class Admin_ADEdit : PageAdmin
 
         AW_AD_bean bean = AW_AD_bean.funcGetByID(int.Parse(QS("id")));
         if (bean == null)
-            WebAgent.AlertAndBack("企业图片广告不存在!");
+            WebAgent.AlertAndBack("广告不存在!");
 
         txtName.Text = bean.fdAdName;
         txtLink.Text = bean.fdAdLink;
@@ -61,6 +61,7 @@ public partial class Admin_ADEdit : PageAdmin
             }
             bean.fdAdPic = pics;
             dao.funcUpdate(bean);
+            this.AddLog(EventType.Update, "修改广告", "修改广告[" + bean.fdAdName + "]");
             WebAgent.SuccAndGo("修改成功", ViewState["REFURL"].ToString());
         }
     }

@@ -45,9 +45,9 @@ public partial class Admin_AdminAdd : PageAdmin
         AW_Admin_bean bean = new AW_Admin_bean();
         bean.fdAdmiLevel = radio1.Checked ? 1 : 2;
         bean.fdAdmiCreateAt = DateTime.Now;
-        bean.fdAdmiAccount = txtAcc.Text;
+        bean.fdAdmiAccount = txtAcc.Text.Trim();
         bean.fdAdmiLoginAt = DateTime.Parse("1900-1-1");
-        bean.fdAdmiName = txtName.Text;
+        bean.fdAdmiName = txtName.Text.Trim();
         bean.fdAdmiPwd = Studio.Security.Secure.Md5(txtPwd.Text);
         if (bean.fdAdmiLevel == 2)
         {
@@ -64,7 +64,7 @@ public partial class Admin_AdminAdd : PageAdmin
 
             bean.fdAdmiID = dao.funcNewID();
             dao.funcInsert(bean);
-            this.AddLog(EventType.Insert, "添加用户", "添加用户[" + bean.fdAdmiAccount + "]");
+
             WebAgent.SuccAndGo("添加用户成功", "adminlist.aspx");
         }
     }

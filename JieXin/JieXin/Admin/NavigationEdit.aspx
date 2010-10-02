@@ -6,8 +6,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
 
     <script type="text/javascript">
-        function ChangeType() {
-            switch ($("#<%=drpType.ClientID %>").val()) {
+        function ChangeType() 
+        {
+            switch ($("#<%=drpType.ClientID %>").val()) 
+            {
                 case "1":
                     $("#divColumn").show().attr("class", "fi");
                     $("#divTitle").attr("class", "fi even");
@@ -26,19 +28,27 @@
             }
         }
 
-        function CheckLink() {
-            if ($("#divLink").css("display") != "none") {
-                if ($("#<%=txtLink.ClientID %>").val().length > 0) {
+        function CheckLink() 
+        {
+            if ($("#divLink").css("display") != "none") 
+            {
+                if ($("#<%=txtLink.ClientID %>").val().length > 0) 
+                {
                     return true;
-                } else {
+                } 
+                else 
+                {
                     return false;
                 }
-            } else {
+            } 
+            else 
+            {
                 return true;
             }
         }
-
-        $(document).ready(function() {
+        
+        $(document).ready(function() 
+        {
             ChangeType();
         });
     </script>

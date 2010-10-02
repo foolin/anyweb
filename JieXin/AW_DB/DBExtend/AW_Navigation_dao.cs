@@ -44,6 +44,24 @@ namespace AnyWell.AW_DL
         }
 
         /// <summary>
+        /// 获取二级栏目
+        /// </summary>
+        /// <returns></returns>
+        public AW_Navigation_bean funcGetChildren(AW_Navigation_bean bean1)
+        {
+            DataSet ds = this.funcCommon();
+            bean1.Children = new List<AW_Navigation_bean>();
+            foreach (DataRow row in ds.Tables[0].Select("fdNaviParentID=" + bean1.fdNaviID.ToString(), "fdNaviSort ASC"))
+            {
+                AW_Navigation_bean bean2 = new AW_Navigation_bean();
+                bean2.funcFromDataRow(row);
+                bean2.Parent = bean1;
+                bean1.Children.Add(bean2);
+            }
+            return bean1;
+        }
+
+        /// <summary>
         /// 排序调前
         /// </summary>
         /// <param name="CategoryID"></param>

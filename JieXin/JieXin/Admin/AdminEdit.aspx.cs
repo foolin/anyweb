@@ -89,9 +89,9 @@ public partial class Admin_AdminEdit : PageAdmin
             }
             bean.fdAdmiLevel = radio1.Checked ? 1 : 2;
             bean.fdAdmiCreateAt = DateTime.Now;
-            bean.fdAdmiAccount = txtAcc.Text;
+            bean.fdAdmiAccount = txtAcc.Text.Trim();
             bean.fdAdmiLoginAt = DateTime.Parse("1900-1-1");
-            bean.fdAdmiName = txtName.Text;
+            bean.fdAdmiName = txtName.Text.Trim();
             if( txtPwd.Text.Length > 0)
                 bean.fdAdmiPwd = Studio.Security.Secure.Md5(txtPwd.Text);
             if (bean.fdAdmiLevel == 2)
@@ -105,7 +105,7 @@ public partial class Admin_AdminEdit : PageAdmin
             }
 
             dao.funcUpdate(bean);
-            this.AddLog(EventType.Update, "修改用户", "修改用户[" + bean.fdAdmiAccount + "]");
+
             WebAgent.SuccAndGo("修改用户成功", "adminlist.aspx");
         }
     }

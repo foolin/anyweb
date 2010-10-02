@@ -14,9 +14,6 @@
                 <thead>
                     <tr>
                         <th>
-                            编号
-                        </th>
-                        <th>
                             邮件地址
                         </th>
                         <th>
@@ -43,9 +40,6 @@
                     <asp:Repeater ID="repSmtp" runat="server" OnItemCommand="repSmtp_ItemCommand">
                         <ItemTemplate>
                             <tr align="center" class="editalt">
-                                <td style="width: 30px;">
-                                    <asp:Label ID="lblID" runat="server" Text='<%# Eval("ID")%>'></asp:Label>
-                                </td>
                                 <td>
                                     <asp:TextBox ID="txtSender" runat="server" Text='<%# Eval("Sender")%>' CssClass="text"></asp:TextBox>
                                 </td>

@@ -45,7 +45,7 @@
     </div>
     <div>
         <ul class="Help">
-            <li>如果栏目图片为空，在前台将会自动显示该父级栏目的图片</li>
+            <li></li>
         </ul>
     </div>
 </asp:Content>

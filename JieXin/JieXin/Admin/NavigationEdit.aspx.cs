@@ -24,7 +24,8 @@ public partial class Admin_NavigationEdit : PageAdmin
 
         foreach (AW_Navigation_bean navigation in new AW_Navigation_dao().funcGetNavigations())
         {
-            drpParent.Items.Add(new ListItem(navigation.fdNaviTitle, navigation.fdNaviID.ToString()));
+            if (navigation.fdNaviID != bean.fdNaviID)
+                drpParent.Items.Add(new ListItem(navigation.fdNaviTitle, navigation.fdNaviID.ToString()));
         }
 
         foreach (AW_Column_bean column in new AW_Column_dao().funcGetColumns())
@@ -47,11 +48,17 @@ public partial class Admin_NavigationEdit : PageAdmin
         {
             txtLink.Text = bean.fdNaviLink;
         }
+
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
         AW_Navigation_bean bean = AW_Navigation_bean.funcGetByID(int.Parse(QS("id")));
+
+        bean = (new AW_Navigation_dao()).funcGetChildren(bean);
+        if (bean.Children.Count != 0 && bean.fdNaviParentID != int.Parse(drpParent.SelectedValue))
+            WebAgent.AlertAndBack("栏目存在子栏目，不允许修改父级栏目!");
+
         using (AW_Navigation_dao dao = new AW_Navigation_dao())
         {
             bean.fdNaviParentID = int.Parse(drpParent.SelectedValue);
@@ -78,8 +85,7 @@ public partial class Admin_NavigationEdit : PageAdmin
             }
             bean.fdNaviTitle = txtTitle.Text;
             dao.funcUpdate(bean);
-            this.AddLog(EventType.Update, "修改导航栏", "修改导航栏[" + bean.fdNaviTitle + "]");
-            WebAgent.SuccAndGo("修改成功", "NavigationList.aspx");
+            WebAgent.SuccAndGo("添加成功", "NavigationList.aspx");
         }
     }
 }

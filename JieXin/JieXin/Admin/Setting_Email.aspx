@@ -13,6 +13,9 @@
             <table>
                 <thead>
                     <tr>
+                        <th style="display: none">
+                            编号
+                        </th>
                         <th>
                             邮件地址
                         </th>
@@ -36,40 +39,41 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <asp:Repeater ID="repSmtp" runat="server" OnItemCommand="repSmtp_ItemCommand">
-                        <ItemTemplate>
-                            <tr align="center" class="editalt">
-                                <td>
-                                    <asp:TextBox ID="txtSender" runat="server" Text='<%# Eval("Sender")%>' CssClass="text"></asp:TextBox>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtServerAddress" runat="server" Text='<%# Eval("ServerAddress")%>'
-                                        CssClass="text"></asp:TextBox>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtPort" runat="server" Width="40px" Text='<%# Eval("Port")%>' CssClass="text"></asp:TextBox>
-                                </td>
-                                <td>
-                                    <asp:CheckBox ID="boxEnableSsl" runat="server" Checked='<%#Eval("EnableSsl")%>' />
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtUserName" runat="server" Text='<%# Eval("UserName")%>' CssClass="text"></asp:TextBox>
-                                </td>
-                                <td>
-                                    <asp:TextBox ID="txtPassword" runat="server" Text='<%# Eval("Password")%>' CssClass="text"></asp:TextBox>
-                                </td>
-                                <td>
-                                    <asp:LinkButton ID="btnSave" runat="server" CommandName="Update">保存</asp:LinkButton>
-                                    <asp:LinkButton ID="btnDel" runat="server" CommandName="Delete">删除</asp:LinkButton>
-                                </td>
-                            </tr>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </tbody>
+                <asp:Repeater ID="repSmtp" runat="server" OnItemCommand="repSmtp_ItemCommand">
+                    <ItemTemplate>
+                        <tr align="center" class="editalt">
+                            <td style="width: 30px; display: none;">
+                                <asp:Label ID="lblID" runat="server" Text='<%# Eval("ID")%>'></asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtSender" runat="server" Text='<%# Eval("Sender")%>' CssClass="text"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtServerAddress" runat="server" Text='<%# Eval("ServerAddress")%>'
+                                    CssClass="text"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtPort" runat="server" Width="40px" Text='<%# Eval("Port")%>' CssClass="text"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:CheckBox ID="boxEnableSsl" runat="server" Checked='<%#Eval("EnableSsl")%>' />
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtUserName" runat="server" Text='<%# Eval("UserName")%>' CssClass="text"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtPassword" runat="server" Text='<%# Eval("Password")%>' CssClass="text"></asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:LinkButton ID="btnSave" runat="server" CommandName="Update">保存</asp:LinkButton>
+                                <asp:LinkButton ID="btnDel" runat="server" CommandName="Delete">删除</asp:LinkButton>
+                            </td>
+                        </tr>
+                    </ItemTemplate>
+                </asp:Repeater>
                 <tfoot>
                     <tr align="center" class="editalt">
-                        <td style="width: 30px;">
+                        <td style="width: 30px; display: none;">
                             -
                         </td>
                         <td>

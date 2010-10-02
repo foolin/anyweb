@@ -13,7 +13,7 @@
             <div class="fi">
                 <label>
                     登录帐号：</label>
-                <asp:TextBox ID="txtAcc" MaxLength="50" runat="server" CssClass="text"></asp:TextBox>
+                <asp:TextBox ID="txtAcc" MaxLength="50" runat="server" CssClass="text" ReadOnly="true"></asp:TextBox>
                 <span class="required">*</span>
                 <sw:Validator ID="Validator5" ControlID="txtAcc" ValidateType="Required" ErrorText="请输入登录帐号"
                     ErrorMessage="请输入登录帐号" runat="server">

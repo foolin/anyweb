@@ -44,21 +44,23 @@ namespace AnyWell.AW_DL
         }
 
         /// <summary>
-        /// 获取二级栏目
+        /// 读取导航栏信息
         /// </summary>
+        /// <param name="naviId"></param>
         /// <returns></returns>
-        public AW_Navigation_bean funcGetChildren(AW_Navigation_bean bean1)
+        public AW_Navigation_bean funcGetNavigationByID(int naviId) 
         {
-            DataSet ds = this.funcCommon();
-            bean1.Children = new List<AW_Navigation_bean>();
-            foreach (DataRow row in ds.Tables[0].Select("fdNaviParentID=" + bean1.fdNaviID.ToString(), "fdNaviSort ASC"))
+            foreach (AW_Navigation_bean bean1 in this.funcGetNavigations()) 
             {
-                AW_Navigation_bean bean2 = new AW_Navigation_bean();
-                bean2.funcFromDataRow(row);
-                bean2.Parent = bean1;
-                bean1.Children.Add(bean2);
+                if (bean1.fdNaviID == naviId)
+                    return bean1;
+                foreach (AW_Navigation_bean bean2 in bean1.Children) 
+                {
+                    if (bean2.fdNaviID == naviId)
+                        return bean2;
+                }
             }
-            return bean1;
+            return null;
         }
 
         /// <summary>

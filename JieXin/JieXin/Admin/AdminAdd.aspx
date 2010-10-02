@@ -88,7 +88,7 @@
     </div>
     <div>
         <ul class="Help">
-            <li></li>
+            <li>登录帐号一经添加就不允许修改。</li>
         </ul>
     </div>
 </asp:Content>

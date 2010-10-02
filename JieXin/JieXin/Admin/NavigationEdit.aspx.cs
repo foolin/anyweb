@@ -18,7 +18,7 @@ public partial class Admin_NavigationEdit : PageAdmin
         if (!WebAgent.IsInt32(QS("id")))
             WebAgent.AlertAndBack("编号不正确!");
 
-        AW_Navigation_bean bean = AW_Navigation_bean.funcGetByID(int.Parse(QS("id")));
+        AW_Navigation_bean bean = new AW_Navigation_dao().funcGetNavigationByID(int.Parse(QS("id")));
         if (bean == null)
             WebAgent.AlertAndBack("导航栏不存在!");
 
@@ -53,11 +53,9 @@ public partial class Admin_NavigationEdit : PageAdmin
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
-        AW_Navigation_bean bean = AW_Navigation_bean.funcGetByID(int.Parse(QS("id")));
-
-        bean = (new AW_Navigation_dao()).funcGetChildren(bean);
-        if (bean.Children.Count != 0 && bean.fdNaviParentID != int.Parse(drpParent.SelectedValue))
-            WebAgent.AlertAndBack("栏目存在子栏目，不允许修改父级栏目!");
+        AW_Navigation_bean bean = new AW_Navigation_dao().funcGetNavigationByID(int.Parse(QS("id")));
+        if (bean.Children != null && bean.Children.Count != 0 && bean.fdNaviParentID != int.Parse(drpParent.SelectedValue))
+            WebAgent.AlertAndBack("该导航栏存在二级导航，不允许修改其父级导航栏!");
 
         using (AW_Navigation_dao dao = new AW_Navigation_dao())
         {
@@ -85,7 +83,7 @@ public partial class Admin_NavigationEdit : PageAdmin
             }
             bean.fdNaviTitle = txtTitle.Text;
             dao.funcUpdate(bean);
-            WebAgent.SuccAndGo("添加成功", "NavigationList.aspx");
+            WebAgent.SuccAndGo("修改成功", "NavigationList.aspx");
         }
     }
 }

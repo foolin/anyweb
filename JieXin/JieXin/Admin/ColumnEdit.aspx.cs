@@ -27,17 +27,9 @@ public partial class Admin_ColumnEdit : PageAdmin
         if (column == null) 
             WebAgent.AlertAndBack("新闻栏目不存在!");
 
-        if (column.fdColuParentID == 0)
-        {
-            drpParent.Items.Add(new ListItem("没有上级栏目", "0"));
-        }
-        else
-        {
-            foreach (AW_Column_bean bean in (new AW_Column_dao()).funcGetColumns())
-            {
-                if (bean.fdColuID != column.fdColuID)
-                    drpParent.Items.Add(new ListItem(bean.fdColuName, bean.fdColuID.ToString()));
-            }
+        foreach (AW_Column_bean bean in (new AW_Column_dao()).funcGetColumns()) {
+            if (bean.fdColuID != column.fdColuID)
+                drpParent.Items.Add(new ListItem(bean.fdColuName, bean.fdColuID.ToString()));
         }
 
         txtName.Text = column.fdColuName;
@@ -53,6 +45,9 @@ public partial class Admin_ColumnEdit : PageAdmin
         using (AW_Column_dao dao = new AW_Column_dao())
         {
             AW_Column_bean column = dao.funcGetColumnInfo(int.Parse(QS("id")));
+
+            if (column.Children != null && column.Children.Count > 0 && column.fdColuParentID != int.Parse(drpParent.SelectedValue))
+                WebAgent.AlertAndBack("该栏目存在子栏目，不允许修改其父级栏目!");
 
             column.fdColuName = txtName.Text.Trim();
             column.fdColuDescription = txtDesc.Text.Trim();

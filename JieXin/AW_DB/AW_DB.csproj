@@ -88,6 +88,8 @@
     <Compile Include="DBExtend\AW_Notice_dao.cs" />
     <Compile Include="DBExtend\AW_Picture_bean.cs" />
     <Compile Include="DBExtend\AW_Picture_dao.cs" />
+    <Compile Include="DBExtend\AW_Recruit_bean.cs" />
+    <Compile Include="DBExtend\AW_Recruit_dao.cs" />
     <Compile Include="DBExtend\AW_Resume_bean.cs" />
     <Compile Include="DBExtend\AW_Resume_dao.cs" />
     <Compile Include="DBExtend\AW_SiteInfo_bean.cs" />
@@ -132,6 +134,8 @@
     <Compile Include="DBFile\AW_Notice_dao.cs" />
     <Compile Include="DBFile\AW_Picture_bean.cs" />
     <Compile Include="DBFile\AW_Picture_dao.cs" />
+    <Compile Include="DBFile\AW_Recruit_bean.cs" />
+    <Compile Include="DBFile\AW_Recruit_dao.cs" />
     <Compile Include="DBFile\AW_Resume_bean.cs" />
     <Compile Include="DBFile\AW_Resume_dao.cs" />
     <Compile Include="DBFile\AW_SiteInfo_bean.cs" />

@@ -83,6 +83,7 @@ public partial class Admin_NavigationEdit : PageAdmin
             }
             bean.fdNaviTitle = txtTitle.Text;
             dao.funcUpdate(bean);
+            this.AddLog( EventType.Update, "修改导航栏", "修改导航栏[" + bean.fdNaviTitle + "]" );
             WebAgent.SuccAndGo("修改成功", "NavigationList.aspx");
         }
     }

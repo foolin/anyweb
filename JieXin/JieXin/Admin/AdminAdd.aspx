@@ -41,7 +41,7 @@
                 <label>
                     用户级别：</label>
                 <div class="cont">
-                    <asp:RadioButton ID="radio1" runat="server" GroupName="level" Text="超管" CssClass="checkbox" />
+                    <asp:RadioButton ID="radio1" runat="server" GroupName="level" Text="超管" Checked="false" CssClass="checkbox" />
                     <asp:RadioButton ID="radio2" runat="server" GroupName="level" Text="普通" Checked="true"
                         CssClass="checkbox" />
                 </div>
@@ -71,10 +71,15 @@
             </div>
 
             <script type="text/javascript">
-                        function checkChildren(box)
-                        {
-                                $(box).parent("label").parent("div").find("div input").attr("checked",$(box).attr("checked"));
-                        }
+                function checkChildren(box) {
+                    $(box).parent("label").parent("div").find("div input").attr("checked", $(box).attr("checked"));
+                }
+
+                $(document).ready(function() {
+                    if ($("#<%=radio1.ClientID%>").attr("checked")) {
+                        $("#<%=purviewArea.ClientID %>").hide();
+                    }
+                });
             </script>
 
             <div class="fi fiBtns">

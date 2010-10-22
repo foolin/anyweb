@@ -119,6 +119,9 @@
                 <sw:Validator ID="Validator2" ControlID="txtLink" ValidateType="Required" ErrorText="请输入企业链接"
                     ErrorMessage="请输入企业链接" runat="server">
                 </sw:Validator>
+                <sw:Validator ID="Validator5" ControlID="txtLink" ValidateType="DataType" DataType="Url" ErrorText="企业链接格式错误"
+                    ErrorMessage="企业链接格式错误" runat="server">
+                </sw:Validator>
             </div>
             <div class="fi fiBtns">
                 <asp:Button ID="btnOk" runat="server" Text="保存" CssClass="submit" OnClick="btnOk_Click">

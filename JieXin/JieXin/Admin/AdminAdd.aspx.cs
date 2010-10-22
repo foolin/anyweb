@@ -20,8 +20,8 @@ public partial class Admin_AdminAdd : PageAdmin
     {
         base.OnPreRender(e);
 
-        radio1.Attributes["onclick"] = "$('#" + purviewArea.ClientID + "').css('display','none');";
-        radio2.Attributes["onclick"] = "$('#" + purviewArea.ClientID + "').css('display','block');";
+        radio1.Attributes[ "onclick" ] = "$('#" + purviewArea.ClientID + "').css('display','none');";
+        radio2.Attributes[ "onclick" ] = "$('#" + purviewArea.ClientID + "').css('display','block');";
         purviewArea.Attributes["style"] = "display:block";
 
 
@@ -64,7 +64,7 @@ public partial class Admin_AdminAdd : PageAdmin
 
             bean.fdAdmiID = dao.funcNewID();
             dao.funcInsert(bean);
-
+            this.AddLog( EventType.Insert, "添加用户", "添加用户[" + bean.fdAdmiAccount + "]" );
             WebAgent.SuccAndGo("添加用户成功", "adminlist.aspx");
         }
     }

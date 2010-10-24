@@ -37,6 +37,15 @@ namespace AnyWell.AW_DL
 			get{return _fdRecrCompany;}
 			set{_fdRecrCompany = value;}
 		}
+		private string _fdRecrJob = "";
+		 /// <summary>
+		 /// 职位名 100 nvarchar
+		 /// </summary>
+		public string fdRecrJob
+		{
+			get{return _fdRecrJob;}
+			set{_fdRecrJob = value;}
+		}
 		private int _fdRecrAreaID = 0;
 		 /// <summary>
 		 /// 地区编号
@@ -72,6 +81,15 @@ namespace AnyWell.AW_DL
 		{
 			get{return _fdRecrSort;}
 			set{_fdRecrSort = value;}
+		}
+		private DateTime _fdRecrCreateAt = DateTime.Now;
+		 /// <summary>
+		 /// 创建时间
+		 /// </summary>
+		public DateTime fdRecrCreateAt
+		{
+			get{return _fdRecrCreateAt;}
+			set{_fdRecrCreateAt = value;}
 		}
 
 

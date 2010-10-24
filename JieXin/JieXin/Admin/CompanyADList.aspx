@@ -143,7 +143,9 @@
     </div>
     <div>
         <ul class="Help">
-            <li></li>
+            <li>大型企业图片规格：308*95</li>
+            <li>中型企业图片规格：180*30</li>
+            <li>小型企业图片规格：85*30</li>
         </ul>
     </div>
 </asp:Content>

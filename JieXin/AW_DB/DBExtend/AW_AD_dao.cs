@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Web;
 using Studio.Data;
+using AnyWell.Configs;
 
 namespace AnyWell.AW_DL
 {
@@ -115,6 +116,88 @@ namespace AnyWell.AW_DL
 
                 }
             }
+            CacheAgent.ClearCache( "AD_CACHE_" );
+        }
+
+        public override int funcInsert( Bean_Base aBean )
+        {
+            int result = base.funcInsert( aBean );
+            CacheAgent.ClearCache( "AD_CACHE_" );
+            return result;
+        }
+
+        public override int funcUpdate( Bean_Base aBean )
+        {
+            int result = base.funcUpdate( aBean );
+            CacheAgent.ClearCache( "AD_CACHE_" );
+            return result;
+        }
+
+        public override int funcDelete( int id )
+        {
+            int result = base.funcDelete( id );
+            CacheAgent.ClearCache( "AD_CACHE_" );
+            return result;
+        }
+
+        public override int funcDeletes( string aIDList )
+        {
+            int result = base.funcDeletes( aIDList );
+            CacheAgent.ClearCache( "AD_CACHE_" );
+            return result;
+        }
+
+        /**************************************************自定义控件********************************************************************************/
+        /// <summary>
+        /// 获取广告列表
+        /// </summary>
+        /// <param name="typeID">广告类型</param>
+        /// <param name="topCount">前n条</param>
+        /// <param name="where">附加筛选条件</param>
+        /// <param name="order">附加排序条件</param>
+        /// <param name="cacheName">缓存名称</param>
+        /// <returns></returns>
+        public List<AW_AD_bean> funcGetADListByUC( int typeID, int topCount, string where, string order, string cacheName )
+        {
+            if( !string.IsNullOrEmpty( cacheName ) && HttpRuntime.Cache[ "AD_CACHE_UC_" + cacheName ] != null )
+            {
+                return ( List<AW_AD_bean> ) HttpRuntime.Cache[ "AD_CACHE_UC_" + cacheName ];
+            }
+
+            if( topCount > 0 )
+            {
+                this.propSelect = " TOP " + topCount + " *";
+            }
+
+            this.propWhere = "1=1";
+
+            if( typeID > 0 )
+            {
+                this.propWhere += " AND fdAdType=" + typeID;
+            }
+
+            if( string.IsNullOrEmpty( where ) == false )
+            {
+                this.propWhere += " AND " + where.Replace( ";", "；" ).Replace( "--", "－－" );
+            }
+
+            if( string.IsNullOrEmpty( order ) == false )
+            {
+                this.propOrder = "ORDER BY " + funcReplaceSqlField( order );
+            }
+            else
+            {
+                this.propOrder = "ORDER BY fdAdSort DESC";
+            }
+
+            List<AW_AD_bean> ads = this.funcGetList();
+
+            if( !string.IsNullOrEmpty( cacheName ) )
+            {
+                HttpRuntime.Cache.Insert( "AD_CACHE_UC_" + cacheName, ads, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes( 20 ), System.Web.Caching.CacheItemPriority.NotRemovable, null );
+            }
+
+            return ads;
         }
 	}
 }

@@ -38,18 +38,59 @@ public partial class Admin_NavigationAdd : PageAdmin
             bean.fdNaviID = dao.funcNewID();
             bean.fdNaviParentID = int.Parse(drpParent.SelectedValue);
             bean.fdNaviType = int.Parse(drpType.SelectedValue);
-            if (bean.fdNaviType == 1)
-            {
-                bean.fdNaviItemID = int.Parse(drpColumn.SelectedValue);
-                bean.fdNaviLink = "/column.aspx?id=" + bean.fdNaviItemID;
-            }
-            else if (bean.fdNaviType == 2)
-            {
-                bean.fdNaviLink = "/temp.aspx";
-            }
-            else
-            {
-                if (txtLink.Text.ToLower().StartsWith("http://"))
+            getLink(bean);
+            bean.fdNaviTitle = txtTitle.Text;
+            bean.fdNaviSort = bean.fdNaviID;
+            dao.funcInsert(bean);
+            this.AddLog(EventType.Insert, "添加导航栏", "添加导航栏[" + bean.fdNaviTitle + "]");
+            WebAgent.SuccAndGo("添加成功", "NavigationList.aspx");
+        }
+    }
+
+    /// <summary>
+    /// 获取导航栏链接
+    /// </summary>
+    /// <returns></returns>
+    protected void getLink(AW_Navigation_bean bean)
+    {
+        switch( drpType.SelectedValue )
+        {
+            case "1":
+                bean.fdNaviLink = "/index.aspx";
+                break;
+            case "2":
+                bean.fdNaviLink = "/User/Index.aspx";
+                break;
+            case "3":
+                bean.fdNaviLink = "/job.aspx";
+                break;
+            case "4":
+                bean.fdNaviLink = "/notice.aspx";
+                break;
+            case "5":
+                bean.fdNaviLink = string.Format( "/c/{0}.aspx", drpColumn.SelectedValue );
+                bean.fdNaviItemID = int.Parse( drpColumn.SelectedValue );
+                break;
+            case "6":
+                {
+                    switch( drpRecruit.SelectedValue )
+                    {
+                        case "-1":
+                            bean.fdNaviLink = "/job.aspx";
+                            break;
+                        default:
+                            bean.fdNaviLink = "/job.aspx?type=" + drpRecruit.SelectedValue;
+                            break;
+                    }
+                    bean.fdNaviItemID = int.Parse( drpRecruit.SelectedValue );
+                    break;
+                }
+            case "7":
+                bean.fdNaviLink = string.Format( "/s/{0}.aspx", drpSite.SelectedValue );
+                bean.fdNaviItemID = int.Parse( drpSite.SelectedValue );
+                break;
+            case "8":
+                if( txtLink.Text.ToLower().StartsWith( "http://" ) )
                 {
                     bean.fdNaviLink = txtLink.Text.ToLower();
                 }
@@ -57,12 +98,10 @@ public partial class Admin_NavigationAdd : PageAdmin
                 {
                     bean.fdNaviLink = "http://" + txtLink.Text.ToLower();
                 }
-            }
-            bean.fdNaviTitle = txtTitle.Text;
-            bean.fdNaviSort = bean.fdNaviID;
-            dao.funcInsert(bean);
-            this.AddLog(EventType.Insert, "添加导航栏", "添加导航栏[" + bean.fdNaviTitle + "]");
-            WebAgent.SuccAndGo("添加成功", "NavigationList.aspx");
+                break;
+            default:
+                bean.fdNaviLink = "/index.aspx";
+                break;
         }
     }
 }

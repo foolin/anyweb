@@ -158,7 +158,7 @@
     </div>
     <div>
         <ul class="Help">
-            <li></li>
+            <li>图片规格：110*77</li>
         </ul>
     </div>
 </asp:Content>

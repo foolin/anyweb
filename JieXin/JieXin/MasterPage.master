@@ -1,0 +1,126 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register src="Control/Navigation.ascx" tagname="Navigation" tagprefix="uc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>广州市杰信人力资源有限公司</title>
+    <asp:Literal ID="lt_description" runat="server" />
+    <asp:Literal ID="lt_keywords" runat="server" />
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/ScrollPic.js"></script>
+    <script type="text/javascript" src="js/function.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="Top">
+            <div class="LinkArea">
+                <a href="#" class="companyName ohtxt" title="广州市杰信人力资源有限公司">广州市杰信人力资源有限公司</a> <span
+                    class="loginInfo">XXXX 您好! <span class="blue"><a href="#" target="_blank">我的杰信</a></span>
+                    <span class="green">|</span> <span class="blue">[<a href="javascript:void(0);">退出</a>]</span>
+                </span>
+            </div>
+            <div class="nav">
+                <div class="ls">
+                </div>
+                <div class="ms">
+                    <uc1:Navigation ID="Navigation1" runat="server" />
+                    <div id="date" class="date">
+                    </div>
+                </div>
+                <div class="rs">
+                </div>
+            </div>
+        </div>
+        <div class="blank8px">
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <div class="blank8px">
+        </div>
+        <div class="foot">
+            <span class="green"><a href="/s/1.aspx">关于我们</a> - <a href="/s/2.aspx">版权声明</a> - <a href="/s/3.aspx">联系我们</a></span><br />
+            广州市天河区沙河供销合作社 ICP证号：粤ICP备09198729号<br />
+            地址：广州市天河区龙口东路139号后座二至四楼 电话：020-87590122<br />
+            Copyright© 2010 Anywell Studio， All rights reserved<br />
+        </div>
+    </div>
+    
+
+    <script type="text/javascript">
+
+        var menus = document.getElementById("nav");
+        var lis = menus.getElementsByTagName("li");
+        var liLen = lis.length;
+
+        var order = 0;
+        for (var i = 0; i < liLen; i++) {
+            var curStyle;
+            lis[i].order = i;
+            lis[i].onmouseover = function() {
+                debugger;
+                changeTab(this, this.order, true, curStyle = this.className);
+            }
+            lis[i].onmouseout = function() {
+                if (!(curStyle == "cur")) {
+                    changeTab(this, this.order, false);
+                } else {
+                    return false;
+                }
+            }
+        }
+        function changeTab(curObj, curOrder, bool) {
+            if (bool) {
+                curObj.className = "cur";
+            } else {
+                curObj.className = "";
+                if (curOrder == 0) curObj.className = "nobg";
+            }
+        }
+
+        function setDate() {    //设置日期
+            var date = new Date();
+            $("#date").html(date.getMonth() + '月' + date.getDate() + '日' + ' 星期' + '日一二三四五六'.charAt(date.getDay()) + ' ' + date.toLocaleTimeString());
+        }
+
+        setDate();
+        setInterval(setDate, 1000);
+    </script>
+    
+    
+
+    <script type="text/javascript">
+        // JavaScript Document
+        lastScrollY = 0;
+        function heartBeat() {
+            var diffY;
+            if (document.documentElement && document.documentElement.scrollTop)
+                diffY = document.documentElement.scrollTop;
+            else if (document.body)
+                diffY = document.body.scrollTop
+            else
+            { /*Netscape stuff*/ }
+            //alert(diffY);
+            percent = .1 * (diffY - lastScrollY);
+            if (percent > 0) percent = Math.ceil(percent);
+            else percent = Math.floor(percent);
+            document.getElementById("lovexin12").style.top = parseInt(document.getElementById("lovexin12").style.top) + percent + "px";
+            document.getElementById("lovexin14").style.top = parseInt(document.getElementById("lovexin12").style.top) + percent + "px";
+
+            lastScrollY = lastScrollY + percent;
+            //alert(lastScrollY);
+        }
+        suspendcode12 = "<DIV id=\"lovexin12\" class=\"dl\" style='left:22px;POSITION:absolute;TOP:69px;'><a href=JavaScript:; onclick=\"document.getElementById('lovexin12').style.display = 'none'\" class=\"close\">X</a><a href='#' target='_blank'><a href='#' target='_blank'><img border=0 src=images/sideAd.jpg></a></div>"
+
+        suspendcode14 = "<DIV id=\"lovexin14\" class=\"dl\" style='right:22px;POSITION:absolute;TOP:69px;'><a href=JavaScript:; onclick=\"document.getElementById('lovexin14').style.display = 'none'\" class=\"close\">X</a><a href='#' target='_blank'><img border=0 src=images/sideAd.jpg></a></div>"
+
+        document.write(suspendcode12);
+        document.write(suspendcode14);
+        window.setInterval("heartBeat()", 10);
+
+    </script>
+</body>
+</html>

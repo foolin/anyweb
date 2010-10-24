@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{38CFCC22-2926-4205-B784-594ABB80231D}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AD.cs" />
     <Compile Include="Article.cs" />
     <Compile Include="ArticleList.cs" />
     <Compile Include="Column.cs" />
@@ -56,7 +57,9 @@
     <Compile Include="Notice.cs" />
     <Compile Include="NoticeList.cs" />
     <Compile Include="Pager.cs" />
+    <Compile Include="ADList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecruitList.cs" />
     <Compile Include="TemplateItem.cs" />
   </ItemGroup>
   <ItemGroup>

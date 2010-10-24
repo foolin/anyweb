@@ -8,11 +8,6 @@ using Studio.Web;
 
 public partial class Admin_NavigationEdit : PageAdmin
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
-
     protected override void OnPreRender(EventArgs e)
     {
         if (!WebAgent.IsInt32(QS("id")))
@@ -40,15 +35,25 @@ public partial class Admin_NavigationEdit : PageAdmin
         drpParent.SelectedValue = bean.fdNaviParentID.ToString();
         drpType.SelectedValue = bean.fdNaviType.ToString();
         txtTitle.Text = bean.fdNaviTitle;
-        if (bean.fdNaviType == 1)
-        {
-            drpColumn.SelectedValue = bean.fdNaviItemID.ToString();
-        }
-        else if (bean.fdNaviType == 3)
-        {
-            txtLink.Text = bean.fdNaviLink;
-        }
 
+        switch( bean.fdNaviType )
+        {
+            case 5:
+                drpColumn.SelectedValue = bean.fdNaviItemID.ToString();
+                break;
+            case 6:
+                drpRecruit.SelectedValue = bean.fdNaviItemID.ToString();
+                break;
+            case 7:
+                drpSite.SelectedValue = bean.fdNaviItemID.ToString();
+                break;
+            case 8:
+                txtLink.Text = bean.fdNaviLink;
+                break;
+            default:
+                break;
+
+        }
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
@@ -61,18 +66,58 @@ public partial class Admin_NavigationEdit : PageAdmin
         {
             bean.fdNaviParentID = int.Parse(drpParent.SelectedValue);
             bean.fdNaviType = int.Parse(drpType.SelectedValue);
-            if (bean.fdNaviType == 1)
-            {
-                bean.fdNaviItemID = int.Parse(drpColumn.SelectedValue);
-                bean.fdNaviLink = "/column.aspx?id=" + bean.fdNaviItemID;
-            }
-            else if (bean.fdNaviType == 2)
-            {
-                bean.fdNaviLink = "/temp.aspx";
-            }
-            else
-            {
-                if (txtLink.Text.ToLower().StartsWith("http://"))
+            getLink( bean );
+            bean.fdNaviTitle = txtTitle.Text;
+            dao.funcUpdate(bean);
+            this.AddLog( EventType.Update, "修改导航栏", "修改导航栏[" + bean.fdNaviTitle + "]" );
+            WebAgent.SuccAndGo("修改成功", "NavigationList.aspx");
+        }
+    }
+
+    /// <summary>
+    /// 获取导航栏链接
+    /// </summary>
+    /// <returns></returns>
+    protected void getLink( AW_Navigation_bean bean )
+    {
+        switch( drpType.SelectedValue )
+        {
+            case "1":
+                bean.fdNaviLink = "/index.aspx";
+                break;
+            case "2":
+                bean.fdNaviLink = "/User/Index.aspx";
+                break;
+            case "3":
+                bean.fdNaviLink = "/job.aspx";
+                break;
+            case "4":
+                bean.fdNaviLink = "/notice.aspx";
+                break;
+            case "5":
+                bean.fdNaviLink = string.Format( "/c/{0}.aspx", drpColumn.SelectedValue );
+                bean.fdNaviItemID = int.Parse( drpColumn.SelectedValue );
+                break;
+            case "6":
+                {
+                    switch( drpRecruit.SelectedValue )
+                    {
+                        case "-1":
+                            bean.fdNaviLink = "/job.aspx";
+                            break;
+                        default:
+                            bean.fdNaviLink = "/job.aspx?type=" + drpRecruit.SelectedValue;
+                            break;
+                    }
+                    bean.fdNaviItemID = int.Parse( drpRecruit.SelectedValue );
+                    break;
+                }
+            case "7":
+                bean.fdNaviLink = string.Format( "/s/{0}.aspx", drpSite.SelectedValue );
+                bean.fdNaviItemID = int.Parse( drpSite.SelectedValue );
+                break;
+            case "8":
+                if( txtLink.Text.ToLower().StartsWith( "http://" ) )
                 {
                     bean.fdNaviLink = txtLink.Text.ToLower();
                 }
@@ -80,11 +125,10 @@ public partial class Admin_NavigationEdit : PageAdmin
                 {
                     bean.fdNaviLink = "http://" + txtLink.Text.ToLower();
                 }
-            }
-            bean.fdNaviTitle = txtTitle.Text;
-            dao.funcUpdate(bean);
-            this.AddLog( EventType.Update, "修改导航栏", "修改导航栏[" + bean.fdNaviTitle + "]" );
-            WebAgent.SuccAndGo("修改成功", "NavigationList.aspx");
+                break;
+            default:
+                bean.fdNaviLink = "/index.aspx";
+                break;
         }
     }
 }

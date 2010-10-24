@@ -10,5 +10,7 @@ namespace AnyWell.AW_DL
 {
 	public partial class AW_Picture_dao
 	{
+
+        
 	}
 }

@@ -134,7 +134,9 @@
     </div>
     <div>
         <ul class="Help">
-            <li></li>
+            <li>企业介绍规格：110*77</li>
+            <li>动态标语规格：950*55</li>
+            <li>移动广告规格：120*250</li>
         </ul>
     </div>
 </asp:Content>

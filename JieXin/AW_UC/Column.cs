@@ -114,7 +114,7 @@ namespace AnyWell.AW_UC
             }
             else
             {
-                column = AW_Column_bean.funcGetByID(this.ColumnID);
+                column = new AW_Column_dao().funcGetColumnInfo(this.ColumnID);
                 HttpContext.Current.Items.Add("COLUMN_" + this.ColumnID, column);
             }
             if (column == null)

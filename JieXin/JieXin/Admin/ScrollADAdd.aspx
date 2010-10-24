@@ -148,7 +148,7 @@
             <div class="fi fiBtns">
                 <asp:Button ID="btnOk" runat="server" Text="保存" CssClass="submit" OnClick="btnOk_Click">
                 </asp:Button>
-                <a href="CompanyADList.aspx">返回列表</a>
+                <a href="ScrollADList.aspx">返回列表</a>
             </div>
         </div>
         <div class="mft">
@@ -156,7 +156,7 @@
     </div>
     <div>
         <ul class="Help">
-            <li></li>
+            <li>图片规格：110*77</li>
         </ul>
     </div>
 </asp:Content>

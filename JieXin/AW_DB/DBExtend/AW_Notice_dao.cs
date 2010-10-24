@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Web;
 using Studio.Data;
+using AnyWell.Configs;
 
 namespace AnyWell.AW_DL
 {
@@ -114,6 +115,35 @@ namespace AnyWell.AW_DL
 
                 }
             }
+            CacheAgent.ClearCache( "NOTICE_CACHE_" );
+        }
+
+        public override int funcInsert( Bean_Base aBean )
+        {
+            int result = base.funcInsert( aBean );
+            CacheAgent.ClearCache( "NOTICE_CACHE_" );
+            return result;
+        }
+
+        public override int funcUpdate( Bean_Base aBean )
+        {
+            int result = base.funcUpdate( aBean );
+            CacheAgent.ClearCache( "NOTICE_CACHE_" );
+            return result;
+        }
+
+        public override int funcDelete( int id )
+        {
+            int result = base.funcDelete( id );
+            CacheAgent.ClearCache( "NOTICE_CACHE_" );
+            return result;
+        }
+
+        public override int funcDeletes( string aIDList )
+        {
+            int result = base.funcDeletes( aIDList );
+            CacheAgent.ClearCache( "NOTICE_CACHE_" );
+            return result;
         }
 
 

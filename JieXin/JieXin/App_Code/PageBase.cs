@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
+using AnyWell.AW_DL;
 
 
 public class PageBase : Page
@@ -11,6 +12,31 @@ public class PageBase : Page
         //
         //TODO: 在此处添加构造函数逻辑
         //
+    }
+
+    private AW_User_bean _loginUser;
+    /// <summary>
+    /// 个人用户
+    /// </summary>
+    public AW_User_bean LoginUser
+    {
+        get
+        {
+            return _loginUser;
+        }
+        set
+        {
+            _loginUser = value;
+        }
+    }
+
+    protected override void OnPreInit( EventArgs e )
+    {
+        HttpCookie co = HttpContext.Current.Request.Cookies[ "USER" ];
+        if( co == null )
+            LoginUser = null;
+        else
+            LoginUser = new AW_User_dao().funcGetUserInfo( int.Parse( co[ "ID" ] ) );
     }
 
     protected string QS(string key)

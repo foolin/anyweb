@@ -1,27 +1,37 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
-<%@ Register src="Control/Navigation.ascx" tagname="Navigation" tagprefix="uc1" %>
-
+<%@ Register Src="Control/Navigation.ascx" TagName="Navigation" TagPrefix="uc1" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>广州市杰信人力资源有限公司</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <asp:Literal ID="lt_description" runat="server" />
     <asp:Literal ID="lt_keywords" runat="server" />
     <link rel="stylesheet" type="text/css" href="css/default.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+
     <script type="text/javascript" src="js/jquery.js"></script>
+
     <script type="text/javascript" src="js/ScrollPic.js"></script>
+
     <script type="text/javascript" src="js/function.js"></script>
+
+    <script type="text/javascript" src="js/area.js"></script>
+
 </head>
 <body>
     <div class="wrap">
         <div class="Top">
             <div class="LinkArea">
-                <a href="#" class="companyName ohtxt" title="广州市杰信人力资源有限公司">广州市杰信人力资源有限公司</a> <span
-                    class="loginInfo">XXXX 您好! <span class="blue"><a href="#" target="_blank">我的杰信</a></span>
-                    <span class="green">|</span> <span class="blue">[<a href="javascript:void(0);">退出</a>]</span>
-                </span>
+                <a href="#" class="companyName ohtxt" title="广州市杰信人力资源有限公司">广州市杰信人力资源有限公司</a>
+                <%if( LoginUser != null )
+                  {%>
+                <span class="loginInfo">
+                    <%=LoginUser.fdUserAccount %>
+                    您好! <span class="blue"><a href="/User/Index.aspx">我的杰信</a></span> <span class="green">
+                        |</span> <span class="blue">[<a href="/Logout.aspx">退出</a>]</span> </span>
+                <%} %>
             </div>
             <div class="nav">
                 <div class="ls">
@@ -42,13 +52,18 @@
         <div class="blank8px">
         </div>
         <div class="foot">
-            <span class="green"><a href="/s/1.aspx">关于我们</a> - <a href="/s/2.aspx">版权声明</a> - <a href="/s/3.aspx">联系我们</a></span><br />
+            <span class="green"><a href="/s/1.aspx">关于我们</a> - <a href="/s/2.aspx">版权声明</a> - <a
+                href="/s/3.aspx">联系我们</a></span><br />
             广州市天河区沙河供销合作社 ICP证号：粤ICP备09198729号<br />
             地址：广州市天河区龙口东路139号后座二至四楼 电话：020-87590122<br />
             Copyright© 2010 Anywell Studio， All rights reserved<br />
         </div>
+        <aw:ADList runat="server" TypeID="8" CacheName="INDEX8">
+            <ItemTemplate>
+                <%#( string ) Eval( "fdAdPic" ) == "" ? "" : "<DIV id=\"lovexin" + Eval( "fdAdID" ) + "\" class=\"dl\" style='" + ( ( int ) Eval( "fdAdID" ) == 30 ? "left" : "right" ) + ":22px;POSITION:absolute;TOP:69px;'><a href=JavaScript:; onclick=\"document.getElementById('lovexin" + Eval( "fdADID" ) + "').style.display = 'none'\" class=\"close\">X</a><a href='#' target='_blank'><a href='" + Eval( "fdAdLink" ) + "' target='_blank'><img border=0 src=\"" + Eval( "fdAdPic" ) + "\"></a></div>"%>
+            </ItemTemplate>
+        </aw:ADList>
     </div>
-    
 
     <script type="text/javascript">
 
@@ -89,8 +104,6 @@
         setDate();
         setInterval(setDate, 1000);
     </script>
-    
-    
 
     <script type="text/javascript">
         // JavaScript Document
@@ -103,24 +116,23 @@
                 diffY = document.body.scrollTop
             else
             { /*Netscape stuff*/ }
-            //alert(diffY);
             percent = .1 * (diffY - lastScrollY);
             if (percent > 0) percent = Math.ceil(percent);
             else percent = Math.floor(percent);
-            document.getElementById("lovexin12").style.top = parseInt(document.getElementById("lovexin12").style.top) + percent + "px";
-            document.getElementById("lovexin14").style.top = parseInt(document.getElementById("lovexin12").style.top) + percent + "px";
+            var lovexin30 = document.getElementById("lovexin30");
+            var lovexin29 = document.getElementById("lovexin29");
+            if (lovexin30) {
+                lovexin30.style.top = parseInt(lovexin30.style.top) + percent + "px";
+            }
+            if (lovexin29) {
+                lovexin29.style.top = parseInt(lovexin29.style.top) + percent + "px";
+            }
 
             lastScrollY = lastScrollY + percent;
-            //alert(lastScrollY);
         }
-        suspendcode12 = "<DIV id=\"lovexin12\" class=\"dl\" style='left:22px;POSITION:absolute;TOP:69px;'><a href=JavaScript:; onclick=\"document.getElementById('lovexin12').style.display = 'none'\" class=\"close\">X</a><a href='#' target='_blank'><a href='#' target='_blank'><img border=0 src=images/sideAd.jpg></a></div>"
-
-        suspendcode14 = "<DIV id=\"lovexin14\" class=\"dl\" style='right:22px;POSITION:absolute;TOP:69px;'><a href=JavaScript:; onclick=\"document.getElementById('lovexin14').style.display = 'none'\" class=\"close\">X</a><a href='#' target='_blank'><img border=0 src=images/sideAd.jpg></a></div>"
-
-        document.write(suspendcode12);
-        document.write(suspendcode14);
         window.setInterval("heartBeat()", 10);
 
     </script>
+
 </body>
 </html>

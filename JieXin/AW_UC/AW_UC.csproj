@@ -52,6 +52,7 @@
     <Compile Include="ColumnList.cs" />
     <Compile Include="ControlBase.cs" />
     <Compile Include="ItemControlBase.cs" />
+    <Compile Include="KeyWordList.cs" />
     <Compile Include="ListControlBase.cs" />
     <Compile Include="Navigation.cs" />
     <Compile Include="Notice.cs" />

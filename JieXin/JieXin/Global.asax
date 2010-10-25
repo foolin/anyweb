@@ -84,19 +84,18 @@
     {
         realPath = "/index.aspx";
         string requestPath = Request.Path.ToLower();
-        if (requestPath == "/" || requestPath == "/index.aspx") //首页
-        {
-            return; 
-        }
         if (requestPath.IndexOf("/admin") > -1)  //管理后台
         {
             realPath = Request.Path;
-            return; 
+            return;
         }
-        if (requestPath == "/import.aspx")
+        foreach( string url in urls )
         {
-            realPath = requestPath;
-            return; 
+            if( requestPath.Equals( url ) )
+            {
+                realPath = requestPath;
+                return;
+            }
         }
         requestPath = Request.Path.ToLower().Replace("\\", "/").Replace(".aspx", "").Substring(1);
 
@@ -140,5 +139,7 @@
                 }
         }
     }
+
+    string[] urls = { "/", "/index.aspx", "/login.aspx", "/import.aspx", "/User/Index.aspx", "/logout.aspx", "/search.aspx", "/initarea.aspx" };
        
 </script>

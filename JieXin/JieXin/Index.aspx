@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
     CodeFile="Index.aspx.cs" Inherits="Index" %>
 
+<%@ Register Src="Control/Area.ascx" TagName="Area" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="subBanner">
         <a href="#" target="_blank">
@@ -68,18 +69,19 @@
                                 <strong>个人服务</strong>&nbsp;&nbsp;Job Seekers
                             </div>
                             <div class="logCon">
-                                <!--登录前-->
-                                <table width="90%" class="loginTable hidden" align="center" border="0" cellspacing="0"
-                                    cellpadding="0">
+                                <%if( LoginUser == null )
+                                  {%>
+                                <form runat="server" id="form1" onsubmit="return checkForm()">
+                                <table width="90%" class="loginTable" align="center" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                         <td align="right">
                                             会员名：
                                         </td>
                                         <td>
-                                            <input type="text" class="loginInput" />
+                                            <asp:TextBox ID="txtUserName" runat="server" CssClass="loginInput"></asp:TextBox>
                                         </td>
                                         <td rowspan="2">
-                                            <input type="button" class="btn46H" value="登录" />
+                                            <input type="submit" class="btn46H" value="登录" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -87,7 +89,7 @@
                                             密码：
                                         </td>
                                         <td>
-                                            <input type="password" class="loginInput" />
+                                            <asp:TextBox ID="txtPassword" runat="server" CssClass="loginInput" TextMode="Password"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -95,8 +97,8 @@
                                             &nbsp;
                                         </td>
                                         <td colspan="2">
-                                            <label for="autoLogin">
-                                                <input type="checkbox" id="autoLogin" class="jz" name="" />自动登录</label>
+                                            <label for="<%=autoLogin.ClientID %>">
+                                                <input type="checkbox" id="autoLogin" runat="server" class="jz" />自动登录</label>
                                             <a href="#" target="_blank" class="blue">忘记密码</a>
                                         </td>
                                     </tr>
@@ -107,15 +109,17 @@
                                         </td>
                                     </tr>
                                 </table>
-                                <!--登录前 结束-->
-                                <!--登录后-->
+                                </form>
+                                <%}
+                                  else
+                                  { %>
                                 <table width="90%" class="loginTable" align="center" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                         <td class="tc">
-                                            matchbox18，欢迎您！
+                                            <%=LoginUser.fdUserAccount %>，欢迎您！
                                         </td>
                                         <td rowspan="2">
-                                            <input type="button" class="btn46H" value="退出" />
+                                            <input type="button" class="btn46H" value="退出" onclick="javascript:window.location='Logout.aspx'" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -131,12 +135,12 @@
                                     </tr>
                                     <tr>
                                         <td colspan="3" class="tc" height="50">
-                                            <a href="#" target="_blank" class="btn28H">我的杰信</a> <a href="#" target="_blank" class="btn28H">
-                                                填写简历</a>
+                                            <a href="/User/Index.aspx" target="_blank" class="btn28H">我的杰信</a> <a href="#" target="_blank"
+                                                class="btn28H">填写简历</a>
                                         </td>
                                     </tr>
                                 </table>
-                                <!--登录后 结束-->
+                                <%} %>
                             </div>
                             <div class="logBtm">
                             </div>
@@ -160,22 +164,21 @@
                                 <a href="javascript:void(0);" onclick="ChooseArea();" id="AreaName" class="btn28H left">
                                     选择地区</a>
                                 <input type="button" class="btn48_28 left" value="" onclick="searchName();" />
-                                <input type="hidden" value="全文" id="tagName" />
+                                <input type="hidden" value="0" id="tagName" />
+                                <input type="hidden" value="" id="areaId" />
+                                <input type="hidden" value="" id="area" />
                             </div>
                         </div>
                         <div class="recomPos">
                             <dl>
                                 <dt>热门关键词搜索:</dt>
                                 <dd class="blue">
-                                    <a href="#" target="_blank">首席大技术官</a> | <a href="#" target="_blank">首席信息主管</a>
-                                    | <a href="#" target="_blank">高技术总监</a> | <a href="#" target="_blank">技术经理</a><br />
-                                    <a href="#" target="_blank">高技术经理</a> | <a href="#" target="_blank">信息技术主管</a> |
-                                    <a href="#" target="_blank">信息技术专员</a> | <a href="#" target="_blank">产品经理</a><br />
-                                    <a href="#" target="_blank">项目经理</a> | <a href="#" target="_blank">区域项目主管</a> |
-                                    <a href="#" target="_blank">研发主执行</a> | <a href="#" target="_blank">协调沟通专员</a>
-                                    <br />
-                                    <a href="#" target="_blank">研发工程师</a> | <a href="#" target="_blank">高级软件工程师</a>
-                                    | <a href="#" target="_blank">软件工程</a> | <a href="#" target="_blank">硬件工程师</a>
+                                    <aw:KeyWordList runat="server" TopCount="16" CacheName="INDEX">
+                                        <ItemTemplate>
+                                            <a href="/search.aspx?key=<%#Eval("fdKeyWName") %>" target="_blank">
+                                                <%#Eval( "fdKeyWName" )%></a> |
+                                        </ItemTemplate>
+                                    </aw:KeyWordList>
                                 </dd>
                             </dl>
                         </div>
@@ -663,250 +666,23 @@
         { }
     </script>
 
-    <div class="choArea" id="ChooseArea">
-        <div class="top">
-            <i class="iTit">请选择工作地点</i> <span class="topRight white">[<a href="javascript:void(0);"
-                onclick="AreaName(this);">不限</a>]&nbsp;&nbsp; <a href="javascript:void(0);" onclick="closeWindow('ChooseArea')">
-                    <img src="images/icon_close.gif" width="15" height="15" /></a> </span>
-        </div>
-        <div class="con gray">
-            <h3>
-                主要城市：</h3>
-            <dl>
-                <dt>华北东北：</dt>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">北京</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">天津</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">大连</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">沈阳</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">长春</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">哈尔滨</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">石家庄</a></dd>
-            </dl>
-            <dl>
-                <dt>华东地区：</dt>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">上海</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">南京</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">苏州</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">杭州</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">宁波</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">合肥</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">福州</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">济南</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">青岛</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">南昌</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">无锡</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">常州</a></dd>
-            </dl>
-            <dl>
-                <dt>华南华中：</dt>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">广州</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">深圳</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">东莞</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">武汉</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">长沙</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">郑州</a></dd>
-            </dl>
-            <dl>
-                <dt>西北西南：</dt>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">西安</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">成都</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">重庆</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" onclick="AreaName(this);">昆明</a></dd>
-            </dl>
-            <h3>
-                所有省份：</h3>
-            <dl>
-                <dt>华东东北：</dt>
-                <dd>
-                    <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,0);">河北省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,1);">山西省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,2);">内蒙古</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,3);">辽宁省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,4);">吉林省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,5);">黑龙江省</a></dd>
-            </dl>
-            <dl>
-                <dt>华东地区：</dt>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">江苏省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">浙江省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">安徽省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">福建省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">江西省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">山东省</a></dd>
-            </dl>
-            <dl>
-                <dt>华南华中：</dt>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">广东省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">广西省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">海南省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">河南省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">湖北省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">湖南省</a></dd>
-            </dl>
-            <dl>
-                <dt>西北西南：</dt>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">陕西省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">甘肃省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">青海省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">宁夏</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">新疆</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">四川省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">贵州省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">云南省</a></dd>
-                <dd>
-                    <a href="javascript:void(0);" class="prov">西藏</a></dd>
-            </dl>
-            <dl>
-                <dt>其它：</dt>
-                <dd>
-                    <a href="javascript:void(0);">香港</a></dd>
-                <dd>
-                    <a href="javascript:void(0);">澳门</a></dd>
-                <dd>
-                    <a href="javascript:void(0);">台湾</a></dd>
-                <dd>
-                    <a href="javascript:void(0);">国外</a></dd>
-            </dl>
-            <span class="blank5px"></span>
-        </div>
-        <div class="btm">
-        </div>
-    </div>
-
     <script type="text/javascript">
-        //调用弹出方法：
-        function ChooseArea() {
-            showMsgBox('ChooseArea', 538, 366) //参数说明：层ID, 层宽度，层高度
-        }
-        function AreaName(obj) {
-            var AreaName = document.getElementById("AreaName");
-            if (!AreaName) return false;
-            AreaName.innerHTML = obj.innerHTML;
-            closeWindow("ChooseArea");
-        }
-        var areas = new Array();
-        areas[0] = new Array("广州1", "深圳", "惠州", "汕头", "珠海", "佛山", "中山", "东莞", "韶关", "江门", "湛江", "肇庆", "溥远", "潮州", "河源", "揭阳", "茂名", "汕尾", "顺德", "梅州", "开平", "阳江", "云浮");
-        areas[1] = new Array("广州2", "深圳", "惠州", "汕头", "珠海", "佛山", "中山", "东莞", "韶关", "江门", "湛江", "肇庆", "溥远", "潮州", "河源", "揭阳", "茂名", "汕尾", "顺德", "梅州", "开平", "阳江", "云浮");
-        areas[2] = new Array("广州3", "深圳", "惠州", "汕头", "珠海", "佛山", "中山", "东莞", "韶关", "江门", "湛江", "肇庆", "溥远", "潮州", "河源", "揭阳", "茂名", "汕尾", "顺德", "梅州", "开平", "阳江", "云浮");
-        areas[3] = new Array("广州4", "深圳", "惠州", "汕头", "珠海", "佛山", "中山", "东莞", "韶关", "江门", "湛江", "肇庆", "溥远", "潮州", "河源", "揭阳", "茂名", "汕尾", "顺德", "梅州", "开平", "阳江", "云浮");
-        areas[4] = new Array("广州5", "深圳", "惠州", "汕头", "珠海", "佛山", "中山", "东莞", "韶关", "江门", "湛江", "肇庆", "溥远", "潮州", "河源", "揭阳", "茂名", "汕尾", "顺德", "梅州", "开平", "阳江", "云浮");
-        areas[5] = new Array("广州6", "深圳", "惠州", "汕头", "珠海", "佛山", "中山", "东莞", "韶关", "江门", "湛江", "肇庆", "溥远", "潮州", "河源", "揭阳", "茂名", "汕尾", "顺德", "梅州", "开平", "阳江", "云浮");
-
-
-        function overDetail(obj, num) {
-            var strHtml = "";
-            var objParent = obj.parentNode;
-            var subArea = document.getElementById("subArea_" + num);
-            if (!subArea) {
-                subArea = document.createElement("div");
-                subArea.id = "subArea_" + num;
-                subArea.className = "subArea";
-                if (!areas[num]) { return false; }
-                strHtml += "<h4>" + obj.innerHTML + "</h4>"
-                for (var i = 0; i < areas[num].length; i++) {
-                    strHtml += "<span><a href='javascript:void(0);' onclick='AreaName(this);'>" + areas[num][i] + "</a></span>";
-                }
-                subArea.innerHTML = strHtml;
-                objParent.appendChild(subArea);
-
+        function checkForm() {
+            var error = "";
+            if (!$("#<%=txtUserName.ClientID %>").val()) {
+                error = "会员名不能为空！\n";
             }
-            subArea.onmouseover = function() {
-                this.parentNode.className = "relate cur";
-                this.style.display = "block";
+            if (!$("#<%=txtPassword.ClientID %>").val()) {
+                error += "密码不能为空！\n";
             }
-            subArea.onmouseout = function() {
-                this.parentNode.className = "";
-                this.style.display = "none";
+            if (error.length > 0) {
+                alert(error);
+                return false;
+            } else {
+                return true;
             }
-            objParent.onmouseout = function() {
-                this.className = "";
-                subArea.style.display = "none";
-            }
-            objParent.className = "relate cur";
-            subArea.style.display = "block";
-
-        }
-        //function outDetail(obj){
-        //	if(!obj.parentNode)return false;
-        //	obj.parentNode.style.display = "none";	
-        //}
-        function Changetag(words, num) {
-            var topTabs = document.getElementById("topTabs");
-            var tagName = document.getElementById("tagName");
-            tagName.value = words;
-            var aArray = topTabs.getElementsByTagName("a");
-            for (var i = 0; i < aArray.length; i++) {
-                if (i == aArray.length - 1) {
-                    aArray[i].className = "nobor";
-                } else {
-                    aArray[i].className = "";
-                }
-            }
-            aArray[num].className = "cur";
-        }
-
-        function searchName() {
-            var tagName = document.getElementById("tagName").value;
-            var keyword = document.getElementById("keyword").value;
-            if (keyword == document.getElementById("keyword").defaultValue) { keyword = ""; }
-            var AreaName = document.getElementById("AreaName").innerHTML;
-            if (AreaName == "选择地区") { AreaName = ""; }
-            alert("条件一：" + tagName + " 条件二：" + keyword + " 条件三：" + AreaName);
         }
     </script>
 
+    <uc1:Area runat="server" />
 </asp:Content>

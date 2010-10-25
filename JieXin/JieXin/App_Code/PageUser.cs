@@ -15,30 +15,8 @@ public class PageUser : PageBase
         //
     }
 
-    private AW_User_bean _loginUser;
-    /// <summary>
-    /// 个人用户
-    /// </summary>
-    public AW_User_bean LoginUser
+    protected override void OnPreInit( EventArgs e )
     {
-        get { return _loginUser; }
-        set { _loginUser = value; }
-    }
-
-    protected override void OnPreInit(EventArgs e)
-    {
-        this._loginUser = new AW_User_bean();
-        if (this.Session["USERID"] == null)
-        {
-            this.Session["USERID"] = "10000";
-            this.Session["USERNAME"] = "gudieaofei";
-            this._loginUser.fdUserID = 10000;
-            this._loginUser.fdUserAccount = "gudieaofei";
-        }
-        else
-        {
-            this._loginUser.fdUserID = int.Parse(this.Session["USERID"].ToString());
-            this._loginUser.fdUserAccount = this.Session["USERNAME"].ToString();
-        }
+        base.OnPreInit( e );
     }
 }

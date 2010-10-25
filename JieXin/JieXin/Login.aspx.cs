@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 using Studio.Web;
 using AnyWell.AW_DL;
 
-public partial class Index : PageBase
+public partial class Login : PageBase
 {
     protected void Page_Load( object sender, EventArgs e )
     {
@@ -26,8 +26,8 @@ public partial class Index : PageBase
 
             using( AW_User_dao dao = new AW_User_dao() )
             {
-                AW_User_bean bean = dao.funcLogin( txtUserName.Text, txtPassword.Text, autoLogin.Checked );
-                if( bean == null || bean.fdUserStatus == 2 )
+                AW_User_bean bean=dao.funcLogin( txtUserName.Text, txtPassword.Text,autoLogin.Checked );
+                if(bean==null ||bean.fdUserStatus==2 )
                 {
                     WebAgent.AlertAndBack( "会员名或密码错误！" );
                 }

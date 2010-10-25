@@ -100,9 +100,9 @@
     </form>
     <script type="text/javascript">
         function refreshCode() {
-            $("#checkCode").attr("src", "CheckCode.aspx?rd=" + Math.random());
+            $("#checkCode").attr("src", "../CheckCode.aspx?rd=" + Math.random());
         }
-        $("#checkCode").attr("src", "CheckCode.aspx?rd=" + Math.random());
+        $("#checkCode").attr("src", "../CheckCode.aspx?rd=" + Math.random());
     </script>
 </body>
 </html>

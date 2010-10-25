@@ -10,6 +10,8 @@ namespace AnyWell.AW_DL
 {
 	public partial class AW_Recruit_dao
 	{
+
+
         /**************************************************自定义控件********************************************************************************/
         string selectStr = "fdRecrID,fdRecrTitle,fdRecrCompany,fdRecrAreaID,fdRecrType,fdRecrSort";
 

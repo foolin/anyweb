@@ -69,6 +69,7 @@ namespace Studio.Web
 				case 2:RendStyle2(writer);break;
                 case 3: RendStyle3(writer); break;
                 case 4: RendStyle4(writer); break;
+                case 5: RendStyle5( writer );break;
 				default:RendStyle1(writer);break;
 			}
 		}
@@ -394,6 +395,45 @@ namespace Studio.Web
 
                 writer.Write("</span>");
             }
+        }
+
+        void RendStyle5( HtmlTextWriter writer )
+        {
+            int begin, end, pages = PageCount;
+
+            writer.Write( "<a {0}>&lt;</a>", PageIndex > 1 ? String.Format( "href='" + UrlPrefix + "{0}' title='上一页'", PageIndex - 1 ) : "disabled" );
+            if( PageCount > 9 )
+            {
+                if( PageIndex - 4 >= 1 && PageIndex + 4 <= PageCount )
+                {
+                    begin = PageIndex - 4;
+                    end = PageIndex + 4;
+                }
+                else if( PageIndex - 4 <= 0 )
+                {
+                    begin = 1;
+                    end = 9;
+                }
+                else
+                {
+                    end = PageIndex + 4 > PageCount ? PageCount : PageIndex + 4;
+                    begin = end - 8;
+                }
+            }
+            else
+            {
+                begin = 1;
+                end = pages;
+            }
+
+            for( int i = begin; i <= end; i++ )
+            {
+                if( i == PageIndex )
+                    writer.Write( "<a href=\"{0}\" class=\"cur\">{1}</a>", UrlPrefix + i, i );
+                else
+                    writer.Write( "<a href=\"{0}\">{1}</a>", UrlPrefix + i, i );
+            }
+            writer.Write( "<a {0}>&gt;</a>", PageIndex < pages ? String.Format( "href='" + UrlPrefix + "{0}' title='下一页'", PageIndex + 1 ) : "disabled" );
         }
 
 		/// <summary>

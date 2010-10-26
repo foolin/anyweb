@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AnyWell.AW_DL;
 
 public partial class Search : PageBase
 {
@@ -13,5 +14,10 @@ public partial class Search : PageBase
         string key = QS( "key" );
         int.TryParse( QS( "tag" ), out tag );
         int.TryParse( QS( "areaid" ), out areaid );
+
+        int recordCount = 0;
+        rep.DataSource = new AW_Recruit_dao().funcGetRecruitList( tag, areaid, key, PN1.PageSize, PN1.PageIndex, out recordCount );
+        rep.DataBind();
+        PN1.SetPage( recordCount );
     }
 }

@@ -25,8 +25,9 @@ public partial class Admin_RecruitList : PageAdmin
         if (!string.IsNullOrEmpty(QS("type")) && !WebAgent.IsInt32(QS("type")))
             WebAgent.AlertAndBack("参数错误！");
         drpType.SelectedValue = QS("type");
+        txtKey.Text = QS( "key" );
         int recordCount = 0;
-        compRep.DataSource = new AW_Recruit_dao().funcGetRecruitList(int.Parse(drpType.SelectedValue), PN1.PageSize, PN1.PageIndex, out recordCount);
+        compRep.DataSource = new AW_Recruit_dao().funcGetRecruitList( int.Parse( drpType.SelectedValue ), txtKey.Text, PN1.PageSize, PN1.PageIndex, out recordCount );
         compRep.DataBind();
         PN1.SetPage(recordCount);
     }

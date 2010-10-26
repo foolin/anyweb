@@ -46,8 +46,8 @@
                 }
             }
         }
-        function columnchange() {
-            window.location = "RecruitList.aspx?type=" + $("#<%=drpType.ClientID %>").val();
+        function search() {
+            window.location = "RecruitList.aspx?type=" + $("#<%=drpType.ClientID %>").val()+"&key="+$("#<%=txtKey.ClientID %>").val();
         }
         function delRecruits() {
             var list = document.getElementsByTagName("input");
@@ -84,12 +84,16 @@
         </div>
         <div class="fi filter">
             类型：
-            <asp:DropDownList ID="drpType" onchange="columnchange()" runat="server">
+            <asp:DropDownList ID="drpType" runat="server">
+                <asp:ListItem Value="0" Text="所有招聘"></asp:ListItem>
                 <asp:ListItem Value="1" Text="实习生招聘"></asp:ListItem>
                 <asp:ListItem Value="2" Text="毕业生招聘"></asp:ListItem>
                 <asp:ListItem Value="3" Text="兼职招聘"></asp:ListItem>
                 <asp:ListItem Value="4" Text="企业招聘"></asp:ListItem> 
             </asp:DropDownList>
+            关键字：
+            <asp:TextBox ID="txtKey" runat="server" CssClass="text"></asp:TextBox>
+            <input type="button" value="搜索" onclick="search()" />
         </div>
         <div class="mbd">
             <table id="datas">

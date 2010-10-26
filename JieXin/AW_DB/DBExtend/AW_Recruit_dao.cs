@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Web;
 using Studio.Data;
+using AnyWell.Configs;
 
 namespace AnyWell.AW_DL
 {
@@ -18,13 +19,75 @@ namespace AnyWell.AW_DL
         /// <param name="pageIndex"></param>
         /// <param name="recordCount"></param>
         /// <returns></returns>
-        public List<AW_Recruit_bean> funcGetRecruitList(int type, int pageSize, int pageIndex, out int recordCount)
+        public List<AW_Recruit_bean> funcGetRecruitList( int type, string key, int pageSize, int pageIndex, out int recordCount )
         {
-            this.propWhere = "fdRecrType=" + type;
+            this.propWhere = "1=1";
+            if( type != 0 )
+            {
+                this.propWhere += " AND fdRecrType=" + type;
+            }
+            if( !string.IsNullOrEmpty( key ) )
+            {
+                this.propWhere += string.Format( " AND fdRecrTitle LIKE '%{0}%'", key );
+            }
             this.propOrder = "ORDER BY fdRecrSort DESC,fdRecrID DESC";
             this.propGetCount = true;
             this.propPageSize = pageSize;
             this.propPage = pageIndex;
+            List<AW_Recruit_bean> list = this.funcGetList();
+            recordCount = this.propCount;
+            return list;
+        }
+
+        /// <summary>
+        /// 获取招聘列表（前台）
+        /// </summary>
+        /// <param name="tag"></param>
+        /// <param name="areaId"></param>
+        /// <param name="key"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="recordCount"></param>
+        /// <returns></returns>
+        public List<AW_Recruit_bean> funcGetRecruitList( int tag, int areaId, string key, int pageSize, int pageIndex, out int recordCount )
+        {
+            this.propSelect = "fdRecrID,fdRecrTitle,fdRecrCompany,fdRecrJob,fdRecrCreateAt";
+            this.propWhere = "1=1";
+            if( areaId != 0 )
+            {
+                this.propWhere += " AND fdRecrAreaID=" + areaId;
+            }
+            if( !string.IsNullOrEmpty( key ) )
+            {
+                key=string.Format("%{0}%",key);
+                switch( tag )
+                {
+                    case 0:
+                        {
+                            this.propWhere += " AND fdRecrTitle LIKE @key";
+                            break;
+                        }
+                    case 1:
+                        {
+                            this.propWhere += " AND fdRecrJob LIKE @key";
+                            break;
+                        }
+                    case 2:
+                        {
+                            this.propWhere += " AND fdRecrCompany LIKE @key";
+                            break;
+                        }
+                    default:
+                        {
+                            this.propWhere += " AND fdRecrTitle LIKE @key";
+                            break;
+                        }
+                }
+                this.funcAddParam( "@key", key );
+            }
+            this.propPageSize = pageSize;
+            this.propPage = pageIndex;
+            this.propGetCount = true;
             List<AW_Recruit_bean> list = this.funcGetList();
             recordCount = this.propCount;
             return list;
@@ -114,6 +177,35 @@ namespace AnyWell.AW_DL
                     }
                 }
             }
+            CacheAgent.ClearCache( "RECRUIT_CACHE_" );
+        }
+
+        public override int funcInsert( Bean_Base aBean )
+        {
+            int result = base.funcInsert( aBean );
+            CacheAgent.ClearCache( "RECRUIT_CACHE_" );
+            return result;
+        }
+
+        public override int funcUpdate( Bean_Base aBean )
+        {
+            int result = base.funcUpdate( aBean );
+            CacheAgent.ClearCache( "RECRUIT_CACHE_" );
+            return result;
+        }
+
+        public override int funcDelete( int id )
+        {
+            int result = base.funcDelete( id );
+            CacheAgent.ClearCache( "RECRUIT_CACHE_" );
+            return result;
+        }
+
+        public override int funcDeletes( string aIDList )
+        {
+            int result = base.funcDeletes( aIDList );
+            CacheAgent.ClearCache( "RECRUIT_CACHE_" );
+            return result;
         }
 
         /**************************************************自定义控件********************************************************************************/

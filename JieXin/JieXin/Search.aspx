@@ -53,179 +53,29 @@
                     </div>
                     <div class="dList" id="jobList">
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <th>
-                                    <input type="checkbox" name="job" />
-                                </th>
-                                <td>
-                                    <a href="#" target="_blank" class="fbold"><span class="orange">项目经理</span><span class="blue">（WebGIS开发方向）</span></a>
-                                </td>
-                                <td>
-                                    <a href="#" target="_blank" class="blue">（广州市云金地数码科技有限公司）</a>
-                                </td>
-                                <td class="date">
-                                    2010-10-13
-                                </td>
-                            </tr>
-                            <tr class="even">
-                                <th>
-                                    <input type="checkbox" name="job" />
-                                </th>
-                                <td>
-                                    <a href="#" target="_blank" class="fbold"><span class="orange">项目经理</span><span class="blue">（WebGIS开发方向）</span></a>
-                                </td>
-                                <td>
-                                    <a href="#" target="_blank" class="blue">（广州市云金地数码科技有限公司）</a>
-                                </td>
-                                <td class="date">
-                                    2010-10-13
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <input type="checkbox" name="job" />
-                                </th>
-                                <td>
-                                    <a href="#" target="_blank" class="fbold"><span class="orange">项目经理</span><span class="blue">（WebGIS开发方向）</span></a>
-                                </td>
-                                <td>
-                                    <a href="#" target="_blank" class="blue">（广州市云金地数码科技有限公司）</a>
-                                </td>
-                                <td class="date">
-                                    2010-10-13
-                                </td>
-                            </tr>
-                            <tr class="even">
-                                <th>
-                                    <input type="checkbox" name="job" />
-                                </th>
-                                <td>
-                                    <a href="#" target="_blank" class="fbold"><span class="orange">项目经理</span><span class="blue">（WebGIS开发方向）</span></a>
-                                </td>
-                                <td>
-                                    <a href="#" target="_blank" class="blue">（广州市云金地数码科技有限公司）</a>
-                                </td>
-                                <td class="date">
-                                    2010-10-13
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <input type="checkbox" name="job" />
-                                </th>
-                                <td>
-                                    <a href="#" target="_blank" class="fbold"><span class="orange">项目经理</span><span class="blue">（WebGIS开发方向）</span></a>
-                                </td>
-                                <td>
-                                    <a href="#" target="_blank" class="blue">（广州市云金地数码科技有限公司）</a>
-                                </td>
-                                <td class="date">
-                                    2010-10-13
-                                </td>
-                            </tr>
-                            <tr class="even">
-                                <th>
-                                    <input type="checkbox" name="job" />
-                                </th>
-                                <td>
-                                    <a href="#" target="_blank" class="fbold"><span class="orange">项目经理</span><span class="blue">（WebGIS开发方向）</span></a>
-                                </td>
-                                <td>
-                                    <a href="#" target="_blank" class="blue">（广州市云金地数码科技有限公司）</a>
-                                </td>
-                                <td class="date">
-                                    2010-10-13
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <input type="checkbox" name="job" />
-                                </th>
-                                <td>
-                                    <a href="#" target="_blank" class="fbold"><span class="orange">项目经理</span><span class="blue">（WebGIS开发方向）</span></a>
-                                </td>
-                                <td>
-                                    <a href="#" target="_blank" class="blue">（广州市云金地数码科技有限公司）</a>
-                                </td>
-                                <td class="date">
-                                    2010-10-13
-                                </td>
-                            </tr>
-                            <tr class="even">
-                                <th>
-                                    <input type="checkbox" name="job" />
-                                </th>
-                                <td>
-                                    <a href="#" target="_blank" class="fbold"><span class="orange">项目经理</span><span class="blue">（WebGIS开发方向）</span></a>
-                                </td>
-                                <td>
-                                    <a href="#" target="_blank" class="blue">（广州市云金地数码科技有限公司）</a>
-                                </td>
-                                <td class="date">
-                                    2010-10-13
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <input type="checkbox" name="job" />
-                                </th>
-                                <td>
-                                    <a href="#" target="_blank" class="fbold"><span class="orange">项目经理</span><span class="blue">（WebGIS开发方向）</span></a>
-                                </td>
-                                <td>
-                                    <a href="#" target="_blank" class="blue">（广州市云金地数码科技有限公司）</a>
-                                </td>
-                                <td class="date">
-                                    2010-10-13
-                                </td>
-                            </tr>
-                            <tr class="even">
-                                <th>
-                                    <input type="checkbox" name="job" />
-                                </th>
-                                <td>
-                                    <a href="#" target="_blank" class="fbold"><span class="orange">项目经理</span><span class="blue">（WebGIS开发方向）</span></a>
-                                </td>
-                                <td>
-                                    <a href="#" target="_blank" class="blue">（广州市云金地数码科技有限公司）</a>
-                                </td>
-                                <td class="date">
-                                    2010-10-13
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <input type="checkbox" name="job" />
-                                </th>
-                                <td>
-                                    <a href="#" target="_blank" class="fbold"><span class="orange">项目经理</span><span class="blue">（WebGIS开发方向）</span></a>
-                                </td>
-                                <td>
-                                    <a href="#" target="_blank" class="blue">（广州市云金地数码科技有限公司）</a>
-                                </td>
-                                <td class="date">
-                                    2010-10-13
-                                </td>
-                            </tr>
-                            <tr class="even">
-                                <th>
-                                    <input type="checkbox" name="job" />
-                                </th>
-                                <td>
-                                    <a href="#" target="_blank" class="fbold"><span class="orange">项目经理</span><span class="blue">（WebGIS开发方向）</span></a>
-                                </td>
-                                <td>
-                                    <a href="#" target="_blank" class="blue">（广州市云金地数码科技有限公司）</a>
-                                </td>
-                                <td class="date">
-                                    2010-10-13
-                                </td>
-                            </tr>
+                            <asp:Repeater ID="rep" runat="server">
+                                <ItemTemplate>
+                                    <tr class="<%# Container.ItemIndex % 2 == 1 ? "" : "even" %>">
+                                        <th>
+                                            <input type="checkbox" name="job" value="<%# Eval("fdRecrID")%>" />
+                                        </th>
+                                        <td>
+                                            <a href="/r/{0}.aspx" target="_blank" class="fbold"><%#Eval( "fdRecrTitle" )%></a>
+                                        </td>
+                                        <td>
+                                            <a href="/r/{0}.aspx" target="_blank" class="blue">（<%#Eval("fdRecrCompany") %>）</a>
+                                        </td>
+                                        <td class="date">
+                                            <%#Eval("fdRecrCreateAt","{0:yyyy-MM-dd}") %>
+                                        </td>
+                                    </tr>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </table>
                     </div>
                     <div class="pageStyle tr">
-                        <a href="#">&lt;</a> <a href="#" class="cur">1</a> <a href="#">2</a> <a href="#">3</a>
-                        <a href="#">4</a> <a href="#">5</a> <a href="#">&gt;</a>
+                        <sw:PageNaver ID="PN1" runat="server" StyleID="5" PageSize="20">
+                        </sw:PageNaver>
                     </div>
                 </div>
             </div>

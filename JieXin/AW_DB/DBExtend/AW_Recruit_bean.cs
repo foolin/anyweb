@@ -10,5 +10,15 @@ namespace AnyWell.AW_DL
 {
 	public partial class AW_Recruit_bean
 	{
+        /// <summary>
+        /// 访问路径
+        /// </summary>
+        public string fdRecrPath
+        {
+            get
+            {
+                return string.Format("/r/{0}.aspx", this.fdRecrID);
+            }
+        }
 	}
 }

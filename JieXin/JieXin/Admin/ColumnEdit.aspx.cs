@@ -20,11 +20,11 @@ public partial class Admin_ColumnEdit : PageAdmin
     {
         base.OnPreRender(e);
 
-        if (!WebAgent.IsInt32(QS("id"))) 
+        if (!WebAgent.IsInt32(QS("id")))
             WebAgent.AlertAndBack("编号不正确!");
 
         AW_Column_bean column = (new AW_Column_dao()).funcGetColumnInfo(int.Parse(QS("id")));
-        if (column == null) 
+        if (column == null)
             WebAgent.AlertAndBack("新闻栏目不存在!");
 
         foreach (AW_Column_bean bean in (new AW_Column_dao()).funcGetColumns()) {

@@ -10,7 +10,111 @@ namespace AnyWell.AW_DL
 {
 	public partial class AW_Recruit_dao
 	{
+        /// <summary>
+        /// 获取招聘列表
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="recordCount"></param>
+        /// <returns></returns>
+        public List<AW_Recruit_bean> funcGetRecruitList(int type, int pageSize, int pageIndex, out int recordCount)
+        {
+            this.propWhere = "fdRecrType=" + type;
+            this.propOrder = "ORDER BY fdRecrSort DESC,fdRecrID DESC";
+            this.propGetCount = true;
+            this.propPageSize = pageSize;
+            this.propPage = pageIndex;
+            List<AW_Recruit_bean> list = this.funcGetList();
+            recordCount = this.propCount;
+            return list;
+        }
 
+        /// <summary>
+        /// 调整招聘排序
+        /// </summary>
+        /// <param name="column"></param>
+        /// <param name="recruitId"></param>
+        /// <param name="nextId"></param>
+        /// <param name="previewId"></param>
+        public void funcSortRecruit(int recruitId, int nextId, int previewId)
+        {
+            AW_Recruit_bean recruit = AW_Recruit_bean.funcGetByID(recruitId, "fdRecrID,fdRecrSort");
+            AW_Recruit_bean next = nextId == 0 ? null : AW_Recruit_bean.funcGetByID(nextId, "fdRecrID,fdRecrSort");
+            AW_Recruit_bean preview = previewId == 0 ? null : AW_Recruit_bean.funcGetByID(previewId, "fdRecrID,fdRecrSort");
+
+            this.propSelect = " fdRecrID,fdRecrSort";
+            this.propOrder = " ORDER BY fdRecrSort DESC";
+
+            this._propFields = "fdRecrID,fdRecrSort";
+
+            if (next != null)
+            {
+                if (recruit.fdRecrSort > next.fdRecrSort) //从上往下移
+                {
+                    this.propWhere += " AND fdRecrSort<=" + recruit.fdRecrSort + " AND fdRecrSort>" + next.fdRecrSort.ToString();
+                    List<AW_Recruit_bean> list = this.funcGetList();
+                    if (list.Count > 1)
+                    {
+                        recruit.fdRecrSort = list[list.Count - 1].fdRecrSort;
+                        this.funcUpdate(recruit);
+                        for (int i = 1; i < list.Count; i++)
+                        {
+                            list[i].fdRecrSort = list[i - 1].fdRecrSort;
+                            this.funcUpdate(list[i]);
+                        }
+                    }
+                }
+                else //从下往上移
+                {
+                    this.propWhere += " AND fdRecrSort>=" + recruit.fdRecrSort + " AND fdRecrSort<=" + next.fdRecrSort.ToString();
+                    List<AW_Recruit_bean> list = this.funcGetList();
+                    if (list.Count > 1)
+                    {
+                        recruit.fdRecrSort = list[0].fdRecrSort;
+                        this.funcUpdate(recruit);
+                        for (int i = 0; i < list.Count - 1; i++)
+                        {
+                            list[i].fdRecrSort = list[i + 1].fdRecrSort;
+                            this.funcUpdate(list[i]);
+                        }
+                    }
+                }
+            }
+            else if (preview != null)
+            {
+                if (recruit.fdRecrSort > preview.fdRecrSort) //从上往下移
+                {
+                    this.propWhere += " AND fdRecrSort<=" + recruit.fdRecrSort + " AND fdRecrSort>=" + preview.fdRecrSort.ToString();
+                    List<AW_Recruit_bean> list = this.funcGetList();
+                    if (list.Count > 1)
+                    {
+                        recruit.fdRecrSort = list[list.Count - 1].fdRecrSort;
+                        this.funcUpdate(recruit);
+                        for (int i = list.Count - 1; i > 0; i--)
+                        {
+                            list[i].fdRecrSort = list[i - 1].fdRecrSort;
+                            this.funcUpdate(list[i]);
+                        }
+                    }
+                }
+                else //从下往上移
+                {
+                    this.propWhere += " AND fdRecrSort>=" + recruit.fdRecrSort + " AND fdRecrSort<" + preview.fdRecrSort.ToString();
+                    List<AW_Recruit_bean> list = this.funcGetList();
+                    if (list.Count > 1)
+                    {
+                        recruit.fdRecrSort = list[0].fdRecrSort;
+                        this.funcUpdate(recruit);
+                        for (int i = 0; i < list.Count - 1; i++)
+                        {
+                            list[i].fdRecrSort = list[i + 1].fdRecrSort;
+                            this.funcUpdate(list[i]);
+                        }
+                    }
+                }
+            }
+        }
 
         /**************************************************自定义控件********************************************************************************/
         string selectStr = "fdRecrID,fdRecrTitle,fdRecrCompany,fdRecrAreaID,fdRecrType,fdRecrSort";

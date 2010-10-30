@@ -114,16 +114,22 @@
         }
         switch (urlInfo[0])
         {
+            case "a":   //文章内容页
+                {
+                    realPath = "/Article_Temp.aspx";
+                    Context.Items.Add( "ARTICLEID", urlInfo[ 1 ] );
+                    break;
+                }
             case "c":   //文章列表页
                 {
                     realPath = "/ArticleList_temp.aspx";
                     Context.Items.Add("COLUMNID", urlInfo[1]);
                     break;
                 }
-            case "a":   //文章内容页
+            case "n":   //公告内容页
                 {
-                    realPath = "/Article_Temp.aspx";
-                    Context.Items.Add("ARTICLEID", urlInfo[1]);
+                    realPath = "/Notice_Temp.aspx";
+                    Context.Items.Add( "NOTICEID", urlInfo[ 1 ] );
                     break;
                 }
             case "notice":  //公告列表页
@@ -131,10 +137,10 @@
                     realPath = "/NoticeList_Temp.aspx";
                     break;
                 }
-            case "n":   //公告内容页
+            case "r":   //招聘详情页
                 {
-                    realPath = "/Notice_Temp.aspx";
-                    Context.Items.Add("NOTICEID", urlInfo[1]);
+                    realPath = "/Recruit.aspx";
+                    Context.Items.Add( "RECRUITID", urlInfo[ 1 ] );
                     break;
                 }
             default:

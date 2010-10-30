@@ -18,5 +18,9 @@ public class PageUser : PageBase
     protected override void OnPreInit( EventArgs e )
     {
         base.OnPreInit( e );
+        if( this.LoginUser == null )
+        {
+            Response.Redirect( "/login.aspx" );
+        }
     }
 }

@@ -61,5 +61,47 @@ namespace AnyWell.AW_DL
             HttpRuntime.Cache.Insert( "USER_" + bean.fdUserID, bean, null, DateTime.MaxValue, TimeSpan.FromMinutes( 5 ) );
             return bean;
         }
+
+        /// <summary>
+        /// 检查用户名是否存在
+        /// </summary>
+        /// <param name="userAccount"></param>
+        /// <returns></returns>
+        public bool funcCheckAccount( string userAccount )
+        {
+            this.propSelect = "fdUserID";
+            this.propWhere = "fdUserAccount=@fdUserAccount";
+            this.funcAddParam( "@fdUserAccount", userAccount );
+            DataSet ds = this.funcCommon();
+            if( ds.Tables[ 0 ].Rows.Count > 0 )
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        /// <summary>
+        /// 检查邮箱是否存在
+        /// </summary>
+        /// <param name="userEmail"></param>
+        /// <returns></returns>
+        public bool funcCheckEmail( string userEmail )
+        {
+            this.propSelect = "fdUserID";
+            this.propWhere = "fdUserEmail=@fdUserEmail";
+            this.funcAddParam( "@fdUserEmail", userEmail );
+            DataSet ds = this.funcCommon();
+            if( ds.Tables[ 0 ].Rows.Count > 0 )
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 	}
 }

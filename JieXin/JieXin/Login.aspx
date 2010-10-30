@@ -92,7 +92,7 @@
                                 <div class="blank15px">
                                 </div>
                                 <p class="tc">
-                                    <a href="#" class="btn160_45">申请成为新会员</a>
+                                    <a href="/Register.aspx" class="btn160_45">申请成为新会员</a>
                                 </p>
                             </div>
                         </div>

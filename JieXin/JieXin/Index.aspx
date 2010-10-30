@@ -104,7 +104,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="3" class="tc" height="50">
-                                            <a href="#" target="_blank" class="btn28H">新会员注册</a> <a href="#" target="_blank"
+                                            <a href="/Register.aspx" target="_blank" class="btn28H">新会员注册</a> <a href="/User/Index.aspx"
                                                 class="btn28H">填写简历</a>
                                         </td>
                                     </tr>

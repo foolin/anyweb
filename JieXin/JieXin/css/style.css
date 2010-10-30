@@ -185,7 +185,7 @@
 .btn28H{ width:94px; height:28px; display:inline-block; background:url(../images/bg_btn_28H.gif) no-repeat; text-align:center; line-height:28px; color:#59A901; font-size:14px; margin:0px 3px;}
 .btn46H{ width:46px; height:46px; display:inline-block; background:url(../images/bg_btn_46x46.gif) no-repeat; text-align:center; line-height:46px; color:#fff; font-size:14px; border:0;}
 .btn48_28{ width:48px; height:28px; display:inline-block; background:url(../images/btn_search.gif) no-repeat;border:0; cursor:pointer;}
-.btn94_28{ width:94px; height:28px; display:inline-block; background:url(../images/bg_btn_94_28.gif) no-repeat; text-align:center; line-height:28px; color:#fff; margin:0px 3px;}
+.btn94_28{ width:94px; height:28px; display:inline-block; background:url(../images/bg_btn_94_28.gif) no-repeat; text-align:center; line-height:28px; color:#fff; margin:0px 3px; border:0;}
 .btn96_35{ width:96px; height:35px; display:inline-block; background:url(../images/btn_96x35.gif) no-repeat; text-align:center; line-height:35px; color:#fff; font-size:14px; border:0; font-weight:bold;}
 .btn160_45{ width:160px; height:45px; display:inline-block; background:url(../images/btn160x45.gif) no-repeat; text-align:center; line-height:45px; color:#59A901; font-size:14px; border:0; font-weight:bold;}
 /*input style*/
@@ -193,6 +193,7 @@
 .loginInput_in{ border:1px solid #999; height:16px; line-height:16px;}
 .loginInput{ width:91px;}
 .loginInput_in{ width:193px;}
+.reginput{ width:180px; height:18px; border:1px solid #7F9DB9;}
 .jz{ vertical-align:middle; margin:0px 3px 2px 0px;}
 
 /*chooseArea*/
@@ -275,4 +276,36 @@
 .pageStyle a{ display:inline-block; height:22px; padding:0px 6px; border:1px solid #D9D9D9; text-align:center; background-color:#F2F2F2; color:#666; margin:0px 2px; line-height:22px;}
 .pageStyle .cur,
 .pageStyle a:hover{ background-color:#59A901; color:#fff;}
+/*register page*/
+.regpage{ border:1px solid #D9D9D9; background:url(../images/bg_top37green.gif) top repeat-x; padding:34px 34px 0px; height:auto!important; min-height:762px; _height:762px;}
+.regpage .topic{ border-bottom:1px solid #D9D9D9; height:50px; line-height:22px;}
+.regpage h2{ font-weight:bold; color:#59A901; font-size:14px;}
+.regpage .formTable{ width:490px; margin:40px auto 0px;}
+.regpage .formTable th{ font-weight:normal; text-align:left; color:#666;}
+.regpage .formTable td{ height:28px; color:#999;}
+.regpage .formTable .cexbox{ margin:-1px 5px 2px 0px;}
+/*tip*/
+.tipR{ padding-left:20px; background:url(../images/icon-jxcw2.png) left -3px no-repeat; line-height:22px;}
+.tipW{ padding-left:20px; background:url(../images/icon-jxcw.png) left -3px no-repeat; line-height:22px;}
+
+/*resume page*/
+.resumePage{ border:1px solid #D9D9D9; background-color:#EDEDED; overflow:hidden; _zoom:1;}
+.resumePage .sidebar{ width:198px; float:left;}
+.resumePage .bg{ border:1px solid #F6F6F6;}
+.resumePage .sidebar ul{ width:185px; margin-top:35px; float:right; position:relative; border-top:1px solid #D9D9D9; margin-right:-1px;}
+.resumePage .sidebar ul li{ height:34px; border-top:1px solid #F6F6F6; border-bottom:1px solid #D9D9D9; position:relative; margin-right:0px;_margin-right:0px font-size:14px;}
+.resumePage .sidebar ul li a{ display:block;padding-left:44px; line-height:34px; height:34px;}
+.resumePage .sidebar ul .cur{ background:url(../images/bg_sidebar_cur.png) no-repeat;_background:url(../images/bg_sidebar_cur.png) -1px top no-repeat; position:relative; z-index:2; border:0px; margin:-1px -2px -2px 0px;_margin:-1px 0px -2px 0px;}
+.resumePage .sidebar ul .cur a{ font-weight:bold; color:#5AA902;}
+.resumePage .content{ width:752px; float:right; border-left:1px solid #D9D9D9;  background-color:#fff; height:auto!important; min-height:796px; _height:796px;}
+.column{ padding-bottom:37267px; margin-bottom:-37267px;}
+.resumePage .tit{ height:34px; padding:3px 0px 0px 18px; line-height:34px; font-size:14px; background:url(../images/bg_columntop.gif) top repeat-x; border-bottom:1px solid #D9D9D9; color:#666;}
+.resumePage .MemCon{ padding-top:12px; color:#666666;}
+.resumePage .MemCon .Res670{ width:670px; margin:0px auto;}
+.resumePage .tabsty{}
+.resumePage .tabsty th{ background-color:#F2F2F2; border:1px solid #D9D9D9; height:28px; font-weight:normal;}
+.resumePage .tabsty td{ border:1px solid #D9D9D9; height:42px; text-align:center;}
+.resumePage .imgBor{ border:1px solid #D9D9D9; padding:1px; background-color:#fff;}
+
 /**/
+input.file{position:relative;left:-218px;filter:alpha(opacity=0);opacity:0.0;z-index:1;*width:223px;}

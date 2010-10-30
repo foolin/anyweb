@@ -89,6 +89,11 @@
             realPath = Request.Path;
             return;
         }
+        if( requestPath.IndexOf( "/user" ) > -1 )   //会员后台
+        {
+            realPath = Request.Path;
+            return;
+        }
         foreach( string url in urls )
         {
             if( requestPath.Equals( url ) )

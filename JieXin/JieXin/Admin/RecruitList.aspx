@@ -90,6 +90,7 @@
                 <asp:ListItem Value="2" Text="毕业生招聘"></asp:ListItem>
                 <asp:ListItem Value="3" Text="兼职招聘"></asp:ListItem>
                 <asp:ListItem Value="4" Text="企业招聘"></asp:ListItem> 
+                <asp:ListItem Value="5" Text="知名企业招聘"></asp:ListItem>
             </asp:DropDownList>
             关键字：
             <asp:TextBox ID="txtKey" runat="server" CssClass="text"></asp:TextBox>

@@ -4,7 +4,7 @@
 <%@ Register Src="Control/Area.ascx" TagName="Area" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="subBanner">
-        <a href="#" target="_blank">
+        <a href="/index.aspx">
             <img src="images/subbanner.jpg" width="953" height="90" /></a>
     </div>
     <div class="blank8px">
@@ -230,7 +230,7 @@
                 </div>
                 <div class="con pad10">
                     <ul class="listA">
-                        <aw:RecruitList runat="server" TypeID="1" CacheName="INDEX1">
+                        <aw:RecruitList runat="server" TypeID="1" CacheName="INDEX1" TopCount="3">
                             <ItemTemplate>
                                 <li><span class="date">
                                     <%#Eval("fdRecrCreateAt","{0:yyyy-MM-dd}") %></span>•<a href="/r/<%#Eval("fdRecrID") %>.aspx"
@@ -248,7 +248,7 @@
                 </div>
                 <div class="con pad10">
                     <ul class="listA">
-                        <aw:RecruitList ID="RecruitList1" runat="server" TypeID="2" CacheName="INDEX2">
+                        <aw:RecruitList ID="RecruitList1" runat="server" TypeID="2" CacheName="INDEX2" TopCount="3">
                             <ItemTemplate>
                                 <li><span class="date">
                                     <%#Eval("fdRecrCreateAt","{0:yyyy-MM-dd}") %></span>•<a href="/r/<%#Eval("fdRecrID") %>.aspx"
@@ -266,7 +266,7 @@
                 </div>
                 <div class="con pad10">
                     <ul class="listA">
-                        <aw:RecruitList ID="RecruitList2" runat="server" TypeID="3" CacheName="INDEX3">
+                        <aw:RecruitList ID="RecruitList2" runat="server" TypeID="3" CacheName="INDEX3" TopCount="3">
                             <ItemTemplate>
                                 <li><span class="date">
                                     <%#Eval("fdRecrCreateAt","{0:yyyy-MM-dd}") %></span>•<a href="/r/<%#Eval("fdRecrID") %>.aspx"
@@ -344,7 +344,7 @@
         <div class="tit">
             <h2>
                 知名企业招聘</h2>
-            <span class="more"><a href="#" target="_blank">更多>></a></span>
+            <span class="more"><a href="/search.aspx?type=5">更多>></a></span>
         </div>
         <div class="con flowhidden">
             <div class="pad10">

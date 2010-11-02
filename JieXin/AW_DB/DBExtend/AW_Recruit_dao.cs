@@ -49,7 +49,7 @@ namespace AnyWell.AW_DL
         /// <param name="pageIndex"></param>
         /// <param name="recordCount"></param>
         /// <returns></returns>
-        public List<AW_Recruit_bean> funcGetRecruitList( int tag, int areaId, string key, int pageSize, int pageIndex, out int recordCount )
+        public List<AW_Recruit_bean> funcGetRecruitList( int tag, int areaId, string key, int type, int pageSize, int pageIndex, out int recordCount )
         {
             this.propSelect = "fdRecrID,fdRecrTitle,fdRecrCompany,fdRecrJob,fdRecrCreateAt";
             this.propWhere = "1=1";
@@ -57,9 +57,14 @@ namespace AnyWell.AW_DL
             {
                 this.propWhere += " AND fdRecrAreaID=" + areaId;
             }
+            if( type != 0 )
+            {
+                this.propWhere += " AND fdRecrType=" + type;
+            }
+
             if( !string.IsNullOrEmpty( key ) )
             {
-                key=string.Format("%{0}%",key);
+                key = string.Format( "%{0}%", key );
                 switch( tag )
                 {
                     case 0:

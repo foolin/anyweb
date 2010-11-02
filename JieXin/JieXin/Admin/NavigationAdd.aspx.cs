@@ -62,7 +62,7 @@ public partial class Admin_NavigationAdd : PageAdmin
                 bean.fdNaviLink = "/User/Index.aspx";
                 break;
             case "3":
-                bean.fdNaviLink = "/job.aspx";
+                bean.fdNaviLink = "/search.aspx";
                 break;
             case "4":
                 bean.fdNaviLink = "/notice.aspx";
@@ -76,10 +76,10 @@ public partial class Admin_NavigationAdd : PageAdmin
                     switch( drpRecruit.SelectedValue )
                     {
                         case "-1":
-                            bean.fdNaviLink = "/job.aspx";
+                            bean.fdNaviLink = "/search.aspx";
                             break;
                         default:
-                            bean.fdNaviLink = "/job.aspx?type=" + drpRecruit.SelectedValue;
+                            bean.fdNaviLink = "/search.aspx?type=" + drpRecruit.SelectedValue;
                             break;
                     }
                     bean.fdNaviItemID = int.Parse( drpRecruit.SelectedValue );

@@ -63,7 +63,7 @@
                                             <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="fbold"><%#Eval( "fdRecrTitle" )%></a>
                                         </td>
                                         <td>
-                                            <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="blue">（<%#Eval("fdRecrCompany") %>）</a>
+                                            <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="blue"><%#Eval("fdRecrCompany") %></a>
                                         </td>
                                         <td class="date">
                                             <%#Eval("fdRecrCreateAt","{0:yyyy-MM-dd}") %>

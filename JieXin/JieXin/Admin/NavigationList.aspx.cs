@@ -20,12 +20,26 @@ public partial class Admin_NavigationList : PageAdmin
 
     protected string getTypeName(int type)
     {
-        switch (type)
+        switch( type )
         {
-            case 1: return "文章栏目";
-            case 2: return "最新招聘";
-            case 3: return "自定义链接";
-            default: return "文章栏目";
+            case 1:
+                return "首页";
+            case 2:
+                return "我的杰信";
+            case 3:
+                return "职位搜索";
+            case 4:
+                return "最新公告";
+            case 5:
+                return "文章栏目";
+            case 6:
+                return "招聘";
+            case 7:
+                return "基本信息";
+            case 8:
+                return "自定义链接";
+            default:
+                return "首页";
         }
     }
 }

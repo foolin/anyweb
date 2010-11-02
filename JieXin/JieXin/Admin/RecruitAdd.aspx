@@ -18,6 +18,7 @@
                     <asp:ListItem Value="2" Text="毕业生招聘"></asp:ListItem>
                     <asp:ListItem Value="3" Text="兼职招聘"></asp:ListItem>
                     <asp:ListItem Value="4" Text="企业招聘"></asp:ListItem> 
+                    <asp:ListItem Value="5" Text="知名企业招聘"></asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="fi even">

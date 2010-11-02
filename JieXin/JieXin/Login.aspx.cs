@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 using Studio.Web;
 using AnyWell.AW_DL;
 
-public partial class Login : PageBase
+public partial class AnyWell_Login : PageBase
 {
     protected void Page_Load( object sender, EventArgs e )
     {

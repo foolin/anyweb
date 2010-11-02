@@ -12,7 +12,7 @@
             <form runat="server" id="form1" onsubmit="return checkRegister()">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                    <th scope="row">
+                    <th scope="row" width="75">
                         <span class="orange">*</span>Email
                     </th>
                     <td width="192">

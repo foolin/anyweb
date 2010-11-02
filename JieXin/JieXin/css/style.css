@@ -286,7 +286,7 @@
 .regpage{ border:1px solid #D9D9D9; background:url(../images/bg_top37green.gif) top repeat-x; padding:34px 34px 0px; height:auto!important; min-height:762px; _height:762px;}
 .regpage .topic{ border-bottom:1px solid #D9D9D9; height:50px; line-height:22px;}
 .regpage h2{ font-weight:bold; color:#59A901; font-size:14px;}
-.regpage .formTable{ width:490px; margin:40px auto 0px; width:110px;}
+.regpage .formTable{ width:460px; margin:40px auto 0px;}
 .regpage .formTable th{ font-weight:normal; text-align:left; color:#666;}
 .regpage .formTable td{ height:28px; color:#999;}
 .regpage .formTable .cexbox{ margin:-1px 5px 2px 0px;}

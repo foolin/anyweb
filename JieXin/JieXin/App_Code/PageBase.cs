@@ -77,4 +77,9 @@ public class PageBase : Page
                 return "其他";
         }
     }
+
+    protected void goErrorPage()
+    {
+        Response.Redirect( "/Error.html" );
+    }
 }

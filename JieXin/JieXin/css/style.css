@@ -19,7 +19,7 @@
 .LinkArea .companyName{ width:466px; height:65px; float:left; margin:39px 0px 0px 134px;}
 .LinkArea .loginInfo{ float:right; padding:0px 5px 0px 0px; line-height:36px; color:#666;}
 /*nav*/
-.nav{ height:43px;}
+.nav{ height:43px; position:relative; z-index:4;}
 /*sub banner*/
 .subBanner{ height:auto; text-align:center;}
 
@@ -188,13 +188,19 @@
 .btn94_28{ width:94px; height:28px; display:inline-block; background:url(../images/bg_btn_94_28.gif) no-repeat; text-align:center; line-height:28px; color:#fff; margin:0px 3px; border:0;}
 .btn96_35{ width:96px; height:35px; display:inline-block; background:url(../images/btn_96x35.gif) no-repeat; text-align:center; line-height:35px; color:#fff; font-size:14px; border:0; font-weight:bold;}
 .btn160_45{ width:160px; height:45px; display:inline-block; background:url(../images/btn160x45.gif) no-repeat; text-align:center; line-height:45px; color:#59A901; font-size:14px; border:0; font-weight:bold;}
+.btn60_28{ width:60px; height:28px; display:inline-block; background:url(../images/btn_60_28.png) no-repeat; text-align:center; line-height:28px; color:#fff; border:0; }
+.btn60_28_gray{ width:60px; height:28px; display:inline-block; background:url(../images/btn_60_28gray.png) no-repeat; text-align:center; line-height:28px; color:#59A901; border:0; }
 /*input style*/
 .loginInput,
 .loginInput_in{ border:1px solid #999; height:16px; line-height:16px;}
 .loginInput{ width:91px;}
 .loginInput_in{ width:193px;}
-.reginput{ width:180px; height:18px; border:1px solid #7F9DB9;}
+.reginput,
+.pwdinput{ height:18px; line-height:18px; border:1px solid #7F9DB9;}
+.reginput{ width:180px;}
+.pwdinput{ width:161px;}
 .jz{ vertical-align:middle; margin:0px 3px 2px 0px;}
+.txtArea{ width:456px; height:88px; border:1px solid #7F9DB9; font-size:12px; line-height:18px; overflow:auto;}
 
 /*chooseArea*/
 .choArea{ width:538px; margin:0px auto; display:none; position:absolute;}
@@ -280,8 +286,8 @@
 .regpage{ border:1px solid #D9D9D9; background:url(../images/bg_top37green.gif) top repeat-x; padding:34px 34px 0px; height:auto!important; min-height:762px; _height:762px;}
 .regpage .topic{ border-bottom:1px solid #D9D9D9; height:50px; line-height:22px;}
 .regpage h2{ font-weight:bold; color:#59A901; font-size:14px;}
-.regpage .formTable{ width:490px; margin:40px auto 0px;}
-.regpage .formTable th{ font-weight:normal; text-align:left; color:#666;width:110px;}
+.regpage .formTable{ width:490px; margin:40px auto 0px; width:110px;}
+.regpage .formTable th{ font-weight:normal; text-align:left; color:#666;}
 .regpage .formTable td{ height:28px; color:#999;}
 .regpage .formTable .cexbox{ margin:-1px 5px 2px 0px;}
 /*tip*/
@@ -306,6 +312,51 @@
 .resumePage .tabsty th{ background-color:#F2F2F2; border:1px solid #D9D9D9; height:28px; font-weight:normal;}
 .resumePage .tabsty td{ border:1px solid #D9D9D9; height:42px; text-align:center;}
 .resumePage .imgBor{ border:1px solid #D9D9D9; padding:1px; background-color:#fff;}
+.resumePage .modifypwd table{}
+.resumePage .modifypwd th{ font-weight:normal; text-align:left; width:74px; height:28px;}
+.resumePage .addResume{ width:736px; margin:0px auto;}
+.resumePage .addResume .dTop{ height:27px; background:url(../images/bg_tit_736_27.png) no-repeat; padding:0px 10px 0px 15px; line-height:27px;}
+.resumePage .addResume .dCon{ border:solid #E6E6E6; border-width:0px 1px 1px; padding:12px 20px 0px;}
+.resumePage .addResume .tableInfo{ line-height:30px;}
+.resumePage .addResume th{ text-align:left; font-weight:normal; width:76px;}
+.resumePage .subTit{ width:11px; height:13px; background:url(../images/icon_openclose.png) 0px 0px no-repeat; display:inline-block; float:right; margin-top:8px; line-height:11px;}
+.dashLine{ border-bottom:1px dashed #C8C8C8; height:12px; margin-bottom:12px;}
+.lgray{ color:#999;}
 
+/*list*/
+.comPage{ border:1px solid #D9D9D9; overflow:hidden; _zoom:1; background-color:#F6F6F6;}
+.comPage .ls{ width:198px; float:left; background-color:#fff;}
+.comPage .lsBox{ border-right:1px solid #D9D9D9; background-color:#EDEDED; border-bottom:1px solid #D9D9D9; position:relative; z-index:1;}
+.comPage .bg{ border:1px solid #F6F6F6; position:relative; margin-top:-6px; z-index:0;}
+.comPage .menuBar{ width:185px; float:right; position:relative; z-index:2;}
+.comPage .menuBar li{ height:31px;font-size:13px; line-height:31px; padding-left:60px; background:url(../images/bg_alter.png) bottom left no-repeat; cursor:pointer;}
+.comPage .menuBar li .fdiv{ border:1px solid #5CAA06; background-color:#fff; width:372px; position:absolute; top:0px; left:140px; z-index:1; display:none;}
+.comPage .menuBar .cur{ background:url(../images/bg_floatCur.png) left top no-repeat; position:relative; z-index:2;}
+.comPage .menuBar .cur .fdiv{ display:block;}
+.comPage .fdiv{ border:1px solid #5CAA06; background-color:#fff; width:372px; position:absolute; top:0px; left:140px; z-index:1;}
+.comPage .fdiv .wbg{ height:28px; position:relative; margin-left:-1px; border-left:1px solid #fff; line-height:28px;}
+.comPage .fdiv dl{ padding-left:20px; }
+.comPage  .fdiv dl dd{ float:left; height:24px; line-height:24px; width:117px; font-size:12px;}
+.comPage  .fdiv dl a:hover{ text-decoration:underline;}
+
+.comPage .content{ width:753px; float:right;  background-color:#fff; height:auto!important; min-height:796px; _height:796px;}
+.comPage .tit{ height:34px; padding:3px 0px 0px 18px; line-height:34px; font-size:14px; background:url(../images/bg_columntop.gif) top repeat-x; border-bottom:1px solid #D9D9D9; color:#666;}
+.listSideTop{ height:44px; background:url(../images/bg_tit_198_44.png) no-repeat; text-align:center; line-height:38px; font-weight:bold; color:#333; position:relative; z-index:3;}
+/*listCon*/
+.comPage .listCon{ width:199px; position:relative; margin-right:-1px; overflow:hidden; z-index:0;}
+.comPage .listCon .dTit{ background:url(../images/bg_tit_199_31.png) no-repeat; height:31px; color:#666; font-weight:bold; font-size:14px; line-height:29px; text-align:center;}
+.comPage .listCon .dCon{ background-color:#F6F6F6; border-right:1px solid #D9D9D9; border-bottom:1px solid #D9D9D9; height:auto!important; min-height:348px; _height:348px; position:relative;}
+.comPage .listCon li{ line-height:25px; height:25px; overflow:hidden; padding:0px 15px;}
+.comPage .listCon a:hover{ text-decoration:underline;}
+
+.comPage .comhead{ border-bottom:1px solid #D9D9D9; height:30px; color:#59A901; font-weight:bold; font-size:14px; line-height:30px;}
+.comPage .comList{}
+.comPage .comList li{ height:30px; line-height:30px; background:url(../images/icon_arraw.png) left 9px no-repeat; padding-left:16px;}
+.comPage .comList .date{ float:right; color:#B5B5B5;}
+.comPage .comList a:hover{ text-decoration:underline;}
+
+.comPage .detail{ height:auto!important; min-height:787px; _height:787px;}
+.comPage .detail h1{ font-size:16px; font-weight:bold; text-align:center;}
+.comPage .txtCon{ color:#333; line-height:24px; padding-top:14px;}
+.comPage .txtCon p{ padding-bottom:12px;}
 /**/
-input.file{position:relative;left:-218px;filter:alpha(opacity=0);opacity:0.0;z-index:1;*width:223px;}

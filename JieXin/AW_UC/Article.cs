@@ -20,27 +20,31 @@ namespace AnyWell.AW_UC
         {
             get
             {
-                if (this._articleID == 0)
+                if( !this.HasInit )
                 {
-                    int.TryParse(this.ContextItem("ARTICLEID"), out this._articleID);
-                }
-                switch (this.ItemType)
-                {
-                    case ItemObjectType.Next:
-                        {
+                    if( this._articleID == 0 )
+                    {
+                        int.TryParse( this.ContextItem( "ARTICLEID" ), out this._articleID );
+                    }
+                    switch( this.ItemType )
+                    {
+                        case ItemObjectType.Next:
+                            {
 
-                            this._articleID = new AW_Article_dao().funcGetNextArticleIDByUC(this._articleID);
-                            break;
-                        }
-                    case ItemObjectType.Previous:
-                        {
-                            this._articleID = new AW_Article_dao().funcGetPreviousArticleIDByUC(this._articleID);
-                            break;
-                        }
-                    default:
-                        {
-                            break;
-                        }
+                                this._articleID = new AW_Article_dao().funcGetNextArticleIDByUC( this._articleID );
+                                break;
+                            }
+                        case ItemObjectType.Previous:
+                            {
+                                this._articleID = new AW_Article_dao().funcGetPreviousArticleIDByUC( this._articleID );
+                                break;
+                            }
+                        default:
+                            {
+                                break;
+                            }
+                    }
+                    this.HasInit = true;
                 }
                 return this._articleID;
             }

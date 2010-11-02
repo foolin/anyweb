@@ -193,7 +193,7 @@
                 <div class="tit">
                     <h2>
                         企业介绍</h2>
-                    <span class="more"><a href="/c/45.aspx">更多>></a></span>
+                    <span class="more"><a href="/s/7.aspx">更多>></a></span>
                 </div>
                 <div class="con relate">
                     <div class="pad10 ">

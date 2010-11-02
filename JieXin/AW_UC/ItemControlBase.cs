@@ -19,6 +19,13 @@ namespace AnyWell.AW_UC
             set { _itemType = value; }
         }
 
+        private bool _hasInit=false;
+        public bool HasInit
+        {
+            get{return _hasInit;}
+            set{_hasInit = value;}
+        }
+
         /// <summary>
         /// 获取数据项内容
         /// </summary>

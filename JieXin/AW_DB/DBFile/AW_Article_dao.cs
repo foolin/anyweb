@@ -14,7 +14,7 @@ namespace AnyWell.AW_DL
         {
             this._propTable = "AW_Article";
             this._propPK = "fdArtiID";
-            this._propFields = "fdArtiID,fdArtiColumnID,fdArtiTitle,fdArtiContent,fdArtiCreateAt,fdArtiSort";
+            this._propFields = "fdArtiID,fdArtiColumnID,fdArtiTitle,fdArtiContent,fdArtiCreateAt,fdArtiSort,fdArtiClick";
         }
 
         public List<AW_Article_bean> funcGetList()

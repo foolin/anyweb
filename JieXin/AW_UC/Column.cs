@@ -17,59 +17,63 @@ namespace AnyWell.AW_UC
         {
             get 
             {
-                if (this.FromArticle)
+                if( !HasInit )
                 {
-                    int articleID = 0;
-                    AW_Article_bean article = new AW_Article_bean();
-                    int.TryParse(this.ContextItem("ARTICLEID"), out articleID);
-                    if (articleID == 0)
+                    if( this.FromArticle )
                     {
-                        goErrorPage();
-                    }
-                    else
-                    {
-                        if (HttpContext.Current.Items["ARTICLE_" + articleID] != null)
+                        int articleID = 0;
+                        AW_Article_bean article = new AW_Article_bean();
+                        int.TryParse( this.ContextItem( "ARTICLEID" ), out articleID );
+                        if( articleID == 0 )
                         {
-                            article = (AW_Article_bean)HttpContext.Current.Items["ARTICLE_" + articleID];
+                            goErrorPage();
                         }
                         else
                         {
-                            article = AW_Article_bean.funcGetByID(articleID);
-                            HttpContext.Current.Items.Add("ARTICLE_" + articleID, article);
-                        }
-                        this._columnID = article.fdArtiColumnID;
-                    }
-                }
-                else if (this._columnID == 0)
-                {
-                    int.TryParse(this.ContextItem("COLUMNID"), out this._columnID);
-                }
-
-                switch (this.ItemType)
-                {
-                    case ItemObjectType.Next:
-                        {
-                            this._columnID = new AW_Column_dao().funcGetNextColumnIDByUC(this._columnID);
-                            break;
-                        }
-                    case ItemObjectType.Previous:
-                        {
-                            this._columnID = new AW_Column_dao().funcGetPreviousColumnIDByUC(this._columnID);
-                            break;
-                        }
-                    case ItemObjectType.Parent:
-                        {
-                            AW_Column_bean column = new AW_Column_dao().funcGetColumnInfo(this._columnID);
-                            if (column != null)
+                            if( HttpContext.Current.Items[ "ARTICLE_" + articleID ] != null )
                             {
-                                this._columnID = column.fdColuParentID;
+                                article = ( AW_Article_bean ) HttpContext.Current.Items[ "ARTICLE_" + articleID ];
                             }
-                            break;
+                            else
+                            {
+                                article = AW_Article_bean.funcGetByID( articleID );
+                                HttpContext.Current.Items.Add( "ARTICLE_" + articleID, article );
+                            }
+                            this._columnID = article.fdArtiColumnID;
                         }
-                    default:
-                        {
-                            break;
-                        }
+                    }
+                    else if( this._columnID == 0 )
+                    {
+                        int.TryParse( this.ContextItem( "COLUMNID" ), out this._columnID );
+                    }
+
+                    switch( this.ItemType )
+                    {
+                        case ItemObjectType.Next:
+                            {
+                                this._columnID = new AW_Column_dao().funcGetNextColumnIDByUC( this._columnID );
+                                break;
+                            }
+                        case ItemObjectType.Previous:
+                            {
+                                this._columnID = new AW_Column_dao().funcGetPreviousColumnIDByUC( this._columnID );
+                                break;
+                            }
+                        case ItemObjectType.Parent:
+                            {
+                                AW_Column_bean column = new AW_Column_dao().funcGetColumnInfo( this._columnID );
+                                if( column != null )
+                                {
+                                    this._columnID = column.fdColuParentID;
+                                }
+                                break;
+                            }
+                        default:
+                            {
+                                break;
+                            }
+                    }
+                    HasInit = true;
                 }
                 return this._columnID;
             }
@@ -88,7 +92,9 @@ namespace AnyWell.AW_UC
 
         protected override object GetItemObject()
         {
-            AW_Column_bean column;
+            
+
+            AW_Column_bean bean;
 
             if (this.ColumnID == 0)
             {
@@ -110,19 +116,19 @@ namespace AnyWell.AW_UC
             //从上下文中读取该栏目，如果该栏目存在的话
             if (HttpContext.Current.Items["COLUMN_" + this.ColumnID] != null)
             {
-                column = (AW_Column_bean)HttpContext.Current.Items["COLUMN_" + this.ColumnID];
+                bean = ( AW_Column_bean ) HttpContext.Current.Items[ "COLUMN_" + this.ColumnID ];
             }
             else
             {
-                column = new AW_Column_dao().funcGetColumnInfo(this.ColumnID);
-                HttpContext.Current.Items.Add("COLUMN_" + this.ColumnID, column);
+                bean = new AW_Column_dao().funcGetColumnInfo( this.ColumnID );
+                HttpContext.Current.Items.Add( "COLUMN_" + this.ColumnID, bean );
             }
-            if (column == null)
+            if( bean == null )
             {
                 goErrorPage();
             }
 
-            return column;
+            return bean;
         }
     }
 }

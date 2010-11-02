@@ -209,6 +209,10 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public List<AW_Column_bean> funcGetColumnListByUC(int columnID, bool parent, int topCount, string where, string order, string cacheName)
         {
+            if( columnID == -1 )
+            {
+                return this.funcGetColumns();
+            }
             if (!string.IsNullOrEmpty(cacheName) && HttpRuntime.Cache["COLUMN_CACHE_UC_" + cacheName] != null)
             {
                 return (List<AW_Column_bean>)HttpRuntime.Cache["COLUMN_CACHE_UC_" + cacheName];

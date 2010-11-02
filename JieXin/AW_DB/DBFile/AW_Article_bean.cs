@@ -64,6 +64,15 @@ namespace AnyWell.AW_DL
 			get{return _fdArtiSort;}
 			set{_fdArtiSort = value;}
 		}
+        private int _fdArtiClick;
+        /// <summary>
+        /// 文章点击数
+        /// </summary>
+        public int fdArtiClick
+        {
+            get{return _fdArtiClick;}
+            set{_fdArtiClick = value;}
+        }
 
 
 		/////////////////////////////////////////

@@ -136,6 +136,16 @@ namespace AnyWell.AW_DL
             CacheAgent.ClearCache( "ARTICLE_CACHE_" );
         }
 
+        /// <summary>
+        /// 更新点击数
+        /// </summary>
+        /// <param name="articleId"></param>
+        public void funcUpdateClick( int articleId )
+        {
+            string sql = "UPDATE AW_Article SET fdArtiClick=fdArtiClick+1 WHERE fdArtiID=" + articleId;
+            this.funcExecute( sql );
+        }
+
         public override int funcInsert( Bean_Base aBean )
         {
             int result = base.funcInsert( aBean );
@@ -248,18 +258,22 @@ namespace AnyWell.AW_DL
                 this.propSelect = " TOP " + topCount + " " + this.propSelect;
             }
 
-            this.propTableApp = ",AW_Column ";
-
-            if (getChild)
+            if( columnID != -1 )
             {
-                this.propWhere = "(fdColuID = @fdColuID OR fdColuParentID=@fdColuID)";
-            }
-            else
-            {
-                this.propWhere = "fdColuID = @fdColuID";
-            }
+                this.propTableApp = ",AW_Column ";
 
-            this.propWhere += " AND fdColuID=fdArtiColumnID ";
+                if( getChild )
+                {
+                    this.propWhere = "(fdColuID = @fdColuID OR fdColuParentID=@fdColuID)";
+                }
+                else
+                {
+                    this.propWhere = "fdColuID = @fdColuID";
+                }
+
+                this.propWhere += " AND fdColuID=fdArtiColumnID ";    
+                this.funcAddParam( "@fdColuID", columnID );
+            }
 
             if (string.IsNullOrEmpty(where) == false)
             {
@@ -275,7 +289,6 @@ namespace AnyWell.AW_DL
                 this.propOrder = "ORDER BY fdArtiSort DESC";
             }
 
-            this.funcAddParam("@fdColuID", columnID);
             List<AW_Article_bean> articles = this.funcGetList();
 
             if (!string.IsNullOrEmpty(cacheName))

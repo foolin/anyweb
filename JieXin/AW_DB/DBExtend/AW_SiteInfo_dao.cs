@@ -19,5 +19,16 @@ namespace AnyWell.AW_DL
             this.propOrder = "ORDER BY fdSiInSort ASC";
             return this.funcGetList();
         }
+
+        /**************************************************自定义控件********************************************************************************/
+
+        /// <summary>
+        /// 获取站点基本信息列表
+        /// </summary>
+        /// <returns></returns>
+        public List<AW_SiteInfo_bean> funcGetSiteInfoListByUC()
+        {
+            return this.funcGetSiteInfoList();
+        }
 	}
 }

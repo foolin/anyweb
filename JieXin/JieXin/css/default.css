@@ -28,7 +28,7 @@ input,select,img,textarea{vertical-align:middle;font-size:12px;}
 
 /*----default link-----*/
 a{ text-decoration:none;}
-a:hover{ }
+a:hover{}
 /*----text color-----*/
 .black,.black a{color:#000; text-decoration:none;}
 .black a:hover{color:#000; text-decoration:underline;}
@@ -50,8 +50,8 @@ a:hover{ }
 .orange a:hover{color:#FB8402;}
 .dorange,dorange a{ color:#F04B22;}
 .dorange a:hover{color:#F04B22;}
-.brown,.brown a{ color:#3a0505; text-decoration:none;}
-.brown a:hover{color:#3a0505;}
+.brown,.brown a{ color:#EB6100; text-decoration:none;}
+.brown a:hover{color:#EB6100;}
 .yellow,.yellow a{ color:#e4ff00; text-decoration:none;}
 .yellow a:hover{color:#e4ff00;}
 /*----font-weight-----*/

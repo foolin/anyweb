@@ -71,6 +71,16 @@ namespace AnyWell.AW_UC
             {
                 switch (this.StyleID)
                 {
+                    case 1:
+                        {
+                            RendNavigator1( writer );
+                            break;
+                        }
+                    case 5:
+                        {
+                            RendNavigator5( writer );
+                            break;
+                        }
                     default:
                         {
                             RendNavigator1(writer);
@@ -165,6 +175,45 @@ namespace AnyWell.AW_UC
             }
             writer.Write("</span>");
             writer.Write("</div>");
+        }
+
+        void RendNavigator5( HtmlTextWriter writer )
+        {
+            int begin, end, pages = PageCount;
+
+            writer.Write( "<a {0}>&lt;</a>", PageID > 1 ? String.Format( "href='{0}' title='上一页'", GetPageUrl( PageID - 1 ) ) : "disabled" );
+            if( PageCount > 9 )
+            {
+                if( PageID - 4 >= 1 && PageID + 4 <= PageCount )
+                {
+                    begin = PageID - 4;
+                    end = PageID + 4;
+                }
+                else if( PageID - 4 <= 0 )
+                {
+                    begin = 1;
+                    end = 9;
+                }
+                else
+                {
+                    end = PageID + 4 > PageCount ? PageCount : PageID + 4;
+                    begin = end - 8;
+                }
+            }
+            else
+            {
+                begin = 1;
+                end = pages;
+            }
+
+            for( int i = begin; i <= end; i++ )
+            {
+                if( i == PageID )
+                    writer.Write( "<a href=\"{0}\" class=\"cur\">{1}</a>", GetPageUrl( i ), i );
+                else
+                    writer.Write( "<a href=\"{0}\">{1}</a>", GetPageUrl( i ), i );
+            }
+            writer.Write( "<a {0}>&gt;</a>", PageID < pages ? String.Format( "href='{0}' title='下一页'", GetPageUrl( PageID + 1 ) ) : "disabled" );
         }
 
         #region Attributes

@@ -60,7 +60,7 @@
         </div>
         <aw:ADList runat="server" TypeID="8" CacheName="INDEX8">
             <ItemTemplate>
-                <%#( string ) Eval( "fdAdPic" ) == "" ? "" : "<DIV id=\"lovexin" + Eval( "fdAdID" ) + "\" class=\"dl\" style='" + ( ( int ) Eval( "fdAdID" ) == 30 ? "left" : "right" ) + ":22px;POSITION:absolute;TOP:69px;'><a href=JavaScript:; onclick=\"document.getElementById('lovexin" + Eval( "fdADID" ) + "').style.display = 'none'\" class=\"close\">X</a><a href='#' target='_blank'><a href='" + Eval( "fdAdLink" ) + "' target='_blank'><img border=0 src=\"" + Eval( "fdAdPic" ) + "\"></a></div>"%>
+                <%#( string ) Eval( "fdAdPic" ) == "" ? "" : "<DIV id=\"lovexin" + Eval( "fdAdID" ) + "\" class=\"dl\" style='" + ( ( int ) Eval( "fdAdID" ) == 30 ? "left" : "right" ) + ":22px;POSITION:absolute;TOP:69px;'><a href=JavaScript:; onclick=\"document.getElementById('lovexin" + Eval( "fdADID" ) + "').style.display = 'none'\" class=\"close\">X</a><a href='#' target='_blank'><a href='" + Eval( "fdAdLink" ) + "' target='_blank'><img border=0 width=120 height=250 src=\"" + Eval( "fdAdPic" ) + "\"></a></div>"%>
             </ItemTemplate>
         </aw:ADList>
     </div>

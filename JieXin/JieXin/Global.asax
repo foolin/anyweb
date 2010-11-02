@@ -116,31 +116,32 @@
         {
             case "a":   //文章内容页
                 {
-                    realPath = "/Article_Temp.aspx";
+                    realPath = "/Article.aspx";
                     Context.Items.Add( "ARTICLEID", urlInfo[ 1 ] );
                     break;
                 }
             case "c":   //文章列表页
                 {
-                    realPath = "/ArticleList_temp.aspx";
+                    realPath = "/Column.aspx";
                     Context.Items.Add("COLUMNID", urlInfo[1]);
                     break;
                 }
             case "n":   //公告内容页
                 {
-                    realPath = "/Notice_Temp.aspx";
+                    realPath = "/NoticeDetail.aspx";
                     Context.Items.Add( "NOTICEID", urlInfo[ 1 ] );
-                    break;
-                }
-            case "notice":  //公告列表页
-                {
-                    realPath = "/NoticeList_Temp.aspx";
                     break;
                 }
             case "r":   //招聘详情页
                 {
                     realPath = "/Recruit.aspx";
                     Context.Items.Add( "RECRUITID", urlInfo[ 1 ] );
+                    break;
+                }
+            case "s":
+                {
+                    realPath = "/SiteInfo.aspx";
+                    Context.Items.Add( "SITEINFOID", urlInfo[ 1 ] );
                     break;
                 }
             default:
@@ -151,6 +152,6 @@
         }
     }
 
-    string[] urls = { "/", "/index.aspx", "/login.aspx", "/import.aspx", "/User/Index.aspx", "/logout.aspx", "/search.aspx", "/initarea.aspx", "/register.aspx" };
+    string[] urls = { "/", "/index.aspx", "/login.aspx", "/import.aspx", "/User/Index.aspx", "/logout.aspx", "/search.aspx", "/initarea.aspx", "/register.aspx", "/notice.aspx" };
        
 </script>

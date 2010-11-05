@@ -28,24 +28,48 @@ namespace AnyWell.AW_DL
 			get{return _fdUserAccount;}
 			set{_fdUserAccount = value;}
 		}
-		private string _fdUserPwd = "";
-		 /// <summary>
-		 /// 用户密码 50 varchar
-		 /// </summary>
-		public string fdUserPwd
-		{
-			get{return _fdUserPwd;}
-			set{_fdUserPwd = value;}
-		}
-		private string _fdUserEmail = "";
-		 /// <summary>
-		 /// 用户邮箱 100 varchar
-		 /// </summary>
-		public string fdUserEmail
-		{
-			get{return _fdUserEmail;}
-			set{_fdUserEmail = value;}
-		}
+
+        private string _fdUserPwd = "";
+        /// <summary>
+        /// 用户密码 50 varchar
+        /// </summary>
+        public string fdUserPwd
+        {
+            get { return _fdUserPwd; }
+            set { _fdUserPwd = value; }
+        }
+
+        private string _fdUserEmail = "";
+        /// <summary>
+        /// 用户邮箱 100 varchar
+        /// </summary>
+        public string fdUserEmail
+        {
+            get { return _fdUserEmail; }
+            set { _fdUserEmail = value; }
+        }
+
+        private int _fdUserName = 0;
+        /// <summary>
+        /// 用户姓名 50 varchar
+        /// </summary>
+        public int fdUserName
+        {
+            get { return _fdUserName; }
+            set { _fdUserName = value; }
+        }
+
+        private int _fdUserBirthday = 0;
+        /// <summary>
+        /// 用户出生日期
+        /// </summary>
+        public int fdUserBirthday
+        {
+            get { return _fdUserBirthday; }
+            set { _fdUserBirthday = value; }
+        }
+
+		
 		private int _fdUserStatus = 0;
 		 /// <summary>
 		 /// 用户状态：0正常1冻结2删除

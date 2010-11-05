@@ -28,10 +28,14 @@
                 <%if( LoginUser != null )
                   {%>
                 <span class="loginInfo">
-                    <%=LoginUser.fdUserAccount %>
+                    <%=LoginUser.fdUserAccount%>
                     您好! <span class="blue"><a href="/User/Index.aspx">我的杰信</a></span> <span class="green">
                         |</span> <span class="blue">[<a href="/Logout.aspx">退出</a>]</span> </span>
-                <%} %>
+                <%}
+                  else
+                  { %>
+                <span class="loginInfo"><span class="blue"><a href="/Login.aspx">登录</a></span>
+                    <%} %>
             </div>
             <div class="nav">
                 <div class="ls">

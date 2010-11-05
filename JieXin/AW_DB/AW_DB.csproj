@@ -72,6 +72,8 @@
     <Compile Include="DBExtend\AW_Company_Industry_dao.cs" />
     <Compile Include="DBExtend\AW_Education_bean.cs" />
     <Compile Include="DBExtend\AW_Education_dao.cs" />
+    <Compile Include="DBExtend\AW_Favorite_bean.cs" />
+    <Compile Include="DBExtend\AW_Favorite_dao.cs" />
     <Compile Include="DBExtend\AW_Industry_bean.cs" />
     <Compile Include="DBExtend\AW_Industry_dao.cs" />
     <Compile Include="DBExtend\AW_Job_bean.cs" />
@@ -118,6 +120,8 @@
     <Compile Include="DBFile\AW_Company_Industry_dao.cs" />
     <Compile Include="DBFile\AW_Education_bean.cs" />
     <Compile Include="DBFile\AW_Education_dao.cs" />
+    <Compile Include="DBFile\AW_Favorite_bean.cs" />
+    <Compile Include="DBFile\AW_Favorite_dao.cs" />
     <Compile Include="DBFile\AW_Industry_bean.cs" />
     <Compile Include="DBFile\AW_Industry_dao.cs" />
     <Compile Include="DBFile\AW_Job_bean.cs" />

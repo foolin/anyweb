@@ -37,7 +37,14 @@ public partial class AnyWell_Login : PageBase
                 }
                 else
                 {
-                    Response.Redirect( "/User/Index.aspx" );
+                    if( !string.IsNullOrEmpty( QS( "back" ) ) )
+                    {
+                        Response.Redirect( QS( "back" ) );
+                    }
+                    else
+                    {
+                        Response.Redirect( "/User/Index.aspx" );
+                    }
                 }
             }
         }

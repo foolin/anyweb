@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Web;
 using Studio.Data;
+using Studio.Web;
 
 namespace AnyWell.AW_DL
 {
@@ -102,6 +103,21 @@ namespace AnyWell.AW_DL
             {
                 return true;
             }
+        }
+
+        /// <summary>
+        /// 获取会话信息
+        /// </summary>
+        /// <returns></returns>
+        public AW_User_bean funcGetUserFromCookie()
+        {
+            HttpCookie co = HttpContext.Current.Request.Cookies["USER"];
+            if (co == null)
+                return null;
+            if (co["ID"] == "" || !WebAgent.IsInt32(co["ID"]))
+                return null;
+
+            return this.funcGetUserInfo(int.Parse(co["ID"]));
         }
 	}
 }

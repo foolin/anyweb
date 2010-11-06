@@ -5,10 +5,10 @@
     	<div class="sidebar" style="height:1300px;">
         	<div class="bg column gray">
             	<ul>
-                	<li><a href="#">简历管理</a></li>
-                    <li><a href="#">基本信息管理</a></li>
+                	<li><a href="index.aspx">简历管理</a></li>
+                    <li><a href="MemAddInfo.aspx">基本信息管理</a></li>
                     <li><a href="#">形象照片管理</a></li>
-                    <li class="cur"><a href="#">密码管理</a></li>
+                    <li class="cur"><a href="MemModifyPwd.aspx">密码管理</a></li>
                     <li><a href="#">邮箱管理</a></li>
                 </ul>
             </div>

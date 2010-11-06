@@ -5,10 +5,10 @@
     	<div class="sidebar" style="height:1300px;">
         	<div class="bg column gray">
             	<ul>
-                	<li><a href="#">简历管理</a></li>
+                	<li><a href="index.aspx">简历管理</a></li>
                     <li class="cur"><a href="#">基本信息管理</a></li>
                     <li><a href="#">形象照片管理</a></li>
-                    <li><a href="#">密码管理</a></li>
+                    <li><a href="MemModifyPwd.aspx">密码管理</a></li>
                     <li><a href="#">邮箱管理</a></li>
                 </ul>
             </div>
@@ -34,7 +34,10 @@
                           </tr>
                           <tr>
                             <th scope="row"><span class="brown">*</span>性 别</th>
-                            <td>男<input type="radio" name="sex" value="男" checked="checked" /> 女<input type="radio" value="女" name="sex" /> </td>
+                            <td>
+                                <asp:RadioButton ID="Radio1" runat="server" Text="男" GroupName="sex" />
+                                <asp:RadioButton ID="Radio2" runat="server" Text="女" GroupName="sex" />
+                            </td>
                           </tr>
                           <tr>
                             <th scope="row"><span class="brown">*</span>出生日期</th>
@@ -66,48 +69,54 @@
                           <tr>
                             <th scope="row"><span class="brown">*</span>证件类型</th>
                             <td>
-                                <asp:DropDownList ID="drpCardCate"  runat="server">
+                                <asp:DropDownList ID="drpIdenID"  runat="server">
                                     <asp:ListItem Value="0" Text="请选择证件"></asp:ListItem>
                                     <asp:ListItem Value="1" Text="身份证"></asp:ListItem>
-                                    <asp:ListItem Value="2" Text="学生证"></asp:ListItem>
-                                    <asp:ListItem Value="3" Text="军官证"></asp:ListItem>
+                                    <asp:ListItem Value="2" Text="军人证"></asp:ListItem>
+                                    <asp:ListItem Value="3" Text="香港身份证"></asp:ListItem>
+                                    <asp:ListItem Value="4" Text="其他"></asp:ListItem>
                                 </asp:DropDownList>
                             </td>
                           </tr>
                           <tr>
                             <th scope="row"><span class="brown">*</span>证件号</th>
                             <td>
-                                <asp:TextBox ID="txtCardID" runat="server" CssClass="reginput" MaxLength="50"></asp:TextBox>
+                                <asp:TextBox ID="txtIdenNum" runat="server" CssClass="reginput" MaxLength="50"></asp:TextBox>
                             </td>
                             <td>
-                                <span class="tipW" style="display:none" id="Error_CardID">证件号不能为空！</span>
+                                <span class="tipW" style="display:none" id="Error_IdenNum">证件号不能为空！</span>
                             </td>
                           </tr>
                           <tr>
                             <th scope="row"><span class="brown">*</span>居 住 地</th>
                             <td>
-                                <a href="javascript:void(0);" id="place" class="btn28H" style="font-size:12px;">
+                                <a href="javascript:void(0);" id="Address" class="btn28H" style="font-size:12px;">
                                 选择/修改</a>
                             </td>
                           </tr>
                           <tr>
                             <th scope="row"><span class="brown">*</span>求职状态</th>
                             <td>
-                                <asp:DropDownList ID="DropDownList3"  runat="server">
-                                    <asp:ListItem Value="0" Text="请选择求职状态"></asp:ListItem>
+                                <asp:DropDownList ID="drpCurrSitu"  runat="server">
+                                    <asp:ListItem Value="0" Text="请选择求职状态" ></asp:ListItem>
+                                    <asp:ListItem Value="1" Text="目前正在找工作" ></asp:ListItem>
+                                    <asp:ListItem Value="2" Text="半年内无换工作的计划" ></asp:ListItem>
+                                    <asp:ListItem Value="3" Text="一年内无换工作的计划" ></asp:ListItem>
+                                    <asp:ListItem Value="4" Text="观望有好的机会再考虑" ></asp:ListItem>
+                                    <asp:ListItem Value="5" Text="我暂时不想找工作" ></asp:ListItem>
                                 </asp:DropDownList>
                             </td>
                           </tr>
                           <tr>
-                            <th scope="row">民 族</th>
+                            <th scope="row">&nbsp;民 族</th>
                             <td>
-                                <asp:DropDownList ID="drpNati"  runat="server">
+                                <asp:DropDownList ID="drpNation"  runat="server">
                                     <asp:ListItem Value="0" Text="请选择民族"></asp:ListItem>
                                 </asp:DropDownList>
                             </td>
                           </tr>
                           <tr>
-                            <th scope="row">毕业时间</th>
+                            <th scope="row">&nbsp;毕业时间</th>
                             <td>
                                 <asp:DropDownList ID="drpGraYear"  runat="server">
                                     <asp:ListItem Value="0" Text="请选择年份"></asp:ListItem>
@@ -121,9 +130,9 @@
                             </td>
                           </tr>
                           <tr>
-                            <th scope="row">政治面貌</th>
+                            <th scope="row">&nbsp; 政治面貌</th>
                             <td>
-                                <asp:DropDownList ID="DropDownList8"  runat="server">
+                                <asp:DropDownList ID="drpPolSta"  runat="server">
                                     <asp:ListItem Value="0" Text="请选择政治面貌"></asp:ListItem>
                                     <asp:ListItem Value="1" Text="群众"></asp:ListItem>
                                     <asp:ListItem Value="2" Text="团员"></asp:ListItem>
@@ -134,15 +143,18 @@
                           <tr>
                             <th scope="row"><span class="brown">*</span>教育程度</th>
                             <td>
-                                <asp:DropDownList ID="DropDownList9"  runat="server">
+                                <asp:DropDownList ID="drpDegree"  runat="server">
                                     <asp:ListItem Value="0" Text="请选择教育程度"></asp:ListItem>
-                                    <asp:ListItem Value="1" Text="小学"></asp:ListItem>
-                                    <asp:ListItem Value="2" Text="初中"></asp:ListItem>
-                                    <asp:ListItem Value="3" Text="高中"></asp:ListItem>
-                                    <asp:ListItem Value="4" Text="专科"></asp:ListItem>
-                                    <asp:ListItem Value="5" Text="本科"></asp:ListItem>
-                                    <asp:ListItem Value="6" Text="硕士"></asp:ListItem>
-                                    <asp:ListItem Value="7" Text="博士"></asp:ListItem>
+                                    <asp:ListItem Value="1" Text="初中"></asp:ListItem>
+                                    <asp:ListItem Value="2" Text="高中"></asp:ListItem>
+                                    <asp:ListItem Value="3" Text="中技"></asp:ListItem>
+                                    <asp:ListItem Value="4" Text="中专"></asp:ListItem>
+                                    <asp:ListItem Value="5" Text="大专"></asp:ListItem>
+                                    <asp:ListItem Value="6" Text="本科"></asp:ListItem>
+                                    <asp:ListItem Value="7" Text="MBA"></asp:ListItem>
+                                    <asp:ListItem Value="8" Text="硕士"></asp:ListItem>
+                                    <asp:ListItem Value="9" Text="博士"></asp:ListItem>
+                                    <asp:ListItem Value="10" Text="其他"></asp:ListItem>
                                 </asp:DropDownList>
                             </td>
                           </tr>
@@ -164,14 +176,14 @@
                             </td>
                           </tr>
                           <tr>
-                            <th scope="row">手机号码</th>
+                            <th scope="row">&nbsp;手机号码</th>
                             <td>
                                 <asp:TextBox ID="txtMobPhoNum1" runat="server" CssClass="reginput" style="width:40px"></asp:TextBox>-
                                 <asp:TextBox ID="txtMobPhoNum2" runat="server" CssClass="reginput" style="width:111px;"></asp:TextBox>
                             </td>
                           </tr>
                           <tr>
-                            <th scope="row">公司电话</th>
+                            <th scope="row">&nbsp;公司电话</th>
                             <td>
                                 <asp:TextBox ID="txtComPhoNum1" runat="server" CssClass="reginput" style="width:40px" ></asp:TextBox>-
                                 <asp:TextBox ID="txtComPhoNum2" runat="server" CssClass="reginput" style="width:40px" ></asp:TextBox>-
@@ -180,7 +192,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <th scope="row">家庭电话</th>
+                            <th scope="row">&nbsp;家庭电话</th>
                             <td>
                                 <asp:TextBox ID="txtFamPhoNum1" runat="server" CssClass="reginput" style="width:40px" ></asp:TextBox>-
                                 <asp:TextBox ID="txtFamPhoNum2" runat="server" CssClass="reginput" style="width:40px" ></asp:TextBox>-
@@ -188,7 +200,7 @@
                             </td>
                           </tr>
                           <tr>
-                            <th scope="row" style="height:32px;">户 口</th>
+                            <th scope="row" style="height:32px;"> &nbsp;户 口</th>
                             <td><a href="javascript:void(0);" id="hukou" class="btn28H" style="font-size:12px;">
                                 选择/修改</a></td>
                           </tr>
@@ -198,27 +210,27 @@
                                 选择/修改</a></td>
                           </tr>
                           <tr>
-                            <th scope="row">身 高</th>
+                            <th scope="row">&nbsp;身 高</th>
                             <td>
                                 <asp:TextBox ID="txtHeight" runat="server" CssClass="reginput" MaxLength="100"></asp:TextBox>
                             </td>
                           </tr>
                           <tr>
-                            <th scope="row">邮 编</th>
+                            <th scope="row">&nbsp;邮 编</th>
                             <td>
-                                <asp:TextBox ID="txtPostcode" runat="server" CssClass="reginput" MaxLength="100"></asp:TextBox>
+                                <asp:TextBox ID="txtPostCode" runat="server" CssClass="reginput" MaxLength="100"></asp:TextBox>
                             </td>
                           </tr>
                           <tr>
-                            <th scope="row">地 址</th>
+                            <th scope="row">&nbsp;地 址</th>
                             <td>
-                                <asp:TextBox ID="txtAddr" runat="server" CssClass="reginput" MaxLength="100"></asp:TextBox>
+                                <asp:TextBox ID="txtConAddr" runat="server" CssClass="reginput" MaxLength="100"></asp:TextBox>
                             </td>
                           </tr>
                           <tr>
-                            <th scope="row">婚姻状况</th>
+                            <th scope="row">&nbsp;婚姻状况</th>
                             <td>
-                                <asp:DropDownList ID="drpMarr"  runat="server">
+                                <asp:DropDownList ID="drpMarry"  runat="server">
                                     <asp:ListItem Value="0" Text="请选择婚姻状况"></asp:ListItem>
                                     <asp:ListItem Value="1" Text="未婚"></asp:ListItem>
                                     <asp:ListItem Value="2" Text="已婚"></asp:ListItem>
@@ -226,9 +238,9 @@
                             </td>
                           </tr>
                           <tr>
-                            <th scope="row">个人主页</th>
+                            <th scope="row">&nbsp;个人主页</th>
                             <td>
-                                <asp:TextBox ID="TextBox1" runat="server" CssClass="reginput" MaxLength="100"></asp:TextBox>
+                                <asp:TextBox ID="txtWebsite" runat="server" CssClass="reginput" MaxLength="100"></asp:TextBox>
                             </td>
                           </tr>
                         </table>
@@ -248,11 +260,8 @@
             var mailValid = /^\w+([-+.]\w+)*@\w+([-.]\\w+)*\.\w+([-.]\w+)*$/;
             var mail = $.trim($("#<%=txtEmail.ClientID %>").val());
             var name = $.trim($("#<%=txtName.ClientID %>").val());
-            var cardid = $.trim($("#<%=txtCardID.ClientID %>").val());
-            var mobPhoNum = $.trim($("#<%=txtMobPhoNum1.ClientID %>").val()+$("#<%=txtMobPhoNum1.ClientID %>").val());
-            var comPhoNum = $.trim($("#<%=txtComPhoNum1.ClientID %>").val()+$("#<%=txtComPhoNum2.ClientID %>").val()+$("#<%=txtComPhoNum3.ClientID %>").val()+$("#<%=txtComPhoNum4.ClientID %>").val());
-            var famPhoNum = $.trim($("#<%=txtFamPhoNum1.ClientID %>").val()+$("#<%=txtFamPhoNum2.ClientID %>").val()+$("#<%=txtFamPhoNum3.ClientID %>").val());
-
+            var idenNum = $.trim($("#<%=txtIdenNum.ClientID %>").val());
+            
             if (!mail) {
                 $("#Error_Email").show();
                 $("#Error_Email2").hide();
@@ -272,19 +281,13 @@
                 $("#Error_Name").hide();
             }
 
-            if (!cardid) {
-                $("#Error_CardID").show();
+            if (!idenNum) {
+                $("#Error_IdenNum").show();
                 error = false;
             } else {
-                $("#Error_CardID").hide();
+                $("#Error_IdenNum").hide();
             }
 
-            if (!mobPhoNum&&!comPhoNum&&!famPhoNum) {
-                $("#Error_PhoNum").show();
-                error = false;
-            } else {
-                $("#Error_PhoNum").hide();
-            }
             
             return error;
         }

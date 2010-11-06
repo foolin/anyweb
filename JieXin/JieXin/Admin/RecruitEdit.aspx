@@ -1,9 +1,13 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
     CodeFile="RecruitEdit.aspx.cs" Inherits="Admin_RecruitEdit" %>
 
+<%@ Register Src="Control/Area.ascx" TagName="Area" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
+
+    <script type="text/javascript" src="js/area.js"></script>
+
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
@@ -14,10 +18,10 @@
                 <label>
                     所属类别：</label>
                 <asp:DropDownList ID="drpType" runat="server">
+                    <asp:ListItem Value="4" Text="企业招聘"></asp:ListItem>
                     <asp:ListItem Value="1" Text="实习生招聘"></asp:ListItem>
                     <asp:ListItem Value="2" Text="毕业生招聘"></asp:ListItem>
                     <asp:ListItem Value="3" Text="兼职招聘"></asp:ListItem>
-                    <asp:ListItem Value="4" Text="企业招聘"></asp:ListItem> 
                     <asp:ListItem Value="5" Text="知名企业招聘"></asp:ListItem>
                 </asp:DropDownList>
             </div>
@@ -32,11 +36,14 @@
             </div>
             <div class="fi even">
                 <label>
-                    地区编号：</label>
-                <asp:TextBox ID="txtAreaID" runat="server" CssClass="text" MaxLength="100" Width="400px"></asp:TextBox>
+                    地区：</label>
+                <a href="javascript:void(0);" onclick="ChooseArea();" id="AreaName" class="choAreabtn">
+                    <%=recruit.fdRecrAreaID==0?"选择地区":recruit.fdRecrAreaName%></a>
+                <asp:TextBox ID="txtAreaID" runat="server" Style="display: none"></asp:TextBox>
+                <asp:TextBox ID="txtAreaName" runat="server" Style="display: none"></asp:TextBox>
                 <span class="required">*</span>
-                <sw:Validator ID="Validator2" ControlID="txtAreaID" ValidateType="Required" ErrorText="请输入地区编号"
-                    ErrorMessage="请输入地区编号" runat="server">
+                <sw:Validator ID="Validator2" ControlID="txtAreaName" ValidateType="Required" ErrorText="请输择地区"
+                    ErrorMessage="请输择地区" runat="server">
                 </sw:Validator>
             </div>
             <div class="fi even">
@@ -68,8 +75,7 @@
                 <label>
                     招聘排序：</label>
                 <asp:TextBox ID="txtSort" runat="server" CssClass="text" Width="80"></asp:TextBox>
-                <span class="required">*</span>
-                <span>排序数字越大，呈现位置越靠前。</span>
+                <span class="required">*</span> <span>排序数字越大，呈现位置越靠前。</span>
                 <sw:Validator ID="Validator5" ControlID="txtSort" ValidateType="Required" ErrorText="请输入招聘排序"
                     ErrorMessage="请输入招聘排序" runat="server">
                 </sw:Validator>
@@ -91,6 +97,7 @@
             <li></li>
         </ul>
     </div>
+    <uc1:Area runat="server" />
 
     <script type="text/javascript" src="../tiny_mce/tiny_mce.js"></script>
 
@@ -115,4 +122,3 @@
     </script>
 
 </asp:Content>
-

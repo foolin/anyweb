@@ -1,9 +1,11 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
     CodeFile="RecruitAdd.aspx.cs" Inherits="Admin_RecruitAdd" %>
 
+<%@ Register Src="Control/Area.ascx" TagName="Area" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
+    <script type="text/javascript" src="js/area.js"></script>
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
@@ -14,10 +16,10 @@
                 <label>
                     所属类别：</label>
                 <asp:DropDownList ID="drpType" runat="server">
+                    <asp:ListItem Value="4" Text="企业招聘"></asp:ListItem> 
                     <asp:ListItem Value="1" Text="实习生招聘"></asp:ListItem>
                     <asp:ListItem Value="2" Text="毕业生招聘"></asp:ListItem>
                     <asp:ListItem Value="3" Text="兼职招聘"></asp:ListItem>
-                    <asp:ListItem Value="4" Text="企业招聘"></asp:ListItem> 
                     <asp:ListItem Value="5" Text="知名企业招聘"></asp:ListItem>
                 </asp:DropDownList>
             </div>
@@ -32,11 +34,13 @@
             </div>
             <div class="fi even">
                 <label>
-                    地区编号：</label>
-                <asp:TextBox ID="txtAreaID" runat="server" Text="0" CssClass="text" MaxLength="100" Width="400px"></asp:TextBox>
+                    地区：</label>
+                <a href="javascript:void(0);" onclick="ChooseArea();" id="AreaName" class="choAreabtn">选择地区</a>
+                <asp:TextBox ID="txtAreaID" runat="server" style="display:none"></asp:TextBox>
+                <asp:TextBox ID="txtAreaName" runat="server" style="display:none"></asp:TextBox>
                 <span class="required">*</span>
-                <sw:Validator ID="Validator2" ControlID="txtAreaID" ValidateType="Required" ErrorText="请输入地区编号"
-                    ErrorMessage="请输入地区编号" runat="server">
+                <sw:Validator ID="Validator2" ControlID="txtAreaName" ValidateType="Required" ErrorText="请输择地区"
+                    ErrorMessage="请输择地区" runat="server">
                 </sw:Validator>
             </div>
             <div class="fi even">
@@ -91,7 +95,7 @@
             <li>招聘排序为“0”时将由系统自动生成。</li>
         </ul>
     </div>
-
+    <uc1:Area runat="server" />
     <script type="text/javascript" src="../tiny_mce/tiny_mce.js"></script>
 
     <script type="text/javascript">

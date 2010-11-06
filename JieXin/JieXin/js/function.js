@@ -63,4 +63,10 @@ function closeWindow(Obj)
 
 
 //====================================================================================================
-
+//设置个人会员菜单选中状态
+function setUserSidebar(id) {
+    $("#UserSidebar li").each(function() {
+        $(this).attr("class", "");
+    });
+    $("#" + id).attr("class", "cur");
+}

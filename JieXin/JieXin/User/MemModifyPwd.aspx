@@ -1,20 +1,11 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="MemModifyPwd.aspx.cs" Inherits="User_Default" %>
 
+<%@ Register Src="~/Control/UserSidebar.ascx" TagName="UserSidebar" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="resumePage">
-    	<div class="sidebar" style="height:1300px;">
-        	<div class="bg column gray">
-            	<ul>
-                	<li><a href="index.aspx">简历管理</a></li>
-                    <li><a href="MemAddInfo.aspx">基本信息管理</a></li>
-                    <li><a href="#">形象照片管理</a></li>
-                    <li class="cur"><a href="MemModifyPwd.aspx">密码管理</a></li>
-                    <li><a href="#">邮箱管理</a></li>
-                </ul>
-            </div>
-        </div>
+    	<uc1:UserSidebar runat="server" />
         <div class="content column">
-        	<div class="tit gray"><a href="#">首页</a> > <a href="#">个人会员</a> > <span class="green">会员管理</span></div>
+        	<div class="tit gray"><a href="/Index.aspx">首页</a> > <a href="/User/Index.aspx">个人会员</a> > <span class="green">会员管理</span></div>
             <div class="MemCon">
             	<div class="blank12px"></div>
                 <div class="Res670">
@@ -118,6 +109,9 @@
             
             return error;
         }
+    </script>
+    <script type="text/javascript">
+        setUserSidebar("MMGL");
     </script>
 </asp:Content>
 

@@ -431,3 +431,28 @@ input[type=file]{height:18px;}
 .error{color:Red;}
 .search{padding:5px;}
 .fi span.required{color:Red;}
+
+/*chooseArea*/
+.choArea{ width:538px; margin:0px auto; display:none; position:absolute;}
+.choArea .top{ height:30px; background:url(../images/bg_floatDivtop.png) no-repeat; font-size:14px;}
+.choArea .iTit{ float:left; padding:2px 0px 0px 17px; line-height:28px; color:#fff; font-style:normal;}
+.choArea .topRight{ float:right; margin:6px 15px 0px 0px;}
+.choArea .con{ border:solid #419A02; border-width:0px 1px 0px; padding:8px 17px; background-color:#fff;height:313px;}
+.choArea .btm{ height:6px; background:url(../images/bg_floatDivbtm.png) no-repeat;}
+.choArea h3{ font-weight:bold; color:#59A901; line-height:22px; clear:both; height:22px;}
+.choArea dl{ margin-left:68px; line-height:22px; width:432px; clear:both;}
+.choArea dt{ float:left; position:relative; margin-left:-68px; width:68px; height:22px; font-weight:bold;}
+.choArea dd{ float:left; width:72px; height:22px;}
+.choArea dd a{display:block; height:22px; padding:0px 5px;}
+.choArea dd a:hover,
+.choArea .cur{ background-color:#59A901; color:#fff;}
+.choArea .cur .prov{ color:#fff;}
+.choArea .subArea{ border:1px solid #5EAC09; background-color:#fff; padding:8px 12px; width:360px; position:absolute; top:22px; left:0px; z-index:1000; display:none;}
+.choArea .subArea h4{ font-weight:bold; height:24px; line-height:24px; clear:both; color:#666;}
+.choArea .subArea span{ float:left; width:72px; height:22px; display:block;}
+.choArea .subArea span a{}
+.choAreabtn{ width:94px; height:28px; display:inline-block; background:url(../images/bg_btn_28H.gif) no-repeat; text-align:center; line-height:28px; color:#59A901; font-size:14px; margin:0px 3px;}
+.white,.white a{color:#FFF; text-decoration:none;}
+.gray,.gray a{ color:#666666; text-decoration:none;}
+.relate{ position:relative;}
+.absolute{ position:absolute;}

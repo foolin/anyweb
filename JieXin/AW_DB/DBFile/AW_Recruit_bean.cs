@@ -55,6 +55,15 @@ namespace AnyWell.AW_DL
 			get{return _fdRecrAreaID;}
 			set{_fdRecrAreaID = value;}
 		}
+        private string _fdRecrAreaName = "";
+        /// <summary>
+        /// 地区名
+        /// </summary>
+        public string fdRecrAreaName
+        {
+            get{ return _fdRecrAreaName;}
+            set{_fdRecrAreaName = value;}
+        }
 		private string _fdRecrContent = "";
 		 /// <summary>
 		 /// 招聘内容

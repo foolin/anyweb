@@ -1,12 +1,12 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Area.ascx.cs" Inherits="Control_Area" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Area.ascx.cs" Inherits="Admin_Control_Area" %>
 <div class="choArea" id="ChooseArea">
     <div class="top">
         <i class="iTit">请选择工作地点</i> <span class="topRight white">[<a href="javascript:void(0);"
             onclick="ClearArea()">不限</a>]&nbsp;&nbsp; <a href="javascript:void(0);" onclick="closeWindow('ChooseArea')">
-                <img src="/images/icon_close.gif" width="15" height="15" /></a> </span>
+                <img src="/images/icon_close.gif" width="15" height="15" style="vertical-align:middle;" /></a> </span>
     </div>
     <div class="con gray">
-        <h3>
+        <h3 style="font-size:12px;">
             主要城市：</h3>
         <dl>
             <dt>华北东北：</dt>
@@ -78,7 +78,7 @@
             <dd>
                 <a href="javascript:void(0);" onclick="AreaName(this,359);">昆明</a></dd>
         </dl>
-        <h3>
+        <h3 style="font-size:12px;">
             所有省份：</h3>
         <dl>
             <dt>华东东北：</dt>
@@ -162,4 +162,3 @@
     <div class="btm">
     </div>
 </div>
-

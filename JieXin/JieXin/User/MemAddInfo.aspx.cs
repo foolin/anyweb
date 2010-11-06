@@ -75,7 +75,7 @@ public partial class User_Default : PageBase
             //联系方式
             //户口 bean.fdUserHouseAddress  
             //国家地区 bean.fdUserCountry
-            txtHeight.Text = bean.fdUserHeight;
+            txtHeight.Text = bean.fdUserHeight.ToString();
             txtPostCode.Text = bean.fdUserPostCode.ToString();
             txtConAddr.Text = bean.fdUserContactAddr;
             drpMarry.SelectedValue = bean.fdUserMarry.ToString();
@@ -100,7 +100,7 @@ public partial class User_Default : PageBase
                 bean.fdUserBirthday = DateTime.Parse(drpBirYear.SelectedValue + "-" + drpBirMonth.SelectedValue + "-" + drpBirDay.SelectedValue);
                 bean.fdUserExperience = int.Parse(drpExp.SelectedValue);
                 bean.fdUserIdentificationID = int.Parse(drpIdenID.SelectedValue);
-                bean.fdUserIdentificationNum = int.Parse(txtIdenNum.Text.Trim());
+                bean.fdUserIdentificationNum = txtIdenNum.Text.Trim();
                 bean.fdUserAddress = "广州";
                 bean.fdUserCurrentSituation = int.Parse(drpCurrSitu.SelectedValue);
                 bean.fdUserNation = int.Parse(drpNation.SelectedValue);
@@ -110,9 +110,9 @@ public partial class User_Default : PageBase
                 bean.fdUserEmail = txtEmail.Text.Trim();
                 //联系方式
                 bean.fdUserHouseAddress = "广州";
-                bean.fdUserCountry = "中国";
-                bean.fdUserHeight = txtHeight.Text.Trim();
-                bean.fdUserPostCode = int.Parse(txtPostCode.Text.Trim());
+                bean.fdUserCountryID = 0;
+                bean.fdUserHeight = int.Parse( txtHeight.Text.Trim() );
+                bean.fdUserPostCode = txtPostCode.Text.Trim();
                 bean.fdUserContactAddr = txtConAddr.Text.Trim();
                 bean.fdUserMarry = int.Parse(drpMarry.SelectedValue);
                 bean.fdUserWebsite = txtWebsite.Text.Trim();

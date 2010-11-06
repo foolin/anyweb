@@ -14,7 +14,7 @@ namespace AnyWell.AW_DL
         {
             this._propTable = "AW_Recruit";
             this._propPK = "fdRecrID";
-            this._propFields = "fdRecrID,fdRecrTitle,fdRecrCompany,fdRecrJob,fdRecrAreaID,fdRecrContent,fdRecrType,fdRecrSort,fdRecrCreateAt";
+            this._propFields = "fdRecrID,fdRecrTitle,fdRecrCompany,fdRecrJob,fdRecrAreaID,fdRecrAreaName,fdRecrContent,fdRecrType,fdRecrSort,fdRecrCreateAt";
         }
 
         public List<AW_Recruit_bean> funcGetList()

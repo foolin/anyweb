@@ -24,8 +24,8 @@ public partial class Admin_RecruitAdd : PageAdmin
         if (String.IsNullOrEmpty(txtTitle.Text))
             WebAgent.AlertAndBack("标题不能为空");
 
-        if (String.IsNullOrEmpty(txtAreaID.Text))
-            WebAgent.AlertAndBack("地区编号不能为空");
+        if( String.IsNullOrEmpty( txtAreaID.Text ) || string.IsNullOrEmpty( txtAreaName.Text ) )
+            WebAgent.AlertAndBack( "地区不能为空" );
 
         if (String.IsNullOrEmpty(txtCompany.Text))
             WebAgent.AlertAndBack("公司名称不能为空");
@@ -50,6 +50,7 @@ public partial class Admin_RecruitAdd : PageAdmin
             bean.fdRecrType = int.Parse(drpType.SelectedValue);
             bean.fdRecrTitle = txtTitle.Text.Trim();
             bean.fdRecrAreaID = int.Parse(txtAreaID.Text.Trim());
+            bean.fdRecrAreaName = txtAreaName.Text;
             bean.fdRecrCompany = txtCompany.Text.Trim();
             bean.fdRecrJob = txtJob.Text.Trim();
             bean.fdRecrContent = txtContent.Text;

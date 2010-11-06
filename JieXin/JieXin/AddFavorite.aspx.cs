@@ -49,11 +49,21 @@ public partial class AddFavorite : PageBase
     {
         List<int> existList = new AW_Favorite_dao().funcGetExistIds( this.LoginUser.fdUserID, ids );
         List<int> list = new List<int>();
-        foreach( string id in ids.Split( ',' ) )
+        if( existList == null )
         {
-            if( !existList.Contains( int.Parse( id ) ) )
+            foreach( string id in ids.Split( ',' ) )
             {
                 list.Add( int.Parse( id ) );
+            }
+        }
+        else
+        {
+            foreach( string id in ids.Split( ',' ) )
+            {
+                if( !existList.Contains( int.Parse( id ) ) )
+                {
+                    list.Add( int.Parse( id ) );
+                }
             }
         }
         return list;

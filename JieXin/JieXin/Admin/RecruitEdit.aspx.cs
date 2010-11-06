@@ -38,6 +38,7 @@ public partial class Admin_RecruitEdit : PageAdmin
         txtTitle.Text = recruit.fdRecrTitle;
         drpType.SelectedValue = recruit.fdRecrType.ToString();
         txtAreaID.Text = recruit.fdRecrAreaID.ToString();
+        txtAreaName.Text = recruit.fdRecrAreaName;
         txtCompany.Text = recruit.fdRecrCompany;
         txtJob.Text = recruit.fdRecrJob;
         txtContent.Text = recruit.fdRecrContent;
@@ -49,8 +50,8 @@ public partial class Admin_RecruitEdit : PageAdmin
         if (String.IsNullOrEmpty(txtTitle.Text))
             WebAgent.AlertAndBack("标题不能为空");
 
-        if (String.IsNullOrEmpty(txtAreaID.Text))
-            WebAgent.AlertAndBack("地区编号不能为空");
+        if( String.IsNullOrEmpty( txtAreaID.Text ) || string.IsNullOrEmpty( txtAreaName.Text ) )
+            WebAgent.AlertAndBack("地区不能为空");
 
         if (String.IsNullOrEmpty(txtCompany.Text))
             WebAgent.AlertAndBack("公司名称不能为空");
@@ -73,6 +74,7 @@ public partial class Admin_RecruitEdit : PageAdmin
             recruit.fdRecrType = int.Parse(drpType.SelectedValue);
             recruit.fdRecrTitle = txtTitle.Text.Trim();
             recruit.fdRecrAreaID = int.Parse(txtAreaID.Text.Trim());
+            recruit.fdRecrAreaName = txtAreaName.Text;
             recruit.fdRecrCompany = txtCompany.Text.Trim();
             recruit.fdRecrJob = txtJob.Text.Trim();
             recruit.fdRecrContent = txtContent.Text;

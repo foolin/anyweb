@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SetPhoto.aspx.cs" Inherits="User_SetPhoto" %>

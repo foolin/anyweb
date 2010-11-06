@@ -1,19 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
     CodeFile="Index.aspx.cs" Inherits="User_Index" %>
 
+<%@ Register Src="~/Control/UserSidebar.ascx" TagName="UserSidebar" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="resumePage">
-        <div class="sidebar" style="height: 1300px; we">
-            <div class="bg column gray">
-                <ul>
-                    <li class="cur"><a href="#">简历管理</a></li>
-                    <li><a href="#">基本信息管理</a></li>
-                    <li><a href="#">形象照片管理</a></li>
-                    <li><a href="#">密码管理</a></li>
-                    <li><a href="#">邮箱管理</a></li>
-                </ul>
-            </div>
-        </div>
+        <uc1:UserSidebar runat="server" />
         <div class="content column">
             <div class="tit gray">
                 <a href="#">首页</a> > <a href="#">个人会员</a> > <span class="green">会员管理</span></div>
@@ -38,4 +29,7 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        setUserSidebar("JLGL");
+    </script>
 </asp:Content>

@@ -167,6 +167,7 @@ namespace AnyWell.AW_DL
                 this.propSelect = " TOP " + topCount + " *";
             }
 
+            this.propWhere = "fdKeyWIsShow=1";
             if( string.IsNullOrEmpty( where ) == false )
             {
                 this.propWhere += " AND " + where.Replace( ";", "；" ).Replace( "--", "－－" );

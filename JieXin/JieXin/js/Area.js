@@ -1,4 +1,7 @@
-﻿var areas = new Array();
+﻿var currentarea = "AreaName";
+var currentid = "areaId";
+var currentname = "area";
+var areas = new Array();
 areas[1] = new Array("东城区|2", "西城区|3", "崇文区|4", "宣武区|5", "朝阳区|6", "丰台区|7", "石景山区|8", "海淀区|9", "门头沟区|10", "房山区|11", "通州区|12", "顺义区|13", "昌平区|14", "大兴区|15", "怀柔区|16", "平谷区|17", "密云县|18", "延庆县|19");
 areas[20] = new Array("黄浦区|21", "卢湾区|22", "徐汇区|23", "长宁区|24", "静安区|25", "普陀区|26", "闸北区|27", "虹口区|28", "杨浦区|29", "浦东新区|30", "闵行区|31", "宝山区|32", "嘉定区|33", "金山区|34", "松江区|35", "青浦区|36", "奉贤区|37", "崇明县|38");
 areas[39] = new Array("广州|40", "惠州|53", "汕头|54", "珠海|55", "佛山|56", "中山|57", "东莞|58", "韶关|59", "江门|60", "湛江|61", "肇庆|62", "清远|63", "潮州|64", "河源|65", "揭阳|66", "茂名|67", "汕尾|68", "顺德|69", "梅州|70", "开平|71", "阳江|72", "云浮|73", "深圳|74");
@@ -38,19 +41,19 @@ function ChooseArea() {
     showMsgBox('ChooseArea', 538, 366) //参数说明：层ID, 层宽度，层高度
 }
 function AreaName(obj, areaid) {
-    var AreaName = document.getElementById("AreaName");
+    var AreaName = document.getElementById(currentarea);
     if (!AreaName) return false;
     AreaName.innerHTML = obj.innerHTML;
-    document.getElementById("areaId").value = areaid;
-    document.getElementById("area").value = obj.innerHTML;
+    document.getElementById(currentid).value = areaid;
+    document.getElementById(currentname).value = obj.innerHTML;
     closeWindow("ChooseArea");
 }
 function ClearArea() {
-    var AreaName = document.getElementById("AreaName");
+    var AreaName = document.getElementById(currentarea);
     if (!AreaName) return false;
     AreaName.innerHTML = "选择地区";
-    document.getElementById("areaId").value = "";
-    document.getElementById("area").value = "";
+    document.getElementById(currentid).value = "";
+    document.getElementById(currentname).value = "";
     closeWindow("ChooseArea");
 }
 function overDetail(obj, num) {
@@ -104,10 +107,10 @@ function Changetag(num) {
 }
 function searchName() {
     var tagName = document.getElementById("tagName").value;
-    var keyword = document.getElementById("keyword").value;
+    var keyword = $.trim(document.getElementById("keyword").value);
     if (keyword == "请输入关键字") { keyword = ""; }
     var AreaName = document.getElementById("area").value;
     var AreaId = document.getElementById("areaId").value;
     if (AreaName == "选择地区") { AreaName = ""; }
-    window.location = "/search.aspx?tag=" + tagName + "&key=" + keyword + "&area=" + AreaName + "&areaid=" + AreaId;
+    window.location = "/RecruitList.aspx?tag=" + tagName + "&key=" + encodeURIComponent(keyword) + "&area=" + AreaName + "&areaid=" + AreaId;
 }

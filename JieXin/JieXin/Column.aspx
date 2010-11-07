@@ -47,7 +47,12 @@
                 <div class="blank20px">
                 </div>
                 <div class="comhead">
-                    文章列表</div>
+                    <aw:Column runat="server" ItemType="Current">
+                        <ItemTemplate>
+                            <%#Eval("fdColuName") %>
+                        </ItemTemplate>
+                    </aw:Column>    
+                </div>
                 <div class="flowhidden" style="padding: 0px 20px;">
                     <div class="blank15px">
                     </div>

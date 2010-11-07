@@ -14,7 +14,7 @@ namespace AnyWell.AW_DL
         {
             this._propTable = "AW_User";
             this._propPK = "fdUserID";
-            this._propFields = "fdUserID,fdUserAccount,fdUserPwd,fdUserEmail,fdUserStatus,fdUserPhoto,fdUserPhotoIsShow,fdUserName,fdUserSex,fdUserBirthday,fdUserExperience,fdUserIdentificationID,fdUserIdentificationNum,fdUserAddressID,fdUserAddress,fdUserCurrentSituation,fdUserNation,fdUserGraDate,fdUserPoliticalState,fdUserDegree,fdUserHouseAddressID,fdUserHouseAddress,fdUserCountryID,fdUserHeight,fdUserPostCode,fdUserContactAddr,fdUserMarry,fdUserWebsite";
+            this._propFields = "fdUserID,fdUserAccount,fdUserPwd,fdUserEmail,fdUserStatus,fdUserPhoto,fdUserPhotoIsShow,fdUserName,fdUserSex,fdUserBirthday,fdUserExperience,fdUserIdentificationID,fdUserIdentificationNum,fdUserAddressID,fdUserAddress,fdUserCurrentSituation,fdUserGraDate,fdUserPoliticalState,fdUserDegree,fdUserHouseAddressID,fdUserHouseAddress,fdUserCountryID,fdUserHeight,fdUserPostCode,fdUserContactAddr,fdUserMarry,fdUserWebsite,fdUserMobilePhone,fdUserCompPhone,fdUserFamiPhone";
         }
 
         public List<AW_User_bean> funcGetList()

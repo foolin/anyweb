@@ -70,3 +70,18 @@ function setUserSidebar(id) {
     });
     $("#" + id).attr("class", "cur");
 }
+
+//验证数字类型
+function isInt(obj) {
+    if (obj == "") {
+        return false;
+    }
+    slen = obj.length;
+    for (i = 0; i < slen; i++) {
+        cc = obj.charAt(i);
+        if (cc < "0" || cc > "9") {
+            return false;
+        }
+    }
+    return true;
+}

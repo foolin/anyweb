@@ -44,81 +44,8 @@
                         </dl>
                     </div>
                 </div>
-                <div class="Joblist">
-                    <div class="listHead">
-                        <label for="all">
-                            <input type="checkbox" id="all" onclick="SelectAll(this.checked)" name="job" style="margin: -1px 0px -2px 0px;" />&nbsp;&nbsp;<span>全部选中</span></label>&nbsp;<a
-                                href="javascript:void(0);" class="btn94_28">申请选中的职位</a>&nbsp;<a href="javascript:void(0);"
-                                    class="btn28H" style="font-size: 12px;" onclick="AddFavorite()" id="favorite">收藏选中职位</a>
-                    </div>
-                    <div class="dList" id="jobList">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                            <asp:Repeater ID="rep" runat="server">
-                                <ItemTemplate>
-                                    <tr class="<%# Container.ItemIndex % 2 == 1 ? "" : "even" %>">
-                                        <th>
-                                            <input type="checkbox" name="job" value="<%# Eval("fdRecrID")%>" />
-                                        </th>
-                                        <td>
-                                            <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="fbold"><%#Eval( "fdRecrTitle" )%></a>
-                                        </td>
-                                        <td>
-                                            <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="blue"><%#Eval("fdRecrCompany") %></a>
-                                        </td>
-                                        <td class="date">
-                                            <%#Eval("fdRecrCreateAt","{0:yyyy-MM-dd}") %>
-                                        </td>
-                                    </tr>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                        </table>
-                    </div>
-                    <div class="pageStyle tr">
-                        <sw:PageNaver ID="PN1" runat="server" StyleID="5" PageSize="20">
-                        </sw:PageNaver>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        function SelectAll(v) {
-            var list = $("#jobList input");
-            $("#jobList input").each(function() {
-                if ($(this).attr("name") == "job" && $(this).attr("type") == "checkbox") {
-                    $(this).attr("checked", v);
-                }
-            });
-        }
-        
-        function AddFavorite() {
-            var list = $("#jobList input:checked");
-            var ids = "";
-            if (list.length == 0) {
-                alert("请选择要收藏的职位！");
-                return;
-            }
-            list.each(function() {
-                if ($(this).attr("name") == "job" && $(this).attr("type") == "checkbox") {
-                    ids += "," + $(this).val();
-                }
-            });
-            $("#favorite").html("正在收藏...");
-            $.ajax({
-                url: "/AddFavorite.aspx",
-                data: "ids=" + ids.substr(1),
-                cache: false,
-                success: function(data) {
-                    eval(data);
-                },
-                error: function() {
-                    alert("系统繁忙，请稍候再试！");
-                },
-                complete: function() {
-                    $("#favorite").html("收藏选中职位");
-                }
-            });
-        }
-    </script>
     <uc1:Area runat="server" />
 </asp:Content>

@@ -91,7 +91,7 @@ namespace AnyWell.AW_DL
 			get{return _fdUserSex;}
 			set{_fdUserSex = value;}
 		}
-		private DateTime _fdUserBirthday = DateTime.Now;
+        private DateTime _fdUserBirthday = DateTime.Parse( "1900-01-01" );
 		 /// <summary>
 		 /// 出生日期
 		 /// </summary>
@@ -154,16 +154,7 @@ namespace AnyWell.AW_DL
 			get{return _fdUserCurrentSituation;}
 			set{_fdUserCurrentSituation = value;}
 		}
-		private int _fdUserNation = 0;
-		 /// <summary>
-		 /// 民 族
-		 /// </summary>
-		public int fdUserNation
-		{
-			get{return _fdUserNation;}
-			set{_fdUserNation = value;}
-		}
-		private DateTime _fdUserGraDate = DateTime.Now;
+        private DateTime _fdUserGraDate = DateTime.Parse( "1900-01-01" );
 		 /// <summary>
 		 /// 毕业时间
 		 /// </summary>
@@ -262,6 +253,33 @@ namespace AnyWell.AW_DL
 			get{return _fdUserWebsite;}
 			set{_fdUserWebsite = value;}
 		}
+        private string _fdUserMobilePhone = "";
+        /// <summary>
+        /// 手机号码
+        /// </summary>
+        public string fdUserMobilePhone
+        {
+            get{return _fdUserMobilePhone;}
+            set{_fdUserMobilePhone = value;}
+        }
+        private string _fdUserCompPhone = "";
+        /// <summary>
+        /// 公司电话
+        /// </summary>
+        public string fdUserCompPhone
+        {
+            get{return _fdUserCompPhone;}
+            set{_fdUserCompPhone = value;}
+        }
+        private string _fdUserFamiPhone = "";
+        /// <summary>
+        /// 家庭电话
+        /// </summary>
+        public string fdUserFamiPhone
+        {
+            get{return _fdUserFamiPhone;}
+            set{_fdUserFamiPhone = value;}
+        }
 
 
 		/////////////////////////////////////////

@@ -24,7 +24,7 @@
     <div class="wrap">
         <div class="Top">
             <div class="LinkArea">
-                <a href="#" class="companyName ohtxt" title="广州市杰信人力资源有限公司">广州市杰信人力资源有限公司</a>
+                <a href="/Index.aspx" class="companyName ohtxt" title="广州市杰信人力资源有限公司">广州市杰信人力资源有限公司</a>
                 <%if( LoginUser != null )
                   {%>
                 <span class="loginInfo">
@@ -34,8 +34,8 @@
                 <%}
                   else
                   { %>
-                <span class="loginInfo"><span class="blue"><a href="/Login.aspx">登录</a></span>
-                    <%} %>
+                <span class="loginInfo"><span class="blue"><a href="/Login.aspx">登录</a></span></span>
+                <%} %>
             </div>
             <div class="nav">
                 <div class="ls">

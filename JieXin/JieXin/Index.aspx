@@ -20,7 +20,8 @@
                 <div class="con">
                     <div class="pad10">
                         <ul class="listA">
-                            <aw:NoticeList runat="server" TopCount="4" CacheName="INDEX">
+                            <marquee direction="up" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4"  style="height: 103px; overflow:hidden;">
+                            <aw:NoticeList runat="server" TopCount="10" CacheName="INDEX">
                                 <ItemTemplate>
                                     <li><span class="date">
                                         <%#Eval("fdNotiCreateAt","{0:yyyy-MM-dd}") %></span>• <a href="/n/<%#Eval("fdNotiID") %>.aspx"
@@ -28,6 +29,7 @@
                                             <%# Eval("fdNotiTitle") %></a></li>
                                 </ItemTemplate>
                             </aw:NoticeList>
+                            </marquee>
                         </ul>
                     </div>
                 </div>
@@ -48,7 +50,7 @@
                             <aw:ArticleList runat="server" ColumnID="44" TopCount="8" CacheName="ZXDT">
                                 <ItemTemplate>
                                     <li><span class="date">
-                                        <%#Eval("fdArtiCreateAt","{0:yyyy-MM-dd}") %></span>• <a href="/a/<%#Eval("fdArtiID") %>"
+                                        <%#Eval("fdArtiCreateAt","{0:yyyy-MM-dd}") %></span>• <a href="/a/<%#Eval("fdArtiID") %>.aspx"
                                             title="<%#Eval("fdArtiTitle") %>">
                                             <%#Eval("fdArtiTitle") %></a></li>
                                 </ItemTemplate>
@@ -78,7 +80,7 @@
                                             会员名：
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtUserName" runat="server" CssClass="loginInput"></asp:TextBox>
+                                            <asp:TextBox ID="txtUserName" runat="server" CssClass="loginInput" MaxLength="20"></asp:TextBox>
                                         </td>
                                         <td rowspan="2">
                                             <input type="submit" class="btn46H" value="登录" />
@@ -89,7 +91,7 @@
                                             密码：
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtPassword" runat="server" CssClass="loginInput" TextMode="Password"></asp:TextBox>
+                                            <asp:TextBox ID="txtPassword" runat="server" CssClass="loginInput" TextMode="Password" MaxLength="20"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -152,9 +154,9 @@
                     <div class="chCondtion">
                         <div class="search">
                             <div id="topTabs" class="topTabs gray">
-                                <a href="javascript:void(0);" class="cur" onclick="Changetag('全文',0);">全文</a> <a
-                                    href="javascript:void(0);" onclick="Changetag('职位名',1);">职位名</a> <a href="javascript:void(0);"
-                                        class="nobor" onclick="Changetag('公司名',2);">公司名</a>
+                                <a href="javascript:void(0);" class="cur" onclick="Changetag(0);">全文</a> <a
+                                    href="javascript:void(0);" onclick="Changetag(1);">职位名</a> <a href="javascript:void(0);"
+                                        class="nobor" onclick="Changetag(2);">公司名</a>
                             </div>
                             <div class="btmInt">
                                 <span class="wrapSpan left">
@@ -226,7 +228,7 @@
                 <div class="tit">
                     <h2>
                         实习生招聘</h2>
-                    <span class="more"><a href="/search.aspx?type=1">更多>></a></span>
+                    <span class="more"><a href="/RecruitList.aspx?type=1">更多>></a></span>
                 </div>
                 <div class="con pad10">
                     <ul class="listA">
@@ -244,7 +246,7 @@
                 <div class="tit">
                     <h2>
                         毕业生招聘</h2>
-                    <span class="more"><a href="/search.aspx?type=2">更多>></a></span>
+                    <span class="more"><a href="/RecruitList.aspx?type=2">更多>></a></span>
                 </div>
                 <div class="con pad10">
                     <ul class="listA">
@@ -262,7 +264,7 @@
                 <div class="tit">
                     <h2>
                         兼职招聘</h2>
-                    <span class="more"><a href="/search.aspx?type=3">更多>></a></span>
+                    <span class="more"><a href="/RecruitList.aspx?type=3">更多>></a></span>
                 </div>
                 <div class="con pad10">
                     <ul class="listA">
@@ -344,7 +346,7 @@
         <div class="tit">
             <h2>
                 知名企业招聘</h2>
-            <span class="more"><a href="/search.aspx?type=5">更多>></a></span>
+            <span class="more"><a href="/RecruitList.aspx?type=5">更多>></a></span>
         </div>
         <div class="con flowhidden">
             <div class="pad10">

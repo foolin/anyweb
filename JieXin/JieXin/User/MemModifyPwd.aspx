@@ -9,15 +9,15 @@
             <div class="MemCon">
             	<div class="blank12px"></div>
                 <div class="Res670">
-                    <form runat="server" id="form1" onsubmit="return checkRegister()">
+                    <form runat="server" id="form1" onsubmit="return checkForm()">
                     <div class="blank8px"></div>
                     <div class="modifypwd lh24">
-                    	<strong class="brown">修改密码</strong> (<span class="brown">*</span>为必填项，新密码格式：只能是6-20位的英文字母或数字,以下划线或字母开头！或者2-10位汉字)<span class="blank12px"></span>
+                    	<strong class="brown">修改密码</strong> (<span class="brown">*</span>为必填项，密码格式：只能是6-20位的英文字母或数字)<span class="blank12px"></span>
 						<table width="250" border="0" cellspacing="0" cellpadding="0">
                           <tr>
                             <th scope="row"><span class="brown">*</span>旧 密 码</th>
                             <td>
-                                <asp:TextBox ID="txtOldPwd" runat="server" TextMode="Password" CssClass="reginput" MaxLength="50"></asp:TextBox>
+                                <asp:TextBox ID="txtOldPwd" runat="server" TextMode="Password" CssClass="reginput" MaxLength="20"></asp:TextBox>
                             </td>
                             <td>
                                 <span class="tipW" style="display:none" id="Error_OldPwd">旧密码不能为空！</span>
@@ -28,7 +28,7 @@
                                 <span class="brown">*</span>新 密 码
                             </th>
                             <td>
-                                <asp:TextBox ID="txtNewPwd1" TextMode="Password" runat="server" CssClass="reginput" MaxLength="50"></asp:TextBox>
+                                <asp:TextBox ID="txtNewPwd1" TextMode="Password" runat="server" CssClass="reginput" MaxLength="20"></asp:TextBox>
                             </td>
                             <td>
                                 <span class="tipW" style="display:none" id="Error_NewPwd1_1">密码不能为空！</span>
@@ -40,7 +40,7 @@
                                 <span class="brown">*</span>重复密码
                             </th>
                             <td>
-                                <asp:TextBox ID="txtNewPwd2" TextMode="Password" runat="server" CssClass="reginput" MaxLength="50"></asp:TextBox>
+                                <asp:TextBox ID="txtNewPwd2" TextMode="Password" runat="server" CssClass="reginput" MaxLength="20"></asp:TextBox>
                             </td>
                             <td>
                                 <span class="tipW" style="display:none" id="Error_NewPwd2_1">密码不能为空！</span>
@@ -60,7 +60,7 @@
         </div>
     </div>
     <script type="text/javascript">
-        function checkRegister() {
+        function checkForm() {
             var error = true;
             var oldPwd = $.trim($("#<%=txtOldPwd.ClientID %>").val());
             var newPwd1 = $.trim($("#<%=txtNewPwd1.ClientID %>").val());

@@ -28,12 +28,6 @@ public class PageAdmin : Page
 
     protected override void OnLoad(EventArgs e)
     {
-        //Response.Buffer = true;
-        //Response.ExpiresAbsolute = System.DateTime.Now.AddSeconds(-1);
-        //Response.Expires = 0;
-        //Response.CacheControl = "no-cache";
-        //Response.AppendHeader("Pragma", "No-Cache");
-
         if (!this.IsPostBack && Request.UrlReferrer != null)
         {
             ViewState["REFURL"] = Request.UrlReferrer.PathAndQuery;

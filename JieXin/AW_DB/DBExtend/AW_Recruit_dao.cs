@@ -64,6 +64,7 @@ namespace AnyWell.AW_DL
 
             if( !string.IsNullOrEmpty( key ) )
             {
+                key = key.Replace( "[", "[[]" ).Replace( "%", "[%]" );
                 key = string.Format( "%{0}%", key );
                 switch( tag )
                 {

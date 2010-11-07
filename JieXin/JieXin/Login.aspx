@@ -13,7 +13,7 @@
                         <a href="#" class="Link logLink ohtxt">登录</a> <a href="#" class="Link regLink ohtxt">
                             注册</a>
                         <div class="btnArea tc">
-                            <a href="#" class="btn28H">职位搜索</a> <a href="#" class="btn28H">求职指南</a>
+                            <a href="/Search.aspx" class="btn28H">职位搜索</a> <a href="/c/54.aspx" class="btn28H">求职指南</a>
                         </div>
                     </div>
                     <div class="TipBtm">
@@ -27,7 +27,7 @@
                             求职注意:
                         </h3>
                         <p>
-                            非法黑中介收取报名费；虚假的"高薪招聘"，巧立名目收取各类押金……求职者要时刻睁大眼睛，谨防招聘骗局！<a href="#" class="blue line">查看详情</a></p>
+                            非法黑中介收取报名费；虚假的"高薪招聘"，巧立名目收取各类押金……求职者要时刻睁大眼睛，谨防招聘骗局！</p>
                     </div>
                 </div>
                 <div class="loginBox">
@@ -50,7 +50,7 @@
                                             会员名：
                                         </th>
                                         <td>
-                                            <asp:TextBox ID="txtUserName" runat="server" CssClass="loginInput_in"></asp:TextBox>
+                                            <asp:TextBox ID="txtUserName" runat="server" CssClass="loginInput_in" MaxLength="20"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -58,7 +58,7 @@
                                             密码：
                                         </th>
                                         <td>
-                                            <asp:TextBox ID="txtPassword" runat="server" CssClass="loginInput_in" TextMode="Password"></asp:TextBox>
+                                            <asp:TextBox ID="txtPassword" runat="server" CssClass="loginInput_in" TextMode="Password" MaxLength="20"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>

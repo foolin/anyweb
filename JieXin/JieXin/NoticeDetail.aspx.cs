@@ -17,6 +17,10 @@ public partial class NoticeDetail : PageBase
         }
 
         AW_Notice_bean notice = AW_Notice_bean.funcGetByID( noticeid );
+        if( notice == null )
+        {
+            goErrorPage();
+        }
         HttpContext.Current.Items.Add( "NOTICEID_" + noticeid, notice );
 
         this.Title = "广州市杰信人力资源有限公司 - " + notice.fdNotiTitle;

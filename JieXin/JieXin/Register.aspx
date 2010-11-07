@@ -28,7 +28,7 @@
                         <span class="orange">*</span>用 户 名
                     </th>
                     <td>
-                        <asp:TextBox ID="txtName" runat="server" CssClass="reginput" MaxLength="50"></asp:TextBox>
+                        <asp:TextBox ID="txtName" runat="server" CssClass="reginput" MaxLength="20"></asp:TextBox>
                     </td>
                     <td>
                         <span class="tipW" style="display:none" id="Error_Name">用户名不能为空！</span>
@@ -39,7 +39,7 @@
                         <span class="orange">*</span>密 码
                     </th>
                     <td>
-                        <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" CssClass="reginput" MaxLength="50"></asp:TextBox>
+                        <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" CssClass="reginput" MaxLength="20"></asp:TextBox>
                     </td>
                     <td>
                         <span class="tipW" style="display:none" id="Error_Password1_1">密码不能为空！</span>
@@ -51,7 +51,7 @@
                         <span class="orange">*</span>重复密码
                     </th>
                     <td>
-                        <asp:TextBox ID="txtPassword2" TextMode="Password" runat="server" CssClass="reginput" MaxLength="50"></asp:TextBox>
+                        <asp:TextBox ID="txtPassword2" TextMode="Password" runat="server" CssClass="reginput" MaxLength="20"></asp:TextBox>
                     </td>
                     <td>
                         <span class="tipW" style="display:none" id="Error_Password2_1">密码不能为空！</span>

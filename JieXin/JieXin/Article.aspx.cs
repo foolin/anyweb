@@ -17,6 +17,11 @@ public partial class AnyWell_Article : PageBase
         }
 
         AW_Article_bean article = AW_Article_bean.funcGetByID( articleid );
+        if( article == null )
+        {
+            goErrorPage();
+        }
+
         HttpContext.Current.Items.Add( "ARTICLE_" + articleid, article );
 
         new AW_Article_dao().funcUpdateClick( article.fdArtiID );

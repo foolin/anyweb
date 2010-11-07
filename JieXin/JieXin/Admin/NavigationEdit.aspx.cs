@@ -103,10 +103,10 @@ public partial class Admin_NavigationEdit : PageAdmin
                     switch( drpRecruit.SelectedValue )
                     {
                         case "-1":
-                            bean.fdNaviLink = "/search.aspx";
+                            bean.fdNaviLink = "/RecruitList.aspx";
                             break;
                         default:
-                            bean.fdNaviLink = "/search.aspx?type=" + drpRecruit.SelectedValue;
+                            bean.fdNaviLink = "/RecruitList.aspx?type=" + drpRecruit.SelectedValue;
                             break;
                     }
                     bean.fdNaviItemID = int.Parse( drpRecruit.SelectedValue );

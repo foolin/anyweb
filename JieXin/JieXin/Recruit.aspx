@@ -5,7 +5,7 @@
     <div class="inner">
         <div class="box_754">
             <div class="tit gray">
-                <a href="/Index.aspx">首页</a> > <a href="/Search.aspx">职位</a> > <span class="green">
+                <a href="/Index.aspx">首页</a> > <a href="/RecruitList.aspx">职位</a> > <span class="green">
                     <%=bean.fdRecrTitle %></span>
             </div>
             <div class="innerPad detailInfo">
@@ -17,6 +17,8 @@
                 <div class="detCon">
                     <h2>
                         <%=bean.fdRecrCompany %></h2>
+                    <h2>
+                        <%=bean.fdRecrJob %></h2>
                     <div>
                         <strong class="blue">职位描述</strong><span class="blank12px"></span> 
                         <%=bean.fdRecrContent %>

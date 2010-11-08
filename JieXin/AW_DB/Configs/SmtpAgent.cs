@@ -23,7 +23,7 @@ namespace AnyWell.Configs
     /// </summary>
     public class SmtpAgent
     {
-        private System.Timers.Timer smtpTimer = new System.Timers.Timer(60000);
+        private System.Timers.Timer smtpTimer = new System.Timers.Timer(6000);
         private DateTime _lastModidyAt;
 
         public SmtpAgent()
@@ -122,39 +122,39 @@ namespace AnyWell.Configs
             if (_smtps == null || _smtps.Count == 0)
                 return false;
 
-            string ipAddress = HttpContext.Current.Request.ServerVariables["Local_Addr"];
-            if (ipAddress.StartsWith("192.") || ipAddress.StartsWith("127.") || ipAddress.StartsWith("localhost"))
-            {
-                return false;
-            }
+            //string ipAddress = HttpContext.Current.Request.ServerVariables["Local_Addr"];
+            //if( ipAddress.StartsWith( "192." ) || ipAddress.StartsWith( "127." ) || ipAddress.StartsWith( "localhost" ) )
+            //{
+            //    return false;
+            //}
 
 
             Smtp smtp = _smtps[_smtpIndex];
 
-            MailMessage message = new MailMessage(smtp.Sender,to);
+            MailMessage message = new MailMessage( smtp.Sender, to );
+            message.SubjectEncoding = Encoding.UTF8;
             message.Subject = subject;
-            message.Body = body;
             message.IsBodyHtml = isHtml;
+            message.BodyEncoding = Encoding.UTF8;
+            message.Body = body;
 
-            SmtpClient client = new SmtpClient(smtp.ServerAddress, smtp.Port);
+            SmtpClient client = new SmtpClient( smtp.ServerAddress, smtp.Port );
             client.EnableSsl = smtp.EnableSsl;
-            NetworkCredential credential = new NetworkCredential(smtp.UserName, smtp.Password);
-            client.Credentials = credential;
+            client.Credentials = new NetworkCredential( smtp.UserName, smtp.Password );
 
             _smtpIndex++;
-            if (_smtpIndex + 1 >= _smtps.Count)
+            if( _smtpIndex + 1 >= _smtps.Count )
                 _smtpIndex = 0;
 
             try
             {
-                client.Send(message);
+                client.Send( message );
                 return true;
             }
-            catch (Exception ex)
+            catch( Exception ex )
             {
                 return false;
             }   
-
         }
 
 

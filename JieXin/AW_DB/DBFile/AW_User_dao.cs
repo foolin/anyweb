@@ -14,7 +14,7 @@ namespace AnyWell.AW_DL
         {
             this._propTable = "AW_User";
             this._propPK = "fdUserID";
-            this._propFields = "fdUserID,fdUserAccount,fdUserPwd,fdUserEmail,fdUserStatus,fdUserPhoto,fdUserPhotoIsShow,fdUserName,fdUserSex,fdUserBirthday,fdUserExperience,fdUserIdentificationID,fdUserIdentificationNum,fdUserAddressID,fdUserAddress,fdUserCurrentSituation,fdUserGraDate,fdUserPoliticalState,fdUserDegree,fdUserHouseAddressID,fdUserHouseAddress,fdUserCountryID,fdUserHeight,fdUserPostCode,fdUserContactAddr,fdUserMarry,fdUserWebsite,fdUserMobilePhone,fdUserCompPhone,fdUserFamiPhone";
+            this._propFields = "fdUserID,fdUserAccount,fdUserPwd,fdUserEmail,fdUserStatus,fdUserPhoto,fdUserPhotoIsShow,fdUserName,fdUserSex,fdUserBirthday,fdUserExperience,fdUserIdentificationID,fdUserIdentificationNum,fdUserAddressID,fdUserAddress,fdUserCurrentSituation,fdUserGraDate,fdUserPoliticalState,fdUserDegree,fdUserHouseAddressID,fdUserHouseAddress,fdUserCountryID,fdUserHeight,fdUserPostCode,fdUserContactAddr,fdUserMarry,fdUserWebsite,fdUserMobilePhone,fdUserCompPhone,fdUserFamiPhone,fdUserCode,fdUserGetPwdDate";
         }
 
         public List<AW_User_bean> funcGetList()

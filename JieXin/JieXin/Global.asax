@@ -152,6 +152,6 @@
         }
     }
 
-    string[] urls = { "/", "/index.aspx", "/login.aspx", "/import.aspx", "/User/Index.aspx", "/logout.aspx", "/search.aspx", "/initarea.aspx", "/register.aspx", "/notice.aspx", "/addfavorite.aspx", "/recruitlist.aspx", "/test.aspx" };
+    string[] urls = { "/", "/index.aspx", "/login.aspx", "/import.aspx", "/User/Index.aspx", "/logout.aspx", "/search.aspx", "/initarea.aspx", "/register.aspx", "/notice.aspx", "/addfavorite.aspx", "/recruitlist.aspx", "/getpassword.aspx", "/test.aspx" };
        
 </script>

@@ -19,7 +19,7 @@
                     <div class="modifypwd lh24">
                         <strong class="brown">修改邮箱</strong> (<span class="brown">*</span>为必填项)<span
                             class="blank12px"></span>
-                        <table width="250" border="0" cellspacing="0" cellpadding="0">
+                        <table border="0" cellspacing="0" cellpadding="0">
                             <tr>
                                 <th scope="row">
                                     &nbsp;旧邮箱
@@ -59,7 +59,7 @@
     <script type="text/javascript">
         function checkForm() {
             var error = true;
-            var email = $("#<%=txtEmail.ClientID %>").val();
+            var email = $.trim($("#<%=txtEmail.ClientID %>").val());
             var mailValid = /^\w+([-+.]\w+)*@\w+([-.]\\w+)*\.\w+([-.]\w+)*$/;
             if (!email) {
                 $("#Error_Email_1").show();

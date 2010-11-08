@@ -68,7 +68,7 @@
                                         <td>
                                             <label for="<%=autoLogin.ClientID %>">
                                                 <input type="checkbox" id="autoLogin" runat="server" class="jz" />自动登录</label>
-                                            <a href="#" target="_blank" class="blue">忘记密码</a>
+                                            <a href="/GetPassword.aspx" target="_blank" class="blue">忘记密码</a>
                                         </td>
                                     </tr>
                                     <tr>

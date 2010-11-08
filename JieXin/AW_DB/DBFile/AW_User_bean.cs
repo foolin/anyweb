@@ -280,6 +280,24 @@ namespace AnyWell.AW_DL
             get{return _fdUserFamiPhone;}
             set{_fdUserFamiPhone = value;}
         }
+        private string _fdUserCode = "";
+        /// <summary>
+        /// 随机码
+        /// </summary>
+        public string fdUserCode
+        {
+            get{return _fdUserCode;}
+            set{ _fdUserCode = value; }
+        }
+        private DateTime _fdUserGetPwdDate = DateTime.Parse( "1900-01-01" );
+        /// <summary>
+        /// 找回密码的日期
+        /// </summary>
+        public DateTime fdUserGetPwdDate
+        {
+            get{return _fdUserGetPwdDate;}
+            set{_fdUserGetPwdDate = value;}
+        }
 
 
 		/////////////////////////////////////////

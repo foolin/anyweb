@@ -16,8 +16,10 @@ public partial class User_MemModifyPwd : PageUser
         {
             using (AW_User_dao dao = new AW_User_dao())
             {
-                if (Secure.Md5(txtOldPwd.Text.Trim()) == this.LoginUser.fdUserPwd)
-                    this.LoginUser.fdUserPwd = Secure.Md5(txtNewPwd1.Text.Trim());
+                if( Secure.Md5( txtOldPwd.Text.Trim() ) == this.LoginUser.fdUserPwd )
+                    this.LoginUser.fdUserPwd = Secure.Md5( txtNewPwd1.Text.Trim() );
+                else
+                    WebAgent.AlertAndBack( "旧密码不正确，请重新输入！" );
                 dao.funcUpdate( this.LoginUser );
                 WebAgent.SuccAndGo( "保存成功！", "/User/MemModifyPwd.aspx" );
             }

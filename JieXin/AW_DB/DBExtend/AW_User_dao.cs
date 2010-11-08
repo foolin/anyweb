@@ -106,6 +106,66 @@ namespace AnyWell.AW_DL
         }
 
         /// <summary>
+        /// 检查邮箱是否存在
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="userEmail"></param>
+        /// <returns></returns>
+        public bool funcCheckEmail( int userId, string userEmail )
+        {
+            string sql = "SELECT fdUserID FROM AW_User WHERE fdUserID<>@fdUserID AND fdUserEmail=@fdUserEmail";
+            this.funcAddParam( "@fdUserID", userId );
+            this.funcAddParam( "@fdUserEmail", userEmail );
+            DataSet ds = this.funcGet( sql );
+            if( ds.Tables[ 0 ].Rows.Count > 0 )
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 通过用户名和邮箱获取编号
+        /// </summary>
+        /// <param name="userAccount"></param>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public int funcGetUserId( string userAccount, string email )
+        {
+            string sql = "SELECT fdUserID FROM AW_User WHERE fdUserAccount=@fdUserAccount AND fdUserEmail=@fdUserEmail";
+            this.funcAddParam( "@fdUserAccount", userAccount );
+            this.funcAddParam( "@fdUserEmail", email );
+            DataSet ds = this.funcGet( sql );
+            if( ds.Tables[ 0 ].Rows.Count > 0 )
+            {
+                return ( int ) ds.Tables[ 0 ].Rows[ 0 ][ 0 ];
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// 找回密码
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="code"></param>
+        /// <param name="date"></param>
+        /// <returns></returns>
+        public bool funcGetPassword( int userId, string code, DateTime date )
+        {
+            string sql = "UPDATE AW_User SET fdUserCode=@fdUserCode,fdUserGetPwdDate=@fdUserGetPwdDate WHERE fdUserID=@fdUserID";
+            this.funcAddParam( "@fdUserCode", code );
+            this.funcAddParam( "@fdUserGetPwdDate", date );
+            this.funcAddParam( "@fdUserID", userId );
+            return this.funcExecute( sql ) > 0;
+        }
+
+        /// <summary>
         /// 获取会话信息
         /// </summary>
         /// <returns></returns>

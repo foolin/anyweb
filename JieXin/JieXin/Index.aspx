@@ -101,7 +101,7 @@
                                         <td colspan="2">
                                             <label for="<%=autoLogin.ClientID %>">
                                                 <input type="checkbox" id="autoLogin" runat="server" class="jz" />自动登录</label>
-                                            <a href="#" target="_blank" class="blue">忘记密码</a>
+                                            <a href="/GetPassword.aspx" target="_blank" class="blue">忘记密码</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -126,8 +126,8 @@
                                     </tr>
                                     <tr>
                                         <td class="tc">
-                                            <a href="#" target="_blank" class="blue">修改简历</a> <a href="#" target="_blank" class="blue">
-                                                忘记密码</a>
+                                            <a href="/User/Index.aspx" target="_blank" class="blue">修改简历</a> <a href="#" target="_blank" class="blue">
+                                                刷新简历</a>
                                         </td>
                                     </tr>
                                     <tr>

@@ -12,9 +12,16 @@ public partial class User_MemModifyEmail : PageUser
     {
         if( IsPostBack )
         {
-            this.LoginUser.fdUserEmail = txtEmail.Text.Trim();
-            new AW_User_dao().funcUpdate( this.LoginUser );
-            WebAgent.SuccAndGo( "保存成功！", "/User/MemModifyEmail.aspx" );
+            using( AW_User_dao dao = new AW_User_dao() )
+            {
+                if( dao.funcCheckEmail( this.LoginUser.fdUserID, txtEmail.Text.Trim() ) )
+                {
+                    WebAgent.AlertAndBack( "邮箱已存在，请重新输入！" );
+                }
+                this.LoginUser.fdUserEmail = txtEmail.Text.Trim();
+                new AW_User_dao().funcUpdate( this.LoginUser );
+                WebAgent.SuccAndGo( "保存成功！", "/User/MemModifyEmail.aspx" );
+            }
         }
     }
 }

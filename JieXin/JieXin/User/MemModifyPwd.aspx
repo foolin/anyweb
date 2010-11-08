@@ -5,7 +5,7 @@
     <div class="resumePage">
     	<uc1:UserSidebar runat="server" />
         <div class="content column">
-        	<div class="tit gray"><a href="/Index.aspx">首页</a> > <a href="/User/Index.aspx">个人会员</a> > <span class="green">会员管理</span></div>
+        	<div class="tit gray"><a href="/Index.aspx">首页</a> > <a href="/User/Index.aspx">个人会员</a> > <span class="green">密码管理</span></div>
             <div class="MemCon">
             	<div class="blank12px"></div>
                 <div class="Res670">
@@ -13,7 +13,7 @@
                     <div class="blank8px"></div>
                     <div class="modifypwd lh24">
                     	<strong class="brown">修改密码</strong> (<span class="brown">*</span>为必填项，密码格式：只能是6-20位的英文字母或数字)<span class="blank12px"></span>
-						<table width="250" border="0" cellspacing="0" cellpadding="0">
+						<table border="0" cellspacing="0" cellpadding="0">
                           <tr>
                             <th scope="row"><span class="brown">*</span>旧 密 码</th>
                             <td>

@@ -108,6 +108,7 @@
         <ul class="Help">
             <li>配置多个SMTP邮件服务时，系统会轮流使用这些SMTP配置发送邮件</li>
             <li>如使用Gmail发送邮件，端口使用587，并启用SSL</li>
+            <li>如使用QQ发送邮件，端口使用25，并关闭SSL</li>
         </ul>
     </div>
 </asp:Content>

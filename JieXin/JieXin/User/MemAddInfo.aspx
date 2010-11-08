@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="MemAddInfo.aspx.cs" Inherits="User_Default" %>
+    CodeFile="MemAddInfo.aspx.cs" Inherits="User_MemAddInfo" %>
 
 <%@ Register Src="~/Control/UserSidebar.ascx" TagName="UserSidebar" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/Area.ascx" TagName="Area" TagPrefix="uc1" %>

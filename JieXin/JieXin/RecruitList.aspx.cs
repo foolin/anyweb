@@ -5,7 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
 
-public partial class RecruitList : PageBase
+public partial class AnyWell_RecruitList : PageBase
 {
     protected void Page_Load( object sender, EventArgs e )
     {

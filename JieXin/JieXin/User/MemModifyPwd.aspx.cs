@@ -8,7 +8,7 @@ using Studio.Web;
 using AnyWell.AW_DL;
 using Studio.Security;
 
-public partial class User_Default : PageUser
+public partial class User_MemModifyPwd : PageUser
 {
     protected void Page_Load(object sender, EventArgs e)
     {

@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
 
     <script type="text/javascript">
-        function ChangeType() {
+        function ChangeType(IsLoad) {
             switch ($("#<%=drpType.ClientID %>").val()) {
                 case "1":
                 case "2":
@@ -17,7 +17,8 @@
                     $("#divSite").hide();
                     $("#divTitle").attr("class", "fi");
                     $("#divLink").hide();
-                    $("#<%=txtTitle.ClientID %>").val($("#<%=drpType.ClientID %>").find("option:selected").text());
+                    if(!IsLoad)
+                        $("#<%=txtTitle.ClientID %>").val($("#<%=drpType.ClientID %>").find("option:selected").text());
                     break;
                 case "5":
                     $("#divColumn").show().attr("class", "fi");
@@ -25,7 +26,8 @@
                     $("#divSite").hide();
                     $("#divTitle").attr("class", "fi even");
                     $("#divLink").hide();
-                    $("#<%=txtTitle.ClientID %>").val($("#<%=drpColumn.ClientID %>").find("option:selected").text());
+                    if (!IsLoad)
+                        $("#<%=txtTitle.ClientID %>").val($("#<%=drpColumn.ClientID %>").find("option:selected").text());
                     break;
                 case "6":
                     $("#divColumn").hide();
@@ -33,7 +35,8 @@
                     $("#divSite").hide();
                     $("#divTitle").attr("class", "fi even");
                     $("#divLink").hide();
-                    $("#<%=txtTitle.ClientID %>").val($("#<%=drpRecruit.ClientID %>").find("option:selected").text());
+                    if (!IsLoad)
+                        $("#<%=txtTitle.ClientID %>").val($("#<%=drpRecruit.ClientID %>").find("option:selected").text());
                     break;
                 case "7":
                     $("#divColumn").hide();
@@ -41,7 +44,8 @@
                     $("#divSite").show().attr("class", "fi");
                     $("#divTitle").attr("class", "fi even");
                     $("#divLink").hide();
-                    $("#<%=txtTitle.ClientID %>").val($("#<%=drpSite.ClientID %>").find("option:selected").text());
+                    if (!IsLoad)
+                        $("#<%=txtTitle.ClientID %>").val($("#<%=drpSite.ClientID %>").find("option:selected").text());
                     break;
                 case "8": ;
                     $("#divColumn").hide();
@@ -49,7 +53,8 @@
                     $("#divSite").hide();
                     $("#divTitle").attr("class", "fi");
                     $("#divLink").show().attr("class", "fi even");
-                    $("#<%=txtTitle.ClientID %>").val($("#<%=drpType.ClientID %>").find("option:selected").text());
+                    if (!IsLoad)
+                        $("#<%=txtTitle.ClientID %>").val($("#<%=drpType.ClientID %>").find("option:selected").text());
                     break;
             }
         }
@@ -84,9 +89,8 @@
             }
         }
         
-        $(document).ready(function() 
-        {
-            ChangeType();
+        $(document).ready(function() {
+            ChangeType(true);
         });
     </script>
 

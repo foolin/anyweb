@@ -23,6 +23,14 @@
       <xMenuItem id="106" url ="/Admin/NoticeAdd.aspx" name ="添加公告"></xMenuItem>
       <xMenuItem id="107" url ="/Admin/SiteInfoList.aspx" name ="基本信息"></xMenuItem>
     </xMenuItem>
+    <xMenuItem id="7" name="招聘" module="7">
+      <xMenuItem id="701" url ="/Admin/RecruitList.aspx" name ="招聘列表" >
+        <xMenuItem url ="/Admin/RecruitAdd.aspx" name ="添加招聘" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/RecruitEdit.aspx" name ="修改招聘" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/RecruitDel.aspx" name ="删除招聘" type="3" ></xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="702" url ="/Admin/RecruitAdd.aspx" name ="添加招聘"></xMenuItem>
+    </xMenuItem>
     <xMenuItem id="2" name="广告" module="2">
       <xMenuItem id="201" url ="/Admin/CompanyADList.aspx" name ="企业图片管理" >
         <xMenuItem url ="/Admin/CompanyADAdd.aspx" name ="添加企业图片" type="3" ></xMenuItem>
@@ -78,14 +86,6 @@
       </xMenuItem>
       <xMenuItem id="604" url ="/Admin/AdminAdd.aspx" name ="添加用户" >
       </xMenuItem>
-    </xMenuItem>
-    <xMenuItem id="7" name="招聘" module="7">
-      <xMenuItem id="701" url ="/Admin/RecruitList.aspx" name ="招聘列表" >
-        <xMenuItem url ="/Admin/RecruitAdd.aspx" name ="添加招聘" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/RecruitEdit.aspx" name ="修改招聘" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/RecruitDel.aspx" name ="删除招聘" type="3" ></xMenuItem>
-      </xMenuItem>
-      <xMenuItem id="702" url ="/Admin/RecruitAdd.aspx" name ="添加招聘"></xMenuItem>
     </xMenuItem>
   </xMenuItem>
 </xmenu>

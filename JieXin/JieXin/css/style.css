@@ -47,7 +47,7 @@
 .nav .ls{ width:6px; background-position:0px 0px;}
 .nav .ms{ width:939px; padding-right:2px; background-position:0px -43px; background-repeat:repeat-x;}
 .nav .rs{ width:6px; background-position:-6px 0px;}
-.nav .ulNav{ width:786px; float:left; position:relative; z-index:3;}
+.nav .ulNav{ width:786px; float:left; position:relative; z-index:3; overflow:hidden;}
 .nav .ulNav li{ float:left; background:url(../images/bg_nav_alter.gif) left top no-repeat; height:43px; text-align:center; line-height:43px; font-size:14px;}
 .nav .ulNav li .pa{ display:inline-block; padding-left:11px; height:43px;}
 .nav .ulNav li .pa b{ display:inline-block; font-weight:normal; height:43px; padding-right:10px;}
@@ -186,7 +186,7 @@
 .btn46H{ width:46px; height:46px; display:inline-block; background:url(../images/bg_btn_46x46.gif) no-repeat; text-align:center; line-height:46px; color:#fff; font-size:14px; border:0;}
 .btn48_28{ width:48px; height:28px; display:inline-block; background:url(../images/btn_search.gif) no-repeat;border:0; cursor:pointer;}
 .btn94_28{ width:94px; height:28px; display:inline-block; background:url(../images/bg_btn_94_28.gif) no-repeat; text-align:center; line-height:28px; color:#fff; margin:0px 3px; border:0;}
-.btn96_35{ width:96px; height:35px; display:inline-block; background:url(../images/btn_96x35.gif) no-repeat; text-align:center; line-height:35px; color:#fff; font-size:14px; border:0; font-weight:bold;}
+.btn96_35{ width:96px; height:35px; display:inline-block; background:url(../images/btn_96x35.gif) no-repeat; text-align:center; line-height:35px; color:#fff; font-size:14px; border:0; font-weight:bold; cursor:pointer;}
 .btn160_45{ width:160px; height:45px; display:inline-block; background:url(../images/btn160x45.gif) no-repeat; text-align:center; line-height:45px; color:#59A901; font-size:14px; border:0; font-weight:bold;}
 .btn60_28{ width:60px; height:28px; display:inline-block; background:url(../images/btn_60_28.png) no-repeat; text-align:center; line-height:28px; color:#fff; border:0; }
 .btn60_28_gray{ width:60px; height:28px; display:inline-block; background:url(../images/btn_60_28gray.png) no-repeat; text-align:center; line-height:28px; color:#59A901; border:0; }
@@ -318,8 +318,11 @@
 .resumePage .addResume .dTop{ height:27px; background:url(../images/bg_tit_736_27.png) no-repeat; padding:0px 10px 0px 15px; line-height:27px;}
 .resumePage .addResume .dCon{ border:solid #E6E6E6; border-width:0px 1px 1px; padding:12px 20px 0px;}
 .resumePage .addResume .tableInfo{ line-height:30px;}
-.resumePage .addResume th{ text-align:left; font-weight:normal; width:76px;}
+.resumePage .addResume .tableInfo th{ text-align:left; font-weight:normal; width:76px;}
+.resumePage .addResume .tableInfo_1{ line-height:30px; margin-top:8px;}
+.resumePage .addResume .tableInfo_1 th{ text-align:left; font-weight:normal;}
 .resumePage .subTit{ width:11px; height:13px; background:url(../images/icon_openclose.png) 0px 0px no-repeat; display:inline-block; float:right; margin-top:8px; line-height:11px;}
+.resumePage .subTit_up{ width:11px; height:13px; background:url(../images/icon_openclose.png) -11px 0px no-repeat; display:inline-block; float:right; margin-top:8px; line-height:11px;}
 .dashLine{ border-bottom:1px dashed #C8C8C8; height:12px; margin-bottom:12px;}
 .lgray{ color:#999;}
 
@@ -360,3 +363,22 @@
 .comPage .txtCon{ color:#333; line-height:24px; padding-top:14px;}
 .comPage .txtCon p{ padding-bottom:12px;}
 /**/
+
+/*resume*/
+.resume{ width:658px; margin:14px auto;}
+.resume .topBtn{ height:48px;}
+
+.resume .resBox{}
+.resume .resBox .greenLine{ height:2px; overflow:hidden;}
+.resume .lineTop{ background:url(../images/bg_line_t.png) no-repeat;}
+.resume .lineBtm{ background:url(../images/bg_line_b.png) no-repeat;}
+.resume .resBox .Content{ border:solid #3183AD; border-width:0px 2px; height:auto!important; min-height:1552px; _height:1552px;}
+.resume .resBox h1{ height:63px; border-bottom:1px dashed #CCC; background:url(../images/logo_jiexin.png) 552px center no-repeat #F4F8FD; font-size:28px; line-height:63px; padding-left:27px; font-weight:bold;}
+
+.resume .brief{ width:610px; border:1px solid #88B4E0; margin:12px auto; background-color:#F5F9FD; padding:10px 10px 0px;}
+.resume .brief table{ line-height:26px;}
+.resume .tit{ height:26px; border-bottom:4px solid #CCCCCC; clear:both; margin-bottom:5px;}
+.resume .tit h2{ position:relative; width:70px; margin-bottom:-4px; border-bottom:4px solid #88B4E0; line-height:26px; font-weight:bold; font-size:14px; color:#3183AD;}
+.resume .resColumn{ width:610px; margin:0px auto;}
+.resume .item{ overflow:hidden; margin-bottom:8px;}
+.resume .underLine{ border-bottom:1px solid #CCC; margin-bottom:6px; padding-top:5px;}

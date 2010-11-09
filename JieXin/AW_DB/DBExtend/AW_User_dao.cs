@@ -166,6 +166,43 @@ namespace AnyWell.AW_DL
         }
 
         /// <summary>
+        /// 获取找回密码的日期
+        /// </summary>
+        /// <param name="account"></param>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public DateTime funcGetDateOfResetPwd( string account, string code )
+        {
+            string sql = "SELECT fdUserGetPwdDate FROM AW_User WHERE fdUserAccount=@fdUserAccount AND fdUserCode=@fdUserCode";
+            this.funcAddParam( "@fdUserAccount", account );
+            this.funcAddParam( "@fdUserCode", code );
+            DataSet ds = this.funcGet( sql );
+            if( ds.Tables[ 0 ].Rows.Count > 0 )
+            {
+                return ( DateTime ) ds.Tables[ 0 ].Rows[ 0 ][ 0 ];
+            }
+            else
+            {
+                return DateTime.Parse( "1900-01-01" );
+            }
+        }
+
+        /// <summary>
+        /// 重置密码
+        /// </summary>
+        /// <param name="account"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public bool funcResetPwd( string account, string password )
+        {
+            string sql = "UPDATE AW_User SET fdUserPwd=@fdUserPwd,fdUserCode='',fdUserGetPwdDate=@fdUserGetPwdDate WHERE fdUserAccount=@fdUserAccount";
+            this.funcAddParam( "@fdUserPwd", password );
+            this.funcAddParam( "@fdUserAccount", account );
+            this.funcAddParam( "@fdUserGetPwdDate", DateTime.Parse( "1900-01-01" ) );
+            return this.funcExecute( sql ) > 0;
+        }
+
+        /// <summary>
         /// 获取会话信息
         /// </summary>
         /// <returns></returns>

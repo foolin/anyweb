@@ -20,13 +20,14 @@
                 <div class="con">
                     <div class="pad10">
                         <ul class="listA">
-                            <marquee direction="up" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4"  style="height: 103px; overflow:hidden;">
+                            <marquee direction="up" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4"
+                                style="height: 103px; overflow: hidden;">
                             <aw:NoticeList runat="server" TopCount="10" CacheName="INDEX">
                                 <ItemTemplate>
                                     <li><span class="date">
                                         <%#Eval("fdNotiCreateAt","{0:yyyy-MM-dd}") %></span>• <a href="/n/<%#Eval("fdNotiID") %>.aspx"
                                             title="<%# Eval("fdNotiTitle") %>">
-                                            <%# Eval("fdNotiTitle") %></a></li>
+                                            <%# Studio.Web.WebAgent.GetLeft((string)Eval("fdNotiTitle"),9) %></a></li>
                                 </ItemTemplate>
                             </aw:NoticeList>
                             </marquee>
@@ -52,7 +53,7 @@
                                     <li><span class="date">
                                         <%#Eval("fdArtiCreateAt","{0:yyyy-MM-dd}") %></span>• <a href="/a/<%#Eval("fdArtiID") %>.aspx"
                                             title="<%#Eval("fdArtiTitle") %>">
-                                            <%#Eval("fdArtiTitle") %></a></li>
+                                            <%#Studio.Web.WebAgent.GetLeft((string)Eval("fdArtiTitle"),9) %></a></li>
                                 </ItemTemplate>
                             </aw:ArticleList>
                         </ul>
@@ -91,7 +92,8 @@
                                             密码：
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtPassword" runat="server" CssClass="loginInput" TextMode="Password" MaxLength="20"></asp:TextBox>
+                                            <asp:TextBox ID="txtPassword" runat="server" CssClass="loginInput" TextMode="Password"
+                                                MaxLength="20"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -126,8 +128,8 @@
                                     </tr>
                                     <tr>
                                         <td class="tc">
-                                            <a href="/User/Index.aspx" target="_blank" class="blue">修改简历</a> <a href="#" target="_blank" class="blue">
-                                                刷新简历</a>
+                                            <a href="/User/Index.aspx" target="_blank" class="blue">修改简历</a> <a href="#" target="_blank"
+                                                class="blue">刷新简历</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -154,9 +156,9 @@
                     <div class="chCondtion">
                         <div class="search">
                             <div id="topTabs" class="topTabs gray">
-                                <a href="javascript:void(0);" class="cur" onclick="Changetag(0);">全文</a> <a
-                                    href="javascript:void(0);" onclick="Changetag(1);">职位名</a> <a href="javascript:void(0);"
-                                        class="nobor" onclick="Changetag(2);">公司名</a>
+                                <a href="javascript:void(0);" class="cur" onclick="Changetag(0);">全文</a> <a href="javascript:void(0);"
+                                    onclick="Changetag(1);">职位名</a> <a href="javascript:void(0);" class="nobor" onclick="Changetag(2);">
+                                        公司名</a>
                             </div>
                             <div class="btmInt">
                                 <span class="wrapSpan left">
@@ -205,7 +207,8 @@
                             <aw:ADList runat="server" TypeID="6" CacheName="INDEX6">
                                 <ItemTemplate>
                                     <li><a href="<%#Eval("fdAdLink") %>" target="_blank">
-                                        <img src="<%#Eval("fdAdPic") %>" width="110" height="77" /></a></li>
+                                        <img src="<%#(string)Eval("fdAdPic")==""?"images/wait2.jpg":Eval("fdAdPic") %>" width="110"
+                                            height="77" /></a></li>
                                 </ItemTemplate>
                             </aw:ADList>
                         </ul>
@@ -290,7 +293,8 @@
                         <aw:ADList runat="server" TypeID="4" CacheName="INDEX4">
                             <ItemTemplate>
                                 <li><a href="<%#Eval("fdAdLink") %>" target="_blank">
-                                    <img src="<%#Eval("fdAdPic") %>" width="110" height="77" /></a></li>
+                                    <img src="<%#(string)Eval("fdAdPic")==""?"images/wait2.jpg":Eval("fdAdPic") %>" width="110"
+                                        height="77" /></a></li>
                             </ItemTemplate>
                         </aw:ADList>
                     </ul>
@@ -308,7 +312,8 @@
         <aw:ADList runat="server" TypeID="7" CacheName="INDEX7">
             <ItemTemplate>
                 <a href="<%#Eval("fdAdLink") %>" target="_blank">
-                    <img src="<%#Eval("fdAdPic") %>" width="950" height="55" /></a>
+                    <img src="<%#(string)Eval("fdAdPic")==""?"images/wait6.jpg":Eval("fdAdPic") %>" width="950"
+                        height="55" /></a>
             </ItemTemplate>
         </aw:ADList>
     </div>
@@ -319,7 +324,8 @@
             <aw:ADList runat="server" TypeID="1" CacheName="INDEX1" TopCount="15">
                 <ItemTemplate>
                     <li><a href="<%#Eval("fdAdLink") %>" target="_blank" title="<%#Eval("fdAdName") %>">
-                        <img src="<%#Eval("fdAdPic") %>" width="308" height="95" /></a></li>
+                        <img src="<%#(string)Eval("fdAdPic")==""?"images/wait5.jpg":Eval("fdAdPic") %>" width="308"
+                            height="95" /></a></li>
                 </ItemTemplate>
             </aw:ADList>
         </ul>
@@ -327,7 +333,8 @@
             <aw:ADList runat="server" TypeID="2" CacheName="INDEX2" TopCount="25">
                 <ItemTemplate>
                     <li><a href="<%#Eval("fdAdLink") %>" target="_blank" title="<%#Eval("fdAdName") %>">
-                        <img src="<%#Eval("fdAdPic") %>" width="180" height="30" /></a></li>
+                        <img src="<%#(string)Eval("fdAdPic")==""?"images/wait4.jpg":Eval("fdAdPic") %>" width="180"
+                            height="30" /></a></li>
                 </ItemTemplate>
             </aw:ADList>
         </ul>
@@ -335,7 +342,8 @@
             <aw:ADList ID="ADList1" runat="server" TypeID="3" CacheName="INDEX3" TopCount="30">
                 <ItemTemplate>
                     <li><a href="<%#Eval("fdAdLink") %>" target="_blank" title="<%#Eval("fdAdName") %>">
-                        <img src="<%#Eval("fdAdPic") %>" width="85" height="30" /></a></li>
+                        <img src="<%#(string)Eval("fdAdPic")==""?"images/wait1.jpg":Eval("fdAdPic") %>" width="85"
+                            height="30" /></a></li>
                 </ItemTemplate>
             </aw:ADList>
         </ul>
@@ -609,7 +617,8 @@
                         <aw:ADList runat="server" TypeID="5" CacheName="INDEX5">
                             <ItemTemplate>
                                 <li><a href="<%#Eval("fdAdLink") %>" target="_blank">
-                                    <img src="<%#Eval("fdAdPic") %>" width="110" height="77" /></a></li>
+                                    <img src="<%#(string)Eval("fdAdPic")==""?"images/wait2.jpg":Eval("fdAdPic") %>" width="110"
+                                        height="77" /></a></li>
                             </ItemTemplate>
                         </aw:ADList>
                     </ul>

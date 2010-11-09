@@ -91,6 +91,7 @@ namespace AnyWell.AW_DL
                 }
                 this.funcAddParam( "@key", key );
             }
+            this.propOrder = "ORDER BY fdRecrSort DESC,fdRecrID DESC";
             this.propPageSize = pageSize;
             this.propPage = pageIndex;
             this.propGetCount = true;

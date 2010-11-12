@@ -52,7 +52,8 @@
                                     </asp:DropDownList>
                                 </td>
                                 <td>
-                                    <span class="tipW" style="display: none" id="Error_Bir">请选择出生日期！</span>
+                                    <span class="tipW" style="display: none" id="Error_Bir">请选择出生日期！</span> <span class="tipW"
+                                        style="display: none" id="Error_Bir_1">请选择正确的出生日期！</span>
                                 </td>
                             </tr>
                             <tr>
@@ -106,9 +107,11 @@
                                     <span class="brown">*</span>居 住 地
                                 </th>
                                 <td>
-                                    <a href="javascript:void(0);" onclick="selectArea('Address','<%=txtAddressID.ClientID %>','<%=txtAddress.ClientID %>')" id="Address" class="btn28H" style="font-size: 12px;"><%=this.LoginUser.fdUserAddress==""?"选择/修改":this.LoginUser.fdUserAddress %></a>
-                                    <asp:TextBox ID="txtAddressID" runat="server" style="display:none"></asp:TextBox>
-                                    <asp:TextBox ID="txtAddress" runat="server" style="display:none"></asp:TextBox>
+                                    <a href="javascript:void(0);" onclick="selectArea('Address','<%=txtAddressID.ClientID %>','<%=txtAddress.ClientID %>')"
+                                        id="Address" class="btn28H" style="font-size: 12px;">
+                                        <%=this.LoginUser.fdUserAddress==""?"选择/修改":this.LoginUser.fdUserAddress %></a>
+                                    <asp:TextBox ID="txtAddressID" runat="server" Style="display: none"></asp:TextBox>
+                                    <asp:TextBox ID="txtAddress" runat="server" Style="display: none"></asp:TextBox>
                                 </td>
                                 <td>
                                     <span class="tipW" style="display: none" id="Error_Address">请选择居住地！</span>
@@ -144,7 +147,9 @@
                                     <asp:DropDownList ID="drpGraDay" runat="server">
                                     </asp:DropDownList>
                                 </td>
-                                <td></td>
+                                <td>
+                                    <span class="tipW" style="display: none" id="Error_Gra">请选择正确的毕业时间！</span>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -158,7 +163,8 @@
                                         <asp:ListItem Value="3" Text="党员"></asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
-                                <td></td>
+                                <td>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -198,44 +204,59 @@
                                     &nbsp;手机号码
                                 </th>
                                 <td>
-                                    <asp:TextBox ID="txtMobPhoNum1" runat="server" CssClass="reginput" Style="width: 40px" Text="086" MaxLength="5"></asp:TextBox>-
-                                    <asp:TextBox ID="txtMobPhoNum2" runat="server" CssClass="reginput" Style="width: 111px;" Text="手机号码" MaxLength="11"></asp:TextBox>
+                                    <asp:TextBox ID="txtMobPhoNum1" runat="server" CssClass="reginput" Style="width: 40px"
+                                        Text="086" MaxLength="5"></asp:TextBox>-
+                                    <asp:TextBox ID="txtMobPhoNum2" runat="server" CssClass="reginput" Style="width: 111px;"
+                                        Text="手机号码" MaxLength="11"></asp:TextBox>
                                 </td>
-                                <td></td>
+                                <td>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">
                                     &nbsp;公司电话
                                 </th>
                                 <td>
-                                    <asp:TextBox ID="txtComPhoNum1" runat="server" CssClass="reginput" Style="width: 40px" Text="086" MaxLength="5"></asp:TextBox>-
-                                    <asp:TextBox ID="txtComPhoNum2" runat="server" CssClass="reginput" Style="width: 40px" Text="区号" MaxLength="5"></asp:TextBox>-
-                                    <asp:TextBox ID="txtComPhoNum3" runat="server" CssClass="reginput" Style="width: 61px" Text="总机号码" MaxLength="8"></asp:TextBox>-
-                                    <asp:TextBox ID="txtComPhoNum4" runat="server" CssClass="reginput" Style="width: 40px" Text="分机" MaxLength="10"></asp:TextBox>
+                                    <asp:TextBox ID="txtComPhoNum1" runat="server" CssClass="reginput" Style="width: 40px"
+                                        Text="086" MaxLength="5"></asp:TextBox>-
+                                    <asp:TextBox ID="txtComPhoNum2" runat="server" CssClass="reginput" Style="width: 40px"
+                                        Text="区号" MaxLength="5"></asp:TextBox>-
+                                    <asp:TextBox ID="txtComPhoNum3" runat="server" CssClass="reginput" Style="width: 61px"
+                                        Text="总机号码" MaxLength="8"></asp:TextBox>-
+                                    <asp:TextBox ID="txtComPhoNum4" runat="server" CssClass="reginput" Style="width: 40px"
+                                        Text="分机" MaxLength="10"></asp:TextBox>
                                 </td>
-                                <td></td>
+                                <td>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">
                                     &nbsp;家庭电话
                                 </th>
                                 <td>
-                                    <asp:TextBox ID="txtFamPhoNum1" runat="server" CssClass="reginput" Style="width: 40px" Text="086" MaxLength="5"></asp:TextBox>-
-                                    <asp:TextBox ID="txtFamPhoNum2" runat="server" CssClass="reginput" Style="width: 40px" Text="区号" MaxLength="5"></asp:TextBox>-
-                                    <asp:TextBox ID="txtFamPhoNum3" runat="server" CssClass="reginput" Style="width: 61px" Text="电话号码" MaxLength="8"></asp:TextBox>
+                                    <asp:TextBox ID="txtFamPhoNum1" runat="server" CssClass="reginput" Style="width: 40px"
+                                        Text="086" MaxLength="5"></asp:TextBox>-
+                                    <asp:TextBox ID="txtFamPhoNum2" runat="server" CssClass="reginput" Style="width: 40px"
+                                        Text="区号" MaxLength="5"></asp:TextBox>-
+                                    <asp:TextBox ID="txtFamPhoNum3" runat="server" CssClass="reginput" Style="width: 61px"
+                                        Text="电话号码" MaxLength="8"></asp:TextBox>
                                 </td>
-                                <td></td>
+                                <td>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row" style="height: 32px;">
                                     &nbsp;户 口
                                 </th>
                                 <td>
-                                    <a href="javascript:void(0);" onclick="selectArea('hukou','<%=txtHouseAddressID.ClientID %>','<%=txtHouseAddress.ClientID %>')" id="hukou" class="btn28H" style="font-size: 12px;"><%=this.LoginUser.fdUserHouseAddress==""?"选择/修改":this.LoginUser.fdUserHouseAddress %></a>
-                                    <asp:TextBox ID="txtHouseAddressID" runat="server" style="display:none"></asp:TextBox>
-                                    <asp:TextBox ID="txtHouseAddress" runat="server" style="display:none"></asp:TextBox>
+                                    <a href="javascript:void(0);" onclick="selectArea('hukou','<%=txtHouseAddressID.ClientID %>','<%=txtHouseAddress.ClientID %>')"
+                                        id="hukou" class="btn28H" style="font-size: 12px;">
+                                        <%=this.LoginUser.fdUserHouseAddress==""?"选择/修改":this.LoginUser.fdUserHouseAddress %></a>
+                                    <asp:TextBox ID="txtHouseAddressID" runat="server" Style="display: none"></asp:TextBox>
+                                    <asp:TextBox ID="txtHouseAddress" runat="server" Style="display: none"></asp:TextBox>
                                 </td>
-                                <td></td>
+                                <td>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -273,7 +294,8 @@
                                 <td>
                                     <asp:TextBox ID="txtPostCode" runat="server" CssClass="reginput" MaxLength="6"></asp:TextBox>
                                 </td>
-                                <td></td>
+                                <td>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -282,7 +304,8 @@
                                 <td>
                                     <asp:TextBox ID="txtConAddr" runat="server" CssClass="reginput" MaxLength="50"></asp:TextBox>
                                 </td>
-                                <td></td>
+                                <td>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -295,7 +318,8 @@
                                         <asp:ListItem Value="2" Text="已婚"></asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
-                                <td></td>
+                                <td>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -304,7 +328,8 @@
                                 <td>
                                     <asp:TextBox ID="txtWebsite" runat="server" CssClass="reginput" MaxLength="200"></asp:TextBox>
                                 </td>
-                                <td></td>
+                                <td>
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -335,7 +360,10 @@
             var Degree = $("#<%=drpDegree.ClientID %>").val();
             var Country = $("#<%=drpCountry.ClientID %>").val();
             var Height = $.trim($("#<%=txtHeight.ClientID %>").val());
-            
+            var grayear = $("#<%=drpGraYear.ClientID %>").val();
+            var graMonth = $("#<%=drpGraMonth.ClientID %>").val();
+            var graday = $("#<%=drpGraDay.ClientID %>").val();
+
             if (!name) {
                 $("#Error_Name").show();
                 error = false;
@@ -345,9 +373,22 @@
 
             if (biryear == "0" || birMonth == "0" || birday == "0") {
                 $("#Error_Bir").show();
+                $("#Error_Bir_1").hide();
+                error = false;
+            } else if (!isValidDate(biryear, birMonth, birday)) {
+                $("#Error_Bir").hide();
+                $("#Error_Bir_1").show();
                 error = false;
             } else {
                 $("#Error_Bir").hide();
+                $("#Error_Bir_1").hide();
+            }
+
+            if (grayear == "0" && graMonth == "0" && graday == "0") {
+                $("#Error_Gra").hide();
+            } else if (!isValidDate(grayear, graMonth, graday)) {
+                $("#Error_Gra").show();
+                error = false;
             }
 
             if (Exp == "0") {
@@ -409,7 +450,7 @@
                     $("#Error_Height").hide();
                 }
             }
-            
+
             return error;
         }
         function selectArea(area, id, name) {

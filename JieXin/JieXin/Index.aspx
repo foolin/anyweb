@@ -21,7 +21,7 @@
                     <div class="pad10">
                         <ul class="listA">
                             <marquee direction="up" onmouseover="this.stop()" onmouseout="this.start()" scrollamount="4"
-                                style="height: 103px; overflow: hidden;">
+                                style="height: 103px;">
                             <aw:NoticeList runat="server" TopCount="10" CacheName="INDEX">
                                 <ItemTemplate>
                                     <li><span class="date">

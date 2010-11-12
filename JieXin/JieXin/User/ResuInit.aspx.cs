@@ -23,6 +23,6 @@ public partial class User_ResuInit : PageUser
             bean.fdResuUserID = this.LoginUser.fdUserID;
             dao.funcInsert(bean);
         }
-        Response.Redirect("/User/ResuAddTemp.aspx?id=" + bean.fdResuID);
+        Response.Redirect("/User/ResuAdd.aspx?id=" + bean.fdResuID);
     }
 }

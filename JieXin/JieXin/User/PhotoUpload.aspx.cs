@@ -23,6 +23,10 @@ public partial class User_PhotoUpload : PageUser
         {
             Response.Write( "3:您上传的不是图片格式！" );
         }
+        else if( Request.Files[ 0 ].ContentLength > 300 * 1024 )
+        {
+            Response.Write( "4:上传文件错误。文件过大，单个文件请不要超过300K。" );
+        }
         else
         {
             string fileName = DL_helper.funcGetTicks().ToString();
@@ -34,7 +38,10 @@ public partial class User_PhotoUpload : PageUser
             string path = savePath + fileName + Path.GetExtension( Request.Files[ 0 ].FileName );
             WebAgent.SaveFile( Request.Files[ 0 ], Server.MapPath( path ), 0, 0 );
             this.LoginUser.fdUserPhoto = path;
-            new AW_User_dao().funcUpdate( this.LoginUser );
+            if( string.IsNullOrEmpty( QS( "type" ) ) )
+            {
+                new AW_User_dao().funcUpdate( this.LoginUser );
+            }
             Response.Write( "0:" + path );
         }
     }

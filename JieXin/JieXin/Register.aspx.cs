@@ -16,6 +16,34 @@ public partial class Register : PageBase
         {
             using( AW_User_dao dao = new AW_User_dao() )
             {
+                if( string.IsNullOrEmpty( txtEmail.Text.Trim() ) )
+                {
+                    WebAgent.AlertAndBack( "邮箱不能为空！" );
+                }
+                if( string.IsNullOrEmpty( txtName.Text.Trim() ) )
+                {
+                    WebAgent.AlertAndBack( "用户名不能为空！" );
+                }
+                if( string.IsNullOrEmpty( txtPassword.Text.Trim() ) )
+                {
+                    WebAgent.AlertAndBack( "密码不能为空！" );
+                }
+                if( txtPassword.Text.Trim().Length < 6 )
+                {
+                    WebAgent.AlertAndBack( "密码设置至少6位，且区分大小写！" );
+                }                
+                if( string.IsNullOrEmpty( txtPassword2.Text.Trim() ) )
+                {
+                    WebAgent.AlertAndBack( "重复密码不能为空！" );
+                }
+                if( txtPassword2.Text.Trim().Length < 6 )
+                {
+                    WebAgent.AlertAndBack( "重复密码设置至少6位，且区分大小写！" );
+                }
+                if( txtPassword.Text.Trim() != txtPassword2.Text.Trim() )
+                {
+                    WebAgent.AlertAndBack( "两次输入密码不一致！" );
+                }
 
                 if( !dao.funcCheckEmail( txtEmail.Text ) )
                 {

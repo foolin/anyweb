@@ -58,7 +58,8 @@
                                             密码：
                                         </th>
                                         <td>
-                                            <asp:TextBox ID="txtPassword" runat="server" CssClass="loginInput_in" TextMode="Password" MaxLength="20"></asp:TextBox>
+                                            <asp:TextBox ID="txtPassword" runat="server" CssClass="loginInput_in" TextMode="Password"
+                                                MaxLength="20"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -107,16 +108,16 @@
     <script type="text/javascript">
         function checkForm() {
             var error = "";
-            if (!$("#<%=txtUserName.ClientID %>").val()) {
+            if (!$.trim($("#<%=txtUserName.ClientID %>").val())) {
                 error = "会员名不能为空！\n";
             }
-            if (!$("#<%=txtPassword.ClientID %>").val()) {
+            if (!$.trim($("#<%=txtPassword.ClientID %>").val())) {
                 error += "密码不能为空！\n";
             }
             if (error.length > 0) {
                 alert(error);
                 return false;
-            }else {
+            } else {
                 return true;
             }
         }

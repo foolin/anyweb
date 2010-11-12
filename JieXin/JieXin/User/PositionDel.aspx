@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PositionDel.aspx.cs" Inherits="User_PositionDel" %>

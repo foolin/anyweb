@@ -149,13 +149,13 @@
         <dl>
             <dt>其它：</dt>
             <dd>
-                <a href="javascript:void(0);" onclick="AreaName(this);">香港</a></dd>
+                <a href="javascript:void(0);" onclick="AreaName(this,455);">香港</a></dd>
             <dd>
-                <a href="javascript:void(0);" onclick="AreaName(this);">澳门</a></dd>
+                <a href="javascript:void(0);" onclick="AreaName(this,456);">澳门</a></dd>
             <dd>
-                <a href="javascript:void(0);" onclick="AreaName(this);">台湾</a></dd>
+                <a href="javascript:void(0);" onclick="AreaName(this,457);">台湾</a></dd>
             <dd>
-                <a href="javascript:void(0);" onclick="AreaName(this);">国外</a></dd>
+                <a href="javascript:void(0);" onclick="AreaName(this,458);">国外</a></dd>
         </dl>
         <span class="blank5px"></span>
     </div>

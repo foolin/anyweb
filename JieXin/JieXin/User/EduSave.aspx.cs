@@ -10,109 +10,108 @@ public partial class User_EduSave : PageUser
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
-    }
-
-    protected override void OnPreRender(EventArgs e)
-    {
-        string type = QS("type");
-        if (string.IsNullOrEmpty(type))
+        string type = QS( "type" ).ToLower();
+        if( string.IsNullOrEmpty( type ) )
         {
             Response.Clear();
-            Response.Write("");
+            Response.Write( "" );
             Response.End();
         }
-        if (type == "add")
+        if( type == "add" )
         {
-            if (string.IsNullOrEmpty(QS("id")) || !WebAgent.IsInt32(QS("id")) || string.IsNullOrEmpty(QS("eduid")) || !WebAgent.IsInt32(QS("eduid")))
+            if( string.IsNullOrEmpty( QS( "id" ) ) || !WebAgent.IsInt32( QS( "id" ) ) || string.IsNullOrEmpty( QS( "eduid" ) ) || !WebAgent.IsInt32( QS( "eduid" ) ) )
             {
                 Response.Clear();
-                Response.Write("");
+                Response.Write( "" );
                 Response.End();
             }
-            AW_Resume_bean resume = AW_Resume_bean.funcGetByID(int.Parse(QS("id")));
+            AW_Resume_bean resume = new AW_Resume_dao().funcGetResumeById( int.Parse( QS( "id" ) ) );
+            if( resume == null || resume.fdResuUserID != this.LoginUser.fdUserID )
+            {
+                Response.Clear();
+                Response.Write( "" );
+                Response.End();
+            }
             bean = new AW_Education_bean();
-            bean.fdEducID = int.Parse(QS("eduid"));
-            bean.fdEducResuID = int.Parse(QS("id"));
-            bean.fdEducBegin = DateTime.Parse(string.Format("{0}-{1}-1", QF("FromYear"), QF("FromMonth")));
-            if (QF("ToYear") != "0" && QF("ToMonth") != "0")
-                bean.fdEducEnd = DateTime.Parse(string.Format("{0}-{1}-1", QF("ToYear"), QF("ToMonth")));
+            bean.fdEducID = int.Parse( QS( "eduid" ) );
+            bean.fdEducResuID = int.Parse( QS( "id" ) );
+            bean.fdEducBegin = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Edu_FromYear" ), QF( "Edu_FromMonth" ) ) );
+            if( QF( "Edu_ToYear" ) != "0" && QF( "Edu_ToMonth" ) != "0" )
+                bean.fdEducEnd = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Edu_ToYear" ), QF( "Edu_ToMonth" ) ) );
             else
-                bean.fdEducEnd = DateTime.Parse("2099-1-1");
-            bean.fdEducSchool = QF("SchoolName");
-            if (string.IsNullOrEmpty(QF("SubMajor")) || QF("SubMajor") == "0")
+                bean.fdEducEnd = DateTime.Parse( "1900-01-01" );
+            bean.fdEducSchool = QF( "Edu_School" ).Trim();
+            if( string.IsNullOrEmpty( QF( "Edu_SpecialityID" ).Trim() ) || QF( "Edu_SpecialityID" ).Trim() == "0" )
             {
-                bean.fdEducSpeciality = 0;
-                bean.fdEducOtherSpecialty = QF("MoreMajor");
+                bean.fdEducSpecialityID = 0;
+                bean.fdEducSpeciality = "";
+                bean.fdEducOtherSpecialty = QF( "Edu_OtherSpeciality" ).Trim();
             }
             else
             {
-                bean.fdEducSpeciality = int.Parse(QF("SubMajor"));
+                bean.fdEducSpecialityID = int.Parse( QF( "Edu_SpecialityID" ).Trim() );
+                bean.fdEducSpeciality = QF( "Edu_Speciality" ).Trim();
                 bean.fdEducOtherSpecialty = "";
             }
-            bean.fdEducDegree = int.Parse(QF("Degree"));
-            if (!string.IsNullOrEmpty(QF("fdEducIntro")))
-                bean.fdEducIntro = QF("fdEducIntro");
-            new AW_Education_dao().funcInsert(bean);
-            if (resume.fdResuStatus == 1)
-            {
-                resume.fdResuStatus = 0;
-                new AW_Resume_dao().funcUpdate(resume);
-            }
+            bean.fdEducDegree = int.Parse( QF( "Edu_Degree" ) );
+            if( !string.IsNullOrEmpty( QF( "Edu_Intro" ).Trim() ) )
+                bean.fdEducIntro = QF( "Edu_Intro" ).Trim();
+
+            new AW_Education_dao().funcInsert( bean );
+            new AW_Resume_dao().funcUpdateResumeStatus( bean.fdEducResuID );
         }
-        else if (type == "edit")
+        else if( type == "edit" )
         {
-            if (string.IsNullOrEmpty(QS("eduid")) || !WebAgent.IsInt32(QS("eduid")))
+            if( string.IsNullOrEmpty( QS( "eduid" ) ) || !WebAgent.IsInt32( QS( "eduid" ) ) )
             {
                 Response.Clear();
-                Response.Write("");
+                Response.Write( "" );
                 Response.End();
             }
-            bean = AW_Education_bean.funcGetByID(int.Parse(QS("eduid")));
-            if (bean == null)
+            bean = AW_Education_bean.funcGetByID( int.Parse( QS( "eduid" ) ) );
+            if( bean == null )
             {
                 Response.Clear();
-                Response.Write("");
+                Response.Write( "" );
                 Response.End();
             }
-            AW_Resume_bean resume = AW_Resume_bean.funcGetByID(bean.fdEducResuID);
-            if (resume == null)
+            AW_Resume_bean resume = new AW_Resume_dao().funcGetResumeById( bean.fdEducResuID );
+            if( resume == null || resume.fdResuUserID != this.LoginUser.fdUserID )
             {
                 Response.Clear();
-                Response.Write("");
+                Response.Write( "" );
                 Response.End();
             }
-            if (resume.fdResuUserID != this.LoginUser.fdUserID)
-            {
-                Response.Clear();
-                Response.Write("");
-                Response.End();
-            }
-            bean.fdEducBegin = DateTime.Parse(string.Format("{0}-{1}-1", QF("FromYear"), QF("FromMonth")));
-            if (QF("ToYear") != "0" && QF("ToMonth") != "0")
-                bean.fdEducEnd = DateTime.Parse(string.Format("{0}-{1}-1", QF("ToYear"), QF("ToMonth")));
+
+            bean.fdEducBegin = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Edu_FromYear" ), QF( "Edu_FromMonth" ) ) );
+            if( QF( "Edu_ToYear" ) != "0" && QF( "Edu_ToMonth" ) != "0" )
+                bean.fdEducEnd = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Edu_ToYear" ), QF( "Edu_ToMonth" ) ) );
             else
-                bean.fdEducEnd = DateTime.Parse("2099-1-1");
-            bean.fdEducSchool = QF("SchoolName");
-            if (string.IsNullOrEmpty(QF("SubMajor")) || QF("SubMajor") == "0")
+                bean.fdEducEnd = DateTime.Parse( "1900-01-01" );
+            bean.fdEducSchool = QF( "Edu_School" ).Trim();
+            if( string.IsNullOrEmpty( QF( "Edu_SpecialityID" ).Trim() ) || QF( "Edu_SpecialityID" ).Trim() == "0" )
             {
-                bean.fdEducSpeciality = 0;
-                bean.fdEducOtherSpecialty = QF("MoreMajor");
+                bean.fdEducSpecialityID = 0;
+                bean.fdEducSpeciality = "";
+                bean.fdEducOtherSpecialty = QF( "Edu_OtherSpeciality" ).Trim();
             }
             else
             {
-                bean.fdEducSpeciality = int.Parse(QF("SubMajor"));
+                bean.fdEducSpecialityID = int.Parse( QF( "Edu_SpecialityID" ).Trim() );
+                bean.fdEducSpeciality = QF( "Edu_Speciality" ).Trim();
                 bean.fdEducOtherSpecialty = "";
             }
-            bean.fdEducDegree = int.Parse(QF("Degree"));
-            if (!string.IsNullOrEmpty(QF("fdEducIntro")))
-                bean.fdEducIntro = QF("fdEducIntro");
-            new AW_Education_dao().funcUpdate(bean);
+            bean.fdEducDegree = int.Parse( QF( "Edu_Degree" ) );
+            if( !string.IsNullOrEmpty( QF( "Edu_Intro" ).Trim() ) )
+                bean.fdEducIntro = QF( "Edu_Intro" ).Trim();
+
+            new AW_Education_dao().funcUpdate( bean );
+            new AW_Resume_dao().funcUpdateResumeStatus( bean.fdEducResuID );
         }
         else
         {
             Response.Clear();
-            Response.Write("");
+            Response.Write( "" );
             Response.End();
         }
     }

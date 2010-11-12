@@ -6,9 +6,9 @@ using System.Web.UI.WebControls;
 using Studio.Web;
 using AnyWell.AW_DL;
 
-public partial class User_EduEdit : PageUser
+public partial class User_EduDel : PageUser
 {
-    protected void Page_Load(object sender, EventArgs e)
+    protected void Page_Load( object sender, EventArgs e )
     {
         if( string.IsNullOrEmpty( QS( "eduid" ) ) || !WebAgent.IsInt32( QS( "eduid" ) ) )
         {
@@ -16,7 +16,7 @@ public partial class User_EduEdit : PageUser
             Response.Write( "" );
             Response.End();
         }
-        bean = AW_Education_bean.funcGetByID( int.Parse( QS( "eduid" ) ) );
+        AW_Education_bean bean = AW_Education_bean.funcGetByID( int.Parse( QS( "eduid" ) ) );
         if( bean == null )
         {
             Response.Clear();
@@ -30,12 +30,6 @@ public partial class User_EduEdit : PageUser
             Response.Write( "" );
             Response.End();
         }
-    }
-
-    private AW_Education_bean _bean;
-    public AW_Education_bean bean
-    {
-        get { return _bean; }
-        set { _bean = value; }
+        new AW_Education_dao().funcDelete( bean.fdEducID );
     }
 }

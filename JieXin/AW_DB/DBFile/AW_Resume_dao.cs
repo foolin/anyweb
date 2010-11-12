@@ -14,7 +14,7 @@ namespace AnyWell.AW_DL
         {
             this._propTable = "AW_Resume";
             this._propPK = "fdResuID";
-            this._propFields = "fdResuID,fdResuUserID,fdResuName,fdResuSex,fdResuMarry,fdResuBirthday,fdResuHeight,fdResuCountry,fdResuNation,fdResuAddress,fdResuHouseAddress,fdResuIdentificationID,fdResuIdentificationNum,fdResuPoliticalState,fdResuEmail,fdResuContact1,fdResuContactPhone1,fdResuContact2,fdResuContactPhone2,fdResuContact3,fdResuContactPhone3,fdResuPostCode,fdResuContactAddress,fdResuWebsite,fdResuWorkType,fdResuArea,fdResuIndustry,fdResuJob,fdResuSalary,fdResuArriveAt,fdResuIntro,fdResuType,fdResuStatus";
+            this._propFields = "fdResuID,fdResuUserID,fdResuName,fdResuSex,fdResuBirthday,fdResuExperience,fdResuIdentificationID,fdResuIdentificationNum,fdResuAddressID,fdResuAddress,fdResuEmail,fdResuSalary,fdResuCurrType,fdResuCurrentSituation,fdResuMobilePhone,fdResuCompPhone,fdResuFamiPhone,fdResuHouseAddressID,fdResuHouseAddress,fdResuCountry,fdResuHeight,fdResuPostCode,fdResuContactAddr,fdResuMarry,fdResuWebsite,fdResuPhoto,fdResuStatus,fdResuCreateAt,fdResuUpdateAt";
         }
 
         public List<AW_Resume_bean> funcGetList()

@@ -13,11 +13,11 @@ public partial class AnyWell_Login : PageBase
         if( IsPostBack )
         {
             string error = "";
-            if( string.IsNullOrEmpty( txtUserName.Text ) )
+            if( string.IsNullOrEmpty( txtUserName.Text.Trim() ) )
             {
                 error += "会员名不能为空！\\n";
             }
-            if( string.IsNullOrEmpty( txtPassword.Text ) )
+            if( string.IsNullOrEmpty( txtPassword.Text.Trim() ) )
             {
                 error += "密码不能为空！\\n";
             }
@@ -26,8 +26,8 @@ public partial class AnyWell_Login : PageBase
 
             using( AW_User_dao dao = new AW_User_dao() )
             {
-                AW_User_bean bean=dao.funcLogin( txtUserName.Text, txtPassword.Text,autoLogin.Checked );
-                if(bean==null ||bean.fdUserStatus==2 )
+                AW_User_bean bean = dao.funcLogin( txtUserName.Text, txtPassword.Text, autoLogin.Checked );
+                if( bean == null || bean.fdUserStatus == 2 )
                 {
                     WebAgent.AlertAndBack( "会员名或密码错误！" );
                 }

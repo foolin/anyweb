@@ -6,9 +6,10 @@ using System.Web.UI.WebControls;
 using Studio.Web;
 using AnyWell.AW_DL;
 
-public partial class User_EduGet : PageUser
+public partial class User_InfoEdit : PageUser
 {
-    protected void Page_Load(object sender, EventArgs e)
+    protected AW_Resume_bean resume;
+    protected void Page_Load( object sender, EventArgs e )
     {
         if( string.IsNullOrEmpty( QS( "id" ) ) || !WebAgent.IsInt32( QS( "id" ) ) )
         {
@@ -16,20 +17,13 @@ public partial class User_EduGet : PageUser
             Response.Write( "" );
             Response.End();
         }
-        AW_Resume_bean bean = new AW_Resume_dao().funcGetResumeById( int.Parse( QS( "id" ) ) );
-        if( bean == null || bean.fdResuUserID != this.LoginUser.fdUserID )
+
+        resume = AW_Resume_bean.funcGetByID( int.Parse( QS( "id" ) ) );
+        if( resume == null || resume.fdResuUserID != this.LoginUser.fdUserID )
         {
             Response.Clear();
             Response.Write( "" );
             Response.End();
         }
-        this._eduId = new AW_Education_dao().funcNewID();
-    }
-
-    private int _eduId;
-    public int eduID
-    {
-        get { return _eduId; }
-        set { _eduId = value; }
     }
 }

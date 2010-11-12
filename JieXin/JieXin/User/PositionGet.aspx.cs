@@ -6,9 +6,9 @@ using System.Web.UI.WebControls;
 using Studio.Web;
 using AnyWell.AW_DL;
 
-public partial class User_EduGet : PageUser
+public partial class User_PositionGet : PageUser
 {
-    protected void Page_Load(object sender, EventArgs e)
+    protected void Page_Load( object sender, EventArgs e )
     {
         if( string.IsNullOrEmpty( QS( "id" ) ) || !WebAgent.IsInt32( QS( "id" ) ) )
         {
@@ -23,13 +23,19 @@ public partial class User_EduGet : PageUser
             Response.Write( "" );
             Response.End();
         }
-        this._eduId = new AW_Education_dao().funcNewID();
+        this._posiId = new AW_Position_dao().funcNewID();
     }
 
-    private int _eduId;
-    public int eduID
+    private int _posiId;
+    public int posiID
     {
-        get { return _eduId; }
-        set { _eduId = value; }
+        get
+        {
+            return _posiId;
+        }
+        set
+        {
+            _posiId = value;
+        }
     }
 }

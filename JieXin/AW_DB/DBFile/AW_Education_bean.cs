@@ -28,7 +28,7 @@ namespace AnyWell.AW_DL
 			get{return _fdEducResuID;}
 			set{_fdEducResuID = value;}
 		}
-		private DateTime _fdEducBegin = DateTime.Now;
+		private DateTime _fdEducBegin = DateTime.Parse("1900-01-01");
 		 /// <summary>
 		 /// 开始时间
 		 /// </summary>
@@ -37,7 +37,7 @@ namespace AnyWell.AW_DL
 			get{return _fdEducBegin;}
 			set{_fdEducBegin = value;}
 		}
-		private DateTime _fdEducEnd = DateTime.Now;
+        private DateTime _fdEducEnd = DateTime.Parse( "1900-01-01" );
 		 /// <summary>
 		 /// 结束时间
 		 /// </summary>
@@ -55,18 +55,27 @@ namespace AnyWell.AW_DL
 			get{return _fdEducSchool;}
 			set{_fdEducSchool = value;}
 		}
-		private int _fdEducSpeciality = 0;
+		private int _fdEducSpecialityID = 0;
 		 /// <summary>
-		 /// 专业
+		 /// 专业编号
 		 /// </summary>
-		public int fdEducSpeciality
+		public int fdEducSpecialityID
+		{
+			get{return _fdEducSpecialityID;}
+			set{_fdEducSpecialityID = value;}
+		}
+		private string _fdEducSpeciality = "";
+		 /// <summary>
+		 /// 专业 40 nvarchar
+		 /// </summary>
+		public string fdEducSpeciality
 		{
 			get{return _fdEducSpeciality;}
 			set{_fdEducSpeciality = value;}
 		}
 		private string _fdEducOtherSpecialty = "";
 		 /// <summary>
-		 /// 其它专业 100 nvarchar
+		 /// 其它专业 40 nvarchar
 		 /// </summary>
 		public string fdEducOtherSpecialty
 		{
@@ -84,12 +93,21 @@ namespace AnyWell.AW_DL
 		}
 		private string _fdEducIntro = "";
 		 /// <summary>
-		 /// 专业描述
+		 /// 专业描述 4000 nvarchar
 		 /// </summary>
 		public string fdEducIntro
 		{
 			get{return _fdEducIntro;}
 			set{_fdEducIntro = value;}
+		}
+		private int _fdEducIsOverSeas = 0;
+		 /// <summary>
+		 /// 海外学习经历(0:是1:否)
+		 /// </summary>
+		public int fdEducIsOverSeas
+		{
+			get{return _fdEducIsOverSeas;}
+			set{_fdEducIsOverSeas = value;}
 		}
 
 

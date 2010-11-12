@@ -13,11 +13,11 @@ public partial class Index : PageBase
         if( IsPostBack )
         {
             string error = "";
-            if( string.IsNullOrEmpty( txtUserName.Text ) )
+            if( string.IsNullOrEmpty( txtUserName.Text.Trim() ) )
             {
                 error += "会员名不能为空！\\n";
             }
-            if( string.IsNullOrEmpty( txtPassword.Text ) )
+            if( string.IsNullOrEmpty( txtPassword.Text.Trim() ) )
             {
                 error += "密码不能为空！\\n";
             }

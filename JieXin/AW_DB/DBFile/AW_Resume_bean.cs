@@ -12,7 +12,7 @@ namespace AnyWell.AW_DL
 	{
 		private int _fdResuID = 0;
 		 /// <summary>
-		 /// 用户信息编号
+		 /// 简历编号
 		 /// </summary>
 		public int fdResuID
 		{
@@ -30,7 +30,7 @@ namespace AnyWell.AW_DL
 		}
 		private string _fdResuName = "";
 		 /// <summary>
-		 /// 姓名 100 nvarchar
+		 /// 姓名 60 nvarchar
 		 /// </summary>
 		public string fdResuName
 		{
@@ -46,16 +46,7 @@ namespace AnyWell.AW_DL
 			get{return _fdResuSex;}
 			set{_fdResuSex = value;}
 		}
-		private int _fdResuMarry = 0;
-		 /// <summary>
-		 /// 婚姻状况
-		 /// </summary>
-		public int fdResuMarry
-		{
-			get{return _fdResuMarry;}
-			set{_fdResuMarry = value;}
-		}
-		private DateTime _fdResuBirthday = DateTime.Now;
+		private DateTime _fdResuBirthday = DateTime.Parse("1900-01-01");
 		 /// <summary>
 		 /// 出生日期
 		 /// </summary>
@@ -63,6 +54,141 @@ namespace AnyWell.AW_DL
 		{
 			get{return _fdResuBirthday;}
 			set{_fdResuBirthday = value;}
+		}
+		private int _fdResuExperience = 0;
+		 /// <summary>
+		 /// 工作年限（1:1年以下 2:1-2年3:2-5年 4:5-10年5:10年以上)
+		 /// </summary>
+		public int fdResuExperience
+		{
+			get{return _fdResuExperience;}
+			set{_fdResuExperience = value;}
+		}
+		private int _fdResuIdentificationID = 0;
+		 /// <summary>
+		 /// 证件类型(1身份证2军人证3香港身份证4其他)
+		 /// </summary>
+		public int fdResuIdentificationID
+		{
+			get{return _fdResuIdentificationID;}
+			set{_fdResuIdentificationID = value;}
+		}
+		private string _fdResuIdentificationNum = "";
+		 /// <summary>
+		 /// 证件号码 20 varchar
+		 /// </summary>
+		public string fdResuIdentificationNum
+		{
+			get{return _fdResuIdentificationNum;}
+			set{_fdResuIdentificationNum = value;}
+		}
+		private int _fdResuAddressID = 0;
+		 /// <summary>
+		 /// 居住地编号
+		 /// </summary>
+		public int fdResuAddressID
+		{
+			get{return _fdResuAddressID;}
+			set{_fdResuAddressID = value;}
+		}
+		private string _fdResuAddress = "";
+		 /// <summary>
+		 /// 现居地 20 nvarchar
+		 /// </summary>
+		public string fdResuAddress
+		{
+			get{return _fdResuAddress;}
+			set{_fdResuAddress = value;}
+		}
+		private string _fdResuEmail = "";
+		 /// <summary>
+		 /// 邮箱地址 100 varchar
+		 /// </summary>
+		public string fdResuEmail
+		{
+			get{return _fdResuEmail;}
+			set{_fdResuEmail = value;}
+		}
+		private int _fdResuSalary = 0;
+		 /// <summary>
+		 /// 年薪(1:2万以下2:2-3万3:3-4万4:4-5万5:5-6万6:6-8万7:8-10万8:10-15万9:15-30万10:30-50万11:50-100万12:100万以上)
+		 /// </summary>
+		public int fdResuSalary
+		{
+			get{return _fdResuSalary;}
+			set{_fdResuSalary = value;}
+		}
+		private int _fdResuCurrType = 0;
+		 /// <summary>
+		 /// 币种(1:人民币2:港币3:美元4日元5欧元6其它)
+		 /// </summary>
+		public int fdResuCurrType
+		{
+			get{return _fdResuCurrType;}
+			set{_fdResuCurrType = value;}
+		}
+		private int _fdResuCurrentSituation = 0;
+		 /// <summary>
+		 /// 求职状态(1目前正在找工作2半年内无换工作的计划3一年内无换工作的计划4观望有好的机会再考虑5暂时不想找工作)
+		 /// </summary>
+		public int fdResuCurrentSituation
+		{
+			get{return _fdResuCurrentSituation;}
+			set{_fdResuCurrentSituation = value;}
+		}
+		private string _fdResuMobilePhone = "";
+		 /// <summary>
+		 /// 手机号码 17 varchar
+		 /// </summary>
+		public string fdResuMobilePhone
+		{
+			get{return _fdResuMobilePhone;}
+			set{_fdResuMobilePhone = value;}
+		}
+		private string _fdResuCompPhone = "";
+		 /// <summary>
+		 /// 公司电话 31 varchar
+		 /// </summary>
+		public string fdResuCompPhone
+		{
+			get{return _fdResuCompPhone;}
+			set{_fdResuCompPhone = value;}
+		}
+		private string _fdResuFamiPhone = "";
+		 /// <summary>
+		 /// 家庭电话 21 varchar
+		 /// </summary>
+		public string fdResuFamiPhone
+		{
+			get{return _fdResuFamiPhone;}
+			set{_fdResuFamiPhone = value;}
+		}
+		private int _fdResuHouseAddressID = 0;
+		 /// <summary>
+		 /// 户口编号
+		 /// </summary>
+		public int fdResuHouseAddressID
+		{
+			get{return _fdResuHouseAddressID;}
+			set{_fdResuHouseAddressID = value;}
+		}
+		private string _fdResuHouseAddress = "";
+		 /// <summary>
+		 /// 户口所在地 20 nvarchar
+		 /// </summary>
+		public string fdResuHouseAddress
+		{
+			get{return _fdResuHouseAddress;}
+			set{_fdResuHouseAddress = value;}
+		}
+		private int _fdResuCountry = 0;
+		 /// <summary>
+		 /// 国藉
+		 /// </summary>
+		public int fdResuCountry
+		{
+			get{return _fdResuCountry;}
+			set{_fdResuCountry = value;}
 		}
 		private int _fdResuHeight = 0;
 		 /// <summary>
@@ -73,132 +199,6 @@ namespace AnyWell.AW_DL
 			get{return _fdResuHeight;}
 			set{_fdResuHeight = value;}
 		}
-		private string _fdResuCountry = "";
-		 /// <summary>
-		 /// 国藉 50 varchar
-		 /// </summary>
-		public string fdResuCountry
-		{
-			get{return _fdResuCountry;}
-			set{_fdResuCountry = value;}
-		}
-		private int _fdResuNation = 0;
-		 /// <summary>
-		 /// 民族
-		 /// </summary>
-		public int fdResuNation
-		{
-			get{return _fdResuNation;}
-			set{_fdResuNation = value;}
-		}
-		private string _fdResuAddress = "";
-		 /// <summary>
-		 /// 现居地 400 nvarchar
-		 /// </summary>
-		public string fdResuAddress
-		{
-			get{return _fdResuAddress;}
-			set{_fdResuAddress = value;}
-		}
-		private string _fdResuHouseAddress = "";
-		 /// <summary>
-		 /// 户口所在地 400 nvarchar
-		 /// </summary>
-		public string fdResuHouseAddress
-		{
-			get{return _fdResuHouseAddress;}
-			set{_fdResuHouseAddress = value;}
-		}
-		private int _fdResuIdentificationID = 0;
-		 /// <summary>
-		 /// 证件类型
-		 /// </summary>
-		public int fdResuIdentificationID
-		{
-			get{return _fdResuIdentificationID;}
-			set{_fdResuIdentificationID = value;}
-		}
-		private string _fdResuIdentificationNum = "";
-		 /// <summary>
-		 /// 证件号码 50 varchar
-		 /// </summary>
-		public string fdResuIdentificationNum
-		{
-			get{return _fdResuIdentificationNum;}
-			set{_fdResuIdentificationNum = value;}
-		}
-		private int _fdResuPoliticalState = 0;
-		 /// <summary>
-		 /// 政治面貌
-		 /// </summary>
-		public int fdResuPoliticalState
-		{
-			get{return _fdResuPoliticalState;}
-			set{_fdResuPoliticalState = value;}
-		}
-		private string _fdResuEmail = "";
-		 /// <summary>
-		 /// 邮箱地址 50 varchar
-		 /// </summary>
-		public string fdResuEmail
-		{
-			get{return _fdResuEmail;}
-			set{_fdResuEmail = value;}
-		}
-		private int _fdResuContact1 = 0;
-		 /// <summary>
-		 /// 联系方式1
-		 /// </summary>
-		public int fdResuContact1
-		{
-			get{return _fdResuContact1;}
-			set{_fdResuContact1 = value;}
-		}
-		private string _fdResuContactPhone1 = "";
-		 /// <summary>
-		 /// 联系电话1 50 varchar
-		 /// </summary>
-		public string fdResuContactPhone1
-		{
-			get{return _fdResuContactPhone1;}
-			set{_fdResuContactPhone1 = value;}
-		}
-		private int _fdResuContact2 = 0;
-		 /// <summary>
-		 /// 联系方式2
-		 /// </summary>
-		public int fdResuContact2
-		{
-			get{return _fdResuContact2;}
-			set{_fdResuContact2 = value;}
-		}
-		private string _fdResuContactPhone2 = "";
-		 /// <summary>
-		 /// 联系电话2 50 varchar
-		 /// </summary>
-		public string fdResuContactPhone2
-		{
-			get{return _fdResuContactPhone2;}
-			set{_fdResuContactPhone2 = value;}
-		}
-		private int _fdResuContact3 = 0;
-		 /// <summary>
-		 /// 联系方式3
-		 /// </summary>
-		public int fdResuContact3
-		{
-			get{return _fdResuContact3;}
-			set{_fdResuContact3 = value;}
-		}
-		private string _fdResuContactPhone3 = "";
-		 /// <summary>
-		 /// 联系电话3 50 varchar
-		 /// </summary>
-		public string fdResuContactPhone3
-		{
-			get{return _fdResuContactPhone3;}
-			set{_fdResuContactPhone3 = value;}
-		}
 		private string _fdResuPostCode = "";
 		 /// <summary>
 		 /// 邮编 6 varchar
@@ -208,14 +208,23 @@ namespace AnyWell.AW_DL
 			get{return _fdResuPostCode;}
 			set{_fdResuPostCode = value;}
 		}
-		private string _fdResuContactAddress = "";
+		private string _fdResuContactAddr = "";
 		 /// <summary>
-		 /// 通讯地址 400 nvarchar
+		 /// 地址 100 nvarchar
 		 /// </summary>
-		public string fdResuContactAddress
+		public string fdResuContactAddr
 		{
-			get{return _fdResuContactAddress;}
-			set{_fdResuContactAddress = value;}
+			get{return _fdResuContactAddr;}
+			set{_fdResuContactAddr = value;}
+		}
+		private int _fdResuMarry = 0;
+		 /// <summary>
+		 /// 婚姻状况(1未婚2已婚)
+		 /// </summary>
+		public int fdResuMarry
+		{
+			get{return _fdResuMarry;}
+			set{_fdResuMarry = value;}
 		}
 		private string _fdResuWebsite = "";
 		 /// <summary>
@@ -225,79 +234,16 @@ namespace AnyWell.AW_DL
 		{
 			get{return _fdResuWebsite;}
 			set{_fdResuWebsite = value;}
-		}
-		private int _fdResuWorkType = 0;
-		 /// <summary>
-		 /// 工作类型
-		 /// </summary>
-		public int fdResuWorkType
-		{
-			get{return _fdResuWorkType;}
-			set{_fdResuWorkType = value;}
-		}
-		private string _fdResuArea = "";
-		 /// <summary>
-		 /// 工作地点 50 varchar
-		 /// </summary>
-		public string fdResuArea
-		{
-			get{return _fdResuArea;}
-			set{_fdResuArea = value;}
-		}
-		private string _fdResuIndustry = "";
-		 /// <summary>
-		 /// 工作行业 50 varchar
-		 /// </summary>
-		public string fdResuIndustry
-		{
-			get{return _fdResuIndustry;}
-			set{_fdResuIndustry = value;}
-		}
-		private string _fdResuJob = "";
-		 /// <summary>
-		 /// 职能 50 varchar
-		 /// </summary>
-		public string fdResuJob
-		{
-			get{return _fdResuJob;}
-			set{_fdResuJob = value;}
-		}
-		private int _fdResuSalary = 0;
-		 /// <summary>
-		 /// 期望薪水
-		 /// </summary>
-		public int fdResuSalary
-		{
-			get{return _fdResuSalary;}
-			set{_fdResuSalary = value;}
-		}
-		private int _fdResuArriveAt = 0;
-		 /// <summary>
-		 /// 到岗时间
-		 /// </summary>
-		public int fdResuArriveAt
-		{
-			get{return _fdResuArriveAt;}
-			set{_fdResuArriveAt = value;}
-		}
-		private string _fdResuIntro = "";
-		 /// <summary>
-		 /// 自我评价 1000 nvarchar
-		 /// </summary>
-		public string fdResuIntro
-		{
-			get{return _fdResuIntro;}
-			set{_fdResuIntro = value;}
-		}
-		private int _fdResuType = 0;
-		 /// <summary>
-		 /// 简历类型(0:标准简历1:应届生简历)
-		 /// </summary>
-		public int fdResuType
-		{
-			get{return _fdResuType;}
-			set{_fdResuType = value;}
-		}
+        }
+        private string _fdResuPhoto = "";
+        /// <summary>
+        /// 照片
+        /// </summary>
+        public string fdResuPhoto
+        {
+            get{return _fdResuPhoto;}
+            set{ _fdResuPhoto = value;}
+        }
 		private int _fdResuStatus = 0;
 		 /// <summary>
 		 /// 状态(0:正常1:新建未保存)
@@ -307,6 +253,24 @@ namespace AnyWell.AW_DL
 			get{return _fdResuStatus;}
 			set{_fdResuStatus = value;}
 		}
+        private DateTime _fdResuCreateAt = DateTime.Now;
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime fdResuCreateAt
+        {
+            get{return _fdResuCreateAt;}
+            set{ _fdResuCreateAt = value;}
+        }
+        private DateTime _fdResuUpdateAt = DateTime.Now;
+        /// <summary>
+        /// 更新时间
+        /// </summary>
+        public DateTime fdResuUpdateAt
+        {
+            get{ return _fdResuUpdateAt; }
+            set{_fdResuUpdateAt = value;}
+        }
 
 
 		/////////////////////////////////////////

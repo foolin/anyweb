@@ -20,7 +20,7 @@ function showMsgBox(divID,wWidth,wHeight)
 	var bHeight=parseInt(document.documentElement.scrollHeight);
 
 	var scrollTop = document.documentElement.scrollTop || window.pageYOffset; 	//兼容chrome、safari : 20090708
-	if (scrollTop)
+	if (!scrollTop)
 	    scrollTop = 0;
 	var sWidth= parseInt((document.documentElement.scrollWidth - wWidth) / 2);
 	var sHeight=parseInt(scrollTop + (document.documentElement.clientHeight-wHeight) / 2);
@@ -85,4 +85,60 @@ function isInt(obj) {
         }
     }
     return true;
+}
+
+//验证日期类型
+function isValidDate(year, month, day) {
+    year = parseInt(year, 10);
+    month = parseInt(month, 10);
+    day = parseInt(day, 10);
+
+    if ((month == 4) || (month == 6) || (month == 9) || (month == 11)) {
+        if ((day < 1) || (day > 30)) {
+            return (false);
+        }
+    }
+    else {
+        if (month != 2) {
+            if ((day < 1) || (day > 31)) {
+                return (false);
+            }
+        }
+        else { // month == 2
+            if ((year % 100) != 0 && (year % 4 == 0) || (year % 100) == 0 && (year % 400) == 0) {
+                if ((day < 1) || day > 29) {
+                    return (false);
+                }
+            }
+            else {
+                if ((day < 1) || day > 28) {
+                    return (false);
+                }
+            }
+        }
+    }
+    return (true);
+}
+
+//日期比较
+function DateCompare(YearFrom, MonthFrom, YearTo, MonthTo) {
+    YearFrom = parseInt(YearFrom, 10);
+    MonthFrom = parseInt(MonthFrom, 10);
+    YearTo = parseInt(YearTo, 10);
+    MonthTo = parseInt(MonthTo, 10);
+
+    if (YearFrom > YearTo)
+    { return false; }
+    else {
+        if (YearFrom == YearTo) {
+            if (MonthFrom > MonthTo)
+                return false;
+        }
+    }
+    return true;
+}
+
+//字数统计
+function str_limit(id, str, strid) {
+    $("#" + id).find("#" + strid).html(str.length);
 }

@@ -35,7 +35,6 @@ public partial class User_MemAddInfo : PageUser
             ArrayList month = new ArrayList();
             for (i = 1; i <= 12; i++)
                 month.Add(i);
-            month.Insert( 0, "月" );
             drpBirMonth.DataSource = month;
             drpBirMonth.DataBind();
             drpGraMonth.DataSource = month;
@@ -46,12 +45,11 @@ public partial class User_MemAddInfo : PageUser
             ArrayList year = new ArrayList();
             for (j = 1940; j <= DateTime.Now.Year; j++)
                 year.Add(j);
-            year.Insert( 0, "年" );
             drpBirYear.DataSource = year;
             drpBirYear.DataBind();
             drpGraYear.DataSource = year;
             drpGraYear.DataBind();
-            drpGraYear.Items.Insert( 0, new ListItem( "年", "0" ) );
+            drpBirYear.Items.Insert( 0, new ListItem( "年", "0" ) );
             drpGraYear.Items.Insert( 0, new ListItem( "年", "0" ) );
 
             //性别
@@ -161,7 +159,15 @@ public partial class User_MemAddInfo : PageUser
                     bean.fdUserSex = 1;
                 }
                 //出生日期
-                bean.fdUserBirthday = DateTime.Parse(drpBirYear.SelectedValue + "-" + drpBirMonth.SelectedValue + "-" + drpBirDay.SelectedValue);
+                DateTime date;
+                if( DateTime.TryParse( drpBirYear.SelectedValue + "-" + drpBirMonth.SelectedValue + "-" + drpBirDay.SelectedValue, out date ) )
+                {
+                    bean.fdUserBirthday = date;
+                }
+                else
+                {
+                    bean.fdUserBirthday = DateTime.Parse( "1900-01-01" );
+                }
                 //工作年限
                 bean.fdUserExperience = int.Parse(drpExp.SelectedValue);
                 //证件类型

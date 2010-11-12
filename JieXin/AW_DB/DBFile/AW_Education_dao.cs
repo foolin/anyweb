@@ -14,7 +14,7 @@ namespace AnyWell.AW_DL
         {
             this._propTable = "AW_Education";
             this._propPK = "fdEducID";
-            this._propFields = "fdEducID,fdEducResuID,fdEducBegin,fdEducEnd,fdEducSchool,fdEducSpeciality,fdEducOtherSpecialty,fdEducDegree,fdEducIntro";
+            this._propFields = "fdEducID,fdEducResuID,fdEducBegin,fdEducEnd,fdEducSchool,fdEducSpecialityID,fdEducSpeciality,fdEducOtherSpecialty,fdEducDegree,fdEducIntro,fdEducIsOverSeas";
         }
 
         public List<AW_Education_bean> funcGetList()

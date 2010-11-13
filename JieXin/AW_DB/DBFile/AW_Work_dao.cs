@@ -14,7 +14,7 @@ namespace AnyWell.AW_DL
         {
             this._propTable = "AW_Work";
             this._propPK = "fdWorkID";
-            this._propFields = "fdWorkID,fdWorkResuID,fdWorkBegin,fdWorkEnd,fdWorkName,fdWorkIndustryID,fdWorkDimension,fdWorkType,fdWorkDepartment,fdWorkJob,fdWorkIntro";
+            this._propFields = "fdWorkID,fdWorkResuID,fdWorkBegin,fdWorkEnd,fdWorkName,fdWorkIndustryID,fdWorkIndustry,fdWorkDimension,fdWorkType,fdWorkDepartment,fdWorkJobID,fdWorkJob,fdWorkOtherJob,fdWorkIntro,fdWorkIsOverSeas";
         }
 
         public List<AW_Work_bean> funcGetList()

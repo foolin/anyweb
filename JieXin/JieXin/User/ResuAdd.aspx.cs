@@ -27,6 +27,8 @@ public partial class User_ResuAdd : PageUser
         this._eduId = new AW_Education_dao().funcNewID();
         this._rewardsId = new AW_Rewards_dao().funcNewID();
         this._posiId = new AW_Position_dao().funcNewID();
+        this._workId = new AW_Work_dao().funcNewID();
+        this._langId = new AW_Language_dao().funcNewID();
     }
 
     private int _eduId;
@@ -62,6 +64,9 @@ public partial class User_ResuAdd : PageUser
     }
 
     private int _posiId;
+    /// <summary>
+    /// 职务编号
+    /// </summary>
     public int posiID
     {
         get
@@ -71,6 +76,38 @@ public partial class User_ResuAdd : PageUser
         set
         {
             _posiId = value;
+        }
+    }
+
+    private int _workId;
+    /// <summary>
+    /// 工作经历编号
+    /// </summary>
+    public int workID
+    {
+        get
+        {
+            return _workId;
+        }
+        set
+        {
+            _workId = value;
+        }
+    }
+
+    private int _langId;
+    /// <summary>
+    /// 语言能力编号
+    /// </summary>
+    public int langID
+    {
+        get
+        {
+            return _langId;
+        }
+        set
+        {
+            _langId = value;
         }
     }
 }

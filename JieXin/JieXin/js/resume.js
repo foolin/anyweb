@@ -1,4 +1,4 @@
-﻿var EDU_ACTIVE_ID, REW_ACTIVE_ID, POS_ACTIVE_ID;
+﻿var EDU_ACTIVE_ID, REW_ACTIVE_ID, POS_ACTIVE_ID, WORK_ACTIVE_ID, LANG_ACTIVE_ID;
 
 function upload() {
     showMsgBox('UploadPic', 538, 150);
@@ -109,6 +109,57 @@ function pos_response(responseText, statusText) {
     }
 }
 
+function work_save(work_id) {
+    if (work_check(work_id)) {
+        var options = {
+            success: work_response
+        };
+        WORK_ACTIVE_ID = work_id.replace("form_", "");
+        $("#" + work_id).find("#btn_work_save").val("正在保存");
+        $("#" + work_id).ajaxSubmit(options);
+    }
+}
+
+function work_response(responseText, statusText) {
+    if (statusText == 'success') {
+        $("#" + WORK_ACTIVE_ID).html(responseText);
+    }
+}
+
+function lang_save(lang_id) {
+    if (lang_check(lang_id)) {
+        var options = {
+            success: lang_response
+        };
+        LANG_ACTIVE_ID = lang_id.replace("form_", "");
+        $("#" + lang_id).find("#btn_lang_save").val("正在保存");
+        $("#" + lang_id).ajaxSubmit(options);
+    }
+}
+
+function lang_response(responseText, statusText) {
+    if (statusText == 'success') {
+        $("#" + LANG_ACTIVE_ID).html(responseText);
+    }
+}
+
+function level_save(level_id) {
+    if (level_check(level_id)) {
+        var options = {
+            success: level_response
+        };
+        $("#" + level_id).find("#btn_level_save").val("正在保存");
+        $("#" + level_id).ajaxSubmit(options);
+        alert("a");
+    }
+}
+
+function level_response(responseText, statusText) {
+    if (statusText == 'success') {
+        $("#level").html(responseText);
+    }
+}
+
 //添加信息模块
 function addinfo(info, resuid) {
     $("#" + info).parent().find("#btn_info_add").html("正在增加");
@@ -151,6 +202,40 @@ function addinfo(info, resuid) {
             $.ajax({
                 type: "GET",
                 url: "/User/PositionGet.aspx",
+                cache: false,
+                data: { id: resuid },
+                success: function(result) {
+                    $("#" + info).append(result);
+                },
+                error: function() {
+                    alert("系统繁忙，请稍候再试！");
+                },
+                complete: function() {
+                    $("#" + info).parent().find("#btn_info_add").html("继续添加");
+                }
+            });
+            break;
+        case "work":
+            $.ajax({
+                type: "GET",
+                url: "/User/WorkGet.aspx",
+                cache: false,
+                data: { id: resuid },
+                success: function(result) {
+                    $("#" + info).append(result);
+                },
+                error: function() {
+                    alert("系统繁忙，请稍候再试！");
+                },
+                complete: function() {
+                    $("#" + info).parent().find("#btn_info_add").html("继续添加");
+                }
+            });
+            break;
+        case "lang":
+            $.ajax({
+                type: "GET",
+                url: "/User/LangGet.aspx",
                 cache: false,
                 data: { id: resuid },
                 success: function(result) {
@@ -230,10 +315,58 @@ function editinfo(info, id, btnId, infoId) {
                 }
             });
             break;
+        case "work":
+            $.ajax({
+                type: "GET",
+                url: "/User/WorkEdit.aspx",
+                cache: false,
+                data: { workid: id },
+                success: function(result) {
+                    $("#work").find("#" + infoId).html(result);
+                },
+                error: function() {
+                    $("#" + infoId).find("#" + btnId).val("修 改");
+                    alert("系统繁忙，请稍候再试！");
+                }
+            });
+            break;
+        case "lang":
+            $.ajax({
+                type: "GET",
+                url: "/User/LangEdit.aspx",
+                cache: false,
+                data: { langid: id },
+                success: function(result) {
+                    $("#lang").find("#" + infoId).html(result);
+                },
+                error: function() {
+                    $("#" + infoId).find("#" + btnId).val("修 改");
+                    alert("系统繁忙，请稍候再试！");
+                }
+            });
+            break;
+        case "level":
+            $.ajax({
+                type: "GET",
+                url: "/User/LevelEdit.aspx",
+                cache: false,
+                data: { id: id },
+                success: function(result) {
+                    $("#level").html(result);
+                },
+                error: function() {
+                    $("#" + infoId).find("#" + btnId).val("修 改");
+                    alert("系统繁忙，请稍候再试！");
+                }
+            });
+            break;
     }
 }
 
 function delinfo(info, id, btnId, infoId) {
+    if (!confirm("是否确认删除？")) {
+        return;
+    }
     $("#" + infoId).find("#" + btnId).val("正在删除");
     switch (info) {
         case "edu":
@@ -274,6 +407,36 @@ function delinfo(info, id, btnId, infoId) {
                 data: { posid: id },
                 success: function(result) {
                     $("#pos").find("#" + infoId).html(result);
+                },
+                error: function() {
+                    $("#" + infoId).find("#" + btnId).val("删 除");
+                    alert("系统繁忙，请稍候再试！");
+                }
+            });
+            break;
+        case "work":
+            $.ajax({
+                type: "GET",
+                url: "/User/WorkDel.aspx",
+                cache: false,
+                data: { workid: id },
+                success: function(result) {
+                    $("#work").find("#" + infoId).html(result);
+                },
+                error: function() {
+                    $("#" + infoId).find("#" + btnId).val("删 除");
+                    alert("系统繁忙，请稍候再试！");
+                }
+            });
+            break;
+        case "lang":
+            $.ajax({
+                type: "GET",
+                url: "/User/LangDel.aspx",
+                cache: false,
+                data: { langid: id },
+                success: function(result) {
+                    $("#lang").find("#" + infoId).html(result);
                 },
                 error: function() {
                     $("#" + infoId).find("#" + btnId).val("删 除");
@@ -414,6 +577,88 @@ function pos_check(pos_id) {
     return err;
 }
 
+function work_check(work_id) {
+    $("#" + work_id).find("[id^='errorMsg_']").hide();
+    var err = true;
+    if ($("#" + work_id).find("#Work_FromYear").val() == "0" || $("#" + work_id).find("#Work_FromMonth").val() == "0" || ($("#" + work_id).find("#Work_ToYear").val() == "0" && $("#" + work_id).find("#Work_ToMonth").val() != "0") || ($("#" + work_id).find("#Work_ToYear").val() != "0" && $("#" + work_id).find("#Work_ToMonth").val() == "0")) {
+        $("#" + work_id).find("#errorMsg_Date_1").show();
+        err = false;
+    }
+    if (err && $("#" + work_id).find("#Work_ToYear").val() != "0") {
+        if (!DateCompare($("#" + work_id).find("#Work_FromYear").val(), $("#" + work_id).find("#Work_FromMonth").val(), $("#" + work_id).find("#Work_ToYear").val(), $("#" + work_id).find("#Work_ToMonth").val())) {
+            $("#" + work_id).find("#errorMsg_Date_2").show();
+            err = false;
+        }
+    }
+    if (!$.trim($("#" + work_id).find("#Work_Name").val())) {
+        $("#" + work_id).find("#errorMsg_Name").show();
+        err = false;
+    }
+    if ($.trim($("#" + work_id).find("#Work_IndustryID").val()) == "" || $.trim($("#" + work_id).find("#Work_IndustryID").val()) == "0" || $.trim($("#" + work_id).find("#Work_Industry").val()) == "") {
+        $("#" + work_id).find("#errorMsg_Industry").show();
+        err = false;
+    }
+    if (($.trim($("#" + work_id).find("#Work_Type").val()) == "0")) {
+        $("#" + work_id).find("#errorMsg_Type").show();
+        err = false;
+    }
+    if (!$.trim($("#" + work_id).find("#Work_Department").val())) {
+        $("#" + work_id).find("#errorMsg_Department").show();
+        err = false;
+    }
+    var jobid = $.trim($("#" + work_id).find("#Work_JobID").val());
+    var job = $.trim($("#" + work_id).find("#Work_Job").val());
+    var otherjob = $.trim($("#" + work_id).find("#Work_OtherJob").val());
+    if ((jobid == '' || jobid == '0' || job == '') && (otherjob == '若无合适项，请在此填写' || otherjob == '')) {
+        $("#" + work_id).find("#errorMsg_Job").show();
+        err = false;
+    }
+    if (!$.trim($("#" + work_id).find("#Work_Intro").val())) {
+        $("#" + work_id).find("#errorMsg_Intro_1").show();
+        err = false;
+    } else if ($.trim($("#" + work_id).find("#Work_Intro").val()).length > 2000) {
+        $("#" + work_id).find("#errorMsg_Intro_2").show();
+        err = false;
+    }
+    return err;
+}
+
+function lang_check(lang_id) {
+    $("#" + lang_id).find("[id^='errorMsg_']").hide();
+    var err = true;
+    if (($("#" + lang_id).find("#Lang_Type").val() == "0")) {
+        $("#" + lang_id).find("#errorMsg_Type").show();
+        err = false;
+    }
+    return err;
+}
+
+function level_check(level_id) {
+    $("#" + level_id).find("[id^='errorMsg_']").hide();
+    var err = true;
+    if (($("#" + level_id).find("#Level_EnLevel").val() == "0")) {
+        $("#" + level_id).find("#errorMsg_EnLevel").show();
+        err = false;
+    }
+    if ($.trim($("#" + level_id).find("#Level_TOEFL").val()) && !parseInt($.trim($("#" + level_id).find("#Level_TOEFL").val()))) {
+        $("#" + level_id).find("#errorMsg_TOEFL").show();
+        err = false;
+    }
+    if ($.trim($("#" + level_id).find("#Level_GRE").val()) && !parseInt($.trim($("#" + level_id).find("#Level_GRE").val()))) {
+        $("#" + level_id).find("#errorMsg_GRE").show();
+        err = false;
+    }
+    if ($.trim($("#" + level_id).find("#Level_GMAT").val()) && !parseInt($.trim($("#" + level_id).find("#Level_GMAT").val()))) {
+        $("#" + level_id).find("#errorMsg_GMAT").show();
+        err = false;
+    }
+    if ($.trim($("#" + level_id).find("#Level_IELTS").val()) && !parseInt($.trim($("#" + level_id).find("#Level_IELTS").val()))) {
+        $("#" + level_id).find("#errorMsg_IELTS").show();
+        err = false;
+    }
+    return err;
+}
+
 
 
 
@@ -485,24 +730,6 @@ function pos_check(pos_id) {
 //        //            break;    
 //    }
 //}
-
-//保存教育经历
-function Edu_save(info_id) {
-    if (Edu_check(info_id)) {
-        var options = {
-            success: EduResponse
-        };
-        $("#active").val(info_id.replace("form_", ""));
-        $("#" + info_id).ajaxSubmit(options);
-    }
-}
-
-function EduResponse(responseText, statusText) {
-    if (statusText == 'success') {
-        var info_id = $("#active").val();
-        $("#" + info_id).html(responseText);
-    }
-}
 
 ////教育经历数据验证
 //function Edu_check(info_id) {

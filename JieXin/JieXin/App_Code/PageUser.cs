@@ -231,4 +231,180 @@ public class PageUser : PageBase
                 return "";
         }
     }
+
+    /// <summary>
+    /// 获取公司规模
+    /// </summary>
+    /// <param name="dimensionId"></param>
+    /// <returns></returns>
+    protected string getDimensionString( int dimensionId )
+    {
+        switch( dimensionId )
+        {
+            case 1:
+                return "少于50人";
+            case 2:
+                return "50-150人";
+            case 3:
+                return "150-500人";
+            case 4:
+                return "500人以上";
+            default:
+                return "";
+        }
+    }
+
+    /// <summary>
+    /// 获取公司性质
+    /// </summary>
+    /// <param name="typeId"></param>
+    /// <returns></returns>
+    protected string getCompanyTypeString( int typeId )
+    {
+        switch( typeId )
+        {
+            case 1:
+                return "外资(欧美)";
+            case 2:
+                return "外资(非欧美)";
+            case 3:
+                return "合资(欧美)";
+            case 4:
+                return "合资(非欧美)";
+            case 5:
+                return "国企";
+            case 6:
+                return "民营公司";
+            case 7:
+                return "外企代表处";
+            case 8:
+                return "政府机关";
+            case 9:
+                return "事业单位";
+            case 10:
+                return "非盈利机构";
+            case 11:
+                return "其它性质";
+            default:
+                return "";
+        }
+    }
+
+    /// <summary>
+    /// 获取语言类别
+    /// </summary>
+    /// <param name="typeId"></param>
+    /// <returns></returns>
+    protected string getLangTypeString( int typeId )
+    {
+        switch( typeId )
+        {
+            case 1:
+                return "英语";
+            case 2:
+                return "日语";
+            case 3:
+                return "俄语";
+            case 4:
+                return "阿拉伯语";
+            case 5:
+                return "法语";
+            case 6:
+                return "德语";
+            case 7:
+                return "西班牙语";
+            case 8:
+                return "葡萄牙语";
+            case 9:
+                return "意大利语";
+            case 10:
+                return "韩语/朝鲜语";
+            case 11:
+                return "普通话";
+            case 12:
+                return "粤语";
+            case 13:
+                return "闽南语";
+            case 14:
+                return "上海话";
+            case 15:
+                return "其它";               
+            default:
+                return "";
+        }
+    }
+
+    /// <summary>
+    /// 获取语言能力
+    /// </summary>
+    /// <param name="abilId"></param>
+    /// <returns></returns>
+    protected string getLangAbilityString( int abilId )
+    {
+        switch( abilId )
+        {
+            case 1:
+                return "不限";
+            case 2:
+                return "一般";
+            case 3:
+                return "良好";
+            case 4:
+                return "熟练";
+            case 5:
+                return "精通";
+            default:
+                return "";
+        }
+    }
+
+    /// <summary>
+    /// 获取英语等级
+    /// </summary>
+    /// <param name="levelId"></param>
+    /// <returns></returns>
+    protected string getEnLevelString( int levelId )
+    {
+        switch( levelId )
+        {
+            case 1:
+                return "未参加";
+            case 2:
+                return "未通过";
+            case 3:
+                return "英语四级";
+            case 4:
+                return "英语六级";
+            case 5:
+                return "专业四级";
+            case 6:
+                return "专业八级";
+            default:
+                return "";
+        }
+    }
+
+    /// <summary>
+    /// 获取日文等级
+    /// </summary>
+    /// <param name="levelId"></param>
+    /// <returns></returns>
+    protected string getJpLevelString( int levelId )
+    {
+        switch( levelId )
+        {
+            case 1:
+                return "无";
+            case 2:
+                return "一级";
+            case 3:
+                return "二级";
+            case 4:
+                return "三级";
+            case 5:
+                return "四级";
+            default:
+                return "";
+        }
+    }
 }

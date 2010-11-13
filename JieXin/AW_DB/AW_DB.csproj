@@ -80,6 +80,8 @@
     <Compile Include="DBExtend\AW_Job_dao.cs" />
     <Compile Include="DBExtend\AW_KeyWord_bean.cs" />
     <Compile Include="DBExtend\AW_KeyWord_dao.cs" />
+    <Compile Include="DBExtend\AW_Language_bean.cs" />
+    <Compile Include="DBExtend\AW_Language_dao.cs" />
     <Compile Include="DBExtend\AW_Log_bean.cs" />
     <Compile Include="DBExtend\AW_Log_dao.cs" />
     <Compile Include="DBExtend\AW_Major_bean.cs" />
@@ -88,6 +90,8 @@
     <Compile Include="DBExtend\AW_Navigation_dao.cs" />
     <Compile Include="DBExtend\AW_Notice_bean.cs" />
     <Compile Include="DBExtend\AW_Notice_dao.cs" />
+    <Compile Include="DBExtend\AW_Objective_bean.cs" />
+    <Compile Include="DBExtend\AW_Objective_dao.cs" />
     <Compile Include="DBExtend\AW_Picture_bean.cs" />
     <Compile Include="DBExtend\AW_Picture_dao.cs" />
     <Compile Include="DBExtend\AW_Position_bean.cs" />
@@ -132,6 +136,8 @@
     <Compile Include="DBFile\AW_Job_dao.cs" />
     <Compile Include="DBFile\AW_KeyWord_bean.cs" />
     <Compile Include="DBFile\AW_KeyWord_dao.cs" />
+    <Compile Include="DBFile\AW_Language_bean.cs" />
+    <Compile Include="DBFile\AW_Language_dao.cs" />
     <Compile Include="DBFile\AW_Log_bean.cs" />
     <Compile Include="DBFile\AW_Log_dao.cs" />
     <Compile Include="DBFile\AW_Major_bean.cs" />
@@ -140,6 +146,8 @@
     <Compile Include="DBFile\AW_Navigation_dao.cs" />
     <Compile Include="DBFile\AW_Notice_bean.cs" />
     <Compile Include="DBFile\AW_Notice_dao.cs" />
+    <Compile Include="DBFile\AW_Objective_bean.cs" />
+    <Compile Include="DBFile\AW_Objective_dao.cs" />
     <Compile Include="DBFile\AW_Picture_bean.cs" />
     <Compile Include="DBFile\AW_Picture_dao.cs" />
     <Compile Include="DBFile\AW_Position_bean.cs" />

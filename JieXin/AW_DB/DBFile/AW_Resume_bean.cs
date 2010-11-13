@@ -253,6 +253,60 @@ namespace AnyWell.AW_DL
 			get{return _fdResuStatus;}
 			set{_fdResuStatus = value;}
 		}
+        private int _fdResuEnLevel = 0;
+        /// <summary>
+        /// 英语等级
+        /// </summary>
+        public int fdResuEnLevel
+        {
+            get{return _fdResuEnLevel;}
+            set{_fdResuEnLevel = value;}
+        }
+        private int _fdResuTOEFL = 0;
+        /// <summary>
+        /// TOEFL
+        /// </summary>
+        public int fdResuTOEFL
+        {
+            get{return _fdResuTOEFL;}
+            set{ _fdResuTOEFL = value;}
+        }
+        private int _fdResuGRE = 0;
+        /// <summary>
+        /// GRE
+        /// </summary>
+        public int fdResuGRE
+        {
+            get{return _fdResuGRE;}
+            set{_fdResuGRE = value;}
+        }
+        private int _fdResuJpLevel = 0;
+        /// <summary>
+        /// 日语等级
+        /// </summary>
+        public int fdResuJpLevel
+        {
+            get{return _fdResuJpLevel;}
+            set{_fdResuJpLevel = value;}
+        }
+        private int _fdResuGMAT = 0;
+        /// <summary>
+        /// GMAT
+        /// </summary>
+        public int fdResuGMAT
+        {
+            get{return _fdResuGMAT;}
+            set{_fdResuGMAT = value;}
+        }
+        private int _fdResuIELTS = 0;
+        /// <summary>
+        /// IELTS
+        /// </summary>
+        public int fdResuIELTS
+        {
+            get{ return _fdResuIELTS;}
+            set{_fdResuIELTS = value;}
+        }
         private DateTime _fdResuCreateAt = DateTime.Now;
         /// <summary>
         /// 创建时间

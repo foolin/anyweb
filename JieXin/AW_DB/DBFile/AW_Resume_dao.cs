@@ -14,7 +14,7 @@ namespace AnyWell.AW_DL
         {
             this._propTable = "AW_Resume";
             this._propPK = "fdResuID";
-            this._propFields = "fdResuID,fdResuUserID,fdResuName,fdResuSex,fdResuBirthday,fdResuExperience,fdResuIdentificationID,fdResuIdentificationNum,fdResuAddressID,fdResuAddress,fdResuEmail,fdResuSalary,fdResuCurrType,fdResuCurrentSituation,fdResuMobilePhone,fdResuCompPhone,fdResuFamiPhone,fdResuHouseAddressID,fdResuHouseAddress,fdResuCountry,fdResuHeight,fdResuPostCode,fdResuContactAddr,fdResuMarry,fdResuWebsite,fdResuPhoto,fdResuStatus,fdResuCreateAt,fdResuUpdateAt";
+            this._propFields = "fdResuID,fdResuUserID,fdResuName,fdResuSex,fdResuBirthday,fdResuExperience,fdResuIdentificationID,fdResuIdentificationNum,fdResuAddressID,fdResuAddress,fdResuEmail,fdResuSalary,fdResuCurrType,fdResuCurrentSituation,fdResuMobilePhone,fdResuCompPhone,fdResuFamiPhone,fdResuHouseAddressID,fdResuHouseAddress,fdResuCountry,fdResuHeight,fdResuPostCode,fdResuContactAddr,fdResuMarry,fdResuWebsite,fdResuPhoto,fdResuStatus,fdResuEnLevel,fdResuTOEFL,fdResuGRE,fdResuJpLevel,fdResuGMAT,fdResuIELTS,fdResuCreateAt,fdResuUpdateAt";
         }
 
         public List<AW_Resume_bean> funcGetList()

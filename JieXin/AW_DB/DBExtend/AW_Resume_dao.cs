@@ -56,5 +56,46 @@ namespace AnyWell.AW_DL
             this.funcAddParam( "@fdResuID", resuId );
             return this.funcExecute( sql );
         }
+
+        /// <summary>
+        /// 获取语言等级
+        /// </summary>
+        /// <param name="resuId"></param>
+        /// <returns></returns>
+        public AW_Resume_bean funcGetLangLevel( int resuId )
+        {
+            this.propSelect = "fdResuID,fdResuUserID,fdResuEnLevel,fdResuTOEFL,fdResuGRE,fdResuJpLevel,fdResuGMAT,fdResuIELTS,fdResuUpdateAt";
+            this.propWhere = "fdResuID=" + resuId;
+            DataSet ds = this.funcCommon();
+            if( ds.Tables[ 0 ].Rows.Count > 0 )
+            {
+                AW_Resume_bean bean = new AW_Resume_bean();
+                bean.funcFromDataRow( ds.Tables[ 0 ].Rows[ 0 ] );
+                return bean;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 更新语言等级
+        /// </summary>
+        /// <param name="bean"></param>
+        /// <returns></returns>
+        public int funcUpdateLangLevel(AW_Resume_bean bean)
+        {
+            string sql = "UPDATE AW_Resume SET fdResuEnLevel=@fdResuEnLevel,fdResuTOEFL=@fdResuTOEFL,fdResuGRE=@fdResuGRE,fdResuJpLevel=@fdResuJpLevel,fdResuGMAT=@fdResuGMAT,fdResuIELTS=@fdResuIELTS,fdResuUpdateAt=@fdResuUpdateAt WHERE fdResuID=@fdResuID";
+            this.funcAddParam( "@fdResuEnLevel", bean.fdResuEnLevel );
+            this.funcAddParam( "@fdResuTOEFL", bean.fdResuTOEFL );
+            this.funcAddParam( "@fdResuGRE", bean.fdResuGRE );
+            this.funcAddParam( "@fdResuJpLevel", bean.fdResuJpLevel );
+            this.funcAddParam( "@fdResuGMAT", bean.fdResuGMAT );
+            this.funcAddParam( "@fdResuIELTS", bean.fdResuIELTS );
+            this.funcAddParam( "@fdResuUpdateAt", DateTime.Now );
+            this.funcAddParam( "@fdResuID", bean.fdResuID );
+            return this.funcExecute( sql );
+        }
 	}
 }

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="WorkDel.aspx.cs" Inherits="User_WorkDel" %>

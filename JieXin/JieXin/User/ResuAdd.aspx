@@ -857,78 +857,6 @@
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
                                     onclick="addinfo('pos',<%=QS("id") %>)">继续添加</a></div>
-                            <%--<div class="blank12px dashLine">
-                            </div>
-                            <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <th scope="row">
-                                        <strong class="green">职务</strong>
-                                    </th>
-                                    <td>
-                                        <span class="right">
-                                            <input type="button" class="btn60_28_gray" value="删 除" />
-                                            &nbsp;&nbsp;<input type="button" class="btn60_28" value="保 存" /></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <span class="orange">*</span>时&nbsp;&nbsp;&nbsp;&nbsp;间
-                                    </th>
-                                    <td>
-                                        <select>
-                                            <option class="gray">2010</option>
-                                        </select>年<select><option class="gray">12</option>
-                                        </select>月 到
-                                        <select>
-                                            <option class="gray">2010</option>
-                                        </select>年<select><option class="gray">12</option>
-                                        </select>月 <span class="lgray">(后两项不填表示至今)</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <span class="orange">*</span>职务名称
-                                    </th>
-                                    <td>
-                                        <input type="text" class="pwdinput" style="width: 296px;" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" valign="top">
-                                        &nbsp;职位描述
-                                    </th>
-                                    <td>
-                                        <table width="456" border="0" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td>
-                                                    <textarea class="txtArea"></textarea>
-                                                </td>
-                                            </tr>
-                                            <tr style="color: #999;">
-                                                <td width="284">
-                                                    限2000个中文字，已输入<span class="orange">0</span>个字
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                    </th>
-                                    <td>
-                                        <input type="checkbox" checked="checked" id="posres" />
-                                        <label for="posres">
-                                            <span class="lgray">将此职务信息显示在我的简历中 </span>
-                                        </label>
-                                    </td>
-                                </tr>
-                            </table>
-                            <div class="blank12px">
-                            </div>
-                            <div class=" lh24">
-                                <a href="#" class="btn28H" style="font-size: 12px;">继续添加</a></div>
-                            <div class="blank12px dashLine">
-                            </div>--%>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -937,115 +865,225 @@
                     </div>
                     <div class="flowhidden">
                         <div class="dTop">
-                            <span class="subTit"></span><strong class="f14 green">求职意向</strong>(<span class="orange">*</span>为必填项)</div>
-                        <div class="dCon">
-                            <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <th scope="row">
-                                        <span class="orange">*</span>时&nbsp;&nbsp;&nbsp;&nbsp;间
-                                    </th>
-                                    <td colspan="3">
-                                        <span class="right">
-                                            <input type="button" class="btn60_28_gray" value="删 除" />
-                                            &nbsp;&nbsp;<input type="button" class="btn60_28" value="保 存" /></span>
-                                        <select>
-                                            <option class="gray">2010</option>
-                                        </select>年<select><option class="gray">12</option>
-                                        </select>月 到
-                                        <select>
-                                            <option class="gray">2010</option>
-                                        </select>年<select><option class="gray">12</option>
-                                        </select>月 <span class="lgray">(后两项不填表示至今)</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <span class="orange">*</span>公&nbsp;&nbsp;&nbsp;&nbsp;司
-                                    </th>
-                                    <td>
-                                        <input type="text" class="pwdinput" />
-                                    </td>
-                                    <th scope="row">
-                                        <span class="orange">*</span>行&nbsp;&nbsp;&nbsp;&nbsp;业
-                                    </th>
-                                    <td>
-                                        <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;">选择/修改</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        &nbsp;公司规模
-                                    </th>
-                                    <td>
-                                        <select>
-                                            <option class="gray">请选择公司规模</option>
-                                        </select>
-                                    </td>
-                                    <th scope="row">
-                                        <span class="orange">*</span>公司性质
-                                    </th>
-                                    <td>
-                                        <select>
-                                            <option class="gray">请选择公司性质</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <span class="orange">*</span>部&nbsp;&nbsp;&nbsp;&nbsp;门
-                                    </th>
-                                    <td>
-                                        <input type="text" class="pwdinput" />
-                                    </td>
-                                    <th scope="row">
-                                        <span class="orange">*</span>公司性质
-                                    </th>
-                                    <td>
-                                        <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;">选择/修改</a>
-                                        <input type="text" class="pwdinput" value="若无合适项，请在此填写" style="color: #999;" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" valign="top">
-                                        <span class="orange">*</span>工作描述
-                                    </th>
-                                    <td colspan="3">
-                                        <table width="486" border="0" cellspacing="0" cellpadding="0">
-                                            <tr>
-                                                <td colspan="2">
-                                                    <textarea class="txtArea" style="width: 495px;"></textarea>
-                                                </td>
-                                            </tr>
-                                            <tr style="color: #999;">
-                                                <td width="295">
-                                                    请详细描述您的职责范围、工作任务以及取得的成绩等
-                                                </td>
-                                                <td align="right" width="174">
-                                                    限2000个中文字，已输入<span class="orange">0</span>个字
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        海外工作经历
-                                    </th>
-                                    <td>
-                                        <input type="radio" name="forlen" value="是" checked="checked" />是<input type="radio"
-                                            value="否" name="forlen" />
-                                        否
-                                    </td>
-                                    <th scope="row">
-                                    </th>
-                                    <td>
-                                    </td>
-                                </tr>
-                            </table>
-                            <div class="blank12px">
+                            <span class="subTit_up" id="workinfo_up" onclick="object_toggle('workinfo')" title="收起"
+                                style="cursor: pointer"></span><span class="subTit" id="workinfo_down" onclick="object_toggle('workinfo')"
+                                    title="展开" style="cursor: pointer; display: none"></span><strong class="f14 green">工作经验</strong>(<span
+                                        class="orange">*</span>为必填项)</div>
+                        <div class="dCon" id="workinfo">
+                            <div id="work">
+                                <div id="work_<%=workID %>">
+                                    <form action="/User/WorkSave.aspx?id=<%=QS("id") %>&workid=<%=workID %>&type=add"
+                                    id="work_form_<%=workID %>" method="post">
+                                    <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <th scope="row">
+                                            </th>
+                                            <td colspan="3">
+                                                <span class="tipW red hidden" id="errorMsg_Date_1">请选择时间！</span> <span class="tipW red hidden"
+                                                    id="errorMsg_Date_2">结束时间不能小于起始时间！</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="orange">*</span>时&nbsp;&nbsp;&nbsp;&nbsp;间
+                                            </th>
+                                            <td colspan="3">
+                                                <span class="right">
+                                                    <input type="button" id="btn_work_del" class="btn60_28_gray" value="删 除" onclick="delinfo('work',<%=workID %>,'btn_work_del','work_<%=workID %>')" />
+                                                    &nbsp;&nbsp;<input type="button" id="btn_work_save" class="btn60_28" value="保 存"
+                                                        onclick="work_save('work_form_<%=workID %>')" /></span>
+                                                <select id="Work_FromYear" name="Work_FromYear">
+                                                    <option selected="selected" value="0">年</option>
+                                                    <%for( int i = DateTime.Now.Year; i >= 1940; i-- )
+                                                      { %>
+                                                    <option value="<%=i%>">
+                                                        <%=i%></option>
+                                                    <%} %>
+                                                </select>
+                                                <select id="Work_FromMonth" name="Work_FromMonth">
+                                                    <option selected="selected" value="0">月</option>
+                                                    <%for( int i = 1; i <= 12; i++ )
+                                                      { %>
+                                                    <option value="<%=i%>">
+                                                        <%=i%></option>
+                                                    <%} %>
+                                                </select>
+                                                到
+                                                <select id="Work_ToYear" name="Work_ToYear">
+                                                    <option selected="selected" value="0">年</option>
+                                                    <%for( int i = DateTime.Now.Year; i >= 1940; i-- )
+                                                      { %>
+                                                    <option value="<%=i%>">
+                                                        <%=i%></option>
+                                                    <%} %>
+                                                </select>
+                                                <select id="Work_ToMonth" name="Work_ToMonth">
+                                                    <option selected="selected" value="0">月</option>
+                                                    <%for( int i = 1; i <= 12; i++ )
+                                                      { %>
+                                                    <option value="<%=i%>">
+                                                        <%=i%></option>
+                                                    <%} %>
+                                                </select>
+                                                <span class="lgray">(后两项不填表示至今)</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                                <span class="tipW red hidden" id="errorMsg_Name">公司名称不能为空！</span>
+                                            </td>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                                <span class="tipW red hidden" id="errorMsg_Industry">请选择行业！</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="orange">*</span>公&nbsp;&nbsp;&nbsp;&nbsp;司
+                                            </th>
+                                            <td>
+                                                <input type="text" id="Work_Name" name="Work_Name" class="pwdinput" maxlength="50" />
+                                            </td>
+                                            <th scope="row">
+                                                <span class="orange">*</span>行&nbsp;&nbsp;&nbsp;&nbsp;业
+                                            </th>
+                                            <td>
+                                                <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;">选择/修改</a>
+                                                <input type="hidden" id="Work_IndustryID" name="Work_IndustryID" value="1000001" />
+                                                <input type="hidden" id="Work_Industry" name="Work_Industry" value="计算机软件" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                            </td>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                                <span class="tipW red hidden" id="errorMsg_Type">请选择公司性质！</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                &nbsp;公司规模
+                                            </th>
+                                            <td>
+                                                <select id="Work_Dimension" name="Work_Dimension">
+                                                    <option value="0">请选择公司规模</option>
+                                                    <option value="1">少于50人</option>
+                                                    <option value="2">50-150人</option>
+                                                    <option value="3">150-500人</option>
+                                                    <option value="4">500人以上</option>
+                                                </select>
+                                            </td>
+                                            <th scope="row">
+                                                <span class="orange">*</span>公司性质
+                                            </th>
+                                            <td>
+                                                <select id="Work_Type" name="Work_Type">
+                                                    <option value="0">请选择公司性质</option>
+                                                    <option value="1">外资(欧美)</option>
+                                                    <option value="2">外资(非欧美)</option>
+                                                    <option value="3">合资(欧美)</option>
+                                                    <option value="4">合资(非欧美)</option>
+                                                    <option value="5">国企</option>
+                                                    <option value="6">民营公司</option>
+                                                    <option value="7">外企代表处</option>
+                                                    <option value="8">政府机关</option>
+                                                    <option value="9">事业单位</option>
+                                                    <option value="10">非盈利机构</option>
+                                                    <option value="11">其它性质</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                                <span class="tipW red hidden" id="errorMsg_Department">部门不能为空！</span>
+                                            </td>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                                <span class="tipW red hidden" id="errorMsg_Job">请选择或者手动填写职位（限20个汉字）！</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="orange">*</span>部&nbsp;&nbsp;&nbsp;&nbsp;门
+                                            </th>
+                                            <td>
+                                                <input type="text" id="Work_Department" name="Work_Department" class="pwdinput" maxlength="20" />
+                                            </td>
+                                            <th scope="row">
+                                                <span class="orange">*</span>职&nbsp;&nbsp;&nbsp;&nbsp;位
+                                            </th>
+                                            <td>
+                                                <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;">选择/修改</a>
+                                                <input type="text" id="Work_OtherJob" name="Work_OtherJob" class="pwdinput" value="若无合适项，请在此填写"
+                                                    style="color: #999;" onclick="if('若无合适项，请在此填写'==this.value){this.value='';this.style.color='#000';}"
+                                                    onblur="if(this.value==''){this.value = '若无合适项，请在此填写';this.style.color='#999';}" />
+                                                <input type="hidden" id="Work_JobID" name="Work_JobID" />
+                                                <input type="hidden" id="Work_Job" name="Work_Job" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                            </th>
+                                            <td colspan="3">
+                                                <span class="tipW red hidden" id="errorMsg_Intro_1">工作描述不能为空！</span> <span class="tipW red hidden"
+                                                    id="errorMsg_Intro_2">输入错误。请控制在2000个汉字以内！</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" valign="top">
+                                                <span class="orange">*</span>工作描述
+                                            </th>
+                                            <td colspan="3">
+                                                <table width="486" border="0" cellspacing="0" cellpadding="0">
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <textarea id="Work_Intro" name="Work_Intro" class="txtArea" style="width: 495px;"
+                                                                onkeyup="str_limit('work_<%=workID %>',this.value,'Work_IntroLength')" onchange="str_limit('work_<%=workID %>',this.value,'Work_IntroLength')"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="color: #999;">
+                                                        <td width="295">
+                                                            请详细描述您的职责范围、工作任务以及取得的成绩等
+                                                        </td>
+                                                        <td align="right" width="174">
+                                                            限2000个中文字，已输入<span class="orange" id="Work_IntroLength">0</span>个字
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                海外工作经历
+                                            </th>
+                                            <td>
+                                                <input type="radio" name="Work_IsOverSeas" value="0" checked="checked" />是
+                                                <input type="radio" value="1" name="Work_IsOverSeas" />否
+                                            </td>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="blank12px">
+                                    </div>
+                                    </form>
+                                </div>
                             </div>
                             <div class=" lh24">
-                                <a href="#" class="btn28H" style="font-size: 12px;">继续添加</a></div>
+                                <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
+                                    onclick="addinfo('work',<%=QS("id") %>)">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -1054,8 +1092,11 @@
                     </div>
                     <div class="flowhidden">
                         <div class="dTop">
-                            <span class="subTit"></span><strong class="f14 green">求职意向</strong>(<span class="orange">*</span>为必填项)</div>
-                        <div class="dCon">
+                            <span class="subTit_up" id="obje_up" onclick="object_toggle('obje')" title="收起" style="cursor: pointer">
+                            </span><span class="subTit" id="obje_down" onclick="object_toggle('obje')" title="展开"
+                                style="cursor: pointer; display: none"></span><strong class="f14 green">求职意向</strong>(<span
+                                    class="orange">*</span>为必填项)</div>
+                        <div class="dCon" id="obje">
                             <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <th scope="row">
@@ -1152,109 +1193,214 @@
                     </div>
                     <div class="flowhidden">
                         <div class="dTop">
-                            <span class="subTit"></span><strong class="f14 green">语言能力</strong>(<span class="orange">*</span>为必填项)</div>
-                        <div class="dCon">
-                            <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <th scope="row">
-                                        <span class="orange">*</span>语言类别
-                                    </th>
-                                    <td>
-                                        <select>
-                                            <option class="gray">请选择语言类别</option>
-                                        </select>
-                                    </td>
-                                    <th scope="row">
-                                        <span class="orange">*</span>掌握程度
-                                    </th>
-                                    <td>
-                                        <span class="right">
-                                            <input type="button" class="btn60_28_gray" value="删 除" />
-                                            &nbsp;&nbsp;<input type="button" class="btn60_28" value="保 存" /></span>
-                                        <select>
-                                            <option class="gray">请选择掌握程度</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <span class="orange">*</span>读写能力
-                                    </th>
-                                    <td>
-                                        <select>
-                                            <option class="gray">请选择语言类别</option>
-                                        </select>
-                                    </td>
-                                    <th scope="row">
-                                        <span class="orange">*</span>听说能力
-                                    </th>
-                                    <td>
-                                        <select>
-                                            <option class="gray">请选择掌握程度</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                    </th>
-                                    <td colspan="3">
-                                        <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;">继续添加</a>
-                                    </td>
-                                </tr>
-                            </table>
-                            <table width="100%" class="tableInfo_1" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <th scope="row" style="width: 76px;">
-                                        <span class="orange">*</span>英语等级
-                                    </th>
-                                    <td width="140">
-                                        <select>
-                                            <option class="gray">请选择级别</option>
-                                        </select>
-                                    </td>
-                                    <th scope="row" style="width: 50px;">
-                                        TOEFL
-                                    </th>
-                                    <td width="130">
-                                        <input type="text" class="pwdinput" style="width: 100px;" />
-                                    </td>
-                                    <th scope="row">
-                                        GRE
-                                    </th>
-                                    <td>
-                                        <input type="text" class="pwdinput" style="width: 100px;" />
-                                    </td>
-                                    <td>
-                                        <span class="right">
-                                            <input type="button" class="btn60_28" value="保 存" /></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" style="width: 76px;">
-                                        <span class="orange">*</span>日语等级
-                                    </th>
-                                    <td width="140">
-                                        <select>
-                                            <option class="gray">请选择级别</option>
-                                        </select>
-                                    </td>
-                                    <th scope="row" style="width: 50px;">
-                                        GMAT
-                                    </th>
-                                    <td width="130">
-                                        <input type="text" class="pwdinput" style="width: 100px;" />
-                                    </td>
-                                    <th scope="row">
-                                        IELTS
-                                    </th>
-                                    <td>
-                                        <input type="text" class="pwdinput" style="width: 100px;" />
-                                    </td>
-                                    <td>
-                                    </td>
-                                </tr>
-                            </table>
+                            <span class="subTit_up" id="langinfo_up" onclick="object_toggle('langinfo')" title="收起"
+                                style="cursor: pointer"></span><span class="subTit" id="langinfo_down" onclick="object_toggle('langinfo')"
+                                    title="展开" style="cursor: pointer; display: none"></span><strong class="f14 green">语言能力</strong>(<span
+                                        class="orange">*</span>为必填项)</div>
+                        <div class="dCon" id="langinfo">
+                            <div id="lang">
+                                <div id="lang_<%=langID %>">
+                                    <form action="/User/LangSave.aspx?id=<%=QS("id") %>&langid=<%=langID %>&type=add"
+                                    id="lang_form_<%=langID %>" method="post">
+                                    <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                                <span class="tipW red hidden" id="errorMsg_Type">请选择语言类别！</span>
+                                            </td>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="orange">*</span>语言类别
+                                            </th>
+                                            <td>
+                                                <select id="Lang_Type" name="Lang_Type">
+                                                    <option value="0">请选择语言类别</option>
+                                                    <option value="1">英语</option>
+                                                    <option value="2">日语</option>
+                                                    <option value="3">俄语</option>
+                                                    <option value="4">阿拉伯语</option>
+                                                    <option value="5">法语</option>
+                                                    <option value="6">德语</option>
+                                                    <option value="7">西班牙语</option>
+                                                    <option value="8">葡萄牙语</option>
+                                                    <option value="9">意大利语</option>
+                                                    <option value="10">韩语/朝鲜语</option>
+                                                    <option value="11">普通话</option>
+                                                    <option value="12">粤语</option>
+                                                    <option value="13">闽南语</option>
+                                                    <option value="14">上海话</option>
+                                                    <option value="15">其它</option>
+                                                </select>
+                                            </td>
+                                            <th scope="row">
+                                                <span class="orange">*</span>掌握程度
+                                            </th>
+                                            <td>
+                                                <span class="right">
+                                                    <input type="button" id="btn_lang_del" class="btn60_28_gray" value="删 除" onclick="delinfo('lang',<%=langID %>,'btn_lang_del','lang_<%=langID %>')" />
+                                                    &nbsp;&nbsp;<input type="button" id="btn_lang_save" class="btn60_28" value="保 存"
+                                                        onclick="lang_save('lang_form_<%=langID %>')" /></span>
+                                                <select id="Lang_Master" name="Lang_Master">
+                                                    <option value="0" selected="selected">不限</option>
+                                                    <option value="1">一般</option>
+                                                    <option value="2">良好</option>
+                                                    <option value="3">熟练</option>
+                                                    <option value="4">精通</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="orange">*</span>读写能力
+                                            </th>
+                                            <td>
+                                                <select id="Lang_RW" name="Lang_RW">
+                                                    <option value="0" selected="selected">不限</option>
+                                                    <option value="1">一般</option>
+                                                    <option value="2">良好</option>
+                                                    <option value="3">熟练</option>
+                                                    <option value="4">精通</option>
+                                                </select>
+                                            </td>
+                                            <th scope="row">
+                                                <span class="orange">*</span>听说能力
+                                            </th>
+                                            <td>
+                                                <select id="Lang_Listen" name="Lang_Listen">
+                                                    <option value="0" selected="selected">不限</option>
+                                                    <option value="1">一般</option>
+                                                    <option value="2">良好</option>
+                                                    <option value="3">熟练</option>
+                                                    <option value="4">精通</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="blank6px">
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class=" lh24">
+                                <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
+                                    onclick="addinfo('lang',<%=QS("id") %>)">继续添加</a></div>
                             <div class="blank6px">
+                            </div>
+                            <div id="level">
+                                <form action="/User/LevelSave.aspx?id=<%=QS("id") %>" id="level_form" method="post">
+                                <table width="100%" class="tableInfo_1" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <th scope="row">
+                                        </th>
+                                        <td>
+                                            <span class="tipW red hidden" id="errorMsg_EnLevel">请选择英语等级！</span>
+                                        </td>
+                                        <th scope="row">
+                                        </th>
+                                        <td>
+                                            <span class="tipW red hidden" id="errorMsg_TOEFL">请正确输入分数！</span>
+                                        </td>
+                                        <th scope="row">
+                                        </th>
+                                        <td>
+                                            <span class="tipW red hidden" id="errorMsg_GRE">请正确输入分数！</span>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="width: 76px;">
+                                            <span class="orange">*</span>英语等级
+                                        </th>
+                                        <td width="140">
+                                            <select id="Level_EnLevel" name="Level_EnLevel">
+                                                <option value="0">请选择级别</option>
+                                                <option value="1">未参加</option>
+                                                <option value="2">未通过</option>
+                                                <option value="3">英语四级</option>
+                                                <option value="4">英语六级</option>
+                                                <option value="5">专业四级</option>
+                                                <option value="6">专业八级</option>
+                                            </select>
+                                        </td>
+                                        <th scope="row" style="width: 50px;">
+                                            TOEFL
+                                        </th>
+                                        <td width="130">
+                                            <input type="text" id="Level_TOEFL" name="Level_TOEFL" class="pwdinput" style="width: 100px;"
+                                                maxlength="3" />
+                                        </td>
+                                        <th scope="row">
+                                            GRE
+                                        </th>
+                                        <td>
+                                            <input type="text" id="Level_GRE" name="Level_GRE" class="pwdinput" style="width: 100px;"
+                                                maxlength="3" />
+                                        </td>
+                                        <td>
+                                            <span class="right">
+                                                <input type="button" id="btn_level_save" class="btn60_28" value="保 存" onclick="level_save('level_form')" /></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                        </th>
+                                        <td>
+                                        </td>
+                                        <th scope="row">
+                                        </th>
+                                        <td>
+                                            <span class="tipW red hidden" id="errorMsg_GMAT">请正确输入分数！</span>
+                                        </td>
+                                        <th scope="row">
+                                        </th>
+                                        <td>
+                                            <span class="tipW red hidden" id="errorMsg_IELTS">请正确输入分数！</span>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="width: 76px;">
+                                            &nbsp;日语等级
+                                        </th>
+                                        <td width="140">
+                                            <select id="Level_JpLevel" name="Level_JpLevel">
+                                                <option value="0">请选择级别</option>
+                                                <option value="1">无</option>
+                                                <option value="2">一级</option>
+                                                <option value="3">二级</option>
+                                                <option value="4">三级</option>
+                                                <option value="5">四级</option>
+                                            </select>
+                                        </td>
+                                        <th scope="row" style="width: 50px;">
+                                            GMAT
+                                        </th>
+                                        <td width="130">
+                                            <input type="text" id="Level_GMAT" name="Level_GMAT" class="pwdinput" style="width: 100px;"
+                                                maxlength="3" />
+                                        </td>
+                                        <th scope="row">
+                                            IELTS
+                                        </th>
+                                        <td>
+                                            <input type="text" id="Level_IELTS" name="Level_IELTS" class="pwdinput" style="width: 100px;"
+                                                maxlength="3" />
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="blank6px">
+                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>

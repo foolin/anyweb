@@ -28,7 +28,7 @@ namespace AnyWell.AW_DL
 			get{return _fdWorkResuID;}
 			set{_fdWorkResuID = value;}
 		}
-		private DateTime _fdWorkBegin = DateTime.Now;
+		private DateTime _fdWorkBegin = DateTime.Parse("1900-01-01");
 		 /// <summary>
 		 /// 开始时间
 		 /// </summary>
@@ -37,7 +37,7 @@ namespace AnyWell.AW_DL
 			get{return _fdWorkBegin;}
 			set{_fdWorkBegin = value;}
 		}
-		private DateTime _fdWorkEnd = DateTime.Now;
+        private DateTime _fdWorkEnd = DateTime.Parse( "1900-01-01" );
 		 /// <summary>
 		 /// 结束时间
 		 /// </summary>
@@ -57,12 +57,21 @@ namespace AnyWell.AW_DL
 		}
 		private int _fdWorkIndustryID = 0;
 		 /// <summary>
-		 /// 行业
+		 /// 行业编号
 		 /// </summary>
 		public int fdWorkIndustryID
 		{
 			get{return _fdWorkIndustryID;}
 			set{_fdWorkIndustryID = value;}
+		}
+		private string _fdWorkIndustry = "";
+		 /// <summary>
+		 /// 行业 40 nvarchar
+		 /// </summary>
+		public string fdWorkIndustry
+		{
+			get{return _fdWorkIndustry;}
+			set{_fdWorkIndustry = value;}
 		}
 		private int _fdWorkDimension = 0;
 		 /// <summary>
@@ -84,30 +93,57 @@ namespace AnyWell.AW_DL
 		}
 		private string _fdWorkDepartment = "";
 		 /// <summary>
-		 /// 部门 100 nvarchar
+		 /// 部门 40 nvarchar
 		 /// </summary>
 		public string fdWorkDepartment
 		{
 			get{return _fdWorkDepartment;}
 			set{_fdWorkDepartment = value;}
 		}
-		private int _fdWorkJob = 0;
+		private int _fdWorkJobID = 0;
 		 /// <summary>
-		 /// 职位
+		 /// 职位编号
 		 /// </summary>
-		public int fdWorkJob
+		public int fdWorkJobID
+		{
+			get{return _fdWorkJobID;}
+			set{_fdWorkJobID = value;}
+		}
+		private string _fdWorkJob = "";
+		 /// <summary>
+		 /// 职位 40 nvarchar
+		 /// </summary>
+		public string fdWorkJob
 		{
 			get{return _fdWorkJob;}
 			set{_fdWorkJob = value;}
 		}
+        private string _fdWorkOtherJob = "";
+        /// <summary>
+        /// 其他职位
+        /// </summary>
+        public string fdWorkOtherJob
+        {
+            get{return _fdWorkOtherJob;}
+            set{_fdWorkOtherJob = value;}
+        }
 		private string _fdWorkIntro = "";
 		 /// <summary>
-		 /// 工作描述
+		 /// 工作描述 4000 nvarchar
 		 /// </summary>
 		public string fdWorkIntro
 		{
 			get{return _fdWorkIntro;}
 			set{_fdWorkIntro = value;}
+		}
+		private int _fdWorkIsOverSeas = 0;
+		 /// <summary>
+		 /// 海外工作经历(0:是1:否)
+		 /// </summary>
+		public int fdWorkIsOverSeas
+		{
+			get{return _fdWorkIsOverSeas;}
+			set{_fdWorkIsOverSeas = value;}
 		}
 
 

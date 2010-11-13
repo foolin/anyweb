@@ -26,7 +26,7 @@ public partial class User_InfoSave : PageUser
             Response.End();
         }
         //姓名
-        resume.fdResuName = QF( "userName" ).Trim();
+        resume.fdResuUserName = QF( "userName" ).Trim();
         //性别
         resume.fdResuSex = int.Parse( QF( "sex" ) );
         //出生日期

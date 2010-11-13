@@ -64,6 +64,8 @@
     <Compile Include="DBExtend\AW_Area_dao.cs" />
     <Compile Include="DBExtend\AW_Article_bean.cs" />
     <Compile Include="DBExtend\AW_Article_dao.cs" />
+    <Compile Include="DBExtend\AW_Cert_bean.cs" />
+    <Compile Include="DBExtend\AW_Cert_dao.cs" />
     <Compile Include="DBExtend\AW_Column_bean.cs" />
     <Compile Include="DBExtend\AW_Column_dao.cs" />
     <Compile Include="DBExtend\AW_Company_bean.cs" />
@@ -120,6 +122,8 @@
     <Compile Include="DBFile\AW_Area_dao.cs" />
     <Compile Include="DBFile\AW_Article_bean.cs" />
     <Compile Include="DBFile\AW_Article_dao.cs" />
+    <Compile Include="DBFile\AW_Cert_bean.cs" />
+    <Compile Include="DBFile\AW_Cert_dao.cs" />
     <Compile Include="DBFile\AW_Column_bean.cs" />
     <Compile Include="DBFile\AW_Column_dao.cs" />
     <Compile Include="DBFile\AW_Company_bean.cs" />

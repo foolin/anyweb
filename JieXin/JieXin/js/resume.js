@@ -1,4 +1,12 @@
-﻿var EDU_ACTIVE_ID, REW_ACTIVE_ID, POS_ACTIVE_ID, WORK_ACTIVE_ID, LANG_ACTIVE_ID;
+﻿var EDU_ACTIVE_ID, REW_ACTIVE_ID, POS_ACTIVE_ID, WORK_ACTIVE_ID, LANG_ACTIVE_ID, CERT_ACTIVE_ID;
+
+function warnuser() {
+//    if ($("form").length > 0) {
+//        return true;
+//    }
+}
+
+window.onbeforeunload = warnuser;
 
 function upload() {
     showMsgBox('UploadPic', 538, 150);
@@ -54,7 +62,7 @@ function info_save() {
 
 function info_response(responseText, statusText) {
     if (statusText == 'success') {
-        $("#Info_form").html(responseText);
+        $("#info").html(responseText);
     }
 }
 
@@ -150,13 +158,29 @@ function level_save(level_id) {
         };
         $("#" + level_id).find("#btn_level_save").val("正在保存");
         $("#" + level_id).ajaxSubmit(options);
-        alert("a");
     }
 }
 
 function level_response(responseText, statusText) {
     if (statusText == 'success') {
         $("#level").html(responseText);
+    }
+}
+
+function cert_save(cert_id) {
+    if (cert_check(cert_id)) {
+        var options = {
+            success: cert_response
+        };
+        CERT_ACTIVE_ID = cert_id.replace("form_", "");
+        $("#" + cert_id).find("#btn_cert_save").val("正在保存");
+        $("#" + cert_id).ajaxSubmit(options);
+    }
+}
+
+function cert_response(responseText, statusText) {
+    if (statusText == 'success') {
+        $("#" + CERT_ACTIVE_ID).html(responseText);
     }
 }
 
@@ -236,6 +260,23 @@ function addinfo(info, resuid) {
             $.ajax({
                 type: "GET",
                 url: "/User/LangGet.aspx",
+                cache: false,
+                data: { id: resuid },
+                success: function(result) {
+                    $("#" + info).append(result);
+                },
+                error: function() {
+                    alert("系统繁忙，请稍候再试！");
+                },
+                complete: function() {
+                    $("#" + info).parent().find("#btn_info_add").html("继续添加");
+                }
+            });
+            break;
+        case "cert":
+            $.ajax({
+                type: "GET",
+                url: "/User/CertGet.aspx",
                 cache: false,
                 data: { id: resuid },
                 success: function(result) {
@@ -360,6 +401,21 @@ function editinfo(info, id, btnId, infoId) {
                 }
             });
             break;
+        case "cert":
+            $.ajax({
+                type: "GET",
+                url: "/User/CertEdit.aspx",
+                cache: false,
+                data: { certid: id },
+                success: function(result) {
+                    $("#cert").find("#" + infoId).html(result);
+                },
+                error: function() {
+                    $("#" + infoId).find("#" + btnId).val("修 改");
+                    alert("系统繁忙，请稍候再试！");
+                }
+            });
+            break;
     }
 }
 
@@ -437,6 +493,21 @@ function delinfo(info, id, btnId, infoId) {
                 data: { langid: id },
                 success: function(result) {
                     $("#lang").find("#" + infoId).html(result);
+                },
+                error: function() {
+                    $("#" + infoId).find("#" + btnId).val("删 除");
+                    alert("系统繁忙，请稍候再试！");
+                }
+            });
+            break;
+        case "cert":
+            $.ajax({
+                type: "GET",
+                url: "/User/CertDel.aspx",
+                cache: false,
+                data: { certid: id },
+                success: function(result) {
+                    $("#cert").find("#" + infoId).html(result);
                 },
                 error: function() {
                     $("#" + infoId).find("#" + btnId).val("删 除");
@@ -654,6 +725,24 @@ function level_check(level_id) {
     }
     if ($.trim($("#" + level_id).find("#Level_IELTS").val()) && !parseInt($.trim($("#" + level_id).find("#Level_IELTS").val()))) {
         $("#" + level_id).find("#errorMsg_IELTS").show();
+        err = false;
+    }
+    return err;
+}
+
+function cert_check(cert_id) {
+    $("#" + cert_id).find("[id^='errorMsg_']").hide();
+    var err = true;
+    if ($("#" + cert_id).find("#Cert_Year").val() == 0 || $("#" + cert_id).find("#Cert_Month").val() == 0) {
+        $("#" + cert_id).find("#errorMsg_Date").show();
+        err = false;
+    }
+    if (!$.trim($("#" + cert_id).find("#Cert_Name").val())) {
+        $("#" + cert_id).find("#errorMsg_Name").show();
+        err = false;
+    }
+    if ($.trim($("#" + cert_id).find("#Cert_Scores").val()) && !parseInt($.trim($("#" + cert_id).find("#Cert_Scores").val()))) {
+        $("#" + cert_id).find("#errorMsg_Scores").show();
         err = false;
     }
     return err;

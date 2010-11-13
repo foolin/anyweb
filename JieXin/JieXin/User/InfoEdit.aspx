@@ -18,7 +18,7 @@
                     </th>
                     <td width="218">
                         <input type="text" class="pwdinput" id="userName" name="userName" maxlength="30"
-                            value="<%=resume.fdResuName %>" />
+                            value="<%=resume.fdResuUserName %>" />
                     </td>
                     <th>
                         <span class="orange">*</span>性&nbsp;&nbsp;&nbsp;&nbsp;别

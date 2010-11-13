@@ -30,13 +30,22 @@ namespace AnyWell.AW_DL
 		}
 		private string _fdResuName = "";
 		 /// <summary>
-		 /// 姓名 60 nvarchar
+		 /// 简历名称 30 nvarchar
 		 /// </summary>
 		public string fdResuName
 		{
 			get{return _fdResuName;}
 			set{_fdResuName = value;}
 		}
+        private string _fdResuUserName = "";
+        /// <summary>
+        /// 姓名
+        /// </summary>
+        public string fdResuUserName
+        {
+            get{return _fdResuUserName;}
+            set{_fdResuUserName = value;}
+        }
 		private int _fdResuSex = 0;
 		 /// <summary>
 		 /// 性别
@@ -324,6 +333,15 @@ namespace AnyWell.AW_DL
         {
             get{ return _fdResuUpdateAt; }
             set{_fdResuUpdateAt = value;}
+        }
+        private int _fdResuViewCount = 0;
+        /// <summary>
+        /// 浏览次数
+        /// </summary>
+        public int fdResuViewCount
+        {
+            get{ return _fdResuViewCount;}
+            set{ _fdResuViewCount = value;}
         }
 
 

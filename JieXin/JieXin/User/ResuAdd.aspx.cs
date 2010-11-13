@@ -29,6 +29,7 @@ public partial class User_ResuAdd : PageUser
         this._posiId = new AW_Position_dao().funcNewID();
         this._workId = new AW_Work_dao().funcNewID();
         this._langId = new AW_Language_dao().funcNewID();
+        this._certId = new AW_Cert_dao().funcNewID();
     }
 
     private int _eduId;
@@ -108,6 +109,22 @@ public partial class User_ResuAdd : PageUser
         set
         {
             _langId = value;
+        }
+    }
+
+    private int _certId;
+    /// <summary>
+    /// 证书编号
+    /// </summary>
+    public int certID
+    {
+        get
+        {
+            return _certId;
+        }
+        set
+        {
+            _certId = value;
         }
     }
 }

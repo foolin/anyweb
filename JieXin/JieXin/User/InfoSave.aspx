@@ -9,7 +9,7 @@
                         &nbsp;姓&nbsp;&nbsp;&nbsp;&nbsp;名
                     </th>
                     <td width="218">
-                        <%=resume.fdResuName%>
+                        <%=resume.fdResuUserName%>
                     </td>
                     <th>
                         &nbsp;性&nbsp;&nbsp;&nbsp;&nbsp;别

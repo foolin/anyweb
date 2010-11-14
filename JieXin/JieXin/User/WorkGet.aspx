@@ -80,9 +80,11 @@
                 <span class="orange">*</span>行&nbsp;&nbsp;&nbsp;&nbsp;业
             </th>
             <td>
-                <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;">选择/修改</a>
-                <input type="hidden" id="Work_IndustryID" name="Work_IndustryID" value="1000001" />
-                <input type="hidden" id="Work_Industry" name="Work_Industry" value="计算机软件" />
+                <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;"
+                    onclick="ChooseIndustry(this, 'ChooseIndustry', 'Work_IndustryID', 'Work_Industry', '选择/修改')">
+                    选择/修改</a>
+                <input type="hidden" id="Work_IndustryID" name="Work_IndustryID" />
+                <input type="hidden" id="Work_Industry" name="Work_Industry" />
             </td>
         </tr>
         <tr>
@@ -152,7 +154,9 @@
                 <span class="orange">*</span>职&nbsp;&nbsp;&nbsp;&nbsp;位
             </th>
             <td>
-                <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;">选择/修改</a>
+                <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;"
+                    onclick="ChoosePosition(this, 'ChoosePosition', 'Work_JobID', 'Work_Job', '选择/修改')">
+                    选择/修改</a>
                 <input type="text" id="Work_OtherJob" name="Work_OtherJob" class="pwdinput" value="若无合适项，请在此填写"
                     style="color: #999;" onclick="if('若无合适项，请在此填写'==this.value){this.value='';this.style.color='#000';}"
                     onblur="if(this.value==''){this.value = '若无合适项，请在此填写';this.style.color='#999';}" />

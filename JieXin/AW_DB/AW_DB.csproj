@@ -64,6 +64,8 @@
     <Compile Include="DBExtend\AW_Area_dao.cs" />
     <Compile Include="DBExtend\AW_Article_bean.cs" />
     <Compile Include="DBExtend\AW_Article_dao.cs" />
+    <Compile Include="DBExtend\AW_Awards_bean.cs" />
+    <Compile Include="DBExtend\AW_Awards_dao.cs" />
     <Compile Include="DBExtend\AW_Cert_bean.cs" />
     <Compile Include="DBExtend\AW_Cert_dao.cs" />
     <Compile Include="DBExtend\AW_Column_bean.cs" />
@@ -92,8 +94,6 @@
     <Compile Include="DBExtend\AW_Navigation_dao.cs" />
     <Compile Include="DBExtend\AW_Notice_bean.cs" />
     <Compile Include="DBExtend\AW_Notice_dao.cs" />
-    <Compile Include="DBExtend\AW_Objective_bean.cs" />
-    <Compile Include="DBExtend\AW_Objective_dao.cs" />
     <Compile Include="DBExtend\AW_Picture_bean.cs" />
     <Compile Include="DBExtend\AW_Picture_dao.cs" />
     <Compile Include="DBExtend\AW_Position_bean.cs" />
@@ -106,6 +106,8 @@
     <Compile Include="DBExtend\AW_Rewards_dao.cs" />
     <Compile Include="DBExtend\AW_SiteInfo_bean.cs" />
     <Compile Include="DBExtend\AW_SiteInfo_dao.cs" />
+    <Compile Include="DBExtend\AW_Skills_bean.cs" />
+    <Compile Include="DBExtend\AW_Skills_dao.cs" />
     <Compile Include="DBExtend\AW_Skill_bean.cs" />
     <Compile Include="DBExtend\AW_Skill_dao.cs" />
     <Compile Include="DBExtend\AW_TableId_bean.cs" />
@@ -122,6 +124,8 @@
     <Compile Include="DBFile\AW_Area_dao.cs" />
     <Compile Include="DBFile\AW_Article_bean.cs" />
     <Compile Include="DBFile\AW_Article_dao.cs" />
+    <Compile Include="DBFile\AW_Awards_bean.cs" />
+    <Compile Include="DBFile\AW_Awards_dao.cs" />
     <Compile Include="DBFile\AW_Cert_bean.cs" />
     <Compile Include="DBFile\AW_Cert_dao.cs" />
     <Compile Include="DBFile\AW_Column_bean.cs" />
@@ -150,8 +154,6 @@
     <Compile Include="DBFile\AW_Navigation_dao.cs" />
     <Compile Include="DBFile\AW_Notice_bean.cs" />
     <Compile Include="DBFile\AW_Notice_dao.cs" />
-    <Compile Include="DBFile\AW_Objective_bean.cs" />
-    <Compile Include="DBFile\AW_Objective_dao.cs" />
     <Compile Include="DBFile\AW_Picture_bean.cs" />
     <Compile Include="DBFile\AW_Picture_dao.cs" />
     <Compile Include="DBFile\AW_Position_bean.cs" />
@@ -164,6 +166,8 @@
     <Compile Include="DBFile\AW_Rewards_dao.cs" />
     <Compile Include="DBFile\AW_SiteInfo_bean.cs" />
     <Compile Include="DBFile\AW_SiteInfo_dao.cs" />
+    <Compile Include="DBFile\AW_Skills_bean.cs" />
+    <Compile Include="DBFile\AW_Skills_dao.cs" />
     <Compile Include="DBFile\AW_Skill_bean.cs" />
     <Compile Include="DBFile\AW_Skill_dao.cs" />
     <Compile Include="DBFile\AW_TableId_bean.cs" />

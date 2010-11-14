@@ -10,5 +10,17 @@ namespace AnyWell.AW_DL
 {
 	public partial class AW_Job_bean
 	{
+        private List<AW_Job_bean> _Children;
+        public List<AW_Job_bean> Children
+        {
+            get
+            {
+                return _Children;
+            }
+            set
+            {
+                _Children = value;
+            }
+        }
 	}
 }

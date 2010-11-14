@@ -407,4 +407,112 @@ public class PageUser : PageBase
                 return "";
         }
     }
+
+    /// <summary>
+    /// 获取技能熟练程度
+    /// </summary>
+    /// <param name="skillId"></param>
+    /// <returns></returns>
+    protected string getSkillLevelString( int skillId )
+    {
+        switch( skillId )
+        {
+            case 1:
+                return "精通";
+            case 2:
+                return "熟练";
+            case 3:
+                return "一般";
+            case 4:
+                return "了解";
+            default:
+                return "";
+        }
+    }
+
+    /// <summary>
+    /// 获取工作类型
+    /// </summary>
+    /// <param name="typeId"></param>
+    /// <returns></returns>
+    public string getObjeType( int typeId )
+    {
+        switch( typeId )
+        {
+            case 1:
+                return "全职";
+            case 2:
+                return "兼职";
+            case 3:
+                return "实习";
+            case 4:
+                return "全/兼职";
+            default:
+                return "";
+        }
+    }
+
+    /// <summary>
+    /// 获取期望月薪
+    /// </summary>
+    /// <param name="saleId"></param>
+    /// <returns></returns>
+    public string getObjeSaleryString( int saleId )
+    {
+        switch( saleId )
+        {
+            case 1:
+                return "1500以下";
+            case 2:
+                return "1500-1999";
+            case 3:
+                return "2000-2999";
+            case 4:
+                return "3000-4499";
+            case 5:
+                return "4500-5999";
+            case 6:
+                return "6000-7999";
+            case 7:
+                return "8000-9999";
+            case 8:
+                return "10000-14999";
+            case 9:
+                return "15000-19999";
+            case 10:
+                return "20000-29999";
+            case 11:
+                return "30000-49999";
+            case 12:
+                return "50000及以上";
+            default:
+                return "";
+        }
+    }
+
+    /// <summary>
+    /// 获取到岗时间
+    /// </summary>
+    /// <param name="timeId"></param>
+    /// <returns></returns>
+    public string getEntryTimeString( int timeId )
+    {
+        switch( timeId )
+        {
+            case 1:
+                return "即时";
+            case 2:
+                return "一周以内";
+            case 3:
+                return "一个月内";
+            case 4:
+                return "1-3个月";
+            case 5:
+                return "三个月后";
+            case 6:
+                return "待定";
+            default:
+                return "";
+        }
+    }
 }

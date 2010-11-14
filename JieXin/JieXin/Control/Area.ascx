@@ -83,68 +83,68 @@
         <dl>
             <dt>华东东北：</dt>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,230);">河北省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,230,'subArea_',areas);">河北省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,306);">山西省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,306,'subArea_',areas);">山西省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,400);">内蒙古</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,400,'subArea_',areas);">内蒙古</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,332);">辽宁省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,332,'subArea_',areas);">辽宁省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,347);">吉林省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,347,'subArea_',areas);">吉林省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,318);">黑龙江省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,318,'subArea_',areas);">黑龙江省</a></dd>
         </dl>
         <dl>
             <dt>华东地区：</dt>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,83);">江苏省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,83,'subArea_',areas);">江苏省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,108);">浙江省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,108,'subArea_',areas);">浙江省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,212);">安徽省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,212,'subArea_',areas);">安徽省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,157);">福建省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,157,'subArea_',areas);">福建省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,185);">江西省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,185,'subArea_',areas);">江西省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,167);">山东省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,167,'subArea_',areas);">山东省</a></dd>
         </dl>
         <dl>
             <dt>华南华中：</dt>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,39);">广东省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,39,'subArea_',areas);">广东省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,197);">广西省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,197,'subArea_',areas);">广西省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,147);">海南省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,147,'subArea_',areas);">海南省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,242);">河南省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,242,'subArea_',areas);">河南省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,261);">湖北省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,261,'subArea_',areas);">湖北省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,279);">湖南省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,279,'subArea_',areas);">湖南省</a></dd>
         </dl>
         <dl>
             <dt>西北西南：</dt>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,294);">陕西省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,294,'subArea_',areas);">陕西省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,385);">甘肃省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,385,'subArea_',areas);">甘肃省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,446);">青海省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,446,'subArea_',areas);">青海省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,413);">宁夏</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,413,'subArea_',areas);">宁夏</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,427);">新疆</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,427,'subArea_',areas);">新疆</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,124);">四川省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,124,'subArea_',areas);">四川省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,375);">贵州省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,375,'subArea_',areas);">贵州省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,358);">云南省</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,358,'subArea_',areas);">云南省</a></dd>
             <dd>
-                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,419);">西藏</a></dd>
+                <a href="javascript:void(0);" class="prov" onmouseover="overDetail(this,419,'subArea_',areas);">西藏</a></dd>
         </dl>
         <dl>
             <dt>其它：</dt>

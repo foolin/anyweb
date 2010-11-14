@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="InitPositionWeb.aspx.cs" Inherits="AnyWell_InitPositionWeb" %>

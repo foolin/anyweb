@@ -1,9 +1,10 @@
-﻿var EDU_ACTIVE_ID, REW_ACTIVE_ID, POS_ACTIVE_ID, WORK_ACTIVE_ID, LANG_ACTIVE_ID, CERT_ACTIVE_ID;
+﻿var returned, submited, completed = false; 
+var EDU_ACTIVE_ID, REW_ACTIVE_ID, POS_ACTIVE_ID, WORK_ACTIVE_ID, LANG_ACTIVE_ID, CERT_ACTIVE_ID, AWAR_ACTIVE_ID, SKILL_ACTIVE_ID;
 
 function warnuser() {
-//    if ($("form").length > 0) {
-//        return true;
-//    }
+    if ($("form").length > 0 && !completed) {
+        return true;
+    }
 }
 
 window.onbeforeunload = warnuser;
@@ -134,6 +135,22 @@ function work_response(responseText, statusText) {
     }
 }
 
+function obje_save() {
+    if (obje_check()) {
+        var options = {
+            success: obje_response
+        };
+        $("#obje").find("#btn_obje_save").val("正在保存");
+        $("#obje_form").ajaxSubmit(options);
+    }
+}
+
+function obje_response(responseText, statusText) {
+    if (statusText == 'success') {
+        $("#obje").html(responseText);
+    }
+}
+
 function lang_save(lang_id) {
     if (lang_check(lang_id)) {
         var options = {
@@ -181,6 +198,40 @@ function cert_save(cert_id) {
 function cert_response(responseText, statusText) {
     if (statusText == 'success') {
         $("#" + CERT_ACTIVE_ID).html(responseText);
+    }
+}
+
+function awar_save(awar_id) {
+    if (awar_check(awar_id)) {
+        var options = {
+            success: awar_response
+        };
+        AWAR_ACTIVE_ID = awar_id.replace("form_", "");
+        $("#" + awar_id).find("#btn_awar_save").val("正在保存");
+        $("#" + awar_id).ajaxSubmit(options);
+    }
+}
+
+function awar_response(responseText, statusText) {
+    if (statusText == 'success') {
+        $("#" + AWAR_ACTIVE_ID).html(responseText);
+    }
+}
+
+function skill_save(skill_id) {
+    if (skill_check(skill_id)) {
+        var options = {
+            success: skill_response
+        };
+        SKILL_ACTIVE_ID = skill_id.replace("form_", "");
+        $("#" + skill_id).find("#btn_skill_save").val("正在保存");
+        $("#" + skill_id).ajaxSubmit(options);
+    }
+}
+
+function skill_response(responseText, statusText) {
+    if (statusText == 'success') {
+        $("#" + SKILL_ACTIVE_ID).html(responseText);
     }
 }
 
@@ -290,6 +341,40 @@ function addinfo(info, resuid) {
                 }
             });
             break;
+        case "awar":
+            $.ajax({
+                type: "GET",
+                url: "/User/AwarGet.aspx",
+                cache: false,
+                data: { id: resuid },
+                success: function(result) {
+                    $("#" + info).append(result);
+                },
+                error: function() {
+                    alert("系统繁忙，请稍候再试！");
+                },
+                complete: function() {
+                    $("#" + info).parent().find("#btn_info_add").html("继续添加");
+                }
+            });
+            break;
+        case "skill":
+            $.ajax({
+                type: "GET",
+                url: "/User/SkillGet.aspx",
+                cache: false,
+                data: { id: resuid },
+                success: function(result) {
+                    $("#" + info).append(result);
+                },
+                error: function() {
+                    alert("系统繁忙，请稍候再试！");
+                },
+                complete: function() {
+                    $("#" + info).parent().find("#btn_info_add").html("继续添加");
+                }
+            });
+            break;
     }
 }
 
@@ -371,6 +456,21 @@ function editinfo(info, id, btnId, infoId) {
                 }
             });
             break;
+        case "obje":
+            $.ajax({
+                type: "GET",
+                url: "/User/ObjeEdit.aspx",
+                cache: false,
+                data: { id: id },
+                success: function(result) {
+                    $("#obje").html(result);
+                },
+                error: function() {
+                    $("#" + infoId).find("#" + btnId).val("修 改");
+                    alert("系统繁忙，请稍候再试！");
+                }
+            });
+            break;
         case "lang":
             $.ajax({
                 type: "GET",
@@ -409,6 +509,36 @@ function editinfo(info, id, btnId, infoId) {
                 data: { certid: id },
                 success: function(result) {
                     $("#cert").find("#" + infoId).html(result);
+                },
+                error: function() {
+                    $("#" + infoId).find("#" + btnId).val("修 改");
+                    alert("系统繁忙，请稍候再试！");
+                }
+            });
+            break;
+        case "awar":
+            $.ajax({
+                type: "GET",
+                url: "/User/AwarEdit.aspx",
+                cache: false,
+                data: { awarid: id },
+                success: function(result) {
+                    $("#awar").find("#" + infoId).html(result);
+                },
+                error: function() {
+                    $("#" + infoId).find("#" + btnId).val("修 改");
+                    alert("系统繁忙，请稍候再试！");
+                }
+            });
+            break;
+        case "skill":
+            $.ajax({
+                type: "GET",
+                url: "/User/SkillEdit.aspx",
+                cache: false,
+                data: { skillid: id },
+                success: function(result) {
+                    $("#skill").find("#" + infoId).html(result);
                 },
                 error: function() {
                     $("#" + infoId).find("#" + btnId).val("修 改");
@@ -508,6 +638,36 @@ function delinfo(info, id, btnId, infoId) {
                 data: { certid: id },
                 success: function(result) {
                     $("#cert").find("#" + infoId).html(result);
+                },
+                error: function() {
+                    $("#" + infoId).find("#" + btnId).val("删 除");
+                    alert("系统繁忙，请稍候再试！");
+                }
+            });
+            break;
+        case "awar":
+            $.ajax({
+                type: "GET",
+                url: "/User/AwarDel.aspx",
+                cache: false,
+                data: { awarid: id },
+                success: function(result) {
+                    $("#awar").find("#" + infoId).html(result);
+                },
+                error: function() {
+                    $("#" + infoId).find("#" + btnId).val("删 除");
+                    alert("系统繁忙，请稍候再试！");
+                }
+            });
+            break;
+        case "skill":
+            $.ajax({
+                type: "GET",
+                url: "/User/SkillDel.aspx",
+                cache: false,
+                data: { skillid: id },
+                success: function(result) {
+                    $("#skill").find("#" + infoId).html(result);
                 },
                 error: function() {
                     $("#" + infoId).find("#" + btnId).val("删 除");
@@ -694,6 +854,16 @@ function work_check(work_id) {
     return err;
 }
 
+function obje_check() {
+    $("#obje").find("[id^='errorMsg_']").hide();
+    var err = true;
+    if ($.trim($("#obje").find("#Obje_Intro").val()) && $.trim($("#obje").find("#Obje_Intro").val()).length > 500) {
+        $("#obje").find("#errorMsg_Intro").show();
+        err = false;
+    }
+    return err;
+}
+
 function lang_check(lang_id) {
     $("#" + lang_id).find("[id^='errorMsg_']").hide();
     var err = true;
@@ -748,105 +918,105 @@ function cert_check(cert_id) {
     return err;
 }
 
+function awar_check(awar_id) {
+    $("#" + awar_id).find("[id^='errorMsg_']").hide();
+    var err = true;
+    if ($("#" + awar_id).find("#Awar_Year").val() == 0 || $("#" + awar_id).find("#Awar_Month").val() == 0) {
+        $("#" + awar_id).find("#errorMsg_Date").show();
+        err = false;
+    }
+    if (!$.trim($("#" + awar_id).find("#Awar_Name").val())) {
+        $("#" + awar_id).find("#errorMsg_Name").show();
+        err = false;
+    }
+    return err;
+}
+
+function skill_check(skill_id) {
+    $("#" + skill_id).find("[id^='errorMsg_']").hide();
+    var err = true;
+    if (!$.trim($("#" + skill_id).find("#Skill_Name").val())) {
+        $("#" + skill_id).find("#errorMsg_Name").show();
+        err = false;
+    }
+    if (!$.trim($("#" + skill_id).find("#Skill_Month").val())) {
+        $("#" + skill_id).find("#errorMsg_Month_1").show();
+        err = false;
+    }
+    if ($.trim($("#" + skill_id).find("#Skill_Month").val()) && !parseInt($.trim($("#" + skill_id).find("#Skill_Month").val()))) {
+        $("#" + skill_id).find("#errorMsg_Month_2").show();
+        err = false;
+    }
+    if ($("#" + skill_id).find("#Skill_Level").val() == 0) {
+        $("#" + skill_id).find("#errorMsg_Level").show();
+        err = false;
+    }
+    return err;
+}
+
+function all_save() {
+    returned = submited = 0;
+    var form_all = $("form");
+    if (form_all.length > 0) {
+        if (all_check()) {
+            $("#btn_save_all").html("正在保存");
+            var options = {
+                success: all_save_response
+            };
+            for (var i = 0; i < form_all.length; i++) {
+                $(form_all[i]).ajaxSubmit(options);
+                submited++;
+            }
+            check_status();
+        }
+    } else {
+        window.location = "/User/Index.aspx";
+    }
+}
+
+ function all_save_response(responseText, statusText) {
+     if (statusText == 'success') {
+         returned++;
+     }
+ }
+
+ function check_status() {
+     if (returned == submited) {
+         completed = true;
+         window.location = "/User/Index.aspx";
+     } else {
+         setTimeout(check_status, 1000);
+     }
+ }
 
 
-
-
-
-//function editinfo(info, info_id, ReSumeID) {
-//    var numbers = Math.random();
-//    switch (info) {
-//        case "Edu":
-//            $.get("/User/EduEdit.aspx", { eduid: info_id, numbers: numbers }, function(result) {
-//                $("#Edu_" + info_id).html(result);
-//            });
-//            break;
-//        //        case "Awd":    
-//        //            $.get(MYPATH + "/cv/in/Resume/AwdAction.php", { NextAction: "edit", AwardID: info_id, show_num: show_num, ReSumeID: $(".rew_top").find("#ReSumeID").val(), isEnglish: $(".rew_top").find("#isEnglish").val(), numbers: numbers }, function(result) {    
-//        //                $("#Awd_edit" + "_" + info_id).html(result);    
-//        //            });    
-//        //            break;    
-//        //        case "Exp":    
-//        //            $.get(MYPATH + "/cv/in/Resume/ExpAction.php", { NextAction: "edit", PracID: info_id, show_num: show_num, ReSumeID: $(".rew_top").find("#ReSumeID").val(), isEnglish: $(".rew_top").find("#isEnglish").val(), numbers: numbers }, function(result) {    
-//        //                $("#Exp_edit" + "_" + info_id).html(result);    
-//        //            });    
-//        //            break;    
-//        //        case "Exp1":    
-//        //            $.get(MYPATH + "/cv/in/Resume/Exp1Action.php", { NextAction: "edit", PracID: info_id, show_num: show_num, ReSumeID: $(".rew_top").find("#ReSumeID").val(), isEnglish: $(".rew_top").find("#isEnglish").val(), numbers: numbers }, function(result) {    
-//        //                $("#Exp1_edit" + "_" + info_id).html(result);    
-//        //            });    
-//        //            break;    
-//        //        case "Work":    
-//        //            $.get(MYPATH + "/cv/in/Resume/WorkAction.php", { NextAction: "edit", WorkID: info_id, show_num: show_num, ReSumeID: $(".rew_top").find("#ReSumeID").val(), isEnglish: $(".rew_top").find("#isEnglish").val(), numbers: numbers }, function(result) {    
-//        //                $("#Work_edit" + "_" + info_id).html(result);    
-//        //            });    
-//        //            break;    
-//        //        case "Lan":    
-//        //            $.get(MYPATH + "/cv/in/Resume/LanAction.php", { NextAction: "edit", LangID: info_id, show_num: show_num, ReSumeID: $(".rew_top").find("#ReSumeID").val(), isEnglish: $(".rew_top").find("#isEnglish").val(), numbers: numbers }, function(result) {    
-//        //                $("#Lan_edit" + "_" + info_id).html(result);    
-//        //            });    
-//        //            break;    
-//        //        case "IT":    
-//        //            $.get(MYPATH + "/cv/in/Resume/ITAction.php", { NextAction: "edit", ITID: info_id, show_num: show_num, ReSumeID: $(".rew_top").find("#ReSumeID").val(), isEnglish: $(".rew_top").find("#isEnglish").val(), numbers: numbers }, function(result) {    
-//        //                $("#IT_edit" + "_" + info_id).html(result);    
-//        //            });    
-//        //            break;    
-//        //        case "Tra":    
-//        //            $.get(MYPATH + "/cv/in/Resume/TraAction.php", { NextAction: "edit", TrainID: info_id, show_num: show_num, ReSumeID: $(".rew_top").find("#ReSumeID").val(), isEnglish: $(".rew_top").find("#isEnglish").val(), numbers: numbers }, function(result) {    
-//        //                $("#Tra_edit" + "_" + info_id).html(result);    
-//        //            });    
-//        //            break;    
-//        //        case "Prj":    
-//        //            $.get(MYPATH + "/cv/in/Resume/PrjAction.php", { NextAction: "edit", ProjectID: info_id, show_num: show_num, ReSumeID: $(".rew_top").find("#ReSumeID").val(), isEnglish: $(".rew_top").find("#isEnglish").val(), numbers: numbers }, function(result) {    
-//        //                $("#Prj_edit" + "_" + info_id).html(result);    
-//        //            });    
-//        //            break;    
-//        //        case "Cert":    
-//        //            $.get(MYPATH + "/cv/in/Resume/CertAction.php", { NextAction: "edit", CertID: info_id, show_num: show_num, ReSumeID: $(".rew_top").find("#ReSumeID").val(), isEnglish: $(".rew_top").find("#isEnglish").val(), numbers: numbers }, function(result) {    
-//        //                $("#Cert_edit" + "_" + info_id).html(result);    
-//        //            });    
-//        //            break;    
-//        //        case "Attach":    
-//        //            $.get(MYPATH + "/cv/in/Resume/AttachAction.php", { NextAction: "edit", AttachID: info_id, show_num: show_num, ReSumeID: $(".rew_top").find("#ReSumeID").val(), isEnglish: $(".rew_top").find("#isEnglish").val(), numbers: numbers }, function(result) {    
-
-//        //                $("#Attach_edit" + "_" + info_id).html(result);    
-//        //            });    
-//        //            break;    
-//        //        case "Misc":    
-//        //            $.get(MYPATH + "/cv/in/Resume/MiscAction.php", { NextAction: "edit", MiscID: info_id, show_num: show_num, ReSumeID: $(".rew_top").find("#ReSumeID").val(), isEnglish: $(".rew_top").find("#isEnglish").val(), numbers: numbers }, function(result) {    
-//        //                $("#Misc_edit" + "_" + info_id).html(result);    
-//        //            });    
-//        //            break;    
-//    }
-//}
-
-////教育经历数据验证
-//function Edu_check(info_id) {
-//    $("#" + info_id).find("[id^='errorMsg_']").hide();
-//    var err = true;
-//    if ($("#" + info_id).find("#FromYear").val() == "0" || $("#" + info_id).find("#FromMonth").val() == "0" || ($("#" + info_id).find("#ToYear").val() == "0" && $("#" + info_id).find("#ToMonth").val() != "0") || ($("#" + info_id).find("#ToYear").val() != "0" && $("#" + info_id).find("#ToMonth").val() == "0")) {
-//        $("#" + info_id).find("#errorMsg_2_1").show();
-//        err = false;
-//    }
-//    if (err && $("#" + info_id).find("#ToYear").val() != "0") {
-//        if (!DateCompare($("#" + info_id).find("#FromYear").val(), $("#" + info_id).find("#FromMonth").val(), $("#" + info_id).find("#ToYear").val(), $("#" + info_id).find("#ToMonth").val())) {
-//            $("#" + info_id).find("#errorMsg_2_2").show();
-//            err = false;
-//        }
-//    }
-//    if ($.trim($("#" + info_id).find("#SchoolName").val()) == "" || $.trim($("#" + info_id).find("#SchoolName").val()).length > 100) {
-//        $("#" + info_id).find("#errorMsg_2_3").show();
-//        err = false;
-//    }
-//    if (($.trim($("#" + info_id).find("#Degree").val()) == "0") || ("" == $.trim($("#" + info_id).find("#Degree").val()))) {
-//        $("#" + info_id).find("#errorMsg_2_5").show();
-//        err = false;
-//    }
-//    var SubMajor = $.trim($("#" + info_id).find("#SubMajor").val());
-//    var MoreMajor = $.trim($("#" + info_id).find("#MoreMajor").val());
-//    if ((SubMajor == '' || SubMajor == '0') && (MoreMajor == '若无合适选项请在此处填写' || MoreMajor == '')) {
-//        $("#" + info_id).find("#errorMsg_2_4").show();
-//        err = false;
-//    }
-//    return err;
-//} 
+function all_check() {
+    var err = true;
+    var form_all = $("form");
+    for (var i = 0; i < form_all.length; i++) {
+        if (form_all[i].id.indexOf("Info_form") > -1) {
+            err = info_check();
+        } else if (form_all[i].id.indexOf("edu_form") > -1) {
+            err = edu_check(form_all[i].id);
+        } else if (form_all[i].id.indexOf("rew_form") > -1) {
+            err = rew_check(form_all[i].id);
+        } else if (form_all[i].id.indexOf("pos_form") > -1) {
+            err = pos_check(form_all[i].id);
+        } else if (form_all[i].id.indexOf("work_form") > -1) {
+            err = work_check(form_all[i].id);
+        } else if (form_all[i].id.indexOf("obje_form") > -1) {
+            err = obje_check(form_all[i].id);
+        } else if (form_all[i].id.indexOf("lang_form") > -1) {
+            err = lang_check(form_all[i].id);
+        } else if (form_all[i].id.indexOf("level_form") > -1) {
+            err = level_check(form_all[i].id);
+        } else if (form_all[i].id.indexOf("cert_form") > -1) {
+            err = cert_check(form_all[i].id);
+        } else if (form_all[i].id.indexOf("awar_form") > -1) {
+            err = awar_check(form_all[i].id);
+        } else if (form_all[i].id.indexOf("skill_form") > -1) {
+            err = skill_check(form_all[i].id);
+        }
+    }
+    return err;
+}

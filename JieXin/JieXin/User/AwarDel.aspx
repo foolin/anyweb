@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AwarDel.aspx.cs" Inherits="User_AwarDel" %>

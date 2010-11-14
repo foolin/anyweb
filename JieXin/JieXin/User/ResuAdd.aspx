@@ -3,6 +3,9 @@
 
 <%@ Register Src="~/Control/UserSidebar.ascx" TagName="UserSidebar" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/Area.ascx" TagName="Area" TagPrefix="uc1" %>
+<%@ Register Src="~/Control/Major.ascx" TagName="Major" TagPrefix="uc1" %>
+<%@ Register Src="~/Control/Industry.ascx" TagName="Industry" TagPrefix="uc1" %>
+<%@ Register Src="~/Control/Position.ascx" TagName="Position" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/Upload.ascx" TagName="Upload" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
@@ -11,6 +14,10 @@
     <script type="text/javascript" src="../js/form.js"></script>
 
     <script type="text/javascript" src="../js/ajaxfileupload.js"></script>
+
+    <script type="text/javascript" src="../js/Major.js"></script>
+    
+    <script type="text/javascript" src="../js/Position.js"></script>
 
     <div class="resumePage">
         <uc1:UserSidebar runat="server" />
@@ -172,7 +179,7 @@
                                                     <span class="orange">*</span>居&nbsp;住&nbsp;地
                                                 </th>
                                                 <td width="218">
-                                                    <a href="javascript:void(0);" onclick="selectArea('Place','AddressID','Address')"
+                                                    <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','AddressID','Address','选择/修改')"
                                                         id="Place" class="btn28H" style="font-size: 12px;">
                                                         <%=this.LoginUser.fdUserAddressID == 0 ? "选择/修改" : this.LoginUser.fdUserAddress%></a>
                                                     <input type="hidden" id="AddressID" name="AddressID" value="<%=this.LoginUser.fdUserAddressID%>" />
@@ -298,7 +305,7 @@
                                                     &nbsp;户&nbsp;&nbsp;&nbsp;&nbsp;口
                                                 </th>
                                                 <td>
-                                                    <a href="javascript:void(0);" onclick="selectArea('Hukou','HouseAddressID','HouseAddress')"
+                                                    <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','HouseAddressID','HouseAddress','选择/修改')"
                                                         id="Hukou" class="btn28H" style="font-size: 12px;">
                                                         <%=this.LoginUser.fdUserHouseAddressID == 0 ? "选择/修改" : this.LoginUser.fdUserHouseAddress%></a>
                                                     <input type="hidden" id="HouseAddressID" name="HouseAddressID" value="<%=this.LoginUser.fdUserHouseAddressID%>" />
@@ -508,7 +515,9 @@
                                                 <span class="orange">*</span>专&nbsp;&nbsp;&nbsp;&nbsp;业
                                             </th>
                                             <td>
-                                                <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;">选择/修改</a>
+                                                <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;"
+                                                    onclick="ChooseMajor(this, 'major', 'Edu_SpecialityID', 'Edu_Speciality', '选择/修改')">
+                                                    选择/修改</a>
                                                 <input type="text" id="Edu_OtherSpeciality" name="Edu_OtherSpeciality" class="pwdinput"
                                                     value="若无合适项，请在此填写" style="color: #999;" maxlength="20" onclick="if('若无合适项，请在此填写'==this.value){this.value='';this.style.color='#000';}"
                                                     onblur="if(this.value==''){this.value = '若无合适项，请在此填写';this.style.color='#999';}" />
@@ -951,9 +960,11 @@
                                                 <span class="orange">*</span>行&nbsp;&nbsp;&nbsp;&nbsp;业
                                             </th>
                                             <td>
-                                                <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;">选择/修改</a>
-                                                <input type="hidden" id="Work_IndustryID" name="Work_IndustryID" value="1000001" />
-                                                <input type="hidden" id="Work_Industry" name="Work_Industry" value="计算机软件" />
+                                                <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;"
+                                                    onclick="ChooseIndustry(this, 'ChooseIndustry', 'Work_IndustryID', 'Work_Industry', '选择/修改')">
+                                                    选择/修改</a>
+                                                <input type="hidden" id="Work_IndustryID" name="Work_IndustryID" />
+                                                <input type="hidden" id="Work_Industry" name="Work_Industry" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -1023,7 +1034,9 @@
                                                 <span class="orange">*</span>职&nbsp;&nbsp;&nbsp;&nbsp;位
                                             </th>
                                             <td>
-                                                <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;">选择/修改</a>
+                                                <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;"
+                                                    onclick="ChoosePosition(this, 'ChoosePosition', 'Work_JobID', 'Work_Job', '选择/修改')">
+                                                    选择/修改</a>
                                                 <input type="text" id="Work_OtherJob" name="Work_OtherJob" class="pwdinput" value="若无合适项，请在此填写"
                                                     style="color: #999;" onclick="if('若无合适项，请在此填写'==this.value){this.value='';this.style.color='#000';}"
                                                     onblur="if(this.value==''){this.value = '若无合适项，请在此填写';this.style.color='#999';}" />
@@ -1097,24 +1110,29 @@
                                 style="cursor: pointer; display: none"></span><strong class="f14 green">求职意向</strong>(<span
                                     class="orange">*</span>为必填项)</div>
                         <div class="dCon" id="obje">
+                            <form action="/User/ObjeSave.aspx?id=<%=QS("id") %>" id="obje_form" method="post">
                             <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <th scope="row">
                                         &nbsp;工作类型
                                     </th>
                                     <td>
-                                        <select>
-                                            <option class="gray">请选择工作类型</option>
+                                        <select id="Obje_Type" name="Obje_Type">
+                                            <option value="1" selected="selected">全职</option>
+                                            <option value="2">兼职</option>
+                                            <option value="3">实习</option>
+                                            <option value="4">全/兼职</option>
                                         </select>
                                     </td>
                                     <th scope="row">
                                         &nbsp;地&nbsp;&nbsp;&nbsp;&nbsp;点
                                     </th>
                                     <td>
-                                        <span class="right">
-                                            <input type="button" class="btn60_28_gray" value="删 除" />
-                                            &nbsp;&nbsp;<input type="button" class="btn60_28" value="保 存" /></span> <a href="javascript:void(0);"
-                                                id="place" class="btn28H" style="font-size: 12px;">选择/修改</a>
+                                        <span class="right">&nbsp;&nbsp;<input type="button" id="btn_obje_save" class="btn60_28"
+                                            value="保 存" onclick="obje_save('obje_form')" /></span> <a href="javascript:void(0);"
+                                                id="Obje_Area" class="btn28H" style="font-size: 12px;">选择/修改</a>
+                                        <input type="hidden" id="Obje_AreaID" name="Obje_AreaID" />
+                                        <input type="hidden" id="Obje_AreaName" name="Obje_AreaName" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -1122,13 +1140,19 @@
                                         &nbsp;行&nbsp;&nbsp;&nbsp;&nbsp;业
                                     </th>
                                     <td>
-                                        <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;">选择/修改</a>
+                                        <a href="javascript:void(0);" id="Obje_Industry" class="btn28H" style="font-size: 12px;">
+                                            选择/修改</a>
+                                        <input type="hidden" id="Obje_IndustryID" name="Obje_IndustryID" />
+                                        <input type="hidden" id="Obje_IndustryName" name="Obje_IndustryName" />
                                     </td>
                                     <th scope="row">
                                         &nbsp;职&nbsp;&nbsp;&nbsp;&nbsp;能
                                     </th>
                                     <td>
-                                        <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;">选择/修改</a>
+                                        <a href="javascript:void(0);" id="Obje_FuncType" class="btn28H" style="font-size: 12px;">
+                                            选择/修改</a>
+                                        <input type="hidden" id="Obje_FuncTypeID" name="Obje_FuncTypeID" />
+                                        <input type="hidden" id="Obje_FuncTypeName" name="Obje_FuncTypeName" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -1136,16 +1160,34 @@
                                         &nbsp;期望薪水
                                     </th>
                                     <td>
-                                        <select>
-                                            <option class="gray">请选择薪水范围</option>
+                                        <select id="Obje_Salery" name="Obje_Salery">
+                                            <option value="0" selected="selected">面议</option>
+                                            <option value="1">1500以下</option>
+                                            <option value="2">1500-1999</option>
+                                            <option value="3">2000-2999</option>
+                                            <option value="4">3000-4499</option>
+                                            <option value="5">4500-5999</option>
+                                            <option value="6">6000-7999</option>
+                                            <option value="7">8000-9999</option>
+                                            <option value="8">10000-14999</option>
+                                            <option value="9">15000-19999</option>
+                                            <option value="10">20000-29999</option>
+                                            <option value="11">30000-49999</option>
+                                            <option value="12">50000及以上</option>
                                         </select>
+                                        /月
                                     </td>
                                     <th scope="row">
                                         &nbsp;到岗时间
                                     </th>
                                     <td>
-                                        <select>
-                                            <option class="gray">请选择到岗时间</option>
+                                        <select id="Obje_EntryTime" name="Obje_EntryTime">
+                                            <option value="1" selected="selected">即时</option>
+                                            <option value="2">一周以内</option>
+                                            <option value="3">一个月内</option>
+                                            <option value="4">1-3个月</option>
+                                            <option value="5">三个月后</option>
+                                            <option value="6">待定</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -1154,14 +1196,32 @@
                                         &nbsp;部&nbsp;&nbsp;&nbsp;&nbsp;门
                                     </th>
                                     <td>
-                                        <input type="text" class="pwdinput" />
+                                        <input type="text" id="Obje_Department" name="Obje_Department" class="pwdinput" maxlength="20" />
                                     </td>
                                     <th scope="row">
                                         &nbsp;公司性质
                                     </th>
                                     <td>
-                                        <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;">选择/修改</a>
-                                        <input type="text" class="pwdinput" value="若无合适项，请在此填写" style="color: #999;" />
+                                        <select id="Obje_CompType" name="Obje_CompType">
+                                            <option value="1">外资(欧美)</option>
+                                            <option value="2">外资(非欧美)</option>
+                                            <option value="3">合资(欧美)</option>
+                                            <option value="4">合资(非欧美)</option>
+                                            <option value="5">国企</option>
+                                            <option value="6">民营公司</option>
+                                            <option value="7">外企代表处</option>
+                                            <option value="8">政府机关</option>
+                                            <option value="9">事业单位</option>
+                                            <option value="10">非盈利机构</option>
+                                            <option value="11">其它性质</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                    </th>
+                                    <td colspan="3">
+                                        <span class="tipW red hidden" id="errorMsg_Intro">输入错误。请控制在2000个汉字以内！</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1172,13 +1232,16 @@
                                         <table width="486" border="0" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td>
-                                                    <textarea class="txtArea" style="width: 495px;"></textarea>
+                                                    <textarea id="Obje_Intro" name="Obje_Intro" class="txtArea" style="width: 495px;"
+                                                        onkeyup="str_limit('obje',this.value,'Obje_IntroLength')" onchange="str_limit('obje',this.value,'Obje_IntroLength')"></textarea>
                                                 </td>
                                             </tr>
                                             <tr style="color: #999;">
                                                 <td>
                                                     <p class="lh20">
-                                                        限500个中文字，输入您对自己的简短评价。请简明扼要的说明您最大的优势是什么，避免使 用一些空洞老套的话。范例一：? 范例二：?</p>
+                                                        限500个中文字，输入您对自己的简短评价。请简明扼要的说明您最大的优势是什么，避免使 用一些空洞老套的话。</p>
+                                                    <p class="lh20">
+                                                        限2000个中文字，已输入<span class="orange" id="Obje_IntroLength">0</span>个字</p>
                                                 </td>
                                             </tr>
                                         </table>
@@ -1187,6 +1250,7 @@
                             </table>
                             <div class="blank6px">
                             </div>
+                            </form>
                         </div>
                     </div>
                     <div class="blank8px">
@@ -1408,10 +1472,10 @@
                     </div>
                     <div class="flowhidden">
                         <div class="dTop">
-                            <span class="subTit_up" id="cert_up" onclick="object_toggle('cert')" title="收起"
-                                style="cursor: pointer"></span><span class="subTit" id="cert_down" onclick="object_toggle('cert')"
-                                    title="展开" style="cursor: pointer; display: none"></span><strong class="f14 green">证
-                                        书</strong>(<span class="orange">*</span>为必填项)</div>
+                            <span class="subTit_up" id="cert_up" onclick="object_toggle('cert')" title="收起" style="cursor: pointer">
+                            </span><span class="subTit" id="cert_down" onclick="object_toggle('cert')" title="展开"
+                                style="cursor: pointer; display: none"></span><strong class="f14 green">证 书</strong>(<span
+                                    class="orange">*</span>为必填项)</div>
                         <div class="dCon" id="cert">
                             <div id="cert_<%=certID %>">
                                 <form action="/User/CertSave.aspx?id=<%=QS("id") %>&certid=<%=certID %>&type=add"
@@ -1499,32 +1563,75 @@
                     </div>
                     <div class="flowhidden">
                         <div class="dTop">
-                            <span class="subTit"></span><strong class="f14 green">奖 项</strong>(<span class="orange">*</span>为必填项)</div>
-                        <div class="dCon">
-                            <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <th scope="row">
-                                        <span class="orange">*</span>获得时间
-                                    </th>
-                                    <td>
-                                        <span class="right">
-                                            <input type="button" class="btn60_28_gray" value="删 除" />
-                                            &nbsp;&nbsp;<input type="button" class="btn60_28" value="保 存" /></span>
-                                        <select>
-                                            <option class="gray">2010</option>
-                                        </select>年<select><option class="gray">12</option>
-                                        </select>月
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <span class="orange">*</span>名&nbsp;&nbsp;&nbsp;&nbsp;称
-                                    </th>
-                                    <td>
-                                        <input type="text" class="pwdinput" style="width: 476px;" />
-                                    </td>
-                                </tr>
-                            </table>
+                            <span class="subTit_up" id="awarinfo_up" onclick="object_toggle('awarinfo')" title="收起"
+                                style="cursor: pointer"></span><span class="subTit" id="awarinfo_down" onclick="object_toggle('awarinfo')"
+                                    title="展开" style="cursor: pointer; display: none"></span><strong class="f14 green">奖
+                                        项</strong>(<span class="orange">*</span>为必填项)</div>
+                        <div class="dCon" id="awarinfo">
+                            <div id="awar">
+                                <div id="awar_<%=awarID %>">
+                                    <form action="/User/AwarSave.aspx?id=<%=QS("id") %>&awarid=<%=awarID %>&type=add"
+                                    id="awar_form_<%=awarID %>" method="post">
+                                    <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                                <span class="tipW red hidden" id="errorMsg_Date">请选择时间！</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="orange">*</span>获得时间
+                                            </th>
+                                            <td>
+                                                <span class="right">
+                                                    <input type="button" id="btn_awar_del" class="btn60_28_gray" value="删 除" onclick="delinfo('awar',<%=awarID %>,'btn_awar_del','awar_<%=awarID %>')" />
+                                                    &nbsp;&nbsp;<input type="button" id="btn_awar_save" class="btn60_28" value="保 存"
+                                                        onclick="awar_save('awar_form_<%=awarID %>')" /></span>
+                                                <select id="Awar_Year" name="Awar_Year">
+                                                    <option selected="selected" value="0">年</option>
+                                                    <%for( int i = DateTime.Now.Year; i >= 1940; i-- )
+                                                      { %>
+                                                    <option value="<%=i%>">
+                                                        <%=i%></option>
+                                                    <%} %>
+                                                </select>
+                                                <select id="Awar_Month" name="Awar_Month">
+                                                    <option selected="selected" value="0">月</option>
+                                                    <%for( int i = 1; i <= 12; i++ )
+                                                      { %>
+                                                    <option value="<%=i%>">
+                                                        <%=i%></option>
+                                                    <%} %>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                                <span class="tipW red hidden" id="errorMsg_Name">名称不能为空！</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="orange">*</span>名&nbsp;&nbsp;&nbsp;&nbsp;称
+                                            </th>
+                                            <td>
+                                                <input type="text" id="Awar_Name" name="Awar_Name" class="pwdinput" style="width: 476px;"
+                                                    maxlength="50" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="blank6px">
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class=" lh24">
+                                <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
+                                    onclick="addinfo('awar',<%=QS("id") %>)">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -1533,41 +1640,86 @@
                     </div>
                     <div class="flowhidden">
                         <div class="dTop">
-                            <span class="subTit"></span><strong class="f14 green">技 能</strong>(<span class="orange">*</span>为必填项)</div>
-                        <div class="dCon">
-                            <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <th scope="row">
-                                        <span class="orange">*</span>名&nbsp;&nbsp;&nbsp;&nbsp;称
-                                    </th>
-                                    <td width="218">
-                                        <input type="text" class="pwdinput" />
-                                    </td>
-                                    <th scope="row">
-                                        <span class="orange">*</span>使用时间
-                                    </th>
-                                    <td>
-                                        <span class="right">
-                                            <input type="button" class="btn60_28_gray" value="删 除" />
-                                            &nbsp;&nbsp;<input type="button" class="btn60_28" value="保 存" /></span>
-                                        <input type="text" class="pwdinput" />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">
-                                        <span class="orange">*</span>掌握程度
-                                    </th>
-                                    <td>
-                                        <select>
-                                            <option class="gray">请选择程度</option>
-                                        </select>
-                                    </td>
-                                    <th scope="row">
-                                    </th>
-                                    <td>
-                                    </td>
-                                </tr>
-                            </table>
+                            <span class="subTit_up" id="skillinfo_up" onclick="object_toggle('skillinfo')" title="收起"
+                                style="cursor: pointer"></span><span class="subTit" id="skillinfo_down" onclick="object_toggle('skillinfo')"
+                                    title="展开" style="cursor: pointer; display: none"></span><strong class="f14 green">技
+                                        能</strong>(<span class="orange">*</span>为必填项)</div>
+                        <div class="dCon" id="skillinfo">
+                            <div id="skill">
+                                <div id="skill_<%=skillID %>">
+                                    <form action="/User/SkillSave.aspx?id=<%=QS("id") %>&skillid=<%=skillID %>&type=add"
+                                    id="skill_form_<%=skillID %>" method="post">
+                                    <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                                <span class="tipW red hidden" id="errorMsg_Name">名称不能为空！</span>
+                                            </td>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                                <span class="tipW red hidden" id="errorMsg_Month_1">使用时间不能为空！</span> <span class="tipW red hidden"
+                                                    id="errorMsg_Month_2">请正确输入数字！</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="orange">*</span>名&nbsp;&nbsp;&nbsp;&nbsp;称
+                                            </th>
+                                            <td width="218">
+                                                <input type="text" id="Skill_Name" name="Skill_Name" class="pwdinput" maxlength="50" />
+                                            </td>
+                                            <th scope="row">
+                                                <span class="orange">*</span>使用时间
+                                            </th>
+                                            <td>
+                                                <span class="right">
+                                                    <input type="button" id="btn_skill_del" class="btn60_28_gray" value="删 除" onclick="delinfo('skill',<%=skillID %>,'btn_skill_del','skill_<%=skillID %>')" />
+                                                    &nbsp;&nbsp;<input type="button" id="btn_skill_save" class="btn60_28" value="保 存"
+                                                        onclick="skill_save('skill_form_<%=skillID %>')" /></span>
+                                                <input type="text" id="Skill_Month" name="Skill_Month" class="pwdinput" style="width: 40px"
+                                                    maxlength="3" />月
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                                <span class="tipW red hidden" id="errorMsg_Level">请选择掌握程度！</span>
+                                            </td>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="orange">*</span>掌握程度
+                                            </th>
+                                            <td>
+                                                <select id="Skill_Level" name="Skill_Level">
+                                                    <option value="0" selected="selected">请选择掌握程度</option>
+                                                    <option value="1">精通</option>
+                                                    <option value="2">熟练</option>
+                                                    <option value="3">一般</option>
+                                                    <option value="4">了解</option>
+                                                </select>
+                                            </td>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="blank6px">
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class=" lh24">
+                                <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
+                                    onclick="addinfo('skill',<%=QS("id") %>)">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -1575,7 +1727,8 @@
                     <div class="blank30px">
                     </div>
                     <div class="tc">
-                        <a href="#" class="btn94_28">填写完毕</a>
+                        <a href="javascript:void(0);" id="btn_save_all" class="btn94_28" onclick="all_save()">
+                            保存简历</a>
                     </div>
                     <div class="blank30px">
                     </div>
@@ -1584,12 +1737,13 @@
         </div>
     </div>
     <uc1:Area runat="server" />
+    <uc1:Major runat="server" />
+    <uc1:Industry runat="server" />
+    <uc1:Position runat="server" />
     <uc1:Upload runat="server" />
 
     <script type="text/javascript">
-        setUserSidebar("JLGL"); function selectArea(area, id, name) {
-            currentarea = area;
-            currentid = id; currentname = name; ChooseArea();
-        } </script>
+        setUserSidebar("JLGL"); 
+    </script>
 
 </asp:Content>

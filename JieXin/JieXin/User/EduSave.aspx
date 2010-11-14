@@ -39,7 +39,7 @@
             <%}
               else
               { %>
-            <%=bean.fdEducOtherSpecialty%>
+            <%=bean.fdEducSpeciality%>
             <%} %>
         </td>
     </tr>

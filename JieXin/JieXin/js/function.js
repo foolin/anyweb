@@ -1,7 +1,12 @@
-//µ¯³öÒ³Ãæ±³¾°°ëÍ¸Ã÷======================================================================
+var curPlace = "AreaName";
+var curObjId = "ChooseArea";
+var curId = "areaId";
+var curName = "area";
+var curHtml = "é€‰æ‹©åœ°åŒº";
+//å¼¹å‡ºé¡µé¢èƒŒæ™¯åŠé€æ˜======================================================================
 var isIe=(document.all)?true:false;
 
-//ÉèÖÃselectµÄ¿É¼û×´Ì¬
+//è®¾ç½®selectçš„å¯è§çŠ¶æ€
 function setSelectState(state)
 {
 	var objl=document.getElementsByTagName('select');
@@ -11,7 +16,7 @@ function setSelectState(state)
 	}
 }
 
-//µ¯³ö·½·¨
+//å¼¹å‡ºæ–¹æ³•
 function showMsgBox(divID,wWidth,wHeight)
 {
 	//closeWindow();
@@ -19,7 +24,7 @@ function showMsgBox(divID,wWidth,wHeight)
 	var bWidth= parseInt(document.documentElement.scrollWidth);
 	var bHeight=parseInt(document.documentElement.scrollHeight);
 
-	var scrollTop = document.documentElement.scrollTop || window.pageYOffset; 	//¼æÈİchrome¡¢safari : 20090708
+	var scrollTop = document.documentElement.scrollTop || window.pageYOffset; 	//å…¼å®¹chromeã€safari : 20090708
 	if (!scrollTop)
 	    scrollTop = 0;
 	var sWidth= parseInt((document.documentElement.scrollWidth - wWidth) / 2);
@@ -47,7 +52,7 @@ function showBackground(obj,endInt)
 		setTimeout(function(){showBackground(obj,endInt)},8);
 	}
 }
-//¹Ø±Õ´°¿Ú
+//å…³é—­çª—å£
 function closeWindow(Obj)
 {
 	if(document.getElementById('back')!=null)
@@ -62,9 +67,131 @@ function closeWindow(Obj)
 	}
 }
 
+//åœ°åŒºé€‰æ‹©
+function ChooseArea(obj, objId, id, name, html) {
+    curPlace = obj;
+    curObjId = objId;
+    curId = id;
+    curName = name;
+    curHtml = html;
+    showMsgBox(curObjId, 538, 366);
+}
+
+//ä¸“ä¸šé€‰æ‹©
+function ChooseMajor(obj, objId, id, name, html) {
+    curPlace = obj;
+    curObjId = objId;
+    curId = id;
+    curName = name;
+    curHtml = html;
+    showMsgBox(curObjId, 538, 366);
+}
+
+//è¡Œä¸šé€‰æ‹©
+function ChooseIndustry(obj, objId, id, name, html) {
+    curPlace = obj;
+    curObjId = objId;
+    curId = id;
+    curName = name;
+    curHtml = html;
+    showMsgBox(curObjId, 538, 366);
+}
+
+//èŒä½é€‰æ‹©
+function ChoosePosition(obj, objId, id, name, html) {
+    curPlace = obj;
+    curObjId = objId;
+    curId = id;
+    curName = name;
+    curHtml = html;
+    showMsgBox(curObjId, 538, 366);
+}
+
+function AreaName(obj, num) {
+    if (!curPlace) return false;
+    $(curPlace).html($(obj).html());
+    $(curPlace).parent().find("#" + curId).val(num);
+    $(curPlace).parent().find("#" + curName).val($(obj).html());
+    if ($(obj).parent().parent().attr("tagName") == "DIV") {
+        $(obj).parent().parent().hide();
+        $(obj).parent().parent().parent().attr("class", "");
+    }
+    closeWindow(curObjId);
+}
+
+function ClearArea() {
+    if (!curPlace) return false;
+    $(curPlace).html(curHtml);
+    $(curPlace).parent().find("#" + curId).val("");
+    $(curPlace).parent().find("#" + curName).val("");
+    closeWindow(curObjId);
+}
+
+function overDetail(obj, num, subName, objArrays) {
+    var strHtml = "";
+    var objParent = obj.parentNode;
+    var subArea = document.getElementById(subName + num);
+    if (!subArea) {
+        subArea = document.createElement("div");
+        subArea.id = subName + num;
+        subArea.className = "subArea";
+        if (!objArrays[num]) { return false; }
+        strHtml += "<h4><a href='javascript:void(0)' title='é€‰æ‹©è¯¥å¤§ç±»' onclick='AreaName(this," + num + ");'>" + obj.innerHTML + "</a></h4>";
+        for (var i = 0; i < objArrays[num].length; i++) {
+            var objname = objArrays[num][i].substr(0, objArrays[num][i].indexOf('|'));
+            var objid = objArrays[num][i].substr(objArrays[num][i].indexOf('|') + 1, objArrays[num][i].length - objArrays[num][i].indexOf('|'));
+            strHtml += "<span><a href='javascript:void(0);' onclick='AreaName(this," + objid + ");'>" + objname + "</a></span>";
+        }
+        subArea.innerHTML = strHtml;
+        objParent.appendChild(subArea);
+    }
+    objParent.className = "relate cur";
+    subArea.style.display = "block";
+
+    subArea.onmouseover = function() {
+        this.parentNode.className = "relate cur";
+        this.style.display = "block";
+    }
+    subArea.onmouseout = function() {
+        this.parentNode.className = "";
+        this.style.display = "none";
+    }
+    objParent.onmouseout = function() {
+        this.className = "";
+        subArea.style.display = "none";
+    }
+
+}
+
+
+function Changetag(num) {
+    var topTabs = document.getElementById("topTabs");
+    var tagName = document.getElementById("tagName");
+    tagName.value = num;
+    var aArray = topTabs.getElementsByTagName("a");
+    for (var i = 0; i < aArray.length; i++) {
+        if (i == aArray.length - 1) {
+            aArray[i].className = "nobor";
+        } else {
+            aArray[i].className = "";
+        }
+    }
+    aArray[num].className = "cur";
+}
+
+function searchName() {
+    var tagName = document.getElementById("tagName").value;
+    var keyword = $.trim(document.getElementById("keyword").value);
+    if (keyword == "è¯·è¾“å…¥å…³é”®å­—") { keyword = ""; }
+    var AreaName = document.getElementById("area").value;
+    var AreaId = document.getElementById("areaId").value;
+    if (AreaName == "é€‰æ‹©åœ°åŒº") { AreaName = ""; }
+    window.location = "/RecruitList.aspx?tag=" + tagName + "&key=" + encodeURIComponent(keyword) + "&area=" + AreaName + "&areaid=" + AreaId;
+}
+
 
 //====================================================================================================
-//ÉèÖÃ¸öÈË»áÔ±²Ëµ¥Ñ¡ÖĞ×´Ì¬
+//è®¾ç½®ä¸ªäººä¼šå‘˜èœå•é€‰ä¸­çŠ¶æ€
 function setUserSidebar(id) {
     $("#UserSidebar li").each(function() {
         $(this).attr("class", "");
@@ -72,7 +199,7 @@ function setUserSidebar(id) {
     $("#" + id).attr("class", "cur");
 }
 
-//ÑéÖ¤Êı×ÖÀàĞÍ
+//éªŒè¯æ•°å­—ç±»å‹
 function isInt(obj) {
     if (obj == "") {
         return false;
@@ -87,7 +214,7 @@ function isInt(obj) {
     return true;
 }
 
-//ÑéÖ¤ÈÕÆÚÀàĞÍ
+//éªŒè¯æ—¥æœŸç±»å‹
 function isValidDate(year, month, day) {
     year = parseInt(year, 10);
     month = parseInt(month, 10);
@@ -120,7 +247,7 @@ function isValidDate(year, month, day) {
     return (true);
 }
 
-//ÈÕÆÚ±È½Ï
+//æ—¥æœŸæ¯”è¾ƒ
 function DateCompare(YearFrom, MonthFrom, YearTo, MonthTo) {
     YearFrom = parseInt(YearFrom, 10);
     MonthFrom = parseInt(MonthFrom, 10);
@@ -138,7 +265,7 @@ function DateCompare(YearFrom, MonthFrom, YearTo, MonthTo) {
     return true;
 }
 
-//×ÖÊıÍ³¼Æ
+//å­—æ•°ç»Ÿè®¡
 function str_limit(id, str, strid) {
     $("#" + id).find("#" + strid).html(str.length);
 }

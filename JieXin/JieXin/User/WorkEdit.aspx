@@ -73,13 +73,16 @@ id="work_form_<%=bean.fdWorkID %>" method="post">
             <span class="orange">*</span>公&nbsp;&nbsp;&nbsp;&nbsp;司
         </th>
         <td>
-            <input type="text" id="Work_Name" name="Work_Name" class="pwdinput" maxlength="50" value="<%=bean.fdWorkName %>" />
+            <input type="text" id="Work_Name" name="Work_Name" class="pwdinput" maxlength="50"
+                value="<%=bean.fdWorkName %>" />
         </td>
         <th scope="row">
             <span class="orange">*</span>行&nbsp;&nbsp;&nbsp;&nbsp;业
         </th>
         <td>
-            <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;"><%=bean.fdWorkIndustryID==0?"选择/修改":bean.fdWorkIndustry%></a>
+            <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;"
+                onclick="ChooseIndustry(this, 'ChooseIndustry', 'Work_IndustryID', 'Work_Industry', '选择/修改')">
+                <%=bean.fdWorkIndustryID==0?"选择/修改":bean.fdWorkIndustry%></a>
             <input type="hidden" id="Work_IndustryID" name="Work_IndustryID" value="<%=bean.fdWorkIndustryID %>" />
             <input type="hidden" id="Work_Industry" name="Work_Industry" value="<%=bean.fdWorkIndustry %>" />
         </td>
@@ -145,13 +148,16 @@ id="work_form_<%=bean.fdWorkID %>" method="post">
             <span class="orange">*</span>部&nbsp;&nbsp;&nbsp;&nbsp;门
         </th>
         <td>
-            <input type="text" id="Work_Department" name="Work_Department" class="pwdinput" maxlength="20" value="<%=bean.fdWorkDepartment %>" />
+            <input type="text" id="Work_Department" name="Work_Department" class="pwdinput" maxlength="20"
+                value="<%=bean.fdWorkDepartment %>" />
         </td>
         <th scope="row">
             <span class="orange">*</span>职&nbsp;&nbsp;&nbsp;&nbsp;位
         </th>
         <td>
-            <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;">选择/修改</a>
+            <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;"
+                onclick="ChoosePosition(this, 'ChoosePosition', 'Work_JobID', 'Work_Job', '选择/修改')">
+                <%=bean.fdWorkJobID == 0 ? "选择/修改" : bean.fdWorkJob%></a>
             <input type="text" id="Work_OtherJob" name="Work_OtherJob" class="pwdinput" value="<%=bean.fdWorkOtherJob==""?"若无合适项，请在此填写":bean.fdWorkOtherJob %>"
                 <%=bean.fdWorkOtherJob==""?"style=\"color: #999;\"":"" %> onclick="if('若无合适项，请在此填写'==this.value){this.value='';this.style.color='#000';}"
                 onblur="if(this.value==''){this.value = '若无合适项，请在此填写';this.style.color='#999';}" />
@@ -176,7 +182,8 @@ id="work_form_<%=bean.fdWorkID %>" method="post">
                 <tr>
                     <td colspan="2">
                         <textarea id="Work_Intro" name="Work_Intro" class="txtArea" style="width: 495px;"
-                            onkeyup="str_limit('work_<%=bean.fdWorkID %>',this.value,'Work_IntroLength')" onchange="str_limit('work_<%=bean.fdWorkID %>',this.value,'Work_IntroLength')"><%=bean.fdWorkIntro %></textarea>
+                            onkeyup="str_limit('work_<%=bean.fdWorkID %>',this.value,'Work_IntroLength')"
+                            onchange="str_limit('work_<%=bean.fdWorkID %>',this.value,'Work_IntroLength')"><%=bean.fdWorkIntro %></textarea>
                     </td>
                 </tr>
                 <tr style="color: #999;">

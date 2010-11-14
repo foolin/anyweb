@@ -6,7 +6,7 @@ using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
 using System.Text;
 
-public partial class InitArea : System.Web.UI.Page
+public partial class AnyWell_InitArea : System.Web.UI.Page
 {
     StringBuilder str = new StringBuilder();
     protected void Page_Load( object sender, EventArgs e )

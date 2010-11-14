@@ -165,7 +165,7 @@
                                     <input type="text" id="keyword" class="keyword" style="color: #B5B5B5; font-weight: bold;"
                                         value="请输入关键字" onclick="if(this.defaultValue==this.value){this.value='';this.style.color='#000';this.style.fontWeight='normal';}"
                                         onblur="if(this.value==''){this.value = this.defaultValue;this.style.color='#B5B5B5';this.style.fontWeight='bold';}" /></span>
-                                <a href="javascript:void(0);" onclick="ChooseArea();" id="AreaName" class="btn28H left">
+                                <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','areaId','area','选择地区')" id="AreaName" class="btn28H left">
                                     选择地区</a>
                                 <input type="button" class="btn48_28 left" value="" onclick="searchName();" />
                                 <input type="hidden" value="0" id="tagName" />

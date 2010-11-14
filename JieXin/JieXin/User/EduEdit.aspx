@@ -83,7 +83,7 @@ method="post">
             <span class="orange">*</span>专&nbsp;&nbsp;&nbsp;&nbsp;业
         </th>
         <td>
-            <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;">
+            <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;" onclick="ChooseMajor(this, 'major', 'Edu_SpecialityID', 'Edu_Speciality', '选择/修改')">
                 <%=bean.fdEducSpecialityID==0?"选择/修改":bean.fdEducSpeciality%></a>
             <input type="text" id="Edu_OtherSpeciality" name="Edu_OtherSpeciality" class="pwdinput"
                 value="<%=bean.fdEducOtherSpecialty==""?"若无合适项，请在此填写":bean.fdEducOtherSpecialty %>"
@@ -91,7 +91,7 @@ method="post">
                 onclick="if('若无合适项，请在此填写'==this.value){this.value='';this.style.color='#000';}"
                 onblur="if(this.value==''){this.value = '若无合适项，请在此填写';this.style.color='#999';}" />
             <input type="hidden" id="Edu_SpecialityID" name="Edu_SpecialityID" value="<%=bean.fdEducSpecialityID %>" />
-            <input type="hidden" id="Edu_Speciality" name="Edu_Speciality" value="<%=bean.fdEducOtherSpecialty %>" />
+            <input type="hidden" id="Edu_Speciality" name="Edu_Speciality" value="<%=bean.fdEducSpeciality %>" />
         </td>
     </tr>
     <tr>

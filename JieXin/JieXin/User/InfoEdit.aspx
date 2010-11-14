@@ -139,7 +139,7 @@
                         <span class="orange">*</span>居&nbsp;住&nbsp;地
                     </th>
                     <td width="218">
-                        <a href="javascript:void(0);" onclick="selectArea('Place','AddressID','Address')"
+                        <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','AddressID','Address','选择/修改')"
                             id="Place" class="btn28H" style="font-size: 12px;">
                             <%=resume.fdResuAddressID == 0 ? "选择/修改" : resume.fdResuAddress%></a>
                         <input type="hidden" id="AddressID" name="AddressID" value="<%=resume.fdResuAddressID%>" />
@@ -265,7 +265,7 @@
                         &nbsp;户&nbsp;&nbsp;&nbsp;&nbsp;口
                     </th>
                     <td>
-                        <a href="javascript:void(0);" onclick="selectArea('Hukou','HouseAddressID','HouseAddress')"
+                        <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','HouseAddressID','HouseAddress','选择/修改')"
                             id="Hukou" class="btn28H" style="font-size: 12px;">
                             <%=resume.fdResuHouseAddressID == 0 ? "选择/修改" : resume.fdResuHouseAddress%></a>
                         <input type="hidden" id="HouseAddressID" name="HouseAddressID" value="<%=resume.fdResuHouseAddressID%>" />

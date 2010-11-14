@@ -22,7 +22,7 @@
                                 <input type="text" id="keyword" class="keyword" <%=QS("key")==""?"style=\"color: #B5B5B5; font-weight: bold;\"":"" %>
                                     value="<%=QS("key")==""?"请输入关键字":QS("key") %>" onclick="if('请输入关键字'==this.value){this.value='';this.style.color='#000';this.style.fontWeight='normal';}"
                                     onblur="if(this.value==''){this.value = '请输入关键字';this.style.color='#B5B5B5';this.style.fontWeight='bold';}" /></span>
-                            <a href="javascript:void(0);" onclick="ChooseArea();" id="AreaName" class="btn28H left">
+                            <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','areaId','area','选择地区')" id="AreaName" class="btn28H left">
                                 <%=QS( "area" ) == "" ? "选择地区" : QS( "area" )%></a>
                             <input type="button" class="btn48_28 left" value="" onclick="searchName();" />
                             <input type="hidden" value="<%=QS("tag")==""?"0":QS("tag") %>" id="tagName" />

@@ -30,22 +30,22 @@ namespace AnyWell.AW_DL
 		}
 		private string _fdResuName = "";
 		 /// <summary>
-		 /// 简历名称 30 nvarchar
+		 /// 简历名称 60 nvarchar
 		 /// </summary>
 		public string fdResuName
 		{
 			get{return _fdResuName;}
 			set{_fdResuName = value;}
 		}
-        private string _fdResuUserName = "";
-        /// <summary>
-        /// 姓名
-        /// </summary>
-        public string fdResuUserName
-        {
-            get{return _fdResuUserName;}
-            set{_fdResuUserName = value;}
-        }
+		private string _fdResuUserName = "";
+		 /// <summary>
+		 /// 姓名 60 nvarchar
+		 /// </summary>
+		public string fdResuUserName
+		{
+			get{return _fdResuUserName;}
+			set{_fdResuUserName = value;}
+		}
 		private int _fdResuSex = 0;
 		 /// <summary>
 		 /// 性别
@@ -243,16 +243,421 @@ namespace AnyWell.AW_DL
 		{
 			get{return _fdResuWebsite;}
 			set{_fdResuWebsite = value;}
-        }
-        private string _fdResuPhoto = "";
-        /// <summary>
-        /// 照片
-        /// </summary>
-        public string fdResuPhoto
-        {
-            get{return _fdResuPhoto;}
-            set{ _fdResuPhoto = value;}
-        }
+		}
+		private string _fdResuPhoto = "";
+		 /// <summary>
+		 /// 照片 100 varchar
+		 /// </summary>
+		public string fdResuPhoto
+		{
+			get{return _fdResuPhoto;}
+			set{_fdResuPhoto = value;}
+		}
+		private int _fdResuObjeType = 0;
+		 /// <summary>
+		 /// 工作类型
+		 /// </summary>
+		public int fdResuObjeType
+		{
+			get{return _fdResuObjeType;}
+			set{_fdResuObjeType = value;}
+		}
+		private int _fdResuObjeAreaID1 = 0;
+		 /// <summary>
+		 /// 地点编号
+		 /// </summary>
+		public int fdResuObjeAreaID1
+		{
+			get{return _fdResuObjeAreaID1;}
+			set{_fdResuObjeAreaID1 = value;}
+		}
+		private string _fdResuObjeArea1 = "";
+		 /// <summary>
+		 /// 地点 20 nvarchar
+		 /// </summary>
+		public string fdResuObjeArea1
+		{
+			get{return _fdResuObjeArea1;}
+			set{_fdResuObjeArea1 = value;}
+		}
+		private int _fdResuObjeAreaID2 = 0;
+		 /// <summary>
+		 /// 地点编号
+		 /// </summary>
+		public int fdResuObjeAreaID2
+		{
+			get{return _fdResuObjeAreaID2;}
+			set{_fdResuObjeAreaID2 = value;}
+		}
+		private string _fdResuObjeArea2 = "";
+		 /// <summary>
+		 /// 地点 20 nvarchar
+		 /// </summary>
+		public string fdResuObjeArea2
+		{
+			get{return _fdResuObjeArea2;}
+			set{_fdResuObjeArea2 = value;}
+		}
+		private int _fdResuObjeAreaID3 = 0;
+		 /// <summary>
+		 /// 地点编号
+		 /// </summary>
+		public int fdResuObjeAreaID3
+		{
+			get{return _fdResuObjeAreaID3;}
+			set{_fdResuObjeAreaID3 = value;}
+		}
+		private string _fdResuObjeArea3 = "";
+		 /// <summary>
+		 /// 地点 20 nvarchar
+		 /// </summary>
+		public string fdResuObjeArea3
+		{
+			get{return _fdResuObjeArea3;}
+			set{_fdResuObjeArea3 = value;}
+		}
+		private int _fdResuObjeAreaID4 = 0;
+		 /// <summary>
+		 /// 地点编号
+		 /// </summary>
+		public int fdResuObjeAreaID4
+		{
+			get{return _fdResuObjeAreaID4;}
+			set{_fdResuObjeAreaID4 = value;}
+		}
+		private string _fdResuObjeArea4 = "";
+		 /// <summary>
+		 /// 地点 20 nvarchar
+		 /// </summary>
+		public string fdResuObjeArea4
+		{
+			get{return _fdResuObjeArea4;}
+			set{_fdResuObjeArea4 = value;}
+		}
+		private int _fdResuObjeAreaID5 = 0;
+		 /// <summary>
+		 /// 地点编号
+		 /// </summary>
+		public int fdResuObjeAreaID5
+		{
+			get{return _fdResuObjeAreaID5;}
+			set{_fdResuObjeAreaID5 = value;}
+		}
+		private string _fdResuObjeArea5 = "";
+		 /// <summary>
+		 /// 地点 20 nvarchar
+		 /// </summary>
+		public string fdResuObjeArea5
+		{
+			get{return _fdResuObjeArea5;}
+			set{_fdResuObjeArea5 = value;}
+		}
+		private int _fdResuObjeIndustryID1 = 0;
+		 /// <summary>
+		 /// 行业编号
+		 /// </summary>
+		public int fdResuObjeIndustryID1
+		{
+			get{return _fdResuObjeIndustryID1;}
+			set{_fdResuObjeIndustryID1 = value;}
+		}
+		private string _fdResuObjeIndustry1 = "";
+		 /// <summary>
+		 /// 行业 40 nvarchar
+		 /// </summary>
+		public string fdResuObjeIndustry1
+		{
+			get{return _fdResuObjeIndustry1;}
+			set{_fdResuObjeIndustry1 = value;}
+		}
+		private int _fdResuObjeIndustryID2 = 0;
+		 /// <summary>
+		 /// 行业编号
+		 /// </summary>
+		public int fdResuObjeIndustryID2
+		{
+			get{return _fdResuObjeIndustryID2;}
+			set{_fdResuObjeIndustryID2 = value;}
+		}
+		private string _fdResuObjeIndustry2 = "";
+		 /// <summary>
+		 /// 行业 40 nvarchar
+		 /// </summary>
+		public string fdResuObjeIndustry2
+		{
+			get{return _fdResuObjeIndustry2;}
+			set{_fdResuObjeIndustry2 = value;}
+		}
+		private int _fdResuObjeIndustryID3 = 0;
+		 /// <summary>
+		 /// 行业编号
+		 /// </summary>
+		public int fdResuObjeIndustryID3
+		{
+			get{return _fdResuObjeIndustryID3;}
+			set{_fdResuObjeIndustryID3 = value;}
+		}
+		private string _fdResuObjeIndustry3 = "";
+		 /// <summary>
+		 /// 行业 40 nvarchar
+		 /// </summary>
+		public string fdResuObjeIndustry3
+		{
+			get{return _fdResuObjeIndustry3;}
+			set{_fdResuObjeIndustry3 = value;}
+		}
+		private int _fdResuObjeIndustryID4 = 0;
+		 /// <summary>
+		 /// 行业编号
+		 /// </summary>
+		public int fdResuObjeIndustryID4
+		{
+			get{return _fdResuObjeIndustryID4;}
+			set{_fdResuObjeIndustryID4 = value;}
+		}
+		private string _fdResuObjeIndustry4 = "";
+		 /// <summary>
+		 /// 行业 40 nvarchar
+		 /// </summary>
+		public string fdResuObjeIndustry4
+		{
+			get{return _fdResuObjeIndustry4;}
+			set{_fdResuObjeIndustry4 = value;}
+		}
+		private int _fdResuObjeIndustryID5 = 0;
+		 /// <summary>
+		 /// 行业编号
+		 /// </summary>
+		public int fdResuObjeIndustryID5
+		{
+			get{return _fdResuObjeIndustryID5;}
+			set{_fdResuObjeIndustryID5 = value;}
+		}
+		private string _fdResuObjeIndustry5 = "";
+		 /// <summary>
+		 /// 行业 40 nvarchar
+		 /// </summary>
+		public string fdResuObjeIndustry5
+		{
+			get{return _fdResuObjeIndustry5;}
+			set{_fdResuObjeIndustry5 = value;}
+		}
+		private int _fdResuObjeFuncTypeID1 = 0;
+		 /// <summary>
+		 /// 职能编号
+		 /// </summary>
+		public int fdResuObjeFuncTypeID1
+		{
+			get{return _fdResuObjeFuncTypeID1;}
+			set{_fdResuObjeFuncTypeID1 = value;}
+		}
+		private string _fdResuObjeFuncType1 = "";
+		 /// <summary>
+		 /// 职能 40 nvarchar
+		 /// </summary>
+		public string fdResuObjeFuncType1
+		{
+			get{return _fdResuObjeFuncType1;}
+			set{_fdResuObjeFuncType1 = value;}
+		}
+		private int _fdResuObjeFuncTypeID2 = 0;
+		 /// <summary>
+		 /// 职能编号
+		 /// </summary>
+		public int fdResuObjeFuncTypeID2
+		{
+			get{return _fdResuObjeFuncTypeID2;}
+			set{_fdResuObjeFuncTypeID2 = value;}
+		}
+		private string _fdResuObjeFuncType2 = "";
+		 /// <summary>
+		 /// 职能 40 nvarchar
+		 /// </summary>
+		public string fdResuObjeFuncType2
+		{
+			get{return _fdResuObjeFuncType2;}
+			set{_fdResuObjeFuncType2 = value;}
+		}
+		private int _fdResuObjeFuncTypeID3 = 0;
+		 /// <summary>
+		 /// 职能编号
+		 /// </summary>
+		public int fdResuObjeFuncTypeID3
+		{
+			get{return _fdResuObjeFuncTypeID3;}
+			set{_fdResuObjeFuncTypeID3 = value;}
+		}
+		private string _fdResuObjeFuncType3 = "";
+		 /// <summary>
+		 /// 职能 40 nvarchar
+		 /// </summary>
+		public string fdResuObjeFuncType3
+		{
+			get{return _fdResuObjeFuncType3;}
+			set{_fdResuObjeFuncType3 = value;}
+		}
+		private int _fdResuObjeFuncTypeID4 = 0;
+		 /// <summary>
+		 /// 职能编号
+		 /// </summary>
+		public int fdResuObjeFuncTypeID4
+		{
+			get{return _fdResuObjeFuncTypeID4;}
+			set{_fdResuObjeFuncTypeID4 = value;}
+		}
+		private string _fdResuObjeFuncType4 = "";
+		 /// <summary>
+		 /// 职能 40 nvarchar
+		 /// </summary>
+		public string fdResuObjeFuncType4
+		{
+			get{return _fdResuObjeFuncType4;}
+			set{_fdResuObjeFuncType4 = value;}
+		}
+		private int _fdResuObjeFuncTypeID5 = 0;
+		 /// <summary>
+		 /// 职能编号
+		 /// </summary>
+		public int fdResuObjeFuncTypeID5
+		{
+			get{return _fdResuObjeFuncTypeID5;}
+			set{_fdResuObjeFuncTypeID5 = value;}
+		}
+		private string _fdResuObjeFuncType5 = "";
+		 /// <summary>
+		 /// 职能 40 nvarchar
+		 /// </summary>
+		public string fdResuObjeFuncType5
+		{
+			get{return _fdResuObjeFuncType5;}
+			set{_fdResuObjeFuncType5 = value;}
+		}
+		private int _fdResuObjeSalery = 0;
+		 /// <summary>
+		 /// 期望薪水
+		 /// </summary>
+		public int fdResuObjeSalery
+		{
+			get{return _fdResuObjeSalery;}
+			set{_fdResuObjeSalery = value;}
+		}
+		private int _fdResuObjeEntryTime = 0;
+		 /// <summary>
+		 /// 到岗时间
+		 /// </summary>
+		public int fdResuObjeEntryTime
+		{
+			get{return _fdResuObjeEntryTime;}
+			set{_fdResuObjeEntryTime = value;}
+		}
+		private string _fdResuObjeDepartment = "";
+		 /// <summary>
+		 /// 部门 40 nvarchar
+		 /// </summary>
+		public string fdResuObjeDepartment
+		{
+			get{return _fdResuObjeDepartment;}
+			set{_fdResuObjeDepartment = value;}
+		}
+		private int _fdResuObjeCompType = 0;
+		 /// <summary>
+		 /// 公司性质
+		 /// </summary>
+		public int fdResuObjeCompType
+		{
+			get{return _fdResuObjeCompType;}
+			set{_fdResuObjeCompType = value;}
+		}
+		private string _fdResuObjeIntro = "";
+		 /// <summary>
+		 /// 自我介绍 1000 nvarchar
+		 /// </summary>
+		public string fdResuObjeIntro
+		{
+			get{return _fdResuObjeIntro;}
+			set{_fdResuObjeIntro = value;}
+		}
+		private int _fdResuEnLevel = 0;
+		 /// <summary>
+		 /// 英语等级
+		 /// </summary>
+		public int fdResuEnLevel
+		{
+			get{return _fdResuEnLevel;}
+			set{_fdResuEnLevel = value;}
+		}
+		private int _fdResuTOEFL = 0;
+		 /// <summary>
+		 /// TOEFL
+		 /// </summary>
+		public int fdResuTOEFL
+		{
+			get{return _fdResuTOEFL;}
+			set{_fdResuTOEFL = value;}
+		}
+		private int _fdResuGRE = 0;
+		 /// <summary>
+		 /// GRE
+		 /// </summary>
+		public int fdResuGRE
+		{
+			get{return _fdResuGRE;}
+			set{_fdResuGRE = value;}
+		}
+		private int _fdResuJpLevel = 0;
+		 /// <summary>
+		 /// 日语等级
+		 /// </summary>
+		public int fdResuJpLevel
+		{
+			get{return _fdResuJpLevel;}
+			set{_fdResuJpLevel = value;}
+		}
+		private int _fdResuGMAT = 0;
+		 /// <summary>
+		 /// GMAT
+		 /// </summary>
+		public int fdResuGMAT
+		{
+			get{return _fdResuGMAT;}
+			set{_fdResuGMAT = value;}
+		}
+		private int _fdResuIELTS = 0;
+		 /// <summary>
+		 /// IELTS
+		 /// </summary>
+		public int fdResuIELTS
+		{
+			get{return _fdResuIELTS;}
+			set{_fdResuIELTS = value;}
+		}
+		private int _fdResuViewCount = 0;
+		 /// <summary>
+		 /// 浏览次数
+		 /// </summary>
+		public int fdResuViewCount
+		{
+			get{return _fdResuViewCount;}
+			set{_fdResuViewCount = value;}
+		}
+		private DateTime _fdResuCreateAt = DateTime.Now;
+		 /// <summary>
+		 /// 创建时间
+		 /// </summary>
+		public DateTime fdResuCreateAt
+		{
+			get{return _fdResuCreateAt;}
+			set{_fdResuCreateAt = value;}
+		}
+		private DateTime _fdResuUpdateAt = DateTime.Now;
+		 /// <summary>
+		 /// 更新时间
+		 /// </summary>
+		public DateTime fdResuUpdateAt
+		{
+			get{return _fdResuUpdateAt;}
+			set{_fdResuUpdateAt = value;}
+		}
 		private int _fdResuStatus = 0;
 		 /// <summary>
 		 /// 状态(0:正常1:新建未保存)
@@ -262,87 +667,6 @@ namespace AnyWell.AW_DL
 			get{return _fdResuStatus;}
 			set{_fdResuStatus = value;}
 		}
-        private int _fdResuEnLevel = 0;
-        /// <summary>
-        /// 英语等级
-        /// </summary>
-        public int fdResuEnLevel
-        {
-            get{return _fdResuEnLevel;}
-            set{_fdResuEnLevel = value;}
-        }
-        private int _fdResuTOEFL = 0;
-        /// <summary>
-        /// TOEFL
-        /// </summary>
-        public int fdResuTOEFL
-        {
-            get{return _fdResuTOEFL;}
-            set{ _fdResuTOEFL = value;}
-        }
-        private int _fdResuGRE = 0;
-        /// <summary>
-        /// GRE
-        /// </summary>
-        public int fdResuGRE
-        {
-            get{return _fdResuGRE;}
-            set{_fdResuGRE = value;}
-        }
-        private int _fdResuJpLevel = 0;
-        /// <summary>
-        /// 日语等级
-        /// </summary>
-        public int fdResuJpLevel
-        {
-            get{return _fdResuJpLevel;}
-            set{_fdResuJpLevel = value;}
-        }
-        private int _fdResuGMAT = 0;
-        /// <summary>
-        /// GMAT
-        /// </summary>
-        public int fdResuGMAT
-        {
-            get{return _fdResuGMAT;}
-            set{_fdResuGMAT = value;}
-        }
-        private int _fdResuIELTS = 0;
-        /// <summary>
-        /// IELTS
-        /// </summary>
-        public int fdResuIELTS
-        {
-            get{ return _fdResuIELTS;}
-            set{_fdResuIELTS = value;}
-        }
-        private DateTime _fdResuCreateAt = DateTime.Now;
-        /// <summary>
-        /// 创建时间
-        /// </summary>
-        public DateTime fdResuCreateAt
-        {
-            get{return _fdResuCreateAt;}
-            set{ _fdResuCreateAt = value;}
-        }
-        private DateTime _fdResuUpdateAt = DateTime.Now;
-        /// <summary>
-        /// 更新时间
-        /// </summary>
-        public DateTime fdResuUpdateAt
-        {
-            get{ return _fdResuUpdateAt; }
-            set{_fdResuUpdateAt = value;}
-        }
-        private int _fdResuViewCount = 0;
-        /// <summary>
-        /// 浏览次数
-        /// </summary>
-        public int fdResuViewCount
-        {
-            get{ return _fdResuViewCount;}
-            set{ _fdResuViewCount = value;}
-        }
 
 
 		/////////////////////////////////////////

@@ -22,7 +22,7 @@
                     <div class=" lh24">
                         <input type="file" class="" id="fileImage" name="fileImage" />
                         <input type="button" class="btn94_28" value="上传" onclick="uploadPhoto()" />
-                        <span class="orange">支持格式(gif,png,jpg,jpeg,bmp)</span>
+                        <span class="orange">照片最佳呈现尺寸 90*110，支持格式(gif,png,jpg,jpeg,bmp)</span>
                     </div>
                     <div class="lh24">
                         <input type="checkbox" id="PhotoShow" onclick="setPhotoShow(this.checked)" <%=LoginUser.fdUserPhotoIsShow==1?"checked=\"checked\"":"" %> />

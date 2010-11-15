@@ -102,7 +102,7 @@
 
         function setDate() {    //设置日期
             var date = new Date();
-            $("#date").html(date.getMonth() + '月' + date.getDate() + '日' + ' 星期' + '日一二三四五六'.charAt(date.getDay()) + ' ' + date.toLocaleTimeString());
+            $("#date").html((date.getMonth() + 1) + '月' + date.getDate() + '日' + ' 星期' + '日一二三四五六'.charAt(date.getDay()) + ' ' + date.toLocaleTimeString());
         }
 
         setDate();

@@ -55,7 +55,7 @@
             <div class="fi even">
                 <label>
                     职位名称：</label>
-                <asp:TextBox ID="txtJob" MaxLength="100" Width="400px" runat="server" CssClass="text"></asp:TextBox>
+                <asp:TextBox ID="txtJob" MaxLength="50" Width="400px" runat="server" CssClass="text"></asp:TextBox>
                 <span class="required">*</span>
                 <sw:Validator ID="Validator4" ControlID="txtJob" ValidateType="Required" ErrorText="请输入职位名称"
                     ErrorMessage="请输入职位名称" runat="server">

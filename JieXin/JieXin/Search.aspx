@@ -36,7 +36,7 @@
                             <dd class="blue">
                                 <aw:KeyWordList runat="server" TopCount="21" CacheName="SEARCH">
                                     <ItemTemplate>
-                                        <a href="/search.aspx?key=<%#Eval("fdKeyWName") %>">
+                                        <a href="/RecruitList.aspx?key=<%#Eval("fdKeyWName") %>">
                                             <%#Eval( "fdKeyWName" )%></a> |
                                     </ItemTemplate>
                                 </aw:KeyWordList>

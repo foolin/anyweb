@@ -37,7 +37,7 @@
                             <dd class="blue">
                                 <aw:KeyWordList ID="KeyWordList1" runat="server" TopCount="21" CacheName="SEARCH">
                                     <ItemTemplate>
-                                        <a href="/search.aspx?key=<%#Eval("fdKeyWName") %>">
+                                        <a href="/RecruitList.aspx?key=<%#Server.UrlEncode((string)Eval("fdKeyWName")) %>">
                                             <%#Eval( "fdKeyWName" )%></a> |
                                     </ItemTemplate>
                                 </aw:KeyWordList>
@@ -50,7 +50,7 @@
                         <label for="all">
                             <input type="checkbox" id="all" onclick="SelectAll(this.checked)" name="job" style="margin: -1px 0px -2px 0px;" />&nbsp;&nbsp;<span>全部选中</span></label>&nbsp;<a
                                 href="javascript:void(0);" class="btn94_28" onclick="SelectResume(0)">申请选中的职位</a>&nbsp;<a
-                                    href="javascript:void(0);" class="btn28H" style="font-size: 12px;" onclick="AddFavorite()"
+                                    href="javascript:void(0);" class="btn28H_fix" style="font-size: 12px;" onclick="AddFavorite()"
                                     id="favorite">收藏选中职位</a>
                     </div>
                     <div class="dList" id="jobList">
@@ -61,7 +61,7 @@
                                         <th>
                                             <input type="checkbox" name="job" value="<%# Eval("fdRecrID")%>" />
                                         </th>
-                                        <td style="width:240px;padding-left:10px;">
+                                        <td style="width:240px;padding:10px 0 10px 10px">
                                             <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="fbold">
                                                 <%#Eval( "fdRecrTitle" )%></a>
                                         </td>
@@ -85,7 +85,7 @@
                         </table>
                     </div>
                     <div class="pageStyle tr">
-                        <sw:PageNaver ID="PN1" runat="server" StyleID="5" PageSize="12">
+                        <sw:PageNaver ID="PN1" runat="server" StyleID="5" PageSize="10">
                         </sw:PageNaver>
                     </div>
                 </div>

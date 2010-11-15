@@ -183,6 +183,7 @@
 .chCondtion .recomPos dd a:hover{ text-decoration:underline;}
 /*btn 28Height style*/
 .btn28H{ width:94px; height:28px; display:inline-block; overflow:hidden; background:url(../images/bg_btn_28H.gif) no-repeat; text-align:center; line-height:28px; color:#59A901; font-size:14px; margin:0px 3px;}
+.btn28H_fix{ width:94px; height:28px; display:inline-block; background:url(../images/bg_btn_28H.gif) no-repeat; text-align:center; line-height:28px; color:#59A901; font-size:14px; margin:0px 3px;}
 .btn46H{ width:46px; height:46px; display:inline-block; background:url(../images/bg_btn_46x46.gif) no-repeat; text-align:center; line-height:46px; color:#fff; font-size:14px; border:0;}
 .btn48_28{ width:48px; height:28px; display:inline-block; background:url(../images/btn_search.gif) no-repeat;border:0; cursor:pointer;}
 .btn94_28{ width:94px; height:28px; display:inline-block; background:url(../images/bg_btn_94_28.gif) no-repeat; text-align:center; line-height:28px; color:#fff; margin:0px 3px; border:0;}
@@ -284,8 +285,8 @@
 /*job*/
 .job{}
 .detailInfo{ color:#666;}
-.detailInfo .Jobhead{ border-bottom:1px solid #D9D9D9; height:39px; padding-top:11px;}
-.detailInfo h1{ font-size:14px; font-weight:bold; color:#0066CC; line-height:30px; float:left;}
+.detailInfo .Jobhead{ border-bottom:1px solid #D9D9D9; padding-top:11px; }
+.detailInfo h1{ font-size:14px; font-weight:bold; color:#0066CC; line-height:30px;}
 .detailInfo h2{color:#0066CC; line-height:30px;}
 .detailInfo .detCon{ line-height:22px; padding-top:10px;}
 
@@ -381,7 +382,7 @@
 .comPage .listCon li{ line-height:25px; height:25px; overflow:hidden; padding:0px 15px;}
 .comPage .listCon a:hover{ text-decoration:underline;}
 
-.comPage .comhead{ border-bottom:1px solid #D9D9D9; height:30px; color:#59A901; font-weight:bold; font-size:14px; line-height:30px;}
+.comPage .comhead{ border-bottom:1px solid #D9D9D9; height:auto!important; min-height:30px; _height:30px; color:#59A901; font-weight:bold; font-size:14px; line-height:30px;}
 .comPage .comList{}
 .comPage .comList li{ height:30px; line-height:30px; background:url(../images/icon_arraw.png) left 9px no-repeat; padding-left:16px;}
 .comPage .comList .date{ float:right; color:#B5B5B5;}

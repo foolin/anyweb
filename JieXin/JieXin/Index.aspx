@@ -81,10 +81,10 @@
                                             会员名：
                                         </td>
                                         <td>
-                                            <asp:TextBox ID="txtUserName" runat="server" CssClass="loginInput" MaxLength="20"></asp:TextBox>
+                                            <asp:TextBox ID="txtUserName" runat="server" CssClass="loginInput" MaxLength="20" TabIndex="1"></asp:TextBox>
                                         </td>
                                         <td rowspan="2">
-                                            <input type="submit" class="btn46H" value="登录" />
+                                            <input type="submit" class="btn46H" value="登录" tabindex="3" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -93,7 +93,7 @@
                                         </td>
                                         <td>
                                             <asp:TextBox ID="txtPassword" runat="server" CssClass="loginInput" TextMode="Password"
-                                                MaxLength="20"></asp:TextBox>
+                                                MaxLength="20" TabIndex="2"></asp:TextBox>
                                         </td>
                                     </tr>
                                     <tr>
@@ -179,7 +179,7 @@
                                 <dd class="blue">
                                     <aw:KeyWordList runat="server" TopCount="16" CacheName="INDEX">
                                         <ItemTemplate>
-                                            <a href="/search.aspx?key=<%#Eval("fdKeyWName") %>" target="_blank">
+                                            <a href="/RecruitList.aspx?key=<%#Eval("fdKeyWName") %>" target="_blank">
                                                 <%#Eval( "fdKeyWName" )%></a> |
                                         </ItemTemplate>
                                     </aw:KeyWordList>

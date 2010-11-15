@@ -14,7 +14,7 @@
                 <div class="blank12px">
                 </div>
                 <div class="Res670">
-                    <form runat="server" id="form1" onsubmit="return checkForm()">
+                    <form runat="server" id="Info_Form" onsubmit="return checkForm()">
                     <div class="blank8px">
                     </div>
                     <div class="modifypwd lh24">
@@ -364,28 +364,22 @@
             var graMonth = $("#<%=drpGraMonth.ClientID %>").val();
             var graday = $("#<%=drpGraDay.ClientID %>").val();
 
+            $("#<%=Info_Form.ClientID %>").find("[id^='Error_']").hide();
+            
             if (!name) {
                 $("#Error_Name").show();
                 error = false;
-            } else {
-                $("#Error_Name").hide();
             }
 
             if (biryear == "0" || birMonth == "0" || birday == "0") {
                 $("#Error_Bir").show();
-                $("#Error_Bir_1").hide();
                 error = false;
             } else if (!isValidDate(biryear, birMonth, birday)) {
-                $("#Error_Bir").hide();
                 $("#Error_Bir_1").show();
                 error = false;
-            } else {
-                $("#Error_Bir").hide();
-                $("#Error_Bir_1").hide();
             }
 
             if (grayear == "0" && graMonth == "0" && graday == "0") {
-                $("#Error_Gra").hide();
             } else if (!isValidDate(grayear, graMonth, graday)) {
                 $("#Error_Gra").show();
                 error = false;
@@ -394,61 +388,48 @@
             if (Exp == "0") {
                 $("#Error_Exp").show();
                 error = false;
-            } else {
-                $("#Error_Exp").hide();
-            }
+            } 
 
             if (IdenID == "0") {
                 $("#Error_IdenID").show();
                 error = false;
-            } else {
-                $("#Error_IdenID").hide();
-            }
+            } 
 
             if (!idenNum) {
                 $("#Error_IdenNum").show();
                 error = false;
-            } else {
-                $("#Error_IdenNum").hide();
             }
 
             if (!Address || Address == "0") {
                 $("#Error_Address").show();
                 error = false;
-            } else {
-                $("#Error_Address").hide();
             }
 
             if (CurrSitu == "0") {
                 $("#Error_CurrSitu").show();
                 error = false;
-            } else {
-                $("#Error_CurrSitu").hide();
-            }
+            } 
 
             if (Degree == "0") {
                 $("#Error_Degree").show();
                 error = false;
-            } else {
-                $("#Error_Degree").hide();
             }
 
             if (Country == "0") {
                 $("#Error_Country").show();
                 error = false;
-            } else {
-                $("#Error_Country").hide();
             }
 
             if (!Height) {
-                $("#Error_Height").hide();
             } else {
                 if (!parseInt(Height)) {
                     $("#Error_Height").show();
                     error = false;
-                } else {
-                    $("#Error_Height").hide();
                 }
+            }
+
+            if (!error) {
+                document.getElementById("<%=txtName.ClientID %>").scrollIntoView();
             }
 
             return error;

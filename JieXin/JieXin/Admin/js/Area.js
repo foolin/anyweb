@@ -108,7 +108,7 @@ function showMsgBox(divID, wWidth, wHeight) {
     var bHeight = parseInt(document.documentElement.scrollHeight);
 
     var scrollTop = document.documentElement.scrollTop || window.pageYOffset; 	//兼容chrome、safari : 20090708
-    if (scrollTop)
+    if (!scrollTop)
         scrollTop = 0;
     var sWidth = parseInt((document.documentElement.scrollWidth - wWidth) / 2);
     var sHeight = parseInt(scrollTop + (document.documentElement.clientHeight - wHeight) / 2);

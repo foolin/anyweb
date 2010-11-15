@@ -107,7 +107,7 @@
                             标题
                         </th>
                         <th>
-                            地区编号
+                            地区
                         </th>
                         <th>
                             公司名称
@@ -134,7 +134,7 @@
                                     <%#Eval("fdRecrTitle")%></a>
                             </td>
                             <td>
-                                <%#Eval("fdRecrAreaID")%>
+                                <%#Eval("fdRecrAreaName")%>
                             </td>
                             <td>
                                 <%#Eval("fdRecrCompany")%>
@@ -145,7 +145,7 @@
                             <td>
                                 <%#Eval("fdRecrCreateAt")%>
                             </td>
-                            <td>
+                            <td style="width:60px;">
                                 <a href="RecruitEdit.aspx?id=<%# Eval("fdRecrID")%>">修改</a> <a href="RecruitDel.aspx?id=<%# Eval("fdRecrID")%>"
                                     onclick="return confirm('您确定要删除吗?')">删除</a>
                             </td>

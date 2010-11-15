@@ -8,8 +8,21 @@ using Studio.Data;
 
 namespace AnyWell.AW_DL
 {
-	public partial class AW_Favorite_bean
+	public partial class AW_Apply_bean
 	{
+        private AW_Resume_bean _resume;
+        public AW_Resume_bean Resume
+        {
+            get
+            {
+                return _resume;
+            }
+            set
+            {
+                _resume = value;
+            }
+        }
+
         private AW_Recruit_bean _recruit;
         public AW_Recruit_bean Recruit
         {

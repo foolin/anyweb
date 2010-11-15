@@ -51,7 +51,7 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public List<AW_Recruit_bean> funcGetRecruitList( int tag, int areaId, string key, int type, int pageSize, int pageIndex, out int recordCount )
         {
-            this.propSelect = "fdRecrID,fdRecrTitle,fdRecrCompany,fdRecrJob,fdRecrCreateAt";
+            this.propSelect = "fdRecrID,fdRecrTitle,fdRecrCompany,fdRecrJob,fdRecrAreaName,fdRecrCreateAt";
             this.propWhere = "1=1";
             if( areaId != 0 )
             {

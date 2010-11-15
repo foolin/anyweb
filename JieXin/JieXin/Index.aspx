@@ -128,8 +128,8 @@
                                     </tr>
                                     <tr>
                                         <td class="tc">
-                                            <a href="/User/Index.aspx" target="_blank" class="blue">修改简历</a> <a href="#" target="_blank"
-                                                class="blue">刷新简历</a>
+                                            <a href="/User/Index.aspx" class="blue">修改简历</a> <a href="javascript:void(0);" id="btn_refurbish_all" class="blue"
+                                                onclick="RefurbishAll()">刷新简历</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -139,7 +139,7 @@
                                     </tr>
                                     <tr>
                                         <td colspan="3" class="tc" height="50">
-                                            <a href="/User/Index.aspx" target="_blank" class="btn28H">我的杰信</a> <a href="#" target="_blank"
+                                            <a href="/User/Index.aspx" class="btn28H">我的杰信</a> <a href="/User/ResuInit.aspx"
                                                 class="btn28H">填写简历</a>
                                         </td>
                                     </tr>
@@ -165,8 +165,8 @@
                                     <input type="text" id="keyword" class="keyword" style="color: #B5B5B5; font-weight: bold;"
                                         value="请输入关键字" onclick="if(this.defaultValue==this.value){this.value='';this.style.color='#000';this.style.fontWeight='normal';}"
                                         onblur="if(this.value==''){this.value = this.defaultValue;this.style.color='#B5B5B5';this.style.fontWeight='bold';}" /></span>
-                                <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','areaId','area','选择地区')" id="AreaName" class="btn28H left">
-                                    选择地区</a>
+                                <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','areaId','area','选择地区')"
+                                    id="AreaName" class="btn28H left">选择地区</a>
                                 <input type="button" class="btn48_28 left" value="" onclick="searchName();" />
                                 <input type="hidden" value="0" id="tagName" />
                                 <input type="hidden" value="" id="areaId" />

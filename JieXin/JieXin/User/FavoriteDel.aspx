@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FavoriteDel.aspx.cs" Inherits="User_FavoriteDel" %>

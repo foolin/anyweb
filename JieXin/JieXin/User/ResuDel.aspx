@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ResuDel.aspx.cs" Inherits="User_ResuDel" %>

@@ -23,6 +23,13 @@ public partial class Recruit : PageBase
         }
 
         this.Title = "广州市杰信人力资源有限公司 - " + bean.fdRecrTitle;
+
+        if( this.LoginUser != null )
+        {
+            this._resuList = new AW_Resume_dao().funcGetResumeList( this.LoginUser.fdUserID );
+            repResu.DataSource = resuList;
+            repResu.DataBind();
+        }
     }
 
     private AW_Recruit_bean _bean;
@@ -35,6 +42,19 @@ public partial class Recruit : PageBase
         set
         {
             _bean = value;
+        }
+    }
+
+    protected List<AW_Resume_bean> _resuList;
+    public List<AW_Resume_bean> resuList
+    {
+        get
+        {
+            return _resuList;
+        }
+        set
+        {
+            _resuList = value;
         }
     }
 }

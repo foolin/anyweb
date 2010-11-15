@@ -14,8 +14,10 @@ function upload() {
 }
 
 function delphoto() {
-    $("#imgPhoto").attr("src", "../images/img_personPhoto.png");
-    $("#photo").val("");
+    if (confirm("是否确认删除照片？")) {
+        $("#imgPhoto").attr("src", "../images/img_personPhoto.png");
+        $("#photo").val("");
+    }
 }
 
 function uploadPhoto() {
@@ -49,6 +51,22 @@ function object_toggle(obj) {
     $("#" + obj).toggle();
     $("#" + obj + "_up").toggle();
     $("#" + obj + "_down").toggle();
+}
+
+function resu_save() {
+    if (resu_check()) {
+        var options = {
+            success: resu_response
+        };
+        $("#resume").find("#btn_resu_save").val("正在保存");
+        $("#resume_form").ajaxSubmit(options);
+    }
+}
+
+function resu_response(responseText, statusText) {
+    if (statusText == 'success') {
+        $("#resume").html(responseText);
+    }
 }
 
 function info_save() {
@@ -236,8 +254,8 @@ function skill_response(responseText, statusText) {
 }
 
 //添加信息模块
-function addinfo(info, resuid) {
-    $("#" + info).parent().find("#btn_info_add").html("正在增加");
+function addinfo(info, resuid,obj) {
+    $(obj).html("正在增加");
     switch (info) {
         case "edu":
             $.ajax({
@@ -252,7 +270,7 @@ function addinfo(info, resuid) {
                     alert("系统繁忙，请稍候再试！");
                 },
                 complete: function() {
-                    $("#" + info).parent().find("#btn_info_add").html("继续添加");
+                    $(obj).html("继续添加");
                 }
             });
             break;
@@ -269,7 +287,7 @@ function addinfo(info, resuid) {
                     alert("系统繁忙，请稍候再试！");
                 },
                 complete: function() {
-                    $("#" + info).parent().find("#btn_info_add").html("继续添加");
+                    $(obj).html("继续添加");
                 }
             });
             break;
@@ -286,7 +304,7 @@ function addinfo(info, resuid) {
                     alert("系统繁忙，请稍候再试！");
                 },
                 complete: function() {
-                    $("#" + info).parent().find("#btn_info_add").html("继续添加");
+                    $(obj).html("继续添加");
                 }
             });
             break;
@@ -303,7 +321,7 @@ function addinfo(info, resuid) {
                     alert("系统繁忙，请稍候再试！");
                 },
                 complete: function() {
-                    $("#" + info).parent().find("#btn_info_add").html("继续添加");
+                    $(obj).html("继续添加");
                 }
             });
             break;
@@ -320,7 +338,7 @@ function addinfo(info, resuid) {
                     alert("系统繁忙，请稍候再试！");
                 },
                 complete: function() {
-                    $("#" + info).parent().find("#btn_info_add").html("继续添加");
+                    $(obj).html("继续添加");
                 }
             });
             break;
@@ -337,7 +355,7 @@ function addinfo(info, resuid) {
                     alert("系统繁忙，请稍候再试！");
                 },
                 complete: function() {
-                    $("#" + info).parent().find("#btn_info_add").html("继续添加");
+                    $(obj).html("继续添加");
                 }
             });
             break;
@@ -354,7 +372,7 @@ function addinfo(info, resuid) {
                     alert("系统繁忙，请稍候再试！");
                 },
                 complete: function() {
-                    $("#" + info).parent().find("#btn_info_add").html("继续添加");
+                    $(obj).html("继续添加");
                 }
             });
             break;
@@ -371,7 +389,7 @@ function addinfo(info, resuid) {
                     alert("系统繁忙，请稍候再试！");
                 },
                 complete: function() {
-                    $("#" + info).parent().find("#btn_info_add").html("继续添加");
+                    $(obj).html("继续添加");
                 }
             });
             break;
@@ -381,6 +399,21 @@ function addinfo(info, resuid) {
 function editinfo(info, id, btnId, infoId) {
     $("#" + infoId).find("#" + btnId).val("正在修改");
     switch (info) {
+        case "resume":
+            $.ajax({
+                type: "GET",
+                url: "/User/ResuNameEdit.aspx",
+                cache: false,
+                data: { id: id },
+                success: function(result) {
+                    $("#resume").html(result);
+                },
+                error: function() {
+                    $("#" + infoId).find("#" + btnId).val("修 改");
+                    alert("系统繁忙，请稍候再试！");
+                }
+            });
+            break;
         case "info":
             $.ajax({
                 type: "GET",
@@ -676,6 +709,16 @@ function delinfo(info, id, btnId, infoId) {
             });
             break;
     }
+}
+
+function resu_check() {
+    var err = true;
+    $("#resume").find("[id^='errorMsg_']").hide();
+    if (!$.trim($("#resume").find("#Resu_Name").val())) {
+        $("#resume").find("#errorMsg_Name").show();
+        err = false;
+    }
+    return err;
 }
 
 function info_check() {

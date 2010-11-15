@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Position.ascx.cs" Inherits="Control_Position" %>
-<div class="choIndustry" id="ChoosePosition" style="display: block;">
+<div class="choIndustry" id="ChoosePosition">
     <div class="top">
         <i class="iTit">请选择职位</i> <span class="topRight white">[<a href="javascript:void(0);"
             onclick="ClearArea()">无合适项</a>]&nbsp;&nbsp;<a href="javascript:void(0);" onclick="closeWindow('ChoosePosition')">

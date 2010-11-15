@@ -1,8 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="RecruitList.aspx.cs" Inherits="AnyWell_RecruitList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
+    CodeFile="RecruitList.aspx.cs" Inherits="AnyWell_RecruitList" %>
 
 <%@ Register Src="Control/Area.ascx" TagName="Area" TagPrefix="uc1" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<div class="inner">
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="inner">
         <div class="box_754">
             <div class="tit gray">
                 <a href="/index.aspx">首页</a> > <span class="green">职位搜索</span>
@@ -21,7 +22,8 @@
                                 <input type="text" id="keyword" class="keyword" <%=QS("key")==""?"style=\"color: #B5B5B5; font-weight: bold;\"":"" %>
                                     value="<%=QS("key")==""?"请输入关键字":QS("key") %>" onclick="if('请输入关键字'==this.value){this.value='';this.style.color='#000';this.style.fontWeight='normal';}"
                                     onblur="if(this.value==''){this.value = '请输入关键字';this.style.color='#B5B5B5';this.style.fontWeight='bold';}" /></span>
-                            <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','areaId','area','选择地区')" id="AreaName" class="btn28H left">
+                            <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','areaId','area','选择地区')"
+                                id="AreaName" class="btn28H left">
                                 <%=QS( "area" ) == "" ? "选择地区" : QS( "area" )%></a>
                             <input type="button" class="btn48_28 left" value="" onclick="searchName();" />
                             <input type="hidden" value="<%=QS("tag")==""?"0":QS("tag") %>" id="tagName" />
@@ -47,8 +49,9 @@
                     <div class="listHead">
                         <label for="all">
                             <input type="checkbox" id="all" onclick="SelectAll(this.checked)" name="job" style="margin: -1px 0px -2px 0px;" />&nbsp;&nbsp;<span>全部选中</span></label>&nbsp;<a
-                                href="javascript:void(0);" class="btn94_28">申请选中的职位</a>&nbsp;<a href="javascript:void(0);"
-                                    class="btn28H" style="font-size: 12px;" onclick="AddFavorite()" id="favorite">收藏选中职位</a>
+                                href="javascript:void(0);" class="btn94_28" onclick="SelectResume(0)">申请选中的职位</a>&nbsp;<a
+                                    href="javascript:void(0);" class="btn28H" style="font-size: 12px;" onclick="AddFavorite()"
+                                    id="favorite">收藏选中职位</a>
                     </div>
                     <div class="dList" id="jobList">
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -58,14 +61,20 @@
                                         <th>
                                             <input type="checkbox" name="job" value="<%# Eval("fdRecrID")%>" />
                                         </th>
-                                        <td>
-                                            <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="fbold"><%#Eval( "fdRecrTitle" )%></a>
+                                        <td style="width:240px;padding-left:10px;">
+                                            <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="fbold">
+                                                <%#Eval( "fdRecrTitle" )%></a>
                                         </td>
-                                        <td>
-                                            <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="blue"><%#Eval("fdRecrCompany") %></a>
+                                        <td style="width:160px;padding-left:10px;">
+                                            <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="blue">
+                                                <%#Eval("fdRecrCompany") %></a>
                                         </td>
-                                        <td>
-                                            <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="blue"><%#Eval("fdRecrJob") %></a>
+                                        <td style="width:130px;padding-left:10px;">
+                                            <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="blue">
+                                                <%#Eval("fdRecrJob") %></a>
+                                        </td>
+                                        <td style="width:60px;" align="center">
+                                            <%#Eval("fdRecrAreaName") %>
                                         </td>
                                         <td class="date">
                                             <%#Eval("fdRecrCreateAt","{0:yyyy-MM-dd}") %>
@@ -83,6 +92,50 @@
             </div>
         </div>
     </div>
+    <div id="Apply_Resume" class="choArea">
+        <div class="top">
+            <i class="iTit">投递简历</i> <span class="topRight white"><a onclick="closeWindow('Apply_Resume')"
+                href="javascript:void(0);">
+                <img height="15" width="15" src="/images/icon_close.gif"></a> </span>
+        </div>
+        <div class="con gray">
+            <table style="width: 100%; text-align: center;">
+                <tr>
+                    <td>
+                        <br />
+                        <br />
+                        <%if( this.LoginUser == null )
+                          {%>
+                        <a href="/Login.aspx?back=<%=Request.RawUrl %>">请先登录！</a>
+                        <%}
+                          else if( this.resuList.Count == 0 )
+                          { %>
+                        简历不存在，<a href="/User/ResuInit.aspx" style="color:#0166B4;">添加简历？</a>
+                        <%}
+                          else
+                          { %>
+                        简历：
+                        <select id="drpResume">
+                            <asp:Repeater ID="repResu" runat="server">
+                                <ItemTemplate>
+                                    <option value="<%#Eval("fdResuID") %>">
+                                        <%#Eval("fdResuName") %></option>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </select>
+                        <input type="button" id="btn_apply" value="立即申请" onclick="ApplyResume(0)" />
+                        <%} %>
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+            </table>
+            <span class="blank5px"></span>
+        </div>
+        <div class="btm">
+        </div>
+    </div>
+
     <script type="text/javascript">
         function SelectAll(v) {
             var list = $("#jobList input");
@@ -92,36 +145,7 @@
                 }
             });
         }
-        
-        function AddFavorite() {
-            var list = $("#jobList input:checked");
-            var ids = "";
-            if (list.length == 0) {
-                alert("请选择要收藏的职位！");
-                return;
-            }
-            list.each(function() {
-                if ($(this).attr("name") == "job" && $(this).attr("type") == "checkbox") {
-                    ids += "," + $(this).val();
-                }
-            });
-            $("#favorite").html("正在收藏...");
-            $.ajax({
-                url: "/AddFavorite.aspx",
-                data: "ids=" + ids.substr(1),
-                cache: false,
-                success: function(data) {
-                    eval(data);
-                },
-                error: function() {
-                    alert("系统繁忙，请稍候再试！");
-                },
-                complete: function() {
-                    $("#favorite").html("收藏选中职位");
-                }
-            });
-        }
     </script>
+
     <uc1:Area runat="server" />
 </asp:Content>
-

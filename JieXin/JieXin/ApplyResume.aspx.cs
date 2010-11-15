@@ -3,51 +3,66 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Studio.Web;
 using AnyWell.AW_DL;
-using System.Web.UI.MobileControls;
 
-public partial class AnyWell_AddFavorite : PageBase
+public partial class ApplyResume : PageBase
 {
     protected void Page_Load( object sender, EventArgs e )
     {
         string msg = "";
         if( this.LoginUser == null )
         {
-            msg = string.Format("alert(\"请先登录！\");window.location=\"/Login.aspx?back={0}\";", Request.UrlReferrer );
+            msg = string.Format( "alert(\"请先登录！\");window.location=\"/Login.aspx?back={0}\";", Request.UrlReferrer );
             WriteScript( msg );
             return;
         }
-        if( string.IsNullOrEmpty( QS( "ids" ) ) )
+        if( string.IsNullOrEmpty( QS( "ids" ) ) || !WebAgent.IsInt32( QS( "ids" ) ) )
         {
-            msg = "alert(\"请选择要收藏的职位！\")";
+            msg = "alert(\"请选择要申请的职位！\")";
+            WriteScript( msg );
+            return;
+        }
+        if( string.IsNullOrEmpty( QS( "id" ) ) || !WebAgent.IsInt32( QS( "id" ) ) )
+        {
+            msg = "alert(\"请选择要投递的简历！\")";
+            WriteScript( msg );
+            return;
+        }
+
+        AW_Resume_bean resume = new AW_Resume_dao().funcGetResumeById( int.Parse( QS( "id" ) ) );
+        if( resume == null || resume.fdResuUserID != this.LoginUser.fdUserID )
+        {
+            msg = "alert(\"简历不存在，请重新选择！\")";
             WriteScript( msg );
             return;
         }
 
         List<int> list = RemoveExistId( QS( "ids" ) );
-        using( AW_Favorite_dao dao = new AW_Favorite_dao() )
+        using( AW_Apply_dao dao = new AW_Apply_dao() )
         {
             foreach( int id in list )
             {
-                AW_Favorite_bean bean = new AW_Favorite_bean();
-                bean.fdFavoID = dao.funcNewID();
-                bean.fdFavoUserID = this.LoginUser.fdUserID;
-                bean.fdFavoRecrID = id;
-                bean.fdFavoCreateAt = DateTime.Now;
+                AW_Apply_bean bean = new AW_Apply_bean();
+                bean.fdApplID = dao.funcNewID();
+                bean.fdApplUserID = this.LoginUser.fdUserID;
+                bean.fdApplRecrID = id;
+                bean.fdApplResuID = resume.fdResuID;
+                bean.fdApplCreateAt = DateTime.Now;
                 dao.funcInsert( bean );
             }
         }
-        WriteScript( "alert(\"所选职位收藏成功！\");" );
+        WriteScript( "alert(\"所选职位申请成功！\");" );
     }
 
     /// <summary>
-    /// 移除已收藏的编号
+    /// 移除已收藏的职位
     /// </summary>
     /// <param name="ids"></param>
     /// <returns></returns>
     protected List<int> RemoveExistId( string ids )
     {
-        List<int> existList = new AW_Favorite_dao().funcGetExistIds( this.LoginUser.fdUserID, ids );
+        List<int> existList = new AW_Apply_dao().funcGetExistIds( this.LoginUser.fdUserID, ids );
         List<int> list = new List<int>();
         if( existList == null )
         {

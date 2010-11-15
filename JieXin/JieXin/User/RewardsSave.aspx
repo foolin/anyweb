@@ -29,7 +29,7 @@
     </tr>
     <tr>
         <th scope="row">
-            <span class="orange">*</span>奖&nbsp;&nbsp;&nbsp;&nbsp;项
+            &nbsp;奖&nbsp;&nbsp;&nbsp;&nbsp;项
         </th>
         <td>
             <%=bean.fdRewaName %>

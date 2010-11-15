@@ -16,7 +16,7 @@
     <script type="text/javascript" src="../js/ajaxfileupload.js"></script>
 
     <script type="text/javascript" src="../js/Major.js"></script>
-    
+
     <script type="text/javascript" src="../js/Position.js"></script>
 
     <div class="resumePage">
@@ -27,6 +27,43 @@
                     添加简历</span></div>
             <div class="MemCon">
                 <div class="addResume">
+                    <div class="flowhidden">
+                        <div class="dTop">
+                            <span class="subTit_up" id="resume_up" onclick="object_toggle('resume')" title="收起"
+                                style="cursor: pointer"></span><span class="subTit" id="resume_down" onclick="object_toggle('resume')"
+                                    title="展开" style="cursor: pointer; display: none"></span><strong class="f14 green">简历信息</strong>(<span
+                                        class="orange">*</span>为必填项)</div>
+                        <div class="dCon" id="resume">
+                            <form action="/User/ResuNameSave.aspx?id=<%=QS("id") %>" id="resume_form" method="post">
+                            <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <th scope="row">
+                                    </th>
+                                    <td>
+                                        <span class="tipW red hidden" id="errorMsg_Name">简历名称不能为空！</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <span class="orange">*</span>简历名称
+                                    </th>
+                                    <td width="218">
+                                        <input id="Resu_Name" name="Resu_Name" class="pwdinput" maxlength="30" type="text"
+                                            value="我的简历" />
+                                    </td>
+                                    <td>
+                                        <span class="right">&nbsp;&nbsp;<input id="btn_resu_save" class="btn60_28" value="保 存"
+                                            onclick="resu_save('resume_form')" type="button"></span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="blank12px">
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="blank8px">
+                    </div>
                     <div class="flowhidden">
                         <div class="dTop">
                             <span class="subTit_up" id="info_up" onclick="object_toggle('info')" title="收起" style="cursor: pointer">
@@ -600,7 +637,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('edu',<%=QS("id") %>)">继续添加</a></div>
+                                    onclick="addinfo('edu',<%=QS("id") %>,this)">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -721,7 +758,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('rew',<%=QS("id") %>)">继续添加</a></div>
+                                    onclick="addinfo('rew',<%=QS("id") %>,this)">继续添加</a></div>
                             <div class="blank12px dashLine">
                             </div>
                             <div id="pos">
@@ -865,7 +902,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('pos',<%=QS("id") %>)">继续添加</a></div>
+                                    onclick="addinfo('pos',<%=QS("id") %>,this)">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -1096,7 +1133,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('work',<%=QS("id") %>)">继续添加</a></div>
+                                    onclick="addinfo('work',<%=QS("id") %>,this)">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -1353,7 +1390,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('lang',<%=QS("id") %>)">继续添加</a></div>
+                                    onclick="addinfo('lang',<%=QS("id") %>,this)">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                             <div id="level">
@@ -1472,89 +1509,91 @@
                     </div>
                     <div class="flowhidden">
                         <div class="dTop">
-                            <span class="subTit_up" id="cert_up" onclick="object_toggle('cert')" title="收起" style="cursor: pointer">
-                            </span><span class="subTit" id="cert_down" onclick="object_toggle('cert')" title="展开"
-                                style="cursor: pointer; display: none"></span><strong class="f14 green">证 书</strong>(<span
-                                    class="orange">*</span>为必填项)</div>
-                        <div class="dCon" id="cert">
-                            <div id="cert_<%=certID %>">
-                                <form action="/User/CertSave.aspx?id=<%=QS("id") %>&certid=<%=certID %>&type=add"
-                                id="cert_form_<%=certID %>" method="post">
-                                <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                        <th scope="row">
-                                        </th>
-                                        <td>
-                                            <span class="tipW red hidden" id="errorMsg_Date">请选择时间！</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <span class="orange">*</span>获得时间
-                                        </th>
-                                        <td>
-                                            <span class="right">
-                                                <input type="button" id="btn_cert_del" class="btn60_28_gray" value="删 除" onclick="delinfo('cert',<%=certID %>,'btn_cert_del','cert_<%=certID %>')" />
-                                                &nbsp;&nbsp;<input type="button" id="btn_cert_save" class="btn60_28" value="保 存"
-                                                    onclick="cert_save('cert_form_<%=certID %>')" /></span>
-                                            <select id="Cert_Year" name="Cert_Year">
-                                                <option selected="selected" value="0">年</option>
-                                                <%for( int i = DateTime.Now.Year; i >= 1940; i-- )
-                                                  { %>
-                                                <option value="<%=i%>">
-                                                    <%=i%></option>
-                                                <%} %>
-                                            </select>
-                                            <select id="Cert_Month" name="Cert_Month">
-                                                <option selected="selected" value="0">月</option>
-                                                <%for( int i = 1; i <= 12; i++ )
-                                                  { %>
-                                                <option value="<%=i%>">
-                                                    <%=i%></option>
-                                                <%} %>
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                        </th>
-                                        <td>
-                                            <span class="tipW red hidden" id="errorMsg_Name">名称不能为空！</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            <span class="orange">*</span>名&nbsp;&nbsp;&nbsp;&nbsp;称
-                                        </th>
-                                        <td>
-                                            <input type="text" id="Cert_Name" name="Cert_Name" class="pwdinput" style="width: 476px;"
-                                                maxlength="50" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                        </th>
-                                        <td>
-                                            <span class="tipW red hidden" id="errorMsg_Scores">请正确输入分数！</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">
-                                            &nbsp;成&nbsp;&nbsp;&nbsp;&nbsp;绩
-                                        </th>
-                                        <td>
-                                            <input type="text" id="Cert_Scores" name="Cert_Scores" class="pwdinput" style="width: 476px;"
-                                                maxlength="3" />
-                                        </td>
-                                    </tr>
-                                </table>
-                                <div class="blank6px">
+                            <span class="subTit_up" id="certinfo_up" onclick="object_toggle('certinfo')" title="收起"
+                                style="cursor: pointer"></span><span class="subTit" id="certinfo_down" onclick="object_toggle('certinfo')"
+                                    title="展开" style="cursor: pointer; display: none"></span><strong class="f14 green">证
+                                        书</strong>(<span class="orange">*</span>为必填项)</div>
+                        <div class="dCon" id="certinfo">
+                            <div id="cert">
+                                <div id="cert_<%=certID %>">
+                                    <form action="/User/CertSave.aspx?id=<%=QS("id") %>&certid=<%=certID %>&type=add"
+                                    id="cert_form_<%=certID %>" method="post">
+                                    <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                                <span class="tipW red hidden" id="errorMsg_Date">请选择时间！</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="orange">*</span>获得时间
+                                            </th>
+                                            <td>
+                                                <span class="right">
+                                                    <input type="button" id="btn_cert_del" class="btn60_28_gray" value="删 除" onclick="delinfo('cert',<%=certID %>,'btn_cert_del','cert_<%=certID %>')" />
+                                                    &nbsp;&nbsp;<input type="button" id="btn_cert_save" class="btn60_28" value="保 存"
+                                                        onclick="cert_save('cert_form_<%=certID %>')" /></span>
+                                                <select id="Cert_Year" name="Cert_Year">
+                                                    <option selected="selected" value="0">年</option>
+                                                    <%for( int i = DateTime.Now.Year; i >= 1940; i-- )
+                                                      { %>
+                                                    <option value="<%=i%>">
+                                                        <%=i%></option>
+                                                    <%} %>
+                                                </select>
+                                                <select id="Cert_Month" name="Cert_Month">
+                                                    <option selected="selected" value="0">月</option>
+                                                    <%for( int i = 1; i <= 12; i++ )
+                                                      { %>
+                                                    <option value="<%=i%>">
+                                                        <%=i%></option>
+                                                    <%} %>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                                <span class="tipW red hidden" id="errorMsg_Name">名称不能为空！</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="orange">*</span>名&nbsp;&nbsp;&nbsp;&nbsp;称
+                                            </th>
+                                            <td>
+                                                <input type="text" id="Cert_Name" name="Cert_Name" class="pwdinput" style="width: 476px;"
+                                                    maxlength="50" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                            </th>
+                                            <td>
+                                                <span class="tipW red hidden" id="errorMsg_Scores">请正确输入分数！</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                &nbsp;成&nbsp;&nbsp;&nbsp;&nbsp;绩
+                                            </th>
+                                            <td>
+                                                <input type="text" id="Cert_Scores" name="Cert_Scores" class="pwdinput" style="width: 476px;"
+                                                    maxlength="3" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="blank6px">
+                                    </div>
+                                    </form>
                                 </div>
-                                </form>
                             </div>
                             <div class=" lh24">
-                                <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('cert',<%=QS("id") %>)">继续添加</a></div>
+                                <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;" onclick="addinfo('cert',<%=QS("id") %>,this)">
+                                    继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -1631,7 +1670,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('awar',<%=QS("id") %>)">继续添加</a></div>
+                                    onclick="addinfo('awar',<%=QS("id") %>,this)">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -1719,7 +1758,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('skill',<%=QS("id") %>)">继续添加</a></div>
+                                    onclick="addinfo('skill',<%=QS("id") %>,this)">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>

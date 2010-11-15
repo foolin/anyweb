@@ -24,6 +24,42 @@ namespace AnyWell.AW_DL
         }
 
         /// <summary>
+        /// 获取简历名称
+        /// </summary>
+        /// <param name="resuId"></param>
+        /// <returns></returns>
+        public AW_Resume_bean funcGetResumeName( int resuId )
+        {
+            this.propSelect = "fdResuID,fdResuUserID,fdResuName,fdResuStatus";
+            this.propWhere = "fdResuID=" + resuId;
+            DataSet ds = this.funcCommon();
+            if( ds.Tables[ 0 ].Rows.Count > 0 )
+            {
+                AW_Resume_bean bean = new AW_Resume_bean();
+                bean.funcFromDataRow( ds.Tables[ 0 ].Rows[ 0 ] );
+                return bean;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 修改简历名称
+        /// </summary>
+        /// <param name="bean"></param>
+        /// <returns></returns>
+        public int funcUpdateResumeName( AW_Resume_bean bean )
+        {
+            string sql = "UPDATE AW_Resume SET fdResuName=@fdResuName,fdResuUpdateAt=@fdResuUpdateAt,fdResuStatus=0 WHERE fdResuID=@fdResuID";
+            this.funcAddParam( "@fdResuName", bean.fdResuName );
+            this.funcAddParam( "@fdResuUpdateAt", DateTime.Now );
+            this.funcAddParam( "@fdResuID", bean.fdResuID );
+            return this.funcExecute( sql );
+        }
+
+        /// <summary>
         /// 获取简历
         /// </summary>
         /// <param name="resuId"></param>
@@ -135,6 +171,53 @@ namespace AnyWell.AW_DL
             {
                 return DateTime.Parse("1900-01-01");
             }
+        }
+
+        /// <summary>
+        /// 刷新所有简历
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public int funcRefurbishAll(int userId)
+        {
+            string sql = string.Format( "UPDATE AW_Resume SET fdResuUpdateAt=@fdResuUpdateAt WHERE fdResuUserID=@fdResuUserID" );
+            this.funcAddParam( "@fdResuUpdateAt", DateTime.Now );
+            this.funcAddParam( "@fdResuUserID", userId );
+            return this.funcExecute( sql );
+        }
+
+        /// <summary>
+        /// 刷新简历
+        /// </summary>
+        /// <param name="resuId"></param>
+        /// <returns></returns>
+        public int funcRefurbish( int resuId )
+        {
+            string sql = string.Format( "UPDATE AW_Resume SET fdResuUpdateAt=@fdResuUpdateAt WHERE fdResuID=@fdResuID" );
+            this.funcAddParam( "@fdResuUpdateAt", DateTime.Now );
+            this.funcAddParam( "@fdResuID", resuId );
+            return this.funcExecute( sql );
+        }
+
+        /// <summary>
+        /// 获取简历
+        /// </summary>
+        /// <param name="resuId"></param>
+        /// <returns></returns>
+        public AW_Resume_bean funcGetResume( int resuId )
+        {
+            AW_Resume_bean bean = AW_Resume_bean.funcGetByID( resuId );
+            if( bean == null )
+                return null;
+            bean.EducationList = new AW_Education_dao().funcGetList();
+            bean.RewardList = new AW_Rewards_dao().funcGetList();
+            bean.PositionList = new AW_Position_dao().funcGetList();
+            bean.WorkList = new AW_Work_dao().funcGetList();
+            bean.LanguageList = new AW_Language_dao().funcGetList();
+            bean.CertList = new AW_Cert_dao().funcGetList();
+            bean.AwardList = new AW_Awards_dao().funcGetList();
+            bean.SkillList = new AW_Skills_dao().funcGetList();
+            return bean;
         }
 	}
 }

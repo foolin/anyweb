@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Studio.Web;
 using AnyWell.AW_DL;
+using AnyWell.Configs;
 
 public partial class AnyWell_Login : PageBase
 {
@@ -48,5 +49,7 @@ public partial class AnyWell_Login : PageBase
                 }
             }
         }
+
+        this.Title = "个人会员登录" + GeneralConfigs.GetConfig().TitleExtension;
     }
 }

@@ -34,5 +34,7 @@ public partial class AnyWell_GetPassword : PageBase
                 }
             }
         }
+
+        this.Title = "找回密码" + GeneralConfigs.GetConfig().TitleExtension;
     }
 }

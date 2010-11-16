@@ -36,6 +36,11 @@ public partial class Admin_ColumnEdit : PageAdmin
         txtDesc.Text = column.fdColuDescription;
         ListItem li = drpParent.Items.FindByValue(column.fdColuParentID.ToString());
         if (li != null) li.Selected = true;
+
+        if( column.fdColuType == 1 )
+        {
+            drpParent.Enabled = false;
+        }
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
@@ -45,6 +50,11 @@ public partial class Admin_ColumnEdit : PageAdmin
         using (AW_Column_dao dao = new AW_Column_dao())
         {
             AW_Column_bean column = dao.funcGetColumnInfo(int.Parse(QS("id")));
+
+            if( column.fdColuType == 1 && column.fdColuParentID != int.Parse( drpParent.SelectedValue ) )
+            {
+                WebAgent.AlertAndBack( "初始栏目，不允许父级栏目！" );
+            }
 
             if (column.Children != null && column.Children.Count > 0 && column.fdColuParentID != int.Parse(drpParent.SelectedValue))
                 WebAgent.AlertAndBack("该栏目存在子栏目，不允许修改其父级栏目!");

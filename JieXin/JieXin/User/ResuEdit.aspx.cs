@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Studio.Web;
 using AnyWell.AW_DL;
+using AnyWell.Configs;
 
 public partial class User_ResuEdit : PageUser
 {
@@ -45,6 +46,8 @@ public partial class User_ResuEdit : PageUser
         //技能
         repSkill.DataSource = bean.SkillList;
         repSkill.DataBind();
+
+        this.Title = "修改简历" + GeneralConfigs.GetConfig().TitleExtension;
     }
 
     private AW_Resume_bean _bean;

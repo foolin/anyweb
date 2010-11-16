@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
+using AnyWell.Configs;
 
 public partial class User_Index : PageUser
 {
@@ -16,6 +17,7 @@ public partial class User_Index : PageUser
             rep.DataSource = dao.funcGetResumeList( this.LoginUser.fdUserID );
             rep.DataBind();
         }
+        this.Title = "简历管理" + GeneralConfigs.GetConfig().TitleExtension;
     }
 
     private int _resuCount;

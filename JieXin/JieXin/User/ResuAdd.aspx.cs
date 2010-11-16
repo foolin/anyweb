@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
 using Studio.Web;
+using AnyWell.Configs;
 
 public partial class User_ResuAdd : PageUser
 {
@@ -32,6 +33,8 @@ public partial class User_ResuAdd : PageUser
         this._certId = new AW_Cert_dao().funcNewID();
         this._awarId = new AW_Awards_dao().funcNewID();
         this._skillId = new AW_Skills_dao().funcNewID();
+
+        this.Title = "添加简历" + GeneralConfigs.GetConfig().TitleExtension;
     }
 
     private int _eduId;

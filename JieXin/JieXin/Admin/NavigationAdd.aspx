@@ -109,10 +109,10 @@
                     <asp:ListItem Value="8" Text="自定义链接"></asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <div id="divColumn" class="fi" style="display:none" onchange="ChangeColumn()">
+            <div id="divColumn" class="fi" style="display:none">
                 <label>
                     文章栏目：</label>
-                <asp:DropDownList ID="drpColumn" runat="server">
+                <asp:DropDownList ID="drpColumn" runat="server" onchange="ChangeColumn()">
                 </asp:DropDownList>
             </div>
             <div id="divRecruit" class="fi" style="display:none">

@@ -11,6 +11,7 @@ using System.Web.UI.WebControls.WebParts;
 using Studio.Web;
 using AnyWell.AW_DL;
 using Studio.Security;
+using AnyWell.Configs;
 
 public partial class User_MemAddInfo : PageUser
 {
@@ -140,10 +141,7 @@ public partial class User_MemAddInfo : PageUser
             //个人主页
             txtWebsite.Text = bean.fdUserWebsite;
         }
-
-        
-
-        if (IsPostBack)
+        else
         {
             using (AW_User_dao dao = new AW_User_dao())
             {
@@ -227,5 +225,7 @@ public partial class User_MemAddInfo : PageUser
                 WebAgent.SuccAndGo( "保存成功！", "/User/MemAddInfo.aspx" );
             }
         }
+
+        this.Title = "基本信息管理" + GeneralConfigs.GetConfig().TitleExtension;
     }
 }

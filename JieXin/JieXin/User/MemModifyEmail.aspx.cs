@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
 using Studio.Web;
+using AnyWell.Configs;
 
 public partial class User_MemModifyEmail : PageUser
 {
@@ -23,5 +24,7 @@ public partial class User_MemModifyEmail : PageUser
                 WebAgent.SuccAndGo( "保存成功！", "/User/MemModifyEmail.aspx" );
             }
         }
+
+        this.Title = "邮箱管理" + GeneralConfigs.GetConfig().TitleExtension;
     }
 }

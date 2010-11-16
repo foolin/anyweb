@@ -55,7 +55,15 @@ namespace AnyWell.AW_DL
 			get{return _fdColuParentID;}
 			set{_fdColuParentID = value;}
 		}
-
+        private int _fdColuType = 0;
+        /// <summary>
+        /// 栏目类型(0:普通栏目1:初始栏目)
+        /// </summary>
+        public int fdColuType
+        {
+            get{return _fdColuType;}
+            set{_fdColuType = value;}
+        }
 
 		/////////////////////////////////////////
 		

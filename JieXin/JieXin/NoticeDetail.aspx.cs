@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
+using AnyWell.Configs;
 
 public partial class NoticeDetail : PageBase
 {
@@ -23,6 +24,6 @@ public partial class NoticeDetail : PageBase
         }
         HttpContext.Current.Items.Add( "NOTICEID_" + noticeid, notice );
 
-        this.Title = "广州市杰信人力资源有限公司 - " + notice.fdNotiTitle;
+        this.Title = notice.fdNotiTitle + GeneralConfigs.GetConfig().TitleExtension;
     }
 }

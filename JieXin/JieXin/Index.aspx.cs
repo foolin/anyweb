@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Studio.Web;
 using AnyWell.AW_DL;
+using AnyWell.Configs;
 
 public partial class Index : PageBase
 {
@@ -41,5 +42,7 @@ public partial class Index : PageBase
                 }
             }
         }
+
+        this.Title = "广州市杰信人力资源有限公司" + GeneralConfigs.GetConfig().TitleExtension;
     }
 }

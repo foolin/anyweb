@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
+using AnyWell.Configs;
 
 public partial class AnyWell_Column : PageBase
 {
@@ -23,6 +24,6 @@ public partial class AnyWell_Column : PageBase
         }
         HttpContext.Current.Items.Add( "COLUMN_" + columnid, column );
 
-        this.Title = "广州市杰信人力资源有限公司 - " + column.fdColuName;
+        this.Title = column.fdColuName + GeneralConfigs.GetConfig().TitleExtension;
     }
 }

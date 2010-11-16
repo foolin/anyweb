@@ -66,6 +66,8 @@ public partial class Register : PageBase
                 Response.Redirect( "/User/Index.aspx" );
             }
         }
+
+        this.Title = "个人会员注册" + GeneralConfigs.GetConfig().TitleExtension;
     }
 
     protected override void OnPreRender( EventArgs e )

@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
+using AnyWell.Configs;
 
 public partial class AnyWell_RecruitList : PageBase
 {
@@ -28,6 +29,8 @@ public partial class AnyWell_RecruitList : PageBase
             repResu.DataSource = resuList;
             repResu.DataBind();
         }
+
+        this.Title = "职位列表" + GeneralConfigs.GetConfig().TitleExtension;
     }
 
     protected List<AW_Resume_bean> _resuList;

@@ -36,7 +36,7 @@
                             <td>
                                 <a href="ColumnEdit.aspx?id=<%# Eval("fdColuID")%>">修改</a> <a href="ColumnSort.aspx?type=up&id=<%# Eval("fdColuID")%>">
                                     排前</a> <a href="ColumnSort.aspx?type=down&id=<%# Eval("fdColuID")%>">排后</a><a href="ColumnDel.aspx?id=<%# Eval("fdColuID")%>"
-                                        onclick="return confirm('您确定要删除吗?')"> 删除</a>
+                                        onclick="<%#(int)Eval("fdColuType")==1?"alert('初始栏目，不允许删除！');return false;":"return confirm('您确定要删除吗?')" %>"> 删除</a>
                             </td>
                         </tr>
                         <asp:Repeater ID="compChild" runat="server" DataSource='<%#Eval("Children") %>'>
@@ -49,7 +49,7 @@
                                     <td>
                                         <a href="ColumnEdit.aspx?id=<%# Eval("fdColuID")%>">修改</a> <a href="ColumnSort.aspx?type=up&id=<%# Eval("fdColuID")%>">
                                             排前</a> <a href="ColumnSort.aspx?type=down&id=<%# Eval("fdColuID")%>">排后</a>
-                                        <a href="ColumnDel.aspx?id=<%# Eval("fdColuID")%>" onclick="return confirm('您确定要删除吗?')">
+                                        <a href="ColumnDel.aspx?id=<%# Eval("fdColuID")%>" onclick="<%#(int)Eval("fdColuType")==1?"alert('初始栏目，不允许删除！');return false;":"return confirm('您确定要删除吗?')" %>">
                                             删除</a>
                                     </td>
                                 </tr>
@@ -65,6 +65,7 @@
     <div>
         <ul class="Help">
             <li>栏目最多可支持二级栏目</li>
+            <li>初始栏目，不允许修改父级栏目或删除</li>
         </ul>
     </div>
 

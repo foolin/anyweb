@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
 using Studio.Web;
+using AnyWell.Configs;
 
 public partial class Recruit : PageBase
 {
@@ -22,7 +23,7 @@ public partial class Recruit : PageBase
             goErrorPage();
         }
 
-        this.Title = "广州市杰信人力资源有限公司 - " + bean.fdRecrTitle;
+        this.Title = bean.fdRecrTitle + GeneralConfigs.GetConfig().TitleExtension;
 
         if( this.LoginUser != null )
         {

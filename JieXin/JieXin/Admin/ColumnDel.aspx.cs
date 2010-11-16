@@ -27,6 +27,12 @@ public partial class Admin_ColumnDel : PageAdmin
         {
             WebAgent.AlertAndBack("栏目不存在！");
         }
+
+        if( bean.fdColuType == 1 )
+        {
+            WebAgent.AlertAndBack( "初始栏目，不允许删除！" );
+        }
+
         (new AW_Column_dao()).funcDeleteColumn(bean.fdColuID);
         this.AddLog(EventType.Delete, "删除栏目", "删除栏目[" + bean.fdColuName + "]");
         WebAgent.SuccAndGo("删除成功", backUrl);

@@ -24,5 +24,7 @@ public partial class User_MemModifyPwd : PageUser
                 WebAgent.SuccAndGo( "保存成功！", "/User/MemModifyPwd.aspx" );
             }
         }
+
+        this.Title = "密码管理" + GeneralConfigs.GetConfig().TitleExtension;
     }
 }

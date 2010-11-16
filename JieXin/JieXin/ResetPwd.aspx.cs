@@ -6,6 +6,7 @@ using System.Web.UI.WebControls;
 using Studio.Web;
 using AnyWell.AW_DL;
 using Studio.Security;
+using AnyWell.Configs;
 
 public partial class AnyWell_ResetPwd : PageBase
 {
@@ -49,5 +50,7 @@ public partial class AnyWell_ResetPwd : PageBase
                 }
             }
         }
+
+        this.Title = "重置密码" + GeneralConfigs.GetConfig().TitleExtension;
     }
 }

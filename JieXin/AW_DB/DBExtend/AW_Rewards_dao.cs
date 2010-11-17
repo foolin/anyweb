@@ -10,5 +10,14 @@ namespace AnyWell.AW_DL
 {
 	public partial class AW_Rewards_dao
 	{
+        public List<AW_Rewards_bean> funcGetRewardList( int resuId, bool isShow )
+        {
+            this.propWhere = "fdRewaResuID=" + resuId;
+            if( !isShow )
+            {
+                this.propWhere += " AND fdRewaIsShow=0";
+            }
+            return this.funcGetList();
+        }
 	}
 }

@@ -204,19 +204,19 @@ namespace AnyWell.AW_DL
         /// </summary>
         /// <param name="resuId"></param>
         /// <returns></returns>
-        public AW_Resume_bean funcGetResume( int resuId )
+        public AW_Resume_bean funcGetResume( int resuId, bool isShow )
         {
             AW_Resume_bean bean = AW_Resume_bean.funcGetByID( resuId );
             if( bean == null )
                 return null;
-            bean.EducationList = new AW_Education_dao().funcGetList();
-            bean.RewardList = new AW_Rewards_dao().funcGetList();
-            bean.PositionList = new AW_Position_dao().funcGetList();
-            bean.WorkList = new AW_Work_dao().funcGetList();
-            bean.LanguageList = new AW_Language_dao().funcGetList();
-            bean.CertList = new AW_Cert_dao().funcGetList();
-            bean.AwardList = new AW_Awards_dao().funcGetList();
-            bean.SkillList = new AW_Skills_dao().funcGetList();
+            bean.EducationList = new AW_Education_dao().funcGetEducationList( resuId );
+            bean.RewardList = new AW_Rewards_dao().funcGetRewardList( resuId, isShow );
+            bean.PositionList = new AW_Position_dao().funcGetPositionList( resuId, isShow );
+            bean.WorkList = new AW_Work_dao().funcGetWorkList( resuId );
+            bean.LanguageList = new AW_Language_dao().funcGetLanguageList( resuId );
+            bean.CertList = new AW_Cert_dao().funcGetCertList( resuId );
+            bean.AwardList = new AW_Awards_dao().funcGetAwardList( resuId );
+            bean.SkillList = new AW_Skills_dao().funcGetSkillList( resuId );
             return bean;
         }
 	}

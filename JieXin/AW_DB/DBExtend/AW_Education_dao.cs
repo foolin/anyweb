@@ -10,5 +10,10 @@ namespace AnyWell.AW_DL
 {
 	public partial class AW_Education_dao
 	{
+        public List<AW_Education_bean> funcGetEducationList( int resuId )
+        {
+            this.propWhere = "fdEducResuID=" + resuId;
+            return this.funcGetList();
+        }
 	}
 }

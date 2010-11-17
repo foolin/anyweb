@@ -10,5 +10,10 @@ namespace AnyWell.AW_DL
 {
 	public partial class AW_Language_dao
 	{
+        public List<AW_Language_bean> funcGetLanguageList( int resuId )
+        {
+            this.propWhere = "fdLangResuID=" + resuId;
+            return this.funcGetList();
+        }
 	}
 }

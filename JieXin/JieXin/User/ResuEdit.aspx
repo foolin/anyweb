@@ -959,7 +959,7 @@
                     <div class="blank30px">
                     </div>
                     <div class="tc">
-                        <a href="javascript:void(0);" id="btn_save_all" class="btn94_28" onclick="all_save()">
+                        <a href="javascript:void(0);" id="btn_save_all" class="btn94_28" onclick="all_save();return false;">
                             保存简历</a>
                     </div>
                     <div class="blank30px">

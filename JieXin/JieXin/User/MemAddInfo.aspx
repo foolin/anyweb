@@ -429,7 +429,7 @@
             }
 
             if (!error) {
-                document.getElementById("<%=txtName.ClientID %>").scrollIntoView();
+                $(document).scrollTop($("#<%=txtName.ClientID %>").offset().top);
             }
 
             return error;

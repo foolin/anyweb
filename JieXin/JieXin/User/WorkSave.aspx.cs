@@ -37,7 +37,7 @@ public partial class User_WorkSave : PageUser
             bean.fdWorkResuID = int.Parse( QS( "id" ) );
             bean.fdWorkBegin = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Work_FromYear" ), QF( "Work_FromMonth" ) ) );
             if( QF( "Work_ToYear" ) != "0" && QF( "Work_ToMonth" ) != "0" )
-                bean.fdWorkEnd = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Edu_ToYear" ), QF( "Edu_ToMonth" ) ) );
+                bean.fdWorkEnd = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Work_ToYear" ), QF( "Work_ToMonth" ) ) );
             else
                 bean.fdWorkEnd = DateTime.Parse( "1900-01-01" );
             bean.fdWorkName = QF( "Work_Name" ).Trim();
@@ -96,7 +96,7 @@ public partial class User_WorkSave : PageUser
 
             bean.fdWorkBegin = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Work_FromYear" ), QF( "Work_FromMonth" ) ) );
             if( QF( "Work_ToYear" ) != "0" && QF( "Work_ToMonth" ) != "0" )
-                bean.fdWorkEnd = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Edu_ToYear" ), QF( "Edu_ToMonth" ) ) );
+                bean.fdWorkEnd = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Work_ToYear" ), QF( "Work_ToMonth" ) ) );
             else
                 bean.fdWorkEnd = DateTime.Parse( "1900-01-01" );
             bean.fdWorkName = QF( "Work_Name" ).Trim();

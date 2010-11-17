@@ -154,7 +154,7 @@
         }
     }
 
-    string[] urls = { "/", "/index.aspx", "/login.aspx", "/import.aspx", "/User/Index.aspx", "/logout.aspx", "/search.aspx", "/register.aspx", "/notice.aspx", "/addfavorite.aspx", "/applyresume.aspx", "/applyresumes.aspx", "/refurbishall.aspx", "/recruitlist.aspx", "/getpassword.aspx", "/resetpwd.aspx", "/initarea.aspx", "/initmajor.aspx", "/initindustryweb.aspx", "/initposition.aspx", "/initpositionweb.aspx", "/test.aspx" };
+    string[] urls = { "/", "/index.aspx", "/login.aspx", "/import.aspx", "/User/Index.aspx", "/logout.aspx", "/search.aspx", "/register.aspx", "/notice.aspx", "/addfavorite.aspx", "/applyresume.aspx", "/applyresumes.aspx", "/refurbishall.aspx", "/recruitlist.aspx", "/getpassword.aspx", "/resetpwd.aspx", "/initarea.aspx", "/initmajor.aspx", "/initindustryweb.aspx", "/initposition.aspx", "/initpositionweb.aspx" };
        
 </script>
 

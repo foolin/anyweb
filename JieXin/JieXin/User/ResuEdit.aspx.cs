@@ -16,7 +16,7 @@ public partial class User_ResuEdit : PageUser
             WebAgent.FailAndGo( "简历不存在！", "/User/Index.aspx" );
         }
 
-        bean = new AW_Resume_dao().funcGetResume( int.Parse( QS( "id" ) ) );
+        bean = new AW_Resume_dao().funcGetResume( int.Parse( QS( "id" ) ), true );
         if( bean == null || bean.fdResuUserID != this.LoginUser.fdUserID )
         {
             WebAgent.FailAndGo( "简历不存在！", "/User/Index.aspx" );

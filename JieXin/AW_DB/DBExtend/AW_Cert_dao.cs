@@ -10,5 +10,10 @@ namespace AnyWell.AW_DL
 {
 	public partial class AW_Cert_dao
 	{
+        public List<AW_Cert_bean> funcGetCertList( int resuId )
+        {
+            this.propWhere = "fdCertResuID=" + resuId;
+            return this.funcGetList();
+        }
 	}
 }

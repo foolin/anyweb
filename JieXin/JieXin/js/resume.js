@@ -4,6 +4,8 @@ var EDU_ACTIVE_ID, REW_ACTIVE_ID, POS_ACTIVE_ID, WORK_ACTIVE_ID, LANG_ACTIVE_ID,
 function warnuser() {
     if ($("form").length > 0 && !completed) {
         return true;
+    } else {
+        completed = false;
     }
 }
 
@@ -999,6 +1001,7 @@ function skill_check(skill_id) {
 
 function all_save() {
     returned = submited = 0;
+    completed = false;
     var form_all = $("form");
     if (form_all.length > 0) {
         if (all_check()) {
@@ -1013,6 +1016,7 @@ function all_save() {
             check_status();
         }
     } else {
+        completed = true;
         window.location = "/User/Index.aspx";
     }
 }
@@ -1032,9 +1036,10 @@ function all_save() {
      }
  }
 
-
+ var err_from;
 function all_check() {
     var err = true;
+    err_from = "";
     var form_all = $("form");
     for (var i = 0; i < form_all.length; i++) {
         if (form_all[i].id.indexOf("Info_form") > -1) {
@@ -1060,6 +1065,16 @@ function all_check() {
         } else if (form_all[i].id.indexOf("skill_form") > -1) {
             err = skill_check(form_all[i].id);
         }
+        if (!err)
+            setErrorForm(form_all[i]);
     }
     return err;
+}
+
+function setErrorForm(obj) {
+    if (!err_from) {
+        err_from = obj;
+        completed = true;
+        $(document).scrollTop($(obj).offset().top);
+    }
 }

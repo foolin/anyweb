@@ -46,7 +46,7 @@
                                         </td>
                                         <td>
                                             <a href="ResuEdit.aspx?id=<%#Eval("fdResuID") %>" class="green line">修改</a> <a href="ResuRefurbish.aspx?id=<%#Eval("fdResuID") %>"
-                                                class="green line">刷新</a> <a href="ResuView.aspx?id=<%#Eval("fdResuID") %>" class="green line">
+                                                class="green line">刷新</a> <a href="ResuView.aspx?id=<%#Eval("fdResuID") %>" target="_blank" class="green line">
                                                     预览</a> <a href="ResuDel.aspx?id=<%#Eval("fdResuID") %>" class="green line" onclick="return confirm('您确定要删除吗?')">
                                                         删除</a>
                                         </td>

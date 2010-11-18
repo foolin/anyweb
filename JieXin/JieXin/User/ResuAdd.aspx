@@ -21,7 +21,7 @@
 
     <div class="resumePage">
         <uc1:UserSidebar runat="server" />
-        <div class="content column">
+        <div class="content">
             <div class="tit gray">
                 <a href="/Index.aspx">首页</a> > <a href="/User/Index.aspx">个人会员</a> > <span class="green">
                     添加简历</span></div>
@@ -216,7 +216,7 @@
                                                     <span class="orange">*</span>居&nbsp;住&nbsp;地
                                                 </th>
                                                 <td width="218">
-                                                    <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','AddressID','Address','选择/修改')"
+                                                    <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','AddressID','Address','选择/修改');return false;"
                                                         id="Place" class="btn28H" style="font-size: 12px;">
                                                         <%=this.LoginUser.fdUserAddressID == 0 ? "选择/修改" : this.LoginUser.fdUserAddress%></a>
                                                     <input type="hidden" id="AddressID" name="AddressID" value="<%=this.LoginUser.fdUserAddressID%>" />
@@ -342,7 +342,7 @@
                                                     &nbsp;户&nbsp;&nbsp;&nbsp;&nbsp;口
                                                 </th>
                                                 <td>
-                                                    <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','HouseAddressID','HouseAddress','选择/修改')"
+                                                    <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','HouseAddressID','HouseAddress','选择/修改');return false;"
                                                         id="Hukou" class="btn28H" style="font-size: 12px;">
                                                         <%=this.LoginUser.fdUserHouseAddressID == 0 ? "选择/修改" : this.LoginUser.fdUserHouseAddress%></a>
                                                     <input type="hidden" id="HouseAddressID" name="HouseAddressID" value="<%=this.LoginUser.fdUserHouseAddressID%>" />
@@ -367,8 +367,8 @@
                                             </tr>
                                             <tr>
                                                 <td class="green tc">
-                                                    <a href="javascript:void(0);" onclick="upload()">编辑>></a>&nbsp;&nbsp;<a href="javascript:void(0);"
-                                                        onclick="delphoto()">删除>></a>
+                                                    <a href="javascript:void(0);" onclick="upload();return false;">编辑>></a>&nbsp;&nbsp;<a
+                                                        href="javascript:void(0);" onclick="delphoto();return false;">删除>></a>
                                                 </td>
                                             </tr>
                                         </table>
@@ -378,8 +378,8 @@
                             <div class="blank12px">
                             </div>
                             <div class=" lh24 green">
-                                <a href="javascript:void(0);" onclick="object_toggle('ext_info')">查看更多个人信息<span id="ext_info_up"
-                                    style="display: none">↑</span><span id="ext_info_down">↓</span></a></div>
+                                <a href="javascript:void(0);" onclick="object_toggle('ext_info');return false;">查看更多个人信息<span
+                                    id="ext_info_up" style="display: none">↑</span><span id="ext_info_down">↓</span></a></div>
                             <table id="ext_info" width="598" class="tableInfo" style="display: none" border="0"
                                 cellspacing="0" cellpadding="0">
                                 <tr>
@@ -553,7 +553,7 @@
                                             </th>
                                             <td>
                                                 <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;"
-                                                    onclick="ChooseMajor(this, 'major', 'Edu_SpecialityID', 'Edu_Speciality', '选择/修改')">
+                                                    onclick="ChooseMajor(this, 'major', 'Edu_SpecialityID', 'Edu_Speciality', '选择/修改');return false;">
                                                     选择/修改</a>
                                                 <input type="text" id="Edu_OtherSpeciality" name="Edu_OtherSpeciality" class="pwdinput"
                                                     value="若无合适项，请在此填写" style="color: #999;" maxlength="20" onclick="if('若无合适项，请在此填写'==this.value){this.value='';this.style.color='#000';}"
@@ -624,8 +624,8 @@
                                                 海外学习经历
                                             </th>
                                             <td>
-                                                <input type="radio" name="forlen" value="0" checked="checked" />是<input type="radio"
-                                                    value="1" name="forlen" />
+                                                <input type="radio" name="Edu_IsOverSeas" value="0" checked="checked" />是<input type="radio"
+                                                    value="1" name="Edu_IsOverSeas" />
                                                 否
                                             </td>
                                         </tr>
@@ -637,7 +637,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('edu',<%=QS("id") %>,this)">继续添加</a></div>
+                                    onclick="addinfo('edu',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -652,20 +652,11 @@
                                         class="orange">*</span>为必填项)</div>
                         <div id="learninfo" class="dCon">
                             <div id="rew">
+                                <strong class="green">奖励</strong>
                                 <div id="rew_<%=rewardsID %>">
                                     <form action="/User/RewardsSave.aspx?id=<%=QS("id") %>&rewid=<%=rewardsID %>&type=add"
                                     id="rew_form_<%=rewardsID %>" method="post">
                                     <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <th scope="row">
-                                                <strong class="green">奖励</strong>
-                                            </th>
-                                            <td>
-                                                <span class="right">
-                                                    <input type="button" id="btn_rew_del" class="btn60_28_gray" value="删 除" onclick="delinfo('rew',<%=rewardsID %>,'btn_rew_del','rew_<%=rewardsID %>')" />
-                                                    &nbsp;&nbsp;<input type="button" id="btn_rew_save" class="btn60_28" value="保 存" onclick="rew_save('rew_form_<%=rewardsID %>')" /></span>
-                                            </td>
-                                        </tr>
                                         <tr>
                                             <th scope="row">
                                             </th>
@@ -679,6 +670,9 @@
                                                 <span class="orange">*</span>时&nbsp;&nbsp;&nbsp;&nbsp;间
                                             </th>
                                             <td>
+                                                <span class="right">
+                                                    <input type="button" id="btn_rew_del" class="btn60_28_gray" value="删 除" onclick="delinfo('rew',<%=rewardsID %>,'btn_rew_del','rew_<%=rewardsID %>')" />
+                                                    &nbsp;&nbsp;<input type="button" id="btn_rew_save" class="btn60_28" value="保 存" onclick="rew_save('rew_form_<%=rewardsID %>')" /></span>
                                                 <select id="Rew_FromYear" name="Rew_FromYear">
                                                     <option selected="selected" value="0">年</option>
                                                     <%for( int i = DateTime.Now.Year; i >= 1940; i-- )
@@ -758,24 +752,15 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('rew',<%=QS("id") %>,this)">继续添加</a></div>
+                                    onclick="addinfo('rew',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank12px dashLine">
                             </div>
                             <div id="pos">
+                                <strong class="green">职务</strong>
                                 <div id="pos_<%=posiID %>">
                                     <form action="/User/PositionSave.aspx?id=<%=QS("id") %>&posid=<%=posiID %>&type=add"
                                     id="pos_form_<%=posiID %>" method="post">
                                     <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <th scope="row">
-                                                <strong class="green">职务</strong>
-                                            </th>
-                                            <td>
-                                                <span class="right">
-                                                    <input type="button" id="btn_pos_del" class="btn60_28_gray" value="删 除" onclick="delinfo('pos',<%=posiID %>,'btn_pos_del','pos_<%=posiID %>')" />
-                                                    &nbsp;&nbsp;<input type="button" id="btn_pos_save" class="btn60_28" value="保 存" onclick="pos_save('pos_form_<%=posiID %>')" /></span>
-                                            </td>
-                                        </tr>
                                         <tr>
                                             <th scope="row">
                                             </th>
@@ -789,6 +774,9 @@
                                                 <span class="orange">*</span>时&nbsp;&nbsp;&nbsp;&nbsp;间
                                             </th>
                                             <td>
+                                                <span class="right">
+                                                    <input type="button" id="btn_pos_del" class="btn60_28_gray" value="删 除" onclick="delinfo('pos',<%=posiID %>,'btn_pos_del','pos_<%=posiID %>')" />
+                                                    &nbsp;&nbsp;<input type="button" id="btn_pos_save" class="btn60_28" value="保 存" onclick="pos_save('pos_form_<%=posiID %>')" /></span>
                                                 <select id="Pos_FromYear" name="Pos_FromYear">
                                                     <option selected="selected" value="0">年</option>
                                                     <%for( int i = DateTime.Now.Year; i >= 1940; i-- )
@@ -902,7 +890,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('pos',<%=QS("id") %>,this)">继续添加</a></div>
+                                    onclick="addinfo('pos',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -998,7 +986,7 @@
                                             </th>
                                             <td>
                                                 <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;"
-                                                    onclick="ChooseIndustry(this, 'ChooseIndustry', 'Work_IndustryID', 'Work_Industry', '选择/修改')">
+                                                    onclick="ChooseIndustry(this, 'ChooseIndustry', 'Work_IndustryID', 'Work_Industry', '选择/修改');return false;">
                                                     选择/修改</a>
                                                 <input type="hidden" id="Work_IndustryID" name="Work_IndustryID" />
                                                 <input type="hidden" id="Work_Industry" name="Work_Industry" />
@@ -1072,7 +1060,7 @@
                                             </th>
                                             <td>
                                                 <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;"
-                                                    onclick="ChoosePosition(this, 'ChoosePosition', 'Work_JobID', 'Work_Job', '选择/修改')">
+                                                    onclick="ChoosePosition(this, 'ChoosePosition', 'Work_JobID', 'Work_Job', '选择/修改');return false;">
                                                     选择/修改</a>
                                                 <input type="text" id="Work_OtherJob" name="Work_OtherJob" class="pwdinput" value="若无合适项，请在此填写"
                                                     style="color: #999;" onclick="if('若无合适项，请在此填写'==this.value){this.value='';this.style.color='#000';}"
@@ -1133,7 +1121,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('work',<%=QS("id") %>,this)">继续添加</a></div>
+                                    onclick="addinfo('work',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -1390,7 +1378,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('lang',<%=QS("id") %>,this)">继续添加</a></div>
+                                    onclick="addinfo('lang',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                             <div id="level">
@@ -1592,8 +1580,8 @@
                                 </div>
                             </div>
                             <div class=" lh24">
-                                <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;" onclick="addinfo('cert',<%=QS("id") %>,this)">
-                                    继续添加</a></div>
+                                <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
+                                    onclick="addinfo('cert',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -1670,7 +1658,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('awar',<%=QS("id") %>,this)">继续添加</a></div>
+                                    onclick="addinfo('awar',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -1758,7 +1746,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('skill',<%=QS("id") %>,this)">继续添加</a></div>
+                                    onclick="addinfo('skill',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>

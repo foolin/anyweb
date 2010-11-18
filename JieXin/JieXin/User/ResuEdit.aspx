@@ -21,7 +21,7 @@
 
     <div class="resumePage">
         <uc1:UserSidebar ID="UserSidebar1" runat="server" />
-        <div class="content column">
+        <div class="content">
             <div class="tit gray">
                 <a href="/Index.aspx">首页</a> > <a href="/User/Index.aspx">个人会员</a> > <span class="green">
                     修改简历</span></div>
@@ -198,8 +198,8 @@
                             <div class="blank12px">
                             </div>
                             <div class=" lh24 green">
-                                <a href="javascript:void(0);" onclick="object_toggle('ext_info')">查看更多个人信息<span id="ext_info_up"
-                                    style="display: none">↑</span><span id="ext_info_down">↓</span></a></div>
+                                <a href="javascript:void(0);" onclick="object_toggle('ext_info');return false;">查看更多个人信息<span
+                                    id="ext_info_up" style="display: none">↑</span><span id="ext_info_down">↓</span></a></div>
                             <table id="ext_info" width="598" class="tableInfo" style="display: none" border="0"
                                 cellspacing="0" cellpadding="0">
                                 <tr>
@@ -330,7 +330,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('edu',<%=QS("id") %>,this)">继续添加</a></div>
+                                    onclick="addinfo('edu',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -345,24 +345,18 @@
                                         class="orange">*</span>为必填项)</div>
                         <div id="learninfo" class="dCon">
                             <div id="rew">
+                                <strong class="green">奖励</strong>
                                 <asp:Repeater ID="repRew" runat="server">
                                     <ItemTemplate>
                                         <div id="rew_<%#Eval("fdRewaID") %>">
                                             <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
                                                 <tr>
                                                     <th scope="row">
-                                                        <strong class="green">奖励</strong>
+                                                        &nbsp;时&nbsp;&nbsp;&nbsp;&nbsp;间
                                                     </th>
                                                     <td>
                                                         <span class="right">&nbsp;&nbsp;<input type="button" id="btn_rew_edit" class="btn60_28"
                                                             value="修 改" onclick="editinfo('rew',<%#Eval("fdRewaID") %>,'btn_rew_edit','rew_<%#Eval("fdRewaID") %>')" /></span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">
-                                                        &nbsp;时&nbsp;&nbsp;&nbsp;&nbsp;间
-                                                    </th>
-                                                    <td>
                                                         <%#Eval( "fdRewaBegin", "{0:yyyy年M月}" )%>
                                                         到
                                                         <%#( ( DateTime ) Eval( "fdRewaEnd" ) ).Year != 1900 ? Eval( "fdRewaEnd", "{0:yyyy年M月}" ) : "至今"%>
@@ -401,28 +395,22 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('rew',<%=QS("id") %>,this)">继续添加</a></div>
+                                    onclick="addinfo('rew',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank12px dashLine">
                             </div>
                             <div id="pos">
+                                <strong class="green">职务</strong>
                                 <asp:Repeater ID="repPos" runat="server">
                                     <ItemTemplate>
                                         <div id="pos_<%#Eval("fdPosiID") %>">
                                             <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
                                                 <tr>
                                                     <th scope="row">
-                                                        <strong class="green">职务</strong>
+                                                        &nbsp;时&nbsp;&nbsp;&nbsp;&nbsp;间
                                                     </th>
                                                     <td>
                                                         <span class="right">&nbsp;&nbsp;<input type="button" id="btn_pos_edit" class="btn60_28"
                                                             value="修 改" onclick="editinfo('pos',<%#Eval("fdPosiID") %>,'btn_pos_edit','pos_<%#Eval("fdPosiID") %>')" /></span>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">
-                                                        &nbsp;时&nbsp;&nbsp;&nbsp;&nbsp;间
-                                                    </th>
-                                                    <td>
                                                         <%#Eval( "fdPosiBegin", "{0:yyyy年M月}" )%>
                                                         到
                                                         <%#( ( DateTime ) Eval( "fdPosiEnd" ) ).Year != 1900 ? Eval( "fdPosiEnd", "{0:yyyy年M月}" ) : "至今"%>
@@ -469,7 +457,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('pos',<%=QS("id") %>,this)">继续添加</a></div>
+                                    onclick="addinfo('pos',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -578,7 +566,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('work',<%=QS("id") %>,this)">继续添加</a></div>
+                                    onclick="addinfo('work',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -743,7 +731,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('lang',<%=QS("id") %>,this)">继续添加</a></div>
+                                    onclick="addinfo('lang',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                             <div id="level">
@@ -849,7 +837,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('cert',<%=QS("id") %>,this)">继续添加</a></div>
+                                    onclick="addinfo('cert',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -895,7 +883,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('awar',<%=QS("id") %>,this)">继续添加</a></div>
+                                    onclick="addinfo('awar',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>
@@ -951,7 +939,7 @@
                             </div>
                             <div class=" lh24">
                                 <a href="javascript:void(0);" id="btn_info_add" class="btn28H" style="font-size: 12px;"
-                                    onclick="addinfo('skill',<%=QS("id") %>,this)">继续添加</a></div>
+                                    onclick="addinfo('skill',<%=QS("id") %>,this);return false;">继续添加</a></div>
                             <div class="blank6px">
                             </div>
                         </div>

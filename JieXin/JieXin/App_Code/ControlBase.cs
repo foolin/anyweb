@@ -108,14 +108,16 @@ public class ControlBase : System.Web.UI.UserControl
         switch( currTypeID )
         {
             case 1:
-                return "港币";
+                return "人民币";
             case 2:
-                return "美元";
+                return "港币";
             case 3:
-                return "日元";
+                return "美元";
             case 4:
-                return "欧元";
+                return "日元";
             case 5:
+                return "欧元";
+            case 6:
                 return "其它";
             default:
                 return "";

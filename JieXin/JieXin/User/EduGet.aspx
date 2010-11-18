@@ -84,7 +84,7 @@
                 <span class="orange">*</span>专&nbsp;&nbsp;&nbsp;&nbsp;业
             </th>
             <td>
-                <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;" onclick="ChooseMajor(this, 'major', 'Edu_SpecialityID', 'Edu_Speciality', '选择/修改')">选择/修改</a>
+                <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;" onclick="ChooseMajor(this, 'major', 'Edu_SpecialityID', 'Edu_Speciality', '选择/修改');return false;">选择/修改</a>
                 <input type="text" id="Edu_OtherSpeciality" name="Edu_OtherSpeciality" class="pwdinput"
                     value="若无合适项，请在此填写" style="color: #999;" maxlength="20" onclick="if('若无合适项，请在此填写'==this.value){this.value='';this.style.color='#000';}"
                     onblur="if(this.value==''){this.value = '若无合适项，请在此填写';this.style.color='#999';}" />
@@ -154,8 +154,8 @@
                 海外学习经历
             </th>
             <td>
-                <input type="radio" name="forlen" value="0" checked="checked" />是<input type="radio"
-                    value="1" name="forlen" />
+                <input type="radio" name="Edu_IsOverSeas" value="0" checked="checked" />是<input type="radio"
+                    value="1" name="Edu_IsOverSeas" />
                 否
             </td>
         </tr>

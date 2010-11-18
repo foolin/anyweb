@@ -83,7 +83,7 @@ method="post">
             <span class="orange">*</span>专&nbsp;&nbsp;&nbsp;&nbsp;业
         </th>
         <td>
-            <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;" onclick="ChooseMajor(this, 'major', 'Edu_SpecialityID', 'Edu_Speciality', '选择/修改')">
+            <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;" onclick="ChooseMajor(this, 'major', 'Edu_SpecialityID', 'Edu_Speciality', '选择/修改');return false;">
                 <%=bean.fdEducSpecialityID==0?"选择/修改":bean.fdEducSpeciality%></a>
             <input type="text" id="Edu_OtherSpeciality" name="Edu_OtherSpeciality" class="pwdinput"
                 value="<%=bean.fdEducOtherSpecialty==""?"若无合适项，请在此填写":bean.fdEducOtherSpecialty %>"
@@ -156,8 +156,8 @@ method="post">
             海外学习经历
         </th>
         <td>
-            <input type="radio" name="forlen" value="0" <%=bean.fdEducIsOverSeas==0?"checked=\"checked\"":"" %> />是
-            <input type="radio" name="forlen" value="1" <%=bean.fdEducIsOverSeas==1?"checked=\"checked\"":"" %> />否
+            <input type="radio" name="Edu_IsOverSeas" value="0" <%=bean.fdEducIsOverSeas==0?"checked=\"checked\"":"" %> />是
+            <input type="radio" name="Edu_IsOverSeas" value="1" <%=bean.fdEducIsOverSeas==1?"checked=\"checked\"":"" %> />否
         </td>
     </tr>
 </table>

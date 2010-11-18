@@ -81,7 +81,7 @@
             </th>
             <td>
                 <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;"
-                    onclick="ChooseIndustry(this, 'ChooseIndustry', 'Work_IndustryID', 'Work_Industry', '选择/修改')">
+                    onclick="ChooseIndustry(this, 'ChooseIndustry', 'Work_IndustryID', 'Work_Industry', '选择/修改');return false;">
                     选择/修改</a>
                 <input type="hidden" id="Work_IndustryID" name="Work_IndustryID" />
                 <input type="hidden" id="Work_Industry" name="Work_Industry" />
@@ -155,7 +155,7 @@
             </th>
             <td>
                 <a href="javascript:void(0);" id="place" class="btn28H" style="font-size: 12px;"
-                    onclick="ChoosePosition(this, 'ChoosePosition', 'Work_JobID', 'Work_Job', '选择/修改')">
+                    onclick="ChoosePosition(this, 'ChoosePosition', 'Work_JobID', 'Work_Job', '选择/修改');return false;">
                     选择/修改</a>
                 <input type="text" id="Work_OtherJob" name="Work_OtherJob" class="pwdinput" value="若无合适项，请在此填写"
                     style="color: #999;" onclick="if('若无合适项，请在此填写'==this.value){this.value='';this.style.color='#000';}"

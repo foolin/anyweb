@@ -3,18 +3,11 @@
 <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
         <th scope="row">
-            <strong class="green">奖励</strong>
+            &nbsp;时&nbsp;&nbsp;&nbsp;&nbsp;间
         </th>
         <td>
             <span class="right">&nbsp;&nbsp;<input type="button" id="btn_rew_edit" class="btn60_28"
                 value="修 改" onclick="editinfo('rew',<%=bean.fdRewaID %>,'btn_rew_edit','rew_<%=bean.fdRewaID %>')" /></span>
-        </td>
-    </tr>
-    <tr>
-        <th scope="row">
-            &nbsp;时&nbsp;&nbsp;&nbsp;&nbsp;间
-        </th>
-        <td>
             <%=bean.fdRewaBegin.ToString( "yyyy年M月" )%>
             到
             <%if( bean.fdRewaEnd.Year != 1900 )

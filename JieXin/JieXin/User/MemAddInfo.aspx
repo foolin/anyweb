@@ -107,7 +107,7 @@
                                     <span class="brown">*</span>居 住 地
                                 </th>
                                 <td>
-                                    <a href="javascript:void(0);" onclick="selectArea('Address','<%=txtAddressID.ClientID %>','<%=txtAddress.ClientID %>')"
+                                    <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','<%=txtAddressID.ClientID %>','<%=txtAddress.ClientID %>','选择/修改');"
                                         id="Address" class="btn28H" style="font-size: 12px;">
                                         <%=this.LoginUser.fdUserAddress==""?"选择/修改":this.LoginUser.fdUserAddress %></a>
                                     <asp:TextBox ID="txtAddressID" runat="server" Style="display: none"></asp:TextBox>
@@ -249,7 +249,7 @@
                                     &nbsp;户 口
                                 </th>
                                 <td>
-                                    <a href="javascript:void(0);" onclick="selectArea('hukou','<%=txtHouseAddressID.ClientID %>','<%=txtHouseAddress.ClientID %>')"
+                                    <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','<%=txtHouseAddressID.ClientID %>','<%=txtHouseAddress.ClientID %>','选择/修改');"
                                         id="hukou" class="btn28H" style="font-size: 12px;">
                                         <%=this.LoginUser.fdUserHouseAddress==""?"选择/修改":this.LoginUser.fdUserHouseAddress %></a>
                                     <asp:TextBox ID="txtHouseAddressID" runat="server" Style="display: none"></asp:TextBox>

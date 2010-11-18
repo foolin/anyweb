@@ -57,6 +57,11 @@ public partial class User_EduSave : PageUser
             if( !string.IsNullOrEmpty( QF( "Edu_Intro" ).Trim() ) )
                 bean.fdEducIntro = QF( "Edu_Intro" ).Trim();
 
+            if( !string.IsNullOrEmpty( QF( "Edu_IsOverSeas" ) ) && WebAgent.IsInt32( QF( "Edu_IsOverSeas" ) ) )
+            {
+                bean.fdEducIsOverSeas = int.Parse( QF( "Edu_IsOverSeas" ) );
+            }
+
             new AW_Education_dao().funcInsert( bean );
             new AW_Resume_dao().funcUpdateResumeStatus( bean.fdEducResuID );
         }
@@ -104,6 +109,11 @@ public partial class User_EduSave : PageUser
             bean.fdEducDegree = int.Parse( QF( "Edu_Degree" ) );
             if( !string.IsNullOrEmpty( QF( "Edu_Intro" ).Trim() ) )
                 bean.fdEducIntro = QF( "Edu_Intro" ).Trim();
+
+            if( !string.IsNullOrEmpty( QF( "Edu_IsOverSeas" ) ) && WebAgent.IsInt32( QF( "Edu_IsOverSeas" ) ) )
+            {
+                bean.fdEducIsOverSeas = int.Parse( QF( "Edu_IsOverSeas" ) );
+            }
 
             new AW_Education_dao().funcUpdate( bean );
             new AW_Resume_dao().funcUpdateResumeStatus( bean.fdEducResuID );

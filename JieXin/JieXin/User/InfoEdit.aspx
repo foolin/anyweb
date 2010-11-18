@@ -139,7 +139,7 @@
                         <span class="orange">*</span>居&nbsp;住&nbsp;地
                     </th>
                     <td width="218">
-                        <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','AddressID','Address','选择/修改')"
+                        <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','AddressID','Address','选择/修改');return false;"
                             id="Place" class="btn28H" style="font-size: 12px;">
                             <%=resume.fdResuAddressID == 0 ? "选择/修改" : resume.fdResuAddress%></a>
                         <input type="hidden" id="AddressID" name="AddressID" value="<%=resume.fdResuAddressID%>" />
@@ -265,7 +265,7 @@
                         &nbsp;户&nbsp;&nbsp;&nbsp;&nbsp;口
                     </th>
                     <td>
-                        <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','HouseAddressID','HouseAddress','选择/修改')"
+                        <a href="javascript:void(0);" onclick="ChooseArea(this,'ChooseArea','HouseAddressID','HouseAddress','选择/修改');return false;"
                             id="Hukou" class="btn28H" style="font-size: 12px;">
                             <%=resume.fdResuHouseAddressID == 0 ? "选择/修改" : resume.fdResuHouseAddress%></a>
                         <input type="hidden" id="HouseAddressID" name="HouseAddressID" value="<%=resume.fdResuHouseAddressID%>" />
@@ -290,8 +290,8 @@
                 </tr>
                 <tr>
                     <td class="green tc">
-                        <a href="javascript:void(0);" onclick="upload()">编辑>></a>&nbsp;&nbsp;<a href="javascript:void(0);"
-                            onclick="delphoto()">删除>></a>
+                        <a href="javascript:void(0);" onclick="upload();return false;">编辑>></a>&nbsp;&nbsp;<a href="javascript:void(0);"
+                            onclick="delphoto();return false;">删除>></a>
                     </td>
                 </tr>
             </table>
@@ -301,7 +301,7 @@
 <div class="blank12px">
 </div>
 <div class=" lh24 green">
-    <a href="javascript:void(0);" onclick="object_toggle('ext_info')">查看更多个人信息<span id="ext_info_up"
+    <a href="javascript:void(0);" onclick="object_toggle('ext_info');return false;">查看更多个人信息<span id="ext_info_up"
         style="display: none">↑</span><span id="ext_info_down">↓</span></a></div>
 <table id="ext_info" width="598" class="tableInfo" style="display: none" border="0"
     cellspacing="0" cellpadding="0">

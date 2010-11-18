@@ -129,11 +129,11 @@ function overDetail(obj, num, subName, objArrays) {
         subArea.id = subName + num;
         subArea.className = "subArea";
         if (!objArrays[num]) { return false; }
-        strHtml += "<h4><a href='javascript:void(0)' title='选择该大类' onclick='AreaName(this," + num + ");'>" + obj.innerHTML + "</a></h4>";
+        strHtml += "<h4><a href='javascript:void(0)' title='选择该大类' onclick='AreaName(this," + num + ");return false;'>" + obj.innerHTML + "</a></h4>";
         for (var i = 0; i < objArrays[num].length; i++) {
             var objname = objArrays[num][i].substr(0, objArrays[num][i].indexOf('|'));
             var objid = objArrays[num][i].substr(objArrays[num][i].indexOf('|') + 1, objArrays[num][i].length - objArrays[num][i].indexOf('|'));
-            strHtml += "<span><a href='javascript:void(0);' onclick='AreaName(this," + objid + ");'>" + objname + "</a></span>";
+            strHtml += "<span><a href='javascript:void(0);' onclick='AreaName(this," + objid + ");return false;'>" + objname + "</a></span>";
         }
         subArea.innerHTML = strHtml;
         objParent.appendChild(subArea);
@@ -233,6 +233,10 @@ function SelectResume(obj) {
         }
     }
     showMsgBox('Apply_Resume', 538, 150);
+    if ($("#drpResume").length > 0) {
+        $("#drpResume").css("visibility", "");
+//        objl[i].style.visibility = state;
+    }
 }
 
 function ApplyResume(obj) {

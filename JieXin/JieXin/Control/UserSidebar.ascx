@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="UserSidebar.ascx.cs" Inherits="Control_UserSidebar" %>
-<div class="sidebar" id="UserSidebar" style="height: 1300px;">
+<div class="sidebar" id="UserSidebar">
     <div class="bg column gray">
         <ul>
             <li id="JLGL"><a href="Index.aspx">简历管理</a></li>

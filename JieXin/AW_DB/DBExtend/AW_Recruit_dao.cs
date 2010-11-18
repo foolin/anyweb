@@ -55,7 +55,8 @@ namespace AnyWell.AW_DL
             this.propWhere = "1=1";
             if( areaId != 0 )
             {
-                this.propWhere += " AND fdRecrAreaID=" + areaId;
+                this.propTableApp=" INNER JOIN AW_Area ON  fdRecrAreaID=fdAreaID" ;
+                this.propWhere += string.Format( " AND (fdRecrAreaID={0} OR fdAreaParent={0})", areaId );
             }
             if( type != 0 )
             {

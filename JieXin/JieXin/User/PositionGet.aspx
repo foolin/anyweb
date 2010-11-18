@@ -6,16 +6,6 @@
     <table class="tableInfo" width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <th scope="row">
-                <strong class="green">职务</strong>
-            </th>
-            <td>
-                <span class="right">
-                    <input type="button" id="btn_pos_del" class="btn60_28_gray" value="删 除" onclick="delinfo('pos',<%=posiID %>,'btn_pos_del','pos_<%=posiID %>')" />
-                    &nbsp;&nbsp;<input type="button" id="btn_pos_save" class="btn60_28" value="保 存" onclick="pos_save('pos_form_<%=posiID %>')" /></span>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">
             </th>
             <td>
                 <span class="tipW red hidden" id="errorMsg_Date_1">请选择时间！</span> <span class="tipW red hidden"
@@ -27,6 +17,9 @@
                 <span class="orange">*</span>时&nbsp;&nbsp;&nbsp;&nbsp;间
             </th>
             <td>
+                <span class="right">
+                    <input type="button" id="btn_pos_del" class="btn60_28_gray" value="删 除" onclick="delinfo('pos',<%=posiID %>,'btn_pos_del','pos_<%=posiID %>')" />
+                    &nbsp;&nbsp;<input type="button" id="btn_pos_save" class="btn60_28" value="保 存" onclick="pos_save('pos_form_<%=posiID %>')" /></span>
                 <select id="Pos_FromYear" name="Pos_FromYear">
                     <option selected="selected" value="0">年</option>
                     <%for( int i = DateTime.Now.Year; i >= 1940; i-- )

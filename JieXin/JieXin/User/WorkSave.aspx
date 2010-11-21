@@ -78,7 +78,7 @@
             <table width="486" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td colspan="2">
-                        <%=bean.fdWorkIntro %>
+                        <%=bean.fdWorkIntro.Replace("\n","<br />") %>
                     </td>
                 </tr>
             </table>

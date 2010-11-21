@@ -412,3 +412,5 @@
 .resume .resColumn{ width:610px; margin:0px auto;}
 .resume .item{ overflow:hidden; margin-bottom:8px;}
 .resume .underLine{ border-bottom:1px solid #CCC; margin-bottom:6px; padding-top:5px;}
+
+#industry2_ul li{overflow:hidden;}

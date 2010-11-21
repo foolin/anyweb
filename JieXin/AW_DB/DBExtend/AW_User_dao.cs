@@ -20,6 +20,7 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public AW_User_bean funcLogin( string userName, string password, bool save )
         {
+            this.propSelect = "*";
             this.propWhere = "fdUserAccount='" + userName + "' AND fdUserPwd='" + Studio.Security.Secure.Md5( password ) + "'";
             List<AW_User_bean> beans = this.funcGetList();
             if( beans.Count == 0 )

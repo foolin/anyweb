@@ -3,9 +3,12 @@
 
 <%@ Register Src="~/Control/UserSidebar.ascx" TagName="UserSidebar" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/Area.ascx" TagName="Area" TagPrefix="uc1" %>
+<%@ Register Src="~/Control/Area2.ascx" TagName="Area2" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/Major.ascx" TagName="Major" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/Industry.ascx" TagName="Industry" TagPrefix="uc1" %>
+<%@ Register Src="~/Control/Industry2.ascx" TagName="Industry2" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/Position.ascx" TagName="Position" TagPrefix="uc1" %>
+<%@ Register Src="~/Control/Job.ascx" TagName="Job" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/Upload.ascx" TagName="Upload" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
@@ -1165,7 +1168,7 @@
                                         &nbsp;行&nbsp;&nbsp;&nbsp;&nbsp;业
                                     </th>
                                     <td>
-                                        <a href="javascript:void(0);" id="Obje_Industry" class="btn28H" style="font-size: 12px;">
+                                        <a href="javascript:void(0);" id="Obje_Industry" class="btn28H" style="font-size: 12px;" onclick="ChooseIndustry2(this,'ChooseIndustry2','Obje_IndustryID','Obje_IndustryName');return false;">
                                             选择/修改</a>
                                         <input type="hidden" id="Obje_IndustryID" name="Obje_IndustryID" />
                                         <input type="hidden" id="Obje_IndustryName" name="Obje_IndustryName" />
@@ -1764,13 +1767,22 @@
         </div>
     </div>
     <uc1:Area runat="server" />
+    <uc1:Area2 runat="server" />
     <uc1:Major runat="server" />
     <uc1:Industry runat="server" />
+    <uc1:Industry2 runat="server" />
     <uc1:Position runat="server" />
+    <uc1:Job runat="server" />
     <uc1:Upload runat="server" />
 
     <script type="text/javascript">
         setUserSidebar("JLGL"); 
+    </script>
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+            myfun("industry2_ul", "li", "industry_choosed");
+        });
     </script>
 
 </asp:Content>

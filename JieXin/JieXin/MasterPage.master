@@ -80,7 +80,6 @@
             var curStyle;
             lis[i].order = i;
             lis[i].onmouseover = function() {
-                debugger;
                 changeTab(this, this.order, true, curStyle = this.className);
             }
             lis[i].onmouseout = function() {

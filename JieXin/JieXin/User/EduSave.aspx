@@ -59,7 +59,7 @@
             <table width="456" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td colspan="2">
-                        <%=bean.fdEducIntro %>
+                        <%=bean.fdEducIntro.Replace( "\n", "<br />" )%>
                     </td>
                 </tr>
             </table>

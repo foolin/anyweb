@@ -6,7 +6,7 @@
             <img src="/images/icon_close.gif" width="15" height="15" /></a> </span>
     </div>
     <div class="con gray">
-        <ul id="hylist_1">
+        <ul id="industry_ul">
             <li><a href="javascript:void(0);" onclick="AreaName(this,1);return false;">计算机软件</a></li>
             <li><a href="javascript:void(0);" onclick="AreaName(this,2);return false;">计算机硬件</a></li>
             <li><a href="javascript:void(0);" onclick="AreaName(this,3);return false;">计算机服务(系统、数据服务，维修)</a></li>

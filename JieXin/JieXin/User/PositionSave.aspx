@@ -41,7 +41,7 @@
             &nbsp;职务描述
         </th>
         <td>
-            <%=bean.fdPosiIntro %>
+            <%=bean.fdPosiIntro.Replace("\n","<br />") %>
         </td>
     </tr>
     <tr>

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="InitIndustry2.aspx.cs" Inherits="AnyWell_InitIndustry2" %>

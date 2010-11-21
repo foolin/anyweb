@@ -3,6 +3,10 @@ var curObjId = "ChooseArea";
 var curId = "areaId";
 var curName = "area";
 var curHtml = "选择地区";
+
+var ulName = "";
+var choosedName = ""
+var bigListArray = null;
 //弹出页面背景半透明======================================================================
 var isIe = (document.all) ? true : false;
 
@@ -77,7 +81,7 @@ function ChooseMajor(obj, objId, id, name, html) {
     curId = id;
     curName = name;
     curHtml = html;
-    showMsgBox(curObjId, 538, 366);
+    showMsgBox(curObjId, 538, 210);
 }
 
 //行业选择
@@ -87,7 +91,7 @@ function ChooseIndustry(obj, objId, id, name, html) {
     curId = id;
     curName = name;
     curHtml = html;
-    showMsgBox(curObjId, 538, 366);
+    showMsgBox(curObjId, 538, 475);
 }
 
 //职位选择
@@ -97,7 +101,119 @@ function ChoosePosition(obj, objId, id, name, html) {
     curId = id;
     curName = name;
     curHtml = html;
-    showMsgBox(curObjId, 538, 366);
+    showMsgBox(curObjId, 538, 495);
+}
+
+//求职意向 行业
+function ChooseIndustry2(obj, objId, id, name) {
+    showMsgBox('ChooseIndustry2', 538, 522);
+    curPlace = obj;
+    curObjId = objId;
+    curId = id;
+    curName = name;
+    iniArray();
+}
+
+function myfun(objName, tagName, choosedObjName) {
+    ulName = objName;
+    choosedName = choosedObjName;
+    overBgColor(objName, tagName);
+}
+
+function iniArray() {
+    var idArray = document.getElementById(curId).value.split(";");
+    var nameArray = document.getElementById(curName).value.split(";");
+    var strHtml = "";
+    for (var i = 0; i < idArray.length; i++) {
+        if (idArray[i]) {
+            strHtml += "<dd id='industry_" + idArray[i] + "'><input type='checkbox' checked='checked' value='" + nameArray[i] + "|" + idArray[i] + "' />" + nameArray[i] + "</dd>";
+            $("#" + ulName).find("#industry_" + idArray[i]).attr("checked", true);
+        }
+    }
+    $("#" + choosedName).html(strHtml);
+    overBgColor(choosedName, "dd");
+}    
+
+function confirmDate() {
+    var strHtml = "", strId = "", strName = "";
+    var obj = document.getElementById(choosedName);
+    var inputArray = obj.getElementsByTagName("input");
+    for (var i = 0, len = inputArray.length; i < len; i++) {
+        strId += inputArray[i].value.substr(inputArray[i].value.indexOf('|') + 1) + ";";
+        strName += inputArray[i].value.substr(0, inputArray[i].value.indexOf('|')) + ";";
+        strHtml += inputArray[i].value.substr(0, inputArray[i].value.indexOf('|')) + "+";
+    }
+    if (strHtml.length > 0) {
+        strId = strId.substr(0, strId.length - 1);
+        strName = strName.substr(0, strName.length - 1);
+        strHtml = strHtml.substring(0, strHtml.length - 1);
+    }
+    if (strHtml == "") { strHtml = "选择/修改" }
+    curPlace.innerHTML = strHtml;
+    curPlace.title = strHtml;
+    document.getElementById(curId).value = strId;
+    document.getElementById(curName).value = strName;
+    closeWindow(curObjId);
+}
+
+function overBgColor(objName, tagName) {
+    var tagArray = $("#" + objName).find(tagName);
+    for (var i = 0; i < tagArray.length; i++) {
+        tagArray[i].order = i;
+        tagArray[i].onmouseover = function() {
+            changeCur(this.order, tagArray, true);
+            overBgColor(objName, tagName);
+        }
+        tagArray[i].onmouseout = function() {
+            changeCur(this.order, tagArray, false);
+            overBgColor(objName, tagName);
+        }
+        tagArray[i].onclick = function() {
+            selectState(this.order, choosedName, tagArray)
+            overBgColor(objName, tagName);
+        }
+    }
+}
+
+function selectState(nowOrder, choosedName, tagArray) {
+    var choosedObj = $("#" + choosedName);
+    var ddArray = choosedObj.find("dd");
+    if (tagArray[nowOrder].tagName == "LI") {
+        var checkObj = tagArray[nowOrder].getElementsByTagName("input")[0];
+        if (checkObj.type == "checkbox") {
+            checkObj.checked = checkObj.checked == true ? false : true;
+            var strhtm = "";
+            if (checkObj.checked) {
+                if (ddArray.length < 5) {
+                    strhtm = "<dd id='" + checkObj.id + "'><input type='checkbox' checked='checked' value='" + checkObj.value + "' />" + checkObj.value.substr(0, checkObj.value.indexOf("|")) + "</dd>";
+                    choosedObj.append(strhtm);
+                } else {
+                    alert("您最多只能选五项！");
+                    checkObj.checked = false;
+                }
+            } else {
+                $("#" + choosedName).find("#" + checkObj.id).remove();
+            }
+            overBgColor(choosedName, "dd");
+        }
+    } else if (tagArray[nowOrder].tagName == "DD") {
+        delInput(tagArray[nowOrder].id);
+    } else {
+        return false;
+    }
+}
+
+function changeCur(nowOrder, tagArray, bool) {
+    if (bool) {
+        tagArray[nowOrder].className = "cur";
+    } else {
+        tagArray[nowOrder].className = "";
+    }
+}
+
+function delInput(tagId) {
+    $("#" + ulName).find("#" + tagId).attr("checked", false);
+    $("#" + choosedName).find("#" + tagId).remove();
 }
 
 function AreaName(obj, num) {
@@ -153,9 +269,7 @@ function overDetail(obj, num, subName, objArrays) {
         this.className = "";
         subArea.style.display = "none";
     }
-
 }
-
 
 function Changetag(num) {
     var topTabs = document.getElementById("topTabs");
@@ -193,22 +307,27 @@ function setUserSidebar(id) {
 }
 
 //收藏职位
-function AddFavorite() {
-    var list = $("#jobList input:checked");
+function AddFavorite(obj) {
     var ids = "";
-    if (list.length == 0) {
-        alert("请选择要收藏的职位！");
-        return;
-    }
-    list.each(function() {
-        if ($(this).attr("name") == "job" && $(this).attr("type") == "checkbox") {
-            ids += "," + $(this).val();
+    if (obj) {
+        ids = obj;
+    } else {
+        var list = $("#jobList input:checked");
+        if (list.length == 0) {
+            alert("请选择要收藏的职位！");
+            return;
         }
-    });
+        list.each(function() {
+            if ($(this).attr("name") == "job" && $(this).attr("type") == "checkbox") {
+                ids += "," + $(this).val();
+            }
+        });
+        ids = ids.substr(1);
+    }
     $("#favorite").html("正在收藏...");
     $.ajax({
         url: "/AddFavorite.aspx",
-        data: "ids=" + ids.substr(1),
+        data: "ids=" + ids,
         cache: false,
         success: function(data) {
             eval(data);
@@ -217,7 +336,11 @@ function AddFavorite() {
             alert("系统繁忙，请稍候再试！");
         },
         complete: function() {
-            $("#favorite").html("收藏选中职位");
+            if (obj) {
+                $("#favorite").html("立即收藏");
+            }else {
+                $("#favorite").html("收藏选中职位");
+            }
         }
     });
 }
@@ -235,7 +358,6 @@ function SelectResume(obj) {
     showMsgBox('Apply_Resume', 538, 150);
     if ($("#drpResume").length > 0) {
         $("#drpResume").css("visibility", "");
-//        objl[i].style.visibility = state;
     }
 }
 

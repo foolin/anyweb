@@ -567,7 +567,7 @@
                                     <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
                                         <tr>
                                             <td>
-                                                <%=bean.fdResuObjeIntro %>
+                                                <%=bean.fdResuObjeIntro.Replace( "\n", "<br />" )%>
                                             </td>
                                         </tr>
                                     </table>
@@ -582,7 +582,7 @@
                                 <div class=3D"lh24">
                                     <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
                                         <tr>
-                                            <td width=3D"10%">
+                                            <td width=3D"15%">
                                                 到岗时间：
                                             </td>
                                             <td width=3D"90%">
@@ -655,8 +655,8 @@
                                 <div class=3D"lh24">
                                     <asp:Repeater ID="repWork" runat="server">
                                         <ItemTemplate>
-                                            <%#Container.ItemIndex==0?"":"<div class=\"underLine\"></div>" %>
                                             <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+                                                <%#Container.ItemIndex==0?"":"<tr><td colspan=3D\"2\" class=3D\"underLine\"></td></tr>" %>
                                                 <tr>
                                                     <td colspan=3D"2">
                                                         <%#Eval( "fdWorkBegin", "{0:yyyy/M}" )%>--<%#( ( DateTime ) Eval( "fdWorkEnd" ) ).Year != 1900 ? Eval( "fdWorkEnd", "{0:yyyy/M}" ) : "至今"%>：<%#Eval( "fdWorkName" )%><%#( int ) Eval( "fdWorkDimension" ) == 0 ? "" : "(" + getDimensionString( ( int ) Eval( "fdWorkDimension" ) ) + ")"%>
@@ -680,7 +680,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan=3D"2">
-                                                        <%#Eval( "fdWorkIntro" )%>
+                                                        <%#((string)Eval( "fdWorkIntro" )).Replace("\n","<br />")%>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -700,8 +700,8 @@
                                 <div class=3D"lh24">
                                     <asp:Repeater ID="repAwar" runat="server">
                                         <ItemTemplate>
-                                            <%#Container.ItemIndex==0?"":"<div class=\"underLine\"></div>" %>
                                             <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+                                                <%#Container.ItemIndex==0?"":"<tr><td colspan=3D\"2\" class=3D\"underLine\"></td></tr>" %>
                                                 <tr>
                                                     <td width=3D"23%">
                                                         <%#( ( DateTime ) Eval( "fdAwarDate" ) ).Year != 1900 ? Eval( "fdAwarDate", "{0:yyyy年MM月}" ) : ""%>
@@ -726,8 +726,8 @@
                                 <div class=3D"lh24">
                                     <asp:Repeater ID="repEdu" runat="server">
                                         <ItemTemplate>
-                                            <%#Container.ItemIndex==0?"":"<div class=\"underLine\"></div>" %>
                                             <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+                                                <%#Container.ItemIndex==0?"":"<tr><td colspan=3D\"4\" class=3D\"underLine\"></td></tr>" %>
                                                 <tr>
                                                     <td width=3D"27%">
                                                         <%#Eval("fdEducBegin","{0:yyyy/M}") %>--<%#( ( DateTime ) Eval( "fdEducEnd" ) ).Year != 1900?Eval("fdEducEnd","{0:yyyy/M}"):"至今"%>
@@ -744,7 +744,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan=3D"4">
-                                                        <%#Eval( "fdEducIntro" )%>
+                                                        <%#( ( string ) Eval( "fdEducIntro" ) ).Replace( "\n", "<br />" )%>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -764,8 +764,8 @@
                                 <div class=3D"lh24">
                                     <asp:Repeater ID="repRew" runat="server">
                                         <ItemTemplate>
-                                            <%#Container.ItemIndex==0?"":"<div class=\"underLine\"></div>" %>
                                             <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+                                                <%#Container.ItemIndex==0?"":"<tr><td colspan=3D\"2\" class=3D\"underLine\"></td></tr>" %>
                                                 <tr>
                                                     <td width=3D"23%">
                                                         <%#Eval( "fdRewaBegin", "{0:yyyy/M}" )%>--<%#( ( DateTime ) Eval( "fdRewaEnd" ) ).Year != 1900 ? Eval( "fdRewaEnd", "{0:yyyy/M}" ) : "至今"%>
@@ -791,8 +791,8 @@
                                 <div class=3D"lh24">
                                     <asp:Repeater ID="repPos" runat="server">
                                         <ItemTemplate>
-                                            <%#Container.ItemIndex==0?"":"<div class=\"underLine\"></div>" %>
                                             <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+                                                <%#Container.ItemIndex==0?"":"<tr><td colspan=3D\"3\" class=3D\"underLine\"></td></tr>" %>
                                                 <tr>
                                                     <td width=3D"23%">
                                                         <%#Eval( "fdPosiBegin", "{0:yyyy/M}" )%>--<%#( ( DateTime ) Eval( "fdPosiEnd" ) ).Year != 1900 ? Eval( "fdPosiEnd", "{0:yyyy/M}" ) : "至今"%>
@@ -805,8 +805,8 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan=3D"2">
-                                                        <%#Eval( "fdPosiIntro" )%>
+                                                    <td colspan=3D"3">
+                                                        <%#( ( string ) Eval( "fdPosiIntro" ) ).Replace( "\n", "<br />" )%>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -825,8 +825,8 @@
                                 <div class=3D"lh24">
                                     <asp:Repeater ID="repCert" runat="server">
                                         <ItemTemplate>
-                                            <%#Container.ItemIndex==0?"":"<div class=\"underLine\"></div>" %>
                                             <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+                                                <%#Container.ItemIndex==0?"":"<tr><td colspan=3D\"3\" class=3D\"underLine\"></td></tr>" %>
                                                 <tr>
                                                     <td width=3D"23%">
                                                         <%#Eval( "fdCertDate", "{0:yyyy/MM}" )%>
@@ -877,18 +877,17 @@
                                     </table>
                                     <asp:Repeater ID="repLan" runat="server">
                                         <ItemTemplate>
-                                            <div class=3D"underLine">
-                                            </div>
                                             <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+                                                <tr><td colspan=3D"4" class=3D"underLine"></td></tr>
                                                 <tr>
                                                     <td width=3D"20%">
-                                                        语言类别
+                                                        语言类别：
                                                     </td>
                                                     <td width=3D"30%">
                                                         <%#getLangTypeString( ( int ) Eval( "fdLangType" ) )%>
                                                     </td>
                                                     <td width=3D"20%">
-                                                        掌握程度
+                                                        掌握程度：
                                                     </td>
                                                     <td width=3D"30%">
                                                         <%#getLangAbilityString( ( int ) Eval( "fdLangMaster" ) )%>
@@ -896,13 +895,13 @@
                                                 </tr>
                                                 <tr>
                                                     <td width=3D"20%">
-                                                        读写能力
+                                                        读写能力：
                                                     </td>
                                                     <td width=3D"30%">
                                                         <%#getLangAbilityString( ( int ) Eval( "fdLangRWAbility" ) )%>
                                                     </td>
                                                     <td width=3D"20%">
-                                                        听说能力
+                                                        听说能力：
                                                     </td>
                                                     <td width=3D"30%">
                                                         <%#getLangAbilityString( ( int ) Eval( "fdLangLiAbility" ) )%>
@@ -924,8 +923,8 @@
                                 <div class=3D"lh24">
                                     <asp:Repeater ID="repSkill" runat="server">
                                         <ItemTemplate>
-                                            <%#Container.ItemIndex==0?"":"<div class=\"underLine\"></div>" %>
                                             <table width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0">
+                                                <%#Container.ItemIndex==0?"":"<tr><td colspan=3D\"3\" class=3D\"underLine\"></td></tr>" %>
                                                 <tr>
                                                     <td width=3D"34%">
                                                         <%#Eval( "fdSkilName" )%>

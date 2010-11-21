@@ -32,7 +32,7 @@
         </th>
         <td>
             <a href="javascript:void(0);" id="Obje_Industry" class="btn28H" style="font-size: 12px;"
-                title="<%=getIndustryName()%>">
+                title="<%=getIndustryName()%>" onclick="ChooseIndustry2(this,'ChooseIndustry2','Obje_IndustryID','Obje_IndustryName');return false;">
                 <%=getIndustryName()%></a>
             <input type="hidden" id="Obje_IndustryID" name="Obje_IndustryID" value="<%=bean.fdResuObjeIndustryID1 == 0 ? "" : bean.fdResuObjeIndustryID1 + ";"%><%=bean.fdResuObjeIndustryID2 == 0 ? "" : bean.fdResuObjeIndustryID2 + ";"%><%=bean.fdResuObjeIndustryID3 == 0 ? "" : bean.fdResuObjeIndustryID3 + ";"%><%=bean.fdResuObjeIndustryID4 == 0 ? "" : bean.fdResuObjeIndustryID4 + ";"%><%=bean.fdResuObjeIndustryID5 == 0 ? "" : bean.fdResuObjeIndustryID5 + ";"%>" />
             <input type="hidden" id="Obje_IndustryName" name="Obje_IndustryName" value="<%=bean.fdResuObjeIndustryID1 == 0 ? "" : bean.fdResuObjeIndustry1 + ";"%><%=bean.fdResuObjeIndustryID2 == 0 ? "" : bean.fdResuObjeIndustry2 + ";"%><%=bean.fdResuObjeIndustryID3 == 0 ? "" : bean.fdResuObjeIndustry3 + ";"%><%=bean.fdResuObjeIndustryID4 == 0 ? "" : bean.fdResuObjeIndustry4 + ";"%><%=bean.fdResuObjeIndustryID5 == 0 ? "" : bean.fdResuObjeIndustry5 + ";"%>" />

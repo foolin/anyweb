@@ -11,8 +11,9 @@
             <div class="innerPad detailInfo">
                 <div class="Jobhead">
                     <h1>
-                        <a href="javascript:void(0)" class="btn94_28 right" onclick="SelectResume()" class="btn94_28 right">
-                            立即申请</a>
+                        <a href="javascript:void(0)" id="favorite" class="btn28H_fix right" onclick="AddFavorite(<%=bean.fdRecrID %>)">
+                            立即收藏</a> <a href="javascript:void(0)" class="btn94_28 right" onclick="SelectResume()">
+                                立即申请</a>
                         <%=bean.fdRecrTitle %>
                     </h1>
                 </div>
@@ -34,8 +35,11 @@
                 <div class="blank12px">
                 </div>
                 <div class="right">
-                    <a href="javascript:void(0);" onclick="SelectResume()" class="btn94_28 right">立即申请</a>
+                    <a href="javascript:void(0)" id="favorite" class="btn28H_fix right" onclick="AddFavorite(<%=bean.fdRecrID %>)">
+                        立即收藏</a> <a href="javascript:void(0)" class="btn94_28 right" onclick="SelectResume()">
+                            立即申请</a>
                 </div>
+                <div class="blank12px"></div>
             </div>
         </div>
     </div>

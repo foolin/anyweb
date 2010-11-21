@@ -87,7 +87,7 @@
             <table width="486" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td>
-                        <%=bean.fdResuObjeIntro %>
+                        <%=bean.fdResuObjeIntro.Replace( "\n", "<br />" )%>
                     </td>
                 </tr>
             </table>

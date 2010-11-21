@@ -569,7 +569,7 @@
                                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                         <tr>
                                             <td>
-                                                <%=bean.fdResuObjeIntro %>
+                                                <%=bean.fdResuObjeIntro.Replace( "\n", "<br />" )%>
                                             </td>
                                         </tr>
                                     </table>
@@ -682,7 +682,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <%#Eval( "fdWorkIntro" )%>
+                                                        <%#( ( string ) Eval( "fdWorkIntro" ) ).Replace( "\n", "<br />" )%>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -746,7 +746,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="4">
-                                                        <%#Eval( "fdEducIntro" )%>
+                                                        <%#( ( string ) Eval( "fdEducIntro" ) ).Replace( "\n", "<br />" )%>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -808,7 +808,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <%#Eval( "fdPosiIntro" )%>
+                                                        <%#( ( string ) Eval( "fdPosiIntro" ) ).Replace( "\n", "<br />" )%>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -884,13 +884,13 @@
                                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                                 <tr>
                                                     <td width="20%">
-                                                        语言类别
+                                                        语言类别：
                                                     </td>
                                                     <td width="30%">
                                                         <%#getLangTypeString( ( int ) Eval( "fdLangType" ) )%>
                                                     </td>
                                                     <td width="20%">
-                                                        掌握程度
+                                                        掌握程度：
                                                     </td>
                                                     <td width="30%">
                                                         <%#getLangAbilityString( ( int ) Eval( "fdLangMaster" ) )%>
@@ -898,13 +898,13 @@
                                                 </tr>
                                                 <tr>
                                                     <td width="20%">
-                                                        读写能力
+                                                        读写能力：
                                                     </td>
                                                     <td width="30%">
                                                         <%#getLangAbilityString( ( int ) Eval( "fdLangRWAbility" ) )%>
                                                     </td>
                                                     <td width="20%">
-                                                        听说能力
+                                                        听说能力：
                                                     </td>
                                                     <td width="30%">
                                                         <%#getLangAbilityString( ( int ) Eval( "fdLangLiAbility" ) )%>

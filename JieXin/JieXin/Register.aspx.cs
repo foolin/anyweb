@@ -45,12 +45,12 @@ public partial class Register : PageBase
                     WebAgent.AlertAndBack( "两次输入密码不一致！" );
                 }
 
-                if( !dao.funcCheckEmail( txtEmail.Text ) )
+                if( !dao.funcCheckEmail( txtEmail.Text.Trim() ) )
                 {
                     WebAgent.FailAndGo( "邮箱已存在！" );
                 }
 
-                if( !dao.funcCheckAccount( txtName.Text ) )
+                if( !dao.funcCheckAccount( txtName.Text.Trim() ) )
                 {
                     WebAgent.FailAndGo( "用户名已存在！" );
                 }

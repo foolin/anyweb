@@ -61,19 +61,19 @@
                                         <th>
                                             <input type="checkbox" name="job" value="<%# Eval("fdRecrID")%>" />
                                         </th>
-                                        <td style="width:240px;padding:10px 0 10px 10px">
-                                            <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="fbold">
+                                        <td style="width: 240px; padding: 10px 0 10px 10px">
+                                            <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="fbold blue lh20">
                                                 <%#Eval( "fdRecrTitle" )%></a>
                                         </td>
-                                        <td style="width:160px;padding-left:10px;">
+                                        <td style="width: 160px; padding-left: 10px;">
                                             <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="blue">
                                                 <%#Eval("fdRecrCompany") %></a>
                                         </td>
-                                        <td style="width:130px;padding-left:10px;">
+                                        <td style="width: 130px; padding-left: 10px;">
                                             <a href="/r/<%# Eval("fdRecrID")%>.aspx" target="_blank" class="blue">
                                                 <%#Eval("fdRecrJob") %></a>
                                         </td>
-                                        <td style="width:60px;" align="center">
+                                        <td style="width: 60px;" align="center">
                                             <%#Eval("fdRecrAreaName") %>
                                         </td>
                                         <td class="date">
@@ -87,6 +87,8 @@
                     <div class="pageStyle tr">
                         <sw:PageNaver ID="PN1" runat="server" StyleID="5" PageSize="10">
                         </sw:PageNaver>
+                    </div>
+                    <div class="blank20px">
                     </div>
                 </div>
             </div>
@@ -110,7 +112,7 @@
                         <%}
                           else if( this.resuList.Count == 0 )
                           { %>
-                        简历不存在，<a href="/User/ResuInit.aspx" style="color:#0166B4;">添加简历？</a>
+                        简历不存在，<a href="/User/ResuInit.aspx" style="color: #0166B4;">添加简历？</a>
                         <%}
                           else
                           { %>

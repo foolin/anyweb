@@ -1042,7 +1042,9 @@ function all_check() {
     err_from = "";
     var form_all = $("form");
     for (var i = 0; i < form_all.length; i++) {
-        if (form_all[i].id.indexOf("Info_form") > -1) {
+        if (form_all[i].id.indexOf("resume_form") > -1) {
+            err = resu_check();
+        }else if (form_all[i].id.indexOf("Info_form") > -1) {
             err = info_check();
         } else if (form_all[i].id.indexOf("edu_form") > -1) {
             err = edu_check(form_all[i].id);

@@ -101,7 +101,7 @@
                 <label>
                     性别：</label>
                 <label style="width: 50px;">
-                    <input type="radio" name="sex" value="-1" class="radio" />不限</label>
+                    <input type="radio" name="sex" value="-1" class="radio" checked="checked" />不限</label>
                 <label style="width: 40px;">
                     <input type="radio" name="sex" value="0" class="radio" />男</label>
                 <label style="width: 40px;">

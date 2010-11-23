@@ -80,6 +80,6 @@ public class PageBase : Page
 
     protected void goErrorPage()
     {
-        Response.Redirect( "/Error.html" );
+        Response.Redirect( "/Error.aspx" );
     }
 }

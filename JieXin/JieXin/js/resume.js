@@ -1,9 +1,9 @@
-﻿var returned, submited, completed = false; 
+﻿var returned, submited, completed = false;
 var EDU_ACTIVE_ID, REW_ACTIVE_ID, POS_ACTIVE_ID, WORK_ACTIVE_ID, LANG_ACTIVE_ID, CERT_ACTIVE_ID, AWAR_ACTIVE_ID, SKILL_ACTIVE_ID;
 
 function warnuser() {
     if ($("form").length > 0 && !completed) {
-        return true;
+        return " ";
     } else {
         completed = false;
     }
@@ -256,7 +256,7 @@ function skill_response(responseText, statusText) {
 }
 
 //添加信息模块
-function addinfo(info, resuid,obj) {
+function addinfo(info, resuid, obj) {
     $(obj).html("正在增加");
     switch (info) {
         case "edu":
@@ -1021,56 +1021,84 @@ function all_save() {
     }
 }
 
- function all_save_response(responseText, statusText) {
-     if (statusText == 'success') {
-         returned++;
-     }
- }
+function all_save_response(responseText, statusText) {
+    if (statusText == 'success') {
+        returned++;
+    }
+}
 
- function check_status() {
-     if (returned == submited) {
-         completed = true;
-         window.location = "/User/Index.aspx";
-     } else {
-         setTimeout(check_status, 1000);
-     }
- }
+function check_status() {
+    if (returned == submited) {
+        completed = true;
+        window.location = "/User/Index.aspx";
+    } else {
+        setTimeout(check_status, 1000);
+    }
+}
 
- var err_from;
+var err_from;
 function all_check() {
-    var err = true;
+    var err_count = 0;
     err_from = "";
     var form_all = $("form");
     for (var i = 0; i < form_all.length; i++) {
         if (form_all[i].id.indexOf("resume_form") > -1) {
-            err = resu_check();
-        }else if (form_all[i].id.indexOf("Info_form") > -1) {
-            err = info_check();
+            if (!resu_check()) {
+                err_count++;
+            }
+        } else if (form_all[i].id.indexOf("Info_form") > -1) {
+            if (!info_check()) {
+                err_count++;
+            }
         } else if (form_all[i].id.indexOf("edu_form") > -1) {
-            err = edu_check(form_all[i].id);
+            if (!edu_check(form_all[i].id)) {
+                err_count++;
+            }
         } else if (form_all[i].id.indexOf("rew_form") > -1) {
-            err = rew_check(form_all[i].id);
+            if (!rew_check(form_all[i].id)) {
+                err_count++;
+            }
         } else if (form_all[i].id.indexOf("pos_form") > -1) {
-            err = pos_check(form_all[i].id);
+            if (!pos_check(form_all[i].id)) {
+                err_count++;
+            }
         } else if (form_all[i].id.indexOf("work_form") > -1) {
-            err = work_check(form_all[i].id);
+            if (!work_check(form_all[i].id)) {
+                err_count++;
+            }
         } else if (form_all[i].id.indexOf("obje_form") > -1) {
-            err = obje_check(form_all[i].id);
+            if (!obje_check(form_all[i].id)) {
+                err_count++;
+            }
         } else if (form_all[i].id.indexOf("lang_form") > -1) {
-            err = lang_check(form_all[i].id);
+            if (!lang_check(form_all[i].id)) {
+                err_count++;
+            }
         } else if (form_all[i].id.indexOf("level_form") > -1) {
-            err = level_check(form_all[i].id);
+            if (!level_check(form_all[i].id)) {
+                err_count++;
+            }
         } else if (form_all[i].id.indexOf("cert_form") > -1) {
-            err = cert_check(form_all[i].id);
+            if (!cert_check(form_all[i].id)) {
+                err_count++;
+            }
         } else if (form_all[i].id.indexOf("awar_form") > -1) {
-            err = awar_check(form_all[i].id);
+            if (!awar_check(form_all[i].id)) {
+                err_count++;
+            }
         } else if (form_all[i].id.indexOf("skill_form") > -1) {
-            err = skill_check(form_all[i].id);
+            if (!skill_check(form_all[i].id)) {
+                err_count++;
+            }
         }
-        if (!err)
+        if (err_count)
             setErrorForm(form_all[i]);
     }
-    return err;
+    if (err_count) {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 function setErrorForm(obj) {

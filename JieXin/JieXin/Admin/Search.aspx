@@ -9,7 +9,6 @@
             <h3>
                 人才搜索</h3>
         </div>
-        <form>
         <div class="mbd">
             <div class="fi">
                 <label>
@@ -96,6 +95,7 @@
                 <input type="text" id="agefrom" name="agefrom" class="text" style="width: 40px;" />
                 到
                 <input type="text" id="ageto" name="ageto" class="text" style="width: 40px;" />
+                <span id="Error_age" class="invalid" style="display: none">请输入数字！</span>
             </div>
             <div class="fi even">
                 <label>
@@ -113,6 +113,7 @@
                 <input type="text" id="saleryfrom" name="saleryfrom" class="text" style="width: 40px;" />
                 到
                 <input type="text" id="saleryto" name="saleryto" class="text" style="width: 40px;" />
+                <span id="Error_salery" class="invalid" style="display: none">请输入数字！</span>
             </div>
             <div class="fi even">
                 <label>
@@ -137,7 +138,6 @@
                 <input type="submit" value="搜索" class="submit" />
             </div>
         </div>
-        </form>
         <div class="mft">
         </div>
     </div>
@@ -146,4 +146,41 @@
             <li></li>
         </ul>
     </div>
+
+    <script type="text/javascript">
+        function search() {
+            var error = true;
+            $("[id^='Error_']").hide();
+            var agefrom = $.trim($("#agefrom").val());
+            var ageto = $.trim($("#ageto").val());
+            var saleryfrom = $.trim($("#saleryfrom").val());
+            var saleryto = $.trim($("#saleryto").val());
+            if (agefrom != "" && isNaN(parseInt(agefrom))) {
+                $("#Error_age").show();
+                error = false;
+            }
+            if (ageto != "" && isNaN(parseInt(ageto))) {
+                $("#Error_age").show();
+                error = false;
+            }
+            if (saleryfrom != "" && isNaN(parseInt(saleryfrom))) {
+                $("#Error_salery").show();
+                error = false;
+            }
+            if (saleryto != "" && isNaN(parseInt(saleryto))) {
+                $("#Error_salery").show();
+                error = false;
+            }
+            return error;
+        }
+
+        $(document).ready(function() {
+            $("#__VIEWSTATE").remove();
+            var form = $("form").attr("action", "ResumeSearch.aspx").attr("method", "get");
+            form.submit(function() {
+                return search();
+            });
+        });
+    </script>
+
 </asp:Content>

@@ -4,10 +4,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Admin_Search : PageAdmin
+public partial class Control_Position2 : System.Web.UI.UserControl
 {
     protected void Page_Load( object sender, EventArgs e )
     {
-        this.EnableViewState = false;
+
     }
 }

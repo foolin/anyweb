@@ -200,8 +200,8 @@
                 海外工作经历
             </th>
             <td>
-                <input type="radio" name="Work_IsOverSeas" value="0" checked="checked" />是
-                <input type="radio" value="1" name="Work_IsOverSeas" />否
+                <input type="radio" name="Work_IsOverSeas" value="0" />是
+                <input type="radio" value="1" name="Work_IsOverSeas" checked="checked" />否
             </td>
             <th scope="row">
             </th>

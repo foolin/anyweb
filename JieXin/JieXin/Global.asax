@@ -112,7 +112,7 @@
         string[] urlInfo = requestPath.Split( '/' );
         if( urlInfo.Length < 2 )
         {
-            realPath = "/Error.html";
+            realPath = "/Error.aspx";
         }
         switch( urlInfo[ 0 ] )
         {
@@ -148,13 +148,13 @@
                 }
             default:
                 {
-                    realPath = "/Error.html";
+                    realPath = "/Error.aspx";
                     break;
                 }
         }
     }
 
-    string[] urls = { "/", "/index.aspx", "/login.aspx", "/import.aspx", "/User/Index.aspx", "/logout.aspx", "/search.aspx", "/register.aspx", "/notice.aspx", "/addfavorite.aspx", "/applyresume.aspx", "/applyresumes.aspx", "/refurbishall.aspx", "/recruitlist.aspx", "/getpassword.aspx", "/resetpwd.aspx", "/initarea.aspx", "/initmajor.aspx", "/initindustryweb.aspx", "/initindustry2.aspx", "/initposition.aspx", "/initpositionweb.aspx" };
+    string[] urls = { "/", "/index.aspx", "/login.aspx", "/import.aspx", "/User/Index.aspx", "/logout.aspx", "/search.aspx", "/register.aspx", "/notice.aspx", "/addfavorite.aspx", "/applyresume.aspx", "/applyresumes.aspx", "/refurbishall.aspx", "/recruitlist.aspx", "/getpassword.aspx", "/resetpwd.aspx", "/error.aspx", "/initarea.aspx", "/initmajor.aspx", "/initindustryweb.aspx", "/initindustry2.aspx", "/initposition.aspx", "/initpositionweb.aspx", "/initpositionweb2.aspx" };
        
 </script>
 

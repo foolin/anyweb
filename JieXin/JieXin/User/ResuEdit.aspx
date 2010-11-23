@@ -7,6 +7,7 @@
 <%@ Register Src="~/Control/Industry.ascx" TagName="Industry" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/Industry2.ascx" TagName="Industry2" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/Position.ascx" TagName="Position" TagPrefix="uc1" %>
+<%@ Register Src="~/Control/Position2.ascx" TagName="Position2" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/Upload.ascx" TagName="Upload" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
@@ -962,6 +963,7 @@
     <uc1:Industry ID="Industry1" runat="server" />
     <uc1:Industry2 ID="Industry2" runat="server" />
     <uc1:Position ID="Position1" runat="server" />
+    <uc1:Position2 ID="Position2" runat="server" />
     <uc1:Upload ID="Upload1" runat="server" />
 
     <script type="text/javascript">
@@ -970,7 +972,7 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            myfun("industry2_ul", "li", "industry_choosed");
+            myfun("industry2_ul", "li");
         });
     </script>
 </asp:Content>

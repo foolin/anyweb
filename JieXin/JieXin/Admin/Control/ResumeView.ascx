@@ -457,7 +457,7 @@
         <a href="ResuExport.aspx?id=<%=bean.fdResuID %>" target="_blank" class="btn96_35" id="export">导出简历</a>
         <a href="javascript:void(0)" class="btn96_35" onclick="return resuprint();" id="print">打印简历</a></div>
     <div class="resBox">
-        <div class="Content">
+        <div>
             <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border: 2px solid #3183AD">
                 <tr>
                     <td>

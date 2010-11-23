@@ -26,13 +26,8 @@ public partial class User_ResuAdd : PageUser
         }
 
         this._eduId = new AW_Education_dao().funcNewID();
-        this._rewardsId = new AW_Rewards_dao().funcNewID();
-        this._posiId = new AW_Position_dao().funcNewID();
         this._workId = new AW_Work_dao().funcNewID();
         this._langId = new AW_Language_dao().funcNewID();
-        this._certId = new AW_Cert_dao().funcNewID();
-        this._awarId = new AW_Awards_dao().funcNewID();
-        this._skillId = new AW_Skills_dao().funcNewID();
 
         this.Title = "添加简历" + GeneralConfigs.GetConfig().TitleExtension;
     }
@@ -50,38 +45,6 @@ public partial class User_ResuAdd : PageUser
         set
         {
             _eduId = value;
-        }
-    }
-
-    private int _rewardsId;
-    /// <summary>
-    /// 奖励编号
-    /// </summary>
-    public int rewardsID
-    {
-        get
-        {
-            return _rewardsId;
-        }
-        set
-        {
-            _rewardsId = value;
-        }
-    }
-
-    private int _posiId;
-    /// <summary>
-    /// 职务编号
-    /// </summary>
-    public int posiID
-    {
-        get
-        {
-            return _posiId;
-        }
-        set
-        {
-            _posiId = value;
         }
     }
 
@@ -114,54 +77,6 @@ public partial class User_ResuAdd : PageUser
         set
         {
             _langId = value;
-        }
-    }
-
-    private int _certId;
-    /// <summary>
-    /// 证书编号
-    /// </summary>
-    public int certID
-    {
-        get
-        {
-            return _certId;
-        }
-        set
-        {
-            _certId = value;
-        }
-    }
-
-    private int _awarId;
-    /// <summary>
-    /// 奖项编号
-    /// </summary>
-    public int awarID
-    {
-        get
-        {
-            return _awarId;
-        }
-        set
-        {
-            _awarId = value;
-        }
-    }
-
-    private int _skillId;
-    /// <summary>
-    /// 技能编号
-    /// </summary>
-    public int skillID
-    {
-        get
-        {
-            return _skillId;
-        }
-        set
-        {
-            _skillId = value;
         }
     }
 }

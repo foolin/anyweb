@@ -110,7 +110,7 @@ namespace AnyWell.AW_UC
         /// </summary>
         protected void goErrorPage()
         {
-            HttpContext.Current.Response.Redirect("/Error.html");
+            HttpContext.Current.Response.Redirect("/Error.aspx");
         }
     }
 }

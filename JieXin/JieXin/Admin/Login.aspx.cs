@@ -15,6 +15,10 @@ public partial class Shop_Admin_Login : System.Web.UI.Page
 {
     protected void submit_Click(object sender, EventArgs e)
     {
+        if( Session[ "CHECK_CODE" ] == null )
+        {
+            WebAgent.FailAndGo( "验证码输入错误！", "/Admin/Login.aspx" );
+        }
         string code = Session["CHECK_CODE"].ToString();
         if (txtCode.Text.ToLower() != code)
         {

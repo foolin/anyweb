@@ -207,7 +207,7 @@
 .choArea,.choIndustry{ width:538px; margin:0px auto; display:none; position:absolute;}
 .choArea .top,.choIndustry .top{ height:30px; background:url(../images/bg_floatDivtop.png) no-repeat; font-size:14px;}
 .choArea .iTit,.choIndustry .iTit{ float:left; padding:2px 0px 0px 17px; line-height:28px; color:#fff; font-style:normal;}
-.choArea .topRight,.choIndustry .topRight{ float:right; margin:6px 15px 0px 0px;}
+.choArea .topRight,.choIndustry .topRight{ float:right; line-height:20px; margin:6px 15px 0px 0px;}
 .choArea .con{ border:solid #419A02; border-width:0px 1px 0px; padding:8px 17px; background-color:#fff;}
 .choArea .btm,.choIndustry .btm{ height:6px; background:url(../images/bg_floatDivbtm.png) no-repeat;}
 .choArea h3{ font-weight:bold; color:#59A901; line-height:22px; clear:both; height:22px;}
@@ -256,7 +256,7 @@
 .dl .close{ font-size:14px; position:absolute; top:3px; right:5px; color:#666; z-index:3; font-family:Verdana, Geneva, sans-serif; font-weight:bold;}
 /**/
 .inner{ border:1px solid #D9D9D9; background:url(../images/bg_inner.jpg) top repeat-x;}
-.inner .tit{ height:34px; padding:3px 0px 0px 18px; line-height:34px; font-size:14px; background:url(../images/bg_columntop.gif) top repeat-x; border-bottom:1px solid #D9D9D9; color:#666;}
+.inner .tit{padding:6px 0px 6px 18px; line-height:24px; font-size:14px; background:url(../images/bg_columntop.gif) top repeat-x; border-bottom:1px solid #D9D9D9; color:#666;}
 .inner .tit a:hover{ text-decoration:underline;}
 /*loginPage*/
 .loginPage{ padding-top:70px; overflow:hidden;}
@@ -413,4 +413,6 @@
 .resume .item{ overflow:hidden; margin-bottom:8px;}
 .resume .underLine{ border-bottom:1px solid #CCC; margin-bottom:6px; padding-top:5px;}
 
-#industry2_ul li{overflow:hidden;}
+/*404Page*/
+.unFind{ border:1px solid #D9D9D9; height:auto!important; min-height:320px;_height:320px; background:url(../images/bg_404.png) 188px 119px no-repeat; line-height:32px; padding:110px 0px 0px 431px;}
+.unFind .eng{ font-family:Tahoma, Geneva, sans-serif; color:#999;}

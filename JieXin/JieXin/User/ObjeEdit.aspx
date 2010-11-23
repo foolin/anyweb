@@ -42,7 +42,7 @@
         </th>
         <td>
             <a href="javascript:void(0);" id="Obje_FuncType" class="btn28H" style="font-size: 12px;"
-                title="<%=getFuncTypeName() %>">
+                title="<%=getFuncTypeName() %>" onclick="choosePosition2(this,'ChoosePosition2','Obje_FuncTypeID','Obje_FuncTypeName');return false;">
                 <%=getFuncTypeName() %></a>
             <input type="hidden" id="Obje_FuncTypeID" name="Obje_FuncTypeID" value="<%=bean.fdResuObjeFuncTypeID1 == 0 ? "" : bean.fdResuObjeFuncTypeID1 + ";"%><%=bean.fdResuObjeFuncTypeID2 == 0 ? "" : bean.fdResuObjeFuncTypeID2 + ";"%><%=bean.fdResuObjeFuncTypeID3 == 0 ? "" : bean.fdResuObjeFuncTypeID3 + ";"%><%=bean.fdResuObjeFuncTypeID4 == 0 ? "" : bean.fdResuObjeFuncTypeID4 + ";"%><%=bean.fdResuObjeFuncTypeID5 == 0 ? "" : bean.fdResuObjeFuncTypeID5 + ";"%>" />
             <input type="hidden" id="Obje_FuncTypeName" name="Obje_FuncTypeName" value="<%=bean.fdResuObjeFuncTypeID1 == 0 ? "" : bean.fdResuObjeFuncType1 + ";"%><%=bean.fdResuObjeFuncTypeID2 == 0 ? "" : bean.fdResuObjeFuncType2 + ";"%><%=bean.fdResuObjeFuncTypeID3 == 0 ? "" : bean.fdResuObjeFuncType3 + ";"%><%=bean.fdResuObjeFuncTypeID4 == 0 ? "" : bean.fdResuObjeFuncType4 + ";"%><%=bean.fdResuObjeFuncTypeID5 == 0 ? "" : bean.fdResuObjeFuncType5 + ";"%>" />
@@ -115,7 +115,7 @@
         <th scope="row">
         </th>
         <td colspan="3">
-            <span class="tipW red hidden" id="errorMsg_Intro">输入错误。请控制在2000个汉字以内！</span>
+            <span class="tipW red hidden" id="errorMsg_Intro">输入错误。请控制在500个汉字以内！</span>
         </td>
     </tr>
     <tr>
@@ -135,7 +135,7 @@
                         <p class="lh20">
                             限500个中文字，输入您对自己的简短评价。请简明扼要的说明您最大的优势是什么，避免使 用一些空洞老套的话。</p>
                         <p class="lh20">
-                            限2000个中文字，已输入<span class="orange" id="Obje_IntroLength"><%=bean.fdResuObjeIntro.Length%></span>个字</p>
+                            限500个中文字，已输入<span class="orange" id="Obje_IntroLength"><%=bean.fdResuObjeIntro.Length%></span>个字</p>
                     </td>
                 </tr>
             </table>

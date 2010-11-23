@@ -102,7 +102,9 @@
         function refreshCode() {
             $("#checkCode").attr("src", "CheckCode.aspx?rd=" + Math.random());
         }
-        $("#checkCode").attr("src", "CheckCode.aspx?rd=" + Math.random());
+        $(document).ready(function() {
+            refreshCode();
+        });
     </script>
 </body>
 </html>

@@ -82,7 +82,7 @@ namespace AnyWell.AW_UC
 
                 if (article == null && this.ItemType == ItemObjectType.Current)
                 {
-                    HttpContext.Current.Response.Redirect("/Error.html");
+                    HttpContext.Current.Response.Redirect("/Error.aspx");
                     return null;
                 }
             }

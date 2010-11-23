@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Control_Job : System.Web.UI.UserControl
+public partial class Admin_ResumeSearch : PageAdmin
 {
     protected void Page_Load( object sender, EventArgs e )
     {

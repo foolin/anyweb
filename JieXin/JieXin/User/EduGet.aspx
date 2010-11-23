@@ -154,8 +154,8 @@
                 海外学习经历
             </th>
             <td>
-                <input type="radio" name="Edu_IsOverSeas" value="0" checked="checked" />是<input type="radio"
-                    value="1" name="Edu_IsOverSeas" />
+                <input type="radio" name="Edu_IsOverSeas" value="0" />是<input type="radio"
+                    value="1" name="Edu_IsOverSeas" checked="checked" />
                 否
             </td>
         </tr>

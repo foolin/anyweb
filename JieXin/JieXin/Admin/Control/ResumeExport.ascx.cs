@@ -103,7 +103,7 @@ public partial class Admin_Control_ResumeExport : ControlBase
         }
         else if( familyPhone.Length == 3 && familyPhone[ 1 ].Length > 0 && familyPhone[ 1 ] != "区号" && familyPhone[ 2 ].Length > 0 && familyPhone[ 2 ] != "电话号码" )
         {
-            return string.Format( "{0}-{1}（手机）", familyPhone[ 1 ], familyPhone[ 2 ] );
+            return string.Format( "{0}-{1}（家庭电话）", familyPhone[ 1 ], familyPhone[ 2 ] );
         }
         else
         {

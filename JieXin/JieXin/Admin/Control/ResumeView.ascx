@@ -451,11 +451,16 @@
         margin-bottom: 6px;
         padding-top: 5px;
     }
+    .ieFixPng img
+    {
+        _behavior: url("/images/iepngfix.htc");
+    }
 </style>
 <div class="resume">
     <div class="topBtn">
-        <a href="ResuExport.aspx?id=<%=bean.fdResuID %>" target="_blank" class="btn96_35" id="export">导出简历</a>
-        <a href="javascript:void(0)" class="btn96_35" onclick="return resuprint();" id="print">打印简历</a></div>
+        <a href="ResuExport.aspx?id=<%=bean.fdResuID %>" target="_blank" class="btn96_35"
+            id="export">导出简历</a> <a href="javascript:void(0)" class="btn96_35" onclick="return resuprint();"
+                id="print">打印简历</a></div>
     <div class="resBox">
         <div>
             <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border: 2px solid #3183AD">
@@ -468,7 +473,7 @@
                                     <h1>
                                         <%=bean.fdResuUserName %></h1>
                                 </td>
-                                <td width="90">
+                                <td width="90" class="ieFixPng">
                                     <span style="display: block; float: right; margin: 10px 26px 0px 0px;">
                                         <img height="44" border="0" width="76" src="/images/logo_jiexin.png"></span>
                                 </td>
@@ -550,7 +555,7 @@
                                                 学 校：
                                             </td>
                                             <td>
-                                                <%#education.fdEducSchool %>
+                                                <%=education.fdEducSchool %>
                                             </td>
                                         </tr>
                                     </table>
@@ -954,6 +959,7 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript">
     function beforeprint()//打印前的显示控制
     {
@@ -977,3 +983,4 @@
     window.onafterprint = afterprint; 
 
 </script>
+

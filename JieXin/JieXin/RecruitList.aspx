@@ -54,6 +54,16 @@
                                     id="favorite">收藏选中职位</a>
                     </div>
                     <div class="dList" id="jobList">
+                        <%if( recrList.Count == 0 )
+                          { %>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td align="center">对不起,没有找到符合您条件的职位!</td>
+                            </tr>
+                        </table>
+                        <%}
+                          else
+                          { %>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <asp:Repeater ID="rep" runat="server">
                                 <ItemTemplate>
@@ -83,6 +93,7 @@
                                 </ItemTemplate>
                             </asp:Repeater>
                         </table>
+                        <%} %>
                     </div>
                     <div class="pageStyle tr">
                         <sw:PageNaver ID="PN1" runat="server" StyleID="5" PageSize="10">

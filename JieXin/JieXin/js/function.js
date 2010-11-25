@@ -128,6 +128,19 @@ function choosePosition2(obj, objId, id, name) {
     initArray("choosePos_");
 }
 
+//求职意向 地点
+function ChooseArea2(obj, objId, id, name) {
+    showMsgBox('ChooseArea2', 538, 522);
+    curPlace = obj;
+    curObjId = objId;
+    curId = id;
+    curName = name;
+    ulName = "area2_ul";
+    choosedName = "chooseArea";
+    initArray("area_");
+}
+
+
 function myfun(objName, tagName) {
     overBgColor(objName, tagName);
 }
@@ -194,11 +207,34 @@ function overPositionBgColor(objName, tagName) {
         tagArray[i].order = i;
         tagArray[i].onmouseover = function() {
             changeCur(this.order, tagArray, true);
-            overBgColor(objName, tagName);
+            overPositionBgColor(objName, tagName);
         }
         tagArray[i].onmouseout = function() {
             changeCur(this.order, tagArray, false);
-            overBgColor(objName, tagName);
+            overPositionBgColor(objName, tagName);
+        }
+        tagArray[i].onclick = function() {
+            choosePos(this, choosedName);
+            overPositionBgColor(objName, tagName);
+        }
+    }
+}
+
+function overAreaBgColor(objName, tagName) {
+    var tagArray = $("#" + objName).find(tagName);
+    for (var i = 0; i < tagArray.length; i++) {
+        tagArray[i].order = i;
+        tagArray[i].onmouseover = function() {
+            changeCur(this.order, tagArray, true);
+            overAreaBgColor(objName, tagName);
+        }
+        tagArray[i].onmouseout = function() {
+            changeCur(this.order, tagArray, false);
+            overAreaBgColor(objName, tagName);
+        }
+        tagArray[i].onclick = function() {
+            chooseAreaInput(this, 1);
+            overAreaBgColor(objName, tagName);
         }
     }
 }
@@ -359,7 +395,11 @@ function choosePos(obj, chosedName) {
                 spanArrays[q].getElementsByTagName("input")[0].checked = false;
             }
         }
-    } else {//当职能为具体职位时
+    } else if (objParent.tagName == "DL") {
+        delInput(obj.id);
+        overPositionBgColor(choosedName, "dd");
+        return;
+    }else {//当职能为具体职位时
         checkObj.checked = checkObj.checked == true ? false : true;
         if (objParent.tagName == "SPAN") {
             bigListArray = ddArray;
@@ -377,7 +417,7 @@ function choosePos(obj, chosedName) {
             var ddObj = document.createElement("dd");
             ddObj.id = checkObj.name;
             ddObj.innerHTML = checkObj.parentNode.innerHTML;
-            ddObj.getElementsByTagName("input")[0].checked = true;            
+            ddObj.getElementsByTagName("input")[0].checked = true;
             choseObj.appendChild(ddObj);
         } else {//大于5时提示最多只能选五项，并把勾取消
             alert("您最多只能选五项！");
@@ -391,6 +431,109 @@ function choosePos(obj, chosedName) {
         }
     }
     overPositionBgColor(choosedName, "dd");
+}
+
+function overDetail3(obj, num, subName, objArrays) {
+    var strHtml = "";
+    var isCheck = "";
+    var objParent = obj.parentNode;
+    if (!objArrays[num]) { return false; }
+    isCheck = $("#" + choosedName).find("#area_" + num).length > 0 ? "checked=\"true\"" : "";
+    strHtml += "<h4><a href='javascript:void(0)' title='点击为本类'  onclick=\"chooseAreaInput(this,1);return false;\"><input type='checkbox' id='area_" + num + "' value='" + $.trim(obj.innerHTML) + "|" + num + "' " + isCheck + "/>" + $.trim(obj.innerHTML) + "</a></h4>";
+    for (var i = 0; i < objArrays[num].length; i++) {
+        var objname = objArrays[num][i].substr(0, objArrays[num][i].indexOf('|'));
+        var objid = objArrays[num][i].substr(objArrays[num][i].indexOf('|') + 1, objArrays[num][i].length - objArrays[num][i].indexOf('|'));
+        isCheck = $("#" + choosedName).find("#area_" + objid).length > 0 ? "checked=\"true\"" : "";
+        strHtml += "<span><a href='javascript:void(0);' onclick=\"chooseAreaInput(this,1);return false;\"><input type='checkbox' id='area_" + objid + "' value='" + objArrays[num][i] + "' " + isCheck + "/>" + objname + "</a></span>";
+    }
+    var subArea = document.getElementById(subName + num);
+    if (!subArea) {
+        subArea = document.createElement("div");
+        subArea.id = subName + num;
+        subArea.className = "subArea";
+        subArea.innerHTML = strHtml;
+        objParent.appendChild(subArea);
+
+        subArea.onmouseover = function() {
+            this.parentNode.className = "relate cur";
+            this.style.display = "block";
+        }
+        subArea.onmouseout = function() {
+            this.parentNode.className = "";
+            this.style.display = "none";
+        }
+        objParent.onmouseout = function() {
+            this.className = "";
+            subArea.style.display = "none";
+        }
+    } else {
+        subArea.innerHTML = strHtml;
+    }
+
+    objParent.className = "relate cur";
+    subArea.style.display = "block";
+}
+
+function chooseAreaInput(obj, isfloat) {
+    var checkObj = obj.getElementsByTagName("input")[0];
+    var chooseObj = document.getElementById(choosedName);
+    var objParent = obj.parentNode;
+    var ddArray = chooseObj.getElementsByTagName("dd");
+    var divObj = objParent.parentNode;
+    bigList = divObj.parentNode.parentNode.getElementsByTagName("input");
+    var spanArrays = divObj.getElementsByTagName("span");
+    var h4Obj = divObj.getElementsByTagName("h4")[0];
+    if (isfloat) {
+        debugger;
+        if (objParent.tagName == "H4") {//当地点为小类时
+            checkObj.checked = checkObj.checked == true ? false : true;
+            bigListArray = spanArrays;
+            for (var q = 0, len = spanArrays.length; q < len; q++) {
+                if (spanArrays[q].getElementsByTagName("input")[0].checked == true) {
+                    delInput(spanArrays[q].getElementsByTagName("input")[0].id);
+                    spanArrays[q].getElementsByTagName("input")[0].checked = false;
+                }
+            }
+        } else if (objParent.tagName == "DL") {
+            delInput(obj.id);
+            overAreaBgColor(choosedName, "dd");
+            return;
+        } else {//当为具体地点时
+            checkObj.checked = checkObj.checked == true ? false : true;
+            if (objParent.tagName == "SPAN") {
+                bigListArray = ddArray;
+            } else {
+                bigListArray = h4Obj;
+            }
+            if (h4Obj.getElementsByTagName("input")[0].checked == true) {
+                delInput(h4Obj.getElementsByTagName("input")[0].id);
+                h4Obj.getElementsByTagName("input")[0].checked = false;
+            }
+        }
+    } else {
+        checkObj.checked = checkObj.checked == true ? false : true;
+        delInput("area_" + checkObj.value.split("|")[2]);
+    }
+
+    if (checkObj.checked) {
+        if (ddArray.length < 5) {//当DD节点小于5时，增加DD
+            var ddObj = document.createElement("dd");
+            ddObj.id = checkObj.id;
+            ddObj.innerHTML = checkObj.parentNode.innerHTML;
+            ddObj.getElementsByTagName("input")[0].checked = true;
+            if (!isfloat) {
+                ddObj.getElementsByTagName("input")[0].value = checkObj.value.substr(0, checkObj.value.lastIndexOf("|"));
+            }
+            chooseObj.appendChild(ddObj);
+            $("#" + ulName).find("#" + checkObj.id).attr("checked", true);
+        } else {
+            alert("您最多只能选五项！");
+            checkObj.checked = false;
+        }
+    } else {
+        delInput(checkObj.id);
+    }
+    overAreaBgColor(choosedName, "dd");
 }
 
 function Changetag(num) {

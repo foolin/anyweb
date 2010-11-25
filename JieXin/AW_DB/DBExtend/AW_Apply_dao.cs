@@ -16,9 +16,9 @@ namespace AnyWell.AW_DL
         /// <param name="userId"></param>
         /// <param name="ids"></param>
         /// <returns></returns>
-        public List<int> funcGetExistIds( int userId, string ids )
+        public List<int> funcGetExistIds( int userId,int resuId, string ids )
         {
-            string sql = string.Format( "SELECT fdApplRecrID FROM AW_Apply WHERE fdApplUserID={0} AND fdApplRecrID IN ({1})", userId, ids );
+            string sql = string.Format( "SELECT fdApplRecrID FROM AW_Apply WHERE fdApplUserID={0} AND fdApplResuID={1} AND fdApplRecrID IN ({2})", userId, resuId, ids );
             DataSet ds = this.funcGet( sql );
             if( ds.Tables[ 0 ].Rows.Count > 0 )
             {

@@ -19,7 +19,8 @@ public partial class AnyWell_RecruitList : PageBase
         int.TryParse( QS( "type" ), out type );
 
         int recordCount = 0;
-        rep.DataSource = new AW_Recruit_dao().funcGetRecruitList( tag, areaid, key, type, PN1.PageSize, PN1.PageIndex, out recordCount );
+        this._recrList = new AW_Recruit_dao().funcGetRecruitList( tag, areaid, key, type, PN1.PageSize, PN1.PageIndex, out recordCount );
+        rep.DataSource = recrList;
         rep.DataBind();
         PN1.SetPage( recordCount );
 
@@ -43,6 +44,19 @@ public partial class AnyWell_RecruitList : PageBase
         set
         {
             _resuList = value;
+        }
+    }
+
+    protected List<AW_Recruit_bean> _recrList;
+    public List<AW_Recruit_bean> recrList
+    {
+        get
+        {
+            return _recrList;
+        }
+        set
+        {
+            _recrList = value;
         }
     }
 }

@@ -38,7 +38,7 @@ public partial class ApplyResume : PageBase
             return;
         }
 
-        List<int> list = RemoveExistId( QS( "ids" ) );
+        List<int> list = RemoveExistId( QS( "ids" ), resume.fdResuID );
         using( AW_Apply_dao dao = new AW_Apply_dao() )
         {
             foreach( int id in list )
@@ -60,9 +60,9 @@ public partial class ApplyResume : PageBase
     /// </summary>
     /// <param name="ids"></param>
     /// <returns></returns>
-    protected List<int> RemoveExistId( string ids )
+    protected List<int> RemoveExistId( string ids, int resuId )
     {
-        List<int> existList = new AW_Apply_dao().funcGetExistIds( this.LoginUser.fdUserID, ids );
+        List<int> existList = new AW_Apply_dao().funcGetExistIds( this.LoginUser.fdUserID, resuId, ids );
         List<int> list = new List<int>();
         if( existList == null )
         {

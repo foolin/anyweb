@@ -548,7 +548,7 @@
                                                 学 校：
                                             </td>
                                             <td>
-                                                <%#education.fdEducSchool %>
+                                                <%=education.fdEducSchool %>
                                             </td>
                                         </tr>
                                     </table>

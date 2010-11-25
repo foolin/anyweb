@@ -3,6 +3,7 @@
 
 <%@ Register Src="~/Control/UserSidebar.ascx" TagName="UserSidebar" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/Area.ascx" TagName="Area" TagPrefix="uc1" %>
+<%@ Register Src="~/Control/Area2.ascx" TagName="Area2" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/Major.ascx" TagName="Major" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/Industry.ascx" TagName="Industry" TagPrefix="uc1" %>
 <%@ Register Src="~/Control/Industry2.ascx" TagName="Industry2" TagPrefix="uc1" %>
@@ -959,6 +960,7 @@
         </div>
     </div>
     <uc1:Area ID="Area1" runat="server" />
+    <uc1:Area2 ID="Area2" runat="server" />
     <uc1:Major ID="Major1" runat="server" />
     <uc1:Industry ID="Industry1" runat="server" />
     <uc1:Industry2 ID="Industry2" runat="server" />

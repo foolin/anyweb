@@ -763,7 +763,7 @@ function info_check() {
         $("#" + info_id).find("#errorMsg_CurrSitu").show();
         err = false;
     }
-    if ($.trim($("#" + info_id).find("#Height").val()) != "" && !parseInt($.trim($("#" + info_id).find("#Height").val()))) {
+    if ($.trim($("#" + info_id).find("#Height").val()) != "" && !isInt($.trim($("#" + info_id).find("#Height").val()))) {
         $("#" + info_id).find("#errorMsg_Height").show();
         err = false;
     }
@@ -926,19 +926,19 @@ function level_check(level_id) {
         $("#" + level_id).find("#errorMsg_EnLevel").show();
         err = false;
     }
-    if ($.trim($("#" + level_id).find("#Level_TOEFL").val()) && !parseInt($.trim($("#" + level_id).find("#Level_TOEFL").val()))) {
+    if ($.trim($("#" + level_id).find("#Level_TOEFL").val()) && !isInt($.trim($("#" + level_id).find("#Level_TOEFL").val()))) {
         $("#" + level_id).find("#errorMsg_TOEFL").show();
         err = false;
     }
-    if ($.trim($("#" + level_id).find("#Level_GRE").val()) && !parseInt($.trim($("#" + level_id).find("#Level_GRE").val()))) {
+    if ($.trim($("#" + level_id).find("#Level_GRE").val()) && !isInt($.trim($("#" + level_id).find("#Level_GRE").val()))) {
         $("#" + level_id).find("#errorMsg_GRE").show();
         err = false;
     }
-    if ($.trim($("#" + level_id).find("#Level_GMAT").val()) && !parseInt($.trim($("#" + level_id).find("#Level_GMAT").val()))) {
+    if ($.trim($("#" + level_id).find("#Level_GMAT").val()) && !isInt($.trim($("#" + level_id).find("#Level_GMAT").val()))) {
         $("#" + level_id).find("#errorMsg_GMAT").show();
         err = false;
     }
-    if ($.trim($("#" + level_id).find("#Level_IELTS").val()) && !parseInt($.trim($("#" + level_id).find("#Level_IELTS").val()))) {
+    if ($.trim($("#" + level_id).find("#Level_IELTS").val()) && !isInt($.trim($("#" + level_id).find("#Level_IELTS").val()))) {
         $("#" + level_id).find("#errorMsg_IELTS").show();
         err = false;
     }
@@ -956,7 +956,7 @@ function cert_check(cert_id) {
         $("#" + cert_id).find("#errorMsg_Name").show();
         err = false;
     }
-    if ($.trim($("#" + cert_id).find("#Cert_Scores").val()) && !parseInt($.trim($("#" + cert_id).find("#Cert_Scores").val()))) {
+    if ($.trim($("#" + cert_id).find("#Cert_Scores").val()) && !isInt($.trim($("#" + cert_id).find("#Cert_Scores").val()))) {
         $("#" + cert_id).find("#errorMsg_Scores").show();
         err = false;
     }
@@ -988,7 +988,7 @@ function skill_check(skill_id) {
         $("#" + skill_id).find("#errorMsg_Month_1").show();
         err = false;
     }
-    if ($.trim($("#" + skill_id).find("#Skill_Month").val()) && !parseInt($.trim($("#" + skill_id).find("#Skill_Month").val()))) {
+    if ($.trim($("#" + skill_id).find("#Skill_Month").val()) && !isInt($.trim($("#" + skill_id).find("#Skill_Month").val()))) {
         $("#" + skill_id).find("#errorMsg_Month_2").show();
         err = false;
     }

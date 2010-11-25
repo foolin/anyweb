@@ -932,7 +932,7 @@
                                     <td>
                                         <span class="right">&nbsp;&nbsp;<input type="button" id="btn_obje_save" class="btn60_28"
                                             value="保 存" onclick="obje_save('obje_form')" /></span> <a href="javascript:void(0);"
-                                                id="Obje_Area" class="btn28H" style="font-size: 12px;">选择/修改</a>
+                                                id="Obje_Area" class="btn28H" style="font-size: 12px;" onclick="ChooseArea2(this,'ChooseArea2','Obje_AreaID','Obje_AreaName');return false;">选择/修改</a>
                                         <input type="hidden" id="Obje_AreaID" name="Obje_AreaID" />
                                         <input type="hidden" id="Obje_AreaName" name="Obje_AreaName" />
                                     </td>

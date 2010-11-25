@@ -20,7 +20,7 @@
         <td>
             <span class="right">&nbsp;&nbsp;<input type="button" id="btn_obje_save" class="btn60_28"
                 value="保 存" onclick="obje_save('obje_form')" /></span> <a href="javascript:void(0);"
-                    id="Obje_Area" class="btn28H" style="font-size: 12px;" title="<%=getAreaName()%>">
+                    id="Obje_Area" class="btn28H" style="font-size: 12px;" title="<%=getAreaName()%>" onclick="ChooseArea2(this,'ChooseArea2','Obje_AreaID','Obje_AreaName');return false;">
                     <%=getAreaName()%></a>
             <input type="hidden" id="Obje_AreaID" name="Obje_AreaID" value="<%=bean.fdResuObjeAreaID1 == 0 ? "" : bean.fdResuObjeAreaID1 + ";"%><%=bean.fdResuObjeAreaID2 == 0 ? "" : bean.fdResuObjeAreaID2 + ";"%><%=bean.fdResuObjeAreaID3 == 0 ? "" : bean.fdResuObjeAreaID3 + ";"%><%=bean.fdResuObjeAreaID4 == 0 ? "" : bean.fdResuObjeAreaID4 + ";"%><%=bean.fdResuObjeAreaID5 == 0 ? "" : bean.fdResuObjeAreaID5 + ";"%>" />
             <input type="hidden" id="Obje_AreaName" name="Obje_AreaName" value="<%=bean.fdResuObjeAreaID1 == 0 ? "" : bean.fdResuObjeArea1 + ";"%><%=bean.fdResuObjeAreaID2 == 0 ? "" : bean.fdResuObjeArea2 + ";"%><%=bean.fdResuObjeAreaID3 == 0 ? "" : bean.fdResuObjeArea3 + ";"%><%=bean.fdResuObjeAreaID4 == 0 ? "" : bean.fdResuObjeArea4 + ";"%><%=bean.fdResuObjeAreaID5 == 0 ? "" : bean.fdResuObjeArea5 + ";"%>%>" />

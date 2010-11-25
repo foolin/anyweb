@@ -422,7 +422,7 @@
 
             if (!Height) {
             } else {
-                if (!parseInt(Height)) {
+                if (!isInt(Height)) {
                     $("#Error_Height").show();
                     error = false;
                 }

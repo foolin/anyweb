@@ -125,6 +125,9 @@ function choosePosition2(obj, objId, id, name) {
     curName = name;
     ulName = "position2_ul";
     choosedName = "choosePos";
+    $("#" + ulName).find("a").click(function() {
+        return false;
+    });
     initArray("choosePos_");
 }
 
@@ -136,8 +139,14 @@ function ChooseArea2(obj, objId, id, name) {
     curId = id;
     curName = name;
     ulName = "area2_ul";
-    choosedName = "chooseArea";
+    choosedName = "choosedArea";
     initArray("area_");
+    $("#" + ulName).find("a").mouseover(function() {
+        $(this).attr("class", "cur");
+    });
+    $("#" + ulName).find("a").mouseout(function() {
+        $(this).attr("class", "");
+    });
 }
 
 
@@ -340,16 +349,16 @@ function overDetail2(obj, num, subName, objArrays) {
     var isCheck = "";
     var objParent = obj.parentNode;
     if (!objArrays[num]) { return false; }
-    isCheck = $("#" + choosedName).find("#choosePos_" + num).length > 0 ? "checked=\"true\"" : "";
-    strHtml += "<h4><a href='javascript:void(0)' title='点击为本类'  onclick=\"choosePos(this,'choosePos');return false;\"><input type='checkbox' name='choosePos_" + num + "' value='" + $.trim(obj.innerHTML) + "|" + num + "' " + isCheck + "/>" + $.trim(obj.innerHTML) + "</a></h4>";
-    for (var i = 0; i < objArrays[num].length; i++) {
-        var objname = objArrays[num][i].substr(0, objArrays[num][i].indexOf('|'));
-        var objid = objArrays[num][i].substr(objArrays[num][i].indexOf('|') + 1, objArrays[num][i].length - objArrays[num][i].indexOf('|'));
-        isCheck = $("#" + choosedName).find("#choosePos_" + objid).length > 0 ? "checked=\"true\"" : "";
-        strHtml += "<span><a href='javascript:void(0);' onclick=\"choosePos(this,'choosePos');return false;\"><input type='checkbox' name='choosePos_" + objid + "' value='" + objArrays[num][i] + "' " + isCheck + "/>" + objname + "</a></span>";
-    }
     var subArea = document.getElementById(subName + num);
     if (!subArea) {
+        isCheck = $("#" + choosedName).find("#choosePos_" + num).length > 0 ? "checked=\"true\"" : "";
+        strHtml += "<h4><a title='点击为本类'  onclick=\"choosePos(this);\"><input type='checkbox' name='choosePos_" + num + "' value='" + $.trim(obj.innerHTML) + "|" + num + "' " + isCheck + " onclick='this.checked=!this.checked;' />" + $.trim(obj.innerHTML) + "</a></h4>";
+        for (var i = 0; i < objArrays[num].length; i++) {
+            var objname = objArrays[num][i].substr(0, objArrays[num][i].indexOf('|'));
+            var objid = objArrays[num][i].substr(objArrays[num][i].indexOf('|') + 1, objArrays[num][i].length - objArrays[num][i].indexOf('|'));
+            isCheck = $("#" + choosedName).find("#choosePos_" + objid).length > 0 ? "checked=\"true\"" : "";
+            strHtml += "<span><a onclick=\"choosePos(this);\" title='" + objname + "'><input type='checkbox' name='choosePos_" + objid + "' value='" + objArrays[num][i] + "' " + isCheck + " onclick='this.checked=!this.checked;' />" + objname + "</a></span>";
+        }
         subArea = document.createElement("div");
         subArea.id = subName + num;
         subArea.className = "subArea";
@@ -368,17 +377,26 @@ function overDetail2(obj, num, subName, objArrays) {
             this.className = "";
             subArea.style.display = "none";
         }
+        $(subArea).find("a").mouseover(function() {
+            $(this).attr("class", "cur");
+        });
+        $(subArea).find("a").mouseout(function() {
+            $(this).attr("class", "");
+        });
     } else {
-        subArea.innerHTML = strHtml;
+        $(subArea).find("input").attr("checked", false);
+        $("#" + choosedName).find("dd").each(function() {
+            $(subArea).find("[name=" + $(this).attr("id") + "]").attr("checked", true);
+        });
     }
 
     objParent.className = "relate cur";
     subArea.style.display = "block";
 }
 
-function choosePos(obj, chosedName) {
+function choosePos(obj) {
     var checkObj = obj.getElementsByTagName("input")[0];
-    var choseObj = document.getElementById(chosedName);
+    var choseObj = document.getElementById(choosedName);
     var objParent = obj.parentNode;
     var divObj = objParent.parentNode;
 
@@ -399,7 +417,7 @@ function choosePos(obj, chosedName) {
         delInput(obj.id);
         overPositionBgColor(choosedName, "dd");
         return;
-    }else {//当职能为具体职位时
+    } else {//当职能为具体职位时
         checkObj.checked = checkObj.checked == true ? false : true;
         if (objParent.tagName == "SPAN") {
             bigListArray = ddArray;
@@ -438,16 +456,16 @@ function overDetail3(obj, num, subName, objArrays) {
     var isCheck = "";
     var objParent = obj.parentNode;
     if (!objArrays[num]) { return false; }
-    isCheck = $("#" + choosedName).find("#area_" + num).length > 0 ? "checked=\"true\"" : "";
-    strHtml += "<h4><a href='javascript:void(0)' title='点击为本类'  onclick=\"chooseAreaInput(this,1);return false;\"><input type='checkbox' id='area_" + num + "' value='" + $.trim(obj.innerHTML) + "|" + num + "' " + isCheck + "/>" + $.trim(obj.innerHTML) + "</a></h4>";
-    for (var i = 0; i < objArrays[num].length; i++) {
-        var objname = objArrays[num][i].substr(0, objArrays[num][i].indexOf('|'));
-        var objid = objArrays[num][i].substr(objArrays[num][i].indexOf('|') + 1, objArrays[num][i].length - objArrays[num][i].indexOf('|'));
-        isCheck = $("#" + choosedName).find("#area_" + objid).length > 0 ? "checked=\"true\"" : "";
-        strHtml += "<span><a href='javascript:void(0);' onclick=\"chooseAreaInput(this,1);return false;\"><input type='checkbox' id='area_" + objid + "' value='" + objArrays[num][i] + "' " + isCheck + "/>" + objname + "</a></span>";
-    }
     var subArea = document.getElementById(subName + num);
     if (!subArea) {
+        isCheck = $("#" + choosedName).find("#area_" + num).length > 0 ? "checked=\"true\"" : "";
+        strHtml += "<h4><a title='点击为本类'  onclick=\"chooseAreaInput(this,1);\"><input type='checkbox' id='area_" + num + "' value='" + $.trim(obj.innerHTML) + "|" + num + "' " + isCheck + " onclick='this.checked=!this.checked;'/>" + $.trim(obj.innerHTML) + "</a></h4>";
+        for (var i = 0; i < objArrays[num].length; i++) {
+            var objname = objArrays[num][i].substr(0, objArrays[num][i].indexOf('|'));
+            var objid = objArrays[num][i].substr(objArrays[num][i].indexOf('|') + 1, objArrays[num][i].length - objArrays[num][i].indexOf('|'));
+            isCheck = $("#" + choosedName).find("#area_" + objid).length > 0 ? "checked=\"true\"" : "";
+            strHtml += "<span><a onclick=\"chooseAreaInput(this,1);\"><input type='checkbox' id='area_" + objid + "' value='" + objArrays[num][i] + "' " + isCheck + " onclick='this.checked=!this.checked;'/>" + objname + "</a></span>";
+        }
         subArea = document.createElement("div");
         subArea.id = subName + num;
         subArea.className = "subArea";
@@ -466,8 +484,17 @@ function overDetail3(obj, num, subName, objArrays) {
             this.className = "";
             subArea.style.display = "none";
         }
+        $(subArea).find("a").mouseover(function() {
+            $(this).attr("class", "cur");
+        });
+        $(subArea).find("a").mouseout(function() {
+            $(this).attr("class", "");
+        });
     } else {
-        subArea.innerHTML = strHtml;
+        $(subArea).find("input").attr("checked", false);
+        $("#" + choosedName).find("dd").each(function() {
+            $(subArea).find("#" + $(this).attr("id")).attr("checked", true);
+        });
     }
 
     objParent.className = "relate cur";
@@ -484,7 +511,6 @@ function chooseAreaInput(obj, isfloat) {
     var spanArrays = divObj.getElementsByTagName("span");
     var h4Obj = divObj.getElementsByTagName("h4")[0];
     if (isfloat) {
-        debugger;
         if (objParent.tagName == "H4") {//当地点为小类时
             checkObj.checked = checkObj.checked == true ? false : true;
             bigListArray = spanArrays;

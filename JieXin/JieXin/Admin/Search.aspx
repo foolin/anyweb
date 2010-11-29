@@ -1,15 +1,31 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
     CodeFile="Search.aspx.cs" Inherits="Admin_Search" %>
 
+<%@ Register Src="Control/Area2.ascx" TagName="Area2" TagPrefix="uc1" %>
+<%@ Register Src="Control/Industry2.ascx" TagName="Industry2" TagPrefix="uc1" %>
+<%@ Register Src="Control/Major.ascx" TagName="Major" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
+
+    <script type="text/javascript" src="js/area.js"></script>
+
+    <script type="text/javascript" src="js/major.js"></script>
+
+    <script type="text/javascript" src="js/function.js"></script>
+
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
                 人才搜索</h3>
         </div>
         <div class="mbd">
+            <div class="fi even">
+                <label>
+                    简历编号：</label>
+                <input type="text" id="no" class="text" style="width: 80px" />
+                <span id="Error_no" class="invalid" style="display: none">编号格式错误！</span>
+            </div>
             <div class="fi">
                 <label>
                     搜索类别：</label>
@@ -25,17 +41,25 @@
             <div class="fi even">
                 <label>
                     关键字：</label>
-                <input type="text" id="key" name="key" class="text" />
+                <input type="text" id="key" name="key" class="text" value="多关键字用空格隔开" style="color: DarkGray;"
+                    onfocus="if(this.value=='多关键字用空格隔开'){this.value='';this.style.color='black';}"
+                    onblur="if(this.value==''){this.value='多关键字用空格隔开';this.style.color='DarkGray';}" />
             </div>
             <div class="fi">
                 <label>
                     目前居住地：</label>
-                <input type="text" id="address" name="address" class="text" />
+                <a href="javascript:void(0);" onclick="ChooseArea2(this,'ChooseArea2','addressid','address');"
+                    class="choAreabtn">选择/修改</a>
+                <input type="hidden" id="addressid" name="addressid" />
+                <input type="hidden" id="address" name="address" />
             </div>
             <div class="fi even">
                 <label>
                     行业：</label>
-                <input type="text" id="industry" name="industry" class="text" />
+                <a href="javascript:void(0);" onclick="ChooseIndustry2(this,'ChooseIndustry2','industryid','industry');"
+                    class="choAreabtn">选择/修改</a>
+                <input type="hidden" id="industryid" name="industryid" />
+                <input type="hidden" id="industry" name="industry" />
             </div>
             <div class="fi">
                 <label>
@@ -100,42 +124,72 @@
             <div class="fi even">
                 <label>
                     性别：</label>
-                <label style="width: 50px;">
-                    <input type="radio" name="sex" value="-1" class="radio" checked="checked" />不限</label>
-                <label style="width: 40px;">
-                    <input type="radio" name="sex" value="0" class="radio" />男</label>
-                <label style="width: 40px;">
-                    <input type="radio" name="sex" value="1" class="radio" />女</label>
+                <select id="sex" class="select">
+                    <option value="-1">不限</option>
+                    <option value="0">男</option>
+                    <option value="1">女</option>
+                </select>
             </div>
             <div class="fi">
                 <label>
                     目前月薪：</label>
-                <input type="text" id="saleryfrom" name="saleryfrom" class="text" style="width: 40px;" />
+                <select id="saleryfrom">
+                    <option value="0">不限</option>
+                    <option value="2">1500</option>
+                    <option value="3">2000</option>
+                    <option value="4">3000</option>
+                    <option value="5">4500</option>
+                    <option value="6">6000</option>
+                    <option value="7">8000</option>
+                    <option value="8">10000</option>
+                    <option value="9">15000</option>
+                    <option value="10">20000</option>
+                    <option value="11">30000</option>
+                    <option value="12">50000</option>
+                </select>
                 到
-                <input type="text" id="saleryto" name="saleryto" class="text" style="width: 40px;" />
-                <span id="Error_salery" class="invalid" style="display: none">请输入数字！</span>
+                <select id="saleryto">
+                    <option value="0">不限</option>
+                    <option value="1">1499</option>
+                    <option value="2">1999</option>
+                    <option value="3">2999</option>
+                    <option value="4">4499</option>
+                    <option value="5">5999</option>
+                    <option value="6">7999</option>
+                    <option value="7">9999</option>
+                    <option value="8">14999</option>
+                    <option value="9">19999</option>
+                    <option value="10">29999</option>
+                    <option value="11">49999</option>
+                </select>
             </div>
             <div class="fi even">
                 <label>
                     专业：</label>
-                <input type="text" id="major" name="major" class="text" />
+                <a href="javascript:void(0);" onclick="ChooseMajor(this,'ChooseMajor','majorid','major');"
+                    class="choAreabtn">选择/修改</a>
+                <input type="hidden" id="majorid" name="majorid" />
+                <input type="hidden" id="major" name="major" />
             </div>
             <div class="fi">
                 <label>
                     简历更新：</label>
-                <select>
+                <select id="update">
                     <option value="1">一周内</option>
                     <option value="2">两周内</option>
                     <option value="3">一个月内</option>
                     <option selected="selected" value="4">两个月内</option>
                     <option value="5">六个月内</option>
-                    <option value="2010">2010年</option>
-                    <option value="2009">2009年</option>
-                    <option value="2008">2008年</option>
+                    <option value="6">
+                        <%=DateTime.Now.Year-1 %>年</option>
+                    <option value="7">
+                        <%=DateTime.Now.Year-2 %>年</option>
+                    <option value="8">
+                        <%=DateTime.Now.Year-3 %>年</option>
                 </select>
             </div>
             <div class="fi fiBtns">
-                <input type="submit" value="搜索" class="submit" />
+                <input type="button" value="搜索" class="submit" onclick="resumesearch();" />
             </div>
         </div>
         <div class="mft">
@@ -146,40 +200,13 @@
             <li></li>
         </ul>
     </div>
+    <uc1:Area2 runat="server" />
+    <uc1:Industry2 runat="server" />
+    <uc1:Major runat="server" />
 
     <script type="text/javascript">
-        function search() {
-            var error = true;
-            $("[id^='Error_']").hide();
-            var agefrom = $.trim($("#agefrom").val());
-            var ageto = $.trim($("#ageto").val());
-            var saleryfrom = $.trim($("#saleryfrom").val());
-            var saleryto = $.trim($("#saleryto").val());
-            if (agefrom != "" && isNaN(parseInt(agefrom))) {
-                $("#Error_age").show();
-                error = false;
-            }
-            if (ageto != "" && isNaN(parseInt(ageto))) {
-                $("#Error_age").show();
-                error = false;
-            }
-            if (saleryfrom != "" && isNaN(parseInt(saleryfrom))) {
-                $("#Error_salery").show();
-                error = false;
-            }
-            if (saleryto != "" && isNaN(parseInt(saleryto))) {
-                $("#Error_salery").show();
-                error = false;
-            }
-            return error;
-        }
-
         $(document).ready(function() {
-            $("#__VIEWSTATE").remove();
-            var form = $("form").attr("action", "ResumeSearch.aspx").attr("method", "get");
-            form.submit(function() {
-                return search();
-            });
+            myfun("industry2_ul", "li");
         });
     </script>
 

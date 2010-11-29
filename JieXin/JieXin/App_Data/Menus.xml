@@ -24,11 +24,14 @@
       <xMenuItem id="107" url ="/Admin/SiteInfoList.aspx" name ="基本信息"></xMenuItem>
     </xMenuItem>
     <xMenuItem id="7" name="招聘" module="7">
-      <xMenuItem id="701" url ="/Admin/Search.aspx" name ="人才搜索"></xMenuItem>
+      <xMenuItem id="701" url ="/Admin/Search.aspx" name ="人才搜索">
+        <xMenuItem url ="/Admin/ResumeSearch.aspx" name ="简历列表" type="3" ></xMenuItem>
+      </xMenuItem>
       <xMenuItem id="702" url ="/Admin/RecruitList.aspx" name ="招聘列表" >
         <xMenuItem url ="/Admin/RecruitAdd.aspx" name ="添加招聘" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/RecruitEdit.aspx" name ="修改招聘" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/RecruitDel.aspx" name ="删除招聘" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/ApplyList.aspx" name ="简历列表" type="3" ></xMenuItem>
       </xMenuItem>
       <xMenuItem id="703" url ="/Admin/RecruitAdd.aspx" name ="添加招聘"></xMenuItem>
     </xMenuItem>

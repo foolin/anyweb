@@ -113,4 +113,62 @@ public class PageAdmin : Page
             dao.funcInsert(log);
         }
     }
+
+    /// <summary>
+    /// 获取工作年限
+    /// </summary>
+    /// <param name="expId"></param>
+    /// <returns></returns>
+    protected string getExpString( int expId )
+    {
+        switch( expId )
+        {
+            case 1:
+                return "1年以下";
+            case 2:
+                return "1-2年";
+            case 3:
+                return "2-5年";
+            case 4:
+                return "5-10年";
+            case 5:
+                return "10年以上";
+            default:
+                return "";
+        }
+    }
+
+    /// <summary>
+    /// 获取学历
+    /// </summary>
+    /// <param name="degreeId"></param>
+    /// <returns></returns>
+    protected string getDegreeString( int degreeId )
+    {
+        switch( degreeId )
+        {
+            case 1:
+                return "初中";
+            case 2:
+                return "高中";
+            case 3:
+                return "中技";
+            case 4:
+                return "中专";
+            case 5:
+                return "大专";
+            case 6:
+                return "本科";
+            case 7:
+                return "MBA";
+            case 8:
+                return "硕士";
+            case 9:
+                return "博士";
+            case 10:
+                return "其他";
+            default:
+                return "";
+        }
+    }
 }

@@ -116,6 +116,8 @@ Validator.prototype = {
         if (src == null) {
             return false;
         }
+        //移除前后空格
+        src.value = (src.value || "").replace(/^(\s|\u00A0)+|(\s|\u00A0)+$/g, "");
         ctl.succ = false;
         switch (ctl.checktype) {
             case 1:

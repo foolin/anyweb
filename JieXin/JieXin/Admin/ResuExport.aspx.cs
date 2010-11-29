@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using AnyWell.AW_DL;
 using Studio.Web;
+using AnyWell.AW_DL;
 using System.IO;
-using System.Text.RegularExpressions;
 using System.Text;
+using System.Text.RegularExpressions;
 
-public partial class User_ResuExport : PageUser
+public partial class Admin_ResuExport : Page
 {
     protected override void OnPreRender( EventArgs e )
     {
         if( string.IsNullOrEmpty( QS( "id" ) ) || !WebAgent.IsInt32( QS( "id" ) ) )
         {
-            WebAgent.FailAndGo( "简历不存在！", "/User/Index.aspx" );
+            WebAgent.FailAndGo( "简历不存在！", "/Admin/Index.aspx" );
         }
 
         AW_Resume_bean bean = new AW_Resume_dao().funcGetResume( int.Parse( QS( "id" ) ), false );
-        if( bean == null || bean.fdResuUserID != this.LoginUser.fdUserID )
+        if( bean == null )
         {
-            WebAgent.FailAndGo( "简历不存在！", "/User/Index.aspx" );
+            WebAgent.FailAndGo( "简历不存在！", "/Admin/Index.aspx" );
         }
 
         Context.Items.Add( "RESUME", bean );
@@ -42,7 +42,15 @@ public partial class User_ResuExport : PageUser
     /// <returns></returns>
     public string SaveAsDoc( string str )
     {
-        string fileName = DL_helper.funcGetTicks().ToString();
+        string fileName = "";
+        if( !string.IsNullOrEmpty( QS( "name" ) ) )
+        {
+            fileName = QS( "name" );
+        }
+        else
+        {
+            fileName = DL_helper.funcGetTicks().ToString();
+        }
         string savePath = "/Files/Resume/";
         string path = savePath + fileName + ".doc";
         if( !Directory.Exists( Server.MapPath( savePath ) ) )
@@ -132,5 +140,10 @@ public partial class User_ResuExport : PageUser
         }
         //返回编码后的字符串
         return result;
+    }
+
+    private string QS( string key )
+    {
+        return Request.QueryString[ key ] + "";
     }
 }

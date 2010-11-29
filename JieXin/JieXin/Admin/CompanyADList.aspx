@@ -121,7 +121,7 @@
                                     <%#Eval("fdAdName")%></a>
                             </td>
                             <td>
-                                <%# (string)Eval("fdAdPic") != ""?string.Format("<a href=\"{0}\" target=\"_blank\"><img src=\"{0}\" alt=\"\" width=\"100\" height=\"65\" /></a>",Eval("fdAdPic")):"" %>
+                                <%# ( string ) Eval( "fdAdPic" ) != "" ? string.Format( "<a href=\"{0}\" target=\"_blank\"><img src=\"{0}\" alt=\"\" width=\"100\" height=\"65\" /></a>", Eval( "fdAdPic" ) ) : "<img src=\"../images/wait2.jpg\"width=\"100\" height=\"65\" />"%>
                             </td>
                             <td>
                                 <a href="CompanyADEdit.aspx?id=<%# Eval("fdAdID")%>">修改</a> <a href="CompanyADDel.aspx?id=<%# Eval("fdAdID")%>"

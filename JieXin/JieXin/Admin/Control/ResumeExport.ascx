@@ -798,7 +798,7 @@
                                                         <%#Eval( "fdPosiBegin", "{0:yyyy/M}" )%>--<%#( ( DateTime ) Eval( "fdPosiEnd" ) ).Year != 1900 ? Eval( "fdPosiEnd", "{0:yyyy/M}" ) : "至今"%>
                                                     </td>
                                                     <td width=3D"47%">
-                                                        <%#Eval( "fdPosiOrg" )%>
+                                                        <%#Eval( "fdPosiName" )%>
                                                     </td>
                                                     <td width=3D"30%">
                                                         <%#Eval( "fdPosiOrg" )%>

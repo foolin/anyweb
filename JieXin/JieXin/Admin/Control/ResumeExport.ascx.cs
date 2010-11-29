@@ -7,7 +7,7 @@ using AnyWell.AW_DL;
 
 public partial class Admin_Control_ResumeExport : ControlBase
 {
-    protected void Page_Load( object sender, EventArgs e )
+    protected override void  OnPreRender(EventArgs e)
     {
         this._bean = ( AW_Resume_bean ) Context.Items[ "RESUME" ];
 

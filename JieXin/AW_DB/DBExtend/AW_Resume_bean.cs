@@ -137,5 +137,23 @@ namespace AnyWell.AW_DL
                 _skillList = value;
             }
         }
+
+
+        private AW_Education_bean _education;
+        /// <summary>
+        /// 最高教育经历
+        /// </summary>
+        public AW_Education_bean Education
+        {
+            get
+            {
+                return _education;
+            }
+            set
+            {
+                _education = value;
+            }
+        }
+			
 	}
 }

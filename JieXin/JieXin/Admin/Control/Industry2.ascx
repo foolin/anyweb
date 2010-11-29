@@ -1,7 +1,7 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Industry2.ascx.cs" Inherits="Control_Industry2" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Industry2.ascx.cs" Inherits="Admin_Control_Industry2" %>
 <div class="choIndustry" id="ChooseIndustry2">
     <div class="top">
-        <i class="iTit">请选择行业(您最多能选择5项)</i> <span class="topRight white">[<a href="javascript:void(0);"
+        <i class="iTit">请选择行业(您最多能选择3项)</i> <span class="topRight white">[<a href="javascript:void(0);"
             onclick="confirmDate();return false">确认</a>] </span>
     </div>
     <div class="con gray">

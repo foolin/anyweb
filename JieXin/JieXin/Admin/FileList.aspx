@@ -78,7 +78,7 @@
                                 </td>
                                 <td>
                                     <a href="FileEdit.aspx?path=<%=QS("path")%>&link=<%#System.IO.Path.GetFileName(Eval("FullName").ToString())%>">
-                                        修改</a> <a style="display: none;" href="FileDel.aspx?path=<%=QS("path")%>&link=<%#System.IO.Path.GetFileName(Eval("FullName").ToString())%>"
+                                        修改</a> <a href="FileDel.aspx?path=<%=QS("path")%>&link=<%#System.IO.Path.GetFileName(Eval("FullName").ToString())%>"
                                             onclick="return confirm('您确定删除吗?')">删除</a>
                                 </td>
                             </tr>
@@ -97,7 +97,7 @@
     <div>
         <ul class="Help">
             <li>双击进入子目录</li>
-            <li>允许上传的文件有gif png jpg doc ppt </li>
+            <li>允许上传或删除的文件有jpg png gif bmp zip rar doc xls ppt pdf txt log</li>
             <li>请不要修改DLL、config后缀的文件</li>
         </ul>
     </div>

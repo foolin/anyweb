@@ -216,12 +216,12 @@
 .choArea dd{ float:left; width:72px; height:22px;}
 .choArea dd a{display:block; height:22px; padding:0px 5px;}
 .choArea dd a:hover,
-.choArea .cur{ background-color:#59A901; color:#fff;}
+.choArea .cur{ background-color:#59A901; color:#fff; cursor:pointer;}
 .choArea .cur .prov{ color:#fff;}
 .choArea .subArea{ border:1px solid #5EAC09; background-color:#fff; padding:8px 12px; width:360px; position:absolute; top:22px; left:0px; z-index:1000; display:none;}
 .choArea .subArea h4{ font-weight:bold; height:24px; line-height:24px; clear:both; color:#666; cursor:pointer;}
-.choArea .subArea span{ float:left; width:72px; height:22px; display:block;}
-.choArea .subArea span a{}
+.choArea .subArea span{ float:left; width:80px; height:22px; display:block;}
+.choArea .subArea span a{ overflow:hidden;}
 /*major*/
 .choArea .majCon{padding:8px 2px;}
 .choArea .majItems{ margin-left:0px; width:auto;}
@@ -416,3 +416,5 @@
 /*404Page*/
 .unFind{ border:1px solid #D9D9D9; height:auto!important; min-height:320px;_height:320px; background:url(../images/bg_404.png) 188px 119px no-repeat; line-height:32px; padding:110px 0px 0px 431px;}
 .unFind .eng{ font-family:Tahoma, Geneva, sans-serif; color:#999;}
+
+#industry2_ul li{overflow:hidden;}

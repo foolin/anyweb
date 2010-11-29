@@ -54,8 +54,7 @@ public partial class User_EduSave : PageUser
                 bean.fdEducOtherSpecialty = "";
             }
             bean.fdEducDegree = int.Parse( QF( "Edu_Degree" ) );
-            if( !string.IsNullOrEmpty( QF( "Edu_Intro" ).Trim() ) )
-                bean.fdEducIntro = QF( "Edu_Intro" ).Trim();
+            bean.fdEducIntro = QF( "Edu_Intro" ).Trim();
 
             if( !string.IsNullOrEmpty( QF( "Edu_IsOverSeas" ) ) && WebAgent.IsInt32( QF( "Edu_IsOverSeas" ) ) )
             {
@@ -107,8 +106,7 @@ public partial class User_EduSave : PageUser
                 bean.fdEducOtherSpecialty = "";
             }
             bean.fdEducDegree = int.Parse( QF( "Edu_Degree" ) );
-            if( !string.IsNullOrEmpty( QF( "Edu_Intro" ).Trim() ) )
-                bean.fdEducIntro = QF( "Edu_Intro" ).Trim();
+            bean.fdEducIntro = QF( "Edu_Intro" ).Trim();
 
             if( !string.IsNullOrEmpty( QF( "Edu_IsOverSeas" ) ) && WebAgent.IsInt32( QF( "Edu_IsOverSeas" ) ) )
             {

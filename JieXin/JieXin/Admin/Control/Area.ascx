@@ -66,6 +66,12 @@
                 <a href="javascript:void(0);" onclick="AreaName(this,280);">长沙</a></dd>
             <dd>
                 <a href="javascript:void(0);" onclick="AreaName(this,243);">郑州</a></dd>
+            <dd>
+                <a href="javascript:void(0);" onclick="AreaName(this,56);">佛山</a></dd>
+            <dd>
+                <a href="javascript:void(0);" onclick="AreaName(this,57);">中山</a></dd>
+            <dd>
+                <a href="javascript:void(0);" onclick="AreaName(this,55);">珠海</a></dd>
         </dl>
         <dl>
             <dt>西北西南：</dt>

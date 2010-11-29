@@ -9,6 +9,11 @@ public partial class Admin_Control_ResumeView : ControlBase
 {
     protected void Page_Load( object sender, EventArgs e )
     {
+        
+    }
+
+    protected override void OnPreRender( EventArgs e )
+    {
         this._bean = ( AW_Resume_bean ) Context.Items[ "RESUME" ];
 
         //最高学历

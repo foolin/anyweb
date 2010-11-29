@@ -1,15 +1,15 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true" 
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
     CodeFile="RecruitList.aspx.cs" Inherits="Admin_RecruitList" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
     <ul class="Opr">
         <li><a href="RecruitAdd.aspx">添加招聘信息</a></li>
     </ul>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cph1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
 
     <script type="text/javascript" src="js/jquery.tablednd.js"></script>
-    
+
     <script type="text/javascript">
         $(document).ready(function() {
             $("#datas").tableDnD({
@@ -47,7 +47,7 @@
             }
         }
         function search() {
-            window.location = "RecruitList.aspx?type=" + $("#<%=drpType.ClientID %>").val()+"&key="+$("#<%=txtKey.ClientID %>").val();
+            window.location = "RecruitList.aspx?type=" + $("#<%=drpType.ClientID %>").val() + "&key=" + $("#<%=txtKey.ClientID %>").val();
         }
         function delRecruits() {
             var list = document.getElementsByTagName("input");
@@ -77,6 +77,7 @@
             }
         }
     </script>
+
     <div class="Mod DataList">
         <div class="mhd">
             <h3>
@@ -86,7 +87,7 @@
             类型：
             <asp:DropDownList ID="drpType" runat="server">
                 <asp:ListItem Value="0" Text="所有招聘"></asp:ListItem>
-                <asp:ListItem Value="4" Text="企业招聘"></asp:ListItem> 
+                <asp:ListItem Value="4" Text="企业招聘"></asp:ListItem>
                 <asp:ListItem Value="1" Text="实习生招聘"></asp:ListItem>
                 <asp:ListItem Value="2" Text="毕业生招聘"></asp:ListItem>
                 <asp:ListItem Value="3" Text="兼职招聘"></asp:ListItem>
@@ -145,9 +146,10 @@
                             <td>
                                 <%#Eval("fdRecrCreateAt")%>
                             </td>
-                            <td style="width:60px;">
-                                <a href="RecruitEdit.aspx?id=<%# Eval("fdRecrID")%>">修改</a> <a href="RecruitDel.aspx?id=<%# Eval("fdRecrID")%>"
-                                    onclick="return confirm('您确定要删除吗?')">删除</a>
+                            <td style="width: 60px;">
+                                <a href="ApplyList.aspx?id=<%#Eval("fdRecrID") %>&back=<%#Request.Url.PathAndQuery.Replace("pid","pageindex") %>">
+                                    查看简历</a> <a href="RecruitEdit.aspx?id=<%# Eval("fdRecrID")%>">修改</a> <a href="RecruitDel.aspx?id=<%# Eval("fdRecrID")%>"
+                                        onclick="return confirm('您确定要删除吗?')">删除</a>
                             </td>
                         </tr>
                     </ItemTemplate>
@@ -168,4 +170,3 @@
             <li>招聘列表根据招聘排序从大到小排序。</li></ul>
     </div>
 </asp:Content>
-

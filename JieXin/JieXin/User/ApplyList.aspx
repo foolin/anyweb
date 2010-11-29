@@ -14,7 +14,7 @@
                 </div>
                 <div class="Res670">
                     <div class="lh22 flowhidden">
-                        <span class="left">我们为您提供60天内的申请记录查询，超出期限的记录将被自动删除，请您定期自行备份！</span>
+                        <%--<span class="left">我们为您提供60天内的申请记录查询，超出期限的记录将被自动删除，请您定期自行备份！</span>--%>
                     </div>
                     <div class="blank10px">
                     </div>

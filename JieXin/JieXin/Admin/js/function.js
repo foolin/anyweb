@@ -436,14 +436,14 @@ function chooseMaj(obj, chosedName) {
     }
 
     if (checkObj.checked) {
-        if (ddArray.length < 5) {//当DD节点小于5时，增加DD
+        if (ddArray.length < 3) {
             var ddObj = document.createElement("dd");
             ddObj.id = checkObj.name;
             ddObj.innerHTML = checkObj.parentNode.innerHTML;
             ddObj.getElementsByTagName("input")[0].checked = true;
             choseObj.appendChild(ddObj);
-        } else {//大于5时提示最多只能选五项，并把勾取消
-            alert("您最多只能选五项！");
+        } else {
+            alert("您最多只能选三项！");
             checkObj.checked = false;
         }
     } else {
@@ -462,15 +462,15 @@ function overMajorBgColor(objName, tagName) {
         tagArray[i].order = i;
         tagArray[i].onmouseover = function() {
             changeCur(this.order, tagArray, true);
-            overPositionBgColor(objName, tagName);
+            overMajorBgColor(objName, tagName);
         }
         tagArray[i].onmouseout = function() {
             changeCur(this.order, tagArray, false);
-            overPositionBgColor(objName, tagName);
+            overMajorBgColor(objName, tagName);
         }
         tagArray[i].onclick = function() {
             choosePos(this, choosedName);
-            overPositionBgColor(objName, tagName);
+            overMajorBgColor(objName, tagName);
         }
     }
 }
@@ -490,6 +490,9 @@ function setSelectState(state) {
 function showMsgBox(divID, wWidth, wHeight) {
     var bWidth = parseInt(document.documentElement.scrollWidth);
     var bHeight = parseInt(document.documentElement.scrollHeight);
+    if (bHeight < document.documentElement.offsetHeight) {
+        bHeight = document.documentElement.offsetHeight;
+    }
 
     var scrollTop = document.documentElement.scrollTop || window.pageYOffset; 	//兼容chrome、safari : 20090708
     if (!scrollTop)

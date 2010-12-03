@@ -200,6 +200,18 @@ namespace AnyWell.AW_DL
         }
 
         /// <summary>
+        /// 更新浏览数
+        /// </summary>
+        /// <param name="resuId"></param>
+        /// <returns></returns>
+        public int funcUpdateViewCount( int resuId )
+        {
+            string sql = string.Format( "UPDATE AW_Resume SET fdResuViewCount=fdResuViewCount+1 WHERE fdResuID=@fdResuID" );
+            this.funcAddParam( "@fdResuID", resuId );
+            return this.funcExecute( sql );
+        }
+
+        /// <summary>
         /// 获取简历
         /// </summary>
         /// <param name="resuId"></param>
@@ -410,7 +422,8 @@ namespace AnyWell.AW_DL
             if( majStr.Length > 0 )
             {
                 majStr = majStr.Substring( 1 );
-                this.propWhere += string.Format( " AND fdEducSpecialityID IN ({0})", majStr );
+                this.propTableApp += " INNER JOIN AW_Major ON fdEducSpecialityID=fdMajoID";
+                this.propWhere += string.Format( " AND (fdMajoID IN ({0}) OR fdMajoParent IN ({0}))", majStr );
             }
             //住址
             string addStr = "";
@@ -424,7 +437,8 @@ namespace AnyWell.AW_DL
             if( addStr.Length > 0 )
             {
                 addStr = addStr.Substring( 1 );
-                this.propWhere += string.Format( " AND fdResuAddressID IN ({0})", addStr );
+                this.propTableApp += " INNER JOIN AW_Area ON fdResuAddressID=fdAreaID";
+                this.propWhere += string.Format( " AND (fdAreaID IN ({0}) OR fdAreaParent IN ({0}))", addStr );
             }
             //行业
             string induStr = "";

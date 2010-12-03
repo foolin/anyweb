@@ -87,7 +87,14 @@ public partial class Admin_ResuExport : Page
                 string strW = "Content-Location:" + strLink;
                 imageSb.Append( "\n" );
                 imageSb.Append( "------=_NextPart\n" );
-                imageSb.Append( "Content-Type: image/jpeg\n" );
+                if( strLink.ToLower().IndexOf( "bmp" ) > -1 )
+                {
+                    imageSb.Append( "Content-Type: image/bmp\n" );
+                }
+                else
+                {
+                    imageSb.Append( "Content-Type: image/jpeg\n" );
+                }
                 imageSb.Append( "Content-Transfer-Encoding: base64\n" );
                 imageSb.Append( strW + "\n" );
                 imageSb.Append( "\n" );

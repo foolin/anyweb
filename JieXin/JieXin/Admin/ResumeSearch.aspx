@@ -43,7 +43,7 @@
                 <option value="6" <%=type==6?"selected=\"selected\"":"" %>>工作经历</option>
             </select>
             关键字：
-            <input type="text" id="key" name="key" class="text" value="<%=QS("key") %>" <%=QS("key")==""||QS("key")=="多关键字用空格隔开"?"style=\"color: DarkGray;\"":"" %>
+            <input type="text" id="key" name="key" class="text" value="<%=QS("key")==""?"多关键字用空格隔开":QS("key") %>" <%=QS("key")==""||QS("key")=="多关键字用空格隔开"?"style=\"color: DarkGray;\"":"" %>
                 onfocus="if(this.value=='多关键字用空格隔开'){this.value='';this.style.color='black';}"
                 onblur="if(this.value==''){this.value='多关键字用空格隔开';this.style.color='DarkGray';}" />
             工作年限：

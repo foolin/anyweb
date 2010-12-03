@@ -16,8 +16,6 @@
 
     <script language="javascript" type="text/javascript" src="js/jquery.js"></script>
 
-    <script language="javascript" type="text/javascript" src="js/Validator.js"></script>
-
 </head>
 <body class="pInner">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">

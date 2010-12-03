@@ -20,7 +20,7 @@ public partial class Admin_ResuView : PageAdmin
         {
             WebAgent.FailAndGo( "简历不存在！", "/Admin/Index.aspx" );
         }
-
+        new AW_Resume_dao().funcUpdateViewCount( bean.fdResuID );
         Context.Items.Add( "RESUME", bean );
     }
 }

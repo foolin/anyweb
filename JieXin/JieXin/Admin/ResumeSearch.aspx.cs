@@ -18,6 +18,10 @@ public partial class Admin_ResumeSearch : PageAdmin
             this.type = int.Parse( QS( "type" ) );
         }
         this.key = QS( "key" );
+        if( this.key == "多关键字用空格隔开" )
+        {
+            this.key = "";
+        }
         if( !string.IsNullOrEmpty( QS( "workfrom" ) ) )
         {
             this.workfrom = int.Parse( QS( "workfrom" ) );

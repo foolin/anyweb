@@ -473,7 +473,7 @@ input[type=file]{height:18px;}
 .choIndustry .subArea span a{}
 #industry2_ul li{overflow:hidden;}
 
-.choAreabtn{ width:94px; height:28px; display:inline-block; background:url(../images/bg_btn_28H.gif) no-repeat; text-align:center; line-height:28px; color:#59A901; font-size:14px; margin:0px 3px; overflow:hidden; }
+.choAreabtn{ width:94px; height:28px; display:inline-block; background:url(../images/bg_btn_28H.gif) no-repeat; text-align:center; line-height:28px; color:#59A901; font-size:14px; margin:0px 3px;/* overflow:hidden; */}
 .white,.white a{color:#FFF; text-decoration:none;}
 .gray,.gray a{ color:#666666; text-decoration:none;}
 .relate{ position:relative;}

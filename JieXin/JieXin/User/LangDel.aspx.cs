@@ -31,5 +31,6 @@ public partial class User_LangDel : PageUser
             Response.End();
         }
         new AW_Language_dao().funcDelete( bean.fdLangID );
+        new AW_Resume_dao().funcRefurbish( resume.fdResuID );
     }
 }

@@ -31,5 +31,6 @@ public partial class User_PositionDel : PageUser
             Response.End();
         }
         new AW_Position_dao().funcDelete( bean.fdPosiID );
+        new AW_Resume_dao().funcRefurbish( resume.fdResuID );
     }
 }

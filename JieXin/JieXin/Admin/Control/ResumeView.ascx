@@ -489,8 +489,11 @@
                                                 <td class="fbold lblue" colspan="2">
                                                     <%=getExpString( bean.fdResuExperience )%>工作经验 |
                                                     <%=bean.fdResuSex == 0 ? "男" : "女"%>
+                                                    <%if( bean.fdResuBirthday.Year != 1900 )
+                                                      { %>
                                                     |
-                                                    <%=DateTime.Now.Year-bean.fdResuBirthday.Year %>岁（<%=bean.fdResuBirthday.ToString("yyyy年MM月dd日") %>）
+                                                    <%=DateTime.Now.Year - bean.fdResuBirthday.Year%>岁（<%=bean.fdResuBirthday.ToString( "yyyy年MM月dd日" )%>）
+                                                    <%} %>
                                                 </td>
                                             </tr>
                                             <tr>

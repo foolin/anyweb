@@ -31,5 +31,6 @@ public partial class User_CertDel : PageUser
             Response.End();
         }
         new AW_Cert_dao().funcDelete( bean.fdCertID );
+        new AW_Resume_dao().funcRefurbish( resume.fdResuID );
     }
 }

@@ -31,5 +31,6 @@ public partial class User_RewardsDel : PageUser
             Response.End();
         }
         new AW_Rewards_dao().funcDelete( bean.fdRewaID );
+        new AW_Resume_dao().funcRefurbish( resume.fdResuID );
     }
 }

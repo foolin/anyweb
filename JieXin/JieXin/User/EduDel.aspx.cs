@@ -31,5 +31,13 @@ public partial class User_EduDel : PageUser
             Response.End();
         }
         new AW_Education_dao().funcDelete( bean.fdEducID );
+        using( AW_Resume_dao dao = new AW_Resume_dao() )
+        {
+            if( resume.fdResuDegree == bean.fdEducDegree )
+            {
+                dao.funcUpdateResumeDegree( resume.fdResuID );
+            }
+            dao.funcRefurbish( resume.fdResuID );
+        }
     }
 }

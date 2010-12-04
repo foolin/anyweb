@@ -31,5 +31,6 @@ public partial class User_SkillDel : PageUser
             Response.End();
         }
         new AW_Skills_dao().funcDelete( bean.fdSkilID );
+        new AW_Resume_dao().funcRefurbish( resume.fdResuID );
     }
 }

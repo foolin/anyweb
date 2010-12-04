@@ -388,103 +388,6 @@ public partial class Admin_ResumeSearch : PageAdmin
         }
     }
 
-    //private int _majorid1 = 0;
-    ///// <summary>
-    ///// 专业编号1
-    ///// </summary>
-    //public int majorid1
-    //{
-    //    get
-    //    {
-    //        return _majorid1;
-    //    }
-    //    set
-    //    {
-    //        _majorid1 = value;
-    //    }
-    //}
-
-    //private string _major1 = "";
-    ///// <summary>
-    ///// 专业1
-    ///// </summary>
-    //public string major1
-    //{
-    //    get
-    //    {
-    //        return _major1;
-    //    }
-    //    set
-    //    {
-    //        _major1 = value;
-    //    }
-    //}
-
-    //private int _majorid2 = 0;
-    ///// <summary>
-    ///// 专业编号2
-    ///// </summary>
-    //public int majorid2
-    //{
-    //    get
-    //    {
-    //        return _majorid2;
-    //    }
-    //    set
-    //    {
-    //        _majorid2 = value;
-    //    }
-    //}
-
-    //private string _major2 = "";
-    ///// <summary>
-    ///// 专业2
-    ///// </summary>
-    //public string major2
-    //{
-    //    get
-    //    {
-    //        return _major2;
-    //    }
-    //    set
-    //    {
-    //        _major2 = value;
-    //    }
-    //}
-
-    //private int _majorid3 = 0;
-    ///// <summary>
-    ///// 专业编号3
-    ///// </summary>
-    //public int majorid3
-    //{
-    //    get
-    //    {
-    //        return _majorid3;
-    //    }
-    //    set
-    //    {
-    //        _majorid3 = value;
-    //    }
-    //}
-
-    //private string _major3 = "";
-    ///// <summary>
-    ///// 专业3
-    ///// </summary>
-    //public string major3
-    //{
-    //    get
-    //    {
-    //        return _major3;
-    //    }
-    //    set
-    //    {
-    //        _major3 = value;
-    //    }
-    //}
-
-
     private int[] _addressid = { 0, 0, 0 };
     /// <summary>
     /// 居住地编号
@@ -517,105 +420,6 @@ public partial class Admin_ResumeSearch : PageAdmin
             _address = value;
         }
     }
-			
-
-
-    //private int _addressid1 = 0;
-    ///// <summary>
-    ///// 居住地编号1
-    ///// </summary>
-    //public int addressid1
-    //{
-    //    get
-    //    {
-    //        return _addressid1;
-    //    }
-    //    set
-    //    {
-    //        _addressid1 = value;
-    //    }
-    //}
-
-
-    //private string _address1 = "";
-    ///// <summary>
-    ///// 居住地1
-    ///// </summary>
-    //public string address1
-    //{
-    //    get
-    //    {
-    //        return _address1;
-    //    }
-    //    set
-    //    {
-    //        _address1 = value;
-    //    }
-    //}
-
-    //private int _addressid2 = 0;
-    ///// <summary>
-    ///// 居住地编号2
-    ///// </summary>
-    //public int addressid2
-    //{
-    //    get
-    //    {
-    //        return _addressid2;
-    //    }
-    //    set
-    //    {
-    //        _addressid2 = value;
-    //    }
-    //}
-
-    //private string _address2 = "";
-    ///// <summary>
-    ///// 居住地2
-    ///// </summary>
-    //public string address2
-    //{
-    //    get
-    //    {
-    //        return _address2;
-    //    }
-    //    set
-    //    {
-    //        _address2 = value;
-    //    }
-    //}
-
-    //private int _addressid3 = 0;
-    ///// <summary>
-    ///// 居住地编号3
-    ///// </summary>
-    //public int addressid3
-    //{
-    //    get
-    //    {
-    //        return _addressid3;
-    //    }
-    //    set
-    //    {
-    //        _addressid3 = value;
-    //    }
-    //}
-
-    //private string _address3 = "";
-    ///// <summary>
-    ///// 居住地3
-    ///// </summary>
-    //public string address3
-    //{
-    //    get
-    //    {
-    //        return _address3;
-    //    }
-    //    set
-    //    {
-    //        _address3 = value;
-    //    }
-    //}
 
     private int[] _industryid = { 0, 0, 0 };
     /// <summary>
@@ -649,104 +453,37 @@ public partial class Admin_ResumeSearch : PageAdmin
             _industry = value;
         }
     }
-			
-			
-    //private int _industryid1 = 0;
-    ///// <summary>
-    ///// 行业编号1
-    ///// </summary>
-    //public int industryid1
-    //{
-    //    get
-    //    {
-    //        return _industryid1;
-    //    }
-    //    set
-    //    {
-    //        _industryid1 = value;
-    //    }
-    //}
-
-    //private string _industry1 = "";
-    ///// <summary>
-    ///// 行业1
-    ///// </summary>
-    //public string industry1
-    //{
-    //    get
-    //    {
-    //        return _industry1;
-    //    }
-    //    set
-    //    {
-    //        _industry1 = value;
-    //    }
-    //}
-
-    //private int _industryid2 = 0;
-    ///// <summary>
-    ///// 行业编号2
-    ///// </summary>
-    //public int industryid2
-    //{
-    //    get
-    //    {
-    //        return _industryid2;
-    //    }
-    //    set
-    //    {
-    //        _industryid2 = value;
-    //    }
-    //}
-
-    //private string _industry2 = "";
-    ///// <summary>
-    ///// 行业2
-    ///// </summary>
-    //public string industry2
-    //{
-    //    get
-    //    {
-    //        return _industry2;
-    //    }
-    //    set
-    //    {
-    //        _industry2 = value;
-    //    }
-    //}
-
-    //private int _industryid3 = 0;
-    ///// <summary>
-    ///// 行业编号3
-    ///// </summary>
-    //public int industryid3
-    //{
-    //    get
-    //    {
-    //        return _industryid3;
-    //    }
-    //    set
-    //    {
-    //        _industryid3 = value;
-    //    }
-    //}
-
-    //private string _industry3 = "";
-    ///// <summary>
-    ///// 行业3
-    ///// </summary>
-    //public string industry3
-    //{
-    //    get
-    //    {
-    //        return _industry3;
-    //    }
-    //    set
-    //    {
-    //        _industry3 = value;
-    //    }
-    //}
 	
+    /// <summary>
+    /// 获取专业(截取)
+    /// </summary>
+    /// <param name="split"></param>
+    /// <returns></returns>
+    protected string getMajorSubStr( string split, string result )
+    {
+        string str = "";
+        for( int i = 0; i < majorid.Length; i++ )
+        {
+            if( majorid[ i ] != 0 )
+            {
+                str += split + major[ i ];
+            }
+        }
+        if( str.Length > 0 )
+        {
+            str = str.Substring( split.Length );
+            if( str.Length > 6 )
+            {
+                str = str.Substring( 0, 6 );
+            }
+        }
+        else
+        {
+            str = result;
+        }
+        return str;
+    }
+
     /// <summary>
     /// 获取专业
     /// </summary>
@@ -800,6 +537,36 @@ public partial class Admin_ResumeSearch : PageAdmin
     }
 
     /// <summary>
+    /// 获取居住地(截取)
+    /// </summary>
+    /// <param name="split"></param>
+    /// <returns></returns>
+    protected string getAddressSubStr( string split, string result )
+    {
+        string str = "";
+        for( int i = 0; i < addressid.Length; i++ )
+        {
+            if( addressid[ i ] != 0 )
+            {
+                str += split + address[ i ];
+            }
+        }
+        if( str.Length > 0 )
+        {
+            str = str.Substring( split.Length );
+            if( str.Length > 6 )
+            {
+                str = str.Substring( 0, 6 );
+            }
+        }
+        else
+        {
+            str = result;
+        }
+        return str;
+    }
+
+    /// <summary>
     /// 获取居住地
     /// </summary>
     /// <param name="split"></param>
@@ -844,6 +611,36 @@ public partial class Admin_ResumeSearch : PageAdmin
         if( str.Length > 0 )
         {
             str = str.Substring( split.Length );
+        }
+        else
+        {
+            str = result;
+        }
+        return str;
+    }
+
+    /// <summary>
+    /// 获取行业(截取)
+    /// </summary>
+    /// <param name="split"></param>
+    /// <returns></returns>
+    protected string getIndustrySubStr( string split, string result )
+    {
+        string str = "";
+        for( int i = 0; i < industryid.Length; i++ )
+        {
+            if( industryid[ i ] != 0 )
+            {
+                str += split + industry[ i ];
+            }
+        }
+        if( str.Length > 0 )
+        {
+            str = str.Substring( split.Length );
+            if( str.Length > 6 )
+            {
+                str = str.Substring( 0, 6 );
+            }
         }
         else
         {

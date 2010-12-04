@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Major.ascx.cs" Inherits="Admin_Control_Major" %>
 <div class="choIndustry" id="ChooseMajor">
     <div class="top">
-        <i class="iTit">请选择专业</i> <span class="topRight white">[<a href="javascript:void(0);"
+        <i class="iTit">请选择专业（您最多能选择3项）</i> <span class="topRight white">[<a href="javascript:void(0);"
             onclick="confirmDate('chooseMaj');">确认</a>] </span>
     </div>
     <div class="con gray">

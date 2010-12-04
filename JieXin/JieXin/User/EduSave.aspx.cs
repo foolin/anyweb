@@ -62,6 +62,10 @@ public partial class User_EduSave : PageUser
             }
 
             new AW_Education_dao().funcInsert( bean );
+            if( bean.fdEducDegree > resume.fdResuDegree )
+            {
+                new AW_Resume_dao().funcUpdateResumeDegree( resume.fdResuID );
+            }
             new AW_Resume_dao().funcUpdateResumeStatus( bean.fdEducResuID );
         }
         else if( type == "edit" )
@@ -114,6 +118,10 @@ public partial class User_EduSave : PageUser
             }
 
             new AW_Education_dao().funcUpdate( bean );
+            if( bean.fdEducDegree > resume.fdResuDegree )
+            {
+                new AW_Resume_dao().funcUpdateResumeDegree( resume.fdResuID );
+            }
             new AW_Resume_dao().funcUpdateResumeStatus( bean.fdEducResuID );
         }
         else

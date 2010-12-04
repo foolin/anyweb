@@ -151,7 +151,11 @@ function confirmDate() {
         strHtml = strHtml.substring(0, strHtml.length - 1);
     }
     if (strHtml == "") { strHtml = "选择/修改" }
-    curPlace.innerHTML = strHtml;
+    if (strHtml.length > 6) {
+        curPlace.innerHTML = strHtml.substr(0, 6);
+    } else {
+        curPlace.innerHTML = strHtml;
+    }
     curPlace.title = strHtml;
     document.getElementById(curId).value = strId;
     document.getElementById(curName).value = strName;

@@ -134,17 +134,17 @@
             </select>
             专业： <a href="javascript:void(0);" onclick="ChooseMajor(this,'ChooseMajor','majorid','major');"
                 class="choAreabtn" title="<%=getMajorStr("+","选择/修改")%>">
-                <%=getMajorStr("+","选择/修改")%></a>
+                <%=getMajorSubStr("+","选择/修改")%></a>
             <input type="hidden" id="majorid" value="<%=getMajoridStr(";","") %>" />
             <input type="hidden" id="major" value="<%=getMajorStr(";","") %>" />
             目前居住地： <a href="javascript:void(0);" onclick="ChooseArea2(this,'ChooseArea2','addressid','address');"
                 class="choAreabtn" title="<%=getAddressStr( "+", "选择/修改" )%>">
-                <%=getAddressStr( "+", "选择/修改" )%></a>
+                <%=getAddressSubStr( "+", "选择/修改" )%></a>
             <input type="hidden" id="addressid" value="<%=getAddressidStr(";","")%>" />
             <input type="hidden" id="address" value="<%=getAddressStr(";","")%>" />
             行业： <a href="javascript:void(0);" onclick="ChooseIndustry2(this,'ChooseIndustry2','industryid','industry');"
                 class="choAreabtn" title="<%=getIndustryStr( "+", "选择/修改" )%>">
-                <%=getIndustryStr( "+", "选择/修改" )%></a>
+                <%=getIndustrySubStr( "+", "选择/修改" )%></a>
             <input type="hidden" id="industryid" name="industryid" value="<%=getIndustryidStr( ";", "" )%>" />
             <input type="hidden" id="industry" name="industry" value="<%=getIndustryStr( ";", "" )%>" />
             简历更新：
@@ -207,7 +207,7 @@
                                     <%#Eval("fdResuID") %></a>
                             </td>
                             <td>
-                                <%#DateTime.Now.Year - (( DateTime ) Eval( "fdResuBirthday" )).Year%>
+                                <%#( ( DateTime ) Eval( "fdResuBirthday" ) ).Year == 1900 ? "" : ( DateTime.Now.Year - ( ( DateTime ) Eval( "fdResuBirthday" ) ).Year ).ToString()%>
                             </td>
                             <td>
                                 <%#getExpString( ( int ) Eval( "fdResuExperience" ) )%>

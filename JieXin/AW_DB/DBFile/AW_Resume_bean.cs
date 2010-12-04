@@ -631,6 +631,15 @@ namespace AnyWell.AW_DL
 			get{return _fdResuIELTS;}
 			set{_fdResuIELTS = value;}
 		}
+        private int _fdResuDegree = 0;
+        /// <summary>
+        /// 最高学历
+        /// </summary>
+        public int fdResuDegree
+        {
+            get{return _fdResuDegree;}
+            set{ _fdResuDegree = value;}
+        }
 		private int _fdResuViewCount = 0;
 		 /// <summary>
 		 /// 浏览次数

@@ -146,6 +146,19 @@ namespace AnyWell.AW_DL
             this.funcExecute( sql );
         }
 
+        /// <summary>
+        /// 批量移动文章
+        /// </summary>
+        /// <param name="coluId"></param>
+        /// <param name="ids"></param>
+        public int funcMoveArticle( int coluId, string ids )
+        {
+            string sql = string.Format( "UPDATE AW_Article SET fdArtiColumnID={0} WHERE fdArtiID IN ({1})", coluId, ids );
+            int result = this.funcExecute( sql );
+            CacheAgent.ClearCache( "ARTICLE_CACHE_" );
+            return result;
+        }
+
         public override int funcInsert( Bean_Base aBean )
         {
             int result = base.funcInsert( aBean );

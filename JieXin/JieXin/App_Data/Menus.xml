@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <xmenu xmlns="http://schema.fortuneage.com/xmenu-1.0">
-  <xMenuItem id="1" url="Index.aspx" name="商城管理系统" module="0">
+  <xMenuItem id="1" url="Index.aspx" name="杰信人力资源管理系统" module="0">
     <xMenuItem id="1" name="文章" module="1">
       <xMenuItem id="101" url ="/Admin/ArticleList.aspx" name ="文章列表" >
         <xMenuItem url ="/Admin/ArticleAdd.aspx" name ="添加文章" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/ArticleEdit.aspx" name ="修改文章" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/ArticlesMove.aspx" name ="移动文章" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/ArticleDel.aspx" name ="删除文章" type="3" ></xMenuItem>
       </xMenuItem>
       <xMenuItem id="102" url ="/Admin/ArticleAdd.aspx" name ="添加文章"></xMenuItem>

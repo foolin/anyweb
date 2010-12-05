@@ -86,12 +86,7 @@
     {
         realPath = "/index.aspx";
         string requestPath = Request.Path.ToLower();
-        if( requestPath.IndexOf( "/admin" ) > -1 )  //管理后台
-        {
-            realPath = Request.Path;
-            return;
-        }
-        if( requestPath.IndexOf( "/user" ) > -1 )   //会员后台
+        if( requestPath.IndexOf( "/admin" ) > -1 || requestPath.IndexOf( "/user" ) > -1 || requestPath.IndexOf( "/tiny_mce" ) > -1 )
         {
             realPath = Request.Path;
             return;

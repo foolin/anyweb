@@ -21,6 +21,7 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public List<AW_Recruit_bean> funcGetRecruitList( int type, string key, int pageSize, int pageIndex, out int recordCount )
         {
+            this.propSelect = "fdRecrID,fdRecrTitle,fdRecrAreaName,fdRecrCompany,fdRecrCount=(SELECT COUNT(fdApplID) from AW_Apply where fdApplRecrID=fdRecrID)";
             this.propWhere = "1=1";
             if( type != 0 )
             {
@@ -34,7 +35,15 @@ namespace AnyWell.AW_DL
             this.propGetCount = true;
             this.propPageSize = pageSize;
             this.propPage = pageIndex;
-            List<AW_Recruit_bean> list = this.funcGetList();
+            List<AW_Recruit_bean> list = new List<AW_Recruit_bean>();
+            DataSet ds = this.funcCommon();
+            foreach( DataRow row in ds.Tables[ 0 ].Rows )
+            {
+                AW_Recruit_bean bean = new AW_Recruit_bean();
+                bean.funcFromDataRow( row );
+                bean.fdRecrCount = ( int ) row[ "fdRecrCount" ];
+                list.Add( bean );
+            }
             recordCount = this.propCount;
             return list;
         }

@@ -76,6 +76,33 @@
                 form0.submit();
             }
         }
+        function moveArticles() {
+            var list = document.getElementsByTagName("input");
+            var selected = false;
+            var form0;
+            form0 = document.createElement("form");
+            form0.method = "POST";
+            form0.action = "ArticlesMove.aspx";
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].name == "ids" && list[i].type == "checkbox" && list[i].checked) {
+                    input1 = document.createElement("input");
+                    input1.type = "hidden";
+                    input1.name = "ids";
+                    input1.value = list[i].value;
+                    form0.appendChild(input1);
+                    selected = true;
+                }
+            }
+            if (selected == false) {
+                alert("请选择文章");
+                return;
+            }
+            var msg = "你确认要移动选定的文章吗?";
+            if (confirm(msg)) {
+                document.body.appendChild(form0);
+                form0.submit();
+            }
+        }
     </script>
 
     <div class="Mod DataList">
@@ -137,6 +164,8 @@
         </div>
         <div class="mft">
         </div>
+        <button onclick="moveArticles()" style="height: 28px;" type="button">
+            批量移动</button>
         <button onclick="delArticles()" style="height: 28px;" type="button">
             批量删除</button>
     </div>

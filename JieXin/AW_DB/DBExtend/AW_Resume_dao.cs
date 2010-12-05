@@ -254,7 +254,7 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public List<AW_Resume_bean> funcGetApplyResumeList( int recrId,int pageIndex,int pageSize,out int recordCount )
         {
-            this.propSelect = "fdResuID,fdResuBirthday,fdResuExperience,fdResuSex,fdResuAddress,fdResuUpdateAt";
+            this.propSelect = "fdResuID,fdResuUserName,fdResuBirthday,fdResuExperience,fdResuSex,fdResuAddress,fdResuObjeFuncType1,fdResuObjeFuncType2,fdResuObjeFuncType3,fdResuObjeFuncType4,fdResuObjeFuncType5,fdResuUpdateAt";
             this.propTableApp = " INNER JOIN AW_Apply ON fdApplResuID=fdResuID";
             this.propWhere = "fdResuStatus=0 AND fdApplRecrID=" + recrId;
             this.propGetCount = true;
@@ -505,7 +505,7 @@ namespace AnyWell.AW_DL
         public List<AW_Resume_bean> funcSearchResume( int resuId, int type, string key, int workfrom, int workto, int edufrom, int eduto, int agefrom, int ageto, int sex, int saleryfrom, int saleryto, int[] major, int[] address, int[] industry, DateTime updatefrom, DateTime updateto, int pageIndex, int pageSize, out int recordCount )
         {
             bool eduIsJoined = false;
-            this.propSelect = "fdResuID,fdResuBirthday,fdResuExperience,fdResuSex,fdResuAddress,fdResuUpdateAt";
+            this.propSelect = "fdResuID,fdResuUserName,fdResuBirthday,fdResuExperience,fdResuSex,fdResuAddress,fdResuObjeFuncType1,fdResuObjeFuncType2,fdResuObjeFuncType3,fdResuObjeFuncType4,fdResuObjeFuncType5,fdResuUpdateAt";
             this.propWhere = "fdResuStatus=0";
             if( resuId != 0 )
             {
@@ -673,7 +673,7 @@ namespace AnyWell.AW_DL
             this.propWhere += " AND fdResuUpdateAt BETWEEN @updatefrom AND @updateto";
             this.funcAddParam( "@updatefrom", updatefrom );
             this.funcAddParam( "@updateto", updateto );
-            this.propWhere += " GROUP BY fdResuID,fdResuBirthday,fdResuExperience,fdResuSex,fdResuAddress,fdResuUpdateAt";
+            this.propWhere += " GROUP BY fdResuID,fdResuUserName,fdResuBirthday,fdResuExperience,fdResuSex,fdResuAddress,fdResuObjeFuncType1,fdResuObjeFuncType2,fdResuObjeFuncType3,fdResuObjeFuncType4,fdResuObjeFuncType5,fdResuUpdateAt";
 
             this.propOrder = "ORDER BY fdResuUpdateAt DESC";
             this.propGetCount = true;

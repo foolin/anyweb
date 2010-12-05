@@ -34,7 +34,10 @@
                             <input type="checkbox" class="checkbox" onclick="SelectAll(this.checked)" title="全选" />
                         </th>
                         <th>
-                            ID
+                            编号
+                        </th>
+                        <th>
+                            姓名
                         </th>
                         <th>
                             年龄
@@ -55,6 +58,9 @@
                             学历
                         </th>
                         <th>
+                            职能
+                        </th>
+                        <th>
                             简历更新时间
                         </th>
                     </tr>
@@ -68,6 +74,10 @@
                             <td>
                                 <a href="ResuView.aspx?id=<%#Eval("fdResuID") %>" target="_blank" title="查看简历">
                                     <%#Eval("fdResuID") %></a>
+                            </td>
+                            <td>
+                                <a href="ResuView.aspx?id=<%#Eval("fdResuID") %>" target="_blank" title="查看简历">
+                                    <%#Eval("fdResuUserName") %></a>
                             </td>
                             <td>
                                 <%#DateTime.Now.Year - (( DateTime ) Eval( "fdResuBirthday" )).Year%>
@@ -86,6 +96,13 @@
                             </td>
                             <td>
                                 <%#Eval( "Education" ) == null ? "" : getDegreeString( ( int ) Eval( "Education.fdEducDegree" ) )%>
+                            </td>
+                            <td>
+                                <%#( string ) Eval( "fdResuObjeFuncType1" ) == "" ? "" : Eval( "fdResuObjeFuncType1" ) + ";"%>
+                                <%#( string ) Eval( "fdResuObjeFuncType2" ) == "" ? "" : Eval( "fdResuObjeFuncType2" ) + ";"%>
+                                <%#( string ) Eval( "fdResuObjeFuncType3" ) == "" ? "" : Eval( "fdResuObjeFuncType3" ) + ";"%>
+                                <%#( string ) Eval( "fdResuObjeFuncType4" ) == "" ? "" : Eval( "fdResuObjeFuncType4" ) + ";"%>
+                                <%#( string ) Eval( "fdResuObjeFuncType5" ) == "" ? "" : Eval( "fdResuObjeFuncType5" ) + ";"%>
                             </td>
                             <td>
                                 <%#Eval( "fdResuUpdateAt","{0:yyyy-MM-dd HH:mm}" )%>

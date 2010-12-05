@@ -20,5 +20,17 @@ namespace AnyWell.AW_DL
                 return string.Format("/r/{0}.aspx", this.fdRecrID);
             }
         }
+
+
+        private int _fdRecrCount;
+        /// <summary>
+        /// 简历数
+        /// </summary>
+        public int fdRecrCount
+        {
+            get{return _fdRecrCount;}
+            set{_fdRecrCount = value;}
+        }
+			
 	}
 }

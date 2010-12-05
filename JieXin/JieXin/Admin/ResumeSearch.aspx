@@ -43,8 +43,8 @@
                 <option value="6" <%=type==6?"selected=\"selected\"":"" %>>工作经历</option>
             </select>
             关键字：
-            <input type="text" id="key" name="key" class="text" value="<%=QS("key")==""?"多关键字用空格隔开":QS("key") %>" <%=QS("key")==""||QS("key")=="多关键字用空格隔开"?"style=\"color: DarkGray;\"":"" %>
-                onfocus="if(this.value=='多关键字用空格隔开'){this.value='';this.style.color='black';}"
+            <input type="text" id="key" name="key" class="text" value="<%=QS("key")==""?"多关键字用空格隔开":QS("key") %>"
+                <%=QS("key")==""||QS("key")=="多关键字用空格隔开"?"style=\"color: DarkGray;\"":"" %> onfocus="if(this.value=='多关键字用空格隔开'){this.value='';this.style.color='black';}"
                 onblur="if(this.value==''){this.value='多关键字用空格隔开';this.style.color='DarkGray';}" />
             工作年限：
             <select id="workfrom">
@@ -171,7 +171,10 @@
                             <input type="checkbox" class="checkbox" onclick="SelectAll(this.checked)" title="全选" />
                         </th>
                         <th>
-                            ID
+                            编号
+                        </th>
+                        <th>
+                            姓名
                         </th>
                         <th>
                             年龄
@@ -192,6 +195,9 @@
                             学历
                         </th>
                         <th>
+                            职能
+                        </th>
+                        <th>
                             简历更新时间
                         </th>
                     </tr>
@@ -205,6 +211,10 @@
                             <td>
                                 <a href="ResuView.aspx?id=<%#Eval("fdResuID") %>" target="_blank" title="查看简历">
                                     <%#Eval("fdResuID") %></a>
+                            </td>
+                            <td>
+                                <a href="ResuView.aspx?id=<%#Eval("fdResuID") %>" target="_blank" title="查看简历">
+                                    <%#Eval("fdResuUserName") %></a>
                             </td>
                             <td>
                                 <%#( ( DateTime ) Eval( "fdResuBirthday" ) ).Year == 1900 ? "" : ( DateTime.Now.Year - ( ( DateTime ) Eval( "fdResuBirthday" ) ).Year ).ToString()%>
@@ -223,6 +233,13 @@
                             </td>
                             <td>
                                 <%#Eval( "Education" ) == null ? "" : getDegreeString( ( int ) Eval( "Education.fdEducDegree" ) )%>
+                            </td>
+                            <td>
+                                <%#( string ) Eval( "fdResuObjeFuncType1" ) == "" ? "" : Eval( "fdResuObjeFuncType1" ) + ";"%>
+                                <%#( string ) Eval( "fdResuObjeFuncType2" ) == "" ? "" : Eval( "fdResuObjeFuncType2" ) + ";"%>
+                                <%#( string ) Eval( "fdResuObjeFuncType3" ) == "" ? "" : Eval( "fdResuObjeFuncType3" ) + ";"%>
+                                <%#( string ) Eval( "fdResuObjeFuncType4" ) == "" ? "" : Eval( "fdResuObjeFuncType4" ) + ";"%>
+                                <%#( string ) Eval( "fdResuObjeFuncType5" ) == "" ? "" : Eval( "fdResuObjeFuncType5" ) + ";"%>
                             </td>
                             <td>
                                 <%#Eval( "fdResuUpdateAt","{0:yyyy-MM-dd HH:mm}" )%>

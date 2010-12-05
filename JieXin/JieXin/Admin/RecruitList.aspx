@@ -108,16 +108,16 @@
                             标题
                         </th>
                         <th>
-                            地区
-                        </th>
-                        <th>
                             公司名称
                         </th>
                         <th>
-                            职位名
+                            地区
                         </th>
                         <th>
                             创建时间
+                        </th>
+                        <th style="width:60px">
+                            简历总数
                         </th>
                         <th class="end">
                             操 作
@@ -135,16 +135,17 @@
                                     <%#Eval("fdRecrTitle")%></a>
                             </td>
                             <td>
-                                <%#Eval("fdRecrAreaName")%>
-                            </td>
-                            <td>
                                 <%#Eval("fdRecrCompany")%>
                             </td>
                             <td>
-                                <%#Eval("fdRecrJob")%>
+                                <%#Eval("fdRecrAreaName")%>
                             </td>
                             <td>
-                                <%#Eval("fdRecrCreateAt")%>
+                                <%#Eval("fdRecrCreateAt","{0:yyyy-MM-dd HH:mm}")%>
+                            </td>
+                            <td>
+                                <a href="ApplyList.aspx?id=<%#Eval("fdRecrID") %>&back=<%#Request.Url.PathAndQuery.Replace("pid","pageindex") %>">
+                                    <%#Eval( "fdRecrCount" )%></a> 
                             </td>
                             <td style="width: 60px;">
                                 <a href="ApplyList.aspx?id=<%#Eval("fdRecrID") %>&back=<%#Request.Url.PathAndQuery.Replace("pid","pageindex") %>">

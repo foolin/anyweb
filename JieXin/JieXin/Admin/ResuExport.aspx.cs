@@ -18,7 +18,7 @@ public partial class Admin_ResuExport : Page
             WebAgent.FailAndGo( "简历不存在！", "/Admin/Index.aspx" );
         }
 
-        AW_Resume_bean bean = new AW_Resume_dao().funcGetResume( int.Parse( QS( "id" ) ), false );
+        bean = new AW_Resume_dao().funcGetResume( int.Parse( QS( "id" ) ), false );
         if( bean == null )
         {
             WebAgent.FailAndGo( "简历不存在！", "/Admin/Index.aspx" );
@@ -32,7 +32,14 @@ public partial class Admin_ResuExport : Page
         TextWriter strWriter = new StringWriter();
         base.Render( new HtmlTextWriter( strWriter ) );
         string path = SaveAsDoc( strWriter.ToString() );
-        Response.Redirect( path );
+        if( !string.IsNullOrEmpty( QS( "name" ) ) )
+        {
+            Response.Write( bean.fdResuUserName + "_" + QS( "name" ) );
+        }
+        else
+        {
+            Response.Redirect( path );
+        }
     }
 
     /// <summary>
@@ -45,11 +52,11 @@ public partial class Admin_ResuExport : Page
         string fileName = "";
         if( !string.IsNullOrEmpty( QS( "name" ) ) )
         {
-            fileName = QS( "name" );
+            fileName = bean.fdResuUserName + "_" + QS( "name" );
         }
         else
         {
-            fileName = DL_helper.funcGetTicks().ToString();
+            fileName = bean.fdResuUserName + "_" + DL_helper.funcGetTicks().ToString();
         }
         string savePath = "/Files/Resume/";
         string path = savePath + fileName + ".doc";
@@ -153,4 +160,19 @@ public partial class Admin_ResuExport : Page
     {
         return Request.QueryString[ key ] + "";
     }
+
+
+    private AW_Resume_bean _bean;
+    public AW_Resume_bean bean
+    {
+        get
+        {
+            return _bean;
+        }
+        set
+        {
+            _bean = value;
+        }
+    }
+			
 }

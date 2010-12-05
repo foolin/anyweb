@@ -19,7 +19,7 @@ public partial class Admin_MutiResuExport : PageAdmin
         {
             string name = DL_helper.funcGetTicks().ToString();
             string resText = HttpAgent.ReadRemoteFile( string.Format( "http://{0}/Admin/ResuExport.aspx?id={1}&name={2}", Request.Url.Authority, id, name ) );
-            namelist.Add( name );
+            namelist.Add( resText );
         }
         string savePath = "/Files/Resume/";
         string zipName = string.Format( "{0}{1}.zip", savePath, DL_helper.funcGetTicks().ToString() );

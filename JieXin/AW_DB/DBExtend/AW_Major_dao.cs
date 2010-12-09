@@ -36,5 +36,26 @@ namespace AnyWell.AW_DL
                 list.Add( bean );
             }
         }
+
+        /// <summary>
+        /// 获取专业编号
+        /// </summary>
+        /// <param name="majorName"></param>
+        /// <returns></returns>
+        public int funcGetMajorId( string majorName )
+        {
+            this.propSelect = "fdMajoID";
+            this.propWhere = "fdMajoName=@fdMajoName";
+            this.funcAddParam( "@fdMajoName", majorName );
+            DataSet ds = this.funcCommon();
+            if( ds.Tables[ 0 ].Rows.Count > 0 )
+            {
+                return ( int ) ds.Tables[ 0 ].Rows[ 0 ][ 0 ];
+            }
+            else
+            {
+                return 0;
+            }
+        }
 	}
 }

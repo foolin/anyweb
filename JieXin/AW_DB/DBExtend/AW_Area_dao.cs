@@ -36,5 +36,26 @@ namespace AnyWell.AW_DL
                 list.Add( bean );
             }
         }
+
+        /// <summary>
+        /// 获取地区编号
+        /// </summary>
+        /// <param name="AreaName"></param>
+        /// <returns></returns>
+        public int funcGetAreaID( string AreaName )
+        {
+            this.propSelect = "fdAreaID";
+            this.propWhere = "fdAreaName=@AreaName";
+            this.funcAddParam( "@AreaName", AreaName );
+            DataSet ds = this.funcCommon();
+            if( ds.Tables[ 0 ].Rows.Count > 0 )
+            {
+                return ( int ) ds.Tables[ 0 ].Rows[ 0 ][ 0 ];
+            }
+            else
+            {
+                return 0;
+            }
+        }
 	}
 }

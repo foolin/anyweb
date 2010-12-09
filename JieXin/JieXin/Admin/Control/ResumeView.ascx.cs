@@ -97,7 +97,7 @@ public partial class Admin_Control_ResumeView : ControlBase
         }
         else if( companyPhone.Length == 4 && companyPhone[ 1 ].Length > 0 && companyPhone[ 1 ] != "区号" && companyPhone[ 2 ].Length > 0 && companyPhone[ 2 ] != "总机号码" )
         {
-            if( companyPhone[ 3 ] != "分机" )
+            if( companyPhone[ 3 ].Length > 0 && companyPhone[ 3 ] != "分机" )
             {
                 return string.Format( "{0}-{1}-{2}（公司电话）", companyPhone[ 1 ], companyPhone[ 2 ], companyPhone[ 3 ] );
             }

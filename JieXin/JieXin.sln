@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW_UC", "AW_UC\AW_UC.csproj
 EndProject
 Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "JieXin_deploy", "..\publish\JieXin_deploy\JieXin_deploy.wdproj", "{F84AAA15-9292-400C-9A51-B5318C58512A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Import", "Import\Import.csproj", "{5698DEFB-AE00-4C1A-AE9D-96391177A4CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,14 @@ Global
 		{F84AAA15-9292-400C-9A51-B5318C58512A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F84AAA15-9292-400C-9A51-B5318C58512A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F84AAA15-9292-400C-9A51-B5318C58512A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5698DEFB-AE00-4C1A-AE9D-96391177A4CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5698DEFB-AE00-4C1A-AE9D-96391177A4CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5698DEFB-AE00-4C1A-AE9D-96391177A4CB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5698DEFB-AE00-4C1A-AE9D-96391177A4CB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5698DEFB-AE00-4C1A-AE9D-96391177A4CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5698DEFB-AE00-4C1A-AE9D-96391177A4CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5698DEFB-AE00-4C1A-AE9D-96391177A4CB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5698DEFB-AE00-4C1A-AE9D-96391177A4CB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

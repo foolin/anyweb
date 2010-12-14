@@ -194,7 +194,7 @@
                         <th>
                             学历
                         </th>
-                        <th>
+                        <th style="width:250px;">
                             职能
                         </th>
                         <th>

@@ -10,7 +10,7 @@
             <div class="loginPage innerPad">
                 <div class="Info">
                     <div class="TipHead">
-                        <a href="#" class="Link logLink ohtxt">登录</a> <a href="#" class="Link regLink ohtxt">
+                        <a href="/Login.aspx" class="Link logLink ohtxt">登录</a> <a href="/Register.aspx" class="Link regLink ohtxt">
                             注册</a>
                         <div class="btnArea tc">
                             <a href="/Search.aspx" class="btn28H">职位搜索</a> <a href="/c/54.aspx" class="btn28H">求职指南</a>

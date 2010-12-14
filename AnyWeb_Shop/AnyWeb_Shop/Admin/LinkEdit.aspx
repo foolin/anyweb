@@ -101,7 +101,7 @@
                                  <div class="iSubmit">
                                 <asp:Button ID="btnSave" runat="server" Text="保存链接" CommandName="Update" CssClass="submit"></asp:Button>
                                 <asp:Button ID="btnDelete" runat="server" Text="删除该链接" CommandName="Delete" CssClass="submit"></asp:Button>
-                                <button id="btnBack" onclick="window.location='LinkList.aspx';">
+                                <button id="btnBack" onclick="window.location='LinkList.aspx';" type="button">
                                     取 消</button>
                             </div>
                         </EditItemTemplate>

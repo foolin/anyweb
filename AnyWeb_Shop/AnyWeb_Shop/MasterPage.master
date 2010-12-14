@@ -1,18 +1,21 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
-<%@ Register Src="Controls/ToolTip.ascx" TagName="ToolTip" TagPrefix="uc" %>
 
+<%@ Register Src="Controls/ToolTip.ascx" TagName="ToolTip" TagPrefix="uc" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>机团网</title>
-    <meta name="description" content="广州市天河区沙河供销合作社成立于一九五三年，是广州市天河区供销联社下属的分支机构之一。我社一直致力于为城乡企业、居民服务，诚信守法经营，拥有良好的社会信誉。我社现时的经营业务范围主要有：物业租赁及管理、龙口东市场经营及管理、广州市杰信人力资源有限公司经营及管理、商品经营等。"/>
+    <meta name="description" content="广州市天河区沙河供销合作社成立于一九五三年，是广州市天河区供销联社下属的分支机构之一。我社一直致力于为城乡企业、居民服务，诚信守法经营，拥有良好的社会信誉。我社现时的经营业务范围主要有：物业租赁及管理、龙口东市场经营及管理、广州市杰信人力资源有限公司经营及管理、商品经营等。" />
     <meta name="keywords" content="供销社,供销合作社,广州市天河区沙河供销合作社,沙河供销社,天河供销社,机团网,商品销售网,物业租赁,物业管理,市场经营,市场管理,人力资源,商品经营,网络商城,居民服务" />
     <asp:ContentPlaceHolder ID="cphTitle" runat="server">
     </asp:ContentPlaceHolder>
     <link href="/public/index.css" rel="stylesheet" type="text/css" />
+
     <script type="text/javascript" src="/public/slidetrans.js"></script>
+
     <script type="text/javascript" src="/public/jquery-1.4.2.min.js"></script>
+
     <script type="text/javascript">
         //判断浏览器是否为IE
         function isIE() {
@@ -62,8 +65,8 @@
                     <div class="nav">
                         <ul>
                             <li class="navIndex"><a href="index.aspx" id="title1" class="select"></a></li>
-                            <li class="navGoods" id="navGoods">
-                                <a href="Category.aspx" id="title2" class="noselect"></a>
+                            <li class="navGoods" id="navGoods"><a href="Category.aspx" id="title2" class="noselect">
+                            </a>
                                 <uc:ToolTip ID="toolTips" runat="server" />
                             </li>
                         </ul>
@@ -75,11 +78,14 @@
                     <div class="menu">
                         <ul>
                             <li>
-                                <!--<img src="Images/icon_2.gif" height="18" border="0" />-->&nbsp;<a href="#" onclick="return HomePage.call(this);">设为首页</a></li>                                
+                                <!--<img src="Images/icon_2.gif" height="18" border="0" />-->
+                                &nbsp;<a href="#" onclick="return HomePage.call(this);">设为首页</a></li>
                             <li>
-                                <!--<img src="Images/icon_3.gif" height="18" border="0" />-->&nbsp;<a href="Contact.aspx">联系我们</a></li>
+                                <!--<img src="Images/icon_3.gif" height="18" border="0" />-->
+                                &nbsp;<a href="Contact.aspx">联系我们</a></li>
                             <li>
-                                <!--<img src="Images/icon_1.gif" height="20" border="0" />-->&nbsp;<a href="AboutUs.aspx">关于我们</a></li>
+                                <!--<img src="Images/icon_1.gif" height="20" border="0" />-->
+                                &nbsp;<a href="AboutUs.aspx">关于我们</a></li>
                         </ul>
                     </div>
                     <div class="search">
@@ -96,7 +102,7 @@
                     </div>
                 </div>
                 <div class="banner">
-                    <%if (!string.IsNullOrEmpty(ShopInfo.Header))
+                    <%if( !string.IsNullOrEmpty( ShopInfo.Header ) )
                       { %>
                     <%=ShopInfo.Header %>
                     <%} %>
@@ -107,7 +113,7 @@
                 </asp:ContentPlaceHolder>
             </div>
             <div class="ad-banner">
-                <%if (!string.IsNullOrEmpty(ShopInfo.Footer))
+                <%if( !string.IsNullOrEmpty( ShopInfo.Footer ) )
                   { %>
                 <%=ShopInfo.Footer %>
                 <%} %>
@@ -115,8 +121,8 @@
             <div class="footer">
                 <div class="bottom-link">
                     <a href="AboutUs.aspx">关于我们</a> - <a href="copyright.aspx">版权声明</a> - <a href="Contact.aspx">
-                        联系我们</a> - <a href="LinkList.aspx">友情链接</a> - <a href="/Admin/Login.aspx" target="_blank">
-                            管理登录</a>
+                        联系我们</a> - <a href="LinkList.aspx">友情链接</a> - <a href="http://www.thshcoop.com" target="_blank">门户网</a>
+                    - <a href="http://jiexin.thshcoop.com" target="_blank">杰信人力资源</a> - <a href="/Admin/Login.aspx" target="_blank">管理登录</a>
                 </div>
                 <div class="copyright">
                     <a href="http://www.thshcoop.com">广州市天河区沙河供销合作社</a> ICP证号：粤ICP备09198729号<br />
@@ -125,6 +131,6 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 </body>
 </html>

@@ -45,7 +45,8 @@
     <div class="foot">
         <p class="dgreen">
             <a href="Company.aspx">关于我们</a> - <a href="copyright.aspx">版权声明</a> - <a href="Contact.aspx">
-                联系我们</a> - <a href="LinkList.aspx">友情链接</a> - <a href="/Admin/Login.aspx" target="_blank">
+                联系我们</a> - <a href="LinkList.aspx">友情链接</a> - <a href="http://shop.thshcoop.com" target="_blank">机团网</a>
+                    - <a href="http://jiexin.thshcoop.com" target="_blank">杰信人力资源</a> - <a href="/Admin/Login.aspx" target="_blank">
                     管理登录</a>
         </p>
         <p class="lgreen">

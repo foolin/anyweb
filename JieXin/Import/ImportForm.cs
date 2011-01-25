@@ -35,6 +35,7 @@ namespace Import
             CurrentCount = 0;
             pageIndex = 1;
             btnImport.Enabled = false;
+            stop = false;
             backgroundWorker1.WorkerReportsProgress = true;
             backgroundWorker1.RunWorkerAsync();
         }
@@ -50,6 +51,7 @@ namespace Import
         {
             BackgroundWorker worker = ( BackgroundWorker ) sender;
             worker.ReportProgress( 0, "正在准备数据..." );
+            string errorIds = "";
             AW_Import_dao dao = new AW_Import_dao();
             AllCount = dao.funcGetCount();
             AreaList = new AW_Area_dao().funcGetList();
@@ -64,13 +66,25 @@ namespace Import
                     {
                         return;
                     }
-                    insertData( bean );
+                    //try
+                    //{
+                        insertData( bean );
+                    //}
+                    //catch( Exception )
+                    //{
+                    //    errorIds += "," + bean.no;
+                    //}
                     CurrentCount++;
                     worker.ReportProgress( CurrentCount * 100 / AllCount, string.Format( "导入进度：{0}/{1}", CurrentCount, AllCount ) );
                 }
                 pageIndex++;
                 worker.ReportProgress( CurrentCount * 100 / AllCount, "正在准备下一批数据..." );
                 list = dao.funcGetImportList( pageIndex, pageSize );
+            }
+            if( errorIds.Length > 0 )
+            {
+                errorIds = errorIds.Substring( 1 );
+                Studio.IO.FileAgent.WriteText( System.Environment.CurrentDirectory + "/ErrorIds.log", errorIds, true );
             }
         }
 
@@ -104,7 +118,7 @@ namespace Import
             //简历编号
             resume.fdResuID = new AW_Resume_dao().funcNewID();
             //用户编号
-            resume.fdResuUserID = 10000;
+            resume.fdResuUserID = 10033;
             //简历名称
             resume.fdResuName = "我的简历";
             //姓名
@@ -361,9 +375,9 @@ namespace Import
                     }
                     //部门
                     work.fdWorkDepartment = str.Substring( str.IndexOf( "部门:" ) + 3, str.IndexOf( "职位:" ) - str.IndexOf( "部门:" ) - 3 ).Trim();
-                    if( work.fdWorkDepartment.Length > 40 )
+                    if( work.fdWorkDepartment.Length > 20 )
                     {
-                        work.fdWorkDepartment = work.fdWorkDepartment.Substring( 0, 40 );
+                        work.fdWorkDepartment = work.fdWorkDepartment.Substring( 0, 20 );
                     }
                     //职位
                     string jobName = str.Substring( str.IndexOf( "职位:" ) + 3, str.IndexOf( "工作描述：" ) - str.IndexOf( "职位:" ) - 3 ).Trim();
@@ -381,13 +395,17 @@ namespace Import
                         if( work.fdWorkJobID == 0 )
                         {
                             work.fdWorkOtherJob = jobName;
+                            if( work.fdWorkOtherJob.Length > 20 )
+                            {
+                                work.fdWorkOtherJob = work.fdWorkOtherJob.Substring( 0, 20 );
+                            }
                         }
                     }
                     //工作描述
                     work.fdWorkIntro = str.Substring( str.IndexOf( "工作描述：" ) + 5 ).Trim();
-                    if( work.fdWorkIntro.Length > 4000 )
+                    if( work.fdWorkIntro.Length > 2000 )
                     {
-                        work.fdWorkIntro = work.fdWorkIntro.Substring( 0, 4000 );
+                        work.fdWorkIntro = work.fdWorkIntro.Substring( 0, 2000 );
                     }
                     work.fdWorkIsOverSeas = 1;
                     resume.WorkList.Add( work );
@@ -466,9 +484,9 @@ namespace Import
                         if( !string.IsNullOrEmpty( strTemp ) )
                         {
                             education.fdEducIntro = strTemp;
-                            if( education.fdEducIntro.Length > 4000 )
+                            if( education.fdEducIntro.Length > 2000 )
                             {
-                                education.fdEducIntro = education.fdEducIntro.Substring( 0, 4000 );
+                                education.fdEducIntro = education.fdEducIntro.Substring( 0, 2000 );
                             }
                         }
                     }
@@ -486,6 +504,10 @@ namespace Import
                     {
                         resume.fdResuEnLevel = getEnLevelId( str.Trim() );
                     }
+                    else if( str.Trim().StartsWith( "日语等级" ) )
+                    {
+                        resume.fdResuJpLevel = getJpLevelId( str.Trim() );
+                    }
                     else
                     {
                         AW_Language_bean language = new AW_Language_bean();
@@ -494,7 +516,25 @@ namespace Import
                         string[] level = str.Trim().Split( '/' );
                         foreach( string le in level )
                         {
-                            if( le.Trim().StartsWith( "听说" ) )
+                            if( le.Trim().StartsWith( "TOFEL:" ) )
+                            {
+                                int tofel = 0;
+                                if( int.TryParse( str.Trim().Substring( 6 ), out tofel ) )
+                                {
+                                    resume.fdResuTOEFL = tofel;
+                                }
+                                continue;
+                            }
+                            else if( le.Trim().StartsWith( "IELTS:" ) )
+                            {
+                                float ielts = 0;
+                                if( float.TryParse( str.Trim().Substring( 6 ), out ielts ) )
+                                {
+                                    resume.fdResuIELTS = ( int ) ielts;
+                                }
+                                continue;
+                            }
+                            else if( le.Trim().StartsWith( "听说" ) )
                             {
                                 language.fdLangLiAbility = getLangAbilityId( le.Trim().Substring( 4, 2 ) );
                             }
@@ -504,8 +544,15 @@ namespace Import
                             }
                             else
                             {
-                                language.fdLangType = getLangTypeId( le.Trim().Substring( 0, le.Trim().IndexOf( "(" ) ) );
-                                language.fdLangMaster = getLangAbilityId( le.Trim().Substring( le.Trim().IndexOf( "(" ), 2 ) );
+                                if( le.Trim().IndexOf( "(" ) > -1 )
+                                {
+                                    language.fdLangType = getLangTypeId( le.Trim().Substring( 0, le.Trim().IndexOf( "(" ) ) );
+                                    language.fdLangMaster = getLangAbilityId( le.Trim().Substring( le.Trim().IndexOf( "(" ), 2 ) );
+                                }
+                                else
+                                {
+                                    language.fdLangType = getLangTypeId( le.Trim() );
+                                }
                             }
                         }
                         resume.LanguageList.Add( language );
@@ -549,7 +596,15 @@ namespace Import
                     AW_Cert_bean cert = new AW_Cert_bean();
                     cert.fdCertID = new AW_Cert_dao().funcNewID();
                     cert.fdCertResuID = resume.fdResuID;
-                    cert.fdCertDate = DateTime.Parse( str.Trim().Substring( 0, str.Trim().IndexOf( "——" ) ) + "-1" );
+                    DateTime date;
+                    if( DateTime.TryParse( str.Trim().Substring( 0, str.Trim().IndexOf( "——" ) ) + "-1", out date ) )
+                    {
+                        cert.fdCertDate = date;
+                    }
+                    else
+                    {
+                        cert.fdCertDate = DateTime.Now;
+                    }
                     if( str.IndexOf( ":" ) > -1 )
                     {
                         cert.fdCertName = str.Trim().Substring( str.Trim().IndexOf( "——" ) + 2, str.Trim().IndexOf( ":" ) - str.Trim().IndexOf( "——" ) - 2 );
@@ -600,10 +655,11 @@ namespace Import
             {
                 FileInfo fi = new FileInfo( System.Environment.CurrentDirectory + "/Error.log" );
                 StringBuilder sb = new StringBuilder();
-                sb.AppendFormat( "No:{0}\r\n", bean.no );
+                sb.AppendLine( "No:" + bean.no + "\r\n" );
                 sb.Append( ex.ToString() )
                         .Append( "\r\n" );
-                Studio.IO.FileAgent.WriteText( System.Environment.CurrentDirectory + "/Error.log", ex.Message.ToString(), true );
+                Studio.IO.FileAgent.WriteText( System.Environment.CurrentDirectory + "/Error.log", sb.ToString(), true );
+                throw ex;
             }
         }
 
@@ -881,6 +937,39 @@ namespace Import
             else if( str.IndexOf( "专业八级" ) > -1 )
             {
                 return 6;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// 获取英语等级
+        /// </summary>
+        /// <param name="levelId"></param>
+        /// <returns></returns>
+        protected int getJpLevelId( string str )
+        {
+            if( str.IndexOf( "无" ) > -1 )
+            {
+                return 1;
+            }
+            else if( str.IndexOf( "一级" ) > -1 )
+            {
+                return 2;
+            }
+            else if( str.IndexOf( "二级" ) > -1 )
+            {
+                return 3;
+            }
+            else if( str.IndexOf( "三级" ) > -1 )
+            {
+                return 4;
+            }
+            else if( str.IndexOf( "四级" ) > -1 )
+            {
+                return 5;
             }
             else
             {

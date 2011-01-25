@@ -37,7 +37,7 @@ public partial class User_RewardsSave : PageUser
             bean.fdRewaResuID = int.Parse( QS( "id" ) );
             bean.fdRewaBegin = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Rew_FromYear" ), QF( "Rew_FromMonth" ) ) );
             if( QF( "Rew_ToYear" ) != "0" && QF( "Rew_ToMonth" ) != "0" )
-                bean.fdRewaEnd = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Edu_ToYear" ), QF( "Edu_ToMonth" ) ) );
+                bean.fdRewaEnd = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Rew_ToYear" ), QF( "Rew_ToMonth" ) ) );
             else
                 bean.fdRewaEnd = DateTime.Parse( "1900-01-01" );
             bean.fdRewaName = QF( "Rew_Name" ).Trim();
@@ -79,7 +79,7 @@ public partial class User_RewardsSave : PageUser
 
             bean.fdRewaBegin = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Rew_FromYear" ), QF( "Rew_FromMonth" ) ) );
             if( QF( "Rew_ToYear" ) != "0" && QF( "Rew_ToMonth" ) != "0" )
-                bean.fdRewaEnd = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Edu_ToYear" ), QF( "Edu_ToMonth" ) ) );
+                bean.fdRewaEnd = DateTime.Parse( string.Format( "{0}-{1}-1", QF( "Rew_ToYear" ), QF( "Rew_ToMonth" ) ) );
             else
                 bean.fdRewaEnd = DateTime.Parse( "1900-01-01" );
             bean.fdRewaName = QF( "Rew_Name" ).Trim();

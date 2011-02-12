@@ -1,0 +1,955 @@
+Time:2010-12-10 22:39:04
+IP:::1
+Url:/Admin/left.aspx
+UrlRef:http://localhost:801/Admin/index.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 AnyWell.AW.DropMenu.GetChildren(DropMenuItem item, XmlNodeList nodes, Int32 depth) 位置 e:\Program Files\PROJECT\DOTNET\HuaFang\AnyWeb2010\App_Code\DropMenu.cs:行号 139
+   在 AnyWell.AW.DropMenu.Retrieve(String siteMapFile) 位置 e:\Program Files\PROJECT\DOTNET\HuaFang\AnyWeb2010\App_Code\DropMenu.cs:行号 75
+   在 AnyWell.AW.DropMenu.GetMenuData(String menuFile) 位置 e:\Program Files\PROJECT\DOTNET\HuaFang\AnyWeb2010\App_Code\DropMenu.cs:行号 58
+   在 Admin_Left.OnPreRender(EventArgs e) 位置 e:\Program Files\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\Left.aspx.cs:行号 15
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_left_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\9342f976\2ac22c74\App_Web_3iyhzclq.14.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2010-12-10 22:39:48
+IP:::1
+Url:/Admin/ArticleList.aspx
+UrlRef:http://localhost:801/Admin/left.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.Web.HttpException: DataBinding:“AnyWell.AW_DL.AW_Article_bean”不包含名为“fdArtiPath”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 ASP.admin_articlelist_aspx.__DataBind__control7(Object sender, EventArgs e) 位置 e:\Program Files\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\ArticleList.aspx:行号 146
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 Admin_ArticleList.OnPreRender(EventArgs e) 位置 e:\Program Files\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\ArticleList.aspx.cs:行号 59
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_articlelist_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\9342f976\2ac22c74\App_Web_articlelist.aspx.fdf7a39c.q55vcm9j.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2010-12-10 22:59:11
+IP:::1
+Url:/Admin/Login.aspx
+UrlRef:http://localhost:801/Admin/Login.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 违反了 PRIMARY KEY 约束 'PK_AW_Log'。不能在对象 'dbo.AW_Log' 中插入重复键。
+语句已终止。 SQL:INSERT INTO AW_Log (fdLogID,fdLogName,fdLogDesc,fdLogAccount,fdLogType,fdLogIP,fdLogCreateAt) VALUES(@fdLogID,@fdLogName,@fdLogDesc,@fdLogAccount,@fdLogType,@fdLogIP,@fdLogCreateAt) ---> System.Data.SqlClient.SqlException: 违反了 PRIMARY KEY 约束 'PK_AW_Log'。不能在对象 'dbo.AW_Log' 中插入重复键。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcInsert(Bean_Base aBean, IDbTransaction tran) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 203
+   在 Shop_Admin_Login.AddLog(String account, String name, String description) 位置 e:\Program Files\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\Login.aspx.cs:行号 58
+   在 Shop_Admin_Login.submit_Click(Object sender, EventArgs e) 位置 e:\Program Files\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\Login.aspx.cs:行号 31
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\9342f976\2ac22c74\App_Web_elqd4xoh.58.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2010-12-15 21:44:01
+IP:::1
+Url:/Admin/RecruitList.aspx
+UrlRef:http://localhost:801/Admin/left.aspx
+Message:System.Web.HttpCompileException: e:\Program Files\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\RecruitList.aspx.cs(30): error CS0246: 找不到类型或命名空间名称“AW_Recruit_dao”(是否缺少 using 指令或程序集引用?)
+   在 System.Web.Compilation.AssemblyBuilder.Compile()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   在 System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2010-12-15 21:48:52
+IP:::1
+Url:/Admin/RecruitList.aspx
+UrlRef:http://localhost:801/Admin/left.aspx
+Message:System.Web.HttpCompileException: e:\Program Files\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\RecruitList.aspx.cs(27): error CS0103: 当前上下文中不存在名称“drpType”
+   在 System.Web.Compilation.AssemblyBuilder.Compile()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   在 System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2010-12-15 21:49:43
+IP:::1
+Url:/Admin/RecruitAdd.aspx
+UrlRef:http://localhost:801/Admin/RecruitList.aspx
+Message:System.Web.HttpParseException: 文件“/Admin/Control/Area.ascx”不存在。 ---> System.Web.HttpParseException: 文件“/Admin/Control/Area.ascx”不存在。 ---> System.Web.HttpException: 文件“/Admin/Control/Area.ascx”不存在。
+   在 System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.UI.BaseTemplateParser.GetReferencedType(VirtualPath virtualPath, Boolean allowNoCompile)
+   在 System.Web.UI.BaseTemplateParser.GetUserControlType(VirtualPath virtualPath)
+   在 System.Web.UI.MainTagNameToTypeMapper.ProcessUserControlRegistration(UserControlRegisterEntry ucRegisterEntry)
+   在 System.Web.UI.BaseTemplateParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   在 System.Web.UI.TemplateParser.ParseInternal()
+   在 System.Web.UI.TemplateParser.Parse()
+   在 System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   在 System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2010-12-15 21:52:57
+IP:::1
+Url:/Admin/RecruitAdd.aspx
+UrlRef:http://localhost:801/Admin/RecruitList.aspx
+Message:System.Web.HttpParseException: 未知的服务器标记“uc1:Area”。 ---> System.Web.HttpParseException: 未知的服务器标记“uc1:Area”。 ---> System.Web.HttpException: 未知的服务器标记“uc1:Area”。
+   在 System.Web.UI.TemplateParser.ProcessError(String message)
+   在 System.Web.UI.TemplateParser.ProcessBeginTag(Match match, String inputText)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   在 System.Web.UI.TemplateParser.ParseInternal()
+   在 System.Web.UI.TemplateParser.Parse()
+   在 System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   在 System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2010-12-15 21:53:41
+IP:::1
+Url:/Admin/RecruitList.aspx
+UrlRef:http://localhost:801/Admin/RecruitAdd.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.Web.HttpException: DataBinding:“AnyWell.AW_DL.AW_Recruit_bean”不包含名为“fdRecrPath”的属性。
+   在 System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   在 System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   在 ASP.admin_recruitlist_aspx.__DataBind__control3(Object sender, EventArgs e) 位置 e:\Program Files\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\RecruitList.aspx:行号 119
+   在 System.Web.UI.Control.OnDataBinding(EventArgs e)
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.Control.DataBindChildren()
+   在 System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   在 System.Web.UI.WebControls.Repeater.CreateControlHierarchy(Boolean useDataSource)
+   在 System.Web.UI.WebControls.Repeater.OnDataBinding(EventArgs e)
+   在 Admin_RecruitList.OnPreRender(EventArgs e) 位置 e:\Program Files\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\RecruitList.aspx.cs:行号 28
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_recruitlist_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\9342f976\2ac22c74\App_Web_recruitlist.aspx.fdf7a39c.rlwai0uq.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2010-12-15 21:57:13
+IP:::1
+Url:/Admin/RecruitEdit.aspx?id=1
+UrlRef:http://localhost:801/Admin/RecruitList.aspx
+Message:System.Web.HttpParseException: 文件“/Admin/Control/Area.ascx”不存在。 ---> System.Web.HttpParseException: 文件“/Admin/Control/Area.ascx”不存在。 ---> System.Web.HttpException: 文件“/Admin/Control/Area.ascx”不存在。
+   在 System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.UI.BaseTemplateParser.GetReferencedType(VirtualPath virtualPath, Boolean allowNoCompile)
+   在 System.Web.UI.BaseTemplateParser.GetUserControlType(VirtualPath virtualPath)
+   在 System.Web.UI.MainTagNameToTypeMapper.ProcessUserControlRegistration(UserControlRegisterEntry ucRegisterEntry)
+   在 System.Web.UI.BaseTemplateParser.ProcessDirective(String directiveName, IDictionary directive)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.TemplateParser.ProcessException(Exception ex)
+   在 System.Web.UI.TemplateParser.ParseStringInternal(String text, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.TemplateParser.ParseString(String text, VirtualPath virtualPath, Encoding fileEncoding)
+   在 System.Web.UI.TemplateParser.ParseFile(String physicalPath, VirtualPath virtualPath)
+   在 System.Web.UI.TemplateParser.ParseInternal()
+   在 System.Web.UI.TemplateParser.Parse()
+   在 System.Web.Compilation.BaseTemplateBuildProvider.get_CodeCompilerType()
+   在 System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   在 System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   在 System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   在 System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2010-12-15 21:57:55
+IP:::1
+Url:/Admin/RecruitEdit.aspx?id=1
+UrlRef:http://localhost:801/Admin/RecruitList.aspx
+Message:System.Web.HttpCompileException: e:\Program Files\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\RecruitEdit.aspx.cs(50): error CS0103: 当前上下文中不存在名称“txtAreaID”
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   在 System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2010-12-15 21:58:14
+IP:::1
+Url:/Admin/RecruitEdit.aspx?id=1
+UrlRef:http://localhost:801/Admin/RecruitList.aspx
+Message:System.Web.HttpCompileException: e:\Program Files\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\RecruitEdit.aspx.cs(50): error CS0103: 当前上下文中不存在名称“txtAreaID”
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   在 System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2010-12-15 22:20:59
+IP:::1
+Url:/Admin/GoodsPictureUpload.aspx
+UrlRef:http://localhost:801/Admin/goodsedit.aspx?id=1043
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.Web.HttpException: 与远程主机通信时发生错误。错误代码是 0x80070001。 ---> System.Runtime.InteropServices.COMException (0x80070001): 函数不正确。 (异常来自 HRESULT:0x80070001)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.Hosting.IIS7WorkerRequest.RaiseCommunicationError(Int32 result, Boolean throwOnDisconnect)
+   在 System.Web.Hosting.IIS7WorkerRequest.ReadEntityCoreSync(Byte[] buffer, Int32 offset, Int32 size)
+   在 System.Web.HttpRequest.GetEntireRawContent()
+   在 System.Web.HttpRequest.GetMultipartContent()
+   在 System.Web.HttpRequest.FillInFormCollection()
+   在 System.Web.HttpRequest.get_Form()
+   在 System.Web.HttpRequest.get_HasForm()
+   在 System.Web.UI.Page.GetCollectionBasedOnMethod(Boolean dontReturnNull)
+   在 System.Web.UI.Page.DeterminePostBackMode()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_goodspictureupload_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\9342f976\2ac22c74\App_Web_n7xdzvzj.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2010-12-15 22:27:21
+IP:::1
+Url:/Admin/GoodsPictureUpload.aspx
+UrlRef:http://localhost:801/Admin/goodsedit.aspx?id=1043
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.Web.HttpException: 与远程主机通信时发生错误。错误代码是 0x80070001。 ---> System.Runtime.InteropServices.COMException (0x80070001): 函数不正确。 (异常来自 HRESULT:0x80070001)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.Hosting.IIS7WorkerRequest.RaiseCommunicationError(Int32 result, Boolean throwOnDisconnect)
+   在 System.Web.Hosting.IIS7WorkerRequest.ReadEntityCoreSync(Byte[] buffer, Int32 offset, Int32 size)
+   在 System.Web.HttpRequest.GetEntireRawContent()
+   在 System.Web.HttpRequest.GetMultipartContent()
+   在 System.Web.HttpRequest.FillInFormCollection()
+   在 System.Web.HttpRequest.get_Form()
+   在 System.Web.HttpRequest.get_HasForm()
+   在 System.Web.UI.Page.GetCollectionBasedOnMethod(Boolean dontReturnNull)
+   在 System.Web.UI.Page.DeterminePostBackMode()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_goodspictureupload_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\9342f976\2ac22c74\App_Web_jwmr5kww.52.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2010-12-15 22:27:51
+IP:::1
+Url:/Admin/GoodsPictureUpload.aspx
+UrlRef:http://localhost:801/Admin/goodsedit.aspx?id=1043
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.Web.HttpException: 与远程主机通信时发生错误。错误代码是 0x80070001。 ---> System.Runtime.InteropServices.COMException (0x80070001): 函数不正确。 (异常来自 HRESULT:0x80070001)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.Hosting.IIS7WorkerRequest.RaiseCommunicationError(Int32 result, Boolean throwOnDisconnect)
+   在 System.Web.Hosting.IIS7WorkerRequest.ReadEntityCoreSync(Byte[] buffer, Int32 offset, Int32 size)
+   在 System.Web.HttpRequest.GetEntireRawContent()
+   在 System.Web.HttpRequest.GetMultipartContent()
+   在 System.Web.HttpRequest.FillInFormCollection()
+   在 System.Web.HttpRequest.get_Form()
+   在 System.Web.HttpRequest.get_HasForm()
+   在 System.Web.UI.Page.GetCollectionBasedOnMethod(Boolean dontReturnNull)
+   在 System.Web.UI.Page.DeterminePostBackMode()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_goodspictureupload_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\9342f976\2ac22c74\App_Web_jwmr5kww.52.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-01-25 20:08:43
+IP:::1
+Url:/Admin/Login.aspx
+UrlRef:http://localhost:801/Admin/Login.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 用户 'aofei' 登录失败。该用户与可信 SQL Server 连接无关联。 SQL:SELECT * FROM AW_ADMIN  WHERE fdAdmiAccount='superadmin' AND fdAdmiPwd='E10ADC3949BA59ABBE56E057F20F883E'  ---> System.Data.SqlClient.SqlException: 用户 'aofei' 登录失败。该用户与可信 SQL Server 连接无关联。
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   在 System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnection owningObject)
+   在 System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(String host, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, Int64 timerStart)
+   在 System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance)
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcGet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 458
+   在 AnyWell.AW_DL.Dao_Base.funcCommon() 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 365
+   在 AnyWell.AW_DL.AW_Admin_dao.funcGetList() 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBFile\AW_Admin_dao.cs:行号 22
+   在 AnyWell.AW_DL.AW_Admin_dao.funcLogin(String loginId, String password) 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Admin_dao.cs:行号 24
+   在 Shop_Admin_Login.submit_Click(Object sender, EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\Login.aspx.cs:行号 29
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_lcqu2d5e.32.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 22:31:30
+IP:::1
+Url:/Admin/Login.aspx
+UrlRef:http://localhost:801/Admin/Login.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 用户 'aofei' 登录失败。该用户与可信 SQL Server 连接无关联。 SQL:SELECT * FROM AW_ADMIN  WHERE fdAdmiAccount='superadmin' AND fdAdmiPwd='E10ADC3949BA59ABBE56E057F20F883E'  ---> System.Data.SqlClient.SqlException: 用户 'aofei' 登录失败。该用户与可信 SQL Server 连接无关联。
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   在 System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnection owningObject)
+   在 System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(String host, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, Int64 timerStart)
+   在 System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance)
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   在 System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcGet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 458
+   在 AnyWell.AW_DL.Dao_Base.funcCommon() 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 365
+   在 AnyWell.AW_DL.AW_Admin_dao.funcGetList() 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBFile\AW_Admin_dao.cs:行号 22
+   在 AnyWell.AW_DL.AW_Admin_dao.funcLogin(String loginId, String password) 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Admin_dao.cs:行号 24
+   在 Shop_Admin_Login.submit_Click(Object sender, EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\Login.aspx.cs:行号 29
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_lcqu2d5e.32.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 22:33:02
+IP:::1
+Url:/Admin/Login.aspx
+UrlRef:http://localhost:801/Admin/Login.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 拒绝了对对象 'AW_Admin' (数据库 'HuaFang'，架构 'dbo')的 SELECT 权限。 SQL:SELECT * FROM AW_ADMIN  WHERE fdAdmiAccount='superadmin' AND fdAdmiPwd='E10ADC3949BA59ABBE56E057F20F883E'  ---> System.Data.SqlClient.SqlException: 拒绝了对对象 'AW_Admin' (数据库 'HuaFang'，架构 'dbo')的 SELECT 权限。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcGet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 458
+   在 AnyWell.AW_DL.Dao_Base.funcCommon() 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 365
+   在 AnyWell.AW_DL.AW_Admin_dao.funcGetList() 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBFile\AW_Admin_dao.cs:行号 22
+   在 AnyWell.AW_DL.AW_Admin_dao.funcLogin(String loginId, String password) 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Admin_dao.cs:行号 24
+   在 Shop_Admin_Login.submit_Click(Object sender, EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\Login.aspx.cs:行号 29
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_lcqu2d5e.32.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 22:33:36
+IP:::1
+Url:/Admin/Login.aspx
+UrlRef:http://localhost:801/Admin/Login.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 对象名 'AW_Log' 无效。 SQL:INSERT INTO AW_Log (fdLogID,fdLogName,fdLogDesc,fdLogAccount,fdLogType,fdLogIP,fdLogCreateAt) VALUES(@fdLogID,@fdLogName,@fdLogDesc,@fdLogAccount,@fdLogType,@fdLogIP,@fdLogCreateAt) ---> System.Data.SqlClient.SqlException: 对象名 'AW_Log' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcInsert(Bean_Base aBean, IDbTransaction tran) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 203
+   在 Shop_Admin_Login.AddLog(String account, String name, String description) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\Login.aspx.cs:行号 58
+   在 Shop_Admin_Login.submit_Click(Object sender, EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\Login.aspx.cs:行号 31
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_login_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_lcqu2d5e.32.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 22:36:55
+IP:::1
+Url:/Admin/goodsedit.aspx?id=1043
+UrlRef:http://localhost:801/Admin/goodsedit.aspx?id=1043
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 违反了 PRIMARY KEY 约束 'PK_AW_Log'。不能在对象 'dbo.AW_Log' 中插入重复键。
+语句已终止。 SQL:INSERT INTO AW_Log (fdLogID,fdLogName,fdLogDesc,fdLogAccount,fdLogType,fdLogIP,fdLogCreateAt) VALUES(@fdLogID,@fdLogName,@fdLogDesc,@fdLogAccount,@fdLogType,@fdLogIP,@fdLogCreateAt) ---> System.Data.SqlClient.SqlException: 违反了 PRIMARY KEY 约束 'PK_AW_Log'。不能在对象 'dbo.AW_Log' 中插入重复键。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcInsert(Bean_Base aBean, IDbTransaction tran) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 203
+   在 PageAdmin.AddLog(EventType type, String name, String description) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\App_Code\PageAdmin.cs:行号 91
+   在 Admin_GoodsEdit.btnOk_Click(Object sender, EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\GoodsEdit.aspx.cs:行号 313
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_goodsedit_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_goodsedit.aspx.fdf7a39c.7mjd785c.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 22:41:37
+IP:::1
+Url:/Admin/TemplateColumn.aspx?ttype=1&type=2&id=1045
+UrlRef:http://localhost:801/Admin/CategoryList.aspx
+Message:System.Web.HttpCompileException: e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\TemplateColumn.aspx.cs(44): error CS0117: “AnyWell.AW_DL.AW_Column_dao”并不包含“funcUpdateColumnTemplate”的定义
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   在 System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 22:47:12
+IP:::1
+Url:/Admin/categoryadd.aspx
+UrlRef:http://localhost:801/Admin/CategoryList.aspx
+Message:System.Web.HttpCompileException: e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\CategoryAdd.aspx.cs(37): error CS0103: 当前上下文中不存在名称“txtPath”
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   在 System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 22:48:20
+IP:::1
+Url:/Admin/categoryedit.aspx?id=1040
+UrlRef:http://localhost:801/Admin/CategoryList.aspx
+Message:System.Web.HttpCompileException: e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\CategoryEdit.aspx.cs(22): error CS0103: 当前上下文中不存在名称“txtPath”
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   在 System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 23:11:40
+IP:::1
+Url:/Admin/MemberEdit.aspx?id=1093
+UrlRef:http://localhost:801/Admin/MemberList.aspx
+Message:System.Web.HttpCompileException: e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\MemberEdit.aspx(110): error CS0103: 当前上下文中不存在名称“RenderAreaJs”
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   在 System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 23:13:02
+IP:::1
+Url:/Ajax/CommentReply.aspx?id=41
+UrlRef:http://localhost:801/Admin/CommentList.aspx
+Message:System.Web.HttpException: 文件“/Error.aspx”不存在。
+   在 System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   在 System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 23:13:35
+IP:::1
+Url:/Admin/ArticleAdd.aspx
+UrlRef:http://localhost:801/Admin/ArticleAdd.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 列名 'fdArtiClick' 无效。 SQL:INSERT INTO AW_Article (fdArtiID,fdArtiColumnID,fdArtiTitle,fdArtiContent,fdArtiCreateAt,fdArtiSort,fdArtiClick) VALUES(@fdArtiID,@fdArtiColumnID,@fdArtiTitle,@fdArtiContent,@fdArtiCreateAt,@fdArtiSort,@fdArtiClick) ---> System.Data.SqlClient.SqlException: 列名 'fdArtiClick' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcInsert(Bean_Base aBean, IDbTransaction tran) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 203
+   在 AnyWell.AW_DL.AW_Article_dao.funcInsert(Bean_Base aBean) 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Article_dao.cs:行号 164
+   在 Admin_ArticleAdd.btnOk_Click(Object sender, EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\ArticleAdd.aspx.cs:行号 86
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_articleadd_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_articleadd.aspx.fdf7a39c.k3d_ytr2.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 23:15:09
+IP:::1
+Url:/Admin/ColumnAdd.aspx
+UrlRef:http://localhost:801/Admin/ColumnAdd.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 列名 'fdColuType' 无效。 SQL:INSERT INTO AW_Column (fdColuID,fdColuName,fdColuSort,fdColuDescription,fdColuParentID,fdColuType) VALUES(@fdColuID,@fdColuName,@fdColuSort,@fdColuDescription,@fdColuParentID,@fdColuType) ---> System.Data.SqlClient.SqlException: 列名 'fdColuType' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcInsert(Bean_Base aBean, IDbTransaction tran) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 203
+   在 AnyWell.AW_DL.AW_Column_dao.funcInsert(Bean_Base aBean) 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Column_dao.cs:行号 124
+   在 Admin_ColumnAdd.btnOk_Click(Object sender, EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\ColumnAdd.aspx.cs:行号 38
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_columnadd_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_columnadd.aspx.fdf7a39c.5xlesmzb.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 23:18:20
+IP:::1
+Url:/Admin/ColumnAdd.aspx
+UrlRef:http://localhost:801/Admin/ColumnAdd.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 不能将值 NULL 插入列 'fdColuPicture'，表 'HuaFang.dbo.AW_Column'；列不允许有空值。INSERT 失败。
+语句已终止。 SQL:INSERT INTO AW_Column (fdColuID,fdColuName,fdColuSort,fdColuDescription,fdColuParentID,fdColuType) VALUES(@fdColuID,@fdColuName,@fdColuSort,@fdColuDescription,@fdColuParentID,@fdColuType) ---> System.Data.SqlClient.SqlException: 不能将值 NULL 插入列 'fdColuPicture'，表 'HuaFang.dbo.AW_Column'；列不允许有空值。INSERT 失败。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcInsert(Bean_Base aBean, IDbTransaction tran) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 203
+   在 AnyWell.AW_DL.AW_Column_dao.funcInsert(Bean_Base aBean) 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Column_dao.cs:行号 124
+   在 Admin_ColumnAdd.btnOk_Click(Object sender, EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\ColumnAdd.aspx.cs:行号 38
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_columnadd_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_columnadd.aspx.fdf7a39c.5xlesmzb.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 23:18:51
+IP:::1
+Url:/Admin/ColumnAdd.aspx
+UrlRef:http://localhost:801/Admin/ColumnAdd.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 不能将值 NULL 插入列 'fdColuTempIndex'，表 'HuaFang.dbo.AW_Column'；列不允许有空值。INSERT 失败。
+语句已终止。 SQL:INSERT INTO AW_Column (fdColuID,fdColuName,fdColuSort,fdColuDescription,fdColuParentID,fdColuType) VALUES(@fdColuID,@fdColuName,@fdColuSort,@fdColuDescription,@fdColuParentID,@fdColuType) ---> System.Data.SqlClient.SqlException: 不能将值 NULL 插入列 'fdColuTempIndex'，表 'HuaFang.dbo.AW_Column'；列不允许有空值。INSERT 失败。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcInsert(Bean_Base aBean, IDbTransaction tran) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 203
+   在 AnyWell.AW_DL.AW_Column_dao.funcInsert(Bean_Base aBean) 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Column_dao.cs:行号 124
+   在 Admin_ColumnAdd.btnOk_Click(Object sender, EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\ColumnAdd.aspx.cs:行号 38
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_columnadd_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_columnadd.aspx.fdf7a39c.5xlesmzb.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 23:19:42
+IP:::1
+Url:/Admin/NoticeList.aspx
+UrlRef:http://localhost:801/Admin/left.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 对象名 'AW_NOTICE' 无效。 SQL:SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY fdNotiOrder DESC,fdNotiID DESC) AS idx, fdNotiID,fdNotiTitle,fdNotiCreateAt FROM AW_NOTICE  WHERE 1=1) T WHERE idx BETWEEN 1 AND 20 ---> System.Data.SqlClient.SqlException: 对象名 'AW_NOTICE' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcGet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 458
+   在 AnyWell.AW_DL.Dao_Base.funcCommon() 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 365
+   在 AnyWell.AW_DL.AW_Notice_dao.funcGetList() 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBFile\AW_Notice_dao.cs:行号 22
+   在 AnyWell.AW_DL.AW_Notice_dao.funcGetNoticeList(Int32 pageSize, Int32 pageIndex, Int32& recordCount) 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Notice_dao.cs:行号 28
+   在 Admin_NoticeList.OnPreRender(EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\NoticeList.aspx.cs:行号 18
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_noticelist_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_noticelist.aspx.fdf7a39c.boddfdxw.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 23:20:37
+IP:::1
+Url:/Admin/SiteInfoList.aspx
+UrlRef:http://localhost:801/Admin/left.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 对象名 'AW_SITEINFO' 无效。 SQL:SELECT * FROM AW_SITEINFO  WHERE 1=1 ORDER BY fdSiInSort ASC ---> System.Data.SqlClient.SqlException: 对象名 'AW_SITEINFO' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcGet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 458
+   在 AnyWell.AW_DL.Dao_Base.funcCommon() 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 365
+   在 AnyWell.AW_DL.AW_SiteInfo_dao.funcGetList() 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBFile\AW_SiteInfo_dao.cs:行号 22
+   在 AnyWell.AW_DL.AW_SiteInfo_dao.funcGetSiteInfoList() 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_SiteInfo_dao.cs:行号 20
+   在 Admin_SiteInfoList.OnPreRender(EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\SiteInfoList.aspx.cs:行号 17
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_siteinfolist_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_siteinfolist.aspx.fdf7a39c.vswt98gf.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 23:22:20
+IP:::1
+Url:/Admin/RecruitList.aspx
+UrlRef:http://localhost:801/Admin/left.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 对象名 'AW_RECRUIT' 无效。 SQL:SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY fdRecrSort DESC,fdRecrID DESC) AS idx, fdRecrID,fdRecrTitle,fdRecrJob,fdRecrAreaName FROM AW_RECRUIT  WHERE 1=1) T WHERE idx BETWEEN 1 AND 20 ---> System.Data.SqlClient.SqlException: 对象名 'AW_RECRUIT' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcGet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 458
+   在 AnyWell.AW_DL.Dao_Base.funcCommon() 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 365
+   在 AnyWell.AW_DL.AW_Recruit_dao.funcGetRecruitList(String key, Int32 pageSize, Int32 pageIndex, Int32& recordCount) 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Recruit_dao.cs:行号 34
+   在 Admin_RecruitList.OnPreRender(EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\RecruitList.aspx.cs:行号 27
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_recruitlist_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_qmxwr0pn.36.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 23:25:04
+IP:::1
+Url:/Admin/NavigationList.aspx
+UrlRef:http://localhost:801/Admin/left.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 对象名 'AW_NAVIGATION' 无效。 SQL:SELECT * FROM AW_NAVIGATION  WHERE 1=1  ---> System.Data.SqlClient.SqlException: 对象名 'AW_NAVIGATION' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcGet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 458
+   在 AnyWell.AW_DL.Dao_Base.funcCommon() 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 365
+   在 AnyWell.AW_DL.AW_Navigation_dao.funcGetNavigations() 位置 E:\Program Files\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Navigation_dao.cs:行号 27
+   在 Admin_NavigationList.OnPreRender(EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\NavigationList.aspx.cs:行号 17
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_navigationlist_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_navigationlist.aspx.fdf7a39c.nm_t41h3.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-12 23:53:05
+IP:::1
+Url:/Admin/MemberAdd.aspx
+UrlRef:http://localhost:801/Admin/MemberList.aspx
+Message:System.Web.HttpCompileException: e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\MemberAdd.aspx(118): error CS0103: 当前上下文中不存在名称“RenderAreaJs”
+   在 System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   在 System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   在 System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   在 System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+

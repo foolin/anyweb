@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xmenu xmlns="http://schema.fortuneage.com/xmenu-1.0">
+  <xMenuItem id="1" url="Index.aspx" name="商城管理系统" module="0">
+    <xMenuItem id="1" name="商品" module="1">
+      <xMenuItem id="101" url ="/Admin/GoodsList.aspx" name ="商品列表" >
+        <xMenuItem url ="/Admin/GoodsAdd.aspx" name ="添加商品" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/GoodsPatch.aspx" name ="批量添加" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/GoodsEdit.aspx" name ="修改商品" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/GoodsDel.aspx" name ="删除商品" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/GoodsSort.aspx" name ="商品排序" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/GoodsSet.aspx" name ="批量操作" type="3" ></xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="102" url ="/Admin/GoodsAdd.aspx" name ="添加商品" ></xMenuItem>
+      <xMenuItem id="104" url ="/Admin/CategoryList.aspx" name ="分类列表" >
+        <xMenuItem url ="/Admin/CategoryAdd.aspx" name ="添加分类" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/CategoryEdit.aspx" name ="修改分类" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/CategoryDel.aspx" name ="删除分类" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/CategorySort.aspx" name ="分类排序" type="3" ></xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="102" url ="/Admin/CategoryAdd.aspx" name ="添加分类" ></xMenuItem>
+      <xMenuItem id="105" url ="/Admin/BrandList.aspx" name ="品牌列表" >
+        <xMenuItem url ="/Admin/BrandAdd.aspx" name ="添加品牌" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/BrandEdit.aspx" name ="修改品牌" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/BrandDel.aspx" name ="删除品牌" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/BrandSort.aspx" name ="品牌排序" type="3" ></xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="102" url ="/Admin/BrandAdd.aspx" name ="添加品牌" ></xMenuItem>
+    </xMenuItem>
+    <xMenuItem id="2" name="会员" module="2">
+      <xMenuItem id="201" url ="/Admin/MemberList.aspx" name ="会员列表" >
+        <xMenuItem url ="/Admin/MemberAdd.aspx" name ="开通会员" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/MemberInfo.aspx" name ="会员信息" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/MemberEdit.aspx" name ="修改会员" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/MemberDel.aspx" name ="删除会员" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/MemberLock.aspx" name ="锁定会员" type="3" ></xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="202" type="2" ></xMenuItem>
+      <xMenuItem id="203" url ="/Admin/CommentList.aspx" name ="评论管理" >
+        <xMenuItem url ="/Admin/CommentDel.aspx" name ="删除评论" type="3" ></xMenuItem>
+      </xMenuItem>
+    </xMenuItem>
+    <xMenuItem id="3" name="订单" module="3">
+      <xMenuItem id="301" url ="/Admin/OrderList.aspx" name ="订单列表" >
+        <xMenuItem url ="/Admin/OrderAdd.aspx" name ="添加订单" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/OrderInfo.aspx" name ="订单信息" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/OrderEdit.aspx" name ="修改订单" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/OrderCancel.aspx" name ="取消订单" type="3" ></xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="302" type="2" ></xMenuItem>
+      <xMenuItem id="303" url ="/Admin/ShopStat.aspx" name ="销售统计" >
+      </xMenuItem>
+    </xMenuItem>
+    <xMenuItem id="4" name="文章" module="1">
+      <xMenuItem id="401" url ="/Admin/ArticleList.aspx" name ="文章列表" >
+        <xMenuItem url ="/Admin/ArticleAdd.aspx" name ="添加文章" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/ArticleEdit.aspx" name ="修改文章" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/ArticlesMove.aspx" name ="移动文章" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/ArticleDel.aspx" name ="删除文章" type="3" ></xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="402" url ="/Admin/ArticleAdd.aspx" name ="添加文章"></xMenuItem>
+      <xMenuItem id="403" url ="/Admin/ColumnList.aspx" name ="文章栏目" >
+        <xMenuItem url ="/Admin/ColumnAdd.aspx" name ="添加栏目" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/ColumnEdit.aspx" name ="修改栏目" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/ColumnDel.aspx" name ="删除栏目" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/ColumnSort.aspx" name ="栏目排序" type="3" ></xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="404" url ="/Admin/ColumnAdd.aspx" name ="添加栏目"></xMenuItem>
+      <xMenuItem id="405" url ="/Admin/NoticeList.aspx" name ="公告列表" >
+        <xMenuItem url ="/Admin/NoticeAdd.aspx" name ="添加公告" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/NoticeEdit.aspx" name ="修改公告" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/NoticeDel.aspx" name ="删除公告" type="3" ></xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="406" url ="/Admin/NoticeAdd.aspx" name ="添加公告"></xMenuItem>
+      <xMenuItem id="407" url ="/Admin/SiteInfoList.aspx" name ="基本信息"></xMenuItem>
+    </xMenuItem>
+    <xMenuItem id="5" name="招聘" module="7">
+      <xMenuItem id="501" url ="/Admin/RecruitList.aspx" name ="招聘列表" >
+        <xMenuItem url ="/Admin/RecruitAdd.aspx" name ="添加招聘" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/RecruitEdit.aspx" name ="修改招聘" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/RecruitDel.aspx" name ="删除招聘" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/ApplyList.aspx" name ="简历列表" type="3" ></xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="502" url ="/Admin/RecruitAdd.aspx" name ="添加招聘"></xMenuItem>
+    </xMenuItem>
+    <xMenuItem id="6" name="配置" module="5">
+      <xMenuItem id="601" url ="/Admin/NavigationList.aspx" name ="导航栏设置" >
+        <xMenuItem url ="/Admin/NavigationAdd.aspx" name ="添加导航栏" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/NavigationEdit.aspx" name ="修改导航栏" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/NavigationDel.aspx" name ="删除导航栏" type="3" ></xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="602" url ="/Admin/Setting_Register.aspx" name ="用户注册" >
+      </xMenuItem>
+      <xMenuItem id="603" url ="/Admin/Setting_Seo.aspx" name ="搜索引擎优化" >
+      </xMenuItem>
+      <xMenuItem id="604" url ="/Admin/Setting_Payment.aspx" name ="支付方式" >
+      </xMenuItem>
+      <xMenuItem id="605" url ="/Admin/Setting_Email.aspx" name ="邮件设置" >
+      </xMenuItem>
+      <xMenuItem id="609" url ="/Admin/FileList.aspx" name ="文件管理" >
+        <xMenuItem url ="/Admin/FileAdd.aspx" name ="上传文件" type="3">
+        </xMenuItem>
+        <xMenuItem url ="/Admin/FileFolderAdd.aspx" name ="信件文件夹" type="3">
+        </xMenuItem>
+        <xMenuItem url ="/Admin/FileEdit.aspx" name ="修改文件" type="3">
+        </xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="610" url ="/Admin/LogList.aspx" name ="操作日志" >
+      </xMenuItem>
+    </xMenuItem>
+
+    <xMenuItem id="7" name="用户" module="6">
+      <xMenuItem id="701" url ="/Admin/PasswordEdit.aspx" name ="修改密码" >
+      </xMenuItem>
+      <xMenuItem id="702" type="2" ></xMenuItem>
+      <xMenuItem id="703" url ="/Admin/AdminList.aspx" name ="用户管理" >
+        <xMenuItem url ="/Admin/AdminEdit.aspx" name ="修改用户"  type="3" >
+        </xMenuItem>
+        <xMenuItem url ="/Admin/AdminDel.aspx" name ="删除用户" type="3"  >
+        </xMenuItem>
+      </xMenuItem>
+      <xMenuItem id="704" url ="/Admin/AdminAdd.aspx" name ="添加用户" type="4">
+      </xMenuItem>
+    </xMenuItem>
+  </xMenuItem>
+</xmenu>
+

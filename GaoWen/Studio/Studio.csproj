@@ -171,12 +171,6 @@
     <Compile Include="Security\DecryptTransformer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Security\Encryptor.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Security\EncryptTransformer.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Security\Secure.cs">
       <SubType>Code</SubType>
     </Compile>

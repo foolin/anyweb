@@ -54,6 +54,7 @@
     <Compile Include="Configs\GeneralConfigInfo.cs" />
     <Compile Include="Configs\GeneralConfigs.cs" />
     <Compile Include="Configs\IConfigInfo.cs" />
+    <Compile Include="Configs\LicenseConfig.cs" />
     <Compile Include="Configs\PaymentConfigInfo.cs" />
     <Compile Include="Configs\SerializationHelper.cs" />
     <Compile Include="Configs\SmtpAgent.cs" />

@@ -1,0 +1,8 @@
+E:\PROJECT\DOTNET\Secure\Secure\obj\Debug\ResolveAssemblyReference.cache
+E:\PROJECT\DOTNET\Secure\Secure\obj\Debug\Encrypt.csproj.GenerateResource.Cache
+E:\PROJECT\DOTNET\Secure\Secure\bin\Debug\Secure.exe
+E:\PROJECT\DOTNET\Secure\Secure\bin\Debug\Secure.pdb
+E:\PROJECT\DOTNET\Secure\Secure\obj\Debug\Secure.exe
+E:\PROJECT\DOTNET\Secure\Secure\obj\Debug\Secure.pdb
+E:\PROJECT\DOTNET\Secure\Secure\obj\Debug\Encrypt.Form1.resources
+E:\PROJECT\DOTNET\Secure\Secure\obj\Debug\Encrypt.Properties.Resources.resources

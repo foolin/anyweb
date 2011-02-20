@@ -11,8 +11,8 @@ namespace Studio.Security
 	/// </summary>
 	public class Secure
 	{
-        static string Key = "www.any-well.com";
-        static string IV = "any-well";
+        static string Key = "Anywell520!";
+        static string IV = "Aw123!@#";
         public static string Decrypt(string cipherData)
         {
             if (cipherData.Length == 0)

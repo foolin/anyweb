@@ -116,6 +116,10 @@
     <Compile Include="DBExtend\AW_SiteInfo_dao.cs" />
     <Compile Include="DBExtend\AW_TableId_bean.cs" />
     <Compile Include="DBExtend\AW_TableId_dao.cs" />
+    <Compile Include="DBExtend\AW_Tag_Associated_bean.cs" />
+    <Compile Include="DBExtend\AW_Tag_Associated_dao.cs" />
+    <Compile Include="DBExtend\AW_Tag_bean.cs" />
+    <Compile Include="DBExtend\AW_Tag_dao.cs" />
     <Compile Include="DBExtend\AW_Template_bean.cs" />
     <Compile Include="DBExtend\AW_Template_dao.cs" />
     <Compile Include="DBFile\AW_Admin_bean.cs" />
@@ -176,6 +180,10 @@
     <Compile Include="DBFile\AW_SiteInfo_dao.cs" />
     <Compile Include="DBFile\AW_TableId_bean.cs" />
     <Compile Include="DBFile\AW_TableId_dao.cs" />
+    <Compile Include="DBFile\AW_Tag_Associated_bean.cs" />
+    <Compile Include="DBFile\AW_Tag_Associated_dao.cs" />
+    <Compile Include="DBFile\AW_Tag_bean.cs" />
+    <Compile Include="DBFile\AW_Tag_dao.cs" />
     <Compile Include="DBFile\AW_Template_bean.cs" />
     <Compile Include="DBFile\AW_Template_dao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

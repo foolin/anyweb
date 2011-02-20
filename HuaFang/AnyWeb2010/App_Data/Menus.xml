@@ -88,13 +88,18 @@
         <xMenuItem url ="/Admin/NavigationEdit.aspx" name ="修改导航栏" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/NavigationDel.aspx" name ="删除导航栏" type="3" ></xMenuItem>
       </xMenuItem>
-      <xMenuItem id="602" url ="/Admin/Setting_Register.aspx" name ="用户注册" >
+      <xMenuItem id="602" url ="/Admin/TagList.aspx" name ="标签列表" >
+        <xMenuItem url ="/Admin/TagAdd.aspx" name ="添加标签" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/TagEdit.aspx" name ="修改标签" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/TagDel.aspx" name ="删除标签" type="3" ></xMenuItem>
       </xMenuItem>
-      <xMenuItem id="603" url ="/Admin/Setting_Seo.aspx" name ="搜索引擎优化" >
+      <xMenuItem id="603" url ="/Admin/Setting_Register.aspx" name ="用户注册" >
       </xMenuItem>
-      <xMenuItem id="604" url ="/Admin/Setting_Payment.aspx" name ="支付方式" >
+      <xMenuItem id="604" url ="/Admin/Setting_Seo.aspx" name ="搜索引擎优化" >
       </xMenuItem>
-      <xMenuItem id="605" url ="/Admin/Setting_Email.aspx" name ="邮件设置" >
+      <xMenuItem id="605" url ="/Admin/Setting_Payment.aspx" name ="支付方式" >
+      </xMenuItem>
+      <xMenuItem id="606" url ="/Admin/Setting_Email.aspx" name ="邮件设置" >
       </xMenuItem>
       <xMenuItem id="609" url ="/Admin/FileList.aspx" name ="文件管理" >
         <xMenuItem url ="/Admin/FileAdd.aspx" name ="上传文件" type="3">

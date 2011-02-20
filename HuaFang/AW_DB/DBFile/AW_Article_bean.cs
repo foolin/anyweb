@@ -46,6 +46,15 @@ namespace AnyWell.AW_DL
 			get{return _fdArtiContent;}
 			set{_fdArtiContent = value;}
 		}
+        private string _fdArtiDesc = "";
+        /// <summary>
+        /// 文章摘要
+        /// </summary>
+        public string fdArtiDesc
+        {
+            get{return _fdArtiDesc;}
+            set{_fdArtiDesc = value;}
+        }
 		private DateTime _fdArtiCreateAt = DateTime.Now;
 		 /// <summary>
 		 /// 创建时间

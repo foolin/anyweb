@@ -57,6 +57,9 @@ public partial class Admin_ArticleAdd : PageAdmin
         if (String.IsNullOrEmpty(txtContent.Text))
             WebAgent.AlertAndBack("内容不能为空");
 
+        if( txtDesc.Text.Trim().Length > 1000 )
+            WebAgent.AlertAndBack( "文章摘要不能超出1000字" );
+
         if (string.IsNullOrEmpty(txtSort.Text))
             WebAgent.AlertAndBack("排序不能为空");
 
@@ -79,6 +82,22 @@ public partial class Admin_ArticleAdd : PageAdmin
             }
             bean.fdArtiTitle = txtTitle.Text.Trim();
             bean.fdArtiContent = txtContent.Text;
+            if( txtDesc.Text.Trim().Length > 0 )
+            {
+                bean.fdArtiDesc = txtDesc.Text.Trim();
+            }
+            else
+            {
+                string strDesc = WebAgent.GetText( bean.fdArtiContent );
+                if( strDesc.Length < 1000 )
+                {
+                    bean.fdArtiDesc = strDesc;
+                }
+                else
+                {
+                    bean.fdArtiDesc = strDesc.Substring( 0, 1000 );
+                }
+            }
             bean.fdArtiSort = int.Parse(txtSort.Text.Trim());
             if (bean.fdArtiSort == 0)
                 bean.fdArtiSort = bean.fdArtiID * 100;

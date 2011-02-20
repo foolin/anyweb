@@ -4,6 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
+
     <script type="text/javascript">
         var child = new Array;
         <asp:Literal ID="litJs" runat="server"></asp:Literal>
@@ -31,6 +32,7 @@
             columnChange();
         });
     </script>
+
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
@@ -64,10 +66,28 @@
             </div>
             <div class="fi even">
                 <label>
+                    文章摘要：</label>
+                <div class="cont">
+                    <asp:TextBox ID="txtDesc" TextMode="MultiLine" Width="400px" Height="150px" runat="server"></asp:TextBox>
+                    <span>文章摘要不得超过1000字,如果留空，系统自动生成摘要。</span>
+                    <sw:Validator ID="Validator2" ControlID="txtDesc" ValidateType="MaxLength" MaxLength="1000"
+                        ErrorText="文章摘要不得超过1000字" ErrorMessage="文章摘要不得超过1000字" runat="server">
+                    </sw:Validator>
+                </div>
+            </div>
+            <div class="fi">
+                <label>
+                    文章标签：</label>
+                <div class="cont">
+                    <asp:TextBox ID="txtTag" Width="400px" runat="server"></asp:TextBox>
+                    <span>使用空格分隔不同标签, 最多可输入5个。</span>
+                </div>
+            </div>
+            <div class="fi even">
+                <label>
                     文章排序：</label>
                 <asp:TextBox ID="txtSort" runat="server" Text="0" CssClass="text" Width="80"></asp:TextBox>
-                <span class="required">*</span>
-                <span>排序数字越大，呈现位置越靠前。</span>
+                <span class="required">*</span> <span>排序数字越大，呈现位置越靠前。</span>
                 <sw:Validator ID="Validator3" ControlID="txtSort" ValidateType="Required" ErrorText="请输入文章排序"
                     ErrorMessage="请输入文章排序" runat="server">
                 </sw:Validator>

@@ -10,7 +10,6 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using Studio.Web;
 using AnyWell.AW_DL;
-using AnyWell.AW_DL;
 using AnyWell.Configs;
 
 public partial class Admin_Setting_Payment : System.Web.UI.Page

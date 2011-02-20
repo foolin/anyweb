@@ -38,6 +38,7 @@ public partial class Admin_ArticleEdit : PageAdmin
 
         txtTitle.Text = article.fdArtiTitle;
         txtContent.Text = article.fdArtiContent;
+        txtDesc.Text = article.fdArtiDesc;
         txtSort.Text = article.fdArtiSort.ToString();
         int i = 0;
         foreach (AW_Column_bean bean1 in (new AW_Column_dao()).funcGetColumns())
@@ -85,6 +86,22 @@ public partial class Admin_ArticleEdit : PageAdmin
         {
             article.fdArtiTitle = txtTitle.Text.Trim();
             article.fdArtiContent = txtContent.Text;
+            if( txtDesc.Text.Trim().Length > 0 )
+            {
+                article.fdArtiDesc = txtDesc.Text.Trim();
+            }
+            else
+            {
+                string strDesc = WebAgent.GetText( article.fdArtiContent );
+                if( strDesc.Length < 1000 )
+                {
+                    article.fdArtiDesc = strDesc;
+                }
+                else
+                {
+                    article.fdArtiDesc = strDesc.Substring( 0, 1000 );
+                }
+            }
             article.fdArtiSort = int.Parse(txtSort.Text.Trim());
             if (article.fdArtiSort == 0)
                 article.fdArtiSort = article.fdArtiID * 100;
@@ -95,11 +112,6 @@ public partial class Admin_ArticleEdit : PageAdmin
             else
             {
                 article.fdArtiColumnID = int.Parse(drpColumn.SelectedValue);
-            }
-            string pdfPath = Server.MapPath(string.Format("/pdf/{0}.pdf", article.fdArtiID));
-            if (File.Exists(pdfPath))
-            {
-                File.Delete(pdfPath);
             }
             dao.funcUpdate(article);
             this.AddLog(EventType.Update, "修改文章", "修改文章[" + article.fdArtiTitle + "]");

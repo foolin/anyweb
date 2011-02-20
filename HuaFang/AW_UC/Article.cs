@@ -1,72 +1,90 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web;
-using FortuneAge.AW_UC;
-using System.ComponentModel;
+using System.Text;
 using AnyWell.AW_DL;
+using System.Web;
 using Studio.Web;
 
 namespace AnyWell.AW_UC
 {
     /// <summary>
-    /// 单个文章组件，可展示单一篇文章的某个属性或一组属性，同时添加ArticlePager置标可实现内容分页
+    /// 单个文章组件，可展示单一篇文章的某个属性或一组属性
     /// </summary>
     public class Article : ItemControlBase
     {
-        protected override Dao_Base Dao
-        {
-            get { return new AW_Article_dao(); }
-        }
-
-        private int _pageID = 0;
-        [Description("内容分页"), Browsable(false)]
-        public virtual int PageID
+        private int _articleID;
+        /// <summary>
+        /// 文章编号
+        /// </summary>
+        public int ArticleID
         {
             get
             {
-                if (_pageID == 0 && Context.Request.QueryString["cpid"] != null)
+                if( !this.HasInit )
                 {
-                    int.TryParse(Context.Request.QueryString["cpid"], out _pageID);
-                }
-                if (_pageID <= 0)
-                {
-                    _pageID = 1;
-                }
-                return _pageID;
-            }
-            set { _pageID = value; }
-        }
+                    if( this._articleID == 0 )
+                    {
+                        int.TryParse( this.ContextItem( "ARTICLEID" ), out this._articleID );
+                    }
+                    switch( this.ItemType )
+                    {
+                        case ItemObjectType.Next:
+                            {
 
+                                this._articleID = new AW_Article_dao().funcGetNextArticleIDByUC( this._articleID );
+                                break;
+                            }
+                        case ItemObjectType.Previous:
+                            {
+                                this._articleID = new AW_Article_dao().funcGetPreviousArticleIDByUC( this._articleID );
+                                break;
+                            }
+                        default:
+                            {
+                                break;
+                            }
+                    }
+                    this.HasInit = true;
+                }
+                return this._articleID;
+            }
+            set { _articleID = value; }
+        }
 
         protected override object GetItemObject()
         {
-            switch (this.ItemType)
-            {
-                case ItemObjectType.Next:
-                    {
+            AW_Article_bean article;
 
-                        return new AW_Article_dao().funcGetNextArticle(this.RecID);
-                    }
-                case ItemObjectType.Previous:
-                    {
-                        return new AW_Article_dao().funcGetPreviousArticle(this.RecID);
-                    }
-                default:
-                    {
-                        break;
-                    }
+            if (this.ArticleID == 0)
+            {
+                if (this.ItemType == ItemObjectType.Current)
+                {
+                    goErrorPage();
+                    return null;
+                }
+                else
+                {
+                    return null;
+                }
             }
+            else
+            {
+                //从上下文中读取该文章，如果该文章存在的话
+                if (HttpContext.Current.Items["ARTICLE_" + this.ArticleID] != null)
+                {
+                    article = (AW_Article_bean)HttpContext.Current.Items["ARTICLE_" + this.ArticleID];
+                }
+                else
+                {
+                    article = AW_Article_bean.funcGetByID(this.ArticleID);
+                    HttpContext.Current.Items.Add("ARTICLE_" + this.ArticleID, article);
+                }
 
-            AW_Article_bean article = AW_Article_bean.funcGetByID(this.RecID);
-            if (article == null)
-            {
-                return null;
-            }
-            Context.Items.Add("ARTICLE", this.RecID);
-            string[] Content = WebAgent.Split(article.fdArtiContent, "<!-- pagebreak -->");
-            if (Content.Length > 1)
-            {
-                article.fdArtiContent = Content[this.PageID - 1];
+                if (article == null && this.ItemType == ItemObjectType.Current)
+                {
+                    HttpContext.Current.Response.Redirect("/Error.aspx");
+                    return null;
+                }
             }
 
             return article;

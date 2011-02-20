@@ -59,6 +59,17 @@
             </div>
             <div class="fi even">
                 <label>
+                    文章摘要：</label>
+                <div class="cont">
+                    <asp:TextBox ID="txtDesc" TextMode="MultiLine" Width="400px" Height="150px" runat="server" CssClass="textarea"></asp:TextBox>
+                    <span>文章摘要不得超过1000字,如果留空，系统自动生成摘要。</span>
+                    <sw:Validator ID="Validator2" ControlID="txtDesc" ValidateType="MaxLength" MaxLength="1000"
+                        ErrorText="文章摘要不得超过1000字" ErrorMessage="文章摘要不得超过1000字" runat="server">
+                    </sw:Validator>
+                </div>
+            </div>
+            <div class="fi">
+                <label>
                     文章排序：</label>
                 <asp:TextBox ID="txtSort" runat="server" Text="0"></asp:TextBox>
                 <span class="required">*</span>

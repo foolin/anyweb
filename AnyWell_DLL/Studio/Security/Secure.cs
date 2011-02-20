@@ -11,25 +11,6 @@ namespace Studio.Security
 	/// </summary>
 	public class Secure
 	{
-		public static string Encrypt(string plainText, string Key, ref string IV, bool AutoIV)
-		{
-			try
-			{
-				Encryptor enc = new Encryptor(EncryptionAlgorithm.TripleDes);
-				if( !AutoIV && IV != "")
-				{
-					enc.IV = Convert.FromBase64String(IV);
-				}
-				byte[] cipherData = enc.Encrypt(Encoding.ASCII.GetBytes(plainText), Encoding.ASCII.GetBytes(Key));
-				IV = Encoding.ASCII.GetString(enc.IV);
-				return Convert.ToBase64String(cipherData);
-			}
-			catch(Exception ex)
-			{
-				throw ex;
-			}
-		}
-
 		public static string Decrypt(string cipherData, string Key, string IV)
 		{
 			try

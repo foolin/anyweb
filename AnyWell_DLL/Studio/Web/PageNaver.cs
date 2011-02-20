@@ -58,7 +58,7 @@ namespace Studio.Web
 			}
 			else
 			{
-				writer.Write("AnyP Page Navigator V1.0");
+				writer.Write("Page Navigator V1.0");
 			}
 		}
 
@@ -70,6 +70,7 @@ namespace Studio.Web
                 case 3: RendStyle3(writer); break;
                 case 4: RendStyle4(writer); break;
                 case 5: RendStyle5( writer );break;
+                case 6: RendStyle6( writer );break;
 				default:RendStyle1(writer);break;
 			}
 		}
@@ -434,6 +435,126 @@ namespace Studio.Web
                     writer.Write( "<a href=\"{0}\">{1}</a>", UrlPrefix + i, i );
             }
             writer.Write( "<a {0}>&gt;</a>", PageIndex < pages ? String.Format( "href='" + UrlPrefix + "{0}' title='下一页'", PageIndex + 1 ) : "disabled" );
+        }
+
+        /// <summary>
+        /// 华纺专用
+        /// </summary>
+        /// <param name="writer"></param>
+        void RendStyle6( HtmlTextWriter writer )
+        {
+            if( Thread.CurrentThread.CurrentCulture != null && Thread.CurrentThread.CurrentCulture.ToString() == ( "en-US" ) )
+            {
+                int begin, end, pages = PageCount;
+
+                writer.Write( "<span>" );
+                writer.Write( "&nbsp;<a class='pagenaver' {0}>首页</a>", PageIndex > 1 ? String.Format( "href='javascript:SearchTag({0})' title='Goto {0} Page'", 1 ) : "disabled" );
+                writer.Write( "&nbsp;<a class='pagenaver' {0}>上一页</a>", PageIndex > 1 ? String.Format( "href='javascript:SearchTag({0})' title='Goto {0} Page'", PageIndex - 1 ) : "disabled" );
+
+                if( PageCount > 10 )
+                {
+                    if( PageIndex % 10 == 0 )
+                    {
+                        begin = PageIndex - 9;
+                        end = PageIndex;
+                    }
+                    else
+                    {
+                        begin = PageIndex / 10 * 10 + 1;
+                        end = PageIndex / 10 * 10 + 10;
+                    }
+
+                    if( end > PageCount )
+                    {
+                        end = PageCount;
+                    }
+
+                    if( PageIndex > 10 )
+                    {
+                        writer.Write( "&nbsp;<a href='javascript:SearchTag({0})' title='Goto Page {0}' class='pagenaver'>...</a>", ( begin - 1 ).ToString() );
+                    }
+                }
+                else
+                {
+                    begin = 1;
+                    end = pages;
+                }
+
+                for( int i = begin; i <= end; i++ )
+                {
+                    if( i == PageIndex )
+                        writer.Write( "&nbsp;<font color='red'><b>{0}</b></font>", i );
+                    else
+                        writer.Write( "&nbsp;<a href='javascript:SearchTag({0})' title='Goto Page {0}' class='pagenaver'>{0}</a>", i );
+                }
+
+                if( PageCount > end )
+                {
+                    writer.Write( "&nbsp;<a href='javascript:SearchTag({0})' title='Goto Page {0}' class='pagenaver'>...</a>", ( end + 1 ).ToString() );
+                }
+
+                writer.Write( "&nbsp;<a {0} class='pagenaver'>下一页</a>", PageIndex < pages ? String.Format( "href='javascript:SearchTag({0})' title='Goto {0} Page'", PageIndex + 1 ) : "disabled" );
+                writer.Write( "&nbsp;<a {0} class='pagenaver'>尾页</a>", PageIndex < pages ? String.Format( "href='javascript:SearchTag({0})' title='Goto {0} Page'", pages ) : "disabled" );
+
+                writer.Write( "&nbsp;<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='jump(this)'></span>", PageIndex );
+                writer.Write( "</span>" );
+            }
+            else
+            {
+                int begin, end, pages = PageCount;
+
+                writer.Write( "<span>" );
+                writer.Write( "&nbsp;<a {0} class='pagenaver'>首页</a>", PageIndex > 1 ? String.Format( "href='javascript:SearchTag({0})' title='首页'", 1 ) : "disabled" );
+                writer.Write( "&nbsp;<a {0} class='pagenaver'>上一页</a>", PageIndex > 1 ? String.Format( "href='javascript:SearchTag({0})' title='上一页'", PageIndex - 1 ) : "disabled" );
+
+                if( PageCount > 10 )
+                {
+                    if( PageIndex % 10 == 0 )
+                    {
+                        begin = PageIndex - 9;
+                        end = PageIndex;
+                    }
+                    else
+                    {
+                        begin = PageIndex / 10 * 10 + 1;
+                        end = PageIndex / 10 * 10 + 10;
+                    }
+
+                    if( end > PageCount )
+                    {
+                        end = PageCount;
+                    }
+
+                    if( PageIndex > 10 )
+                    {
+                        writer.Write( "&nbsp;<a href='javascript:SearchTag({0})' title='转到第{0}页' class='pagenaver'>...</a>", ( begin - 1 ).ToString() );
+                    }
+                }
+                else
+                {
+                    begin = 1;
+                    end = pages;
+                }
+
+                for( int i = begin; i <= end; i++ )
+                {
+                    if( i == PageIndex )
+                        writer.Write( "&nbsp;<font color='red'><b>{0}</b></font>", i );
+                    else
+                        writer.Write( "&nbsp;<a href='javascript:SearchTag({0})' title='转到第{0}页' class='pagenaver'>{0}</a>", i );
+                }
+
+                if( PageCount > end )
+                {
+                    writer.Write( "&nbsp;<a href='javascript:SearchTag({0})' title='转到第{0}页' class='pagenaver'>...</a>", ( end + 1 ).ToString() );
+                }
+
+                writer.Write( "&nbsp;<a {0} class='pagenaver'>下一页</a>", PageIndex < pages ? String.Format( "href='javascript:SearchTag({0})' title='下一页'", PageIndex + 1 ) : "disabled" );
+                writer.Write( "&nbsp;<a {0} class='pagenaver'>尾页</a>", PageIndex < pages ? String.Format( "href='javascript:SearchTag({0})' title='尾页'", pages ) : "disabled" );
+
+                writer.Write( "&nbsp;<span><input type='text' value='{0}' style='width:25px'><input type='button' value='Go' onclick='jump(this)'></span>", PageIndex );
+                writer.Write( "</span>" );
+            }
         }
 
 		/// <summary>

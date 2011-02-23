@@ -28,6 +28,15 @@ namespace AnyWell.AW_DL
 			get{return _fdTagName;}
 			set{_fdTagName = value;}
 		}
+        private int _fdTagSort = 0;
+        /// <summary>
+        /// 排序
+        /// </summary>
+        public int fdTagSort
+        {
+            get{return _fdTagSort;}
+            set{ _fdTagSort = value;}
+        }
 
 
 		/////////////////////////////////////////

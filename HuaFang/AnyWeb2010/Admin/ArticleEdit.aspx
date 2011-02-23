@@ -1,9 +1,11 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
     CodeFile="ArticleEdit.aspx.cs" Inherits="Admin_ArticleEdit" %>
 
+<%@ Register Src="Control/TagSelect.ascx" TagName="TagSelect" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
+
     <script type="text/javascript">
         var child = new Array;
         <asp:Literal ID="litJs" runat="server"></asp:Literal>
@@ -27,6 +29,7 @@
             }
         }
     </script>
+
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
@@ -48,7 +51,8 @@
                 <asp:DropDownList ID="drpColumn" DataTextField="fdColuName" DataValueField="fdColuID"
                     runat="server" onchange="columnChange()">
                 </asp:DropDownList>
-                <asp:DropDownList ID="drpChild" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="drpChild" runat="server">
+                </asp:DropDownList>
             </div>
             <div class="fi">
                 <label>
@@ -61,7 +65,8 @@
                 <label>
                     文章摘要：</label>
                 <div class="cont">
-                    <asp:TextBox ID="txtDesc" TextMode="MultiLine" Width="400px" Height="150px" runat="server" CssClass="textarea"></asp:TextBox>
+                    <asp:TextBox ID="txtDesc" TextMode="MultiLine" Width="400px" Height="150px" runat="server"
+                        CssClass="textarea"></asp:TextBox>
                     <span>文章摘要不得超过1000字,如果留空，系统自动生成摘要。</span>
                     <sw:Validator ID="Validator2" ControlID="txtDesc" ValidateType="MaxLength" MaxLength="1000"
                         ErrorText="文章摘要不得超过1000字" ErrorMessage="文章摘要不得超过1000字" runat="server">
@@ -70,14 +75,25 @@
             </div>
             <div class="fi">
                 <label>
+                    文章标签：</label>
+                <div class="cont">
+                    <a href="javascript:void(0);" id="btnTag" onclick="ChooseTag();" class="choAreabtn"
+                        title="<%=GetTags("选择/修改")%>">
+                        <%=GetTags( "选择/修改" )%></a> <span>使用逗号分隔不同标签, 最多可输入5个。</span>
+                    <input type="hidden" id="tags" name="tags" value="<%=GetTags("")%>" />
+                </div>
+            </div>
+            <div class="fi even">
+                <label>
                     文章排序：</label>
                 <asp:TextBox ID="txtSort" runat="server" Text="0"></asp:TextBox>
-                <span class="required">*</span>
-                <span>排序数字越大，呈现位置越靠前。</span>
+                <span class="required">*</span> <span>排序数字越大，呈现位置越靠前。</span>
                 <sw:Validator ID="Validator3" ControlID="txtSort" ValidateType="Required" ErrorText="请输入文章排序"
-                    ErrorMessage="请输入文章排序" runat="server"></sw:Validator>
-                <sw:Validator ID="Validator4" ControlID="txtSort" ValidateType="DataType" DataType="Integer" ErrorText="请输入正确的文章排序"
-                    ErrorMessage="请输入正确的文章排序" runat="server"></sw:Validator>
+                    ErrorMessage="请输入文章排序" runat="server">
+                </sw:Validator>
+                <sw:Validator ID="Validator4" ControlID="txtSort" ValidateType="DataType" DataType="Integer"
+                    ErrorText="请输入正确的文章排序" ErrorMessage="请输入正确的文章排序" runat="server">
+                </sw:Validator>
             </div>
             <div class="fi fiBtns">
                 <asp:Button ID="btnOk" runat="server" Text="保存" CssClass="submit" OnClick="btnOk_Click">
@@ -93,26 +109,27 @@
             <li></li>
         </ul>
     </div>
+    <uc1:TagSelect ID="TagSelect1" runat="server" />
 
     <script type="text/javascript" src="../tiny_mce/tiny_mce.js"></script>
 
     <script type="text/javascript">
         tinyMCE.init({
-        mode: "exact",
-        verify_html: false,
-        elements : "<%=txtContent.ClientID%>",
-        theme : "advanced",
-        language : "zh",
-        plugins : "safari,pagebreak,style,layer,table,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,profile,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,pageseparator,iboximage",
-        content_css : "/tiny_mce/css/content.css",
-        template_external_list_url : "/tiny_mce/lists/template_list.js",
-        external_link_list_url : "/tiny_mce/lists/link_list.js",
-        external_image_list_url : "/tiny_mce/lists/image_list.js",
-        media_external_list_url : "/tiny_mce/lists/media_list.js",
-        template_replace_values : {
-        username : "Some User",
-        staffid : "991234"
-        }
+            mode: "exact",
+            verify_html: false,
+            elements: "<%=txtContent.ClientID%>",
+            theme: "advanced",
+            language: "zh",
+            plugins: "safari,pagebreak,style,layer,table,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,profile,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,pageseparator,iboximage",
+            content_css: "/tiny_mce/css/content.css",
+            template_external_list_url: "/tiny_mce/lists/template_list.js",
+            external_link_list_url: "/tiny_mce/lists/link_list.js",
+            external_image_list_url: "/tiny_mce/lists/image_list.js",
+            media_external_list_url: "/tiny_mce/lists/media_list.js",
+            template_replace_values: {
+                username: "Some User",
+                staffid: "991234"
+            }
         });
     </script>
 

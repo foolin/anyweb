@@ -159,6 +159,25 @@ namespace AnyWell.AW_DL
             return result;
         }
 
+        /// <summary>
+        /// 获取文章
+        /// </summary>
+        /// <param name="artiId"></param>
+        /// <returns></returns>
+        public AW_Article_bean funcGetArticleById( int artiId )
+        {
+            AW_Article_bean bean = AW_Article_bean.funcGetByID( artiId );
+            if( bean == null )
+            {
+                return null;
+            }
+            else
+            {
+                bean.TagList = new AW_Tag_dao().funcGetTagListByObjId( artiId, 0 );
+                return bean;
+            }
+        }
+
         public override int funcInsert( Bean_Base aBean )
         {
             int result = base.funcInsert( aBean );
@@ -175,6 +194,7 @@ namespace AnyWell.AW_DL
 
         public override int funcDelete( int id )
         {
+            new AW_Tag_Associated_dao().funcClearAssociateds( id.ToString(), 0 );
             int result = base.funcDelete( id );
             CacheAgent.ClearCache( "ARTICLE_CACHE_" );
             return result;
@@ -182,6 +202,7 @@ namespace AnyWell.AW_DL
 
         public override int funcDeletes( string aIDList )
         {
+            new AW_Tag_Associated_dao().funcClearAssociateds( aIDList, 0 );
             int result = base.funcDeletes( aIDList );
             CacheAgent.ClearCache( "ARTICLE_CACHE_" );
             return result;

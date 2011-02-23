@@ -3,6 +3,6 @@
 <asp:repeater id="compRep" runat="server">
     <ItemTemplate>
         <dd>
-            <a href="javascript:void(0);" onclick="AreaName(this,1);"><%#Eval("fdTagName") %></a></dd>
+            <a href="javascript:void(0);" onclick="AddTag(this);"><%#Eval("fdTagName") %></a></dd>
     </ItemTemplate>
 </asp:repeater>

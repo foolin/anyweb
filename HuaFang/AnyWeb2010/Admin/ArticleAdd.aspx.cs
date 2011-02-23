@@ -14,6 +14,7 @@ using System.Collections.Generic;
 
 public partial class Admin_ArticleAdd : PageAdmin
 {
+    protected AW_Article_bean bean;
     protected override void OnPreRender(EventArgs e)
     {
         base.OnPreRender(e);
@@ -70,7 +71,7 @@ public partial class Admin_ArticleAdd : PageAdmin
         using (AW_Article_dao dao = new AW_Article_dao())
         {
 
-            AW_Article_bean bean = new AW_Article_bean();
+            bean = new AW_Article_bean();
             bean.fdArtiID = dao.funcNewID();
             if (childColumn != "0")
             {
@@ -105,6 +106,7 @@ public partial class Admin_ArticleAdd : PageAdmin
             int record = dao.funcInsert(bean);
             if (record > 0)
             {
+                this.SetTags( bean, QF( "tags" ).Trim() );
                 this.AddLog(EventType.Insert, "添加文章", "栏目[" + drpColumn.SelectedItem.Text + "]添加文章[" + bean.fdArtiTitle + "]");
                 Studio.Web.WebAgent.SuccAndGo("添加成功", "ArticleList.aspx");
             }

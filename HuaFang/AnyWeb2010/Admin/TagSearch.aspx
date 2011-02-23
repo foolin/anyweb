@@ -5,12 +5,12 @@
     <asp:repeater id="compRep" runat="server">
         <ItemTemplate>
             <dd>
-                <a href="javascript:void(0);" onclick="AreaName(this,1);"><%#Eval("fdTagName") %></a></dd>
+                <a href="javascript:void(0);" onclick="AddTag(this);"><%#Eval("fdTagName") %></a></dd>
         </ItemTemplate>
     </asp:repeater>
 </dl>
 <dl>
-    <sw:PageNaver ID="PN1" runat="server" StyleID="6" PageSize="1">
+    <sw:PageNaver ID="PN1" runat="server" StyleID="6" PageSize="18">
     </sw:PageNaver>
 </dl>
 <script type="text/javascript">

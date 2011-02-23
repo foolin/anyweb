@@ -131,5 +131,39 @@ namespace AnyWell.AW_DL
             recordCount = this.propCount;
             return list;
         }
+
+        /// <summary>
+        /// 通过标签名获取标签编号
+        /// </summary>
+        /// <param name="tagName"></param>
+        /// <returns></returns>
+        public int funcGetTagByName( string tagName )
+        {
+            string sql = "SELECT fdTagID FROM AW_Tag WHERE fdTagName=@TagName";
+            this.funcClearParams();
+            this.funcAddParam( "@TagName", tagName );
+            DataSet ds = this.funcGet( sql );
+            if( ds.Tables[ 0 ].Rows.Count > 0 )
+            {
+                return ( int ) ds.Tables[ 0 ].Rows[ 0 ][ 0 ];
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        /// <summary>
+        /// 获取对象标签列表
+        /// </summary>
+        /// <param name="objId"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public List<AW_Tag_bean> funcGetTagListByObjId( int objId, int type )
+        {
+            this.propTableApp = "INNER JOIN AW_Tag_Associated ON fdTagID=fdTaAsTagID";
+            this.propWhere = string.Format( "fdTaAsDataID={0} AND fdTaAsType={1}", objId, type );
+            return this.funcGetList();
+        }
 	}
 }

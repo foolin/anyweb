@@ -17,6 +17,19 @@ namespace AnyWell.AW_DL
             set { _Column = value; }
         }
 
+        protected List<AW_Tag_bean> _TagList = new List<AW_Tag_bean>();
+        public List<AW_Tag_bean> TagList
+        {
+            get
+            {
+                return _TagList;
+            }
+            set
+            {
+                _TagList = value;
+            }
+        }
+
         public string fdArtiPath
         {
             get 

@@ -1,15 +1,15 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="TagSelect.ascx.cs" Inherits="Admin_Control_TagSelect" %>
-<div class="choArea" id="ChooseArea" style="display: block">
+<div class="choArea" id="ChooseTag">
     <div class="top">
         <i class="iTit">请选择标签</i> <span class="topRight white">[<a href="javascript:void(0);"
-            onclick="closeWindow('ChooseArea')">关闭</a>] </span>
+            onclick="CloseWindow('ChooseTag')">关闭</a>] </span>
     </div>
     <div class="con gray">
         <dl>
             <dt>标签设置：</dt>
             <dd style="width: 100%">
                 <input id="txtTag" style="width: 200px" />
-                <input type="button" id="Button1" value="确定" />
+                <input type="button" value="确定" onclick="SetTags()" />
             </dd>
         </dl>
         <dl>

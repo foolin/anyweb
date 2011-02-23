@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
     CodeFile="ArticleAdd.aspx.cs" Inherits="Admin_ArticleAdd" %>
 
+<%@ Register Src="Control/TagSelect.ascx" TagName="TagSelect" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
@@ -79,8 +80,9 @@
                 <label>
                     文章标签：</label>
                 <div class="cont">
-                    <asp:TextBox ID="txtTag" Width="400px" runat="server"></asp:TextBox>
-                    <span>使用空格分隔不同标签, 最多可输入5个。</span>
+                    <a href="javascript:void(0);" id="btnTag" onclick="ChooseTag();" class="choAreabtn"
+                        title="选择/修改">选择/修改</a> <span>使用逗号分隔不同标签, 最多可输入5个。</span>
+                    <input type="hidden" id="tags" name="tags" value="" />
                 </div>
             </div>
             <div class="fi even">
@@ -109,6 +111,7 @@
             <li>文章排序为“0”时将由系统自动生成。</li>
         </ul>
     </div>
+    <uc1:TagSelect ID="TagSelect1" runat="server" />
 
     <script type="text/javascript" src="../tiny_mce/tiny_mce.js"></script>
 

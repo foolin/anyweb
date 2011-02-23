@@ -16,19 +16,21 @@
 
     <script language="javascript" type="text/javascript" src="js/jquery.js"></script>
 
+    <script language="javascript" type="text/javascript" src="js/function.js"></script>
+
 </head>
 <body class="pInner">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td height="62" background="images/nav04.gif">
-            <div class="Location" id="NavLocation" style="padding-left:20px;">
-                当前位置：<a href="mainfra.html">首页</a> &gt;
-                <asp:Literal ID="compPos" runat="server"></asp:Literal>
-            </div>
-            <div style="height:36px;">
-                <asp:ContentPlaceHolder ID="cph2" runat="server">
-                </asp:ContentPlaceHolder>
-            </div>
+                <div class="Location" id="NavLocation" style="padding-left: 20px;">
+                    当前位置：<a href="mainfra.html">首页</a> &gt;
+                    <asp:Literal ID="compPos" runat="server"></asp:Literal>
+                </div>
+                <div style="height: 36px;">
+                    <asp:ContentPlaceHolder ID="cph2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
             </td>
         </tr>
     </table>

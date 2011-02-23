@@ -23,7 +23,7 @@ public partial class Admin_ArticleEdit : PageAdmin
 
         if (!WebAgent.IsInt32(id)) WebAgent.AlertAndBack("编号不正确!");
 
-        article = AW_Article_bean.funcGetByID(QS("id"));
+        article = new AW_Article_dao().funcGetArticleById( int.Parse( QS( "id" ) ) );
         article.Column = AW_Column_bean.funcGetByID(article.fdArtiColumnID);
         if (article == null) WebAgent.AlertAndBack("文章不存在!");
 
@@ -80,7 +80,7 @@ public partial class Admin_ArticleEdit : PageAdmin
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
-        article = AW_Article_bean.funcGetByID(QS("id"));
+        article = new AW_Article_dao().funcGetArticleById( int.Parse( QS( "id" ) ) );
         string childColumn = Request.Form[drpChild.UniqueID] + "";
         using (AW_Article_dao dao = new AW_Article_dao())
         {
@@ -114,9 +114,26 @@ public partial class Admin_ArticleEdit : PageAdmin
                 article.fdArtiColumnID = int.Parse(drpColumn.SelectedValue);
             }
             dao.funcUpdate(article);
+            this.SetTags( article, QF( "tags" ).Trim() );
             this.AddLog(EventType.Update, "修改文章", "修改文章[" + article.fdArtiTitle + "]");
             WebAgent.SuccAndGo("修改文章成功", ViewState["REFURL"].ToString());
         }
     }
 
+    protected string GetTags(string resule)
+    {
+        string str = "";
+        foreach( AW_Tag_bean bean in article.TagList )
+        {
+            str += "," + bean.fdTagName;
+        }
+        if( str.Length > 0 )
+        {
+            return str.Substring( 1 );
+        }
+        else
+        {
+            return resule;
+        }
+    }
 }

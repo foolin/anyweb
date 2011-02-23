@@ -1420,3 +1420,230 @@ Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledE
    在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 
 
+Time:2011-02-24 01:02:16
+IP:::1
+Url:/Admin/ArticleAdd.aspx
+UrlRef:http://localhost:801/Admin/ArticleAdd.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: INSERT 语句与 FOREIGN KEY 约束"FK_AW_Tag_Associated_AW_Tag"冲突。该冲突发生于数据库"HuaFang"，表"dbo.AW_Tag", column 'fdTagID'。
+语句已终止。 SQL:INSERT INTO AW_Tag_Associated (fdTaAsID,fdTaAsTagID,fdTaAsDataID,fdTaAsType) VALUES(@fdTaAsID,@fdTaAsTagID,@fdTaAsDataID,@fdTaAsType) ---> System.Data.SqlClient.SqlException: INSERT 语句与 FOREIGN KEY 约束"FK_AW_Tag_Associated_AW_Tag"冲突。该冲突发生于数据库"HuaFang"，表"dbo.AW_Tag", column 'fdTagID'。
+语句已终止。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(DbAsyncResult result, String methodName, Boolean sendToPipe)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.ExecuteNonQuery(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcInsert(Bean_Base aBean, IDbTransaction tran) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 203
+   在 PageAdmin.SetTags(AW_Article_bean article, String tags) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\App_Code\PageAdmin.cs:行号 119
+   在 Admin_ArticleAdd.btnOk_Click(Object sender, EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\ArticleAdd.aspx.cs:行号 109
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_articleadd_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_articleadd.aspx.fdf7a39c.6fptgh97.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-24 01:04:36
+IP:::1
+Url:/Admin/ArticleAdd.aspx
+UrlRef:http://localhost:801/Admin/ArticleAdd.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 变量名 '@fdTagName' 已声明。变量名在查询批次或存储过程内部必须唯一。 SQL:SELECT fdTagID FROM AW_Tag WHERE fdTagName=@fdTagName ---> System.Data.SqlClient.SqlException: 变量名 '@fdTagName' 已声明。变量名在查询批次或存储过程内部必须唯一。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcGet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 458
+   在 AnyWell.AW_DL.AW_Tag_dao.funcGetTagByName(String tagName) 位置 E:\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Tag_dao.cs:行号 144
+   在 PageAdmin.SetTags(AW_Article_bean article, String tags) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\App_Code\PageAdmin.cs:行号 111
+   在 Admin_ArticleAdd.btnOk_Click(Object sender, EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\ArticleAdd.aspx.cs:行号 109
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_articleadd_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_articleadd.aspx.fdf7a39c.6fptgh97.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-24 01:06:18
+IP:::1
+Url:/Admin/ArticleAdd.aspx
+UrlRef:http://localhost:801/Admin/ArticleAdd.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 变量名 '@TagName' 已声明。变量名在查询批次或存储过程内部必须唯一。 SQL:SELECT fdTagID FROM AW_Tag WHERE fdTagName=@TagName ---> System.Data.SqlClient.SqlException: 变量名 '@TagName' 已声明。变量名在查询批次或存储过程内部必须唯一。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcGet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 458
+   在 AnyWell.AW_DL.AW_Tag_dao.funcGetTagByName(String tagName) 位置 E:\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Tag_dao.cs:行号 144
+   在 PageAdmin.SetTags(AW_Article_bean article, String tags) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\App_Code\PageAdmin.cs:行号 111
+   在 Admin_ArticleAdd.btnOk_Click(Object sender, EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\ArticleAdd.aspx.cs:行号 109
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_articleadd_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_articleadd.aspx.fdf7a39c.q5yynr3i.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-24 01:07:25
+IP:::1
+Url:/Admin/ArticleAdd.aspx
+UrlRef:http://localhost:801/Admin/ArticleAdd.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 变量名 '@TagName' 已声明。变量名在查询批次或存储过程内部必须唯一。 SQL:SELECT fdTagID FROM AW_Tag WHERE fdTagName=@TagName ---> System.Data.SqlClient.SqlException: 变量名 '@TagName' 已声明。变量名在查询批次或存储过程内部必须唯一。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcGet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 458
+   在 AnyWell.AW_DL.AW_Tag_dao.funcGetTagByName(String tagName) 位置 E:\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Tag_dao.cs:行号 144
+   在 PageAdmin.SetTags(AW_Article_bean article, String tags) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\App_Code\PageAdmin.cs:行号 111
+   在 Admin_ArticleAdd.btnOk_Click(Object sender, EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\ArticleAdd.aspx.cs:行号 109
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_articleadd_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_articleadd.aspx.fdf7a39c.h88gcqhr.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-24 01:11:20
+IP:::1
+Url:/Admin/ArticleAdd.aspx
+UrlRef:http://localhost:801/Admin/ArticleAdd.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.ApplicationException: 变量名 '@TagName' 已声明。变量名在查询批次或存储过程内部必须唯一。 SQL:SELECT fdTagID FROM AW_Tag WHERE fdTagName=@TagName ---> System.Data.SqlClient.SqlException: 变量名 '@TagName' 已声明。变量名在查询批次或存储过程内部必须唯一。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   在 System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Studio.Data.SqlDbExecutor.GetDataSet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters)
+   在 AnyWell.AW_DL.Dao_Base.funcGet(CommandType cmdType, String cmdText, IDbDataParameter[] parameters) 位置 E:\Program Files\PROJECT\DOTNET\AnyWell_DLL\DBBase\Dao_Base.cs:行号 458
+   在 AnyWell.AW_DL.AW_Tag_dao.funcGetTagByName(String tagName) 位置 E:\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Tag_dao.cs:行号 144
+   在 PageAdmin.SetTags(AW_Article_bean article, String tags) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\App_Code\PageAdmin.cs:行号 111
+   在 Admin_ArticleAdd.btnOk_Click(Object sender, EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\ArticleAdd.aspx.cs:行号 109
+   在 System.Web.UI.WebControls.Button.OnClick(EventArgs e)
+   在 System.Web.UI.WebControls.Button.RaisePostBackEvent(String eventArgument)
+   在 System.Web.UI.Page.RaisePostBackEvent(IPostBackEventHandler sourceControl, String eventArgument)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_articleadd_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_articleadd.aspx.fdf7a39c.h88gcqhr.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+
+Time:2011-02-24 01:34:37
+IP:::1
+Url:/Admin/ArticleDel.aspx?id=1046
+UrlRef:http://localhost:801/Admin/ArticleList.aspx
+Message:System.Web.HttpUnhandledException: 引发类型为“System.Web.HttpUnhandledException”的异常。 ---> System.FormatException: 索引(从零开始)必须大于或等于零，且小于参数列表的大小。
+   在 System.Text.StringBuilder.AppendFormat(IFormatProvider provider, String format, Object[] args)
+   在 System.String.Format(IFormatProvider provider, String format, Object[] args)
+   在 AnyWell.AW_DL.AW_Tag_Associated_dao.funcClearAssociateds(String ids, Int32 type) 位置 E:\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Tag_Associated_dao.cs:行号 34
+   在 AnyWell.AW_DL.AW_Article_dao.funcDelete(Int32 id) 位置 E:\PROJECT\DOTNET\HuaFang\AW_DB\DBExtend\AW_Article_dao.cs:行号 197
+   在 Admin_ArticleDel.OnPreRender(EventArgs e) 位置 e:\PROJECT\DOTNET\HuaFang\AnyWeb2010\Admin\ArticleDel.aspx.cs:行号 30
+   在 System.Web.UI.Control.PreRenderRecursiveInternal()
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.Web.UI.Page.HandleError(Exception e)
+   在 System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   在 System.Web.UI.Page.ProcessRequest()
+   在 System.Web.UI.Page.ProcessRequest(HttpContext context)
+   在 ASP.admin_articledel_aspx.ProcessRequest(HttpContext context) 位置 c:\Windows\Microsoft.NET\Framework64\v2.0.50727\Temporary ASP.NET Files\root\ddf97d0b\347638b\App_Web_articledel.aspx.fdf7a39c.jkugftpq.0.cs:行号 0
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+

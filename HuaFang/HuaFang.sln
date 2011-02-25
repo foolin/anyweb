@@ -20,11 +20,14 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AnyWeb2010", "AnyWeb2010\",
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "4948"
+		ProjOutputReferences = "{B0AEA234-C8CB-4BBF-B36B-6C30349DE281}|ClientBin|false;"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW_DB", "AW_DB\AW_DB.csproj", "{67EDE50C-1A2F-4B66-B336-11EFBE1B8802}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW_UC", "AW_UC\AW_UC.csproj", "{839A8212-0454-4FEA-8A48-F9764588D85D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileUpload", "FileUpload\FileUpload.csproj", "{B0AEA234-C8CB-4BBF-B36B-6C30349DE281}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +47,10 @@ Global
 		{839A8212-0454-4FEA-8A48-F9764588D85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{839A8212-0454-4FEA-8A48-F9764588D85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{839A8212-0454-4FEA-8A48-F9764588D85D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0AEA234-C8CB-4BBF-B36B-6C30349DE281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0AEA234-C8CB-4BBF-B36B-6C30349DE281}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0AEA234-C8CB-4BBF-B36B-6C30349DE281}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0AEA234-C8CB-4BBF-B36B-6C30349DE281}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -93,6 +93,28 @@ public class PageAdmin : Page
         }
     }
 
+    protected string RenderAreaJs()
+    {
+        System.Text.StringBuilder builder = new System.Text.StringBuilder();
+        builder.Append( "[999999,0,'--请选择--','']," );
+        builder.Append( "[999998,999999,'--请选择--','']," );
+        builder.Append( "[999997,999998,'--请选择--','']," );
+        foreach( Province p in AreaConfigs.GetConfigs().Provinces )
+        {
+            builder.AppendFormat( "[{0},0,'{1}','{0}'],", p.ID, p.Name );
+            foreach( City c in p.Cities )
+            {
+                builder.AppendFormat( "[{0},{1},'{2}','{0}'],", c.ID, p.ID, c.Name );
+                foreach( Area a in c.Areas )
+                {
+                    builder.AppendFormat( "[{0},{1},'{2}','{0}'],", a.ID, c.ID, a.Name );
+                }
+            }
+        }
+        builder.Append( "[]" );
+        return builder.ToString();
+    }
+
     /// <summary>
     /// 设置文章标签
     /// </summary>

@@ -1,1 +1,0 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="TemplateDel.aspx.cs" Inherits="Admin_TemplateDel" %>

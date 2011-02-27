@@ -28,6 +28,15 @@ namespace AnyWell.AW_DL
 			get{return _fdArtiColumnID;}
 			set{_fdArtiColumnID = value;}
 		}
+        private int _fdArtiType = 0;
+        /// <summary>
+        /// 文章类型(0普通文章1图片文章2专题文章)
+        /// </summary>
+        public int fdArtiType
+        {
+            get{ return _fdArtiType;}
+            set{ _fdArtiType = value;}
+        }
 		private string _fdArtiTitle = "";
 		 /// <summary>
 		 /// 文章标题 200 nvarchar
@@ -37,6 +46,15 @@ namespace AnyWell.AW_DL
 			get{return _fdArtiTitle;}
 			set{_fdArtiTitle = value;}
 		}
+        private string _fdArtiPic = "";
+        /// <summary>
+        /// 文章图片
+        /// </summary>
+        public string fdArtiPic
+        {
+            get{return _fdArtiPic;}
+            set{_fdArtiPic = value;}
+        }
 		private string _fdArtiContent = "";
 		 /// <summary>
 		 /// 文章内容

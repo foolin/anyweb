@@ -7,7 +7,11 @@ public class FileUpload : IHttpHandler {
     private HttpContext ctx;
     public void ProcessRequest (HttpContext context) {
         ctx = context;
-        string uploadPath = context.Server.MapPath( "~/Upload" );
+        string uploadPath = context.Server.MapPath( "/Files" );
+        if( !string.IsNullOrEmpty( context.Request.QueryString[ "filepath" ] ) )
+        {
+            uploadPath = context.Server.MapPath( context.Request.QueryString[ "filepath" ] );
+        }
         FileUploadProcess fileUpload = new FileUploadProcess();
         fileUpload.FileUploadCompleted += new FileUploadCompletedEvent( fileUpload_FileUploadCompleted );
         fileUpload.ProcessRequest( context, uploadPath );

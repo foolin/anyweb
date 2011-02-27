@@ -22,6 +22,10 @@ namespace DC.FileUpload
         public long UploadChunkSize { get; set; }
         public bool ResizeImage { get; set; }
         public int ImageSize { get; set; }
+        /// <summary>
+        /// 文件存放路径
+        /// </summary>
+        public string FilePath{ get; set; }
         private DateTime start;
 
         public Brush BackgroundColor
@@ -61,7 +65,10 @@ namespace DC.FileUpload
         /// 上传完成调用JS方法
         /// </summary>
         public string JavascriptCompleteFunction { get; set; }
-
+        /// <summary>
+        /// 返回调用JS方法
+        /// </summary>
+        public string JavascriptReturnFunction{get;set;}
         /// <summary>
         /// 上传状态
         /// </summary>
@@ -152,7 +159,7 @@ namespace DC.FileUpload
         /// <param name="e"></param>
         void files_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            countTextBlock.Text = "文件数: " + files.Count.ToString();
+            countTextBlock.Text = "图片数: " + files.Count.ToString();
             TotalUploadSize = files.Sum(f => f.FileLength);
             TotalUploaded = files.Sum(f => f.BytesUploaded);
             totalSizeTextBlock.Text = string.Format("{0} of {1}",
@@ -169,7 +176,7 @@ namespace DC.FileUpload
         /// <param name="e"></param>
         void clearFilesButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show( "确定清空所有文件？", "文件清空?", MessageBoxButton.OKCancel );
+            MessageBoxResult result = MessageBox.Show( "确定清空所有图片？", "图片清空?", MessageBoxButton.OKCancel );
             if( result == MessageBoxResult.OK )
             {
                 var q = files.Where( f => f.Status == FileUploadStatus.Uploading );
@@ -189,6 +196,10 @@ namespace DC.FileUpload
         {
             if ((string)uploadButton.Content == "上传")
             {
+                if( files.Count == 0 )
+                {
+                    return;
+                }
                 uploadButton.Content = "停止";
                 start = DateTime.Now;
                 UploadFiles();
@@ -232,22 +243,23 @@ namespace DC.FileUpload
                         count++;
                         if (count > MaxNumberToUpload)
                         {
-                            MessageBox.Show( "您已经超出了允许上传的文件总数。" );
+                            MessageBox.Show( "您已经超出了允许上传的图片总数。" );
                             break;
                         }
                     }
 
                     if (MaximumTotalUpload >= 0 && TotalUploadSize + upload.FileLength > MaximumTotalUpload)
                     {
-                        MessageBox.Show("你已经超出了允许上传的文件总体积。");
+                        MessageBox.Show("你已经超出了允许上传的图片总体积。");
                         break;
                     }
                     if (MaximumUpload >= 0 && upload.FileLength > MaximumUpload)
                     {
-                        MessageBox.Show( string.Format( "文件 '{0}'超出了限制的文件大小。", upload.Name ) );
+                        MessageBox.Show( string.Format( "图片 '{0}'超出了限制的图片大小。", upload.Name ) );
                         continue;
                     }
                     upload.NewName = getNewName( file );
+                    upload.FilePath = FilePath;
                     upload.DisplayThumbnail = (bool)displayThumbailChckBox.IsChecked;
                     upload.StatusChanged += new EventHandler(upload_StatusChanged);
                     upload.UploadProgressChanged += new ProgressChangedEvent(upload_UploadProgressChanged);
@@ -344,9 +356,14 @@ namespace DC.FileUpload
                     {
                         try
                         {
-                            HtmlPage.Window.CreateInstance(JavascriptCompleteFunction,"bb");
+                            HtmlPage.Window.CreateInstance(JavascriptCompleteFunction);
                         }
                         catch { }
+                    }
+                    MessageBoxResult result = MessageBox.Show( "图片上传成功，确定返回？", "确定返回？", MessageBoxButton.OKCancel );
+                    if( result == MessageBoxResult.OK )
+                    {
+                        returnFuntion();
                     }
                 }
                 else
@@ -363,11 +380,15 @@ namespace DC.FileUpload
         /// <param name="e"></param>
         void setFilesButton_Click( object sender, RoutedEventArgs e )
         {
-            foreach( FileUpload file in files )
+            if( files.Count( f => f.Status != FileUploadStatus.Complete ) > 0 )
             {
-                //设置返回字符串
-                
+                MessageBoxResult result = MessageBox.Show( "存在图片未上传，确定返回？", "确定返回？", MessageBoxButton.OKCancel );
+                if( result != MessageBoxResult.OK )
+                {
+                    return;
+                }
             }
+            returnFuntion();
         }
 
         /// <summary>
@@ -380,6 +401,32 @@ namespace DC.FileUpload
             long r = DateTime.Now.Ticks;
             Thread.Sleep( 1 );
             return r.ToString() + file.Extension;
+        }
+
+        /// <summary>
+        /// 返回调用JS方法
+        /// </summary>
+        private void returnFuntion()
+        {
+            if( !string.IsNullOrEmpty( JavascriptReturnFunction ) )
+            {
+                string path = "";
+                var q = files.Where( f => f.Status == FileUploadStatus.Complete );
+                foreach( FileUpload fu in q )
+                {
+                    path += "," + fu.FilePath + fu.NewName;
+                }
+                if( path.Length > 0 )
+                    path = path.Substring( 1 );
+
+                try
+                {
+                    HtmlPage.Window.CreateInstance( JavascriptReturnFunction, path );
+                }
+                catch
+                {
+                }
+            }
         }
     }
 }

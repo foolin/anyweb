@@ -17,6 +17,8 @@ using System.Threading;
 using System.ComponentModel;
 using System.Text;
 using System.Windows.Threading;
+using System.Windows.Media.Imaging;
+using System.Windows.Media.Effects;
 
 namespace DC.FileUpload
 {
@@ -56,6 +58,10 @@ namespace DC.FileUpload
         /// 远程文件名
         /// </summary>
         public string NewName{get;set;}
+        /// <summary>
+        /// 文件存放路径
+        /// </summary>
+        public string FilePath{get;set;}
         private long fileLength;
         public long FileLength
         {
@@ -73,13 +79,7 @@ namespace DC.FileUpload
         }
 
         private MemoryStream resizeStream;
-        /// <summary>
-        /// 是否重绘
-        /// </summary>
         public bool ResizeImage { get; set; }
-        /// <summary>
-        /// 重绘大小
-        /// </summary>
         public int ImageSize { get; set; }
         
         private long bytesUploaded;
@@ -196,7 +196,7 @@ namespace DC.FileUpload
         private void CheckFileOnServer()
         {
             UriBuilder ub = new UriBuilder(UploadUrl);
-            ub.Query = string.Format("{1}filename={0}&GetBytes=true", File.Name, string.IsNullOrEmpty(ub.Query) ? "" : ub.Query.Remove(0, 1) + "&");
+            ub.Query = string.Format( "{1}filename={0}&GetBytes=true&filepath={2}", NewName, string.IsNullOrEmpty( ub.Query ) ? "" : ub.Query.Remove( 0, 1 ) + "&", this.FilePath );
             WebClient client = new WebClient();
             client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);
             client.DownloadStringAsync(ub.Uri);
@@ -215,7 +215,7 @@ namespace DC.FileUpload
                 MessageBoxResult result;
                 if (lengthtemp == FileLength)
                 {
-                    result = MessageBox.Show("文件已存在，是否替换？", "文件替换?", MessageBoxButton.OKCancel);
+                    result = MessageBox.Show("图片已存在，是否替换？", "图片替换?", MessageBoxButton.OKCancel);
                     if (result == MessageBoxResult.OK)
                         lengthtemp = 0;
                     else
@@ -233,7 +233,7 @@ namespace DC.FileUpload
                 }
                 else
                 {
-                    result = MessageBox.Show("文件已存在，是否继续上传？", "继续？", MessageBoxButton.OKCancel);
+                    result = MessageBox.Show("图片已存在，是否继续上传？", "继续？", MessageBoxButton.OKCancel);
                     if (result == MessageBoxResult.Cancel)
                         lengthtemp = 0;
                 }
@@ -267,8 +267,8 @@ namespace DC.FileUpload
             long temp = FileLength - BytesUploaded;
 
             UriBuilder ub = new UriBuilder(UploadUrl);
-            bool complete = temp <= ChunkSize;            
-            ub.Query = string.Format("{3}filename={0}&StartByte={1}&Complete={2}", NewName, BytesUploaded, complete, string.IsNullOrEmpty(ub.Query) ? "" : ub.Query.Remove(0,1) + "&");
+            bool complete = temp <= ChunkSize;
+            ub.Query = string.Format( "{3}filename={0}&StartByte={1}&Complete={2}&filepath={4}", NewName, BytesUploaded, complete, string.IsNullOrEmpty( ub.Query ) ? "" : ub.Query.Remove( 0, 1 ) + "&", this.FilePath );
 
             HttpWebRequest webrequest = (HttpWebRequest)WebRequest.Create(ub.Uri);
             webrequest.Method = "POST";
@@ -386,7 +386,6 @@ namespace DC.FileUpload
         {
             Resize();
         }
-
 
         #region INotifyPropertyChanged Members
 

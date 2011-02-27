@@ -13,7 +13,7 @@ using AnyWell.AW_DL;
 using Studio.Web;
 using System.IO;
 
-public partial class Admin_ArticleEdit : PageAdmin
+public partial class Admin_ArticleEdit : ArticleBase
 {
     protected AW_Article_bean article;
 
@@ -80,6 +80,20 @@ public partial class Admin_ArticleEdit : PageAdmin
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
+        if( String.IsNullOrEmpty( txtTitle.Text ) )
+            WebAgent.AlertAndBack( "标题不能为空" );
+
+        if( String.IsNullOrEmpty( txtContent.Text ) )
+            WebAgent.AlertAndBack( "内容不能为空" );
+
+        if( txtDesc.Text.Trim().Length > 1000 )
+            WebAgent.AlertAndBack( "文章摘要不能超出1000字" );
+
+        if( string.IsNullOrEmpty( txtSort.Text ) )
+            WebAgent.AlertAndBack( "排序不能为空" );
+
+        if( !WebAgent.IsInt32( txtSort.Text.Trim() ) )
+            WebAgent.AlertAndBack( "排序格式不正确" );
         article = new AW_Article_dao().funcGetArticleById( int.Parse( QS( "id" ) ) );
         string childColumn = Request.Form[drpChild.UniqueID] + "";
         using (AW_Article_dao dao = new AW_Article_dao())
@@ -116,7 +130,7 @@ public partial class Admin_ArticleEdit : PageAdmin
             dao.funcUpdate(article);
             this.SetTags( article, QF( "tags" ).Trim() );
             this.AddLog(EventType.Update, "修改文章", "修改文章[" + article.fdArtiTitle + "]");
-            WebAgent.SuccAndGo("修改文章成功", ViewState["REFURL"].ToString());
+            Success("修改文章成功", ViewState["REFURL"].ToString());
         }
     }
 

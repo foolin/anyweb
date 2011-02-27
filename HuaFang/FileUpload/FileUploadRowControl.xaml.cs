@@ -100,9 +100,13 @@ namespace DC.FileUpload
 
         void removeButton_Click(object sender, RoutedEventArgs e)
         {
-            FileUpload fu = DataContext as FileUpload;
-            if (fu != null)
-                fu.RemoveUpload();
+            MessageBoxResult result = MessageBox.Show( "确定删除该图片？", "删除图片?", MessageBoxButton.OKCancel );
+            if( result == MessageBoxResult.OK )
+            {
+                FileUpload fu = DataContext as FileUpload;
+                if( fu != null )
+                    fu.RemoveUpload();
+            }
         }
     }
 }

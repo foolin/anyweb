@@ -108,8 +108,8 @@
     	</vsm:VisualStateManager.VisualStateGroups>
         <Border.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
-                <GradientStop Color="#ffacacac"/>
-                <GradientStop Color="#ffc5c6c7" Offset="1"/>
+                <GradientStop Color="#ffdbeef2"/>
+                <GradientStop Color="#ffdbeef2" Offset="1"/>
             </LinearGradientBrush>
         </Border.Background>
         <Grid>

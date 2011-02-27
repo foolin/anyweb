@@ -105,6 +105,16 @@ namespace FileUpload
                 uploadControl.JavascriptCompleteFunction = e.InitParams["JavascriptCompleteFunction"];
             }
 
+            if( e.InitParams.Keys.Contains( "JavascriptReturnFunction" ) && !string.IsNullOrEmpty( e.InitParams[ "JavascriptReturnFunction" ] ) )
+            {
+                uploadControl.JavascriptReturnFunction = e.InitParams[ "JavascriptReturnFunction" ];
+            }
+
+            if( e.InitParams.Keys.Contains( "FilePath" ) && !string.IsNullOrEmpty( e.InitParams[ "FilePath" ] ) )
+            {
+                uploadControl.FilePath = e.InitParams[ "FilePath" ];
+            }
+
             this.RootVisual = uploadControl;
         }
 

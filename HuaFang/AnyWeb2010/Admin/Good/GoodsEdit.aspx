@@ -1,11 +1,11 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
-    CodeFile="GoodsAdd.aspx.cs" Inherits="Admin_GoodsAdd" %>
+    CodeFile="GoodsEdit.aspx.cs" Inherits="Admin_GoodsEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
 
-    <script type="text/javascript" src="js/ajaxfileupload.js"></script>
+    <script type="text/javascript" src="/Admin/js/ajaxfileupload.js"></script>
 
     <script type="text/javascript">
         function uploadPictures() {
@@ -124,7 +124,7 @@
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
-                添加商品</h3>
+                修改商品</h3>
         </div>
         <div class="mbd">
             <div class="fi even">
@@ -132,7 +132,6 @@
                     商品类别：</label>
                 <div class="cont">
                     <asp:DropDownList ID="drpCategory" runat="server" DataTextField="fdCateName" DataValueField="fdCateID">
-                        <asp:ListItem Value="">请选择</asp:ListItem>
                     </asp:DropDownList>
                     <asp:DropDownList ID="drpCategory2" runat="server" DataTextField="fdCateName" DataValueField="fdCateID"
                         Style="display: none;">
@@ -150,7 +149,7 @@
                 <label>
                     所属品牌：</label>
                 <div class="cont">
-                    <asp:DropDownList ID="drpBrand" runat="server" DataTextField="fdBranName" DataValueField="fdBranID">
+                    <asp:DropDownList ID="drpBrand" runat="server">
                         <asp:ListItem Value="-1">不属于任何品牌</asp:ListItem>
                     </asp:DropDownList>
                     <asp:DropDownList ID="drpBrand2" runat="server" Style="display: none;" DataTextField="fdBranName"
@@ -177,7 +176,7 @@
                     商品图片：</label>
                 <div class="cont">
                     <asp:FileUpload ID="fileImage" runat="server" CssClass="text" />&nbsp;
-                    <button onclick="uploadPictures()" style="height: 20px;" type="button">
+                    <button onclick="uploadPictures()" style="height: 20px;">
                         上传图片</button>
                     <span id="results"></span>
                     <style type="text/css">
@@ -227,12 +226,21 @@
                     <div id="images">
                         <ul>
                             <li style="display: none;"></li>
+                            <asp:Repeater ID="repPictures" runat="server">
+                                <ItemTemplate>
+                                    <li id="pic_<%#Eval("fdPictID")%>" class="<%#(string)Eval("fdPictPath")==goods.fdGoodListImage?"on":"off" %>">
+                                        <img alt="" title="点击设为列表图" onclick="setListImage(this)" src="<%#Eval("fdPictPath")%>" /><input
+                                            type="hidden" name="pics" value="<%#Eval("fdPictID")%>:<%#Eval("fdPictPath")%>" />
+                                        <button onclick="delPicture(this);">
+                                            删除</button></li>
+                                </ItemTemplate>
+                            </asp:Repeater>
                         </ul>
-                        <input type="hidden" id="listimg" name="listimg" value="" />
+                        <input type="hidden" id="listimg" name="listimg" value="<%=goods.fdGoodListImage %>" />
                     </div>
                 </div>
             </div>
-            <div class="fi even" style="display: none;">
+            <div class="fi" style="display: none;">
                 <label>
                     进货价(元)：</label>
                 <div class="cont">
@@ -261,7 +269,7 @@
                     </sw:Validator>
                 </div>
             </div>
-            <div class="fi" style="display: none">
+            <div class="fi" style="display: none;">
                 <label>
                     库存数：</label>
                 <div class="cont">
@@ -297,14 +305,15 @@
                     <asp:CheckBox ID="boxHomeMeijiu" runat="server" CssClass="checkbox" Text="美酒推荐" />
                     <asp:CheckBox ID="boxHomeMingpai" runat="server" CssClass="checkbox" Text="名牌推荐" />
                     <asp:CheckBox ID="boxPromotion" runat="server" Text="促销商品" CssClass="checkbox" />
+                    <asp:CheckBox ID="boxHomeCheap" runat="server" Text="超值商品" CssClass="checkbox" />
                 </div>
             </div>
             <div class="fi">
                 <label>
                     促销时间：</label>
                 <div>
-                    从<asp:TextBox ID="txtPromStartAt" MaxLength="20" runat="server" CssClass="text" Width="80px"></asp:TextBox>
-                    到<asp:TextBox ID="txtPromEndAt" MaxLength="20" runat="server" CssClass="text" Width="80px"></asp:TextBox>
+                    从<asp:TextBox ID="txtPromStartAt" MaxLength="20" runat="server" CssClass="text" Width="80px"></asp:TextBox>到<asp:TextBox
+                        ID="txtPromEndAt" MaxLength="20" runat="server" CssClass="text" Width="80px"></asp:TextBox>
                 </div>
             </div>
             <div class="fi even">
@@ -315,22 +324,25 @@
             <div class="fi">
                 <label>
                     积分：</label>
-                <asp:TextBox ID="txtPoint" MaxLength="20" Text="0" runat="server" CssClass="text"></asp:TextBox>
+                <asp:TextBox ID="txtPoint" MaxLength="20" runat="server" CssClass="text"></asp:TextBox>
             </div>
             <div class="fi even">
                 <label>
                     商品状态：</label>
                 <div class="cont">
                     <asp:RadioButtonList ID="radioStatus" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal">
-                        <asp:ListItem Value="1" Selected="True">正常</asp:ListItem>
+                        <asp:ListItem Value="1">正常</asp:ListItem>
                         <asp:ListItem Value="2">下架</asp:ListItem>
                     </asp:RadioButtonList>
                 </div>
             </div>
+            <div class="fi">
+                <label>
+                    排序号：</label>
+                <asp:TextBox ID="txtSort" MaxLength="6" runat="server" CssClass="text" Width="80px"></asp:TextBox>
+            </div>
             <div class="fi fiBtns">
-                <asp:Button ID="btnContine" runat="server" Text="保存继续" CssClass="submit" OnClick="btnContine_Click">
-                </asp:Button>
-                <asp:Button ID="btnOk" runat="server" Text="保存返回" OnClick="btnOk_Click" CssClass="">
+                <asp:Button ID="btnOk" runat="server" Text="保存商品" OnClick="btnOk_Click" CssClass="submit">
                 </asp:Button>
                 <a href="goodslist.aspx">返回列表</a>
             </div>
@@ -349,7 +361,7 @@
         </ul>
     </div>
 
-    <script type="text/javascript" src="../tiny_mce/tiny_mce.js"></script>
+    <script type="text/javascript" src="/tiny_mce/tiny_mce.js"></script>
 
     <script type="text/javascript">
         tinyMCE.init({

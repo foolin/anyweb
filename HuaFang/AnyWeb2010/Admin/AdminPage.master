@@ -7,22 +7,22 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-    <link href="class/style.css" rel="stylesheet" type="text/css" />
+    <link href="/Admin/class/style.css" rel="stylesheet" type="text/css" />
     <!--[if lte IE 6]>
-	<link href="../public/class/forIE6.css" rel="stylesheet" type="text/css" />
+	<link href="/Admin/class/forIE6.css" rel="stylesheet" type="text/css" />
 	<![endif]-->
 
-    <script language="javascript" type="text/javascript" src="js/admin.js"></script>
+    <script language="javascript" type="text/javascript" src="/Admin/js/admin.js"></script>
 
-    <script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="/Admin/js/jquery.js"></script>
 
-    <script language="javascript" type="text/javascript" src="js/function.js"></script>
+    <script language="javascript" type="text/javascript" src="/Admin/js/function.js"></script>
 
 </head>
 <body class="pInner">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-            <td height="62" background="images/nav04.gif">
+            <td height="62" background="/Admin/images/nav04.gif">
                 <div class="Location" id="NavLocation" style="padding-left: 20px;">
                     当前位置：<a href="mainfra.html">首页</a> &gt;
                     <asp:Literal ID="compPos" runat="server"></asp:Literal>

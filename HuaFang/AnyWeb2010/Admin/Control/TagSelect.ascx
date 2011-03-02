@@ -48,7 +48,7 @@
         function GetTopTag() {
             $.ajax({
                 type: "GET",
-                url: "TagTopGet.aspx",
+                url: "/Admin/Setting/TagTopGet.aspx",
                 cache: false,
                 success: function(data) {
                     if ($.trim(data).length > 0) {
@@ -65,7 +65,7 @@
 
         function SearchTag(page) {
             $("#btnSearch").val("正在查找").attr("disabled", "disabled");
-            var url = "TagSearch.aspx?key=" + $("#txtKey").val() + "&type=" + $("#drpType").val() + "&pid1=" + page;
+            var url = "/Admin/Setting/TagSearch.aspx?key=" + $("#txtKey").val() + "&type=" + $("#drpType").val() + "&pid1=" + page;
             $.ajax({
                 type: "GET",
                 url: url,

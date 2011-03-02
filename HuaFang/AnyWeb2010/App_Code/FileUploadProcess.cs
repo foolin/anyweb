@@ -31,15 +31,28 @@ public class FileUploadCompletedEventArgs
             filepath = value;
         }
     }
+    private string _extension;
+    public string Extension
+    {
+        get
+        {
+            return _extension;
+        }
+        set
+        {
+            _extension = value;
+        }
+    }
 
     public FileUploadCompletedEventArgs()
     {
     }
 
-    public FileUploadCompletedEventArgs( string fileName, string filePath )
+    public FileUploadCompletedEventArgs( string fileName, string filePath, string extension )
     {
         FileName = fileName;
         FilePath = filePath;
+        Extension = extension;
     }
 }
 
@@ -90,7 +103,7 @@ public class FileUploadProcess
             }
         }
         else
-            filePath = Path.Combine( uploadPath, filename );
+            filePath = Path.Combine( uploadPath, filename.Replace( "S_", "" ) );
 
         if( getBytes )
         {
@@ -127,7 +140,8 @@ public class FileUploadProcess
             {
                 if( FileUploadCompleted != null )
                 {
-                    FileUploadCompletedEventArgs args = new FileUploadCompletedEventArgs( filename, filePath );
+                    FileInfo fi = new FileInfo( filePath );
+                    FileUploadCompletedEventArgs args = new FileUploadCompletedEventArgs( filename, uploadPath, fi.Extension );
                     FileUploadCompleted( this, args );
                 }
             }

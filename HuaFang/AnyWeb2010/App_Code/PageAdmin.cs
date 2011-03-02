@@ -52,7 +52,7 @@ public class PageAdmin : Page
 
     static PageAdmin()
     {
-        Validator.ScriptSrc = "js/validator1.2.js";
+        Validator.ScriptSrc = "/Admin/js/validator1.2.js";
     }
 
     protected string QS(string key)

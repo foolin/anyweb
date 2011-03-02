@@ -1,8 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
     CodeFile="ArticleAdd.aspx.cs" Inherits="Admin_ArticleAdd" %>
 
-<%@ Register Src="Control/TagSelect.ascx" TagName="TagSelect" TagPrefix="uc1" %>
-<%@ Register Src="Control/Uploader.ascx" TagName="Uploader" TagPrefix="uc1" %>
+<%@ Register Src="~/Admin/Control/TagSelect.ascx"TagName="TagSelect" TagPrefix="uc1" %>
+<%@ Register Src="~/Admin/Control/Uploader.ascx" TagName="Uploader" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
     <iframe style="width: 0px; height: 0px;" id="ifrSelf" name="ifrSelf"></iframe>
 </asp:Content>
@@ -96,11 +96,6 @@
             }
             $("#divUpload").hide(); 
         }
-
-        function delPicture() {
-            $("#imgPath").val("");
-            $("#img").attr("src","").parent("li").hide();
-        }
         
         function uploadPicList(obj){
             $("#"+obj).show();
@@ -155,7 +150,12 @@
         }
         
         function delPicture(obj) {
-            $(obj).parent("li").remove();
+            if(obj){
+                $(obj).parent("li").remove();
+            }else{
+                $("#imgPath").val("");
+                $("#img").attr("src","").parent("li").hide();
+            }
         }
     </script>
 
@@ -333,7 +333,7 @@
                         <div id="CloseUp_demo" style="display: none;">
                             <ul>
                                 <li>
-                                    <img alt="" src="" /><input type="hidden" name="CatWalkPics" value="" />
+                                    <img alt="" src="" /><input type="hidden" name="CloseUpPics" value="" />
                                     <button onclick="delPicture(this);" type="button">
                                         删除</button></li>
                             </ul>
@@ -383,13 +383,13 @@
     </div>
     <uc1:TagSelect ID="TagSelect1" runat="server" />
 
-    <script type="text/javascript" src="../tiny_mce/tiny_mce.js"></script>
+    <script type="text/javascript" src="/tiny_mce/tiny_mce.js"></script>
 
     <script type="text/javascript">
         tinyMCE.init({
             mode: "exact",
             verify_html: false,
-            elements: "<%=txtContent.ClientID%>",
+            elements: "<%=txtContent.ClientID%>,<%=txtContent2.ClientID %>",
             theme: "advanced",
             language: "zh",
             plugins: "safari,pagebreak,style,layer,table,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,profile,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,pageseparator,iboximage",

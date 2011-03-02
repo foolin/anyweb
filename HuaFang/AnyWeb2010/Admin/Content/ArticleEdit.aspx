@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
     CodeFile="ArticleEdit.aspx.cs" Inherits="Admin_ArticleEdit" %>
 
-<%@ Register Src="Control/TagSelect.ascx" TagName="TagSelect" TagPrefix="uc1" %>
+<%@ Register Src="~/Admin/Control/TagSelect.ascx" TagName="TagSelect" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
     <iframe style="width: 0px; height: 0px;" id="ifrSelf" name="ifrSelf"></iframe>
 </asp:Content>
@@ -112,7 +112,7 @@
     </div>
     <uc1:TagSelect ID="TagSelect1" runat="server" />
 
-    <script type="text/javascript" src="../tiny_mce/tiny_mce.js"></script>
+    <script type="text/javascript" src="/tiny_mce/tiny_mce.js"></script>
 
     <script type="text/javascript">
         tinyMCE.init({

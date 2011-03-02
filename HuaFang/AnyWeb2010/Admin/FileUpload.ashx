@@ -2,6 +2,8 @@
 
 using System;
 using System.Web;
+using System.IO;
+using Studio.Web;
 
 public class FileUpload : IHttpHandler {
     private HttpContext ctx;
@@ -19,12 +21,9 @@ public class FileUpload : IHttpHandler {
 
     void fileUpload_FileUploadCompleted( object sender, FileUploadCompletedEventArgs args )
     {
-        string id = ctx.Request.QueryString[ "id" ];
-        //FileInfo fi = new FileInfo(args.FilePath);
-        //string targetFile = Path.Combine(fi.Directory.FullName, args.FileName);
-        //if (File.Exists(targetFile))
-        //    File.Delete(targetFile);
-        //fi.MoveTo(targetFile);
+        string filePath = Path.Combine( args.FilePath, args.FileName.Replace( "S_", "" ) );
+        string ThumbPath = Path.Combine( args.FilePath, args.FileName );
+        WebAgent.MakeThumbnail( filePath, ThumbPath, 100, 100, "W", WebAgent.GetImageType( args.Extension ) );
     }
     
     public bool IsReusable {

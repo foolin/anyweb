@@ -478,7 +478,7 @@ namespace Studio.Web
 		}
 
 		//获取图片文件类型
-		static System.Drawing.Imaging.ImageFormat GetImageFormat(string strContentType)
+		public static System.Drawing.Imaging.ImageFormat GetImageFormat(string strContentType)
 		{
 			switch (strContentType.ToString().ToLower())
 			{
@@ -505,10 +505,11 @@ namespace Studio.Web
 			}
 		}
 
-        static System.Drawing.Imaging.ImageFormat GetImageType(string strContentType)
+        public static System.Drawing.Imaging.ImageFormat GetImageType(string strContentType)
         {
             switch ( strContentType.ToString().ToLower() )
             {
+                case "jpg":
                 case "jpeg":
                     return System.Drawing.Imaging.ImageFormat.Jpeg;
                 case "gif":

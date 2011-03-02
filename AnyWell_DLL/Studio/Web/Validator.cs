@@ -15,9 +15,9 @@ namespace Studio.Web
 	/// </summary>	
     public class Validator : Control, INamingContainer 
 	{
-        public static string ScriptSrc = "/Public/js/validator1.2.js";
+        public static string ScriptSrc = "js/validator1.2.js";
         int _index = 0;
-        string _ciKey = "FA_VALIDATORS";
+        string _ciKey = "AW_VALIDATORS";
         protected override void OnPreRender(EventArgs e)
         {
             base.OnPreRender(e);

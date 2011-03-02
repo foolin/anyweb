@@ -17,7 +17,7 @@ namespace AnyWell.AW_DL
             set { _Column = value; }
         }
 
-        protected List<AW_Tag_bean> _TagList = new List<AW_Tag_bean>();
+        private List<AW_Tag_bean> _TagList = new List<AW_Tag_bean>();
         public List<AW_Tag_bean> TagList
         {
             get
@@ -27,6 +27,58 @@ namespace AnyWell.AW_DL
             set
             {
                 _TagList = value;
+            }
+        }
+
+        private List<AW_Article_Picture_bean> _PictureList;
+        public List<AW_Article_Picture_bean> PictureList
+        {
+            get
+            {
+                return _PictureList;
+            }
+            set
+            {
+                _PictureList = value;
+            }
+        }
+
+        private List<AW_Article_Picture_bean> _CatWalkList;
+        public List<AW_Article_Picture_bean> CatWalkList
+        {
+            get
+            {
+                return _CatWalkList;
+            }
+            set
+            {
+                _CatWalkList = value;
+            }
+        }
+
+        private List<AW_Article_Picture_bean> _BackStageList;
+        public List<AW_Article_Picture_bean> BackStageList
+        {
+            get
+            {
+                return _BackStageList;
+            }
+            set
+            {
+                _BackStageList = value;
+            }
+        }
+
+        private List<AW_Article_Picture_bean> _CloseUpList;
+        public List<AW_Article_Picture_bean> CloseUpList
+        {
+            get
+            {
+                return _CloseUpList;
+            }
+            set
+            {
+                _CloseUpList = value;
             }
         }
 

@@ -400,7 +400,7 @@ namespace DC.FileUpload
         {
             long r = DateTime.Now.Ticks;
             Thread.Sleep( 1 );
-            return r.ToString() + file.Extension;
+            return "S_" + r.ToString() + file.Extension;
         }
 
         /// <summary>

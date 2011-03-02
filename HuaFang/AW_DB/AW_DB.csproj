@@ -64,6 +64,8 @@
     <Compile Include="DBExtend\AW_AD_dao.cs" />
     <Compile Include="DBExtend\AW_Article_bean.cs" />
     <Compile Include="DBExtend\AW_Article_dao.cs" />
+    <Compile Include="DBExtend\AW_Article_Picture_bean.cs" />
+    <Compile Include="DBExtend\AW_Article_Picture_dao.cs" />
     <Compile Include="DBExtend\AW_Brand_bean.cs" />
     <Compile Include="DBExtend\AW_Brand_dao.cs" />
     <Compile Include="DBExtend\AW_Category_bean.cs" />
@@ -94,8 +96,6 @@
     <Compile Include="DBExtend\AW_Link_dao.cs" />
     <Compile Include="DBExtend\AW_Log_bean.cs" />
     <Compile Include="DBExtend\AW_Log_dao.cs" />
-    <Compile Include="DBExtend\AW_Mapping_bean.cs" />
-    <Compile Include="DBExtend\AW_Mapping_dao.cs" />
     <Compile Include="DBExtend\AW_Member_bean.cs" />
     <Compile Include="DBExtend\AW_Member_Contact_bean.cs" />
     <Compile Include="DBExtend\AW_Member_Contact_dao.cs" />
@@ -128,6 +128,8 @@
     <Compile Include="DBFile\AW_AD_dao.cs" />
     <Compile Include="DBFile\AW_Article_bean.cs" />
     <Compile Include="DBFile\AW_Article_dao.cs" />
+    <Compile Include="DBFile\AW_Article_Picture_bean.cs" />
+    <Compile Include="DBFile\AW_Article_Picture_dao.cs" />
     <Compile Include="DBFile\AW_Brand_bean.cs" />
     <Compile Include="DBFile\AW_Brand_dao.cs" />
     <Compile Include="DBFile\AW_Category_bean.cs" />
@@ -158,8 +160,6 @@
     <Compile Include="DBFile\AW_Link_dao.cs" />
     <Compile Include="DBFile\AW_Log_bean.cs" />
     <Compile Include="DBFile\AW_Log_dao.cs" />
-    <Compile Include="DBFile\AW_Mapping_bean.cs" />
-    <Compile Include="DBFile\AW_Mapping_dao.cs" />
     <Compile Include="DBFile\AW_Member_bean.cs" />
     <Compile Include="DBFile\AW_Member_Contact_bean.cs" />
     <Compile Include="DBFile\AW_Member_Contact_dao.cs" />

@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
     CodeFile="ArticleAdd.aspx.cs" Inherits="Admin_ArticleAdd" %>
 
-<%@ Register Src="~/Admin/Control/TagSelect.ascx"TagName="TagSelect" TagPrefix="uc1" %>
+<%@ Register Src="~/Admin/Control/TagSelect.ascx" TagName="TagSelect" TagPrefix="uc1" %>
 <%@ Register Src="~/Admin/Control/Uploader.ascx" TagName="Uploader" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
     <iframe style="width: 0px; height: 0px;" id="ifrSelf" name="ifrSelf"></iframe>
@@ -198,7 +198,7 @@
                 <div class="cont">
                     <a href="javascript:void(0);" onclick="uploadPictures();" class="choAreabtn" title="上传/修改图片">
                         上传/修改图片</a>
-                    <div id="divUpload" style="display: none">
+                    <div id="divUpload" style="display: none;">
                         <uc1:Uploader FilePath="/Files/Articles/" Multiselect="false" MaxNumberToUpload="1"
                             JavascriptReturnFunction="setPicture" runat="server" />
                     </div>
@@ -215,17 +215,17 @@
                     </div>
                 </div>
             </div>
-                <div class="fi">
-                    <label>
-                        文章摘要：</label>
-                    <div class="cont">
-                        <asp:TextBox ID="txtDesc" TextMode="MultiLine" Width="400px" Height="150px" runat="server"></asp:TextBox>
-                        <span>文章摘要不得超过1000字,如果留空，系统自动生成摘要。</span>
-                        <sw:Validator ID="Validator2" ControlID="txtDesc" ValidateType="MaxLength" MaxLength="1000"
-                            ErrorText="文章摘要不得超过1000字" ErrorMessage="文章摘要不得超过1000字" runat="server">
-                        </sw:Validator>
-                    </div>
+            <div class="fi">
+                <label>
+                    文章摘要：</label>
+                <div class="cont">
+                    <asp:TextBox ID="txtDesc" TextMode="MultiLine" Width="400px" Height="150px" runat="server"></asp:TextBox>
+                    <span>文章摘要不得超过1000字,如果留空，系统自动生成摘要。</span>
+                    <sw:Validator ID="Validator2" ControlID="txtDesc" ValidateType="MaxLength" MaxLength="1000"
+                        ErrorText="文章摘要不得超过1000字" ErrorMessage="文章摘要不得超过1000字" runat="server">
+                    </sw:Validator>
                 </div>
+            </div>
             <div id="div0">
                 <div class="fi even">
                     <label>
@@ -235,7 +235,7 @@
                     </div>
                 </div>
             </div>
-            <div id="div1" style="display:none">
+            <div id="div1" style="display: none">
                 <div class="fi even">
                     <label>
                         图片列表：</label>
@@ -262,7 +262,7 @@
                     </div>
                 </div>
             </div>
-            <div id="div2" style="display:none">
+            <div id="div2" style="display: none">
                 <div class="fi even">
                     <label>
                         文章内容：</label>

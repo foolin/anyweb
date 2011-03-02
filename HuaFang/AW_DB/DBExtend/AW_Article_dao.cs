@@ -164,7 +164,7 @@ namespace AnyWell.AW_DL
         /// </summary>
         /// <param name="artiId"></param>
         /// <returns></returns>
-        public AW_Article_bean funcGetArticleById( int artiId )
+        public AW_Article_bean funcGetArticleById( int artiId, bool getPic )
         {
             AW_Article_bean bean = AW_Article_bean.funcGetByID( artiId );
             if( bean == null )
@@ -174,6 +174,10 @@ namespace AnyWell.AW_DL
             else
             {
                 bean.TagList = new AW_Tag_dao().funcGetTagListByObjId( artiId, 0 );
+                if( getPic )
+                {
+                    new AW_Article_Picture_dao().funcInitArticlePic( bean );
+                }
                 return bean;
             }
         }

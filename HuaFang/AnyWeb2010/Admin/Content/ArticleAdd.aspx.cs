@@ -120,16 +120,7 @@ public partial class Admin_ArticleAdd : ArticleBase
             string pics = QF( "pics" );
             if( pics.Length > 0 )
             {
-                foreach( string str in pics.Split( ',' ) )
-                {
-                    if( str.Trim().Length > 0 )
-                    {
-                        AW_Article_Picture_bean picture = new AW_Article_Picture_bean();
-                        picture.fdArPiPath = str;
-                        picture.fdArPiType = 0;
-                        bean.PictureList.Add( picture );
-                    }
-                }
+                InitPic( bean, pics, 0 );
             }
         }
         else if( bean.fdArtiType == 2 )
@@ -140,44 +131,17 @@ public partial class Admin_ArticleAdd : ArticleBase
             string pics = QF( "CatWalkPics" );
             if( pics.Length > 0 )
             {
-                foreach( string str in pics.Split( ',' ) )
-                {
-                    if( str.Trim().Length > 0 )
-                    {
-                        AW_Article_Picture_bean picture = new AW_Article_Picture_bean();
-                        picture.fdArPiPath = str;
-                        picture.fdArPiType = 1;
-                        bean.CatWalkList.Add( picture );
-                    }
-                }
+                InitPic( bean, pics, 1 );
             }
             pics = QF( "BackStagePics" );
             if( pics.Length > 0 )
             {
-                foreach( string str in pics.Split( ',' ) )
-                {
-                    if( str.Trim().Length > 0 )
-                    {
-                        AW_Article_Picture_bean picture = new AW_Article_Picture_bean();
-                        picture.fdArPiPath = str;
-                        picture.fdArPiType = 1;
-                        bean.BackStageList.Add( picture );
-                    }
-                }
+                InitPic( bean, pics, 2 );
             }
             pics = QF( "CloseUpPics" );
             if( pics.Length > 0 )
             {
-                foreach( string str in pics.Split( ',' ) )
-                {
-                    if( str.Trim().Length > 0 )
-                    {
-                        AW_Article_Picture_bean picture = new AW_Article_Picture_bean();
-                        picture.fdArPiPath = str;
-                        picture.fdArPiType = 1;
-                        bean.CloseUpList.Add( picture );
-                    }
-                }
+                InitPic( bean, pics, 3 );
             }
         }
 
@@ -237,5 +201,43 @@ public partial class Admin_ArticleAdd : ArticleBase
         this.SetTags( bean, QF( "tags" ).Trim() );
         this.AddLog( EventType.Insert, "添加文章", "栏目[" + drpColumn.SelectedItem.Text + "]添加文章[" + bean.fdArtiTitle + "]" );
         Success( "添加成功", "ArticleList.aspx" );
+    }
+
+    /// <summary>
+    /// 初始化文章图片
+    /// </summary>
+    /// <param name="article"></param>
+    /// <param name="pics"></param>
+    /// <param name="picType"></param>
+    protected void InitPic( AW_Article_bean article, string pics, int picType )
+    {
+        List<AW_Article_Picture_bean> list;
+        switch( picType )
+        {
+            case 0:
+                list = article.PictureList;
+                break;
+            case 1:
+                list = article.CatWalkList;
+                break;
+            case 2:
+                list = article.BackStageList;
+                break;
+            case 3:
+                list = article.CloseUpList;
+                break;
+            default:
+                return;
+        }
+        foreach( string str in pics.Split( ',' ) )
+        {
+            if( str.Trim().Length > 0 )
+            {
+                AW_Article_Picture_bean picture = new AW_Article_Picture_bean();
+                picture.fdArPiPath = str;
+                picture.fdArPiType = picType;
+                list.Add( picture );
+            }
+        }
     }
 }

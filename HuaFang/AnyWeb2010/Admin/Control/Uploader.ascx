@@ -2,7 +2,6 @@
 <object data="data:application/x-silverlight-2," type="application/x-silverlight-2"
     width="500" height="300">
     <param name="source" value="/ClientBin/FileUpload.xap" />
-    <param name="onerror" value="onSilverlightError" />
     <param name="background" value="white" />
     <param name="minRuntimeVersion" value="2.0.31005.0" />
     <param name="autoUpgrade" value="true" />

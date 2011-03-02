@@ -8,7 +8,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
 
-    <script type="text/javascript" src="js/jquery.tablednd.js"></script>
+    <script type="text/javascript" src="/Admin/js/jquery.tablednd.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {

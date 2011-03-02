@@ -356,7 +356,7 @@ namespace DC.FileUpload
                     {
                         try
                         {
-                            HtmlPage.Window.CreateInstance(JavascriptCompleteFunction);
+                            HtmlPage.Window.Eval( string.Format( "{0}()", JavascriptCompleteFunction ) );
                         }
                         catch { }
                     }
@@ -421,7 +421,7 @@ namespace DC.FileUpload
 
                 try
                 {
-                    HtmlPage.Window.CreateInstance( JavascriptReturnFunction, path );
+                    HtmlPage.Window.Eval( string.Format( "{0}('{1}')", JavascriptReturnFunction, path ) );
                 }
                 catch
                 {

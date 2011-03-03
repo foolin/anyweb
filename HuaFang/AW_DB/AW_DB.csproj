@@ -37,7 +37,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\AnyWell_DLL\DBBase\obj\Release\DBBase.dll</HintPath>
     </Reference>
-    <Reference Include="Studio, Version=1.0.3951.38278, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Studio, Version=1.0.4079.40898, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\AnyWell_DLL\Studio\obj\Release\Studio.dll</HintPath>
     </Reference>
@@ -56,6 +56,7 @@
     <Compile Include="Configs\GeneralConfigInfo.cs" />
     <Compile Include="Configs\GeneralConfigs.cs" />
     <Compile Include="Configs\IConfigInfo.cs" />
+    <Compile Include="Configs\LicenseConfig.cs" />
     <Compile Include="Configs\PaymentConfigInfo.cs" />
     <Compile Include="Configs\SerializationHelper.cs" />
     <Compile Include="Configs\SmtpAgent.cs" />

@@ -2,7 +2,6 @@
     CodeFile="ArticleAdd.aspx.cs" Inherits="Admin_ArticleAdd" %>
 
 <%@ Register Src="~/Admin/Control/TagSelect.ascx" TagName="TagSelect" TagPrefix="uc1" %>
-<%@ Register Src="~/Admin/Control/Uploader.ascx" TagName="Uploader" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
     <iframe style="width: 0px; height: 0px;" id="ifrSelf" name="ifrSelf"></iframe>
 </asp:Content>
@@ -85,20 +84,12 @@
             }
         }
         
-        function uploadPictures() {
-            $("#divUpload").show(); 
-        }
-        
         function setPicture(path){
             if(path.length>0){
                 $("#img").attr("src",path).parent("li").show();
                 $("#imgPath").val(path);
             }
-            $("#divUpload").hide(); 
-        }
-        
-        function uploadPicList(obj){
-            $("#"+obj).show();
+            HideUploader("divUpload");
         }
         
         function setPicList(path){
@@ -110,7 +101,7 @@
                     $("#imgList ul li:last input").attr("value", allPath[i]);
                 }
             }
-            $("#divList").hide();
+            HideUploader("divList");
         }
         
         function setCatWalk(path){
@@ -122,7 +113,7 @@
                     $("#CatWalkList ul li:last input").attr("value", allPath[i]);
                 }
             }
-            $("#divCatWalk").hide();
+            HideUploader("divCatWalk");
         }
         
         function setBackStage(path){
@@ -134,7 +125,7 @@
                     $("#BackStageList ul li:last input").attr("value", allPath[i]);
                 }
             }
-            $("#divBackStage").hide();
+            HideUploader("divBackStage");
         }
         
         function setCloseUp(path){
@@ -146,7 +137,7 @@
                     $("#CloseUpList ul li:last input").attr("value", allPath[i]);
                 }
             }
-            $("#divCloseUp").hide();
+            HideUploader("divCloseUp");
         }
         
         function delPicture(obj) {
@@ -196,11 +187,9 @@
                 <label>
                     文章图片：</label>
                 <div class="cont">
-                    <a href="javascript:void(0);" onclick="uploadPictures();" class="choAreabtn" title="上传/修改图片">
-                        上传/修改图片</a>
-                    <div id="divUpload" style="display: none;">
-                        <uc1:Uploader FilePath="/Files/Articles/" Multiselect="false" MaxNumberToUpload="1"
-                            JavascriptReturnFunction="setPicture" runat="server" />
+                    <a href="javascript:void(0);" onclick="ShowUploader('divUpload','/Files/Articles/','setPicture',false,1);"
+                        class="choAreabtn" title="上传/修改图片">上传/修改图片</a>
+                    <div id="divUpload">
                     </div>
                     <span id="results"></span>
                     <div class="images">
@@ -240,11 +229,9 @@
                     <label>
                         图片列表：</label>
                     <div class="cont">
-                        <a href="javascript:void(0);" id="A1" onclick="uploadPicList('divList');" class="choAreabtn"
+                        <a href="javascript:void(0);" id="A1" onclick="ShowUploader('divList','/Files/Articles/','setPicList',true,-1);" class="choAreabtn"
                             title="上传/修改图片">上传/修改图片</a>
-                        <div id="divList" style="display: none">
-                            <uc1:Uploader ID="Uploader1" FilePath="/Files/Articles/" JavascriptReturnFunction="setPicList"
-                                runat="server" />
+                        <div id="divList">
                         </div>
                         <div id="imgList_demo" style="display: none;">
                             <ul>
@@ -274,11 +261,9 @@
                     <label>
                         CatWalk：</label>
                     <div class="cont">
-                        <a href="javascript:void(0);" onclick="uploadPicList('divCatWalk');" class="choAreabtn"
+                        <a href="javascript:void(0);" onclick="ShowUploader('divCatWalk','/Files/Articles/','setCatWalk',true,-1);" class="choAreabtn"
                             title="上传/修改图片">上传/修改图片</a>
-                        <div id="divCatWalk" style="display: none">
-                            <uc1:Uploader ID="Uploader2" FilePath="/Files/Articles/" JavascriptReturnFunction="setCatWalk"
-                                runat="server" />
+                        <div id="divCatWalk">
                         </div>
                         <div id="CatWalk_demo" style="display: none;">
                             <ul>
@@ -299,13 +284,11 @@
                     <label>
                         BackStage：</label>
                     <div class="cont">
-                        <a href="javascript:void(0);" onclick="uploadPicList('divBackStage');" class="choAreabtn"
+                        <a href="javascript:void(0);" onclick="ShowUploader('divBackStage','/Files/Articles/','setBackStage',true,-1);" class="choAreabtn"
                             title="上传/修改图片">上传/修改图片</a>
-                        <div id="divBackStage" style="display: none">
-                            <uc1:Uploader ID="Uploader3" FilePath="/Files/Articles/" JavascriptReturnFunction="setBackStage"
-                                runat="server" />
+                        <div id="divBackStage">
                         </div>
-                        <div id="BackStage_demo" style="display: none;">
+                        <div id="BackStage_demo" style="display: none">
                             <ul>
                                 <li>
                                     <img alt="" src="" /><input type="hidden" name="BackStagePics" value="" />
@@ -324,11 +307,9 @@
                     <label>
                         Close-Up：</label>
                     <div class="cont">
-                        <a href="javascript:void(0);" onclick="uploadPicList('divCloseUp');" class="choAreabtn"
+                        <a href="javascript:void(0);" onclick="ShowUploader('divCloseUp','/Files/Articles/','setCloseUp',true,-1);" class="choAreabtn"
                             title="上传/修改图片">上传/修改图片</a>
-                        <div id="divCloseUp" style="display: none">
-                            <uc1:Uploader ID="Uploader4" FilePath="/Files/Articles/" JavascriptReturnFunction="setCloseUp"
-                                runat="server" />
+                        <div id="divCloseUp">
                         </div>
                         <div id="CloseUp_demo" style="display: none;">
                             <ul>

@@ -19,7 +19,7 @@ namespace AnyWell.AW_DL
 			get{return _fdAdID;}
 			set{_fdAdID = value;}
 		}
-        private string _fdAdName;
+        private string _fdAdName = "";
         /// <summary>
         /// 广告名称
         /// </summary>

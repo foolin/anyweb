@@ -37,7 +37,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\AnyWell_DLL\DBBase\obj\Release\DBBase.dll</HintPath>
     </Reference>
-    <Reference Include="Studio, Version=1.0.3906.27098, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Studio, Version=1.0.4079.40898, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\AnyWell_DLL\Studio\obj\Release\Studio.dll</HintPath>
     </Reference>

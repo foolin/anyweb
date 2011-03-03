@@ -102,3 +102,34 @@ function SetTags() {
     }
     CloseWindow("ChooseTag");
 }
+
+//显示上传控件
+function ShowUploader(parent, FilePath, JavascriptReturnFunction, Multiselect, MaxNumberToUpload) {
+    var param = "";
+    if (FilePath)
+        param += ",FilePath=" + FilePath;
+    if (JavascriptReturnFunction)
+        param += ",JavascriptReturnFunction=" + JavascriptReturnFunction;
+    if (Multiselect)
+        param += ",Multiselect=True";
+    if (MaxNumberToUpload > -1)
+        param += ",MaxNumberToUpload=" + MaxNumberToUpload;
+
+    var html = "\
+    <object data=\"data:application/x-silverlight-2,\" type=\"application/x-silverlight-2\" width=\"500\" height=\"300\">\
+        <param name=\"source\" value=\"/ClientBin/FileUpload.xap\" />\
+        <param name=\"background\" value=\"white\" />\
+        <param name=\"minRuntimeVersion\" value=\"3.0.40624.0\" />\
+        <param name=\"autoUpgrade\" value=\"true\" />\
+        <param name=\"initParams\" value=\"UploadPage=/Admin/FileUpload.ashx,Filter=Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp" + param + ",UploadChunkSize=102400\" />\
+        <a href=\"http://go.microsoft.com/fwlink/?LinkID=124807\" style=\"text-decoration: none;\">\
+            <img src=\"http://go.microsoft.com/fwlink/?LinkId=108181\" alt=\"Get Microsoft Silverlight\" style=\"border-style: none\" />\
+        </a>\
+    </object>\
+    <iframe style='visibility: hidden; height: 0; width: 0; border: 0px'></iframe>";
+    $("#" + parent).html(html);
+}
+
+function HideUploader(parent) {
+    $("#" + parent).html("");
+}

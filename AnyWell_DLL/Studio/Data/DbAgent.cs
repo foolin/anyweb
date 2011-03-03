@@ -9,9 +9,6 @@ namespace Studio.Data
     /// <summary>
     /// Name:数据代理
     /// Description:为数据逻辑层提供实现基础
-    /// Author:谢康
-    /// CreateDate:2005-07-11
-    /// Update:2006-06-06 Earth
     /// </summary>
     public abstract class DbAgent : IDisposable
     {

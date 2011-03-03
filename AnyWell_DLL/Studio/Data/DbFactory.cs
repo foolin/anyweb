@@ -6,9 +6,6 @@ namespace Studio.Data
 	/// <summary>
 	/// Name:数据存取器工厂
 	/// Description:根据数据库类型和连接字符串创建存取器实例
-	/// Author:谢康
-	/// CreateDate:2005-07-11
-	/// Update: 2006-06-06 Earth
 	/// </summary>
 	public class DbFactory
 	{

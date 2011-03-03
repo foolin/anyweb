@@ -6,9 +6,6 @@ namespace Studio.Data
 	/// <summary>
 	/// Name:数据存取器(执行者)接口
 	/// Description:定义数据存取器公共接口方法,逻辑层调用此接口进行数据操作,而不是调用具体的接口实现类
-	/// Author:谢康
-	/// CreateDate:2005-07-11
-    /// ModifiyAt:2009-09-03 添加连接事务支持
 	/// </summary>
 	public interface IDbExecutor : IDisposable
 	{

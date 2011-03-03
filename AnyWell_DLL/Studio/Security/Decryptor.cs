@@ -49,12 +49,4 @@ namespace Studio.Security
 			set{initVec = value;}
 		}
 	}
-
-    public enum EncryptionAlgorithm
-    {
-        Des = 1,
-        Rc2,
-        Rijndael,
-        TripleDes
-    };
 }

@@ -467,11 +467,27 @@ namespace AnyWell.AW_DL
             return funcExecute(CommandType.Text, sql, parameters);
         }
 
+        public virtual int funcExecute( string sql, IDbTransaction tran )
+        {
+            IDbDataParameter[] parameters = new IDbDataParameter[ _propParameters.Count ];
+            _propParameters.CopyTo( parameters );
+
+            return funcExecute( CommandType.Text, sql, tran, parameters );
+        }
+
         public virtual int funcExecute(CommandType cmdType, string cmdText, params IDbDataParameter[] parameters)
         {
             using (IDbExecutor db = this.NewExecutor())
             {
                 return db.ExecuteNonQuery(cmdType, cmdText, parameters);
+            }
+        }
+
+        public virtual int funcExecute( CommandType cmdType, string cmdText, IDbTransaction tran, params IDbDataParameter[] parameters )
+        {
+            using( IDbExecutor db = this.NewExecutor() )
+            {
+                return db.ExecuteNonQuery( cmdType, cmdText, tran, parameters );
             }
         }
 

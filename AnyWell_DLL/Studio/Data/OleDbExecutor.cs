@@ -7,9 +7,6 @@ namespace Studio.Data
 	/// <summary>
 	/// Name:OleDb数据存取器
 	/// Description:实现基于OleDb数据驱动的数据存取器
-	/// Author:谢康
-	/// CreateDate:2006-11-9
-    /// ModifiyAt:2009-09-03 添加连接事务支持
     /// </summary>
 	public class OleDbExecutor : IDbExecutor
 	{

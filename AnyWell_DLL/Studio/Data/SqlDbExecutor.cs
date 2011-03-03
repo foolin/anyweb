@@ -7,9 +7,6 @@ namespace Studio.Data
 	/// <summary>
 	/// Name:Sql Server数据存取器
 	/// Description:实现基于Sql Server的定义数据存取器
-	/// Author:谢康
-	/// CreateDate:2005-07-11
-    /// ModifiyAt: xk 2009-09-03 添加连接事务支持
     /// </summary>
 	public class SqlDbExecutor : IDbExecutor
 	{

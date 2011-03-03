@@ -7,9 +7,6 @@ namespace Studio.Data
     /// <summary>
     /// Name:Oracle数据存取器
     /// Description:实现基于Oracle的定义数据存取器
-    /// Author:Earth
-    /// CreateDate:2006-06-06
-    /// ModifiyAt: xk 2009-09-03 添加连接事务支持
     /// </summary>
     public class OracleDbExecutor : IDbExecutor
     {

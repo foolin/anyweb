@@ -59,7 +59,7 @@
     </script>
 
 </head>
-<body>
+<body style="overflow-x:hidden;">
     <table width="198" border="0" cellpadding="0" cellspacing="0" class="left-table01">
         <tr>
             <td>

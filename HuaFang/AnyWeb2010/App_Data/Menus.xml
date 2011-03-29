@@ -2,29 +2,29 @@
 <xmenu xmlns="http://schema.fortuneage.com/xmenu-1.0">
   <xMenuItem id="1" url="Index.aspx" name="商城管理系统" module="0">
     <xMenuItem id="1" name="商品" module="1">
-      <xMenuItem id="101" url ="/Admin/Good/GoodsList.aspx" name ="商品列表" >
-        <xMenuItem url ="/Admin/Good/GoodsAdd.aspx" name ="添加商品" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/Good/GoodsPatch.aspx" name ="批量添加" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/Good/GoodsEdit.aspx" name ="修改商品" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/Good/GoodsDel.aspx" name ="删除商品" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/Good/GoodsSort.aspx" name ="商品排序" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/Good/GoodsSet.aspx" name ="批量操作" type="3" ></xMenuItem>
+      <xMenuItem id="101" url ="/Admin/Goods/GoodsList.aspx" name ="商品列表" >
+        <xMenuItem url ="/Admin/Goods/GoodsAdd.aspx" name ="添加商品" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/Goods/GoodsPatch.aspx" name ="批量添加" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/Goods/GoodsEdit.aspx" name ="修改商品" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/Goods/GoodsDel.aspx" name ="删除商品" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/Goods/GoodsSort.aspx" name ="商品排序" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/Goods/GoodsSet.aspx" name ="批量操作" type="3" ></xMenuItem>
       </xMenuItem>
-      <xMenuItem id="102" url ="/Admin/Good/GoodsAdd.aspx" name ="添加商品" ></xMenuItem>
-      <xMenuItem id="104" url ="/Admin/Good/CategoryList.aspx" name ="分类列表" >
-        <xMenuItem url ="/Admin/Good/CategoryAdd.aspx" name ="添加分类" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/Good/CategoryEdit.aspx" name ="修改分类" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/Good/CategoryDel.aspx" name ="删除分类" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/Good/CategorySort.aspx" name ="分类排序" type="3" ></xMenuItem>
+      <xMenuItem id="102" url ="/Admin/Goods/GoodsAdd.aspx" name ="添加商品" ></xMenuItem>
+      <xMenuItem id="104" url ="/Admin/Goods/CategoryList.aspx" name ="分类列表" >
+        <xMenuItem url ="/Admin/Goods/CategoryAdd.aspx" name ="添加分类" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/Goods/CategoryEdit.aspx" name ="修改分类" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/Goods/CategoryDel.aspx" name ="删除分类" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/Goods/CategorySort.aspx" name ="分类排序" type="3" ></xMenuItem>
       </xMenuItem>
-      <xMenuItem id="102" url ="/Admin/Good/CategoryAdd.aspx" name ="添加分类" ></xMenuItem>
-      <xMenuItem id="105" url ="/Admin/Good/BrandList.aspx" name ="品牌列表" >
-        <xMenuItem url ="/Admin/Good/BrandAdd.aspx" name ="添加品牌" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/Good/BrandEdit.aspx" name ="修改品牌" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/Good/BrandDel.aspx" name ="删除品牌" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/Good/BrandSort.aspx" name ="品牌排序" type="3" ></xMenuItem>
+      <xMenuItem id="102" url ="/Admin/Goods/CategoryAdd.aspx" name ="添加分类" ></xMenuItem>
+      <xMenuItem id="105" url ="/Admin/Goods/BrandList.aspx" name ="品牌列表" >
+        <xMenuItem url ="/Admin/Goods/BrandAdd.aspx" name ="添加品牌" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/Goods/BrandEdit.aspx" name ="修改品牌" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/Goods/BrandDel.aspx" name ="删除品牌" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/Goods/BrandSort.aspx" name ="品牌排序" type="3" ></xMenuItem>
       </xMenuItem>
-      <xMenuItem id="102" url ="/Admin/Good/BrandAdd.aspx" name ="添加品牌" ></xMenuItem>
+      <xMenuItem id="102" url ="/Admin/Goods/BrandAdd.aspx" name ="添加品牌" ></xMenuItem>
     </xMenuItem>
     <xMenuItem id="2" name="会员" module="2">
       <xMenuItem id="201" url ="/Admin/User/MemberList.aspx" name ="会员列表" >

@@ -20,6 +20,7 @@ public partial class Admin_CommentDel : PageAdmin
         {
             new AW_Goods_Comment_dao().funcDeletes(ids);
         }
+        this.AddLog( EventType.Delete, "删除评论", "删除评论" );
         Response.Redirect(Request.UrlReferrer == null ? "CommentList.aspx" : Request.UrlReferrer.AbsoluteUri);
     }
 }

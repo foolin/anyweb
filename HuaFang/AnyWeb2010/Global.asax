@@ -124,6 +124,12 @@
                     Context.Items.Add( "COLUMNID", urlInfo[ 1 ] );
                     break;
                 }
+            case "g":   //商品内容页
+                {
+                    realPath = "/Goods.aspx";
+                    Context.Items.Add( "GOODSID", urlInfo[ 1 ] );
+                    break;
+                }
             case "n":   //公告内容页
                 {
                     realPath = "/NoticeDetail.aspx";

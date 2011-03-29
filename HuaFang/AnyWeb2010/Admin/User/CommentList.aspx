@@ -36,11 +36,11 @@
                             <h4>
                                 <label>
                                     <input type="checkbox" name="ids" value="<%#Eval("fdCommID")%>" />
-                                    Re:<a href="javascript:;"><%#Eval("Goods.fdGoodName")%></a> <a href="javascript:;"
-                                        onclick="this.parentNode.parentNode.nextSibling.nextSibling.style.display='block';">
-                                        回复</a>
+                                    Re:<a href="/g/<%#Eval("Goods.fdGoodID") %>.aspx" target="_blank"><%#Eval("Goods.fdGoodName")%></a>
                                 </label>
                             </h4>
+                            <a class="btnreply" href="javascript:;" onclick="$(this).next().next().show();">
+                                回复</a>
                             <div class="txt">
                                 <p class="cont">
                                     <%#Eval("fdCommContent")%></p>
@@ -68,7 +68,7 @@
         </div>
         <div class="mft">
         </div>
-        <input type="button" onclick="dels()" value="批量删除"/>
+        <input type="button" onclick="dels()" value="批量删除" />
     </div>
     <div>
         <ul class="Help">
@@ -78,17 +78,15 @@
 
     <script type="text/javascript">
         var currReply = null;
-        function reply(target,id)
-        {
+        function reply(target, id) {
             var reply = target.previousSibling.value;
             currReply = target.previousSibling;
-            var url = "/Ajax/CommentReply.aspx?id="+id;
-            $.post(url,"reply="+escape(reply),function (data){
-                if(data>0 && currReply!=null)
-                {
+            var url = "CommentReply.aspx?id=" + id;
+            $.post(url, "reply=" + escape(reply), function(data) {
+                if (data > 0 && currReply != null) {
                     var reply = currReply.value;
-                    var html = "<div class='reply' title='回复于："+new Date().toUTCString()+"'><strong>回复：</strong>:<span>"+reply+"</span></div>";
-                    $(currReply.parentNode).prev(".txt").children(".reply").replaceWith( html );
+                    var html = "<div class='reply' title='回复于：" + new Date().toUTCString() + "'><strong>回复：</strong>:<span>" + reply + "</span></div>";
+                    $(currReply.parentNode).prev(".txt").children(".reply").replaceWith(html);
                     currReply.parentNode.style.display = "none";
                 }
             });
@@ -101,18 +99,15 @@
                 }
             }
         }
-        function dels()
-        {
+        function dels() {
             var list = document.getElementsByTagName("input");
             var selected = false;
             var form0;
             form0 = document.createElement("form");
             form0.method = "POST";
             form0.action = "CommentDel.aspx?action=del";
-            for (var i = 0; i < list.length; i++) 
-            {
-                if (list[i].name == "ids" && list[i].type == "checkbox" && list[i].checked) 
-                {
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].name == "ids" && list[i].type == "checkbox" && list[i].checked) {
                     input1 = document.createElement("input");
                     input1.type = "hidden";
                     input1.name = "ids";
@@ -130,8 +125,7 @@
                 form0.submit();
             }
         }
-        function search()
-        {
+        function search() {
             var url = "CommentList.aspx?gname=" + document.getElementById("<%=compGoodsName.ClientID%>").value;
             url += "&uname=" + document.getElementById("<%=compUserName.ClientID%>").value;
             url += "&ip=" + document.getElementById("<%=compIp.ClientID%>").value;

@@ -372,7 +372,8 @@ input[type=file]{height:18px;}
 .selectAll{padding-left:3px;background:#f0f0f0;border:1px solid #e0e0e0;}
 
 
-#leaveList .item h4{width:150px;}
+#leaveList .item h4{/*width:150px;*/}
+#leaveList .item .btnreply{float: right;padding-right:10px;}
 #leaveList .item .txt .contact{margin:0px auto;clear:both;}
 #leaveList .item .txt .contact li{color:#666;width:250px;}
 #leaveList .item .txt .cont{margin:8px auto;}

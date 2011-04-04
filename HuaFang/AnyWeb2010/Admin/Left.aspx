@@ -1,9 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Left.aspx.cs" Inherits="Admin_Left" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
     <style type="text/css">
         <!-- 
@@ -57,7 +57,6 @@
             });
         }
     </script>
-
 </head>
 <body style="overflow-x:hidden;">
     <table width="198" border="0" cellpadding="0" cellspacing="0" class="left-table01">
@@ -72,7 +71,7 @@
                                         <img src="images/ico02.gif" width="35" height="35" />
                                     </td>
                                     <td width="75%" height="22" class="left-font01">
-                                        您好，<span class="left-font02"><%=admin.fdAdmiName%></span>
+                                        您好，<span class="left-font02"><%=AdminInfo.fdAdmiName%></span>
                                     </td>
                                 </tr>
                                 <tr>

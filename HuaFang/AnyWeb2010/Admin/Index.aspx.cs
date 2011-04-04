@@ -5,15 +5,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
 
-public partial class Admin_Index : System.Web.UI.Page
+public partial class Admin_Index : PageAdmin
 {
-    protected AW_Admin_bean _adminInfo;
-    protected override void OnInit(EventArgs e)
+    protected override void OnPreInit( EventArgs e )
     {
-        base.OnInit(e);
-
-        _adminInfo = (new AW_Admin_dao()).funcGetAdminFromCookie();
-        if (_adminInfo == null)
-            Response.Redirect("~/Admin/Login.aspx");
+        AdminInfo = ( new AW_Admin_dao() ).funcGetAdminFromCookie();
+        if( AdminInfo == null )
+        {
+            Response.Redirect( "Login.aspx" );
+        }
     }
 }

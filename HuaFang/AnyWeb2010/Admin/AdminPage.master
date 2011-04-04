@@ -24,7 +24,7 @@
         <tr>
             <td height="62" background="/Admin/images/nav04.gif">
                 <div class="Location" id="NavLocation" style="padding-left: 20px;">
-                    当前位置：<a href="mainfra.html">首页</a> &gt;
+                    当前位置：<a href="/Admin/mainfra.html">首页</a> &gt;
                     <asp:Literal ID="compPos" runat="server"></asp:Literal>
                 </div>
                 <div style="height: 36px;">
@@ -34,9 +34,16 @@
             </td>
         </tr>
     </table>
+    <div id="Content" style="overflow:scroll">
     <form id="form1" runat="server">
     <asp:ContentPlaceHolder ID="cph1" runat="server">
     </asp:ContentPlaceHolder>
     </form>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#Content").height(document.documentElement.clientHeight - 62);
+        });
+	</script>
 </body>
 </html>

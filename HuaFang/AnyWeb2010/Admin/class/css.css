@@ -11,10 +11,8 @@ a.top-font01:hover {
 	text-decoration: underline;
 }
 .left-table01 {
-	border-top-width: 2px;
-	border-top-style: solid;
-	border-top-color: #B8C9D6;
-	margin-left: 14px;
+	border-top:2px solid #B8C9D6;
+	margin-left: 2px;
 }
 .left-table02 {
 	margin-top: 8px;

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="GetSites.aspx.cs" Inherits="Admin_Ajax_GetSites" %>

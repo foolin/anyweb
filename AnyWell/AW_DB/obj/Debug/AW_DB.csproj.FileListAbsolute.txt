@@ -1,0 +1,8 @@
+E:\PROJECT\DOTNET\AnyWell\AW_DB\bin\Debug\AW_DB.dll
+E:\PROJECT\DOTNET\AnyWell\AW_DB\bin\Debug\AW_DB.pdb
+E:\PROJECT\DOTNET\AnyWell\AW_DB\bin\Debug\DBBase.dll
+E:\PROJECT\DOTNET\AnyWell\AW_DB\bin\Debug\Studio.dll
+E:\PROJECT\DOTNET\AnyWell\AW_DB\bin\Debug\DBBase.pdb
+E:\PROJECT\DOTNET\AnyWell\AW_DB\obj\Debug\ResolveAssemblyReference.cache
+E:\PROJECT\DOTNET\AnyWell\AW_DB\obj\Debug\AW_DB.dll
+E:\PROJECT\DOTNET\AnyWell\AW_DB\obj\Debug\AW_DB.pdb

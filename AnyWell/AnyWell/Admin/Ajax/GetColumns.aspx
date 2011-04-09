@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="GetColumns.aspx.cs" Inherits="Admin_Ajax_GetColumns" %>

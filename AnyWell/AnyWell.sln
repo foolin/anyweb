@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AnyWell", "E:\PROJECT\DOTNET\AnyWell\AnyWell\", "{7230044A-8A05-46CE-B23F-AD35FDFE2643}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "2.0"
+		ProjectReferences = "{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}|AW_DB.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/AnyWell"
+		Debug.AspNetCompiler.PhysicalPath = "AnyWell\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\AnyWell\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/AnyWell"
+		Release.AspNetCompiler.PhysicalPath = "AnyWell\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\AnyWell\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "2009"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW_DB", "E:\PROJECT\DOTNET\AnyWell\AW_DB\AW_DB.csproj", "{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7230044A-8A05-46CE-B23F-AD35FDFE2643}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7230044A-8A05-46CE-B23F-AD35FDFE2643}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7230044A-8A05-46CE-B23F-AD35FDFE2643}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{7230044A-8A05-46CE-B23F-AD35FDFE2643}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AW_DB</RootNamespace>
+    <AssemblyName>AW_DB</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DBBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\AnyWell_DLL\DBBase\obj\Release\DBBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Studio, Version=1.0.4079.40898, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\AnyWell_DLL\Studio\obj\Release\Studio.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configs\AnyWellSetting.cs" />
+    <Compile Include="DBExtend\AW_Admin_bean.cs" />
+    <Compile Include="DBExtend\AW_Admin_dao.cs" />
+    <Compile Include="DBExtend\AW_Column_bean.cs" />
+    <Compile Include="DBExtend\AW_Column_dao.cs" />
+    <Compile Include="DBExtend\AW_Log_bean.cs" />
+    <Compile Include="DBExtend\AW_Log_dao.cs" />
+    <Compile Include="DBExtend\AW_Site_bean.cs" />
+    <Compile Include="DBExtend\AW_Site_dao.cs" />
+    <Compile Include="DBFile\AW_Admin_bean.cs" />
+    <Compile Include="DBFile\AW_Admin_dao.cs" />
+    <Compile Include="DBFile\AW_Column_bean.cs" />
+    <Compile Include="DBFile\AW_Column_dao.cs" />
+    <Compile Include="DBFile\AW_Log_bean.cs" />
+    <Compile Include="DBFile\AW_Log_dao.cs" />
+    <Compile Include="DBFile\AW_Site_bean.cs" />
+    <Compile Include="DBFile\AW_Site_dao.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,109 @@
+/* 
+Default Prototype Library for Classtyle
+v2.0.0
+*/
+
+/* 页面
+================================================================================================= */
+body{margin:0 auto;font:normal 12px Arial,sans-serif;}
+.phd,
+.pbd,
+.pft{background:#fff;}
+.phd{}
+.pbd{}
+.pft{}
+input,
+textarea,
+button{font-size:12px;
+}
+
+/* 容器类
+
+================================================================================================= */
+/* 标识 Logo
+--------------------- */
+.Logo{font:normal normal normal 20px/30px "微软雅黑","黑体",sans-serif;}
+
+/* 模块 Mod
+--------------------- */
+.Mod{margin:5px 3px;border:1px solid #ccc;padding-bottom:10px;}
+.mhd{padding:5px;background:#e0e0e0;}
+.mhd h3{font-size:12px;float:left;}
+.mhd .more{float:right;}
+.mbd{padding:5px;}
+.mbd .more a{float:right;}
+.mft{font-size:0;}
+
+/* 文本列表 List
+--------------------- */
+.List,
+.pbd .pubList{}
+
+	/* 文章列表 Articles
+	--------------------- */
+	.Articles,
+	.pbd .pubArticles{}
+	.Articles .mbd li a,
+	.pbd .pubArticles li a{float:left;width:70%;height:100%;overflow:hidden;}
+	.Articles .mbd li span,
+	.pbd .pubArticles li span{float:right;width:25%;/*margin-top:-1px;*/}
+	.Articles .mbd li.more a,
+	.pbd .pubArticles li.more a{float:right;width:25%;}
+
+/* 照片列表 PhotoList
+--------------------- */
+.PhotoList .mbd,
+.PhotoList .mbd .i{padding:0;}
+.PhotoList .mbd ul,
+.pbd .pubPhotoList{margin-bottom:10px;}
+.PhotoList .item,
+.pbd .pubPhotoList li{width:100px;margin:10px 6px 0;}
+.PhotoList .item strong,
+.pbd .pubPhotoList strong{height:1.6em;font-weight:normal;}
+.PhotoList .item img,
+.pbd .pubPhotoList img{height:80px;}
+.PhotoList .info li,
+.pbd .pubPhotoList .info li{margin:5px 0 0;}
+
+/* 摘要列表 SummaryList
+--------------------- */
+.SummaryList .item{margin:5px 10px 20px;overflow:hidden;display:inline-block;}
+.SummaryList [class~="item"]{display:block;}
+.SummaryList h4{font-size:14px;line-height:24px;}
+.SummaryList .pic{float:right;margin:-24px 0 0 5px;}
+.SummaryList .info li{display:inline;margin:0;overflow:hidden;}
+
+/* 图片 Pic
+--------------------- */
+.Pic{border:0;padding:0;background:transparent;}
+.Pic img,
+.pbd .pubPic img{display:block;}
+
+/* 表单 Form
+--------------------- */
+.Form label{padding:0 5px 0 0;width:4em;line-height:20px;}
+.Form .fi{margin:3px 0;padding:4px 0 5px 0;line-height:normal;}
+.Form .fiBtns{padding-left:5px;margin-left:4em;}
+
+/* 选项卡 Tab
+--------------------- */
+.Tab .mhd{padding:0;}
+.Tab .mhd li{padding:5px 8px;}
+.Tab .mhd li.on{background:#fff;}
+
+/* 数据列表 DataList
+--------------------- */
+.DataList caption{background:#e0e0e0;}
+.DataList th,
+.DataList td{border:1px solid #ccc;padding:2px;padding:2px;}
+
+/* 版权 Copyright
+--------------------- */
+.Copyright{text-align:center;line-height:20px;}
+
+h1, h2, h3, h4, h5 {
+font-size:100%;
+font-weight:normal;
+margin:0;
+padding:0;
+}

@@ -1,0 +1,135 @@
+body
+{
+	font-size:12px;
+}
+
+#mainmenu {
+    background: url("../images/NavBG.jpg") repeat-x scroll 0 0 transparent;
+    border: 1px solid #E5F3F8 !important;
+    color: #0193CC;
+    font-size: 12px;
+    height: 28px;
+    margin-top: 2px;
+    padding-left: 30px;
+}
+#mainmenu a {
+    background: url("../images/NavLine.jpg") no-repeat scroll 100% 50% transparent;
+    color: #0193CC;
+    cursor: default;
+    line-height: 24px;
+    margin-right: 10px;
+    padding: 4px 20px 0 0;
+}
+#mainmenu a.over {
+    color: green;
+}
+#mainmenu .child {
+    background-color: #EEF3F7;
+    border: 1px solid #92B0DD;
+    color: #000000;
+    cursor: default;
+    padding: 1px;
+    width: 150px;
+}
+#mainmenu .child .item.over {
+    background-color: Navy;
+    color: #FFFFFF;
+}
+#mainmenu .child .item.over.hasChild {
+    background-image: url("../images/pointer-over.jpg");
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+#mainmenu .child .item {
+    border: 1px solid #EEF3F7;
+    height: 24px;
+    padding-left: 20px;
+    padding-top: 5px;
+    vertical-align: middle;
+}
+#mainmenu .child .item.hasChild {
+    background-image: url("../images/pointer.jpg");
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+#mainmenu .child .item.checked {
+    background-image: url("../images/checked.jpg");
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+#mainmenu .child .item.selected {
+    background-image: url("../images/selected.jpg");
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+#mainmenu .separator {
+    background-color: gray;
+    height: 1px;
+    margin-bottom: 3px;
+    margin-left: 20px;
+    margin-top: 3px;
+    overflow: hidden;
+}
+#treemenu{
+	margin:8px 0 0 10px;
+}
+#treemenu td
+{
+	padding-top:10px;
+}
+#treemenu a{
+	color:#000;
+	text-decoration:none;
+}
+#treemenu a:hover
+{
+	text-decoration:underline;
+}
+.selected {
+    background-color:Silver;
+}
+.contextmenu {
+    background-color: #F2FAFF;
+    border: 1px solid gray;
+    font-size: 12px;
+    width: 140px;
+}
+.contextmenu .item {
+    border: 1px solid #F2FAFF;
+    height: 16px;
+    margin: 1px;
+    padding-left: 10px;
+    padding-top: 5px;
+    cursor:pointer;
+}
+.contextmenu .separator {
+    background-color: gray;
+    float: right;
+    height: 1px;
+    overflow: hidden;
+    width: 128px;
+}
+.contextmenu .item.over {
+    background-color: navy;
+    border: 1px solid navy;
+    color: #FFFFFF;
+}
+#popupDiv {
+    border: 0 none;
+    display: none;
+    padding: 0;
+    position: fixed;
+    z-index: 3;
+}
+#backgroundPopup {
+    background: none repeat scroll 0 0 #000000;
+    border: 0 none;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+

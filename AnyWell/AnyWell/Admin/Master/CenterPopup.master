@@ -1,0 +1,39 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="CenterPopup.master.cs"
+    Inherits="Admin_Master_CenterPopup" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>添加</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link href="/Admin/class/style.css" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 6]>
+	<link href="/Admin/class/forIE6.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+
+    <script type="text/javascript" src="../js/jquery.js"></script>
+
+    <script type="text/javascript" src="../js/function.js"></script>
+
+    <asp:ContentPlaceHolder ID="cphHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <iframe style="width: 0px; height: 0px; display: none;" id="ifrSelf" name="ifrSelf">
+    </iframe>
+    <form id="form1" runat="server" target="ifrSelf">
+    <div class="pbd">
+        <div class="popmhd">
+            <a href="javascript:parent.disablePopup();">
+                <img src="../images/icons/close.gif" alt="" /></a>
+            <h3>
+                <asp:ContentPlaceHolder ID="cphTitle" runat="server">
+                </asp:ContentPlaceHolder>
+            </h3>
+        </div>
+        <asp:ContentPlaceHolder ID="cphContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

@@ -18,18 +18,16 @@ namespace Studio.Web
     /// <summary>
     /// Name:TinyMce Html Editor
     /// Description:if page contain more than one TinyMce Control, then page should exists a header runat at server.
-    /// Author:Earth
-    /// CreateDate:2009-1-19
     /// </summary>
     [Designer(typeof(TinyMceDesigner))]
     public class TinyMce : WebControl, INamingContainer
     {
-        string _ciKey = "FA_TinyMce";
+        string _ciKey = "AW_TinyMce";
         int _index = 0;
-        public TinyMce()// : base(HtmlTextWriterTag.Div)
+        public TinyMce()
         {
             this.textArea = new HtmlTextArea();
-            this.textArea.ID = this.ID + "_txt";
+            this.textArea.ID = this.ID + "txt";
             this.Controls.Add(textArea);
             lock (Context)
             {
@@ -261,6 +259,19 @@ namespace Studio.Web
         {
             get { return _Mode; }
             set { _Mode = value; }
+        }
+
+        private string _ID;
+        public new string ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                _ID = value;
+            }
         }
 
         /// <summary>

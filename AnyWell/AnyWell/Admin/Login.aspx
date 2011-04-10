@@ -88,6 +88,11 @@
                 </table>
             </td>
         </tr>
+        <tr>
+            <td colspan="2" align="center">
+                Copyright© 2010-<%=DateTime.Now.Year %> Anywell Studio, All rights reserved.
+            </td>
+        </tr>
     </table>
     </form>
     <script type="text/javascript">

@@ -11,6 +11,7 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/webmenu.js"></script>
     <script type="text/javascript" src="js/function.js"></script>
+    <script type="text/javascript" src="js/corl.js"></script>
     <title>AnyWell Studio管理系统</title>
 </head>
 <body scroll="no">
@@ -45,6 +46,7 @@
         </iframe>
     </div>
     <div id="backgroundPopup"></div>
+    <div id="movePopup" style="position:absolute;background:none repeat scroll 0 0 #000000;"></div>
     <script type="text/javascript">
         var menu = new WebMenu();
         $(document).ready(function() {

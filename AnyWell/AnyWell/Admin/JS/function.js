@@ -2,6 +2,8 @@
     return document.getElementById(obj);
 }
 
+var isIE = (document.all) ? true : false;
+
 /*---------------- 主界面 --------------------------*/
 //初始化iframe高度
 function initFrame() {
@@ -66,8 +68,8 @@ function loadPopup(width, height) {
 
 //弹出对话层
 function centerPopup() {
-    var windowWidth = document.body.offsetWidth; 
-    var windowHeight = document.body.offsetHeight;
+    var windowWidth = document.documentElement.clientWidth;
+    var windowHeight = document.documentElement.clientHeight;
     var popupHeight = $("#popupDiv").height();
     var popupWidth = $("#popupDiv").width();
     var top = (windowHeight - popupHeight) / 2 > 0 ? (windowHeight - popupHeight) / 2 : 0;
@@ -77,7 +79,66 @@ function centerPopup() {
         "left": (windowWidth - popupWidth) / 2
     });
     $("#backgroundPopup").css({
-    "height": document.documentElement.clientHeight
+        "height": document.documentElement.clientHeight
+    });
+}
+
+//对话层拖放
+function setDrag(obj, pid) {
+    var parent = $("#" + pid);
+    var div = $("#movePopup");
+
+    obj.mousedown(function(e) {
+        if (e.target.nodeName.toLowerCase() == 'img') return;
+        div.css({
+            height: parent.height(),
+            width: parent.width(),
+            top: parent.css("top"),
+            left: parent.css("left"),
+            opacity: 0.2
+        });
+        parent.hide();
+        if (isIE) {
+            $$("movePopup").setCapture();
+        }
+
+        var offset = obj.offset();
+        var x = e.clientX;
+        var y = e.clientY;
+
+        $(document).bind("mousemove", function(event) {
+            var currentX = event.clientX - x;
+            var currentY = event.clientY - y;
+            if (currentX < 0) currentX = 0;
+            if (currentY < 0) currentY = 0;
+            if (currentX + div.width() > document.documentElement.clientWidth)
+                currentX = document.documentElement.clientWidth - div.width();
+            if (currentY + div.height() > document.documentElement.clientHeight)
+                currentY = document.documentElement.clientHeight - div.height();
+
+            div.css({
+                left: currentX,
+                top: currentY
+            });
+        });
+
+        $(document).mouseup(function() {
+            $(document).unbind("mousemove");
+            if (isIE) {
+                $$("movePopup").releaseCapture();
+            }
+            parent.css({
+                top: div.css("top"),
+                left: div.css("left")
+            });
+            div.css({
+                width: 0,
+                height: 0
+            });
+            parent.show();
+        });
+
+        return false;
     });
 }
 
@@ -267,7 +328,7 @@ function clearSite(s, ownerDel) {
     while (s.columns.length > 0) {
         clearColumn(s.columns[0], true);
     }
-    s.columns = new Array();    
+    s.columns = new Array();
     if (ownerDel) {
         $(s.row).remove();
         sites.splice(s.index, 1);
@@ -301,13 +362,13 @@ function delTreeColumn(cid) {
                 focusItem(column.site, true);
             }
         }
-    }    
+    }
 }
 
 //清除栏目
 function clearColumn(c, ownerDel) {
     while (c.children.length > 0) {
-        clearColumn(c.children[0], true); 
+        clearColumn(c.children[0], true);
     }
     if (ownerDel) {
         $(c.row).remove();
@@ -326,7 +387,7 @@ function gotoSite(siteID) {
         return;
     }
     expandSite(site);
-    
+
 }
 
 //添加栏目
@@ -336,11 +397,11 @@ function addTreeColumn(sid, colpath) {
     if (site == null || ids.length == 0) {
         return;
     }
-    
+
     if (site.columns.length > 0) {
         clearSite(site, false);
     }
-    
+
     site.expanded = false;
     gotoColumn(sid, colpath);
 }
@@ -382,7 +443,7 @@ function gotoColumn(sid, path) {
     if (parent == null) {
         return;
     }
-    
+
     for (var i = 1; i < ids.length; i++) {
         if (parent.haschild == true && parent.children.length == 0) {
             expandColumn(parent, i, path);
@@ -579,7 +640,7 @@ function addColumnRow(c) {
         if (c.expanded)
             packUpColumn(c);
         else
-            expandColumn(c); 
+            expandColumn(c);
     });
 
     var typeimg = document.createElement("IMG");
@@ -616,7 +677,7 @@ function addColumnRow(c) {
     }
     row.cells[0].style.paddingLeft = c.padding.toString() + "px";
     row.cells[0].nowrap = "nowrap";
-    
+
     return row;
 }
 
@@ -645,7 +706,7 @@ function focusItem(c, go) {
             expandColumn(c);
         }
     }
-    
+
     if (go == true) {
         window.open(c.url, "mainFrame");
         if (c.row.offsetTop > document.documentElement.clientHeight) {

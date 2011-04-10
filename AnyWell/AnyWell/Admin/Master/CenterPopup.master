@@ -23,7 +23,7 @@
     </iframe>
     <form id="form1" runat="server" target="ifrSelf">
     <div class="pbd">
-        <div class="popmhd">
+        <div class="popmhd" id="PopupTitle">
             <a href="javascript:parent.disablePopup();">
                 <img src="../images/icons/close.gif" alt="" /></a>
             <h3>
@@ -35,5 +35,10 @@
         </asp:ContentPlaceHolder>
     </div>
     </form>
+    <script type="text/javascript">
+        $(function() {
+            parent.setDrag($("#PopupTitle"), 'popupDiv');
+        });
+    </script>
 </body>
 </html>

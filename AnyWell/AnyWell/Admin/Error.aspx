@@ -13,12 +13,12 @@
     <script type="text/javascript" src="js/jquery.js"></script>
 
     <script type="text/javascript" src="js/function.js"></script>
-
+    
 </head>
 <body>
     <div class="pbd">
         <div>
-            <div class="popmhd">
+            <div class="popmhd" id="PopupTitle">
                 <a href="javascript:parent.disablePopup();">
                     <img src="images/icons/close.gif" alt="" /></a>
                 <h3>
@@ -41,5 +41,10 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(function() {
+            parent.setDrag($("#PopupTitle"), 'popupDiv');
+        });
+    </script>
 </body>
 </html>

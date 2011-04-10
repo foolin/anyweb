@@ -124,7 +124,6 @@ public partial class Admin_Content_ColumnAdd : PageAdmin
                     Directory.CreateDirectory( this.Server.MapPath( dir ) );
                 }
                 string fileName = dir + DL_helper.funcGetTicks().ToString() + extension;
-                filePicture.SaveAs( Server.MapPath( fileName ));
                 WebAgent.SaveFile( filePicture.PostedFile, Server.MapPath( fileName ), 120, 120 );
                 bean.fdColuPict = fileName;
             }

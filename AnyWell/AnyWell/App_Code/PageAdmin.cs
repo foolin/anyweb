@@ -40,7 +40,7 @@ public class PageAdmin : Page
         if( _adminInfo == null )
         {
             Response.Clear();
-            Response.Write( "<script language=\"javascript\">parent.location.href=\"Login.aspx\";</script>" );
+            Response.Write( "<script language=\"javascript\">parent.location.href=\"/Admin/Login.aspx\";</script>" );
             Response.End();
         }
     }
@@ -107,6 +107,42 @@ public class PageAdmin : Page
             log.fdLogIP = Request.UserHostAddress;
             log.fdLogCreateAt = DateTime.Now;
             dao.funcInsert(log);
+        }
+    }
+
+    private AW_Site_bean _CurrentSite;
+    /// <summary>
+    /// 当前站点
+    /// </summary>
+    public AW_Site_bean CurrentSite
+    {
+        get
+        {
+            if( _CurrentSite == null && CurrentColumn != null )
+            {
+                _CurrentSite = CurrentColumn.Site;
+            }
+            return _CurrentSite;
+        }
+        set
+        {
+            _CurrentSite = value;
+        }
+    }
+
+    private AW_Column_bean _CurrentColumn;
+    /// <summary>
+    /// 当前栏目
+    /// </summary>
+    public AW_Column_bean CurrentColumn
+    {
+        get
+        {
+            return _CurrentColumn;
+        }
+        set
+        {
+            _CurrentColumn = value;
         }
     }
 }

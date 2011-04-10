@@ -7,8 +7,6 @@ using AnyWell.AW_DL;
 
 public partial class Admin_Content_ColumnList : PageAdmin
 {
-    protected AW_Column_bean bean;
-
     protected void Page_Load( object sender, EventArgs e )
     {
         int cid = 0;
@@ -21,19 +19,19 @@ public partial class Admin_Content_ColumnList : PageAdmin
         }
 
         AW_Column_dao dao=new AW_Column_dao();
-        bean = dao.funcGetColumnInfo( cid );
-        if( bean == null )
+        CurrentColumn = dao.funcGetColumnInfo( cid );
+        if( CurrentColumn == null )
         {
             ShowError( "栏目不存在！" );
         }
 
-        if( bean.Children.Count == 0 )
+        if( CurrentColumn.Children.Count == 0 )
         {
             noDatas.Visible = true;
         }
         else
         {
-            repColumns.DataSource = bean.Children;
+            repColumns.DataSource = CurrentColumn.Children;
             repColumns.DataBind();
         }
     }

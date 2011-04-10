@@ -8,7 +8,7 @@ textarea{border:1px solid #999;font-size:12px;}
 li{list-style:none;}
 table{border-collapse:collapse;border-spacing:0;}
 input.text{height:15px;padding:1px;margin:0;}
-input.file{height:22px;}
+input.file{height:22px;border:1px solid #999;}
 input.button,
 button{line-height:135%;padding:0 4px;}
 select,
@@ -18,6 +18,8 @@ button{vertical-align:middle;}
 .checkbox input,
 input.radio,
 input.checkbox{width:16px;height:16px;margin:0 3px 0 0;overflow:hidden;}
+.radio label,
+.checkbox label{padding-right:10px;}
 button img{vertical-align:middle;}
 br.clear{clear:both;height:1px;line-height:0;font-size:0;overflow:hidden;}
 
@@ -214,6 +216,9 @@ a.login-text01:hover{font-family: "宋体";font-size: 12px;color: #FF0000;text-d
 .operation .opr-mhd a{float:right;margin:10px 3px 0 0;}
 .operation .opr-mbd{padding: 5px;}
 .operation .opr-mbd ul{margin:8px 3px 8px 5px;padding:0;}
+.operation .opr-mbd ul .name{display:block;border-bottom:1px solid #ccc;}
+.operation .opr-mbd ul .template input{border:0;width:70px;cursor:pointer;margin-bottom:3px;overflow:visible;}
+.operation .opr-mbd ul .template img{cursor:pointer;}
 .operation .opr-mbd ul li{margin: 5px 0;}
 .operation .opr-mbd ul li a{padding: 5px 0 5px 25px;}
 .operation .opr-mbd ul li.new a{background:url("../images/icons/icon01.gif") no-repeat scroll 0 50% transparent;}
@@ -228,6 +233,7 @@ a.login-text01:hover{font-family: "宋体";font-size: 12px;color: #FF0000;text-d
 .operation .opr-mbd ul li.copyFile a{background:url(../images/icons/icon08.gif) no-repeat 0;}
 .operation .opr-mbd ul li.inXML a{background:url(../images/icons/icon10.gif) no-repeat 0;}
 .operation .opr-mbd ul li.outXML{background:url(../images/icons/icon11.gif) no-repeat 0;}
+.operation .opr-mbd td{line-height:25px;}
 .mft-main{
     border: 0 none;
     bottom: 0;
@@ -349,16 +355,7 @@ a.login-text01:hover{font-family: "宋体";font-size: 12px;color: #FF0000;text-d
     margin-top: 10px; 
     padding-bottom: 10px;
 }
-.popmft button, .popmft input.button {
-    background: url("../images/button03.gif") no-repeat scroll 0 0 transparent;
-    border: 0 none;
-    color: #174B73;
-    cursor: pointer;
-    margin: 0 5px;
-    font-size:12px;
-    width: 63px;
-    height:20px;
-}
+.popmft button,.popmft input.button{background:url("../images/button03.gif") no-repeat scroll 0 0 transparent;border:0 none;color:#174B73;cursor:pointer;margin:0 5px;font-size:12px;width:63px;height:20px;}
 .imageview li {
     border: 1px solid #CCCCCC;
     float: left;
@@ -381,4 +378,12 @@ a.login-text01:hover{font-family: "宋体";font-size: 12px;color: #FF0000;text-d
     cursor:pointer;
     padding-bottom:7px;
 }
+
+/*文章页*/
+.article .mbd-main{overflow:hidden;}
+.article .mbd-main .pt1{float:left;margin-right:-260px;width:100%;}
+.article .mbd-main .pt1 .datalist{margin:0 260px 0 0; overflow:auto;padding:5px 5px 5px 20px;}
+.article .mbd-main .pt1 .datalist ul li{padding-bottom:5px;}
+.article .mbd-main .pt2 {float: right;margin-bottom: 8px;margin-right: 8px;overflow: hidden;width: 250px;}
+.mft button,.mft input.button{background:url("../images/button03.gif") no-repeat scroll 0 0 transparent;border:0 none;color:#174B73;cursor:pointer;margin:0 5px;font-size:12px;width:63px;height:20px;}
 

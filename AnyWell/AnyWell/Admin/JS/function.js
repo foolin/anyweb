@@ -264,8 +264,8 @@ function delTreeSite(sid) {
 
 //清除站点
 function clearSite(s, ownerDel) {
-    for (var i = 0; i < s.columns.length; i++) {
-        clearColumn(s.columns[i], true);
+    while (s.columns.length > 0) {
+        clearColumn(s.columns[0], true);
     }
     s.columns = new Array();    
     if (ownerDel) {
@@ -648,9 +648,9 @@ function focusItem(c, go) {
     
     if (go == true) {
         window.open(c.url, "mainFrame");
-    }
-    if (c.row.offsetTop > document.body.clientHeight) {
-        window.scroll(0, parseInt(c.row.offsetTop));
+        if (c.row.offsetTop > document.documentElement.clientHeight) {
+            window.scroll(0, parseInt(c.row.offsetTop));
+        }
     }
 }
 
@@ -811,14 +811,14 @@ function createSitePopMenu(s) {
 //文档栏目右键菜单
 function createArticleColumnPopMenu(c) {
     var menu = new ContextMenu(), item;
-    //新建栏目
-    item = new menu.Item("新建栏目", "创建栏目", "javascript:addColumn(" + c.id + ")");
+    item = new menu.Item("修改该栏目", "修改该栏目", "javascript:editColumn(" + c.id + ")");
     menu.addItem(item);
-    //修改栏目
-    item = new menu.Item("修改栏目", "修改栏目", "javascript:editColumn(" + c.id + ")");
+    item = new menu.Item("删除该栏目", "删除该栏目", "javascript:delColumn(" + c.id + ")");
     menu.addItem(item);
-    //删除栏目
-    item = new menu.Item("删除栏目", "删除栏目", "javascript:delColumn(" + c.id + ")");
+    menu.addSeparator();
+    item = new menu.Item("新建文档", "新建文档", "Content/ArticleAdd.aspx?cid=" + c.id);
+    menu.addItem(item);
+    item = new menu.Item("新建子栏目", "创建子栏目", "javascript:addColumn(" + c.id + ")");
     menu.addItem(item);
 
     c.menu = menu;
@@ -935,6 +935,40 @@ function sortColumnOK(cid) {
     parent.window.frames["left"].sortColumn(cid);
 }
 
+//添加文档回调函数
+function addArticleOK(sid, colpath, iscontinue) {
+    if (sid && colpath) {
+        if (opener) {
+            if (opener.location.href.toLowerCase().indexOf("index") > 0) {
+                opener.window.frames["left"].gotoColumn(sid, colpath);
+            }
+            else {
+                opener.parent.window.frames["left"].gotoColumn(sid, colpath);
+            }
+        }
+        if (iscontinue) {
+            window.location.href = window.location.href;
+        } else {
+            window.close();
+        }
+    }
+}
+
+//修改文档回调函数
+function editArticleOK(sid, colpath) {
+    if (sid && colpath) {
+        if (opener) {
+            if (opener.location.href.toLowerCase().indexOf("index") > 0) {
+                opener.window.frames["left"].gotoColumn(sid, colpath);
+            }
+            else {
+                opener.parent.window.frames["left"].gotoColumn(sid, colpath);
+            }
+        }
+        window.close();
+    }
+}
+
 //tab导航事件
 function selectOption(title, content, index) {
     $("div[id^='" + title + "']").each(function() {
@@ -958,4 +992,35 @@ function delPicture(obj) {
     if (obj) {
         $(obj).parent("li").remove();
     }
+}
+
+//操作任务显示/隐藏
+function showFolder(id) {
+    var show;
+    $("#" + id + " img:first").each(function() {
+        if ($(this).attr("src").indexOf("arrow.gif") > -1) {
+            show = false;
+            $(this).attr("src", "../images/icons/arrow2.gif");
+        } else {
+            show = true;
+            $(this).attr("src", "../images/icons/arrow.gif");
+        }
+    });
+    var box = $("#" + id + " > .opr-mbd");
+    if (show) {
+        box.slideUp("fast");
+    } else {
+        box.slideDown("fast");
+    }
+}
+
+//更新文章类型
+function selectArticleType(val) {
+    $("li[id^='type']").each(function() {
+        if ($(this).attr("id") == "type" + val) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
 }

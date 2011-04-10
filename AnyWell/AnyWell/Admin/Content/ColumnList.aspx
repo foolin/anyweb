@@ -54,7 +54,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContent" runat="Server">
     <div id="noDatas" runat="server" visible="false" class="nodatas">
-        未找到栏目，<a href="javascript:parent.addSite();">点击这里</a>新建一个栏目</div>
+        未找到栏目，<a href="javascript:parent.addColumn(<%=CurrentColumn.fdColuID %>);">点击这里</a>新建一个栏目</div>
     <ul class="imglist" id="imglist">
         <asp:Repeater ID="repColumns" runat="server">
             <ItemTemplate>

@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AnyWell.AW_DL;
 
 public partial class Admin_Control_ColumnOperation : UserControlBase
 {
-    protected void Page_Load( object sender, EventArgs e )
+    protected AW_Column_bean CurrentColumn
     {
+        get
+        {
+            return ( ( PageAdmin ) Page ).CurrentColumn;
+        }
     }
 }

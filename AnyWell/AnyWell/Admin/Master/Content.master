@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Content.master.cs" Inherits="Admin_Master_Content" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link href="/Admin/class/style.css" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 6]>
+	<link href="/Admin/class/forIE6.css" rel="stylesheet" type="text/css" />
+	<![endif]-->
+
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    
+    <script type="text/javascript" src="../js/calendar.js"></script>
+
+    <script type="text/javascript" src="../js/function.js"></script>
+
+</head>
+<body scroll="no" class="article">
+    <iframe style="width: 0px; height: 0px; display: none;" id="ifrSelf" name="ifrSelf">
+    </iframe>
+    <form id="form1" runat="server" target="ifrSelf">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td class="Location">
+                <div>
+                    <asp:ContentPlaceHolder ID="cphTitle" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div id="Content" class="mbd-main">
+        <div id="pt1" class="pt1">
+            <div id="datalist" class="datalist">
+                <asp:ContentPlaceHolder ID="cphContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div id="pt2" class="pt2">
+            <asp:ContentPlaceHolder ID="cphOpr" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    </form>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#Content").height(document.documentElement.clientHeight - 35);
+            $("#datalist").height(document.documentElement.clientHeight - 45);
+        });
+    </script>
+
+</body>
+</html>

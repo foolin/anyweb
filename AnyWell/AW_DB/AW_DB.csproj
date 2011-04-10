@@ -49,6 +49,8 @@
     <Compile Include="Configs\AnyWellSetting.cs" />
     <Compile Include="DBExtend\AW_Admin_bean.cs" />
     <Compile Include="DBExtend\AW_Admin_dao.cs" />
+    <Compile Include="DBExtend\AW_Article_bean.cs" />
+    <Compile Include="DBExtend\AW_Article_dao.cs" />
     <Compile Include="DBExtend\AW_Column_bean.cs" />
     <Compile Include="DBExtend\AW_Column_dao.cs" />
     <Compile Include="DBExtend\AW_Log_bean.cs" />
@@ -57,6 +59,8 @@
     <Compile Include="DBExtend\AW_Site_dao.cs" />
     <Compile Include="DBFile\AW_Admin_bean.cs" />
     <Compile Include="DBFile\AW_Admin_dao.cs" />
+    <Compile Include="DBFile\AW_Article_bean.cs" />
+    <Compile Include="DBFile\AW_Article_dao.cs" />
     <Compile Include="DBFile\AW_Column_bean.cs" />
     <Compile Include="DBFile\AW_Column_dao.cs" />
     <Compile Include="DBFile\AW_Log_bean.cs" />

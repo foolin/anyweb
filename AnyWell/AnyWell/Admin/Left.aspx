@@ -22,7 +22,7 @@
     </style>
     <script type="text/javascript">
         var sites = new Array();
-        $(document).ready(function() {
+        $(function() {
             $(document).bind("contextmenu", null, function(e) { return parent.showContextMenu(e); });
             getSites();
         });

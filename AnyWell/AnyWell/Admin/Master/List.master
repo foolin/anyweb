@@ -46,9 +46,15 @@
     </div>
 
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(function() {
             $("#Content").height(document.documentElement.clientHeight - 64);
             $("#datalist").height(document.documentElement.clientHeight - 64);
+
+            $(document).click(function() {
+                if (parent.activeContextMenu) {
+                    parent.activeContextMenu.hide();
+                }
+            });
         });
     </script>
 

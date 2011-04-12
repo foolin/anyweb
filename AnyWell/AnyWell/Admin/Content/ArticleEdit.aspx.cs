@@ -148,7 +148,7 @@ public partial class Admin_Content_ArticleEdit : ArticlePageAdmin
         if( dao.funcUpdate( bean ) > 0 )
         {
             AddLog( EventType.Update, "修改文档", string.Format( "栏目[{0}]修改文档:[{1}({2})]", CurrentColumn.fdColuName, bean.fdArtiTitle, bean.fdArtiID ) );
-            Response.Write( string.Format( "<script type=text/javascript>parent.editArticleOK({0},\"{1}\");</script>", CurrentColumn.fdColuSiteID, CurrentColumn.ColumnIDPath ) );
+            Response.Write( "<script type=text/javascript>parent.editArticleOK();</script>" );
             Response.End();
         }
         else

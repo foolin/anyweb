@@ -1,8 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ColumnOperation.ascx.cs"
     Inherits="Admin_Control_ColumnOperation" %>
-<div class="operation">
+<div class="operation" id="ColumnOpr">
     <h3 class="opr-mhd">
-        <a href="javascript:showFolder('folder1')">
+        <a href="javascript:showFolder('ColumnOpr')">
             <img src="../images/icons/arrow2.gif" /></a>栏目操作任务</h3>
     <div class="opr-mbd">
         <ul>

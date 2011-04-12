@@ -76,4 +76,7 @@
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="cphFooter" runat="Server">
     <uc1:ColumnFooter runat="server" />
+    <script type="text/javascript">
+        selectFooter("Column");
+    </script>
 </asp:Content>

@@ -59,7 +59,7 @@
             Style="width: 305px" CssClass="file" Size="36" />
             <%if( bean.fdArtiType == 3 && !string.IsNullOrEmpty( bean.fdArtiLink ) )
               { %>
-            <a href="<%=bean.fdArtiLink %>" target="_blank" style="margin:10px 0 0 10px"><img src="../images/icons/files.gif" alt="" /></a>
+            <a href="<%=bean.fdArtiLink %>" target="_blank" style="position:absolute;margin:0 0 0 10px"><img src="../images/icons/rar.gif" alt="" /></a>
             <%} %>
         </li>
     </ul>

@@ -100,6 +100,21 @@ namespace AnyWell.AW_DL
                 }
             }
         }
+
+        /// <summary>
+        /// 获取某个栏目下所有栏目编号
+        /// </summary>
+        /// <param name="bean"></param>
+        /// <returns></returns>
+        public string ColumnAndChildrenString()
+        {
+            string str = "";
+            foreach( AW_Column_bean column in this.Children )
+            {
+                str += "," + column.ColumnAndChildrenString();
+            }
+            return ( str + "," + this.fdColuID ).Substring( 1 );
+        }
 	}
 
     /// <summary>

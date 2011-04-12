@@ -181,9 +181,39 @@ function editColumn(cid) {
     goPopupUrl(485, 339, '/Admin/Content/ColumnEdit.aspx?cid=' + cid);
 }
 
-//删除站点
+//删除栏目
 function delColumn(cid) {
     goPopupUrl(485, 363, "/Admin/Content/ColumnDel.aspx?ids=" + cid);
+}
+
+//删除文档
+function recycleArticle() {
+    var ids = getSelect();
+    if (ids) {
+        parent.goPopupUrl(485, 363, "/Admin/Content/ArticleRecycle.aspx?ids=" + ids);
+    } else {
+        parent.showError("系统提示信息", "请选择文档！", 485, 223);
+    }
+}
+
+//移动文档
+function moveArticle(type) {
+    var ids = getSelect();
+    if (ids) {
+        parent.goPopupUrl(485, 483, "/Admin/Content/ArticleMove.aspx?ids=" + ids + "&type=" + type);
+    } else {
+        parent.showError("系统提示信息", "请选择文档！", 485, 223);
+    }
+}
+
+//复制文档
+function copyArticle(type) {
+    var ids = getSelect();
+    if (ids) {
+        parent.goPopupUrl(485, 483, "/Admin/Content/ArticleCopy.aspx?ids=" + ids + "&type=" + type);
+    } else {
+        parent.showError("系统提示信息", "请选择文档！", 485, 223);
+    }
 }
 
 //导航栏添加栏目
@@ -257,7 +287,7 @@ function column(site, id, name, index, type, haschild) {
     //是否展开
     this.expanded = false;
     //链接
-    this.url = "/Admin/Content/ColumnList.aspx?cid=" + this.id;
+    this.url = "/Admin/Content/ArticleList.aspx?cid=" + this.id;
     //对象类型
     this.objecttype = "column";
     //展开/收起图标
@@ -729,6 +759,207 @@ function sortColumn(cid) {
     }
 }
 
+/*---------------- 弹出层树形菜单 --------------------------*/
+//获取站点列表
+function getPopupSites() {
+    $.ajax({
+        url: "../Ajax/GetSites.aspx",
+        cache: false,
+        success: function(result) {
+            eval(result);
+            for (i = 0; i < sites.length; i++) {
+                addPopupSiteRow(sites[i]);
+            }
+        }
+    });
+}
+
+//添加站点行
+function addPopupSiteRow(s) {
+    var row = $$("treemenu").insertRow(-1);
+    row.insertCell(-1);
+    s.row = row;
+
+    var img = document.createElement("IMG");
+    img.align = "absbottom";
+    img.src = "../images/plus.gif";
+    s.img = img;
+
+    $(img).click(function(i) {
+        if (s.expanded)
+            packUpPopupSite(s);
+        else
+            expandPopupSite(s);
+    });
+
+    var typeimg = document.createElement("IMG");
+    typeimg.align = "bottom";
+    typeimg.src = "../images/icons/site.gif";
+    typeimg.style.height = "16px";
+    typeimg.style.width = "16px";
+
+    var span = document.createElement("SPAN");
+    span.innerHTML = "<strong>" + s.name + "</strong>";
+    span.title = s.name;
+
+    row.cells[0].appendChild(img);
+    row.cells[0].appendChild(typeimg);
+    row.cells[0].appendChild(span);
+}
+
+//展开站点
+function expandPopupSite(s) {
+    s.img.src = "../images/-.gif";
+    var url = "../Ajax/GetColumns.aspx?siteid=" + s.id;
+    if (s.columns.length == 0) {
+        $.ajax({
+            url: url,
+            cache: false,
+            success: function(result) {
+                var columns = new Array(), c;
+                eval(result);
+                s.columns = columns;
+                for (i = 0; i < s.columns.length; i++) {
+                    s.columns[i].row = addPopupColumnRow(s.columns[i]);
+                }
+            }
+        });
+    }
+    else {
+        for (i = 0; i < s.columns.length; i++) {
+            s.columns[i].row.style.display = "block";
+        }
+    }
+    s.expanded = true;
+}
+
+//收缩站点
+function packUpPopupSite(s) {
+    s.img.src = "../images/plus.gif";
+    for (i = 0; i < s.columns.length; i++) {
+        hideChild(s.columns[i]);
+    }
+    s.expanded = false;
+}
+
+//添加栏目行
+function addPopupColumnRow(c) {
+    var idx = 0;
+    if (c.site != null)
+        idx = c.site.row.rowIndex + c.index;
+    else
+        idx = c.parent.row.rowIndex + c.index;
+
+    var row = $$("treemenu").insertRow(idx);
+    row.insertCell(-1);
+
+    var img = document.createElement("IMG");
+    img.align = "absbottom";
+    img.src = "../images/plus.gif";
+    if (c.haschild == false) {
+        img.src = "../images/=.gif";
+    }
+    c.img = img;
+    $(img).click(function(i) {
+        if (c.expanded)
+            packUpPopupColumn(c);
+        else
+            expandPopupColumn(c);
+    });
+
+    var typeimg = document.createElement("IMG");
+    typeimg.align = "absbottom";
+    typeimg.src = "../images/icons/col_" + c.type + ".gif";
+
+    var span = document.createElement("span");
+    span.innerHTML = c.name;
+    span.style.marginLeft = "3px";
+    span.title = c.name;
+
+    row.cells[0].appendChild(img);
+
+    var html = "";
+    if (treetype == 'radiobox') {
+        html = "<input name='cids' value='" + c.id + "' type='radio'" + (c.type == type ? "" : " disabled='disabled'") + " />";
+    }
+    if (treetype == 'checkbox') {
+        html = "<input name='cids' value='" + c.id + "' type='checkbox'" + (c.type == type ? "" : " disabled='disabled'") + " />";
+    }
+    $(row.cells[0]).append(html);
+
+    row.cells[0].appendChild(typeimg);
+    row.cells[0].appendChild(span);
+
+    row.column = c;
+
+    var padding = 15;
+    if (c.parent != null) {
+        if (c.parent.padding == null) {
+            c.parent.padding = padding;
+        }
+        c.padding = c.parent.padding + padding;
+    }
+    else {
+        c.padding = padding;
+    }
+    row.cells[0].style.paddingLeft = c.padding.toString() + "px";
+    row.cells[0].nowrap = "nowrap";
+
+    return row;
+}
+
+//展开栏目
+function expandPopupColumn(c) {
+    c.img.src = "../images/-.gif";
+    if (c.children.length == 0) {
+        var url = "../ajax/getcolumns.aspx?parentid=" + c.id;
+        $.ajax({
+            url: url,
+            cache: false,
+            success: function(result) {
+                var columns = new Array(), child;
+                eval(result);
+                if (columns.length == 0) {
+                    c.img.src = "../images/=.gif";
+                    $(c.img).unbind("click");
+                    return;
+                }
+                c.children = columns;
+                for (i = 0; i < c.children.length; i++) {
+                    c.children[i].row = addPopupColumnRow(c.children[i]);
+                }
+            }
+        });
+    }
+    else {
+        for (i = 0; i < c.children.length; i++) {
+            c.children[i].row.style.display = "block";
+        }
+    }
+    c.expanded = true;
+}
+
+//收起栏目
+function packUpPopupColumn(c) {
+    c.img.src = "../images/plus.gif";
+    for (i = 0; i < c.children.length; i++) {
+        hidePopupChild(c.children[i]);
+    }
+    c.expanded = false;
+}
+
+//隐藏子栏目
+function hidePopupChild(c) {
+    c.row.style.display = "none";
+    if (c.expanded) {
+        c.img.src = "../images/plus.gif";
+        c.expanded = false;
+    }
+    for (var i = 0; i < c.children.length; i++) {
+        hidePopupChild(c.children[i]);
+    }
+}
+
 /*---------------- 右键菜单 --------------------------*/
 function ContextMenu() {
     this.items = new Array();
@@ -917,6 +1148,24 @@ function createProductColumnPopMenu(c) {
     c.menu = menu;
 }
 
+//文档右键菜单
+function createArticlePopMenu(obj, aid) {
+    var menu = new ContextMenu(), item;
+    item = new menu.Item("修改这篇文档", "修改这篇文档", "Content/ArticleEdit.aspx?id=" + aid);
+    menu.addItem(item);
+    item = new menu.Item("放入回收站", "放入回收站", "Content/ArticleEdit.aspx?id=" + aid);
+    menu.addItem(item);
+    menu.addSeparator();
+    item = new menu.Item("移动这篇文档到", "移动这篇文档到", "javascript:delSite(" + aid + ")");
+    menu.addItem(item);
+    item = new menu.Item("移动这篇文档到", "移动这篇文档到", "javascript:addSite()");
+    menu.addItem(item);
+    item = new menu.Item("移动这篇文档到", "移动这篇文档到", "javascript:addSiteColumn(" + aid + ")");
+    menu.addItem(item);
+
+    obj.menu = menu;
+}
+
 //显示站点右键菜单
 function showSiteMenu(s, e) {
     if (s.menu == null) {
@@ -942,6 +1191,15 @@ function showColumnMenu(c, e) {
         }
     }
     c.menu.show(e.clientX, e.clientY + 55);
+    return false;
+}
+
+//显示文档右键菜单
+function showArticleMenu(obj, aid, e) {
+    if (obj.menu == null) {
+        createArticlePopMenu(obj, aid);
+    }
+    obj.menu.show(e.clientX + 201, e.clientY + 55);
     return false;
 }
 
@@ -1016,18 +1274,28 @@ function addArticleOK(sid, colpath, iscontinue) {
 }
 
 //修改文档回调函数
-function editArticleOK(sid, colpath) {
-    if (sid && colpath) {
-        if (opener) {
-            if (opener.location.href.toLowerCase().indexOf("index") > 0) {
-                opener.window.frames["left"].gotoColumn(sid, colpath);
-            }
-            else {
-                opener.parent.window.frames["left"].gotoColumn(sid, colpath);
-            }
-        }
-        window.close();
+function editArticleOK() {
+    if (opener) {
+        opener.window.location.href = opener.window.location.href;
     }
+    window.close();
+}
+
+//删除文档回调函数
+function recycleArticleOK() {
+    parent.window.frames["mainFrame"].window.location.href = parent.window.frames["mainFrame"].window.location.href;
+    parent.disablePopup();
+}
+
+//移动文档回调函数
+function MoveArticleOK() {
+    parent.window.frames["mainFrame"].window.location.href = parent.window.frames["mainFrame"].window.location.href;
+    parent.disablePopup();
+}
+
+//复制文档回调函数
+function CopyArticleOK() {
+    parent.disablePopup();
 }
 
 //tab导航事件
@@ -1084,4 +1352,64 @@ function selectArticleType(val) {
             $(this).hide();
         }
     });
+}
+
+//选中页脚项
+function selectFooter(id) {
+    $(".guaid li").each(function() {
+        if ($(this).attr("id") == id) {
+            $(this).attr("class", "selected");
+        } else {
+            $(this).attr("class", "");
+        }
+    });
+}
+
+//显示下级栏目文章
+function showChildren(cid, getchildren) {
+    var url = "?cid=" + cid;
+    if (getchildren)
+        url += "&getch=1";
+    else
+        url += "&getch=0";
+    window.location.href = url;
+}
+
+//选择文章排序
+function setArticleOrder(cid, getchildren, field, orderby) {
+    var url = "?cid=" + cid;
+    if (getchildren)
+        url += "&getch=1";
+    else
+        url += "&getch=0";
+    url += "&field=" + field;
+    if (orderby)
+        url += "&orderby=1";
+    else
+        url += "&orderby=0";
+    window.location.href = url;
+}
+
+//检查栏目选中表单
+function checkTreeForm() {
+    if ($("input[name='cids']:checked").length == 0) {
+        alert("请选择栏目！");
+        return false;
+    }
+}
+
+//全选事件
+function selectAll() {
+    selStatus = selStatus ? false : true;
+    $("input[name='ids']").attr("checked", selStatus);
+}
+
+//获取选中值
+function getSelect() {
+    var ids = "";
+    $("input[name='ids']:checked").each(function() {
+        ids += "," + $(this).val();
+    });
+    if (ids) ids = ids.substr(1);
+    return ids;
 }

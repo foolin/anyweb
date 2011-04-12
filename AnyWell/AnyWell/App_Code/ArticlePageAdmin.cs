@@ -32,7 +32,7 @@ public class ArticlePageAdmin : PageAdmin
     protected string SaveFile( FileUpload uploader )
     {
         string extension = Path.GetExtension( uploader.PostedFile.FileName ).ToLower();
-        string dir = AnyWellSetting.GetSetting().DataRootPath + "/Article";
+        string dir = AnyWellSetting.GetSetting().DataRootPath + "/Article/Files/";
         if( !Directory.Exists( this.Server.MapPath( dir ) ) )
         {
             Directory.CreateDirectory( this.Server.MapPath( dir ) );
@@ -64,7 +64,7 @@ public class ArticlePageAdmin : PageAdmin
             Fail( "文档图片格式错误，请上传jpg,gif,png格式的图片" );
         }
 
-        string dir = AnyWellSetting.GetSetting().DataRootPath + "/Article";
+        string dir = AnyWellSetting.GetSetting().DataRootPath + "/Article/Pictures/";
         if( !Directory.Exists( this.Server.MapPath( dir ) ) )
         {
             Directory.CreateDirectory( this.Server.MapPath( dir ) );

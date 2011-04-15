@@ -2,6 +2,7 @@
     CodeFile="ArticleList.aspx.cs" Inherits="Admin_Control_ArticleList" %>
 
 <%@ Register Src="../Control/ArticleOperation.ascx" TagName="ArticleOperation" TagPrefix="uc1" %>
+<%@ Register Src="../Control/ColumnInfo.ascx" TagName="ColumnInfo" TagPrefix="uc1" %>
 <%@ Register Src="../Control/ColumnFooter.ascx" TagName="ColumnFooter" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="Server">
 
@@ -58,8 +59,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphTitle" runat="Server">
     <ul>
         <li style="color: #000; font-size: 12px; font-weight: normal;">
-            <input type="checkbox" id="chkInherit" <%=QS("getch")=="1"?"checked=\"checked\"":"" %>
-                onchange="showChildren(<%=QS("cid") %>,this.checked)" /><label for="chkInherit">级联显示下级文章</label></li>
+            <input id="chkChildren" type="checkbox" <%=QS("getch")=="1"?"checked=\"checked\"":"" %> onchange="showChildren(<%=QS("cid") %>,this.checked)" /><label
+                for="chkChildren">级联显示下级文档</label></li>
     </ul>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContent" runat="Server">
@@ -103,7 +104,7 @@
                         </td>
                         <td oncontextmenu="return parent.showArticleMenu(this,<%#Eval("fdArtiID") %>,event);">
                             <a href="ArticleEdit.aspx?id=<%#Eval("fdArtiID") %>" target="article">
-                                <%#Eval("fdArtiTitle")%></a>
+                                <%#( int ) Eval( "fdArtiType" ) == 4 ? "<span style=\"color:red;font-size:12px;font-weight:bold;\">【引】</span>" : ""%><%#Eval("fdArtiTitle")%></a>
                         </td>
                         <td style="width: 100px; text-align: center;">
                             <%# Eval( "fdArtiCreateAt","{0:yy-MM-dd HH:mm}" )%>
@@ -141,6 +142,7 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphOpr" runat="Server">
     <uc1:ArticleOperation runat="server" />
+    <uc1:ColumnInfo runat="server" />
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="cphFooter" runat="Server">
     <uc1:ColumnFooter runat="server" />

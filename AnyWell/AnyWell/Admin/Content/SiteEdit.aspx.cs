@@ -24,17 +24,17 @@ public partial class Admin_Content_SiteEdit : PageAdmin
             AW_Site_dao dao = new AW_Site_dao();
             if( dao.funcUrlExist( txtUrl.Text.Trim(), bean.fdSiteID ) > 0 )
             {
-                Fail( "站点访问域名已被其它站点占用" );
+                Fail( "站点访问域名已被其它站点占用！", true );
             }
 
             if( PublishService.GetService().ProtectionFolders.Contains( txtPath.Text.Trim().ToLower() ) )
             {
-                Fail( "您输入站点目录名称是系统保留名称,请换一个" );
+                Fail( "您输入站点目录名称是系统保留名称,请换一个！", true );
             }
 
             if( dao.funcPathExist( txtPath.Text.Trim(), bean.fdSiteID ) > 0 )
             {
-                Fail( "站点目录名称已被其它站点占用" );
+                Fail( "站点目录名称已被其它站点占用！", true );
             }
 
             bean.fdSiteName = txtName.Text.Trim();
@@ -65,14 +65,14 @@ public partial class Admin_Content_SiteEdit : PageAdmin
             }
             if( path == "" )
             {
-                Fail( "站点目录名称不能为空或者单纯由/组成！" );
+                Fail( "站点目录名称不能为空或者单纯由/组成！", true );
             }
 
             bean.fdSitePath = path;
             bean.fdSiteDesc = txtDesc.Text;
             if( bean.fdSiteDesc.Length > 200 )
             {
-                Fail( "站点描述长度不能超出200个字！" );
+                Fail( "站点描述长度不能超出200个字！", true );
             }
 
             if( dao.funcUpdate( bean ) > 0 )

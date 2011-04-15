@@ -2,6 +2,38 @@
     AutoEventWireup="true" CodeFile="ColumnAdd.aspx.cs" Inherits="Admin_Content_ColumnAdd" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="Server">
+    <script type="text/javascript">
+        function setIcon(path) {
+            if (path) {
+                path = "/Files/Column/" + "S_" + path;
+                $("#ColIcon #img1").attr("src", path);
+                $("#ColIcon #iconPath").val(path);
+                $("#ColIcon").show();
+            }
+        }
+        function setPic(path) {
+            if (path) {
+                path = "/Files/Column/" + "S_" + path;
+                $("#ColPic #img").attr("src", path);
+                $("#ColPic #picPath").val(path);
+                $("#ColPic").show();
+            }
+        }
+        function delIcon() {
+            if (confirm("确定删除该图片？")) {
+                $("#ColIcon #img1").attr("src", "");
+                $("#ColIcon #iconPath").val("");
+                $("#ColIcon").hide();
+            }
+        }
+        function delPic() {
+            if (confirm("确定删除该图片？")) {
+                $("#ColPic #img").attr("src", "");
+                $("#ColPic #picPath").val("");
+                $("#ColPic").hide();
+            }
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphTitle" runat="Server">
     添加栏目
@@ -45,9 +77,6 @@
                 </th>
                 <td>
                     <asp:DropDownList ID="drpType" runat="server">
-                        <asp:ListItem Value="0">文档栏目</asp:ListItem>
-                        <asp:ListItem Value="1">图片栏目</asp:ListItem>
-                        <asp:ListItem Value="2">产品栏目</asp:ListItem>
                     </asp:DropDownList>
                 </td>
             </tr>
@@ -71,7 +100,8 @@
                     栏目大图：
                 </th>
                 <td>
-                    <asp:FileUpload ID="filePicture" runat="server" CssClass="file" /><span>（120×120）</span>
+                    <sw:Uploader ID="PicUploader" UploadPage="/Admin/Ajax/ColumnPicUpload.ashx" FilePath="/Files/Column/" MaxSizeToUpload="2097152" Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp" JavascriptCompleteFunction="setPic" MultiSelect="false" runat="server"></sw:Uploader>
+                    <span>（120×120）</span>
                 </td>
             </tr>
             <tr>
@@ -79,14 +109,39 @@
                     栏目小图：
                 </th>
                 <td>
-                    <asp:FileUpload ID="fileIcon" runat="server" CssClass="file" /><span>（32×32）</span>
+                    <sw:Uploader ID="IconUploader" UploadPage="/Admin/Ajax/ColumnIconUpload.ashx" FilePath="/Files/Column/" MaxSizeToUpload="2097152" Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp" JavascriptCompleteFunction="setIcon" MultiSelect="false" runat="server"></sw:Uploader>
+                    <span>（32×32）</span>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    图片预览：
+                </th>
+                <td>
+                    <div class="imageview">
+                        <ul>
+                            <li id="ColIcon" style="display: none;">
+                                <img id="img1" src="" alt="" />
+                                <input type="hidden" id="iconPath" name="iconPath" value="" />
+                                <button type="button" onclick="delIcon();" title="删除图片">
+                                    (小图)删除</button>
+                            </li>
+                            <li id="ColPic" style="display: none;">
+                                <img id="img" src="" alt="" />
+                                <input type="hidden" id="picPath" name="picPath" value="" />
+                                <button type="button" onclick="delPic();" title="删除图片">
+                                    (大图)删除</button>
+                            </li>
+                        </ul>
+                    </div>
                 </td>
             </tr>
         </table>
     </div>
     <div class="popmft">
+        <button id="Saving" type="button" style="display:none;" disabled="disabled">正在保存</button>
         <button id="btnStart" type="submit">
-            保存站点</button>
+            保存栏目</button>
         <button type="button" onclick="parent.disablePopup()">
             取消退出</button>
     </div>

@@ -15,6 +15,18 @@
 
     <script type="text/javascript" src="../js/function.js"></script>
 
+    <script type="text/javascript">
+        function disableButton() {
+            $("#btnStart").hide();
+            $("#Saving").show();
+        }
+
+        function enableButton() {
+            $("#btnStart").show();
+            $("#Saving").hide();
+        }
+    </script>
+
     <asp:ContentPlaceHolder ID="cphHead" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -38,6 +50,12 @@
     <script type="text/javascript">
         $(function() {
             parent.setDrag($("#PopupTitle"), 'popupDiv');
+            try{
+                if (v1) {
+                    v1.Success = function() { return disableButton() };
+                }
+            }
+            catch(ex){}
         });
     </script>
 </body>

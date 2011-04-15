@@ -27,6 +27,17 @@
                 $("#<%=txtDesc.ClientID %>").hide();
             }
         }
+
+        function disableButton() {
+            $("#<%=btnSave.ClientID %>").hide();
+            $("#Saving").show();
+            return true;
+        }
+
+        function enableButton() {
+            $("#<%=btnSave.ClientID %>").show();
+            $("#Saving").hide();
+        }
     </script>
 
 </asp:Content>
@@ -64,6 +75,7 @@
         </li>
     </ul>
     <div class="mft">
+        <button id="Saving" type="button" style="display:none;" disabled="disabled">正在保存</button>
         <asp:Button ID="btnSave" CssClass="button" runat="server" Text="保存文档" OnClick="btnSave_Click" />
         <button type="button" onclick="window.close()">
             取消退出</button>

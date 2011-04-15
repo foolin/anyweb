@@ -26,7 +26,8 @@
         </table>
     </div>
     <div class="popmft">
-        <button id="btnStart" type="submit">
+        <button id="Saving" type="button" style="display:none;" disabled="disabled">正在保存</button>
+        <button id="btnStart" type="submit" onclick="disableButton()">
             确 认</button>
         <button type="button" onclick="parent.disablePopup()">
             取 消</button>

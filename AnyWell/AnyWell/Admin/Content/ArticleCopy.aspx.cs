@@ -34,7 +34,7 @@ public partial class Admin_Content_ArticleCopy : PageAdmin
 
             if( string.IsNullOrEmpty(cids) )
             {
-                ShowError( "请选择栏目！" );
+                Fail( "请选择栏目！", true );
             }
 
             if( dao.funcCopyArticle( ids, cids ) )
@@ -42,7 +42,7 @@ public partial class Admin_Content_ArticleCopy : PageAdmin
                 AddLog( EventType.Insert, "复制文档", string.Format( "复制文档[编号:{0}]到栏目[编号:{1}]", ids, cids ) );
             }
 
-            Response.Write( "<script type=text/javascript>parent.CopyArticleOK();</script>" );
+            Response.Write( "<script type=text/javascript>parent.copyArticleOK();</script>" );
             Response.End();
         }
     }

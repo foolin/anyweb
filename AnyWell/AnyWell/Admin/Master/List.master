@@ -13,6 +13,8 @@
     <script type="text/javascript" src="../js/jquery.js"></script>
 
     <script type="text/javascript" src="../js/function.js"></script>
+    
+    <script type="text/javascript" src="../JS/calendar.js"></script>
 
     <asp:ContentPlaceHolder ID="cphHead" runat="server">
     </asp:ContentPlaceHolder>

@@ -75,6 +75,20 @@ public class PageAdmin : Page
         Response.End();
     }
 
+    protected virtual void Fail( string msg, bool enableButton )
+    {
+        Response.Clear();
+        if( enableButton )
+        {
+            Response.Write( string.Format( "<script type=text/javascript>alert(\"{0}\");parent.enableButton();</script>", msg ) );
+        }
+        else
+        {
+            Response.Write( string.Format( "<script type=text/javascript>alert(\"{0}\");</script>", msg ) );
+        }
+        Response.End();
+    }
+
     protected virtual void ShowError( string msg )
     {
         Response.Clear();

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ArticleClear.aspx.cs" Inherits="Admin_Ajax_ArticleClear" %>

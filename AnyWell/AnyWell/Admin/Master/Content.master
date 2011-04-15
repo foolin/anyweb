@@ -46,9 +46,12 @@
     </form>
 
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(function() {
             $("#Content").height(document.documentElement.clientHeight - 35);
             $("#datalist").height(document.documentElement.clientHeight - 45);
+            if (v1) {
+                v1.Success = function() { return disableButton() };
+            }
         });
     </script>
 

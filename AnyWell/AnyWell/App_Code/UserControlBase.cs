@@ -18,6 +18,14 @@ public class UserControlBase : System.Web.UI.UserControl
         return Request.Form[ key ] + "";
     }
 
+    protected AW_Site_bean CurrentSite
+    {
+        get
+        {
+            return ( ( PageAdmin ) Page ).CurrentSite;
+        }
+    }
+
     protected AW_Column_bean CurrentColumn
     {
         get

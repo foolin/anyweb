@@ -60,6 +60,7 @@
         </table>
     </div>
     <div class="popmft">
+        <button id="Saving" type="button" style="display:none;" disabled="disabled">正在保存</button>
         <button id="btnStart" type="submit">
             保存站点</button>
         <button type="button" onclick="parent.disablePopup()">

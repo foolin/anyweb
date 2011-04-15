@@ -58,7 +58,7 @@ public partial class Admin_Control_ArticleList : PageAdmin
     /// <returns></returns>
     protected string getOrderJs( string key )
     {
-        return string.Format( "setArticleOrder({0},{1},'{2}',{3})", CurrentColumn.fdColuID, getChildren ? 1 : 0, key, orderBy == "ASC" ? 0 : 1 );
+        return string.Format( "setArticleOrder({0},{1},'{2}',{3})", CurrentColumn.fdColuID, getChildren ? 1 : 0, key, key == field ? orderBy == "ASC" ? 0 : 1 : 1 );
     }
 
     /// <summary>

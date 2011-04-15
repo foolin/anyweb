@@ -21,9 +21,12 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AnyWell", "E:\PROJECT\DOTNE
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "2009"
 		DefaultWebSiteLanguage = "Visual C#"
+		ProjOutputReferences = "{2DE918BB-DDF4-4FD3-81B8-C714AA9332C1}|ClientBin|false;"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW_DB", "E:\PROJECT\DOTNET\AnyWell\AW_DB\AW_DB.csproj", "{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uploader", "Uploader\Uploader.csproj", "{2DE918BB-DDF4-4FD3-81B8-C714AA9332C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +42,10 @@ Global
 		{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DE918BB-DDF4-4FD3-81B8-C714AA9332C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DE918BB-DDF4-4FD3-81B8-C714AA9332C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DE918BB-DDF4-4FD3-81B8-C714AA9332C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DE918BB-DDF4-4FD3-81B8-C714AA9332C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

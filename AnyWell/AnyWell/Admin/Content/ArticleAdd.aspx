@@ -26,6 +26,19 @@
                 $("#<%=txtDesc.ClientID %>").hide();
             }
         }
+
+        function disableButton() {
+            $("#<%=btnSaveAndContinue.ClientID %>").hide();
+            $("#<%=btnSave.ClientID %>").hide();
+            $("#Saving").show();
+            return true;
+        }
+
+        function enableButton() {
+            $("#<%=btnSaveAndContinue.ClientID %>").show();
+            $("#<%=btnSave.ClientID %>").show();
+            $("#Saving").hide();
+        }
     </script>
 
 </asp:Content>
@@ -59,6 +72,7 @@
         </li>
     </ul>
     <div class="mft">
+        <button id="Saving" type="button" style="display:none;" disabled="disabled">正在保存</button>
         <asp:Button ID="btnSaveAndContinue" CssClass="button" runat="server" Text="保存继续" OnClick="btnSaveAndContinue_Click" />
         <asp:Button ID="btnSave" CssClass="button" runat="server" Text="保存退出" OnClick="btnSave_Click" />
         <button type="button" onclick="window.close()">

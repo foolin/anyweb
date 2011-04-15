@@ -192,6 +192,7 @@ namespace AnyWell.AW_DL
         {
             int result = base.funcInsert( aBean );
             List<AW_Site_bean> siteList = this.funcGetSites();
+            ( ( AW_Site_bean ) aBean ).Columns = new List<AW_Column_bean>();
             siteList.Add( ( AW_Site_bean ) aBean );
             return result;
         }

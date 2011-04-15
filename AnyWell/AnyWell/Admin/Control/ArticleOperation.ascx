@@ -9,7 +9,7 @@
             <li class="recFile"><a href="javascript:recycleArticle()">放入回收站</a></li>
             <li class="moveFile"><a href="javascript:moveArticle(<%=CurrentColumn.fdColuType %>)">移动文档到</a></li>
             <li class="copyFile"><a href="javascript:copyArticle(<%=CurrentColumn.fdColuType %>)">复制文档到</a></li>
-            <li class="pointFile"><a href="javascript:parent.MoveColumn(<%=CurrentColumn.fdColuID %>)">引用文档到</a></li>
+            <li class="pointFile"><a href="javascript:pointArticle(<%=CurrentColumn.fdColuType %>)">引用文档到</a></li>
         </ul>
     </div>
 </div>

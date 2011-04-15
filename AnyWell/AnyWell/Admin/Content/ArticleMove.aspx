@@ -8,8 +8,12 @@
         $(function() {
             getPopupSites();
             $("form").submit(function() {
-                return checkTreeForm();
-            })
+                if (checkTreeForm()) {
+                    disableButton();
+                } else {
+                    return false;
+                }
+            });
         });
     </script>
 
@@ -29,6 +33,7 @@
         </div>
     </div>
     <div class="popmft">
+        <button id="Saving" type="button" style="display:none;" disabled="disabled">正在保存</button>
         <button id="btnStart" type="submit">
             确定</button>
         <button type="button" onclick="parent.disablePopup()">

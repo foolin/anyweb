@@ -2,6 +2,7 @@
     CodeFile="ColumnList.aspx.cs" Inherits="Admin_Content_ColumnList" %>
 
 <%@ Register Src="../Control/ColumnOperation.ascx" TagName="ColumnOperation" TagPrefix="uc1" %>
+<%@ Register Src="../Control/ColumnInfo.ascx" TagName="ColumnInfo" TagPrefix="uc1" %>
 <%@ Register Src="../Control/ColumnFooter.ascx" TagName="ColumnFooter" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="Server">
     <script type="text/javascript" src="../js/jquery.ui.core.js"></script>
@@ -73,6 +74,7 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphOpr" runat="Server">
     <uc1:ColumnOperation runat="server" />
+    <uc1:ColumnInfo runat="server" />
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="cphFooter" runat="Server">
     <uc1:ColumnFooter runat="server" />

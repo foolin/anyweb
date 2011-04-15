@@ -49,14 +49,19 @@ public partial class Admin_Content_ColumnAdd : PageAdmin
             }
             else
             {
-                if( column.fdColuType != ( int ) ColumnType.Product )
+                switch( column.fdColuType )
                 {
-                    drpType.Items.Remove( drpType.Items.FindByValue( "2" ) );
-                }
-                else
-                {
-                    drpType.Items.Clear();
-                    drpType.Items.Add( new ListItem( "产品栏目", "2" ) );
+                    case 0:
+                        drpType.Items.Add( new ListItem( "文档栏目", "0" ) );
+                        break;
+                    case 1:
+                        drpType.Items.Add( new ListItem( "图片栏目", "1" ) );
+                        break;
+                    case 2:
+                        drpType.Items.Add( new ListItem( "产品栏目", "2" ) );
+                        break;
+                    default:
+                        break;
                 }
                 lblParent.Text = column.fdColuName;
             }
@@ -72,61 +77,11 @@ public partial class Admin_Content_ColumnAdd : PageAdmin
             bean.Children = new List<AW_Column_bean>();
             if( bean.fdColuDesc.Length > 255 )
             {
-                Fail( "栏目说明长度不能超出255个字！" );
+                Fail( "栏目说明长度不能超出255个字！", true );
             }
 
-            string extensions = ".jpg,.gif,.png";
-            string dir = AnyWellSetting.GetSetting().DataRootPath + "/Column";
-
-            if( fileIcon.PostedFile.ContentLength > 0 )
-            {
-                if( !fileIcon.PostedFile.ContentType.ToLower().Contains( "image" ) )
-                {
-                    Fail( "小图格式错误，请上传jpg,gif,png格式的图片" );
-                }
-                string extension = Path.GetExtension( this.fileIcon.PostedFile.FileName ).ToLower();
-                if( extensions.IndexOf( extension ) == -1 )
-                {
-                    Fail( "小图格式错误，请上传jpg,gif,png格式的图片" );
-                }
-                if( this.fileIcon.PostedFile.ContentLength > 2097151 )
-                {
-                    Fail( "小图文件大小不能超出2M！" );
-                }
-
-                if( !Directory.Exists( this.Server.MapPath( dir ) ) )
-                {
-                    Directory.CreateDirectory( this.Server.MapPath( dir ) );
-                }
-                string fileName = dir + DL_helper.funcGetTicks().ToString() + extension;
-                WebAgent.SaveFile( fileIcon.PostedFile, Server.MapPath( fileName ), 32, 32 );
-                bean.fdColuIcon = fileName;
-            }
-
-            if( filePicture.PostedFile.ContentLength > 0 )
-            {
-                if( !filePicture.PostedFile.ContentType.ToLower().Contains( "image" ) )
-                {
-                    Fail( "大图格式错误，请上传jpg,gif,png格式的图片" );
-                }
-                string extension = Path.GetExtension( this.filePicture.PostedFile.FileName ).ToLower();
-                if( extensions.IndexOf( extension ) == -1 )
-                {
-                    Fail( "大图格式错误，请上传jpg,gif,png格式的图片" );
-                }
-                if( this.filePicture.PostedFile.ContentLength > 2097151 )
-                {
-                    Fail( "大图文件大小不能超出2M！" );
-                }
-
-                if( !Directory.Exists( this.Server.MapPath( dir ) ) )
-                {
-                    Directory.CreateDirectory( this.Server.MapPath( dir ) );
-                }
-                string fileName = dir + DL_helper.funcGetTicks().ToString() + extension;
-                WebAgent.SaveFile( filePicture.PostedFile, Server.MapPath( fileName ), 120, 120 );
-                bean.fdColuPict = fileName;
-            }
+            bean.fdColuIcon = QF( "iconPath" );
+            bean.fdColuPict = QF( "picPath" );
 
             int result = 0;
             if( sid > 0 )

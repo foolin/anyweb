@@ -82,6 +82,7 @@ namespace AnyWell.AW_DL
         public int funcAddColumn( AW_Column_bean parent, AW_Column_bean bean )
         {
             int result = this.funcInsert( bean );
+            bean.Site = parent.Site;
             bean.Parent = parent;
             parent.Children.Add( bean );
             return result;
@@ -201,6 +202,125 @@ namespace AnyWell.AW_DL
                 conn.Dispose();
             }
             return result;
-        }        
+        }
+
+        /// <summary>
+        /// 删除子栏目列表
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="tran"></param>
+        public void funcDeleteChildren( List<AW_Column_bean> list, IDbTransaction tran )
+        {
+            foreach( AW_Column_bean column in list )
+            {
+                funcDelete( column.fdColuID, tran );
+
+                if( column.Children != null && column.Children.Count > 0 )
+                {
+                    funcDeleteChildren( column.Children, tran );
+                }
+            }
+        }
+
+        /// <summary>
+        /// 批量删除栏目
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public int funcDeleteColumns( string ids )
+        {
+            int result = 0;
+            List<AW_Column_bean> list = new List<AW_Column_bean>();
+
+            IDbConnection conn = this.NewConnection();
+            conn.Open();
+            IDbTransaction tran = conn.BeginTransaction();
+
+            try
+            {
+                foreach( string str in ids.Split( ',' ) )
+                {
+                    if( str == "" )
+                        continue;
+                    AW_Column_bean column = funcGetColumnInfo( int.Parse( str ) );
+                    if( column != null )
+                    {
+                        funcDelete( column.fdColuID, tran );
+
+                        list.Add( column );
+
+                        if( column.Children != null && column.Children.Count > 0 )
+                        {
+                            funcDeleteChildren( column.Children, tran );
+                        }
+                    }
+                }
+                tran.Commit();
+                foreach( AW_Column_bean column in list )
+                {
+                    if( column.Parent == null )
+                    {
+                        column.Site.Columns.Remove( column );
+                    }
+                    else
+                    {
+                        column.Parent.Children.Remove( column );
+                    }
+                }
+                result = 1;
+            }
+            catch( Exception )
+            {
+                tran.Rollback();
+                result = 0;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+            return result;
+        }
+
+        public override int funcDelete( int id )
+        {
+            int result = 0;
+
+            IDbConnection conn = this.NewConnection();
+            conn.Open();
+            IDbTransaction tran = conn.BeginTransaction();
+
+            AW_Column_bean column = funcGetColumnInfo( id );
+
+            try
+            {
+                base.funcDelete( id, tran );
+                if( column.Children != null && column.Children.Count > 0 )
+                {
+                    funcDeleteChildren( column.Children, tran );
+                }
+                tran.Commit();
+
+                if( column.Parent == null )
+                {
+                    column.Site.Columns.Remove( column );
+                }
+                else
+                {
+                    column.Parent.Children.Remove( column );
+                }
+
+                result = 1;
+            }
+            catch( Exception )
+            {
+                tran.Rollback();
+                result = 0;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+            return result;
+        }
 	}
 }

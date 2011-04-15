@@ -183,36 +183,73 @@ function editColumn(cid) {
 
 //删除栏目
 function delColumn(cid) {
-    goPopupUrl(485, 363, "/Admin/Content/ColumnDel.aspx?ids=" + cid);
+    goPopupUrl(485, 363, "/Admin/Content/ColumnDel.aspx?cid=" + cid);
+}
+
+//批量删除栏目
+function delColumns() {
+    var ids = getSelect();
+    if (ids) {
+        parent.goPopupUrl(485, 363, "/Admin/Content/ColumnsDel.aspx?ids=" + ids);
+    } else {
+        parent.showError("系统提示信息", "请选择档目！", 485, 223);
+    }
 }
 
 //删除文档
-function recycleArticle() {
-    var ids = getSelect();
-    if (ids) {
-        parent.goPopupUrl(485, 363, "/Admin/Content/ArticleRecycle.aspx?ids=" + ids);
+function recycleArticle(aid) {
+    if (aid) {
+        goPopupUrl(485, 363, "/Admin/Content/ArticleRecycle.aspx?ids=" + aid);
     } else {
-        parent.showError("系统提示信息", "请选择文档！", 485, 223);
+        var ids = getSelect();
+        if (ids) {
+            parent.goPopupUrl(485, 363, "/Admin/Content/ArticleRecycle.aspx?ids=" + ids);
+        } else {
+            parent.showError("系统提示信息", "请选择文档！", 485, 223);
+        }
     }
 }
 
 //移动文档
-function moveArticle(type) {
-    var ids = getSelect();
-    if (ids) {
-        parent.goPopupUrl(485, 483, "/Admin/Content/ArticleMove.aspx?ids=" + ids + "&type=" + type);
-    } else {
-        parent.showError("系统提示信息", "请选择文档！", 485, 223);
+function moveArticle(aid) {
+    if (aid) {
+        goPopupUrl(485, 483, "/Admin/Content/ArticleMove.aspx?ids=" + aid + "&type=0"); 
+    }
+    else {
+        var ids = getSelect();
+        if (ids) {
+            parent.goPopupUrl(485, 483, "/Admin/Content/ArticleMove.aspx?ids=" + ids + "&type=0");
+        } else {
+            parent.showError("系统提示信息", "请选择文档！", 485, 223);
+        } 
     }
 }
 
 //复制文档
-function copyArticle(type) {
-    var ids = getSelect();
-    if (ids) {
-        parent.goPopupUrl(485, 483, "/Admin/Content/ArticleCopy.aspx?ids=" + ids + "&type=" + type);
+function copyArticle(aid) {
+    if (aid) {
+        goPopupUrl(485, 483, "/Admin/Content/ArticleCopy.aspx?ids=" + aid + "&type=0"); 
+    }else {
+        var ids = getSelect();
+        if (ids) {
+            parent.goPopupUrl(485, 483, "/Admin/Content/ArticleCopy.aspx?ids=" + ids + "&type=0");
+        } else {
+            parent.showError("系统提示信息", "请选择文档！", 485, 223);
+        }
+    }
+}
+
+//引用文档
+function pointArticle(aid) {
+    if (aid) {
+        goPopupUrl(485, 483, "/Admin/Content/ArticlePoint.aspx?ids=" + aid + "&type=0");
     } else {
-        parent.showError("系统提示信息", "请选择文档！", 485, 223);
+        var ids = getSelect();
+        if (ids) {
+            parent.goPopupUrl(485, 483, "/Admin/Content/ArticlePoint.aspx?ids=" + ids + "&type=0");
+        } else {
+            parent.showError("系统提示信息", "请选择文档！", 485, 223);
+        }
     }
 }
 
@@ -229,6 +266,26 @@ function addColumnByMenu() {
         }
     } else {
         showError("系统提示信息", "请选择站点或栏目！", 485, 223);
+    }
+}
+
+//恢复文档
+function revokeArticle() {
+    var ids = getSelect();
+    if (ids) {
+        parent.goPopupUrl(485, 363, "/Admin/Content/ArticleRevoke.aspx?ids=" + ids);
+    } else {
+        parent.showError("系统提示信息", "请选择文档！", 485, 223);
+    }
+}
+
+//彻底删除文档
+function deleteArticle() {
+    var ids = getSelect();
+    if (ids) {
+        parent.goPopupUrl(485, 363, "/Admin/Content/ArticleDel.aspx?ids=" + ids);
+    } else {
+        parent.showError("系统提示信息", "请选择文档！", 485, 223);
     }
 }
 
@@ -366,8 +423,8 @@ function clearSite(s, ownerDel) {
 }
 
 //删除栏目
-function delTreeColumn(cid) {
-    var ids = cid.split("."), column;
+function delTreeColumn(cid, isMulti) {
+    var ids = cid.split(","), column;
     var rows = $$("treemenu").rows;
 
     for (var i = 0; i < ids.length; i++) {
@@ -379,7 +436,7 @@ function delTreeColumn(cid) {
         }
     }
 
-    if (ids.length > 1) {
+    if (isMulti) {
         parent.window.frames["mainFrame"].window.location.reload();
     } else {
         if (!column)
@@ -1153,14 +1210,14 @@ function createArticlePopMenu(obj, aid) {
     var menu = new ContextMenu(), item;
     item = new menu.Item("修改这篇文档", "修改这篇文档", "Content/ArticleEdit.aspx?id=" + aid);
     menu.addItem(item);
-    item = new menu.Item("放入回收站", "放入回收站", "Content/ArticleEdit.aspx?id=" + aid);
+    item = new menu.Item("放入回收站", "放入回收站", "javascript:recycleArticle(" + aid + ")");
     menu.addItem(item);
     menu.addSeparator();
-    item = new menu.Item("移动这篇文档到", "移动这篇文档到", "javascript:delSite(" + aid + ")");
+    item = new menu.Item("移动这篇文档到", "移动这篇文档到", "javascript:moveArticle(" + aid + ")");
     menu.addItem(item);
-    item = new menu.Item("移动这篇文档到", "移动这篇文档到", "javascript:addSite()");
+    item = new menu.Item("复制这篇文档到", "复制这篇文档到", "javascript:copyArticle(" + aid + ")");
     menu.addItem(item);
-    item = new menu.Item("移动这篇文档到", "移动这篇文档到", "javascript:addSiteColumn(" + aid + ")");
+    item = new menu.Item("引用这篇文档到", "引用这篇文档到", "javascript:pointArticle(" + aid + ")");
     menu.addItem(item);
 
     obj.menu = menu;
@@ -1249,6 +1306,12 @@ function delColumnOK(cid) {
     parent.disablePopup();
 }
 
+//批量删除栏目回调函数
+function delColumnsOK(ids) {
+    parent.window.frames["left"].delTreeColumn(ids, true);
+    parent.disablePopup();
+}
+
 //排序栏目回调函数
 function sortColumnOK(cid) {
     parent.window.frames["left"].sortColumn(cid);
@@ -1288,14 +1351,76 @@ function recycleArticleOK() {
 }
 
 //移动文档回调函数
-function MoveArticleOK() {
+function moveArticleOK() {
     parent.window.frames["mainFrame"].window.location.href = parent.window.frames["mainFrame"].window.location.href;
     parent.disablePopup();
 }
 
 //复制文档回调函数
-function CopyArticleOK() {
+function copyArticleOK() {
+    parent.window.frames["mainFrame"].window.location.href = parent.window.frames["mainFrame"].window.location.href;
     parent.disablePopup();
+}
+
+//引用文档回调函数
+function pointArticleOK() {
+    parent.window.frames["mainFrame"].window.location.href = parent.window.frames["mainFrame"].window.location.href;
+    parent.disablePopup();
+}
+
+//恢复文档回调函数
+function revokeArticleOK() {
+    parent.window.frames["mainFrame"].window.location.href = parent.window.frames["mainFrame"].window.location.href;
+    parent.disablePopup();
+}
+
+//彻底删除文档回调函数
+function deleteArticleOK() {
+    parent.window.frames["mainFrame"].window.location.href = parent.window.frames["mainFrame"].window.location.href;
+    parent.disablePopup();
+}
+
+//清空回收站
+function clearRecycle(cid, children) {
+    var msg = "";
+    if (children) {
+        msg = "确定清空当前栏目及其子栏目的回收站？";
+    } else {
+        msg = "确定清空当前栏目的回收站？";
+    }
+    if (!confirm(msg)) return;
+    var url = "../Ajax/ArticleClear.aspx?cid=" + cid;
+    if (children) {
+        url += "&ch=1";
+    }
+    $.ajax({
+        url: url,
+        cache: false,
+        success: function(result) {
+            if (result.length > 0) {
+                alert(result);
+            } else {
+                window.location.reload();
+            }
+        }
+    });
+}
+
+//清空回收站
+function clearSiteRecycle(sid) {
+    if (!confirm("确定清空当前站点的回收站？")) return;
+    var url = "../Ajax/SiteArticleClear.aspx?id=" + sid;
+    $.ajax({
+        url: url,
+        cache: false,
+        success: function(result) {
+            if (result.length > 0) {
+                alert(result);
+            } else {
+                window.location.reload();
+            }
+        }
+    });
 }
 
 //tab导航事件
@@ -1314,13 +1439,6 @@ function selectOption(title, content, index) {
             $(this).hide();
         }
     });
-}
-
-//删除图片
-function delPicture(obj) {
-    if (obj) {
-        $(obj).parent("li").remove();
-    }
 }
 
 //操作任务显示/隐藏
@@ -1396,6 +1514,7 @@ function checkTreeForm() {
         alert("请选择栏目！");
         return false;
     }
+    return true;
 }
 
 //全选事件

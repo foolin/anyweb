@@ -46,27 +46,27 @@ public partial class Admin_Content_ArticleAdd : ArticlePageAdmin
         int sort = 0;
         if( !DateTime.TryParse( txtCreateAt.Text, out createAt ) )
         {
-            Fail( "撰写时间格式不正确！" );
+            Fail( "撰写时间格式不正确！", true );
         }
 
         if( drpType.SelectedValue == "3" && fileUploader.PostedFile.ContentLength == 0 )
         {
-            Fail( "请选择要上传的文件！" );
+            Fail( "请选择要上传的文件！", true );
         }
 
         if( fileUploader.PostedFile.ContentLength > 2097151 )
         {
-            Fail( "文件大小不能超出2M！" );
+            Fail( "文件大小不能超出2M！", true );
         }
 
         if( fileImage.PostedFile.ContentLength > 2097151 )
         {
-            Fail( "文档图片大小不能超出2M！" );
+            Fail( "文档图片大小不能超出2M！", true );
         }
 
         if( !int.TryParse( txtSort.Text.Trim(), out sort ) || sort < 0 )
         {
-            Fail( "文档排序格式错误，请输入非负整数！" );
+            Fail( "文档排序格式错误，请输入非负整数！", true );
         }
 
         AW_Article_dao dao = new AW_Article_dao();
@@ -94,7 +94,7 @@ public partial class Admin_Content_ArticleAdd : ArticlePageAdmin
                 bean.fdArtiLink = SaveFile( fileUploader );
                 break;
             default:
-                WebAgent.FailAndGo( "请选择文章类型！" );
+                Fail( "请选择文章类型！", true );
                 break;
         }
         bean.fdArtiIsAuthorship = radioIsAuthor.SelectedIndex;
@@ -124,7 +124,7 @@ public partial class Admin_Content_ArticleAdd : ArticlePageAdmin
         }
         else
         {
-            Fail( "文档添加失败，请稍候再试！" );
+            Fail( "文档添加失败，请稍候再试！", true );
         }
     }
 }

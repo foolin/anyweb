@@ -39,7 +39,7 @@ namespace AnyWell.AW_DL
 		}
 		private int _fdArtiType = 0;
 		 /// <summary>
-		 /// 文章类型(0HTML1文本2链接3文件)
+		 /// 文章类型(0HTML1文本2链接3文件4引用)
 		 /// </summary>
 		public int fdArtiType
 		{
@@ -181,6 +181,15 @@ namespace AnyWell.AW_DL
 			get{return _fdArtiImage;}
 			set{_fdArtiImage = value;}
 		}
+        private int _fdArtiSourceID = 0;
+        /// <summary>
+        /// 源文档编号(用于引用文档)
+        /// </summary>
+        public int fdArtiSourceID
+        {
+            get{return _fdArtiSourceID;}
+            set{_fdArtiSourceID = value;}
+        }
 
 
 		/////////////////////////////////////////

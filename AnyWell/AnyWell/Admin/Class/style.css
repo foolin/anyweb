@@ -185,6 +185,8 @@ a.login-text01:hover{font-family: "宋体";font-size: 12px;color: #FF0000;text-d
 /*内容区*/
 .pbd{background:none repeat scroll 0 0 #FFFFFF;border:1px solid #B8E2EC;margin:0;position:relative;width:100%;}
 .Location{background-image:url(../images/nav06.gif);height:30px;border-top:2px solid #B8C9D6;padding-left:20px;color:#0092CC;font-size:14px;font-weight:700;}
+.Location ul li{float:left;padding-right:10px;}
+.Location ul li button,.Location ul li input.button{background:url("../images/button03.gif") no-repeat scroll 0 0 transparent;border:0 none;color:#174B73;cursor:pointer;margin:0 5px;font-size:12px;width:63px;height:20px;}
 .nodatas{padding:10px 0 0 20px;}
 .imglist{padding:10px 0 0 20px;}
 .imglist li{float:left;height:134px;margin-left:42px;width:140px;text-align:left;margin:0;}
@@ -222,7 +224,7 @@ a.login-text01:hover{font-family: "宋体";font-size: 12px;color: #FF0000;text-d
 .operation .opr-mbd ul li.outFile a{background:url(../images/icons/icon03.gif) no-repeat 0;}
 .operation .opr-mbd ul li.checkFile a{background:url(../images/icons/icon04.gif) no-repeat 0;}
 .operation .opr-mbd ul li.perFile a{background:url(../images/icons/icon05.gif) no-repeat 0;}
-.operation .opr-mbd ul li.canFile a{background:url(../images/icons/icon_Revocation.gif) no-repeat 0;}
+.operation .opr-mbd ul li.revFile a{background:url(../images/icons/icon_Revocation.gif) no-repeat 0;}
 .operation .opr-mbd ul li.recFile a{background:url(../images/icons/recyle.gif) no-repeat 0;}
 .operation .opr-mbd ul li.delFile a{background:url(../images/icons/icon06.gif) no-repeat 0;}
 .operation .opr-mbd ul li.editFile a{background:url(../images/icons/icon04.gif) no-repeat 0;}
@@ -232,45 +234,12 @@ a.login-text01:hover{font-family: "宋体";font-size: 12px;color: #FF0000;text-d
 .operation .opr-mbd ul li.inXML a{background:url(../images/icons/icon10.gif) no-repeat 0;}
 .operation .opr-mbd ul li.outXML{background:url(../images/icons/icon11.gif) no-repeat 0;}
 .operation .opr-mbd td{line-height:25px;}
-.mft-main{
-    border: 0 none;
-    bottom: 0;
-    left: 0;
-    margin: 0;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 100%;
-}
-.mft-main .guaid {
-    background: url("../images/nav08.gif") repeat-x scroll 0 100% transparent;
-    border: 0 none;
-    height: 34px;
-    margin: 0;
-    padding-left: 10px;
-}
-.mft-main .guaid ul li.selected {
-    background: url("../images/mainGuaidhover.jpg") no-repeat scroll right 0 transparent;
-}
-.mft-main .guaid ul li.selected a {
-    background: url("../images/mainGuaidhover.jpg") no-repeat scroll 0 0 transparent;
-    color: #005B7D;
-}
-.mft-main .guaid ul li {
-    float: left;
-}
-.mft-main .guaid ul li a {
-    color: #0093CC;
-    display: block;
-    float: left;
-    font-weight: 700;
-    height: 34px;
-    line-height: 34px;
-    margin-right: 10px;
-    padding-left: 10px;
-    text-align: center;
-}
-
+.mft-main{border:0 none;bottom:0;left:0;margin:0;overflow:hidden;padding:0;position:absolute;width:100%;}
+.mft-main .guaid{background:url("../images/nav08.gif") repeat-x scroll 0 100% transparent;border:0 none;height:34px;margin:0;padding-left:10px;}
+.mft-main .guaid ul li.selected{background:url("../images/mainGuaidhover.jpg") no-repeat scroll right 0 transparent;}
+.mft-main .guaid ul li.selected a{background:url("../images/mainGuaidhover.jpg") no-repeat scroll 0 0 transparent;color:#005B7D;}
+.mft-main .guaid ul li{float:left;}
+.mft-main .guaid ul li a{color:#0093CC;display:block;float:left;font-weight:700;height:34px;line-height:34px;margin-right:10px;padding-left:10px;text-align:center;}
 /*popup*/
 .optionhead
 {

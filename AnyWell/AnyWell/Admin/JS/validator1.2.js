@@ -78,37 +78,16 @@ Validator.prototype = {
                 }
             }
         }
-
-        //        var btns = document.getElementsByTagName("input");
-        //        for (i = 0; i < btns.length; i++) {
-        //            if ((btns[i].type == "submit"
-        //			|| btns[i].type == "image") && btns[i].nocheck != "1") {
-        //                btns[i].validator = this;
-        //                if (this.isIE) {
-        //                    btns[i].attachEvent("onclick", function(e) { return e.srcElement.validator.Validates(); });
-        //                }
-        //                else {
-        //                    btns[i].addEventListener("click", function(e) { return e.target.validator.Validates(); }, false);
-        //                }
-        //            }
-        //        }
-//        if (this.isIE) {
-//            var btns = document.getElementsByTagName("input");
-//            for (i = 0; i < btns.length; i++) {
-//                if ((btns[i].type == "submit"
-//    			|| btns[i].type == "image") && btns[i].nocheck != "1") {
-//                    btns[i].validator = this;
-//                    btns[i].attachEvent("onclick", function(e) { return e.srcElement.validator.Validates(); });
-//                }
-//            }
-//        } else {
-            var forms = this;
-            $("form").each(function() {
-                $(this).submit(function() {
-                    return forms.Validates();
-                });
+        var forms = this;
+        $("form").each(function() {
+            $(this).submit(function() {
+                if (forms.Validates()) {
+                    return forms.Success();
+                } else {
+                    return false;
+                }
             });
-//        }
+        });
     },
 
     Validate: function(ctl) {
@@ -219,6 +198,10 @@ Validator.prototype = {
 
             return false;
         }
+        return true;
+    },
+
+    Success: function() {
         return true;
     },
 

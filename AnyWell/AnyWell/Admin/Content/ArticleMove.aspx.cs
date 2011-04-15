@@ -34,7 +34,7 @@ public partial class Admin_Content_ArticleMove : PageAdmin
 
             if( cid == 0 )
             {
-                ShowError( "请选择栏目！" );
+                Fail( "请选择栏目！", true );
             }
 
             AW_Column_bean column = new AW_Column_dao().funcGetColumnInfo( cid );
@@ -52,7 +52,7 @@ public partial class Admin_Content_ArticleMove : PageAdmin
                 }
             }
 
-            Response.Write( "<script type=text/javascript>parent.MoveArticleOK();</script>" );
+            Response.Write( "<script type=text/javascript>parent.moveArticleOK();</script>" );
             Response.End();
         }
     }

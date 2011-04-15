@@ -17,7 +17,7 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public List<AW_Article_bean> funcGetArticleList( string ids )
         {
-            this.propSelect = "fdArtiID,fdArtiTitle";
+            this.propSelect = "fdArtiID,fdArtiTitle,fdArtiType,fdArtiSourceID";
             this.propWhere = string.Format( "fdArtiID IN ({0})", ids );
             this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
             return this.funcGetList();
@@ -49,6 +49,7 @@ namespace AnyWell.AW_DL
         public List<AW_Article_bean> funcGetArticleList( AW_Column_bean column, bool getChildren, string field, string orderBy, int pageIndex, int pageSize, out int recordCount )
         {
             this.propTableApp = "INNER JOIN AW_Column ON fdArtiColuID=fdColuID";
+            this.propSelect = "fdArtiID,fdArtiColuID,fdArtiCreateAt,fdArtiType,fdArtiTitle,fdArtiClickCount,fdArtiCommentCount,fdColuID,fdColuName";
             this.propWhere = "fdArtiIsDel=0";
             if( getChildren )
             {
@@ -58,6 +59,90 @@ namespace AnyWell.AW_DL
             {
                 this.propWhere += string.Format( " AND fdArtiColuID={0}", column.fdColuID );
             }
+            if( !string.IsNullOrEmpty( field ) && !string.IsNullOrEmpty( orderBy ) )
+            {
+                this.propOrder = string.Format( "ORDER BY {0} {1}", field, orderBy );
+            }
+            else
+            {
+                this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
+            }
+            this.propGetCount = true;
+            this.propPage = pageIndex;
+            this.propPageSize = pageSize;
+            DataSet ds = this.funcCommon();
+            recordCount = this.propCount;
+            List<AW_Article_bean> list = new List<AW_Article_bean>();
+            for( int i = 0; i < ds.Tables[ 0 ].Rows.Count; i++ )
+            {
+                DataRow row = ds.Tables[ 0 ].Rows[ i ];
+                AW_Article_bean bean = new AW_Article_bean();
+                bean.funcFromDataRow( row );
+                bean.Column = new AW_Column_bean();
+                bean.Column.funcFromDataRow( row );
+                list.Add( bean );
+                bean.fdAutoId = pageSize * ( pageIndex - 1 ) + i + 1;
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 获取站点文档列表
+        /// </summary>
+        /// <param name="siteId">站点编号</param>
+        /// <param name="field">排序字段</param>
+        /// <param name="orderBy">排序方式</param>
+        /// <param name="pageIndex">页码</param>
+        /// <param name="pageSize">每页记录数</param>
+        /// <param name="recordCount">总记录数</param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetSiteArticleList( int siteId, string field, string orderBy, int pageIndex, int pageSize, out int recordCount )
+        {
+            this.propTableApp = "INNER JOIN AW_Column ON fdArtiColuID=fdColuID";
+            this.propSelect = "fdArtiID,fdArtiColuID,fdArtiCreateAt,fdArtiType,fdArtiTitle,fdArtiClickCount,fdArtiCommentCount,fdColuID,fdColuName";
+            this.propWhere = string.Format( "fdArtiIsDel=0 AND fdColuSiteID={0}", siteId );
+            if( !string.IsNullOrEmpty( field ) && !string.IsNullOrEmpty( orderBy ) )
+            {
+                this.propOrder = string.Format( "ORDER BY {0} {1}", field, orderBy );
+            }
+            else
+            {
+                this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
+            }
+            this.propGetCount = true;
+            this.propPage = pageIndex;
+            this.propPageSize = pageSize;
+            DataSet ds = this.funcCommon();
+            recordCount = this.propCount;
+            List<AW_Article_bean> list = new List<AW_Article_bean>();
+            for( int i = 0; i < ds.Tables[ 0 ].Rows.Count; i++ )
+            {
+                DataRow row = ds.Tables[ 0 ].Rows[ i ];
+                AW_Article_bean bean = new AW_Article_bean();
+                bean.funcFromDataRow( row );
+                bean.Column = new AW_Column_bean();
+                bean.Column.funcFromDataRow( row );
+                list.Add( bean );
+                bean.fdAutoId = pageSize * ( pageIndex - 1 ) + i + 1;
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 获取站点回收站列表
+        /// </summary>
+        /// <param name="siteId">站点编号</param>
+        /// <param name="field">排序字段</param>
+        /// <param name="orderBy">排序方式</param>
+        /// <param name="pageIndex">页码</param>
+        /// <param name="pageSize">每页记录数</param>
+        /// <param name="recordCount">总记录数</param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetSiteArticleRecycleList( int siteId, string field, string orderBy, int pageIndex, int pageSize, out int recordCount )
+        {
+            this.propTableApp = "INNER JOIN AW_Column ON fdArtiColuID=fdColuID";
+            this.propSelect = "fdArtiID,fdArtiColuID,fdArtiCreateAt,fdArtiType,fdArtiTitle,fdArtiClickCount,fdArtiCommentCount,fdColuID,fdColuName";
+            this.propWhere = string.Format( "fdArtiIsDel=1 AND fdColuSiteID={0}", siteId );
             if( !string.IsNullOrEmpty( field ) && !string.IsNullOrEmpty( orderBy ) )
             {
                 this.propOrder = string.Format( "ORDER BY {0} {1}", field, orderBy );
@@ -200,6 +285,17 @@ namespace AnyWell.AW_DL
         }
 
         /// <summary>
+        /// 从回收站恢复文档
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public int funcRevokeArticle( string ids )
+        {
+            string sql = string.Format( "UPDATE AW_Article SET fdArtiIsDel=0 WHERE fdArtiID IN ({0})", ids );
+            return this.funcExecute( sql );
+        }
+
+        /// <summary>
         /// 移动文档
         /// </summary>
         /// <param name="ids"></param>
@@ -241,6 +337,7 @@ namespace AnyWell.AW_DL
                             bean.fdArtiColuID = column.fdColuID;
                             bean.fdArtiClickCount = 0;
                             bean.fdArtiCommentCount = 0;
+                            bean.fdArtiCreateAt = DateTime.Now;
                             funcInsert( bean, tran );
                         }
                     }
@@ -252,10 +349,318 @@ namespace AnyWell.AW_DL
                 tran.Commit();
                 result = true;
             }
-            catch( Exception ex )
+            catch( Exception )
             {
                 tran.Rollback();
                 result = false;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 引用文档
+        /// </summary>
+        /// <param name="aids"></param>
+        /// <param name="cids"></param>
+        /// <returns></returns>
+        public bool funcPointArticle( string aids, string cids )
+        {
+            AW_Column_dao dao = new AW_Column_dao();
+            List<AW_Article_bean> list = funcGetArticleList( aids );
+            bool result = false;
+
+            IDbConnection conn = this.NewConnection();
+            conn.Open();
+            IDbTransaction tran = conn.BeginTransaction();
+
+            try
+            {
+                foreach( string cid in cids.Split( ',' ) )
+                {
+                    AW_Column_bean column = dao.funcGetColumnInfo( int.Parse( cid ) );
+                    if( column != null )
+                    {
+                        foreach( AW_Article_bean bean in list )
+                        {
+                            AW_Article_bean newArticle = new AW_Article_bean();
+                            newArticle.fdArtiID = dao.funcNewID();
+                            newArticle.fdArtiSort = newArticle.fdArtiID * 10;
+                            newArticle.fdArtiColuID = column.fdColuID;
+                            newArticle.fdArtiCreateAt = DateTime.Now;
+                            newArticle.fdArtiType = 4;
+                            newArticle.fdArtiTitle = bean.fdArtiTitle;
+                            if( bean.fdArtiType == 4 )
+                            {
+                                newArticle.fdArtiSourceID = bean.fdArtiSourceID;
+                            }
+                            else
+                            {
+                                newArticle.fdArtiSourceID = bean.fdArtiID;
+                            }
+                            funcInsert( newArticle, tran );
+                        }
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                tran.Commit();
+                result = true;
+            }
+            catch( Exception )
+            {
+                tran.Rollback();
+                result = false;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取回收站文章列表
+        /// </summary>
+        /// <param name="column"></param>
+        /// <param name="getChildren"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="recordCount"></param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetArticleRecycleList( AW_Column_bean column, bool getChildren, string field, string orderBy, int pageIndex, int pageSize, out int recordCount )
+        {
+            this.propTableApp = "INNER JOIN AW_Column ON fdArtiColuID=fdColuID";
+            this.propSelect = "fdArtiID,fdArtiColuID,fdArtiCreateAt,fdArtiType,fdArtiTitle,fdArtiClickCount,fdArtiCommentCount,fdColuID,fdColuName";
+            this.propWhere = "fdArtiIsDel=1";
+            if( getChildren )
+            {
+                this.propWhere += string.Format( " AND fdArtiColuID IN ({0})", column.ColumnAndChildrenString() );
+            }
+            else
+            {
+                this.propWhere += string.Format( " AND fdArtiColuID={0}", column.fdColuID );
+            }
+            if( !string.IsNullOrEmpty( field ) && !string.IsNullOrEmpty( orderBy ) )
+            {
+                this.propOrder = string.Format( "ORDER BY {0} {1}", field, orderBy );
+            }
+            else
+            {
+                this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
+            }
+            this.propGetCount = true;
+            this.propPage = pageIndex;
+            this.propPageSize = pageSize;
+            DataSet ds = this.funcCommon();
+            recordCount = this.propCount;
+            List<AW_Article_bean> list = new List<AW_Article_bean>();
+            for( int i = 0; i < ds.Tables[ 0 ].Rows.Count; i++ )
+            {
+                DataRow row = ds.Tables[ 0 ].Rows[ i ];
+                AW_Article_bean bean = new AW_Article_bean();
+                bean.funcFromDataRow( row );
+                bean.Column = new AW_Column_bean();
+                bean.Column.funcFromDataRow( row );
+                list.Add( bean );
+                bean.fdAutoId = pageSize * ( pageIndex - 1 ) + i + 1;
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 清空回收站
+        /// </summary>
+        /// <param name="column">栏目</param>
+        /// <param name="withChildren">包括所有子栏目</param>
+        /// <returns></returns>
+        public int funcClearRecycle( AW_Column_bean column,bool withChildren )
+        {
+            string sql = "DELETE AW_Article WHERE fdArtiIsDel=1";
+            if( withChildren )
+            {
+                sql += string.Format( " AND fdArtiColuID IN ({0})", column.ColumnAndChildrenString() );
+            }
+            else
+            {
+                sql += string.Format( " AND fdArtiColuID={0}", column.fdColuID );
+            }
+            return funcExecute( sql );
+        }
+
+        /// <summary>
+        /// 清空站点回收站
+        /// </summary>
+        /// <param name="siteId">站点编号</param>
+        /// <returns></returns>
+        public int funcClearSiteRecycle( int siteId )
+        {
+            string sql = string.Format( "DELETE AW_Article WHERE fdArtiIsDel=1 AND fdArtiColuID IN (SELECT fdColuID FROM AW_Column WHERE fdColuSiteID={0})", siteId );
+            return funcExecute( sql );
+        }
+
+        /// <summary>
+        /// 搜索文档
+        /// </summary>
+        /// <param name="column">栏目</param>
+        /// <param name="key">关键字</param>
+        /// <param name="from">起始时间</param>
+        /// <param name="to">结束时间</param>
+        /// <param name="type">文档类型</param>
+        /// <param name="getChildren">搜索子栏目</param>
+        /// <param name="field">排序字段</param>
+        /// <param name="orderBy">排序方式</param>
+        /// <param name="pageIndex">页码</param>
+        /// <param name="pageSize">每页记录数</param>
+        /// <param name="recordCount">总记录数</param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcSearchArticle( AW_Column_bean column, string key, DateTime from, DateTime to, int type, bool getChildren, string field, string orderBy, int pageIndex, int pageSize, out int recordCount )
+        {
+            this.propTableApp = "INNER JOIN AW_Column ON fdArtiColuID=fdColuID";
+            this.propSelect = "fdArtiID,fdArtiColuID,fdArtiCreateAt,fdArtiType,fdArtiTitle,fdArtiClickCount,fdArtiCommentCount,fdColuID,fdColuName";
+            this.propWhere = "fdArtiIsDel=0";
+            if( key.Length > 0 )
+            {
+                this.propWhere += string.Format( " AND fdArtiTitle LIKE '%{0}%'", key );
+            }
+            if( from != DateTime.Parse( "1900-01-01" ) )
+            {
+                this.propWhere += string.Format( " AND fdArtiCreateAt>'{0}'", from );
+            }
+            if( to != DateTime.Parse( "2099-01-01" ) )
+            {
+                this.propWhere += string.Format( " AND fdArtiCreateAt<'{0}'", to.AddDays( 1 ) );
+            }
+            if( type != -1 )
+            {
+                this.propWhere += string.Format( " AND fdArtiType={0}", type );
+            }
+            if( getChildren )
+            {
+                this.propWhere += string.Format( " AND fdArtiColuID IN ({0})", column.ColumnAndChildrenString() );
+            }
+            else
+            {
+                this.propWhere += string.Format( " AND fdArtiColuID={0}", column.fdColuID );
+            }
+            if( !string.IsNullOrEmpty( field ) && !string.IsNullOrEmpty( orderBy ) )
+            {
+                this.propOrder = string.Format( "ORDER BY {0} {1}", field, orderBy );
+            }
+            else
+            {
+                this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
+            }
+            this.propGetCount = true;
+            this.propPage = pageIndex;
+            this.propPageSize = pageSize;
+            DataSet ds = this.funcCommon();
+            recordCount = this.propCount;
+            List<AW_Article_bean> list = new List<AW_Article_bean>();
+            for( int i = 0; i < ds.Tables[ 0 ].Rows.Count; i++ )
+            {
+                DataRow row = ds.Tables[ 0 ].Rows[ i ];
+                AW_Article_bean bean = new AW_Article_bean();
+                bean.funcFromDataRow( row );
+                bean.Column = new AW_Column_bean();
+                bean.Column.funcFromDataRow( row );
+                list.Add( bean );
+                bean.fdAutoId = pageSize * ( pageIndex - 1 ) + i + 1;
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 搜索站点文档
+        /// </summary>
+        /// <param name="siteId">站点编号</param>
+        /// <param name="key">关键字</param>
+        /// <param name="from">起始时间</param>
+        /// <param name="to">结束时间</param>
+        /// <param name="type">类型</param>
+        /// <param name="field">排序字段</param>
+        /// <param name="orderBy">排序方式</param>
+        /// <param name="pageIndex">页码</param>
+        /// <param name="pageSize">每页记录数</param>
+        /// <param name="recordCount">总记录数</param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcSearchSiteArticle( int siteId, string key, DateTime from, DateTime to, int type, string field, string orderBy, int pageIndex, int pageSize, out int recordCount )
+        {
+            this.propTableApp = "INNER JOIN AW_Column ON fdArtiColuID=fdColuID";
+            this.propSelect = "fdArtiID,fdArtiColuID,fdArtiCreateAt,fdArtiType,fdArtiTitle,fdArtiClickCount,fdArtiCommentCount,fdColuID,fdColuName";
+            this.propWhere = string.Format( "fdArtiIsDel=0 AND fdColuSiteID={0}", siteId );
+            if( key.Length > 0 )
+            {
+                this.propWhere += string.Format( " AND fdArtiTitle LIKE '%{0}%'", key );
+            }
+            if( from != DateTime.Parse( "1900-01-01" ) )
+            {
+                this.propWhere += string.Format( " AND fdArtiCreateAt>'{0}'", from );
+            }
+            if( to != DateTime.Parse( "2099-01-01" ) )
+            {
+                this.propWhere += string.Format( " AND fdArtiCreateAt<'{0}'", to.AddDays( 1 ) );
+            }
+            if( type != -1 )
+            {
+                this.propWhere += string.Format( " AND fdArtiType={0}", type );
+            }
+            if( !string.IsNullOrEmpty( field ) && !string.IsNullOrEmpty( orderBy ) )
+            {
+                this.propOrder = string.Format( "ORDER BY {0} {1}", field, orderBy );
+            }
+            else
+            {
+                this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
+            }
+            this.propGetCount = true;
+            this.propPage = pageIndex;
+            this.propPageSize = pageSize;
+            DataSet ds = this.funcCommon();
+            recordCount = this.propCount;
+            List<AW_Article_bean> list = new List<AW_Article_bean>();
+            for( int i = 0; i < ds.Tables[ 0 ].Rows.Count; i++ )
+            {
+                DataRow row = ds.Tables[ 0 ].Rows[ i ];
+                AW_Article_bean bean = new AW_Article_bean();
+                bean.funcFromDataRow( row );
+                bean.Column = new AW_Column_bean();
+                bean.Column.funcFromDataRow( row );
+                list.Add( bean );
+                bean.fdAutoId = pageSize * ( pageIndex - 1 ) + i + 1;
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 重写修改文档
+        /// </summary>
+        /// <param name="aBean"></param>
+        /// <returns></returns>
+        public override int funcUpdate( Bean_Base aBean )
+        {
+            int result = 0;
+            IDbConnection conn = this.NewConnection();
+            conn.Open();
+            IDbTransaction tran = conn.BeginTransaction();
+
+            try
+            {
+                base.funcUpdate( aBean, tran );
+                string sql = string.Format( "UPDATE AW_Article SET fdArtiTitle='{0}' WHERE fdArtiType=4 AND fdArtiSourceID={1}", ( ( AW_Article_bean ) aBean ).fdArtiTitle, ( ( AW_Article_bean ) aBean ).fdArtiID );
+                funcExecute( sql, tran );
+                tran.Commit();
+                result = 1;
+            }
+            catch( Exception )
+            {
+                tran.Rollback();
+                result = 0;
             }
             finally
             {

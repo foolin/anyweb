@@ -1,13 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Master/List.master" AutoEventWireup="true" CodeFile="SiteMain.aspx.cs" Inherits="Admin_Content_SiteMain" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Master/List.master" AutoEventWireup="true"
+    CodeFile="SiteMain.aspx.cs" Inherits="Admin_Content_SiteMain" %>
 
 <%@ Register Src="../Control/SiteOperation.ascx" TagName="SiteOperation" TagPrefix="uc1" %>
 <%@ Register Src="../Control/SiteInfo.ascx" TagName="SiteInfo" TagPrefix="uc1" %>
 <%@ Register Src="../Control/SiteFooter.ascx" TagName="SiteFooter" TagPrefix="uc1" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="cphHead" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="Server">
+
     <script type="text/javascript" src="../js/jquery.ui.core.js"></script>
-	<script type="text/javascript" src="../js/jquery.ui.widget.js"></script>
-	<script type="text/javascript" src="../js/jquery.ui.mouse.js"></script>
+
+    <script type="text/javascript" src="../js/jquery.ui.widget.js"></script>
+
+    <script type="text/javascript" src="../js/jquery.ui.mouse.js"></script>
+
     <script type="text/javascript" src="../js/jquery.ui.sortable.js"></script>
+
     <script type="text/javascript">
         $(function() {
             $("#imglist").sortable({
@@ -38,7 +44,7 @@
                             if (msg.substr(0, 8) == 'success:') {
                                 var str = msg.substr(8, msg.length - 8);
                                 eval(str);
-                            }else {
+                            } else {
                                 alert(msg);
                                 window.location.reload();
                             }
@@ -48,11 +54,12 @@
             });
         });
     </script>
+
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cphTitle" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="cphTitle" runat="Server">
     栏目列表
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="cphContent" Runat="Server">
+<asp:Content ID="Content3" ContentPlaceHolderID="cphContent" runat="Server">
     <div id="noDatas" runat="server" visible="false" class="nodatas">
         未找到栏目，<a href="javascript:parent.addSiteColumn(<%=CurrentSite.fdSiteID %>);">点击这里</a>新建一个栏目</div>
     <ul class="imglist" id="imglist">
@@ -71,11 +78,15 @@
         </asp:Repeater>
     </ul>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="cphOpr" Runat="Server">
+<asp:Content ID="Content4" ContentPlaceHolderID="cphOpr" runat="Server">
     <uc1:SiteOperation runat="server" />
     <uc1:SiteInfo runat="server" />
 </asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="cphFooter" Runat="Server">
+<asp:Content ID="Content5" ContentPlaceHolderID="cphFooter" runat="Server">
     <uc1:SiteFooter runat="server" />
-</asp:Content>
 
+    <script type="text/javascript">
+        selectFooter("Column");
+    </script>
+
+</asp:Content>

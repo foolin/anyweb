@@ -80,8 +80,8 @@ namespace AnyWell.AW_DL
                 bean.funcFromDataRow( row );
                 bean.Column = new AW_Column_bean();
                 bean.Column.funcFromDataRow( row );
-                list.Add( bean );
                 bean.fdAutoId = pageSize * ( pageIndex - 1 ) + i + 1;
+                list.Add( bean );
             }
             return list;
         }
@@ -332,7 +332,7 @@ namespace AnyWell.AW_DL
                     {
                         foreach( AW_Article_bean bean in list )
                         {
-                            bean.fdArtiID = dao.funcNewID();
+                            bean.fdArtiID = funcNewID();
                             bean.fdArtiSort = bean.fdArtiID * 10;
                             bean.fdArtiColuID = column.fdColuID;
                             bean.fdArtiClickCount = 0;
@@ -387,7 +387,7 @@ namespace AnyWell.AW_DL
                         foreach( AW_Article_bean bean in list )
                         {
                             AW_Article_bean newArticle = new AW_Article_bean();
-                            newArticle.fdArtiID = dao.funcNewID();
+                            newArticle.fdArtiID = funcNewID();
                             newArticle.fdArtiSort = newArticle.fdArtiID * 10;
                             newArticle.fdArtiColuID = column.fdColuID;
                             newArticle.fdArtiCreateAt = DateTime.Now;

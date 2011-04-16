@@ -7,14 +7,34 @@
         <ul>
             <li class="name">
                 <%=CurrentColumn.fdColuName %></li>
-            <li class="template"><strong>栏目模板</strong>:<input type="text" title="修改模板" value="未设置" />
-                <img src="../images/icons/set.gif" alt="更换模板" />
+            <li class="template"><strong>栏目模板</strong>:
+                <%if( CurrentColumn.IndexTemplate == null )
+                  {%>
+                <input type="text" title="新建模板" value="未设置" readonly="readonly" onclick="window.open('TemplateAdd.aspx?column=true&sid=<%=CurrentSite.fdSiteID %>&cid=<%=CurrentColumn.fdColuID %>&type=1', 'template');" />
+                <%}
+                  else
+                  { %>
+                <input type="text" title="修改模板" value="<%=CurrentColumn.IndexTemplate.fdTempName %>"
+                    readonly="readonly" onclick="window.open('TemplateEdit.aspx?sid=<%=CurrentSite.fdSiteID %>&id=<%=CurrentColumn.fdColuIndexTemplateID %>', 'template');" />
+                <%} %>
+                <img src="../images/icons/set.gif" title="设置模板" alt="设置模板" onclick="parent.setTemplate(<%=CurrentSite.fdSiteID %>,1,<%=CurrentColumn.fdColuID %>)" />
             </li>
-            <li class="template"><strong>内页模板</strong>:<input type="text" title="修改模板" value="未设置" />
-                <img src="../images/icons/set.gif" alt="更换模板" />
+            <li class="template"><strong>内页模板</strong>:
+                <%if( CurrentColumn.ContentTemplate == null )
+                  {%>
+                <input type="text" title="新建模板" value="未设置" readonly="readonly" onclick="window.open('TemplateAdd.aspx?column=true&sid=<%=CurrentSite.fdSiteID %>&cid=<%=CurrentColumn.fdColuID %>&type=2', 'template');" />
+                <%}
+                  else
+                  { %>
+                <input type="text" title="修改模板" value="<%=CurrentColumn.ContentTemplate.fdTempName %>"
+                    readonly="readonly" onclick="window.open('TemplateEdit.aspx?sid=<%=CurrentSite.fdSiteID %>&id=<%=CurrentColumn.fdColuContentTemplateID %>', 'template');" />
+                <%} %>
+                <img src="../images/icons/set.gif" title="设置模板" alt="设置模板" onclick="parent.setTemplate(<%=CurrentSite.fdSiteID %>,2,<%=CurrentColumn.fdColuID %>)" />
             </li>
-            <li><strong>所属站点</strong>:<%=CurrentColumn.Site.fdSiteName %> </li>
-            <li><strong>栏目类型</strong>:<%=CurrentColumn.ColumnTypeText %> </li>
+            <li><strong>所属站点</strong>:<%=CurrentColumn.Site.fdSiteName %>
+            </li>
+            <li><strong>栏目类型</strong>:<%=CurrentColumn.ColumnTypeText %>
+            </li>
         </ul>
     </div>
 </div>

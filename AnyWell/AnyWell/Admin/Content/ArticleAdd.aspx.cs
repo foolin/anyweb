@@ -44,24 +44,16 @@ public partial class Admin_Content_ArticleAdd : ArticlePageAdmin
     {
         DateTime createAt;
         int sort = 0;
+        string articleFile = QF( "txtFile" ).Trim();
+        string articlePic = QF( "txtPic" ).Trim();
         if( !DateTime.TryParse( txtCreateAt.Text, out createAt ) )
         {
             Fail( "撰写时间格式不正确！", true );
         }
 
-        if( drpType.SelectedValue == "3" && fileUploader.PostedFile.ContentLength == 0 )
+        if( drpType.SelectedValue == "3" && string.IsNullOrEmpty(articleFile) )
         {
             Fail( "请选择要上传的文件！", true );
-        }
-
-        if( fileUploader.PostedFile.ContentLength > 2097151 )
-        {
-            Fail( "文件大小不能超出2M！", true );
-        }
-
-        if( fileImage.PostedFile.ContentLength > 2097151 )
-        {
-            Fail( "文档图片大小不能超出2M！", true );
         }
 
         if( !int.TryParse( txtSort.Text.Trim(), out sort ) || sort < 0 )
@@ -91,7 +83,7 @@ public partial class Admin_Content_ArticleAdd : ArticlePageAdmin
                 bean.fdArtiLink = txtLink.Text.Trim();
                 break;
             case 3:
-                bean.fdArtiLink = SaveFile( fileUploader );
+                bean.fdArtiLink = articleFile;
                 break;
             default:
                 Fail( "请选择文章类型！", true );
@@ -113,11 +105,7 @@ public partial class Admin_Content_ArticleAdd : ArticlePageAdmin
         {
             bean.fdArtiSort = sort;
         }
-
-        if( fileImage.PostedFile.ContentLength > 0 )
-        {
-            bean.fdArtiImage = SaveImage( fileImage, 120, 120 );
-        }
+        bean.fdArtiImage = articlePic;
         if( dao.funcInsert( bean ) > 0 )
         {
             AddLog( EventType.Insert, "添加文档", string.Format( "栏目[{0}]添加文档:[{1}({2})]", CurrentColumn.fdColuName, bean.fdArtiTitle, bean.fdArtiID ) );

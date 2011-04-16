@@ -12,7 +12,7 @@
         <DropMenuItem id="151" name="新建栏目" url="javascript:addColumnByMenu()"></DropMenuItem>
       </DropMenuItem>
     </DropMenuItem>
-    <DropMenuItem id="11" name="个人服务">
+    <!--<DropMenuItem id="11" name="个人服务">
       <DropMenuItem id="11" name="我的资料" url="../person/infoedit.aspx"></DropMenuItem>
       <DropMenuItem id="12" name="修改密码" url="../person/passwordedit.aspx"></DropMenuItem>
       <DropMenuItem id="13" name="查看操作日志" url="../person/userlog.aspx"></DropMenuItem>
@@ -39,7 +39,7 @@
       <DropMenuItem id="52" name="通讯录" url="../person/LinkMain.aspx"></DropMenuItem>
       <DropMenuItem id="53" name="收藏夹" url="../person/FavoriteMain.aspx"></DropMenuItem>
       <DropMenuItem id="54" name="共享收藏夹" url="../person/FavoriteShareList.aspx"></DropMenuItem>      
-    </DropMenuItem>
+    </DropMenuItem>-->
   </DropMenuItem>
 </DropMenu>
 

@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW_DB", "E:\PROJECT\DOTNET\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uploader", "Uploader\Uploader.csproj", "{2DE918BB-DDF4-4FD3-81B8-C714AA9332C1}"
 EndProject
+Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "AnyWell_deploy", "..\publish\AnyWell_deploy\AnyWell_deploy.wdproj", "{D5B15530-BF63-41DB-B17F-782F1D0EB41A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{2DE918BB-DDF4-4FD3-81B8-C714AA9332C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DE918BB-DDF4-4FD3-81B8-C714AA9332C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DE918BB-DDF4-4FD3-81B8-C714AA9332C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5B15530-BF63-41DB-B17F-782F1D0EB41A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5B15530-BF63-41DB-B17F-782F1D0EB41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5B15530-BF63-41DB-B17F-782F1D0EB41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5B15530-BF63-41DB-B17F-782F1D0EB41A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

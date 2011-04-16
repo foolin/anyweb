@@ -65,7 +65,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContent" runat="Server">
     <div id="noDatas" runat="server" visible="false" class="nodatas">
-        未找到文档，<a href="javascript:parent.addColumn(<%=CurrentColumn.fdColuID %>);">点击这里</a>新建一个文档</div>
+        未找到文档，<a href="ArticleAdd.aspx?cid=<%=CurrentColumn.fdColuID %>" target="article">点击这里</a>新建一个文档</div>
     <div class="datas">
         <table id="datatable">
             <asp:Repeater ID="repArticles" runat="server">

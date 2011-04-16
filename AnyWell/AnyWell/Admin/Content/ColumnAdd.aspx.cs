@@ -46,6 +46,9 @@ public partial class Admin_Content_ColumnAdd : PageAdmin
             if( sid > 0 )
             {
                 lblParent.Text = "无上级栏目";
+                drpType.Items.Add( new ListItem( "文档栏目", "0" ) );
+                drpType.Items.Add( new ListItem( "产品栏目", "1" ) );
+                drpType.Items.Add( new ListItem( "图片栏目", "2" ) );
             }
             else
             {
@@ -55,10 +58,10 @@ public partial class Admin_Content_ColumnAdd : PageAdmin
                         drpType.Items.Add( new ListItem( "文档栏目", "0" ) );
                         break;
                     case 1:
-                        drpType.Items.Add( new ListItem( "图片栏目", "1" ) );
+                        drpType.Items.Add( new ListItem( "产品栏目", "1" ) );
                         break;
                     case 2:
-                        drpType.Items.Add( new ListItem( "产品栏目", "2" ) );
+                        drpType.Items.Add( new ListItem( "图片栏目", "2" ) );
                         break;
                     default:
                         break;

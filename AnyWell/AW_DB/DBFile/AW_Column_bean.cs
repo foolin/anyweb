@@ -39,7 +39,7 @@ namespace AnyWell.AW_DL
 		}
 		private int _fdColuType = 0;
 		 /// <summary>
-		 /// 栏目类型(0文章1图片2商品)
+        /// 栏目类型(0文章1商品2图片)
 		 /// </summary>
 		public int fdColuType
 		{
@@ -99,15 +99,6 @@ namespace AnyWell.AW_DL
 		{
 			get{return _fdColuCreateAt;}
 			set{_fdColuCreateAt = value;}
-		}
-		private int _fdColuIsDel = 0;
-		 /// <summary>
-		 /// 是否删除
-		 /// </summary>
-		public int fdColuIsDel
-		{
-			get{return _fdColuIsDel;}
-			set{_fdColuIsDel = value;}
 		}
 		private int _fdColuIndexTemplateID = 0;
 		 /// <summary>

@@ -14,7 +14,7 @@ namespace AnyWell.AW_DL
         {
             this._propTable = "AW_Column";
             this._propPK = "fdColuID";
-            this._propFields = "fdColuID,fdColuSiteID,fdColuName,fdColuType,fdColuParentID,fdColuDesc,fdColuIcon,fdColuPict,fdColuSort,fdColuCreateAt,fdColuIsDel,fdColuIndexTemplateID,fdColuContentTemplateID";
+            this._propFields = "fdColuID,fdColuSiteID,fdColuName,fdColuType,fdColuParentID,fdColuDesc,fdColuIcon,fdColuPict,fdColuSort,fdColuCreateAt,fdColuIndexTemplateID,fdColuContentTemplateID";
         }
 
         public List<AW_Column_bean> funcGetList()

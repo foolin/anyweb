@@ -58,6 +58,38 @@ namespace AnyWell.AW_DL
             }
         }
 
+        private AW_Template_bean _IndexTemplate;
+        /// <summary>
+        /// 栏目模板
+        /// </summary>
+        public AW_Template_bean IndexTemplate
+        {
+            get
+            {
+                return _IndexTemplate;
+            }
+            set
+            {
+                _IndexTemplate = value;
+            }
+        }
+
+        private AW_Template_bean _ContentTemplate;
+        /// <summary>
+        /// 内容模板
+        /// </summary>
+        public AW_Template_bean ContentTemplate
+        {
+            get
+            {
+                return _ContentTemplate;
+            }
+            set
+            {
+                _ContentTemplate = value;
+            }
+        }
+
         /// <summary>
         /// 栏目层级路径
         /// </summary>
@@ -123,7 +155,7 @@ namespace AnyWell.AW_DL
     public enum ColumnType
     {
         Article = 0,
-        Album = 1,
-        Product = 2
+        Product = 1,
+        Album = 2
     }
 }

@@ -100,14 +100,14 @@ namespace AnyWell.AW_DL
 			get{return _fdSiteContentTemplateID;}
 			set{_fdSiteContentTemplateID = value;}
 		}
-		private int _fdSiteListTemplateID = 0;
+        private int _fdSiteColumnTemplateID = 0;
 		 /// <summary>
-		 /// 站点列表模板编号
+		 /// 站点栏目模板编号
 		 /// </summary>
-		public int fdSiteListTemplateID
+        public int fdSiteColumnTemplateID
 		{
-			get{return _fdSiteListTemplateID;}
-			set{_fdSiteListTemplateID = value;}
+            get{return _fdSiteColumnTemplateID;}
+            set{_fdSiteColumnTemplateID = value;}
 		}
 
 

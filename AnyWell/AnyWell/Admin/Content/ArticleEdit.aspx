@@ -38,6 +38,31 @@
             $("#<%=btnSave.ClientID %>").show();
             $("#Saving").hide();
         }
+
+        function setFile(path) {
+            if (path) {
+                $("#fileLink").attr("href", "/Files/Article/Files/" + path);
+                $("#txtFile").val("/Files/Article/Files/" + path);
+                $("#fileLink").show();
+            }
+        }
+
+        function setPic(path) {
+            if (path) {
+                $("#picLink").attr("href", "/Files/Article/Pictures/S_" + path);
+                $("#txtPic").val("/Files/Article/Pictures/S_" + path);
+                $("#picLink").show();
+            }
+        }
+
+        function delPic() {
+            if (confirm("确定删除该图片？")) {
+                $("#picLink").attr("href", "");
+                $("#txtPic").val("");
+                $("#picLink").hide();
+            }
+            return false;
+        }
     </script>
 
 </asp:Content>
@@ -66,12 +91,10 @@
         <li id="type2" style="display: none;">链接地址：<asp:TextBox ID="txtLink" CssClass="text"
             Width="300" runat="server" MaxLength="500"></asp:TextBox>
         </li>
-        <li id="type3" style="display: none;">文件上传：<asp:FileUpload ID="fileUploader" runat="server"
-            Style="width: 305px" CssClass="file" Size="36" />
-            <%if( bean.fdArtiType == 3 && !string.IsNullOrEmpty( bean.fdArtiLink ) )
-              { %>
-            <a href="<%=bean.fdArtiLink %>" target="_blank" style="position:absolute;margin:0 0 0 10px"><img src="../images/icons/rar.gif" alt="" /></a>
-            <%} %>
+        <li id="type3" style="display: none;">文件上传：
+            <sw:Uploader ID="fileUploader" UploadPage="/Admin/Ajax/FileUpload.ashx" FilePath="/Files/Article/Files/" JavascriptCompleteFunction="setFile" MultiSelect="false" runat="server"></sw:Uploader>
+            <a id="fileLink" href="<%=bean.fdArtiLink %>" target="_blank" style="position:absolute;<%=bean.fdArtiType == 3 && !string.IsNullOrEmpty( bean.fdArtiLink )?"":"display:none;" %>"><img src="../images/icons/rar.gif" alt="" /></a>
+            <input type="hidden" id="txtFile" name="txtFile" value="<%=bean.fdArtiLink %>" />
         </li>
     </ul>
     <div class="mft">
@@ -128,11 +151,9 @@
                         文档图片：
                     </td>
                     <td>
-                        <asp:FileUpload ID="fileImage" runat="server" CssClass="file" Width="150" Size="11" />
-                        <%if( !string.IsNullOrEmpty( bean.fdArtiImage ) )
-                          { %>
-                        <a href="<%=bean.fdArtiImage %>" target="_blank" title="查看图片" style="position:absolute;margin-top:5px;"><img src="../images/icons/col_Album.gif" alt="" /></a>
-                        <%} %>
+                        <sw:Uploader ID="PicUploader" UploadPage="/Admin/Ajax/ArticlePicUpload.ashx" FilePath="/Files/Article/Pictures/" Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp" JavascriptCompleteFunction="setPic" MultiSelect="false" runat="server"></sw:Uploader>
+                        <a id="picLink" href="<%=bean.fdArtiImage %>" target="_blank" title="查看图片(右键删除图片)" style="position:absolute;margin-top:5px 0;<%=string.IsNullOrEmpty( bean.fdArtiImage )?"display:none;":""%>" oncontextmenu="return delPic();"><img src="../images/icons/col_Album.gif" alt="" /></a>
+                        <input type="hidden" id="txtPic" name="txtPic" value="<%=bean.fdArtiImage %>" />
                     </td>
                 </tr>
                 <tr style="display: none;" id="rowSource">

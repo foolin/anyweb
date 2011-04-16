@@ -87,7 +87,7 @@ function centerPopup() {
 function setDrag(obj, pid) {
     var parent = $("#" + pid);
     var div = $("#movePopup");
-
+    obj.css("cursor", "move");
     obj.mousedown(function(e) {
         if (e.target.nodeName.toLowerCase() == 'img') return;
         div.css({
@@ -287,6 +287,25 @@ function deleteArticle() {
     } else {
         parent.showError("系统提示信息", "请选择文档！", 485, 223);
     }
+}
+
+//删除模板
+function delTemplate(sid) {
+    var ids = getSelect();
+    if (ids) {
+        parent.goPopupUrl(485, 363, "/Admin/Content/TemplateDel.aspx?sid=" + sid + "&ids=" + ids);
+    } else {
+        parent.showError("系统提示信息", "请选择模板！", 485, 223);
+    }
+}
+
+//设置模板
+function setTemplate(sid, type, cid) {
+    var url = "/Admin/Content/TemplateSet.aspx?sid=" + sid + "&type=" + type;
+    if (cid) {
+        url += "&column=true&cid=" + cid;
+    }
+    parent.goPopupUrl(485, 363, url);
 }
 
 //显示错误提示层
@@ -1032,7 +1051,7 @@ function ContextMenu() {
 }
 
 ContextMenu.prototype = {
-    Item: function(text, title, url, img, enabled, target) {
+    Item: function(text, title, url, target, img, enabled) {
         this.text = text;
         this.title = title;
         this.url = url;
@@ -1140,18 +1159,17 @@ function createDocumentPopMenu() {
 //站点右键菜单
 function createSitePopMenu(s) {
     var menu = new ContextMenu(), item;
-    //修改
     item = new menu.Item("修改站点", "修改站点", "javascript:editSite(" + s.id + ")");
     menu.addItem(item);
-    //删除
     item = new menu.Item("删除站点", "删除站点", "javascript:delSite(" + s.id + ")");
     menu.addItem(item);
     menu.addSeparator();
-    //新建站点
-    item = new menu.Item("新建站点", "创建新文档", "javascript:addSite()");
+    item = new menu.Item("新建站点", "创建新站点", "javascript:addSite()");
     menu.addItem(item);
-    //新建栏目
     item = new menu.Item("新建栏目", "创建新栏目", "javascript:addSiteColumn(" + s.id + ")");
+    menu.addItem(item);
+    item = new menu.Item("新建模板", "创建新模板", "Content/TemplateAdd.aspx?sid=" + s.id, "template");
+    item.enabled = true;
     menu.addItem(item);
 
     s.menu = menu;
@@ -1208,7 +1226,7 @@ function createProductColumnPopMenu(c) {
 //文档右键菜单
 function createArticlePopMenu(obj, aid) {
     var menu = new ContextMenu(), item;
-    item = new menu.Item("修改这篇文档", "修改这篇文档", "Content/ArticleEdit.aspx?id=" + aid);
+    item = new menu.Item("修改这篇文档", "修改这篇文档", "Content/ArticleEdit.aspx?id=" + aid, "article");
     menu.addItem(item);
     item = new menu.Item("放入回收站", "放入回收站", "javascript:recycleArticle(" + aid + ")");
     menu.addItem(item);
@@ -1339,44 +1357,80 @@ function addArticleOK(sid, colpath, iscontinue) {
 //修改文档回调函数
 function editArticleOK() {
     if (opener) {
-        opener.window.location.href = opener.window.location.href;
+        opener.window.location.window.location.reload();
     }
     window.close();
 }
 
 //删除文档回调函数
 function recycleArticleOK() {
-    parent.window.frames["mainFrame"].window.location.href = parent.window.frames["mainFrame"].window.location.href;
+    parent.window.frames["mainFrame"].window.location.reload();
     parent.disablePopup();
 }
 
 //移动文档回调函数
 function moveArticleOK() {
-    parent.window.frames["mainFrame"].window.location.href = parent.window.frames["mainFrame"].window.location.href;
+    parent.window.frames["mainFrame"].window.location.reload();
     parent.disablePopup();
 }
 
 //复制文档回调函数
 function copyArticleOK() {
-    parent.window.frames["mainFrame"].window.location.href = parent.window.frames["mainFrame"].window.location.href;
+    parent.window.frames["mainFrame"].window.location.reload();
     parent.disablePopup();
 }
 
 //引用文档回调函数
 function pointArticleOK() {
-    parent.window.frames["mainFrame"].window.location.href = parent.window.frames["mainFrame"].window.location.href;
+    parent.window.frames["mainFrame"].window.location.reload();
     parent.disablePopup();
 }
 
 //恢复文档回调函数
 function revokeArticleOK() {
-    parent.window.frames["mainFrame"].window.location.href = parent.window.frames["mainFrame"].window.location.href;
+    parent.window.frames["mainFrame"].window.location.reload();
     parent.disablePopup();
 }
 
 //彻底删除文档回调函数
 function deleteArticleOK() {
-    parent.window.frames["mainFrame"].window.location.href = parent.window.frames["mainFrame"].window.location.href;
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
+}
+
+//删除模板回调函数
+function delTemplateOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
+}
+
+//添加模板回调函数
+function addTemplateOK(sid) {
+    if (opener) {
+        if (opener.location.href.toLowerCase().indexOf("index") > 0) {
+            var s = opener.window.frames["left"].findSite(sid);
+            if (s) {
+                opener.window.frames["left"].focusItem(s, false);
+            }
+            opener.window.frames["mainFrame"].window.location.href = "/Admin/Content/TemplateList.aspx?id=" + sid;
+        } else {
+            opener.window.location.reload();
+        }
+    }
+    window.close();
+}
+
+//修改模板回调函数
+function editTemplateOK() {
+    if (opener) {
+        opener.window.location.reload();
+    }
+    window.close();
+}
+
+//设置模板回调函数
+function setTemplateOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
     parent.disablePopup();
 }
 

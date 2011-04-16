@@ -24,9 +24,24 @@ namespace AnyWell.AW_DL
             }
             this.propOrder = " ORDER BY fdSiteSort ASC,fdSiteID ASC";
             sites = this.funcGetList();
+            AW_Column_dao columnDao = new AW_Column_dao();
+            AW_Template_dao templateDao = new AW_Template_dao();
             foreach( AW_Site_bean site in sites )
             {
-                site.Columns = ( new AW_Column_dao() ).funcGetSiteColumnTree( site );
+                site.TemplateList = templateDao.funcGetTemplateList( site.fdSiteID );
+                if( site.fdSiteIndexTemplateID > 0 )
+                {
+                    site.IndexTemplate = site.GetTemplate( site.fdSiteIndexTemplateID );
+                }
+                if( site.fdSiteColumnTemplateID > 0 )
+                {
+                    site.ColumnTemplate = site.GetTemplate( site.fdSiteColumnTemplateID );
+                }
+                if( site.fdSiteContentTemplateID > 0 )
+                {
+                    site.ContentTemplate = site.GetTemplate( site.fdSiteContentTemplateID );
+                }
+                site.Columns = columnDao.funcGetSiteColumnTree( site );
             }
             HttpRuntime.Cache.Insert( cacheKey, sites, null, System.Web.Caching.Cache.NoAbsoluteExpiration, TimeSpan.FromMinutes( 20 ), System.Web.Caching.CacheItemPriority.NotRemovable, null );
             return sites;

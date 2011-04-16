@@ -18,7 +18,7 @@ namespace AnyWell.AW_DL
         public List<AW_Column_bean> funcGetSiteColumnTree( AW_Site_bean site )
         {
             List<AW_Column_bean> list = new List<AW_Column_bean>();
-            this.propWhere = string.Format( "fdColuSiteID={0} and fdColuIsDel=0", site.fdSiteID );
+            this.propWhere = string.Format( "fdColuSiteID={0}", site.fdSiteID );
             DataSet ds = this.funcCommon();
 
             foreach( DataRow dr in ds.Tables[ 0 ].Select( "fdColuParentID=0", "fdColuSort ASC" ) )
@@ -26,6 +26,14 @@ namespace AnyWell.AW_DL
                 AW_Column_bean bean = new AW_Column_bean();
                 bean.funcFromDataRow( dr );
                 bean.Site = site;
+                if( bean.fdColuIndexTemplateID > 0 )
+                {
+                    bean.IndexTemplate = site.GetTemplate( bean.fdColuIndexTemplateID );
+                }
+                if( bean.fdColuContentTemplateID > 0 )
+                {
+                    bean.ContentTemplate = site.GetTemplate( bean.fdColuContentTemplateID );
+                }
                 funcBindTreeNode( bean, ds, site );
                 list.Add( bean );
             }
@@ -47,6 +55,14 @@ namespace AnyWell.AW_DL
                 bean.funcFromDataRow( dr );
                 bean.Parent = node;
                 bean.Site = site;
+                if( bean.fdColuIndexTemplateID > 0 )
+                {
+                    bean.IndexTemplate = site.GetTemplate( bean.fdColuIndexTemplateID );
+                }
+                if( bean.fdColuContentTemplateID > 0 )
+                {
+                    bean.ContentTemplate = site.GetTemplate( bean.fdColuContentTemplateID );
+                }
                 funcBindTreeNode( bean, ds, site );
                 if( node.Children == null )
                     node.Children = new List<AW_Column_bean>();
@@ -97,6 +113,7 @@ namespace AnyWell.AW_DL
         public int funcAddColumn( AW_Site_bean site, AW_Column_bean bean )
         {
             int result = this.funcInsert( bean );
+            bean.Site = site;
             site.Columns.Add( bean );
             return result;
         }
@@ -279,6 +296,78 @@ namespace AnyWell.AW_DL
                 conn.Dispose();
             }
             return result;
+        }
+
+        /// <summary>
+        /// 删除栏目模板
+        /// </summary>
+        /// <param name="columnList"></param>
+        /// <param name="templateList"></param>
+        public void funcDeleteColumnTemplate( List<AW_Column_bean> columnList, List<AW_Template_bean> templateList )
+        {
+            foreach( AW_Column_bean bean in columnList )
+            {
+                foreach( AW_Template_bean template in templateList )
+                {
+                    if( bean.fdColuIndexTemplateID == template.fdTempID )
+                    {
+                        bean.fdColuIndexTemplateID = 0;
+                        bean.IndexTemplate = null;
+                    }
+                    if( bean.fdColuContentTemplateID == template.fdTempID )
+                    {
+                        bean.fdColuContentTemplateID = 0;
+                        bean.ContentTemplate = null;
+                    }
+                }
+                if( bean.Children != null && bean.Children.Count > 0 )
+                {
+                    funcDeleteColumnTemplate( bean.Children, templateList );
+                }
+            }
+        }
+
+        /// <summary>
+        /// 根据模板获取栏目
+        /// </summary>
+        /// <param name="sid"></param>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public DataSet funcGetColumnListByTemplate( int sid,string ids )
+        {
+            this.propSelect = "fdColuName,fdColuIndexTemplateID,fdColuContentTemplateID";
+            this.propWhere = string.Format( "fdColuSiteID={0} AND (fdColuIndexTemplateID IN ({1}) OR fdColuContentTemplateID IN ({1}))", sid, ids );
+            return this.funcCommon();
+        }
+
+        /// <summary>
+        /// 根据模板获取栏目名称
+        /// </summary>
+        /// <param name="bean"></param>
+        /// <param name="ds"></param>
+        /// <returns></returns>
+        public string funcGetColumnNamesByTemplate( AW_Template_bean bean, DataSet ds )
+        {
+            if( ds == null )
+            {
+                return "";
+            }
+            string names = "";
+            if( bean.fdTempType == 1 )
+            {
+                foreach( DataRow row in ds.Tables[ 0 ].Select( "fdColuIndexTemplateID=" + bean.fdTempID ) )
+                {
+                    names += "、" + ( string ) row[ "fdColuName" ];
+                }
+            }
+            else if( bean.fdTempType == 2 )
+            {
+                foreach( DataRow row in ds.Tables[ 0 ].Select( "fdColuContentTemplateID=" + bean.fdTempID ) )
+                {
+                    names += "、" + ( string ) row[ "fdColuName" ];
+                }
+            }
+            return names;
         }
 
         public override int funcDelete( int id )

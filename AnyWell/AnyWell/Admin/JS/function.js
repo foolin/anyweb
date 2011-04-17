@@ -153,44 +153,44 @@ function disablePopup() {
 
 //添加站点
 function addSite() {
-    goPopupUrl(485, 319, "/Admin/Content/SiteAdd.aspx");
+    goPopupUrl(485, 319, "/Admin/Site/SiteAdd.aspx");
 }
 
 //修改站点
 function editSite(sid) {
-    goPopupUrl(485, 319, "/Admin/Content/SiteEdit.aspx?id=" + sid);
+    goPopupUrl(485, 319, "/Admin/Site/SiteEdit.aspx?id=" + sid);
 }
 
 //删除站点
 function delSite(sid) {
-    goPopupUrl(485, 363, "/Admin/Content/SiteDel.aspx?id=" + sid);
+    goPopupUrl(485, 363, "/Admin/Site/SiteDel.aspx?id=" + sid);
 }
 
 //添加站点栏目
 function addSiteColumn(sid) {
-    goPopupUrl(485, 339, "/Admin/Content/ColumnAdd.aspx?sid=" + sid);
+    goPopupUrl(485, 339, "/Admin/Column/ColumnAdd.aspx?sid=" + sid);
 }
 
 //添加栏目
 function addColumn(cid) {
-    goPopupUrl(485, 339, '/Admin/Content/ColumnAdd.aspx?cid=' + cid);
+    goPopupUrl(485, 339, '/Admin/Column/ColumnAdd.aspx?cid=' + cid);
 }
 
 //修改栏目
 function editColumn(cid) {
-    goPopupUrl(485, 339, '/Admin/Content/ColumnEdit.aspx?cid=' + cid);
+    goPopupUrl(485, 339, '/Admin/Column/ColumnEdit.aspx?cid=' + cid);
 }
 
 //删除栏目
 function delColumn(cid) {
-    goPopupUrl(485, 363, "/Admin/Content/ColumnDel.aspx?cid=" + cid);
+    goPopupUrl(485, 363, "/Admin/Column/ColumnDel.aspx?cid=" + cid);
 }
 
 //批量删除栏目
 function delColumns() {
     var ids = getSelect();
     if (ids) {
-        parent.goPopupUrl(485, 363, "/Admin/Content/ColumnsDel.aspx?ids=" + ids);
+        parent.goPopupUrl(485, 363, "/Admin/Column/ColumnsDel.aspx?ids=" + ids);
     } else {
         parent.showError("系统提示信息", "请选择档目！", 485, 223);
     }
@@ -293,7 +293,7 @@ function deleteArticle() {
 function delTemplate(sid) {
     var ids = getSelect();
     if (ids) {
-        parent.goPopupUrl(485, 363, "/Admin/Content/TemplateDel.aspx?sid=" + sid + "&ids=" + ids);
+        parent.goPopupUrl(485, 363, "/Admin/Template/TemplateDel.aspx?sid=" + sid + "&ids=" + ids);
     } else {
         parent.showError("系统提示信息", "请选择模板！", 485, 223);
     }
@@ -301,7 +301,7 @@ function delTemplate(sid) {
 
 //设置模板
 function setTemplate(sid, type, cid) {
-    var url = "/Admin/Content/TemplateSet.aspx?sid=" + sid + "&type=" + type;
+    var url = "/Admin/Template/TemplateSet.aspx?sid=" + sid + "&type=" + type;
     if (cid) {
         url += "&column=true&cid=" + cid;
     }
@@ -326,7 +326,7 @@ function site(id, name, index) {
     //子栏目
     this.columns = new Array();
     //链接
-    this.url = "/Admin/Content/SiteMain.aspx?id=" + this.id;
+    this.url = "/Admin/Site/SiteMain.aspx?id=" + this.id;
     //是否展开
     this.expanded = false;
     //对象类型
@@ -416,9 +416,9 @@ function editTreeSite(sid, sname) {
 
 //删除站点
 function delTreeSite(sid) {
-    site = findSite(sid);
+    var site = findSite(sid);
     if (!site) return;
-    sites.splice(site.index, 1);
+    sites.splice(site.index - 1, 1);
     $(site.row).remove();
     if (window.activeColumn == site) {
         if (sites.length > 0) {
@@ -1151,7 +1151,7 @@ ContextMenu.prototype = {
 //页面空白区域右键菜单
 function createDocumentPopMenu() {
     var menu = new ContextMenu(); var item;
-    item = new menu.Item("刷新栏目树", "刷新栏目树", "javascript:window.frames['left'].window.location.reload();");
+    item = new menu.Item("刷新栏目树", "刷新栏目树", "javascript:window.frames['left'].window.location.href=window.frames['left'].window.location.href;");
     menu.addItem(item);
     window.documentContextMenu = menu;
 }
@@ -1168,7 +1168,7 @@ function createSitePopMenu(s) {
     menu.addItem(item);
     item = new menu.Item("新建栏目", "创建新栏目", "javascript:addSiteColumn(" + s.id + ")");
     menu.addItem(item);
-    item = new menu.Item("新建模板", "创建新模板", "Content/TemplateAdd.aspx?sid=" + s.id, "template");
+    item = new menu.Item("新建模板", "创建新模板", "Template/TemplateAdd.aspx?sid=" + s.id, "template");
     item.enabled = true;
     menu.addItem(item);
 
@@ -1412,7 +1412,7 @@ function addTemplateOK(sid) {
             if (s) {
                 opener.window.frames["left"].focusItem(s, false);
             }
-            opener.window.frames["mainFrame"].window.location.href = "/Admin/Content/TemplateList.aspx?id=" + sid;
+            opener.window.frames["mainFrame"].window.location.href = "/Admin/Template/TemplateList.aspx?id=" + sid;
         } else {
             opener.window.location.reload();
         }

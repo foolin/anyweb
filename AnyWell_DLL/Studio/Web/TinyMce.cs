@@ -323,6 +323,7 @@ namespace Studio.Web
                 sb.AppendLine("<script type=\"text/javascript\">");
                 sb.AppendLine("tinyMCE.init({");
                 sb.AppendLine("mode : \"exact\",");
+                sb.AppendLine( "convert_urls : false," );
                 sb.AppendLine("verify_html : false,");
                 sb.AppendLine("elements : \"" + this.textArea.ClientID + "\",");
                 sb.AppendLine("theme : \"" + (this.Theme == "" ? "advanced" : this.Theme) + "\",");

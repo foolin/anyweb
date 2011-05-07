@@ -31,7 +31,7 @@ public class PublishService
         {
             if( _protectionFolders == null )
             {
-                string keys = "admin,app_code,app_data,bin";
+                string keys = "admin,app_code,app_data,bin,clientbin,files,publish,tiny_mce";
                 _protectionFolders = new List<string>();
                 foreach( string key in keys.Split( ',' ) )
                     _protectionFolders.Add( key );

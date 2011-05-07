@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ProductClear.aspx.cs" Inherits="Admin_Ajax_ProductClear" %>

@@ -59,8 +59,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cphTitle" runat="Server">
     <ul>
         <li style="color: #000; font-size: 12px; font-weight: normal;">
-            <input id="chkChildren" type="checkbox" <%=QS("getch")=="1"?"checked=\"checked\"":"" %> onchange="showChildren(<%=QS("cid") %>,this.checked)" /><label
-                for="chkChildren">级联显示下级文档</label></li>
+            <input id="chkChildren" type="checkbox" <%=QS("getch")=="1"?"checked=\"checked\"":"" %>
+                onchange="showChildren(<%=QS("cid") %>,this.checked)" /><label for="chkChildren">级联显示下级文档</label></li>
     </ul>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContent" runat="Server">
@@ -102,7 +102,7 @@
                         <td class="dragTd" title="点击拖动排序">
                             <%#Eval("fdAutoID")%>
                         </td>
-                        <td oncontextmenu="return parent.showArticleMenu(this,<%#Eval("fdArtiID") %>,event);">
+                        <td oncontextmenu="return parent.showArticleMenu(this,<%#Eval("fdArtiID") %>,<%#Eval("fdArtiColuID") %>,event);">
                             <a href="ArticleEdit.aspx?id=<%#Eval("fdArtiID") %>" target="article">
                                 <%#( int ) Eval( "fdArtiType" ) == 4 ? "<span style=\"color:red;font-size:12px;font-weight:bold;\">【引】</span>" : ""%><%#Eval("fdArtiTitle")%></a>
                         </td>

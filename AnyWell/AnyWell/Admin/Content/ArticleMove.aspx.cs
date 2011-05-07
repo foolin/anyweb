@@ -48,7 +48,7 @@ public partial class Admin_Content_ArticleMove : PageAdmin
                 List<AW_Article_bean> list = dao.funcGetArticleList( ids );
                 foreach( AW_Article_bean bean in list )
                 {
-                    AddLog( EventType.Delete, "移动文档", string.Format( "移动文档[{0}]到栏目[{1}]", bean.fdArtiTitle, column.fdColuName ) );
+                    AddLog( EventType.Update, "移动文档", string.Format( "移动文档[{0}]到栏目[{1}]", bean.fdArtiTitle, column.fdColuName ) );
                 }
             }
 

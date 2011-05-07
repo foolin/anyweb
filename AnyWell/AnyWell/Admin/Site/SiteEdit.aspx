@@ -41,11 +41,7 @@
                     目录名称：
                 </th>
                 <td>
-                    <asp:TextBox ID="txtPath" Width="100px" CssClass="text" runat="server" MaxLength="50"></asp:TextBox>
-                    <span>存放站点数据的文件目录名</span>
-                    <sw:Validator ID="val4" ControlID="txtPath" ValidateType="Regular" Expression="^[A-Za-z0-9_-]{1,30}$"
-                        ErrorMessage="目录名称格式不对,必须是英文或数字的组合" runat="server">
-                    </sw:Validator>
+                    <asp:Label ID="lblPath" runat="server"></asp:Label>
                 </td>
             </tr>
             <tr>

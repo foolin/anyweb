@@ -668,5 +668,37 @@ namespace AnyWell.AW_DL
             }
             return result;
         }
+
+        /// <summary>
+        /// 重写删除文档
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public override int funcDelete( int id )
+        {
+            int result = 0;
+            IDbConnection conn = this.NewConnection();
+            conn.Open();
+            IDbTransaction tran = conn.BeginTransaction();
+
+            try
+            {
+                base.funcDelete( id, tran );
+                string sql = string.Format( "DELETE AW_Article WHERE fdArtiType=4 AND fdArtiSourceID={1}", id );
+                funcExecute( sql, tran );
+                tran.Commit();
+                result = 1;
+            }
+            catch( Exception )
+            {
+                tran.Rollback();
+                result = 0;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+            return result;
+        }
 	}
 }

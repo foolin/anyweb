@@ -289,6 +289,83 @@ function deleteArticle() {
     }
 }
 
+//删除产品
+function recycleProduct(pid) {
+    if (pid) {
+        goPopupUrl(485, 363, "/Admin/Product/ProductRecycle.aspx?ids=" + pid);
+    } else {
+        var ids = getSelect();
+        if (ids) {
+            parent.goPopupUrl(485, 363, "/Admin/Product/ProductRecycle.aspx?ids=" + ids);
+        } else {
+            parent.showError("系统提示信息", "请选择文档！", 485, 223);
+        }
+    }
+}
+
+//移动产品
+function moveProduct(pid) {
+    if (pid) {
+        goPopupUrl(485, 483, "/Admin/Product/ProductMove.aspx?ids=" + pid + "&type=1");
+    }
+    else {
+        var ids = getSelect();
+        if (ids) {
+            parent.goPopupUrl(485, 483, "/Admin/Product/ProductMove.aspx?ids=" + ids + "&type=1");
+        } else {
+            parent.showError("系统提示信息", "请选择产品！", 485, 223);
+        }
+    }
+}
+
+//复制产品
+function copyProduct(pid) {
+    if (pid) {
+        goPopupUrl(485, 483, "/Admin/Product/ProductCopy.aspx?ids=" + pid + "&type=1");
+    } else {
+        var ids = getSelect();
+        if (ids) {
+            parent.goPopupUrl(485, 483, "/Admin/Product/ProductCopy.aspx?ids=" + ids + "&type=1");
+        } else {
+            parent.showError("系统提示信息", "请选择产品！", 485, 223);
+        }
+    }
+}
+
+//引用产品
+function pointProduct(pid) {
+    if (pid) {
+        goPopupUrl(485, 483, "/Admin/Product/ProductPoint.aspx?ids=" + pid + "&type=1");
+    } else {
+        var ids = getSelect();
+        if (ids) {
+            parent.goPopupUrl(485, 483, "/Admin/Product/ProductPoint.aspx?ids=" + ids + "&type=1");
+        } else {
+            parent.showError("系统提示信息", "请选择产品！", 485, 223);
+        }
+    }
+}
+
+//恢复产品
+function revokeProduct() {
+    var ids = getSelect();
+    if (ids) {
+        parent.goPopupUrl(485, 363, "/Admin/Product/ProductRevoke.aspx?ids=" + ids);
+    } else {
+        parent.showError("系统提示信息", "请选择产品！", 485, 223);
+    }
+}
+
+//彻底删除产品
+function deleteProduct() {
+    var ids = getSelect();
+    if (ids) {
+        parent.goPopupUrl(485, 363, "/Admin/Product/ProductDel.aspx?ids=" + ids);
+    } else {
+        parent.showError("系统提示信息", "请选择产品！", 485, 223);
+    }
+}
+
 //删除模板
 function delTemplate(sid) {
     var ids = getSelect();
@@ -363,7 +440,20 @@ function column(site, id, name, index, type, haschild) {
     //是否展开
     this.expanded = false;
     //链接
-    this.url = "/Admin/Content/ArticleList.aspx?cid=" + this.id;
+    switch (this.type) {
+        case 'Article':
+            this.url = "/Admin/Content/ArticleList.aspx?cid=" + this.id;
+            break;
+        case 'Product':
+            this.url = "/Admin/Product/ProductList.aspx?cid=" + this.id;
+            break;
+        case 'Album':
+            this.url = "/Admin/Album/AlbumList.aspx?cid=" + this.id;
+            break;
+        case 'Single':
+            this.url = "/Admin/Content/SingleArticle.aspx?cid=" + this.id;
+            break;
+    }
     //对象类型
     this.objecttype = "column";
     //展开/收起图标
@@ -1036,6 +1126,238 @@ function hidePopupChild(c) {
     }
 }
 
+/*---------------- 系统管理栏目树 --------------------------*/
+function menu(id, name, url, index, haschild) {
+    //编号
+    this.id = id;
+    //名称
+    this.name = name;
+    //链接
+    this.url = url;
+    //索引
+    this.index = index;
+    //是否展开
+    this.expanded = false;
+    //子菜单
+    this.children = new Array();
+    //展开/收起图标
+    this.img = undefined;
+    //所属表格行
+    this.row = undefined;
+    //超链接标签
+    this.a = undefined;
+    //查找子栏目
+    this.findMenu = function(mid) {
+        return findMenu(this.children, mid);
+    };
+}
+
+//添加行
+function createMenuRow(m) {
+    var idx = 0;
+    if (m.parent != null) {
+        idx = m.parent.row.rowIndex + m.index;
+    }
+    else
+        idx = m.index;
+
+    var row = $$("treemenu").insertRow(idx);
+    row.insertCell(-1);
+
+    var img = document.createElement("IMG");
+    img.align = "absbottom";
+    img.src = "images/plus.gif";
+    img.menu = m;
+    row.menu = m;
+    m.img = img;
+    m.row = row;
+    if (m.haschild == false) {
+        img.src = "images/=.gif";
+    }
+
+    var typeimg = document.createElement("IMG");
+    typeimg.align = "absbottom";
+    if (m.parent == null) {
+        typeimg.src = "images/icons/site.gif";
+    }
+    else {
+        if (m.haschild == true) {
+            typeimg.src = "images/icons/folder.gif";
+        }
+        else {
+            typeimg.src = "images/icons/col_File.gif";
+        }
+    }
+
+
+    var a = document.createElement("a");
+    $(a).click(function(e) {
+        focusMenu(m, true);
+    });
+    a.style.marginLeft = "3px";
+    a.innerHTML = m.name;
+    a.style.cursor = "hand";
+    m.a = a;
+
+    row.cells[0].appendChild(img);
+    row.cells[0].appendChild(typeimg);
+    row.cells[0].appendChild(a);
+
+    var padding = 10;
+    if (m.parent != null) {
+        if (m.parent.padding == null) {
+            m.parent.padding = padding;
+        }
+        m.padding = m.parent.padding + padding;
+    }
+    else {
+        m.padding = 0;
+    }
+    row.cells[0].style.paddingLeft = m.padding.toString() + "px";
+    row.cells[0].nowrap = "nowrap";
+    $(img).click(function(i) {
+        if (m.expanded != true)
+            expandMenu(m);
+        else
+            inpectMenu(m);
+    });
+    if (m.parent != null) {
+        row.style.display = "none";
+    }
+    return row;
+}
+
+//展开菜单
+function expandMenu(m, idx, idpath) {
+    m.img.src = "images/-.gif";
+    if (m.children.length == 0) {
+        var url = "Ajax/Getsysmenu.aspx?parentid=" + m.id;
+        $.get(url, function(result) {
+            var columns = new Array();
+            try {
+                eval(result);
+            }
+            catch (e) { alert(e); }
+            if (columns.length == 0) {
+                m.img.src = "images/=.gif";
+                $(m.img).unbind("click");
+                return;
+            }
+            m.children = columns;
+            for (i = 0; i < m.children.length; i++) {
+                m.children[i].row.style.display = "block";
+            }
+            //定位到子栏目
+            if (idx != null && idpath != null) {
+                var ids = idpath.split('.');
+                var child = m.findMenu(ids[idx]);
+                //继续展开
+                if (idx < ids.length - 1) { 
+                    expandMenu(child, idx + 1, idpath);
+                }
+                else {
+                    focusMenu(child, true);
+                }
+            }
+        });
+    }
+    else {
+        for (i = 0; i < m.children.length; i++) {
+            m.children[i].row.style.display = "block";
+        }
+    }
+    m.expanded = true;
+}
+
+//收起菜单
+function inpectMenu(m) {
+    m.img.src = "images/plus.gif";
+    for (i = 0; i < m.children.length; i++) {
+        hideChild(m.children[i]);
+    }
+    m.expanded = false;
+}
+
+//隐藏子菜单
+function hideChild(m) {
+    m.row.style.display = "none";
+    m.expanded = false;
+    if (m.img.src.indexOf("-") > 0) {
+        m.img.src = "images/plus.gif";
+    }
+    for (var i = 0; i < m.children.length; i++) {
+        hideChild(m.children[i]);
+    }
+}
+
+//定位到菜单
+function gotoMenu(idPath) {
+    var ids = idPath.split(".");
+    var parent = rootMenu;
+    for (var i = 1; i < ids.length; i++) {
+        if (parent.haschild == true && parent.children.length == 0) {
+            expandMenu(parent, i, idPath);
+            return;
+        }
+        else {
+            if (parent.expanded != true) {
+                expandMenu(parent);
+            }
+        }
+        parent = parent.findMenu(ids[i]);
+    }
+    if (parent != null) {
+        focusMenu(parent);
+    }
+}
+
+//点击菜单
+function focusMenu(m, go) {
+    if (window.activeMenu != null) {
+        window.activeMenu.a.className = "";
+    }
+    m.a.className = "selected";
+    window.activeMenu = m;
+    if (go == true) {
+        if (m.url != "") {
+            var goUrl = m.url;
+            if (goUrl.indexOf("?") > 0) {
+                goUrl += "";
+            }
+            else {
+                goUrl += "".toString();
+            }
+            if (params != '') {
+                goUrl += "&" + params;
+            }
+            window.open(goUrl, "_mainf");
+        }
+        else {
+            if (m.haschild == true) {
+                if (m.expanded == true) {
+                    inpectMenu(m);
+                }
+                else {
+                    expandMenu(m);
+                }
+            }
+        }
+    }
+}
+
+//查找菜单
+function findMenu(children, id) {
+    if (children == null || children.length == 0) {
+        return null;
+    }
+    for (var i = 0; i < children.length; i++) {
+        if (children[i].id == id) {
+            return children[i];
+        }
+    }
+    return null;
+}
+
 /*---------------- 右键菜单 --------------------------*/
 function ContextMenu() {
     this.items = new Array();
@@ -1164,6 +1486,9 @@ function createSitePopMenu(s) {
     item = new menu.Item("删除站点", "删除站点", "javascript:delSite(" + s.id + ")");
     menu.addItem(item);
     menu.addSeparator();
+    item = new menu.Item("预览站点首页", "预览站点首页", "../Publish/Builder.aspx?type=site&sid=" + s.id, "_blank");
+    menu.addItem(item);
+    menu.addSeparator();
     item = new menu.Item("新建站点", "创建新站点", "javascript:addSite()");
     menu.addItem(item);
     item = new menu.Item("新建栏目", "创建新栏目", "javascript:addSiteColumn(" + s.id + ")");
@@ -1181,6 +1506,9 @@ function createArticleColumnPopMenu(c) {
     item = new menu.Item("修改该栏目", "修改该栏目", "javascript:editColumn(" + c.id + ")");
     menu.addItem(item);
     item = new menu.Item("删除该栏目", "删除该栏目", "javascript:delColumn(" + c.id + ")");
+    menu.addItem(item);
+    menu.addSeparator();
+    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?cid=" + c.id, "_blank");
     menu.addItem(item);
     menu.addSeparator();
     item = new menu.Item("新建文档", "新建文档", "Content/ArticleAdd.aspx?cid=" + c.id);
@@ -1224,11 +1552,14 @@ function createProductColumnPopMenu(c) {
 }
 
 //文档右键菜单
-function createArticlePopMenu(obj, aid) {
+function createArticlePopMenu(obj, aid, cid) {
     var menu = new ContextMenu(), item;
     item = new menu.Item("修改这篇文档", "修改这篇文档", "Content/ArticleEdit.aspx?id=" + aid, "article");
     menu.addItem(item);
     item = new menu.Item("放入回收站", "放入回收站", "javascript:recycleArticle(" + aid + ")");
+    menu.addItem(item);
+    menu.addSeparator();
+    item = new menu.Item("预览这篇文档", "预览这篇文档", "../Publish/Builder.aspx?cid=" + cid + "&did=" + aid, "_blank");
     menu.addItem(item);
     menu.addSeparator();
     item = new menu.Item("移动这篇文档到", "移动这篇文档到", "javascript:moveArticle(" + aid + ")");
@@ -1236,6 +1567,27 @@ function createArticlePopMenu(obj, aid) {
     item = new menu.Item("复制这篇文档到", "复制这篇文档到", "javascript:copyArticle(" + aid + ")");
     menu.addItem(item);
     item = new menu.Item("引用这篇文档到", "引用这篇文档到", "javascript:pointArticle(" + aid + ")");
+    menu.addItem(item);
+
+    obj.menu = menu;
+}
+
+//产品右键菜单
+function createProductPopMenu(obj, pid, cid) {
+    var menu = new ContextMenu(), item;
+    item = new menu.Item("修改这个产品", "修改这个产品", "Product/ProductEdit.aspx?id=" + pid, "product");
+    menu.addItem(item);
+    item = new menu.Item("放入回收站", "放入回收站", "javascript:recycleProduct(" + pid + ")");
+    menu.addItem(item);
+    menu.addSeparator();
+    item = new menu.Item("预览这个产品", "预览这个产品", "../Publish/Builder.aspx?cid=" + cid + "&did=" + pid, "_blank");
+    menu.addItem(item);
+    menu.addSeparator();
+    item = new menu.Item("移动这个产品到", "移动这个产品到", "javascript:moveProduct(" + pid + ")");
+    menu.addItem(item);
+    item = new menu.Item("复制这个产品到", "复制这个产品到", "javascript:copyProduct(" + pid + ")");
+    menu.addItem(item);
+    item = new menu.Item("引用这个产品到", "引用这个产品到", "javascript:pointProduct(" + pid + ")");
     menu.addItem(item);
 
     obj.menu = menu;
@@ -1270,9 +1622,18 @@ function showColumnMenu(c, e) {
 }
 
 //显示文档右键菜单
-function showArticleMenu(obj, aid, e) {
+function showArticleMenu(obj, aid, cid, e) {
     if (obj.menu == null) {
-        createArticlePopMenu(obj, aid);
+        createArticlePopMenu(obj, aid, cid);
+    }
+    obj.menu.show(e.clientX + 201, e.clientY + 55);
+    return false;
+}
+
+//显示产品右键菜单
+function showProductMenu(obj, pid, cid, e) {
+    if (obj.menu == null) {
+        createProductPopMenu(obj, pid, cid);
     }
     obj.menu.show(e.clientX + 201, e.clientY + 55);
     return false;
@@ -1357,7 +1718,7 @@ function addArticleOK(sid, colpath, iscontinue) {
 //修改文档回调函数
 function editArticleOK() {
     if (opener) {
-        opener.window.location.window.location.reload();
+        opener.window.location.reload();
     }
     window.close();
 }
@@ -1434,6 +1795,69 @@ function setTemplateOK() {
     parent.disablePopup();
 }
 
+//添加产品回调函数
+function addProductOK(sid, colpath, iscontinue) {
+    if (sid && colpath) {
+        if (opener) {
+            if (opener.location.href.toLowerCase().indexOf("index") > 0) {
+                opener.window.frames["left"].gotoColumn(sid, colpath);
+            }
+            else {
+                opener.parent.window.frames["left"].gotoColumn(sid, colpath);
+            }
+        }
+        if (iscontinue) {
+            window.location.href = window.location.href;
+        } else {
+            window.close();
+        }
+    }
+}
+
+//修改产品回调函数
+function editProductOK() {
+    if (opener) {
+        opener.window.location.reload();
+    }
+    window.close();
+}
+
+//删除产品回调函数
+function recycleProductOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
+}
+
+//移动产品回调函数
+function moveProductOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
+}
+
+//复制产品回调函数
+function copyProductOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
+}
+
+//引用产品回调函数
+function pointProductOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
+}
+
+//恢复产品回调函数
+function revokeProductOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
+}
+
+//彻底删除产品回调函数
+function deleteProductOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
+}
+
 //清空回收站
 function clearRecycle(cid, children) {
     var msg = "";
@@ -1475,6 +1899,38 @@ function clearSiteRecycle(sid) {
             }
         }
     });
+}
+
+//清空回收站
+function clearProductRecycle(cid, children) {
+    var msg = "";
+    if (children) {
+        msg = "确定清空当前栏目及其子栏目的回收站？";
+    } else {
+        msg = "确定清空当前栏目的回收站？";
+    }
+    if (!confirm(msg)) return;
+    var url = "../Ajax/ProductClear.aspx?cid=" + cid;
+    if (children) {
+        url += "&ch=1";
+    }
+    $.ajax({
+        url: url,
+        cache: false,
+        success: function(result) {
+            if (result.length > 0) {
+                alert(result);
+            } else {
+                window.location.reload();
+            }
+        }
+    });
+}
+
+//修改单篇文档回调函数
+function editSingleOK() {
+    alert("保存成功！");
+    window.location.href = window.location.href;
 }
 
 //tab导航事件
@@ -1549,6 +2005,21 @@ function showChildren(cid, getchildren) {
 
 //选择文章排序
 function setArticleOrder(cid, getchildren, field, orderby) {
+    var url = "?cid=" + cid;
+    if (getchildren)
+        url += "&getch=1";
+    else
+        url += "&getch=0";
+    url += "&field=" + field;
+    if (orderby)
+        url += "&orderby=1";
+    else
+        url += "&orderby=0";
+    window.location.href = url;
+}
+
+//选择排序
+function setOrder(cid, getchildren, field, orderby) {
     var url = "?cid=" + cid;
     if (getchildren)
         url += "&getch=1";

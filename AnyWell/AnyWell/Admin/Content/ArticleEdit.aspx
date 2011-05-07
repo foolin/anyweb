@@ -8,7 +8,7 @@
         $(document).ready(function() {
             $("#<%=txtContent.ClientID %>_txt").height(document.documentElement.clientHeight - 130);
             $("#<%=txtTextContent.ClientID %>").height(document.documentElement.clientHeight - 130);
-            
+
             $("#<%=radioIsAuthor.ClientID %> input:eq(0)").click(function() {
                 $("#rowSource").css("display", "none");
                 $("#rowLink").css("display", "none");
@@ -92,13 +92,18 @@
             Width="300" runat="server" MaxLength="500"></asp:TextBox>
         </li>
         <li id="type3" style="display: none;">文件上传：
-            <sw:Uploader ID="fileUploader" UploadPage="/Admin/Ajax/FileUpload.ashx" FilePath="/Files/Article/Files/" JavascriptCompleteFunction="setFile" MultiSelect="false" runat="server"></sw:Uploader>
-            <a id="fileLink" href="<%=bean.fdArtiLink %>" target="_blank" style="position:absolute;<%=bean.fdArtiType == 3 && !string.IsNullOrEmpty( bean.fdArtiLink )?"":"display:none;" %>"><img src="../images/icons/rar.gif" alt="" /></a>
+            <sw:Uploader ID="fileUploader" UploadPage="/Admin/Ajax/FileUpload.ashx" FilePath="/Files/Article/Files/"
+                JavascriptCompleteFunction="setFile" MultiSelect="false" runat="server">
+            </sw:Uploader>
+            <a id="fileLink" href="<%=bean.fdArtiLink %>" target="_blank" style="position: absolute;
+                <%=bean.fdArtiType == 3 && !string.IsNullOrEmpty( bean.fdArtiLink )?"": "display:none;" %>">
+                <img src="../images/icons/rar.gif" alt="" /></a>
             <input type="hidden" id="txtFile" name="txtFile" value="<%=bean.fdArtiLink %>" />
         </li>
     </ul>
     <div class="mft">
-        <button id="Saving" type="button" style="display:none;" disabled="disabled">正在保存</button>
+        <button id="Saving" type="button" style="display: none;" disabled="disabled">
+            正在保存</button>
         <asp:Button ID="btnSave" CssClass="button" runat="server" Text="保存文档" OnClick="btnSave_Click" />
         <button type="button" onclick="window.close()">
             取消退出</button>
@@ -112,10 +117,9 @@
         <div class="opr-mbd">
             <ul>
                 <li>
-                    <asp:CheckBox ID="chkDesc" runat="server" Text="自动生成摘要" CssClass="checkbox" Checked="true"
-                        onclick="AutoDesc(this.checked);" />
+                    <asp:CheckBox ID="chkDesc" runat="server" Text="自动生成摘要" CssClass="checkbox" onclick="AutoDesc(this.checked);" />
                     <asp:TextBox ID="txtDesc" runat="server" TextMode="MultiLine" CssClass="textarea"
-                        Width="225" Height="120" Style="display: none"></asp:TextBox>
+                        Width="225" Height="120"></asp:TextBox>
                 </li>
             </ul>
         </div>
@@ -151,8 +155,14 @@
                         文档图片：
                     </td>
                     <td>
-                        <sw:Uploader ID="PicUploader" UploadPage="/Admin/Ajax/ArticlePicUpload.ashx" FilePath="/Files/Article/Pictures/" Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp" JavascriptCompleteFunction="setPic" MultiSelect="false" runat="server"></sw:Uploader>
-                        <a id="picLink" href="<%=bean.fdArtiImage %>" target="_blank" title="查看图片(右键删除图片)" style="position:absolute;margin-top:5px 0;<%=string.IsNullOrEmpty( bean.fdArtiImage )?"display:none;":""%>" oncontextmenu="return delPic();"><img src="../images/icons/col_Album.gif" alt="" /></a>
+                        <sw:Uploader ID="PicUploader" UploadPage="/Admin/Ajax/ArticlePicUpload.ashx" FilePath="/Files/Article/Pictures/"
+                            Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
+                            JavascriptCompleteFunction="setPic" MultiSelect="false" runat="server">
+                        </sw:Uploader>
+                        <a id="picLink" href="<%=bean.fdArtiImage %>" target="_blank" title="查看图片(右键删除图片)"
+                            style="position: absolute; margin-top: 5px 0; <%=string.IsNullOrEmpty( bean.fdArtiImage )?"display:none;": ""%>"
+                            oncontextmenu="return delPic();">
+                            <img src="../images/icons/col_Album.gif" alt="" /></a>
                         <input type="hidden" id="txtPic" name="txtPic" value="<%=bean.fdArtiImage %>" />
                     </td>
                 </tr>
@@ -213,7 +223,7 @@
             </table>
         </div>
     </div>
-    
+
     <script type="text/javascript">
         selectArticleType($("#<%=drpType.ClientID %>").val());
         if(<%=IsAuthorShip %>){
@@ -224,4 +234,5 @@
             $("#rowLink").css("display", "");
         }
     </script>
+
 </asp:Content>

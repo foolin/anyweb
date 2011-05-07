@@ -36,17 +36,15 @@ namespace BLOG.tiny_mce
 
         private void UploadFile()
         {
-            string url = "";
             string fileName = DL_helper.funcGetTicks().ToString();
-            string savePath = Request.ApplicationPath + "/Files/Others/";
+            string savePath = "/Files/Editor/Pictures";
+            if( !Directory.Exists( Server.MapPath( savePath ) ) )
+            {
+                Directory.CreateDirectory( Server.MapPath( savePath ) );
+            }
             string path = savePath + fileName + Path.GetExtension(Request.Files[0].FileName);
             Request.Files[0].SaveAs(Server.MapPath(path));
-            url = String.Format("http://{0}{1}{2}",
-                Request.Url.Host,
-                Request.Url.Port == 80 ? "" : (":" + Request.Url.Port.ToString()),
-                path
-                );
-            Response.Write("<script language='javascript'>if(parent)parent.ImageDialog.uploadOk('" + url + "');</script>");
+            Response.Write( "<script language='javascript'>if(parent)parent.ImageDialog.uploadOk('" + path + "');</script>" );
         }
 
         bool MatchType(HttpPostedFile file)

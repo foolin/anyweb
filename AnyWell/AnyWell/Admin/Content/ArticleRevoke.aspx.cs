@@ -29,7 +29,7 @@ public partial class Admin_Content_ArticleRevoke : PageAdmin
             {
                 foreach( AW_Article_bean bean in list )
                 {
-                    AddLog( EventType.Delete, "恢复文档", string.Format( "恢复文档:{0}({1})", bean.fdArtiTitle, bean.fdArtiID ) );
+                    AddLog( EventType.Update, "恢复文档", string.Format( "恢复文档:{0}({1})", bean.fdArtiTitle, bean.fdArtiID ) );
                 }
             }
             Response.Write( "<script type=text/javascript>parent.revokeArticleOK();</script>" );

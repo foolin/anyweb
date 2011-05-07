@@ -22,8 +22,12 @@ public partial class Admin_Content_ArticleAdd : ArticlePageAdmin
         {
             Fail( "栏目不存在！" );
         }
-        lblColumn.Text = CurrentColumn.fdColuName;
-        txtCreateAt.Text = DateTime.Now.ToString( "yyyy-MM-dd HH:mm" );
+
+        if( !IsPostBack )
+        {
+            lblColumn.Text = CurrentColumn.fdColuName;
+            txtCreateAt.Text = DateTime.Now.ToString( "yyyy-MM-dd HH:mm" );
+        }
     }
 
     protected void btnSaveAndContinue_Click( object sender, EventArgs e )

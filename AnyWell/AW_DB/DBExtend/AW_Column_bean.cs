@@ -127,6 +127,8 @@ namespace AnyWell.AW_DL
                         return "图片栏目";
                     case (int)ColumnType.Product:
                         return "产品栏目";
+                    case (int)ColumnType.Single:
+                        return "单篇文档栏目";
                     default:
                         return "";
                 }
@@ -150,12 +152,13 @@ namespace AnyWell.AW_DL
 	}
 
     /// <summary>
-    /// 1-文章，2-图库，3-产品
+    /// 0-文章，1-产品，2-产品, 3-单篇文章
     /// </summary>
     public enum ColumnType
     {
         Article = 0,
         Product = 1,
-        Album = 2
+        Album = 2,
+        Single = 3
     }
 }

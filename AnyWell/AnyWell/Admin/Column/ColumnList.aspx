@@ -1,14 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Master/List.master" AutoEventWireup="true"
     CodeFile="ColumnList.aspx.cs" Inherits="Admin_Content_ColumnList" %>
 
+<%@ Import Namespace="AnyWell.AW_DL" %>
 <%@ Register Src="../Control/ColumnOperation.ascx" TagName="ColumnOperation" TagPrefix="uc1" %>
 <%@ Register Src="../Control/ColumnInfo.ascx" TagName="ColumnInfo" TagPrefix="uc1" %>
 <%@ Register Src="../Control/ColumnFooter.ascx" TagName="ColumnFooter" TagPrefix="uc1" %>
+<%@ Register Src="../Control/ProductFooter.ascx" TagName="ProductFooter" TagPrefix="uc1" %>
+<%@ Register Src="../Control/SingleArticleFooter.ascx" TagName="SingleArticleFooter" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="Server">
+
     <script type="text/javascript" src="../js/jquery.ui.core.js"></script>
-	<script type="text/javascript" src="../js/jquery.ui.widget.js"></script>
-	<script type="text/javascript" src="../js/jquery.ui.mouse.js"></script>
+
+    <script type="text/javascript" src="../js/jquery.ui.widget.js"></script>
+
+    <script type="text/javascript" src="../js/jquery.ui.mouse.js"></script>
+
     <script type="text/javascript" src="../js/jquery.ui.sortable.js"></script>
+
     <script type="text/javascript">
         $(function() {
             $("#imglist").sortable({
@@ -39,7 +47,7 @@
                             if (msg.substr(0, 8) == 'success:') {
                                 var str = msg.substr(8, msg.length - 8);
                                 eval(str);
-                            }else {
+                            } else {
                                 alert(msg);
                                 window.location.reload();
                             }
@@ -49,6 +57,7 @@
             });
         });
     </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphTitle" runat="Server">
     栏目列表
@@ -77,8 +86,28 @@
     <uc1:ColumnInfo runat="server" />
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="cphFooter" runat="Server">
+    <%switch( CurrentColumn.fdColuType )
+      {
+          case ( int ) ColumnType.Article:
+    %>
     <uc1:ColumnFooter runat="server" />
+    <%break;
+
+          case ( int ) ColumnType.Product:
+    %>
+    <uc1:ProductFooter runat="server" />
+    <%break;
+
+          case ( int ) ColumnType.Single:
+    %>
+    <uc1:SingleArticleFooter runat="server" />
+    <%break;
+          default:
+      break; %>
+    <%} %>
+
     <script type="text/javascript">
         selectFooter("Column");
     </script>
+
 </asp:Content>

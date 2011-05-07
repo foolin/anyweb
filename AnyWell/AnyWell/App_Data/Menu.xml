@@ -1,16 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <DropMenu xmlns="http://schema.anywell.com/xmenu-1.0">
   <DropMenuItem id="0" name="管理控制菜单">
-    <DropMenuItem id="1" name="文件">
-      <DropMenuItem id="11" name="系统首页" url="mainfra.html" target="mainFrame"></DropMenuItem>
-      <DropMenuItem id="12" name="快速定位" url="javascript:void(0)"></DropMenuItem>
-      <DropMenuItem id="12" name="站点列表" url="Content/SiteList.aspx" target="mainFrame" separator="true"></DropMenuItem>
-      <DropMenuItem id="13" name="切换帐号" url="Logout.aspx"></DropMenuItem>
-      <DropMenuItem id="14" name="注销登陆" url="Logout.aspx" separator="true"></DropMenuItem>
-      <DropMenuItem id="15" name="新建">
-        <DropMenuItem id="151" name="新建站点" url="javascript:addSite()"></DropMenuItem>
-        <DropMenuItem id="151" name="新建栏目" url="javascript:addColumnByMenu()"></DropMenuItem>
+    <DropMenuItem id="10" name="文件">
+      <DropMenuItem id="1001" name="系统首页" url="mainfra.html" target="mainFrame"></DropMenuItem>
+      <DropMenuItem id="1002" name="快速定位" url="javascript:void(0)"></DropMenuItem>
+      <DropMenuItem id="1003" name="站点列表" url="Site/SiteList.aspx" target="mainFrame" separator="true"></DropMenuItem>
+      <DropMenuItem id="1004" name="切换帐号" url="Logout.aspx"></DropMenuItem>
+      <DropMenuItem id="1005" name="注销登陆" url="Logout.aspx" separator="true"></DropMenuItem>
+      <DropMenuItem id="1006" name="新建">
+        <DropMenuItem id="100601" name="新建站点" url="javascript:addSite()"></DropMenuItem>
+        <DropMenuItem id="100602" name="新建栏目" url="javascript:addColumnByMenu()"></DropMenuItem>
       </DropMenuItem>
+    </DropMenuItem>
+    <DropMenuItem id="20" name="个人服务">
+      <DropMenuItem id="2001" name="我的资料" url="../person/infoedit.aspx"></DropMenuItem>
+      <DropMenuItem id="2002" name="修改密码" url="../person/passwordedit.aspx"></DropMenuItem>
+      <DropMenuItem id="2003" name="查看操作日志" url="../person/userlog.aspx"></DropMenuItem>
     </DropMenuItem>
     <!--<DropMenuItem id="11" name="个人服务">
       <DropMenuItem id="11" name="我的资料" url="../person/infoedit.aspx"></DropMenuItem>

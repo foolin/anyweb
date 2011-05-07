@@ -411,5 +411,59 @@ namespace AnyWell.AW_DL
             }
             return result;
         }
+
+        /**************************************************自定义控件********************************************************************************/
+
+        /// <summary>
+        /// 获取栏目列表
+        /// </summary>
+        /// <param name="siteId">站点编号</param>
+        /// <param name="columnID">栏目编号</param>
+        /// <param name="parent">是否返回同级栏目列表</param>
+        /// <param name="topCount">获取记录数</param>
+        /// <param name="where">检索条件</param>
+        /// <param name="order">排序</param>
+        /// <returns></returns>
+        public List<AW_Column_bean> funcGetColumnListByUC( int siteId, int columnId, bool parent, int topCount, string where, string order )
+        {
+            if( topCount > 0 )
+            {
+                this.propSelect = string.Format( "TOP {0} *", topCount );
+            }
+
+            this.propWhere = "1=1";
+
+            if( columnId != -1 )
+            {
+                if( parent )
+                {
+                    this.propWhere += string.Format( " AND fdColuParentID=(SELECT fdColuParentID FROM AW_Column WHERE fdColuID={0})", columnId );
+                }
+                else
+                {
+                    this.propWhere += string.Format( " AND fdColuParentID={0}", columnId );
+                }
+            }
+            else
+            {
+                this.propWhere += string.Format( " AND fdColuSiteID={0} AND fdColuParentID=0", siteId );
+            }
+
+            if( string.IsNullOrEmpty( where ) == false )
+            {
+                this.propWhere += " AND " + where.Replace( ";", "；" ).Replace( "--", "－－" );
+            }
+
+            if( string.IsNullOrEmpty( order ) == false )
+            {
+                this.propOrder = "ORDER BY " + funcReplaceSqlField( order );
+            }
+            else
+            {
+                this.propOrder = "ORDER BY fdColuSort DESC";
+            }
+
+            return this.funcGetList();
+        }
 	}
 }

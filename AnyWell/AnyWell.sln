@@ -4,7 +4,7 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AnyWell", "E:\PROJECT\DOTNET\AnyWell\AnyWell\", "{7230044A-8A05-46CE-B23F-AD35FDFE2643}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "2.0"
-		ProjectReferences = "{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}|AW_DB.dll;"
+		ProjectReferences = "{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}|AW_DB.dll;{F1D4186F-C0BD-46DF-B0E2-B264C9EDAA6E}|AW_UC.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/AnyWell"
 		Debug.AspNetCompiler.PhysicalPath = "AnyWell\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\AnyWell\"
@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uploader", "Uploader\Upload
 EndProject
 Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "AnyWell_deploy", "..\publish\AnyWell_deploy\AnyWell_deploy.wdproj", "{D5B15530-BF63-41DB-B17F-782F1D0EB41A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW_UC", "AW_UC\AW_UC.csproj", "{F1D4186F-C0BD-46DF-B0E2-B264C9EDAA6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{D5B15530-BF63-41DB-B17F-782F1D0EB41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5B15530-BF63-41DB-B17F-782F1D0EB41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5B15530-BF63-41DB-B17F-782F1D0EB41A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1D4186F-C0BD-46DF-B0E2-B264C9EDAA6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D4186F-C0BD-46DF-B0E2-B264C9EDAA6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D4186F-C0BD-46DF-B0E2-B264C9EDAA6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D4186F-C0BD-46DF-B0E2-B264C9EDAA6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -111,7 +111,7 @@
                         <td>
                             <%#Eval("fdAutoID")%>
                         </td>
-                        <td oncontextmenu="return parent.showArticleMenu(this,<%#Eval("fdArtiID") %>,event);">
+                        <td oncontextmenu="return parent.showArticleMenu(this,<%#Eval("fdArtiID") %>,<%#Eval("fdArtiColuID") %>,event);">
                             <a href="ArticleEdit.aspx?id=<%#Eval("fdArtiID") %>" target="article">
                                 <%#( int ) Eval( "fdArtiType" ) == 4 ? "<span style=\"color:red;font-size:12px;font-weight:bold;\">【引】</span>" : ""%><%#Eval("fdArtiTitle")%></a>
                         </td>

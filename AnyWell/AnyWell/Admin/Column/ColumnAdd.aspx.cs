@@ -47,6 +47,7 @@ public partial class Admin_Content_ColumnAdd : PageAdmin
             {
                 lblParent.Text = "无上级栏目";
                 drpType.Items.Add( new ListItem( "文档栏目", "0" ) );
+                drpType.Items.Add( new ListItem( "单篇文档栏目", "3" ) );
                 drpType.Items.Add( new ListItem( "产品栏目", "1" ) );
                 drpType.Items.Add( new ListItem( "图片栏目", "2" ) );
             }
@@ -56,12 +57,17 @@ public partial class Admin_Content_ColumnAdd : PageAdmin
                 {
                     case 0:
                         drpType.Items.Add( new ListItem( "文档栏目", "0" ) );
+                        drpType.Items.Add( new ListItem( "单篇文档栏目", "3" ) );
                         break;
                     case 1:
                         drpType.Items.Add( new ListItem( "产品栏目", "1" ) );
                         break;
                     case 2:
                         drpType.Items.Add( new ListItem( "图片栏目", "2" ) );
+                        break;
+                    case 3:
+                        drpType.Items.Add( new ListItem( "文档栏目", "0" ) );
+                        drpType.Items.Add( new ListItem( "单篇文档栏目", "3" ) );
                         break;
                     default:
                         break;

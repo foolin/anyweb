@@ -8,21 +8,26 @@
     <!--[if lte IE 6]>
 	<link href="/Admin/class/forIE6.css" rel="stylesheet" type="text/css" />
 	<![endif]-->
+
     <script type="text/javascript" src="js/jquery.js"></script>
+
     <script type="text/javascript" src="js/webmenu.js"></script>
+
     <script type="text/javascript" src="js/function.js"></script>
+
     <script type="text/javascript" src="js/corl.js"></script>
-    <title>AnyWell Studio管理系统</title>
+
+    <title>AnyWell Studio内容管理系统</title>
 </head>
 <body scroll="no">
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td colspan="2">
-                <a href="Logout.aspx" title="点击退出系统" style="float: right; margin:5px 10px 0 0; font-size: 12px;
+                <a href="Logout.aspx" title="点击退出系统" style="float: right; margin: 5px 10px 0 0; font-size: 12px;
                     background: url(images/icons.gif) left 0 no-repeat; padding-left: 16px; line-height: 16px;">
-                    注销登录</a> <span style="float: right; margin:5px 10px 0 0; font-size: 12px; padding-left: 16px;
-                        line-height: 16px;">您好，<%=AdminInfo.fdAdmiName%></span> <a href="../index.aspx" target="_blank">
-                            <img src="images/Logo.png" border="0" height="23" style="margin-left: 12px" /></a>
+                    注销登录</a> <span style="float: right; margin: 5px 10px 0 0; font-size: 12px; padding-left: 16px;
+                        line-height: 16px;">您好，<%=AdminInfo.fdAdmiName%></span> 
+                        <span style="font-size:14px;color:#555;padding-left:20px;">AnyWell Studio内容管理系统</span>
             </td>
         </tr>
         <tr>
@@ -33,7 +38,8 @@
         </tr>
         <tr>
             <td width="201" style="overflow: hidden">
-                <iframe id="left" name="left" frameborder="0" height="100%" width="201" src="Left.aspx"></iframe>
+                <iframe id="left" name="left" frameborder="0" height="100%" width="201" src="Left.aspx">
+                </iframe>
             </td>
             <td>
                 <iframe id="mainFrame" name="mainFrame" frameborder="0" height="100%" width="100%"
@@ -42,11 +48,14 @@
         </tr>
     </table>
     <div id="popupDiv">
-        <iframe frameborder="0" height="100%" width="100%" id="popup" name="popup" scrolling="no" src="loading.htm">
-        </iframe>
+        <iframe frameborder="0" height="100%" width="100%" id="popup" name="popup" scrolling="no"
+            src="loading.htm"></iframe>
     </div>
-    <div id="backgroundPopup"></div>
-    <div id="movePopup" style="position:absolute;background:none repeat scroll 0 0 #000000;"></div>
+    <div id="backgroundPopup">
+    </div>
+    <div id="movePopup" style="position: absolute; background: none repeat scroll 0 0 #000000;">
+    </div>
+
     <script type="text/javascript">
         var menu = new WebMenu();
         $(document).ready(function() {
@@ -54,5 +63,6 @@
             initMenu();
         });
     </script>
+
 </body>
 </html>

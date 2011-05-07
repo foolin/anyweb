@@ -39,7 +39,7 @@ namespace AnyWell.AW_DL
 		}
 		private int _fdColuType = 0;
 		 /// <summary>
-        /// 栏目类型(0文章1商品2图片)
+        /// 栏目类型(0文章1商品2图片3单篇文章)
 		 /// </summary>
 		public int fdColuType
 		{

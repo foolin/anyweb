@@ -24,7 +24,7 @@
     <script type="text/javascript">
         var rootMenu;
         $(function() {
-            rootMenu = new menu(0, "管理控制菜单", "about:blank", "", 0, 0, true);
+            rootMenu = new menu(0, "管理控制菜单", "mainfra.html", 0, true);
             createMenuRow(rootMenu);
             var goPath = '<%=goPath %>';
             if (goPath != '') {

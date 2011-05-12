@@ -14,7 +14,7 @@ namespace AnyWell.AW_DL
         {
             this._propTable = "AW_Log";
             this._propPK = "fdLogID";
-            this._propFields = "fdLogID,fdLogName,fdLogDesc,fdLogAccount,fdLogType,fdLogIP,fdLogCreateAt";
+            this._propFields = "fdLogID,fdLogName,fdLogDesc,fdLogAdminID,fdLogType,fdLogIP,fdLogCreateAt";
         }
 
         public List<AW_Log_bean> funcGetList()

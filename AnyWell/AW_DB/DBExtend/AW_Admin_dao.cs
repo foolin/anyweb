@@ -18,12 +18,12 @@ namespace AnyWell.AW_DL
         /// <param name="loginId"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public bool funcLogin(string loginId, string password)
+        public int funcLogin(string loginId, string password)
         {
             this.propWhere = "fdAdmiAccount='" + loginId + "' AND fdAdmiPwd='" + Studio.Security.Secure.Md5(password) + "'";
             List<AW_Admin_bean> beans = this.funcGetList();
             if (beans.Count == 0)
-                return false;
+                return 0;
 
             AW_Admin_bean bean = beans[0];
 
@@ -37,7 +37,7 @@ namespace AnyWell.AW_DL
             bean.fdAdmiLoginAt = DateTime.Now;
             funcUpdate(bean);
 
-            return true;
+            return bean.fdAdmiID;
         }
 
         /// <summary>

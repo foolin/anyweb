@@ -24,15 +24,16 @@ public partial class Shop_Admin_Login : System.Web.UI.Page
         {
             WebAgent.AlertAndBack("验证码输入错误！");
         }
-        using (AW_Admin_dao dao = new AW_Admin_dao())
+        using( AW_Admin_dao dao = new AW_Admin_dao() )
         {
-            if (dao.funcLogin(txtUserName.Text, txtPassword.Text))
+            int adminId = dao.funcLogin( txtUserName.Text, txtPassword.Text );
+            if( adminId > 0 )
             {
-                this.AddLog(txtUserName.Text, "管理登录", "管理员帐号" + txtUserName.Text + "登录成功");
-                Response.Redirect("index.aspx");
+                this.AddLog( adminId, "管理登录", "管理员帐号" + txtUserName.Text + "登录成功" );
+                Response.Redirect( "index.aspx" );
             }
             else
-                WebAgent.AlertAndBack("帐号或密码错误");
+                WebAgent.AlertAndBack( "帐号或密码错误" );
         }
 
     }
@@ -43,7 +44,7 @@ public partial class Shop_Admin_Login : System.Web.UI.Page
     /// <param name="account"></param>
     /// <param name="name"></param>
     /// <param name="description"></param>
-    protected void AddLog(string account,string name, string description)
+    protected void AddLog(int adminId,string name, string description)
     {
         using (AW_Log_dao dao = new AW_Log_dao())
         {
@@ -52,7 +53,7 @@ public partial class Shop_Admin_Login : System.Web.UI.Page
             log.fdLogType = (int)EventType.Login;
             log.fdLogName = name;
             log.fdLogDesc = description;
-            log.fdLogAccount = account;
+            log.fdLogAdminID = adminId;
             log.fdLogIP = Request.UserHostAddress;
             log.fdLogCreateAt = DateTime.Now;
             dao.funcInsert(log);

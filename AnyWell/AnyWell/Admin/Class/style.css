@@ -198,6 +198,8 @@ a.login-text01:hover{font-family: "宋体";font-size: 12px;color: #FF0000;text-d
 
 .mbd-main .datalist{overflow:auto;padding:5px 20px;}
 .mbd-main .datalist ul li{padding-bottom: 5px;}
+.mbd-main .datalist table th{text-align:right;font-weight:normal;}
+.mbd-main .datalist table td{padding-bottom: 5px;}
 
 .mbd-main .pt1{float:left;margin-right:-176px;width:100%;}
 .mbd-main .pt1 .datalist{margin:0 176px 0 0; overflow:auto;}

@@ -76,7 +76,7 @@ public class DropMenu
     {
         if( dmi == null )
         {
-            DropMenu dm = GetMenuData( "~/AppData/SysMenu.xml" );
+            DropMenu dm = GetMenuData( "~/AppData/Menu.xml" );
             dmi = dm.RootItem;
         }
 

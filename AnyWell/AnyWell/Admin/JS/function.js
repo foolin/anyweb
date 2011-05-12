@@ -25,7 +25,11 @@ function initMenu() {
         success: function(xml) {
             $(xml).find("DropMenuItem[id=0]>DropMenuItem").each(function() {
                 var mi = menu.addItem(new menu.MenuItem($(this).attr("id"), $(this).attr("name"), "", "", true));
-                initDropMenu(mi, this);
+                if ($(this).attr("id") > 10) {
+                    initSystemMenu(mi, this);
+                } else {
+                    initDropMenu(mi, this);
+                }
             });
             menu.init(document.getElementById("mainmenu"));
         }
@@ -36,6 +40,20 @@ function initDropMenu(menuItem, xmlItem) {
     $(xmlItem).children().each(function() {
         if ($(this).children().length == 0) {
             menuItem.addItem(new menu.MenuItem($(this).attr("id"), $(this).attr("name"), $(this).attr("url"), $(this).attr("target")));
+        } else {
+            var mi = menuItem.addItem(new menu.MenuItem($(this).attr("id"), $(this).attr("name")));
+            initDropMenu(mi, this);
+        }
+        if ($(this).attr("separator") == "true") {
+            menuItem.addItem(new menu.Separator());
+        }
+    });
+}
+
+function initSystemMenu(menuItem, xmlItem) {
+    $(xmlItem).children().each(function() {
+        if ($(this).children().length == 0) {
+            menuItem.addItem(new menu.MenuItem($(this).attr("id"), $(this).attr("name"), "SysIndex.aspx?mid=" + $(this).attr("id"), "system"));
         } else {
             var mi = menuItem.addItem(new menu.MenuItem($(this).attr("id"), $(this).attr("name")));
             initDropMenu(mi, this);
@@ -1138,6 +1156,8 @@ function menu(id, name, url, index, haschild) {
     this.index = index;
     //是否展开
     this.expanded = false;
+    //是否存在子菜单
+    this.haschild = haschild;
     //子菜单
     this.children = new Array();
     //展开/收起图标
@@ -1185,7 +1205,7 @@ function createMenuRow(m) {
             typeimg.src = "images/icons/folder.gif";
         }
         else {
-            typeimg.src = "images/icons/col_File.gif";
+            typeimg.src = "images/icons/col_Single.gif";
         }
     }
 
@@ -1196,7 +1216,7 @@ function createMenuRow(m) {
     });
     a.style.marginLeft = "3px";
     a.innerHTML = m.name;
-    a.style.cursor = "hand";
+    a.style.cursor = "pointer";
     m.a = a;
 
     row.cells[0].appendChild(img);
@@ -1231,7 +1251,7 @@ function createMenuRow(m) {
 function expandMenu(m, idx, idpath) {
     m.img.src = "images/-.gif";
     if (m.children.length == 0) {
-        var url = "Ajax/Getsysmenu.aspx?parentid=" + m.id;
+        var url = "Ajax/GetSysMenu.aspx?parentid=" + m.id;
         $.get(url, function(result) {
             var columns = new Array();
             try {
@@ -1320,17 +1340,7 @@ function focusMenu(m, go) {
     window.activeMenu = m;
     if (go == true) {
         if (m.url != "") {
-            var goUrl = m.url;
-            if (goUrl.indexOf("?") > 0) {
-                goUrl += "";
-            }
-            else {
-                goUrl += "".toString();
-            }
-            if (params != '') {
-                goUrl += "&" + params;
-            }
-            window.open(goUrl, "_mainf");
+            window.open(m.url, "mainFrame");
         }
         else {
             if (m.haschild == true) {
@@ -1933,6 +1943,12 @@ function editSingleOK() {
     window.location.href = window.location.href;
 }
 
+//修改密码回调函数
+function editPasswordOK() {
+    alert("密码修改成功！");
+    window.location.href = window.location.href;
+}
+
 //tab导航事件
 function selectOption(title, content, index) {
     $("div[id^='" + title + "']").each(function() {
@@ -2056,4 +2072,21 @@ function getSelect() {
     });
     if (ids) ids = ids.substr(1);
     return ids;
+}
+
+//清空个人操作日志
+function clearPersonLog() {
+    if (!confirm("确定清空所有操作日志？")) return;
+    var url = "../Ajax/PersonLogClear.aspx";
+    $.ajax({
+        url: url,
+        cache: false,
+        success: function(result) {
+            if (result.length > 0) {
+                alert(result);
+            } else {
+                window.location.reload();
+            }
+        }
+    });
 }

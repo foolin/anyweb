@@ -117,7 +117,7 @@ public class PageAdmin : Page
             log.fdLogType = (int)type;
             log.fdLogName = name;
             log.fdLogDesc = description;
-            log.fdLogAccount = AdminInfo.fdAdmiAccount;
+            log.fdLogAdminID = AdminInfo.fdAdmiID;
             log.fdLogIP = Request.UserHostAddress;
             log.fdLogCreateAt = DateTime.Now;
             dao.funcInsert(log);

@@ -37,14 +37,14 @@ namespace AnyWell.AW_DL
 			get{return _fdLogDesc;}
 			set{_fdLogDesc = value;}
 		}
-		private string _fdLogAccount = "";
+		private int _fdLogAdminID = 0;
 		 /// <summary>
-		 /// 操作帐号 100 nvarchar
+         /// 管理员编号
 		 /// </summary>
-		public string fdLogAccount
+		public int fdLogAdminID
 		{
-			get{return _fdLogAccount;}
-			set{_fdLogAccount = value;}
+			get{return _fdLogAdminID;}
+			set{_fdLogAdminID = value;}
 		}
 		private int _fdLogType = 0;
 		 /// <summary>

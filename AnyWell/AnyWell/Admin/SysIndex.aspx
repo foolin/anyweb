@@ -38,7 +38,7 @@
         </tr>
         <tr>
             <td width="201" style="overflow: hidden">
-                <iframe id="left" name="left" frameborder="0" height="100%" width="201" src="SysMenu.aspx">
+                <iframe id="left" name="left" frameborder="0" height="100%" width="201" src="SysMenu.aspx?mid=<%=QS("mid") %>">
                 </iframe>
             </td>
             <td>

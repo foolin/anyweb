@@ -22,7 +22,7 @@ public partial class Admin_Person_PasswordEdit : PageAdmin
         int result = new AW_Admin_dao().funcUpdate( AdminInfo );
         if( result > 0 )
         {
-            AddLog( EventType.Update, "修改密码", string.Format( "修改管理员[{0}]密码", AdminInfo.fdAdmiName ) );
+            AddLog( EventType.Update, "修改密码", string.Format( "修改管理员[{0}]密码", AdminInfo.fdAdmiAccount ) );
             Response.Write( "<script type=text/javascript>parent.editPasswordOK();</script>" );
             Response.End();
         }

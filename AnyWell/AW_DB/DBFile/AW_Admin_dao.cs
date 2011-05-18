@@ -14,7 +14,7 @@ namespace AnyWell.AW_DL
         {
             this._propTable = "AW_Admin";
             this._propPK = "fdAdmiID";
-            this._propFields = "fdAdmiID,fdAdmiAccount,fdAdmiPwd,fdAdmiName,fdAdmiLoginIP,fdAdmiLoginAt,fdAdmiLevel,fdAdmiPurview,fdAdmiCreateAt";
+            this._propFields = "fdAdmiID,fdAdmiAccount,fdAdmiPwd,fdAdmiName,fdAdmiEmail,fdAdmiQQ,fdAdmiMSN,fdAdmiLoginAt,fdAdmiLoginIP,fdAdmiCreateAt,fdAdmiStatus,fdAdmiLevel,fdAdmiPurview";
         }
 
         public List<AW_Admin_bean> funcGetList()

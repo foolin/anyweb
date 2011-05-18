@@ -198,6 +198,7 @@ a.login-text01:hover{font-family: "宋体";font-size: 12px;color: #FF0000;text-d
 
 .mbd-main .datalist{overflow:auto;padding:5px 20px;}
 .mbd-main .datalist ul li{padding-bottom: 5px;}
+.mbd-main .datalist table{margin-bottom:20px;}
 .mbd-main .datalist table th{text-align:right;font-weight:normal;}
 .mbd-main .datalist table td{padding-bottom: 5px;}
 
@@ -210,7 +211,7 @@ a.login-text01:hover{font-family: "宋体";font-size: 12px;color: #FF0000;text-d
 .mbd-main .pt1 .datalist .datas .record strong{color:#FF0000;}
 .mbd-main .pt1 .datalist .datas .pager{overflow:hidden;text-align:right;}
 .mbd-main .pt1 .datalist .datas table{background:url("../images/nav06.gif") repeat-x scroll 0 0 transparent;border:1px solid #B0E8F8;width:100%;}
-.mbd-main .pt1 .datalist .datas table th{border: 1px solid #B0E8F8;color:#0093CC;font-weight:100;height:28px;padding:0;}
+.mbd-main .pt1 .datalist .datas table th{border: 1px solid #B0E8F8;color:#0093CC;font-weight:100;height:28px;padding:0;text-align:center;}
 .mbd-main .pt1 .datalist .datas table td{border: 1px solid #B0E8F8;height: 29px;line-height: 150%;padding: 0 9px;}
 .mbd-main .pt1 .datalist .datas table .edit{padding:0;text-align:center;width:30px;}
 .mbd-main .pt1 .datalist .datas table .even{background:none repeat scroll 0 0 #F0F7FB;}
@@ -238,6 +239,8 @@ a.login-text01:hover{font-family: "宋体";font-size: 12px;color: #FF0000;text-d
 .operation .opr-mbd ul li.moveFile a{background:url(../images/icons/icon08.gif) no-repeat 0;}
 .operation .opr-mbd ul li.copyFile a{background:url(../images/icons/icon10.gif) no-repeat 0;}
 .operation .opr-mbd ul li.pointFile a{background:url(../images/icons/icon11.gif) no-repeat 0;}
+.operation .opr-mbd ul li.lock a{background:url(../images/icons/icon10.gif) no-repeat 0;}
+.operation .opr-mbd ul li.unlock a{background:url(../images/icons/icon11.gif) no-repeat 0;}
 .operation .opr-mbd ul li.inXML a{background:url(../images/icons/icon10.gif) no-repeat 0;}
 .operation .opr-mbd ul li.outXML{background:url(../images/icons/icon11.gif) no-repeat 0;}
 .operation .opr-mbd td{line-height:25px;}

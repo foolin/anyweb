@@ -46,7 +46,7 @@
                 <sw:Validator ID="Validator2" ControlID="txtPassword" ValidateType="Required" ErrorMessage="请填写原密码"
                     runat="server">
                 </sw:Validator>
-                <sw:Validator ID="Validator3" ControlID="compNewPwd" ValidateType="MinLength" ErrorMessage="密码长度必须大于6位"
+                <sw:Validator ID="Validator3" ControlID="txtPassword" ValidateType="MinLength" ErrorMessage="密码长度必须大于6位"
                     ErrorText="密码长度必须大于6位" MinLength="6" runat="server">
                 </sw:Validator>
             </td>

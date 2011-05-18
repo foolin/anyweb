@@ -13,6 +13,25 @@ namespace AnyWell.AW_DL
 	public partial class AW_Admin_bean
 	{
         /// <summary>
+        /// 用户状态
+        /// </summary>
+        public string AdminStatus
+        {
+            get
+            {
+                switch( fdAdmiStatus )
+                {
+                    case 0:
+                        return "正常";
+                    case 1:
+                        return "锁定";
+                    default:
+                        return "";
+                }
+            }
+        }
+
+        /// <summary>
         /// 用户级别
         /// </summary>
         public AdminLevel Level

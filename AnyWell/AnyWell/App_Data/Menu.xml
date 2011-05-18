@@ -17,6 +17,9 @@
       <DropMenuItem id="2002" name="修改密码" url="person/PasswordEdit.aspx"></DropMenuItem>
       <DropMenuItem id="2003" name="查看操作日志" url="Person/UserLog.aspx"></DropMenuItem>
     </DropMenuItem>
+    <DropMenuItem id="30" name="管理工具">
+      <DropMenuItem id="3001" name="用户管理" url="User/UserList.aspx"></DropMenuItem>
+    </DropMenuItem>
   </DropMenuItem>
 </DropMenu>
 

@@ -21,7 +21,7 @@ namespace AnyWell.AW_DL
 		}
 		private string _fdAdmiAccount = "";
 		 /// <summary>
-		 /// 管理员帐号 100 nvarchar
+		 /// 管理员帐号 50 nvarchar
 		 /// </summary>
 		public string fdAdmiAccount
 		{
@@ -30,7 +30,7 @@ namespace AnyWell.AW_DL
 		}
 		private string _fdAdmiPwd = "";
 		 /// <summary>
-		 /// 管理员密码 50 varchar
+		 /// 管理员密码 25 varchar
 		 /// </summary>
 		public string fdAdmiPwd
 		{
@@ -39,48 +39,57 @@ namespace AnyWell.AW_DL
 		}
 		private string _fdAdmiName = "";
 		 /// <summary>
-		 /// 管理员姓名 100 nvarchar
+		 /// 管理员名称 50 nvarchar
 		 /// </summary>
 		public string fdAdmiName
 		{
 			get{return _fdAdmiName;}
 			set{_fdAdmiName = value;}
 		}
-		private string _fdAdmiLoginIP = "";
+		private string _fdAdmiEmail = "";
 		 /// <summary>
-		 /// 最后登陆IP 15 varchar
+		 /// 邮箱 50 varchar
 		 /// </summary>
-		public string fdAdmiLoginIP
+		public string fdAdmiEmail
 		{
-			get{return _fdAdmiLoginIP;}
-			set{_fdAdmiLoginIP = value;}
+			get{return _fdAdmiEmail;}
+			set{_fdAdmiEmail = value;}
+		}
+		private string _fdAdmiQQ = "";
+		 /// <summary>
+		 /// QQ 7 varchar
+		 /// </summary>
+		public string fdAdmiQQ
+		{
+			get{return _fdAdmiQQ;}
+			set{_fdAdmiQQ = value;}
+		}
+		private string _fdAdmiMSN = "";
+		 /// <summary>
+		 /// MSN 50 varchar
+		 /// </summary>
+		public string fdAdmiMSN
+		{
+			get{return _fdAdmiMSN;}
+			set{_fdAdmiMSN = value;}
 		}
 		private DateTime _fdAdmiLoginAt = DateTime.Now;
 		 /// <summary>
-		 /// 最后登陆时间
+		 /// 登录时间
 		 /// </summary>
 		public DateTime fdAdmiLoginAt
 		{
 			get{return _fdAdmiLoginAt;}
 			set{_fdAdmiLoginAt = value;}
 		}
-		private int _fdAdmiLevel = 0;
+		private string _fdAdmiLoginIP = "";
 		 /// <summary>
-		 /// 管理员级别
+		 /// 登录IP 7 varchar
 		 /// </summary>
-		public int fdAdmiLevel
+		public string fdAdmiLoginIP
 		{
-			get{return _fdAdmiLevel;}
-			set{_fdAdmiLevel = value;}
-		}
-		private string _fdAdmiPurview = "";
-		 /// <summary>
-		 /// 用户权限 1000 varchar
-		 /// </summary>
-		public string fdAdmiPurview
-		{
-			get{return _fdAdmiPurview;}
-			set{_fdAdmiPurview = value;}
+			get{return _fdAdmiLoginIP;}
+			set{_fdAdmiLoginIP = value;}
 		}
 		private DateTime _fdAdmiCreateAt = DateTime.Now;
 		 /// <summary>
@@ -90,6 +99,33 @@ namespace AnyWell.AW_DL
 		{
 			get{return _fdAdmiCreateAt;}
 			set{_fdAdmiCreateAt = value;}
+		}
+        private int _fdAdmiStatus = 0;
+        /// <summary>
+        /// 用户状态(0正常1锁定)
+        /// </summary>
+        public int fdAdmiStatus
+        {
+            get{return _fdAdmiStatus;}
+            set{_fdAdmiStatus = value;}
+        }
+		private int _fdAdmiLevel = 0;
+		 /// <summary>
+		 /// 用户级别：1超管 2普通用户
+		 /// </summary>
+		public int fdAdmiLevel
+		{
+			get{return _fdAdmiLevel;}
+			set{_fdAdmiLevel = value;}
+		}
+		private string _fdAdmiPurview = "";
+		 /// <summary>
+		 /// 用户权限 500 varchar
+		 /// </summary>
+		public string fdAdmiPurview
+		{
+			get{return _fdAdmiPurview;}
+			set{_fdAdmiPurview = value;}
 		}
 
 

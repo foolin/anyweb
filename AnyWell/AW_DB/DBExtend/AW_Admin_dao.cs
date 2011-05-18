@@ -78,6 +78,56 @@ namespace AnyWell.AW_DL
         }
 
         /// <summary>
+        /// 获取管理员列表
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public List<AW_Admin_bean> funcGetAdminList( string ids )
+        {
+            this.propSelect = "fdAdmiID,fdAdmiAccount";
+            this.propWhere = string.Format( "fdAdmiID IN ({0})", ids );
+            this.propOrder = "ORDER BY fdAdmiID ASC";
+            return this.funcGetList();
+        }
+
+        /// <summary>
+        /// 获取管理员列表
+        /// </summary>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="recordCount"></param>
+        /// <returns></returns>
+        public List<AW_Admin_bean> funcGetAdminList( int pageIndex, int pageSize, out int recordCount )
+        {
+            this.propGetCount = true;
+            this.propPage = pageIndex;
+            this.propPageSize = pageSize;
+            List<AW_Admin_bean> list = this.funcGetList();
+            recordCount = this.propCount;
+            for( int i = 0; i < list.Count; i++ )
+            {
+                list[ i ].fdAutoId = pageSize * ( pageIndex - 1 ) + i + 1;
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 检查帐号是否存在
+        /// </summary>
+        /// <param name="account"></param>
+        /// <param name="adminId"></param>
+        /// <returns></returns>
+        public bool funcCheckAccountExists( string account, int adminId )
+        {
+            string sql = string.Format( "SELECT fdAdmiID FROM AW_Admin WHERE fdAdmiAccount='{0}'", account );
+            if( adminId > 0 )
+            {
+                sql += " AND fdAdmiID<>" + adminId;
+            }
+            return this.funcGet( sql ).Tables[ 0 ].Rows.Count > 0;
+        }
+
+        /// <summary>
         /// 获取某个管理员信息
         /// </summary>
         /// <param name="adminId"></param>
@@ -88,6 +138,26 @@ namespace AnyWell.AW_DL
                 if (admin.fdAdmiID == adminId)
                     return admin;
             return null;
+        }
+
+        /// <summary>
+        /// 锁定用户
+        /// </summary>
+        /// <param name="ids"></param>
+        public void funcLockAdmin( string ids )
+        {
+            string sql = string.Format( "UPDATE AW_Admin SET fdAdmiStatus=1 WHERE fdAdmiID IN ({0})", ids );
+            this.funcExecute( sql );
+        }
+
+        /// <summary>
+        /// 锁定用户
+        /// </summary>
+        /// <param name="ids"></param>
+        public void funcUnlockAdmin( string ids )
+        {
+            string sql = string.Format( "UPDATE AW_Admin SET fdAdmiStatus=0 WHERE fdAdmiID IN ({0})", ids );
+            this.funcExecute( sql );
         }
 
         public override int funcInsert(Bean_Base aBean)
@@ -108,6 +178,13 @@ namespace AnyWell.AW_DL
         {
             int count = base.funcDelete(id);
             HttpRuntime.Cache.Remove("PageAdmins");
+            return count;
+        }
+
+        public override int funcDeletes( string aIDList )
+        {
+            int count = base.funcDeletes( aIDList );
+            HttpRuntime.Cache.Remove( "PageAdmins" );
             return count;
         }
 

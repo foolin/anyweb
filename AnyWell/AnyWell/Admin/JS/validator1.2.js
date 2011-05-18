@@ -18,7 +18,7 @@ Validator.prototype = {
         number: /^\d+$/,
         date: "date",
         zip: /^[1-9]\d{5}$/,
-        qq: /^[1-9]\d{4,8}$/,
+        qq: /^[1-9]\d{4,10}$/,
         integer: /^[-\+]?\d+$/,
         double: /^[-\+]?\d+(\.\d+)?$/,
         english: /^[A-Za-z]+$/,

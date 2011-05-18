@@ -403,6 +403,36 @@ function setTemplate(sid, type, cid) {
     parent.goPopupUrl(485, 363, url);
 }
 
+//锁定用户
+function lockUser() {
+    var ids = getSelect();
+    if (ids) {
+        parent.goPopupUrl(485, 363, "/Admin/User/UserLock.aspx?ids=" + ids);
+    } else {
+        parent.showError("系统提示信息", "请选择用户！", 485, 223);
+    }
+}
+
+//锁定用户
+function unlockUser() {
+    var ids = getSelect();
+    if (ids) {
+        parent.goPopupUrl(485, 363, "/Admin/User/UserUnlock.aspx?ids=" + ids);
+    } else {
+        parent.showError("系统提示信息", "请选择用户！", 485, 223);
+    }
+}
+
+//删除用户
+function deleteUser() {
+    var ids = getSelect();
+    if (ids) {
+        parent.goPopupUrl(485, 363, "/Admin/User/UserDel.aspx?ids=" + ids);
+    } else {
+        parent.showError("系统提示信息", "请选择用户！", 485, 223);
+    }
+}
+
 //显示错误提示层
 function showError(title, msg, width, height) {
     if (!title) title = "系统提示信息";
@@ -1947,6 +1977,42 @@ function editSingleOK() {
 function editPasswordOK() {
     alert("密码修改成功！");
     window.location.href = window.location.href;
+}
+
+//修改个人资料回调函数
+function editInfoOK() {
+    alert("个人资料修改成功！");
+    window.location.href = window.location.href;
+}
+
+//添加用户回调函数
+function addUserOK() {
+    alert("用户添加成功！");
+    window.location.href = "UserList.aspx";
+}
+
+//修改用户回调函数
+function editUserOK() {
+    alert("用户修改成功！");
+    window.location.href = "UserList.aspx";
+}
+
+//锁定用户回调函数
+function lockUserOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
+}
+
+//解锁用户回调函数
+function unlockUserOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
+}
+
+//删除用户回调函数
+function deleteUserOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
 }
 
 //tab导航事件

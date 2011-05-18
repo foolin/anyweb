@@ -700,5 +700,119 @@ namespace AnyWell.AW_DL
             }
             return result;
         }
+
+        /**************************************************自定义控件********************************************************************************/
+
+        string selectStr = "fdArtiID,fdArtiColuID,fdArtiCreateAt,fdArtiType,fdArtiLink,fdArtiTitle,fdArtiSubTitle,fdArtiDescription,fdArtiClickCount,fdArtiCommentCount,fdArtiIsAuthorship,fdArtiFrom,fdArtiFromLink,fdArtiFromAuthor,fdArtiCanComment,fdArtiSort,fdArtiImage,fdArtiSourceID";
+
+        /// <summary>
+        /// 获取文章列表
+        /// </summary>
+        /// <param name="columnID">栏目编号</param>
+        /// <param name="topCount">前n条</param>
+        /// <param name="getChild">是否级联获取下级</param>
+        /// <param name="where">附加筛选条件</param>
+        /// <param name="order">附加排序条件</param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetArticleListByUC( int columnID, int topCount, bool getChild, string where, string order)
+        {
+            this.propSelect = this.selectStr;
+
+            if( topCount > 0 )
+            {
+                this.propSelect = " TOP " + topCount + " " + this.propSelect;
+            }
+
+            if( columnID != -1 )
+            {
+                if( getChild )
+                {
+                    AW_Column_bean column = new AW_Column_dao().funcGetColumnInfo( columnID );
+                    this.propWhere = string.Format( "fdArtiColuID IN ({0})", column.ColumnAndChildrenString() );
+                }
+                else
+                {
+                    this.propWhere = string.Format( "fdArtiColuID={0}", columnID );
+                }
+            }
+            else
+            {
+                this.propWhere = "1=1";
+            }
+
+            if( string.IsNullOrEmpty( where ) == false )
+            {
+                this.propWhere += " AND " + where.Replace( ";", "；" ).Replace( "--", "－－" );
+            }
+
+            if( string.IsNullOrEmpty( order ) == false )
+            {
+                this.propOrder = "ORDER BY " + funcReplaceSqlField( order );
+            }
+            else
+            {
+                this.propOrder = "ORDER BY fdArtiSort DESC";
+            }
+
+            List<AW_Article_bean> articles = this.funcGetList();
+
+            return articles;
+        }
+
+        /// <summary>
+        /// 获取文章列表
+        /// </summary>
+        /// <param name="columnID">栏目编号</param>
+        /// <param name="getChild">是否级联获取下级</param>
+        /// <param name="where">附加筛选条件</param>
+        /// <param name="order">附加排序条件</param>
+        /// <param name="pageID">当前页数</param>
+        /// <param name="pageSize">每页记录数</param>
+        /// <param name="recordCount">总记录数</param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetArticleListByUC( int columnID, bool getChild, string where, string order, int pageID, int pageSize, out int recordCount )
+        {
+            this.propSelect = this.selectStr;
+
+            if( columnID != -1 )
+            {
+                if( getChild )
+                {
+                    AW_Column_bean column = new AW_Column_dao().funcGetColumnInfo( columnID );
+                    this.propWhere = string.Format( "fdArtiColuID IN ({0})", column.ColumnAndChildrenString() );
+                }
+                else
+                {
+                    this.propWhere = string.Format( "fdArtiColuID={0}", columnID );
+                }
+            }
+            else
+            {
+                this.propWhere = "1=1";
+            }
+
+            if( string.IsNullOrEmpty( where ) == false )
+            {
+                this.propWhere += " AND " + where.Replace( ";", "；" ).Replace( "--", "－－" );
+            }
+
+            if( string.IsNullOrEmpty( order ) == false )
+            {
+                this.propOrder = "ORDER BY " + funcReplaceSqlField( order );
+            }
+            else
+            {
+                this.propOrder = "ORDER BY fdArtiSort DESC";
+            }
+
+            this.propPage = pageID;
+            this.propPageSize = pageSize;
+            this.propGetCount = true;
+
+            List<AW_Article_bean> articles = this.funcGetList();
+            recordCount = this.propCount;
+
+            return articles;
+        }
 	}
 }

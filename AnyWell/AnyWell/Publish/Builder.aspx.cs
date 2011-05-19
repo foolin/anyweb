@@ -79,61 +79,6 @@ public partial class Publish_Builder : System.Web.UI.Page
                 BuildPage( CurrentColumn.IndexTemplate );
             }
         }
-
-        ////站点首页
-        //if( sid > 0 )
-        //{
-        //    CurrentSite = new AW_Site_dao().funcGetSiteInfo( sid );
-        //    if( CurrentSite == null )
-        //    {
-        //        Fail( "站点不存在！" );
-        //    }
-        //    if( CurrentSite.IndexTemplate == null )
-        //    {
-        //        Fail( "站点未设置首页模板！" );
-        //    }
-        //    BuildPage( CurrentSite.IndexTemplate );
-        //    return;
-        //}
-
-        //if( cid > 0 )
-        //{
-        //    CurrentColumn = new AW_Column_dao().funcGetColumnInfo( cid );
-        //    if( CurrentColumn == null )
-        //    {
-        //        Fail( "栏目不存在！" );
-        //    }
-
-        //    if( did > 0 )   //内容页
-        //    {
-        //        if( CurrentColumn.ContentTemplate == null && CurrentSite.ContentTemplate == null )
-        //        {
-        //            Fail( "栏目未设置内容模板！" );
-        //        }
-        //        AW_Template_bean currentTemplate = CurrentColumn.ContentTemplate == null ? CurrentSite.ContentTemplate : CurrentColumn.ContentTemplate;
-        //        switch( ( ColumnType ) CurrentColumn.fdColuType )
-        //        {
-        //            case ColumnType.Article:
-        //                AW_Article_bean article = AW_Article_bean.funcGetByID( did );
-        //                if( article == null )
-        //                {
-        //                    Fail( "文档不存在！" );
-        //                }
-        //                break;
-        //            default:
-        //                return;
-        //        }
-        //        BuildPage( currentTemplate );
-        //    }
-        //    else   //栏目页
-        //    {
-        //        if( CurrentColumn.IndexTemplate == null )
-        //        {
-        //            Fail( "栏目未设置栏目模板！" );
-        //        }
-        //        BuildPage( CurrentColumn.IndexTemplate );
-        //    }
-        //}
     }
 
     /// <summary>

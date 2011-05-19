@@ -65,7 +65,7 @@
                             <%# Eval( "fdAdmiCreateAt", "{0:yy-MM-dd HH:mm}" )%>
                         </td>
                         <td style="width: 100px; text-align: center;">
-                            <%#Eval( "fdAdmiLoginAt", "{0:yy-MM-dd HH:mm}" )%>
+                            <%#Eval( "fdAdmiLoginAt", "{0:yyyy-MM-dd}" ) == "1900-01-01" ? "从未登录" : Eval( "fdAdmiLoginAt", "{0:yy-MM-dd HH:mm}" )%>
                         </td>
                         <td>
                             <a href="UserEdit.aspx?id=<%#Eval("fdAdmiID")%>" title="点击修改用户">

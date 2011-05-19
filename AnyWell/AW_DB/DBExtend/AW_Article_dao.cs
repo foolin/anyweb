@@ -814,5 +814,51 @@ namespace AnyWell.AW_DL
 
             return articles;
         }
+
+        /// <summary>
+        /// 下一篇文章
+        /// </summary>
+        /// <param name="article"></param>
+        /// <returns></returns>
+        public AW_Article_bean funcGetNextArticleByUC( AW_Article_bean article )
+        {
+            string sql = string.Format( "SELECT TOP 1 * FROM AW_Article WHERE fdArtiColuID={0} AND fdArtiSort<{1} ORDER BY fdArtiSort DESC", article.fdArtiColuID, article.fdArtiSort );
+
+            DataSet ds = this.funcGet( sql );
+
+            if( ds.Tables[ 0 ].Rows.Count == 0 )
+            {
+                return null;
+            }
+            else
+            {
+                AW_Article_bean bean = new AW_Article_bean();
+                bean.funcFromDataRow( ds.Tables[ 0 ].Rows[ 0 ] );
+                return bean;
+            }
+        }
+
+        /// <summary>
+        /// 上一篇文章
+        /// </summary>
+        /// <param name="article"></param>
+        /// <returns></returns>
+        public AW_Article_bean funcGetPreviousArticleByUC( AW_Article_bean article )
+        {
+            string sql = string.Format( "SELECT TOP 1 fdArtiID FROM AW_Article WHERE fdArtiColuID={0} AND fdArtiSort>{1} ORDER BY fdArtiSort", article.fdArtiColuID, article.fdArtiSort );
+
+            DataSet ds = this.funcGet( sql );
+
+            if( ds.Tables[ 0 ].Rows.Count == 0 )
+            {
+                return null;
+            }
+            else
+            {
+                AW_Article_bean bean = new AW_Article_bean();
+                bean.funcFromDataRow( ds.Tables[ 0 ].Rows[ 0 ] );
+                return bean;
+            }
+        }
 	}
 }

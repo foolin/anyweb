@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Article.cs" />
     <Compile Include="ArticleList.cs" />
     <Compile Include="Column.cs" />
     <Compile Include="ColumnList.cs" />

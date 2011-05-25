@@ -46,28 +46,60 @@ public partial class Admin_Content_ColumnAdd : PageAdmin
             if( sid > 0 )
             {
                 lblParent.Text = "无上级栏目";
-                drpType.Items.Add( new ListItem( "文档栏目", "0" ) );
-                drpType.Items.Add( new ListItem( "单篇文档栏目", "3" ) );
-                drpType.Items.Add( new ListItem( "产品栏目", "1" ) );
-                drpType.Items.Add( new ListItem( "图片栏目", "2" ) );
+                foreach( string str in AnyWellSetting.GetSetting().ColumnType )
+                {
+                    drpType.Items.Add( new ListItem( str.Split( ':' )[ 1 ], str.Split( ':' )[ 0 ] ) );
+                }
+                //drpType.Items.Add( new ListItem( "文档栏目", "0" ) );
+                //drpType.Items.Add( new ListItem( "单篇文档栏目", "3" ) );
+                //drpType.Items.Add( new ListItem( "产品栏目", "1" ) );
+                //drpType.Items.Add( new ListItem( "图片栏目", "2" ) );
             }
             else
             {
                 switch( column.fdColuType )
                 {
                     case 0:
-                        drpType.Items.Add( new ListItem( "文档栏目", "0" ) );
-                        drpType.Items.Add( new ListItem( "单篇文档栏目", "3" ) );
+                        foreach( string str in AnyWellSetting.GetSetting().ColumnType )
+                        {
+                            if( str.StartsWith( "0" ) || str.StartsWith( "3" ) )
+                            {
+                                drpType.Items.Add( new ListItem( str.Split( ':' )[ 1 ], str.Split( ':' )[ 0 ] ) );
+                            }
+                        }
+                        //drpType.Items.Add( new ListItem( "文档栏目", "0" ) );
+                        //drpType.Items.Add( new ListItem( "单篇文档栏目", "3" ) );
                         break;
                     case 1:
-                        drpType.Items.Add( new ListItem( "产品栏目", "1" ) );
+                        foreach( string str in AnyWellSetting.GetSetting().ColumnType )
+                        {
+                            if( str.StartsWith( "1" ) )
+                            {
+                                drpType.Items.Add( new ListItem( str.Split( ':' )[ 1 ], str.Split( ':' )[ 0 ] ) );
+                            }
+                        }
+                        //drpType.Items.Add( new ListItem( "产品栏目", "1" ) );
                         break;
                     case 2:
-                        drpType.Items.Add( new ListItem( "图片栏目", "2" ) );
+                        foreach( string str in AnyWellSetting.GetSetting().ColumnType )
+                        {
+                            if( str.StartsWith( "2" ) )
+                            {
+                                drpType.Items.Add( new ListItem( str.Split( ':' )[ 1 ], str.Split( ':' )[ 0 ] ) );
+                            }
+                        }
+                        //drpType.Items.Add( new ListItem( "图片栏目", "2" ) );
                         break;
                     case 3:
-                        drpType.Items.Add( new ListItem( "文档栏目", "0" ) );
-                        drpType.Items.Add( new ListItem( "单篇文档栏目", "3" ) );
+                        foreach( string str in AnyWellSetting.GetSetting().ColumnType )
+                        {
+                            if( str.StartsWith( "0" ) || str.StartsWith( "3" ) )
+                            {
+                                drpType.Items.Add( new ListItem( str.Split( ':' )[ 1 ], str.Split( ':' )[ 0 ] ) );
+                            }
+                        }
+                        //drpType.Items.Add( new ListItem( "文档栏目", "0" ) );
+                        //drpType.Items.Add( new ListItem( "单篇文档栏目", "3" ) );
                         break;
                     default:
                         break;

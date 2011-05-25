@@ -56,7 +56,7 @@ function initSystemMenu(menuItem, xmlItem) {
             menuItem.addItem(new menu.MenuItem($(this).attr("id"), $(this).attr("name"), "SysIndex.aspx?mid=" + $(this).attr("id"), "system"));
         } else {
             var mi = menuItem.addItem(new menu.MenuItem($(this).attr("id"), $(this).attr("name")));
-            initDropMenu(mi, this);
+            initSystemMenu(mi, this);
         }
         if ($(this).attr("separator") == "true") {
             menuItem.addItem(new menu.Separator());
@@ -430,6 +430,16 @@ function deleteUser() {
         parent.goPopupUrl(485, 363, "/Admin/User/UserDel.aspx?ids=" + ids);
     } else {
         parent.showError("系统提示信息", "请选择用户！", 485, 223);
+    }
+}
+
+//删除产品
+function deletePublish() {
+    var ids = getSelect();
+    if (ids) {
+        parent.goPopupUrl(485, 363, "/Admin/Sys/PublishDel.aspx?ids=" + ids);
+    } else {
+        parent.showError("系统提示信息", "请选择发布日志！", 485, 223);
     }
 }
 
@@ -1559,6 +1569,23 @@ function createArticleColumnPopMenu(c) {
     c.menu = menu;
 }
 
+//单篇文档栏目右键菜单
+function createSingleArticleColumnPopMenu(c) {
+    var menu = new ContextMenu(), item;
+    item = new menu.Item("修改该栏目", "修改该栏目", "javascript:editColumn(" + c.id + ")");
+    menu.addItem(item);
+    item = new menu.Item("删除该栏目", "删除该栏目", "javascript:delColumn(" + c.id + ")");
+    menu.addItem(item);
+    menu.addSeparator();
+    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?cid=" + c.id, "_blank");
+    menu.addItem(item);
+    menu.addSeparator();
+    item = new menu.Item("新建子栏目", "创建子栏目", "javascript:addColumn(" + c.id + ")");
+    menu.addItem(item);
+
+    c.menu = menu;
+}
+
 //图片栏目右键菜单
 function createAlbumColumnPopMenu(c) {
     var menu = new ContextMenu(), item;
@@ -1594,12 +1621,14 @@ function createProductColumnPopMenu(c) {
 //文档右键菜单
 function createArticlePopMenu(obj, aid, cid) {
     var menu = new ContextMenu(), item;
+    item = new menu.Item("预览这篇文档", "预览这篇文档", "../Publish/Builder.aspx?cid=" + cid + "&did=" + aid, "_blank");
+    menu.addItem(item);
     item = new menu.Item("修改这篇文档", "修改这篇文档", "Content/ArticleEdit.aspx?id=" + aid, "article");
     menu.addItem(item);
-    item = new menu.Item("放入回收站", "放入回收站", "javascript:recycleArticle(" + aid + ")");
-    menu.addItem(item);
     menu.addSeparator();
-    item = new menu.Item("预览这篇文档", "预览这篇文档", "../Publish/Builder.aspx?cid=" + cid + "&did=" + aid, "_blank");
+    item = new menu.Item("发布这篇文档", "发布这篇文档", "javascript:pubishArticle(" + aid + ")");
+    menu.addItem(item);
+    item = new menu.Item("撤销发布这篇文档", "撤销发布这篇文档", "javascript:cancelPublishArticle(" + aid + ")");
     menu.addItem(item);
     menu.addSeparator();
     item = new menu.Item("移动这篇文档到", "移动这篇文档到", "javascript:moveArticle(" + aid + ")");
@@ -1607,6 +1636,8 @@ function createArticlePopMenu(obj, aid, cid) {
     item = new menu.Item("复制这篇文档到", "复制这篇文档到", "javascript:copyArticle(" + aid + ")");
     menu.addItem(item);
     item = new menu.Item("引用这篇文档到", "引用这篇文档到", "javascript:pointArticle(" + aid + ")");
+    menu.addItem(item);
+    item = new menu.Item("放入回收站", "放入回收站", "javascript:recycleArticle(" + aid + ")");
     menu.addItem(item);
 
     obj.menu = menu;
@@ -1655,6 +1686,8 @@ function showColumnMenu(c, e) {
             case 'Product':
                 createProductColumnPopMenu(c);
                 break;
+            case 'Single':
+                createSingleArticleColumnPopMenu(c);
         }
     }
     c.menu.show(e.clientX, e.clientY + 55);
@@ -2015,6 +2048,12 @@ function deleteUserOK() {
     parent.disablePopup();
 }
 
+//彻底删除文档回调函数
+function deletePublishOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
+}
+
 //tab导航事件
 function selectOption(title, content, index) {
     $("div[id^='" + title + "']").each(function() {
@@ -2155,4 +2194,66 @@ function clearPersonLog() {
             }
         }
     });
+}
+
+//清空发布日志
+function clearPublish() {
+    if (!confirm("确定清空所有发布日志(未发布完成的日志无法删除)？")) return;
+    var url = "../Ajax/PublishClear.aspx";
+    $.ajax({
+        url: url,
+        cache: false,
+        success: function(result) {
+            if (result.length > 0) {
+                alert(result);
+            } else {
+                window.location.reload();
+            }
+        }
+    });
+}
+
+//显示/隐藏发布错误
+function showPublishError(id) {
+    var obj = $("#error_" + id);
+    if (obj.css("display") == "none") {
+        obj.show();
+    } else {
+        obj.hide();
+    }
+}
+
+/*---------------- 发布方法 --------------------------*/
+
+//新增发布
+function publishAdd(id, type, ptype) {
+    var url = "Ajax/PublishAdd.aspx";
+    $.post(url, { id: id, type: type, ptype: ptype }, function(result) {
+        var pubPop = window.pubPopBox;
+        if (pubPop == null) {
+            pubPop = new PopBox();
+            pubPop.init(377, 189);
+            pubPop.style = 2;
+            pubPop.waitTimeout = 2000;
+            window.pubPopBox = pubPop;
+        }
+        var item = new pubPop.Item("发布提示", result);
+        pubPop.addItem(item);
+        if (pubPop.opened == true) {
+            pubPop.showItem(pubPop.items[pubPop.items.length - 1]);
+        }
+        else {
+            pubPop.show(pubPop.items[0]);
+        }
+    }
+    );
+}
+
+//发布文档
+function pubishArticle(id) {
+    publishAdd(id, 3, 3);
+}
+
+function cancelPublishArticle(id) {
+    publishAdd(id, 3, 4);
 }

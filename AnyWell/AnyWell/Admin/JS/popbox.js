@@ -37,12 +37,16 @@ PopBox.prototype = {
         }
     },
     init: function(width, height) {
-        this.panel.style.width = width;
-        this.panel.style.height = height;
+        //        this.panel.style.width = width + "px";
+        //        this.panel.style.height = height + "px";
+        $(this.panel).width(width);
+        $(this.panel).height(height);
         this.height = this.panel.offsetHeight;
         this.width = this.panel.offsetWidth;
-        this.docWidth = document.body.clientWidth;
-        this.docHeight = document.body.clientHeight;
+        //        this.docWidth = document.body.clientWidth;
+        //        this.docHeight = document.body.clientHeight;
+        this.docWidth = document.documentElement.clientWidth;
+        this.docHeight = document.documentElement.clientHeight;
         this.timeout = 150;
         this.speed = 10;
         this.step = 5;
@@ -66,7 +70,10 @@ PopBox.prototype = {
         pre.innerHTML = "&lt;";
         pre.style.cursor = "pointer";
         pre.title = "显示前一条消息";
-        this.addEvent(pre, "onclick", function() { me.movePre(); });
+        //        this.addEvent(pre, "onclick", function() { me.movePre(); });
+        $(pre).click(function() {
+            me.movePre();
+        });
         snav.appendChild(pre);
         this.preCtl = pre;
         pre.pop = this;
@@ -79,7 +86,10 @@ PopBox.prototype = {
         next.innerHTML = "&gt;";
         next.style.cursor = "pointer";
         next.title = "显示后一条消息";
-        this.addEvent(next, "onclick", function() { me.moveNext(); });
+//        this.addEvent(next, "onclick", function() { me.moveNext(); });
+        $(next).click(function() {
+            me.moveNext();
+        });
         snav.appendChild(next);
         this.nextCtl = next;
         next.pop = this;
@@ -92,7 +102,10 @@ PopBox.prototype = {
         closeCtl.title = "关闭消息框";
         this.closeCtl = closeCtl;
         closeCtl.pop = this;
-        this.addEvent(closeCtl, "onclick", function() { me.hide(); });
+        //        this.addEvent(closeCtl, "onclick", function() { me.hide(); });
+        $(closeCtl).click(function() {
+            me.hide();
+        });
         title.appendChild(closeCtl);
         this.panel.appendChild(title);
 
@@ -139,8 +152,8 @@ PopBox.prototype = {
             this.timer = window.setInterval(moveUp, this.speed);
         }
         else { //居中弹窗
-            mess.style.top = ($i(document.body.scrollTop) + this.docHeight - this.width) / 2;
-            mess.style.left = ($i(document.body.scrollLeft) + this.docWidth - this.width) / 2;
+            mess.style.top = ($i(document.body.scrollTop) + this.docHeight - this.height) / 2 + "px";
+            mess.style.left = ($i(document.body.scrollLeft) + this.docWidth - this.width) / 2 + "px";
             mess.style.visibility = 'visible';
             //auto close
             checkAutoClose();

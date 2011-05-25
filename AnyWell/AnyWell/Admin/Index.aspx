@@ -13,9 +13,9 @@
 
     <script type="text/javascript" src="js/webmenu.js"></script>
 
-    <script type="text/javascript" src="js/function.js"></script>
+    <script type="text/javascript" src="js/popbox.js"></script>
 
-    <script type="text/javascript" src="js/corl.js"></script>
+    <script type="text/javascript" src="js/function.js"></script>
 
     <title>AnyWell Studio内容管理系统</title>
 </head>

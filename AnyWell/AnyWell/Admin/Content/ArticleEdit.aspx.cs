@@ -140,6 +140,10 @@ public partial class Admin_Content_ArticleEdit : ArticlePageAdmin
         }
 
         bean.fdArtiImage = articlePic;
+
+        if( bean.fdArtiStatus == 2 )
+            bean.fdArtiStatus = 1;
+
         if( dao.funcUpdate( bean ) > 0 )
         {
             AddLog( EventType.Update, "修改文档", string.Format( "栏目[{0}]修改文档:[{1}({2})]", CurrentColumn.fdColuName, bean.fdArtiTitle, bean.fdArtiID ) );

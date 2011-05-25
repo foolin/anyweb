@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using AnyWell.AW_DL;
+using System.ComponentModel;
 
 namespace AnyWell.AW_UC
 {
@@ -30,6 +31,28 @@ namespace AnyWell.AW_UC
             }
         }
 
+        private int _pageID = 0;
+        [Description( "内容分页" ), Browsable( false )]
+        public virtual int PageID
+        {
+            get
+            {
+                if( _pageID == 0 && Context.Request.QueryString[ "dpid" ] != null )
+                {
+                    int.TryParse( Context.Request.QueryString[ "dpid" ], out _pageID );
+                }
+                if( _pageID <= 0 )
+                {
+                    _pageID = 1;
+                }
+                return _pageID;
+            }
+            set
+            {
+                _pageID = value;
+            }
+        }
+
         protected override object GetItemObject()
         {
             AW_Article_bean article;
@@ -44,6 +67,11 @@ namespace AnyWell.AW_UC
             if( article == null )
             {
                 return "文档不存在！";
+            }
+
+            if( article.PageCount > 1 )
+            {
+                article.fdArtiContent = article.Contents[ this.PageID - 1 ];
             }
 
             switch( this.ItemType )

@@ -190,6 +190,15 @@ namespace AnyWell.AW_DL
             get{return _fdArtiSourceID;}
             set{_fdArtiSourceID = value;}
         }
+        private int _fdArtiStatus = 0;
+        /// <summary>
+        /// 文章状态(0新稿1已改2已发)
+        /// </summary>
+        public int fdArtiStatus
+        {
+            get{return _fdArtiStatus;}
+            set{_fdArtiStatus = value;}
+        }
 
 
 		/////////////////////////////////////////

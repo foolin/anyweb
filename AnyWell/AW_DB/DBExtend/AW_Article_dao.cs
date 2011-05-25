@@ -49,7 +49,7 @@ namespace AnyWell.AW_DL
         public List<AW_Article_bean> funcGetArticleList( AW_Column_bean column, bool getChildren, string field, string orderBy, int pageIndex, int pageSize, out int recordCount )
         {
             this.propTableApp = "INNER JOIN AW_Column ON fdArtiColuID=fdColuID";
-            this.propSelect = "fdArtiID,fdArtiColuID,fdArtiCreateAt,fdArtiType,fdArtiTitle,fdArtiClickCount,fdArtiCommentCount,fdColuID,fdColuName";
+            this.propSelect = "fdArtiID,fdArtiColuID,fdArtiCreateAt,fdArtiType,fdArtiTitle,fdArtiClickCount,fdArtiCommentCount,fdArtiStatus,fdColuID,fdColuName";
             this.propWhere = "fdArtiIsDel=0";
             if( getChildren )
             {
@@ -280,7 +280,7 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public int funcRecycleArticle( string ids )
         {
-            string sql = string.Format( "UPDATE AW_Article SET fdArtiIsDel=1 WHERE fdArtiID IN ({0})", ids );
+            string sql = string.Format( "UPDATE AW_Article SET fdArtiIsDel=1,fdArtiStatus=1 WHERE fdArtiID IN ({0})", ids );
             return this.funcExecute( sql );
         }
 
@@ -303,7 +303,7 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public int funcMoveArticle( string ids, int coluID )
         {
-            string sql = string.Format( "UPDATE AW_Article SET fdArtiColuID={0} WHERE fdArtiID IN ({1})", coluID, ids );
+            string sql = string.Format( "UPDATE AW_Article SET fdArtiColuID={0},fdArtiStatus=CASE fdArtiStatus WHEN 2 THEN 1 ELSE fdArtiStatus END WHERE fdArtiID IN ({1})", coluID, ids );
             return this.funcExecute( sql );
         }
 
@@ -638,6 +638,17 @@ namespace AnyWell.AW_DL
         }
 
         /// <summary>
+        /// 更新文档状态
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public int funcPublishArticleByIds( string ids,int status )
+        {
+            string cmdText = string.Format( "UPDATE AW_Article SET fdArtiStatus={0} WHERE fdArtiID IN ({1})", status, ids );
+            return funcExecute( cmdText );
+        }
+
+        /// <summary>
         /// 重写修改文档
         /// </summary>
         /// <param name="aBean"></param>
@@ -652,7 +663,7 @@ namespace AnyWell.AW_DL
             try
             {
                 base.funcUpdate( aBean, tran );
-                string sql = string.Format( "UPDATE AW_Article SET fdArtiTitle='{0}' WHERE fdArtiType=4 AND fdArtiSourceID={1}", ( ( AW_Article_bean ) aBean ).fdArtiTitle, ( ( AW_Article_bean ) aBean ).fdArtiID );
+                string sql = string.Format( "UPDATE AW_Article SET fdArtiTitle='{0}',fdArtiStatus=CASE fdArtiStatus WHEN 2 THEN 1 ELSE fdArtiStatus END WHERE fdArtiType=4 AND fdArtiSourceID={1}", ( ( AW_Article_bean ) aBean ).fdArtiTitle, ( ( AW_Article_bean ) aBean ).fdArtiID );
                 funcExecute( sql, tran );
                 tran.Commit();
                 result = 1;

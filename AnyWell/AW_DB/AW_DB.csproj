@@ -57,6 +57,8 @@
     <Compile Include="DBExtend\AW_Log_dao.cs" />
     <Compile Include="DBExtend\AW_Product_bean.cs" />
     <Compile Include="DBExtend\AW_Product_dao.cs" />
+    <Compile Include="DBExtend\AW_Publish_bean.cs" />
+    <Compile Include="DBExtend\AW_Publish_dao.cs" />
     <Compile Include="DBExtend\AW_SingleArticle_bean.cs" />
     <Compile Include="DBExtend\AW_SingleArticle_dao.cs" />
     <Compile Include="DBExtend\AW_Site_bean.cs" />
@@ -73,6 +75,8 @@
     <Compile Include="DBFile\AW_Log_dao.cs" />
     <Compile Include="DBFile\AW_Product_bean.cs" />
     <Compile Include="DBFile\AW_Product_dao.cs" />
+    <Compile Include="DBFile\AW_Publish_bean.cs" />
+    <Compile Include="DBFile\AW_Publish_dao.cs" />
     <Compile Include="DBFile\AW_SingleArticle_bean.cs" />
     <Compile Include="DBFile\AW_SingleArticle_dao.cs" />
     <Compile Include="DBFile\AW_Site_bean.cs" />

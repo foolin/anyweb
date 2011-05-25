@@ -87,6 +87,10 @@
                                 <a href="javascript:<%=getOrderJs("fdColuName")%>" title="点击按照栏目名排序">所在栏目</a> <span
                                     class="<%=getOrderCssClass("fdColuName") %>"></span>
                             </th>
+                            <th style="width:43px">
+                                <a href="javascript:<%=getOrderJs("fdArtiStatus")%>" title="点击按照状态排序">状态</a> <span
+                                    class="<%=getOrderCssClass("fdArtiStatus") %>"></span>
+                            </th>
                             <th class="edit">
                                 修改
                             </th>
@@ -112,6 +116,9 @@
                         <td style="width: 100px; text-align: center;">
                             <a href="ArticleList.aspx?cid=<%#Eval("Column.fdColuID") %>">
                                 <%#Eval("Column.fdColuName")%></a>
+                        </td>
+                        <td>
+                            <%#Eval( "Status" )%>
                         </td>
                         <td>
                             <a href="ArticleEdit.aspx?id=<%#Eval("fdArtiID")%>" title="点击修改文档" target="article">

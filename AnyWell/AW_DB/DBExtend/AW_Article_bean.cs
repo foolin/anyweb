@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Web;
 using Studio.Data;
+using Studio.Web;
 
 namespace AnyWell.AW_DL
 {
@@ -23,6 +24,61 @@ namespace AnyWell.AW_DL
             set
             {
                 _Column = value;
+            }
+        }
+
+        /// <summary>
+        /// 状态
+        /// </summary>
+        public string Status
+        {
+            get
+            {
+                switch( fdArtiStatus )
+                {
+                    case 0:
+                        return "新稿";
+                    case 1:
+                        return "已改";
+                    case 2:
+                        return "已发";
+                    default:
+                        return "";
+                }
+            }
+        }
+
+        /// <summary>
+        /// 内容页数
+        /// </summary>
+        public int PageCount
+        {
+            get
+            {
+                return WebAgent.Split( fdArtiContent, "<!-- pagebreak -->" ).Length;
+            }
+        }
+
+        private string[] _Contents;
+        /// <summary>
+        /// 内容分段
+        /// </summary>
+        public string[] Contents
+        {
+            get
+            {
+                if( _Contents == null )
+                {
+                    if( this.PageCount == 1 )
+                    {
+                        _Contents = new string[] { this.fdArtiContent };
+                    }
+                    else
+                    {
+                        _Contents = WebAgent.Split( this.fdArtiContent, "<!-- pagebreak -->" );
+                    }
+                }
+                return _Contents;
             }
         }
 	}

@@ -149,6 +149,24 @@ namespace AnyWell.AW_DL
             }
             return ( str + "," + this.fdColuID ).Substring( 1 );
         }
+
+        /// <summary>
+        ///  获取继承的内容模板
+        /// </summary>
+        public AW_Template_bean InheritedContentTemplate
+        {
+            get
+            {
+                if( this.Site != null )
+                {
+                    return this.Site.ContentTemplate;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
 	}
 
     /// <summary>

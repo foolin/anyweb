@@ -50,7 +50,7 @@
     <script type="text/javascript">
         $(function() {
             $("#Content").height(document.documentElement.clientHeight - 64);
-            $("#datalist").height(document.documentElement.clientHeight - 64);
+            $("#datalist").height(document.documentElement.clientHeight - 75);
 
             $(document).click(function() {
                 if (parent.activeContextMenu) {

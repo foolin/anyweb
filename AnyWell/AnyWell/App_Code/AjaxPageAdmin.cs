@@ -27,4 +27,14 @@ public class AjaxPageAdmin : PageAdmin
         Response.Write( content );
         Response.End();
     }
+
+    public string QS( string key )
+    {
+        return Request.QueryString[ key ] + "";
+    }
+
+    public string QF( string key )
+    {
+        return Request.Form[ key ] + "";
+    }
 }

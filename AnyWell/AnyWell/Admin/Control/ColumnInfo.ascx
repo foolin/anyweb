@@ -19,6 +19,8 @@
                 <%} %>
                 <img src="../images/icons/set.gif" title="设置模板" alt="设置模板" onclick="parent.setTemplate(<%=CurrentSite.fdSiteID %>,1,<%=CurrentColumn.fdColuID %>)" />
             </li>
+            <%if( CurrentColumn.fdColuType != ( int ) AnyWell.AW_DL.ColumnType.Single )
+              { %>
             <li class="template"><strong>内页模板</strong>:
                 <%if( CurrentColumn.ContentTemplate == null )
                   {%>
@@ -31,10 +33,15 @@
                 <%} %>
                 <img src="../images/icons/set.gif" title="设置模板" alt="设置模板" onclick="parent.setTemplate(<%=CurrentSite.fdSiteID %>,2,<%=CurrentColumn.fdColuID %>)" />
             </li>
+            <%} %>
             <li><strong>所属站点</strong>:<%=CurrentColumn.Site.fdSiteName %>
             </li>
             <li><strong>栏目类型</strong>:<%=CurrentColumn.ColumnTypeText %>
             </li>
+            <li><strong>访问地址</strong>:<br />
+                <a style="padding-left: 0;" href="<%=CurrentSite.fdSiteUrl %><%=CurrentColumn.Url %>"
+                    target="_blank">
+                    <%=CurrentSite.fdSiteUrl%><%=CurrentColumn.Url %></a> </li>
         </ul>
     </div>
 </div>

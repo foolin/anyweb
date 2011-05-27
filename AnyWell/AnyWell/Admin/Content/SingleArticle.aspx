@@ -9,6 +9,9 @@
     <script type="text/javascript">
         $(function() {
             $("#<%=txtContent.ClientID %>_txt").height(document.documentElement.clientHeight - 188);
+            if (v1) {
+                v1.Success = function() { return disableButton() };
+            }
         });
         
         function disableButton() {

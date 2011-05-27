@@ -1,13 +1,23 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Master/InnerList.master" AutoEventWireup="true" CodeFile="PublishList.aspx.cs" Inherits="Admin_Sys_PublishList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Master/InnerList.master"
+    AutoEventWireup="true" CodeFile="PublishList.aspx.cs" Inherits="Admin_Sys_PublishList" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cphHead" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="Server">
+
     <script type="text/javascript">
         var selStatus = false;
+        $(function() {
+            $("#datatable tbody tr").hover(function() {
+                $(this).addClass("hover");
+            }, function() {
+                $(this).removeClass("hover");
+            });
+        });
     </script>
+
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cphTitle" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="cphTitle" runat="Server">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="cphContent" Runat="Server">
+<asp:Content ID="Content3" ContentPlaceHolderID="cphContent" runat="Server">
     <div id="noDatas" runat="server" visible="false" class="nodatas">
         未找到发布日志</div>
     <div class="datas">
@@ -71,7 +81,7 @@
                             <input type="checkbox" name="ids" value="<%# Eval("fdPublID")%>" class="checkbox" />
                         </td>
                     </tr>
-                    <tr id="error_<%#Eval("fdPublID") %>" style="display:none;color:Red;">
+                    <tr id="error_<%#Eval("fdPublID") %>" style="display: none; color: Red;">
                         <td colspan="8">
                             <%#Eval( "fdPublError" )%>
                         </td>
@@ -95,7 +105,7 @@
         </table>
     </div>
 </asp:Content>
-<asp:Content ID="Content4" ContentPlaceHolderID="cphOpr" Runat="Server">
+<asp:Content ID="Content4" ContentPlaceHolderID="cphOpr" runat="Server">
     <div class="operation" id="PublishOpr">
         <h3 class="opr-mhd">
             <a href="javascript:showFolder('PublishOpr')">
@@ -108,4 +118,3 @@
         </div>
     </div>
 </asp:Content>
-

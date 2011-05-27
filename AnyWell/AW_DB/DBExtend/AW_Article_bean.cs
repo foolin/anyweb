@@ -81,5 +81,16 @@ namespace AnyWell.AW_DL
                 return _Contents;
             }
         }
+
+        /// <summary>
+        /// 访问路径
+        /// </summary>
+        public string Url
+        {
+            get
+            {
+                return string.Format( "{0}{1}.html", Column.VirtualPath, fdArtiID );
+            }
+        }
 	}
 }

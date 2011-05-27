@@ -47,6 +47,7 @@ namespace AnyWell.AW_DL
             {
                 this.propWhere += " AND fdPublStatus=" + status;
             }
+            this.propOrder = "ORDER BY fdPublID DESC";
             this.propPage = pageIndex;
             this.propPageSize = pageSize;
             this.propGetCount = true;

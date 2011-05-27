@@ -135,7 +135,7 @@
             </asp:Repeater>
             <tfoot id="tableFooter" runat="server">
                 <tr>
-                    <td colspan="6">
+                    <td colspan="7">
                         <span class="record">共<strong><asp:Literal ID="litRecords" runat="server">0</asp:Literal></strong>篇文档</span>
                         <ul class="pager">
                             <sw:PageNaver ID="PN1" runat="server" PageSize="20" StyleID="2">

@@ -84,7 +84,7 @@ namespace AnyWell.AW_DL
         {
             this.propSelect = "fdProdID,fdProdSort";
             this.propOrder = "ORDER BY fdProdSort DESC";
-
+            this.propWhere = "fdProdIsDel=0";
             this._propFields = "fdProdID,fdProdSort";
 
             bool result = false;
@@ -478,6 +478,39 @@ namespace AnyWell.AW_DL
                 bean.fdAutoId = pageSize * ( pageIndex - 1 ) + i + 1;
             }
             return list;
+        }
+
+        /// <summary>
+        /// 获取产品数
+        /// </summary>
+        /// <param name="columnID"></param>
+        /// <param name="getChild"></param>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public int funcGetProductCount( int columnID, bool getChild, string where )
+        {
+            this.propSelect = "COUNT(fdProdID)";
+            this.propWhere = "fdProdIsDel=0";
+            if( columnID != -1 )
+            {
+                if( getChild )
+                {
+                    AW_Column_bean column = new AW_Column_dao().funcGetColumnInfo( columnID );
+                    this.propWhere += string.Format( "fdProdColuID IN ({0})", column.ColumnAndChildrenString() );
+                }
+                else
+                {
+                    this.propWhere += string.Format( "fdProdColuID={0}", columnID );
+                }
+            }
+
+            if( string.IsNullOrEmpty( where ) == false )
+            {
+                this.propWhere += " AND " + where.Replace( ";", "；" ).Replace( "--", "－－" );
+            }
+
+            DataSet ds = funcCommon();
+            return int.Parse( ds.Tables[ 0 ].Rows[ 0 ][ 0 ].ToString() );
         }
 
         /// <summary>

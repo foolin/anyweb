@@ -53,7 +53,7 @@ function initDropMenu(menuItem, xmlItem) {
 function initSystemMenu(menuItem, xmlItem) {
     $(xmlItem).children().each(function() {
         if ($(this).children().length == 0) {
-            menuItem.addItem(new menu.MenuItem($(this).attr("id"), $(this).attr("name"), "SysIndex.aspx?mid=" + $(this).attr("id"), "system"));
+            menuItem.addItem(new menu.MenuItem($(this).attr("id"), $(this).attr("name"), "SysIndex.aspx?mid=" + $(this).attr("id"), "sys"));
         } else {
             var mi = menuItem.addItem(new menu.MenuItem($(this).attr("id"), $(this).attr("name")));
             initSystemMenu(mi, this);
@@ -1560,6 +1560,8 @@ function createArticleColumnPopMenu(c) {
     menu.addSeparator();
     item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?cid=" + c.id, "_blank");
     menu.addItem(item);
+    item = new menu.Item("发布栏目首页", "发布栏目首页", "javascript:pubishColumnHome(" + c.id + ")");
+    menu.addItem(item);
     menu.addSeparator();
     item = new menu.Item("新建文档", "新建文档", "Content/ArticleAdd.aspx?cid=" + c.id);
     menu.addItem(item);
@@ -1578,6 +1580,8 @@ function createSingleArticleColumnPopMenu(c) {
     menu.addItem(item);
     menu.addSeparator();
     item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?cid=" + c.id, "_blank");
+    menu.addItem(item);
+    item = new menu.Item("发布栏目首页", "发布栏目首页", "javascript:pubishSingleArticle(" + c.id + ")");
     menu.addItem(item);
     menu.addSeparator();
     item = new menu.Item("新建子栏目", "创建子栏目", "javascript:addColumn(" + c.id + ")");
@@ -1605,14 +1609,19 @@ function createAlbumColumnPopMenu(c) {
 //产品栏目右键菜单
 function createProductColumnPopMenu(c) {
     var menu = new ContextMenu(), item;
-    //新建栏目
-    item = new menu.Item("新建栏目", "创建栏目", "javascript:addColumn(" + c.id + ")");
+    item = new menu.Item("修改该栏目", "修改该栏目", "javascript:editColumn(" + c.id + ")");
     menu.addItem(item);
-    //修改栏目
-    item = new menu.Item("修改栏目", "修改栏目", "javascript:editColumn(" + c.id + ")");
+    item = new menu.Item("删除该栏目", "删除该栏目", "javascript:delColumn(" + c.id + ")");
     menu.addItem(item);
-    //删除栏目
-    item = new menu.Item("删除栏目", "删除栏目", "javascript:delColumn(" + c.id + ")");
+    menu.addSeparator();
+    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?cid=" + c.id, "_blank");
+    menu.addItem(item);
+    item = new menu.Item("发布栏目首页", "发布栏目首页", "javascript:pubishColumnHome(" + c.id + ")");
+    menu.addItem(item);
+    menu.addSeparator();
+    item = new menu.Item("新建产品", "新建产品", "Product/ProductAdd.aspx?cid=" + c.id);
+    menu.addItem(item);
+    item = new menu.Item("新建子栏目", "新建子栏目", "javascript:addColumn(" + c.id + ")");
     menu.addItem(item);
 
     c.menu = menu;
@@ -2254,6 +2263,17 @@ function pubishArticle(id) {
     publishAdd(id, 3, 3);
 }
 
+//撤消文档发布
 function cancelPublishArticle(id) {
     publishAdd(id, 3, 4);
+}
+
+//发布单篇文档栏目
+function pubishSingleArticle(id) {
+    publishAdd(id, 4, 1);
+}
+
+//发布栏目首页
+function pubishColumnHome(id) {
+    publishAdd(id, 2, 1);
 }

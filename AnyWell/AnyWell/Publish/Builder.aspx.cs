@@ -18,6 +18,8 @@ public partial class Publish_Builder : System.Web.UI.Page
         int.TryParse( QS( "did" ), out did );
         string type = QS( "type" ).Trim().ToLower();
 
+        Context.Items.Add( "OBJECTTYPE", null );
+
         if( type.Equals( "site" ) )
         {
             if( sid == 0 )
@@ -49,9 +51,18 @@ public partial class Publish_Builder : System.Web.UI.Page
                 Fail( "栏目不存在！" );
             }
 
+            AW_Template_bean template = null;
             if( did > 0 )   //内容页
             {
-                if( CurrentColumn.ContentTemplate == null && CurrentSite.ContentTemplate == null )
+                if( CurrentColumn.ContentTemplate != null )
+                {
+                    template = CurrentColumn.ContentTemplate;
+                }
+                else
+                {
+                    template = CurrentColumn.InheritedContentTemplate;
+                }
+                if( template == null )
                 {
                     Fail( "栏目未设置内容模板！" );
                 }
@@ -64,6 +75,7 @@ public partial class Publish_Builder : System.Web.UI.Page
                         {
                             Fail( "文档不存在！" );
                         }
+                        Context.Items[ "OBJECTTYPE" ] = CurrentColumn.fdColuType;
                         break;
                     default:
                         return;
@@ -72,9 +84,21 @@ public partial class Publish_Builder : System.Web.UI.Page
             }
             else   //栏目页
             {
-                if( CurrentColumn.IndexTemplate == null )
+                if( CurrentColumn.IndexTemplate != null )
+                {
+                    template = CurrentColumn.IndexTemplate;
+                }
+                else
+                {
+                    template = CurrentColumn.InheritedIndexTemplate;
+                }
+                if( template == null )
                 {
                     Fail( "栏目未设置栏目模板！" );
+                }
+                if( CurrentColumn.fdColuType == ( int ) ColumnType.Single )
+                {
+                    Context.Items[ "OBJECTTYPE" ] = CurrentColumn.fdColuType;
                 }
                 BuildPage( CurrentColumn.IndexTemplate );
             }

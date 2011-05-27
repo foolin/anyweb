@@ -19,7 +19,7 @@
                 <%} %>
                 <img src="../images/icons/set.gif" title="设置模板" alt="设置模板" onclick="parent.setTemplate(<%=CurrentSite.fdSiteID %>,4)" />
             </li>
-            <li class="template"><strong>栏目模板</strong>:
+            <%--<li class="template"><strong>栏目模板</strong>:
                 <%if( CurrentSite.ColumnTemplate == null )
                   {%>
                 <input type="text" title="新建模板" value="未设置" readonly="readonly" onclick="window.open('../Template/TemplateAdd.aspx?site=true&sid=<%=CurrentSite.fdSiteID %>&type=1', 'template');" />
@@ -42,7 +42,7 @@
                     readonly="readonly" onclick="window.open('../Template/TemplateEdit.aspx?sid=<%=CurrentSite.fdSiteID %>&id=<%=CurrentSite.fdSiteContentTemplateID %>', 'template');" />
                 <%} %>
                 <img src="../images/icons/set.gif" title="设置模板" alt="设置模板" onclick="parent.setTemplate(<%=CurrentSite.fdSiteID %>,2)" />
-            </li>
+            </li>--%>
             <li><strong>站点目录</strong>:<%=CurrentSite.fdSitePath %>
             </li>
             <li><strong>站点域名</strong>:<br />

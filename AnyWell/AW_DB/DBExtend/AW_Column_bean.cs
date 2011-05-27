@@ -157,14 +157,67 @@ namespace AnyWell.AW_DL
         {
             get
             {
-                if( this.Site != null )
+                AW_Column_bean parent = this.Parent;
+                while( parent != null )
                 {
-                    return this.Site.ContentTemplate;
+                    if( parent.fdColuType == this.fdColuType && parent.ContentTemplate != null )
+                    {
+                        return parent.ContentTemplate;
+                    }
+                    parent = parent.Parent;
+                }
+                return null;
+            }
+        }
+
+        /// <summary>
+        ///  获取继承的栏目模板
+        /// </summary>
+        public AW_Template_bean InheritedIndexTemplate
+        {
+            get
+            {
+                AW_Column_bean parent = this.Parent;
+                while( parent != null )
+                {
+                    if( parent.fdColuType == this.fdColuType && parent.IndexTemplate != null )
+                    {
+                        return parent.IndexTemplate;
+                    }
+                    parent = parent.Parent;
+                }
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 访问路径
+        /// </summary>
+        public string Url
+        {
+            get
+            {
+                return VirtualPath + "index.html";
+            }
+        }
+
+        private string _VirtualPath;
+        /// <summary>
+        /// 相对访问路径
+        /// </summary>
+        public string VirtualPath
+        {
+            get
+            {
+                if( this.Parent != null )
+                {
+                    _VirtualPath = string.Format( "{0}{1}/", this.Parent.VirtualPath, this.fdColuID );
                 }
                 else
                 {
-                    return null;
+                    _VirtualPath = string.Format( "/{0}/", this.fdColuID );
                 }
+                return _VirtualPath;
             }
         }
 	}

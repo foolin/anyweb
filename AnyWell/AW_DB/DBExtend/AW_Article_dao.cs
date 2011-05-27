@@ -17,7 +17,7 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public List<AW_Article_bean> funcGetArticleList( string ids )
         {
-            this.propSelect = "fdArtiID,fdArtiTitle,fdArtiType,fdArtiSourceID";
+            this.propSelect = "fdArtiID,fdArtiTitle,fdArtiType,fdArtiSourceID,fdArtiStatus";
             this.propWhere = string.Format( "fdArtiID IN ({0})", ids );
             this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
             return this.funcGetList();
@@ -179,6 +179,7 @@ namespace AnyWell.AW_DL
         public bool funcSortArticle( AW_Article_bean article, AW_Article_bean preview, AW_Article_bean next )
         {
             this.propSelect = " fdArtiID,fdArtiSort";
+            this.propWhere = "fdArtiIsDel=0";
             this.propOrder = " ORDER BY fdArtiSort DESC";
 
             this._propFields = "fdArtiID,fdArtiSort";
@@ -280,7 +281,7 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public int funcRecycleArticle( string ids )
         {
-            string sql = string.Format( "UPDATE AW_Article SET fdArtiIsDel=1,fdArtiStatus=1 WHERE fdArtiID IN ({0})", ids );
+            string sql = string.Format( "UPDATE AW_Article SET fdArtiIsDel=1,fdArtiStatus=0 WHERE fdArtiID IN ({0})", ids );
             return this.funcExecute( sql );
         }
 
@@ -649,6 +650,39 @@ namespace AnyWell.AW_DL
         }
 
         /// <summary>
+        /// 获取文章数
+        /// </summary>
+        /// <param name="columnID"></param>
+        /// <param name="getChild"></param>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public int funcGetArticleCount( int columnID, bool getChild, string where )
+        {
+            this.propSelect = "COUNT(fdArtiID)";
+            this.propWhere = "fdArtiIsDel=0";
+            if( columnID != -1 )
+            {
+                if( getChild )
+                {
+                    AW_Column_bean column = new AW_Column_dao().funcGetColumnInfo( columnID );
+                    this.propWhere += string.Format( " AND fdArtiColuID IN ({0})", column.ColumnAndChildrenString() );
+                }
+                else
+                {
+                    this.propWhere += string.Format( " AND fdArtiColuID={0}", columnID );
+                }
+            }
+
+            if( string.IsNullOrEmpty( where ) == false )
+            {
+                this.propWhere += " AND " + where.Replace( ";", "；" ).Replace( "--", "－－" );
+            }
+
+            DataSet ds = funcCommon();
+            return int.Parse( ds.Tables[ 0 ].Rows[ 0 ][ 0 ].ToString() );
+        }
+
+        /// <summary>
         /// 重写修改文档
         /// </summary>
         /// <param name="aBean"></param>
@@ -728,7 +762,7 @@ namespace AnyWell.AW_DL
         public List<AW_Article_bean> funcGetArticleListByUC( int columnID, int topCount, bool getChild, string where, string order)
         {
             this.propSelect = this.selectStr;
-
+            this.propWhere = "fdArtiIsDel=0";
             if( topCount > 0 )
             {
                 this.propSelect = " TOP " + topCount + " " + this.propSelect;
@@ -739,16 +773,12 @@ namespace AnyWell.AW_DL
                 if( getChild )
                 {
                     AW_Column_bean column = new AW_Column_dao().funcGetColumnInfo( columnID );
-                    this.propWhere = string.Format( "fdArtiColuID IN ({0})", column.ColumnAndChildrenString() );
+                    this.propWhere += string.Format( " AND fdArtiColuID IN ({0})", column.ColumnAndChildrenString() );
                 }
                 else
                 {
-                    this.propWhere = string.Format( "fdArtiColuID={0}", columnID );
+                    this.propWhere += string.Format( " AND fdArtiColuID={0}", columnID );
                 }
-            }
-            else
-            {
-                this.propWhere = "1=1";
             }
 
             if( string.IsNullOrEmpty( where ) == false )
@@ -784,22 +814,18 @@ namespace AnyWell.AW_DL
         public List<AW_Article_bean> funcGetArticleListByUC( int columnID, bool getChild, string where, string order, int pageID, int pageSize, out int recordCount )
         {
             this.propSelect = this.selectStr;
-
+            this.propWhere = "fdArtiIsDel=0";
             if( columnID != -1 )
             {
                 if( getChild )
                 {
                     AW_Column_bean column = new AW_Column_dao().funcGetColumnInfo( columnID );
-                    this.propWhere = string.Format( "fdArtiColuID IN ({0})", column.ColumnAndChildrenString() );
+                    this.propWhere += string.Format( " AND fdArtiColuID IN ({0})", column.ColumnAndChildrenString() );
                 }
                 else
                 {
-                    this.propWhere = string.Format( "fdArtiColuID={0}", columnID );
+                    this.propWhere += string.Format( " AND fdArtiColuID={0}", columnID );
                 }
-            }
-            else
-            {
-                this.propWhere = "1=1";
             }
 
             if( string.IsNullOrEmpty( where ) == false )
@@ -833,8 +859,8 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public AW_Article_bean funcGetNextArticleByUC( AW_Article_bean article )
         {
-            string sql = string.Format( "SELECT TOP 1 * FROM AW_Article WHERE fdArtiColuID={0} AND fdArtiSort<{1} ORDER BY fdArtiSort DESC", article.fdArtiColuID, article.fdArtiSort );
-
+            string sql = string.Format( "SELECT TOP 1 * FROM AW_Article WHERE fdArtiIsDel=0 AND fdArtiColuID={0} AND fdArtiSort<{1} ORDER BY fdArtiSort DESC", article.fdArtiColuID, article.fdArtiSort );
+            
             DataSet ds = this.funcGet( sql );
 
             if( ds.Tables[ 0 ].Rows.Count == 0 )
@@ -856,8 +882,8 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public AW_Article_bean funcGetPreviousArticleByUC( AW_Article_bean article )
         {
-            string sql = string.Format( "SELECT TOP 1 fdArtiID FROM AW_Article WHERE fdArtiColuID={0} AND fdArtiSort>{1} ORDER BY fdArtiSort", article.fdArtiColuID, article.fdArtiSort );
-
+            string sql = string.Format( "SELECT TOP 1 fdArtiID FROM AW_Article WHERE fdArtiIsDel=0 AND fdArtiColuID={0} AND fdArtiSort>{1} ORDER BY fdArtiSort", article.fdArtiColuID, article.fdArtiSort );
+            
             DataSet ds = this.funcGet( sql );
 
             if( ds.Tables[ 0 ].Rows.Count == 0 )

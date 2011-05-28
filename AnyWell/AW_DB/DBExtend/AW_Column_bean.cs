@@ -201,7 +201,6 @@ namespace AnyWell.AW_DL
             }
         }
 
-        private string _VirtualPath;
         /// <summary>
         /// 相对访问路径
         /// </summary>
@@ -209,15 +208,7 @@ namespace AnyWell.AW_DL
         {
             get
             {
-                if( this.Parent != null )
-                {
-                    _VirtualPath = string.Format( "{0}{1}/", this.Parent.VirtualPath, this.fdColuID );
-                }
-                else
-                {
-                    _VirtualPath = string.Format( "/{0}/", this.fdColuID );
-                }
-                return _VirtualPath;
+                return string.Format( "/{0}/", this.fdColuID );
             }
         }
 	}

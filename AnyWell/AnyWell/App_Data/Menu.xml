@@ -3,7 +3,6 @@
   <DropMenuItem id="0" name="管理控制菜单">
     <DropMenuItem id="10" name="文件">
       <DropMenuItem id="1001" name="系统首页" url="mainfra.html" target="mainFrame"></DropMenuItem>
-      <DropMenuItem id="1002" name="快速定位" url="javascript:void(0)"></DropMenuItem>
       <DropMenuItem id="1003" name="站点列表" url="Site/SiteList.aspx" target="mainFrame" separator="true"></DropMenuItem>
       <DropMenuItem id="1004" name="切换帐号" url="Logout.aspx"></DropMenuItem>
       <DropMenuItem id="1005" name="注销登陆" url="Logout.aspx" separator="true"></DropMenuItem>

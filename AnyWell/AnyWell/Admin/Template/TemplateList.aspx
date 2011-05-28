@@ -86,7 +86,7 @@
                             <%#Eval("fdAutoID")%>
                         </td>
                         <td>
-                            <a href="TemplateEdit.aspx?id=<%#Eval("fdTempID") %>" target="template">
+                            <a href="TemplateEdit.aspx?sid=<%#Eval("fdTempSiteID") %>&id=<%#Eval("fdTempID") %>" target="template">
                                 <%#Eval("fdTempName")%></a>
                         </td>
                         <td style="width: 100px; text-align: center;">

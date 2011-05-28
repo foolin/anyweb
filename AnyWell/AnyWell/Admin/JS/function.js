@@ -1538,6 +1538,14 @@ function createSitePopMenu(s) {
     menu.addSeparator();
     item = new menu.Item("预览站点首页", "预览站点首页", "../Publish/Builder.aspx?type=site&sid=" + s.id, "_blank");
     menu.addItem(item);
+    item = new menu.Item("发布站点首页", "发布这个站点的首页", "javascript:publishSiteHome(" + s.id + ")");
+    menu.addItem(item);
+    item = new menu.Item("增量发布站点", "仅发布尚未发布的文档并更新相关栏目首页和站点首页", "javascript:publishSiteAdditional(" + s.id + ")");
+    menu.addItem(item);
+    item = new menu.Item("完全发布站点", "发布这个站点的所有内容页并更新相关栏目首页和站点首页", "javascript:publishSiteAll(" + s.id + ")");
+    menu.addItem(item);
+    item = new menu.Item("撤销发布站点", "删除该站点已经发布的静态文件", "javascript:publishSiteCancel(" + s.id + ")");
+    menu.addItem(item);
     menu.addSeparator();
     item = new menu.Item("新建站点", "创建新站点", "javascript:addSite()");
     menu.addItem(item);
@@ -1562,6 +1570,12 @@ function createArticleColumnPopMenu(c) {
     menu.addItem(item);
     item = new menu.Item("发布栏目首页", "发布栏目首页", "javascript:pubishColumnHome(" + c.id + ")");
     menu.addItem(item);
+    item = new menu.Item("增量发布栏目", "仅发布尚未发布的文档并更新相关栏目首页和站点首页", "javascript:publishColumnAdditional(" + c.id + ")");
+    menu.addItem(item);
+    item = new menu.Item("完全发布栏目", "发布这个栏目的所有内容页并更新相关栏目首页和站点首页", "javascript:publishColumnAll(" + c.id + ")");
+    menu.addItem(item);
+    item = new menu.Item("撤销发布栏目", "删除本栏目及下级栏目已经发布的静态文件", "javascript:publishColumnCancel(" + c.id + ")");
+    menu.addItem(item);
     menu.addSeparator();
     item = new menu.Item("新建文档", "新建文档", "Content/ArticleAdd.aspx?cid=" + c.id);
     menu.addItem(item);
@@ -1582,6 +1596,12 @@ function createSingleArticleColumnPopMenu(c) {
     item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?cid=" + c.id, "_blank");
     menu.addItem(item);
     item = new menu.Item("发布栏目首页", "发布栏目首页", "javascript:pubishSingleArticle(" + c.id + ")");
+    menu.addItem(item);
+    item = new menu.Item("增量发布栏目", "仅发布尚未发布的文档并更新相关栏目首页和站点首页", "javascript:publishColumnAdditional(" + c.id + ")");
+    menu.addItem(item);
+    item = new menu.Item("完全发布栏目", "发布这个栏目的所有内容页并更新相关栏目首页和站点首页", "javascript:publishColumnAll(" + c.id + ")");
+    menu.addItem(item);
+    item = new menu.Item("撤销发布栏目", "删除本栏目及下级栏目已经发布的静态文件", "javascript:publishColumnCancel(" + c.id + ")");
     menu.addItem(item);
     menu.addSeparator();
     item = new menu.Item("新建子栏目", "创建子栏目", "javascript:addColumn(" + c.id + ")");
@@ -2276,4 +2296,39 @@ function pubishSingleArticle(id) {
 //发布栏目首页
 function pubishColumnHome(id) {
     publishAdd(id, 2, 1);
+}
+
+//增量发布栏目
+function publishColumnAdditional(id) {
+    publishAdd(id, 2, 2);
+}
+
+//完全发布栏目
+function publishColumnAll(id) {
+    publishAdd(id, 2, 3);
+}
+
+//撤消发布栏目
+function publishColumnCancel(id) {
+    publishAdd(id, 2, 4);
+}
+
+//发布站点首页
+function publishSiteHome(id) {
+    publishAdd(id, 1, 1);
+}
+
+//增量发布站点
+function publishSiteAdditional(id) {
+    publishAdd(id, 1, 2);
+}
+
+//完全发布站点
+function publishSiteAll(id) {
+    publishAdd(id, 1, 3);
+}
+
+//完全发布站点
+function publishSiteCancel(id) {
+    publishAdd(id, 1, 4);
 }

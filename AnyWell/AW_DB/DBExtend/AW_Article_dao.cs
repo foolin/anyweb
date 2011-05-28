@@ -643,7 +643,7 @@ namespace AnyWell.AW_DL
         /// </summary>
         /// <param name="ids"></param>
         /// <returns></returns>
-        public int funcPublishArticleByIds( string ids,int status )
+        public int funcPublishArticleByIds( string ids, int status )
         {
             string cmdText = string.Format( "UPDATE AW_Article SET fdArtiStatus={0} WHERE fdArtiID IN ({1})", status, ids );
             return funcExecute( cmdText );
@@ -680,6 +680,41 @@ namespace AnyWell.AW_DL
 
             DataSet ds = funcCommon();
             return int.Parse( ds.Tables[ 0 ].Rows[ 0 ][ 0 ].ToString() );
+        }
+
+        /// <summary>
+        /// 获取指定栏目下待发布的文章列表
+        /// </summary>
+        /// <param name="siteID"></param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetColumnArticleAdditional( int columnId )
+        {
+            this.propSelect = "fdArtiID, fdArtiTitle, fdArtiColuID";
+            this.propWhere = string.Format( "fdArtiStatus<>2 AND fdArtiIsDel=0 AND fdArtiColuID={0}", columnId );
+            return this.funcGetList();
+        }
+
+        /// <summary>
+        /// 获取指定栏目下所有文章列表
+        /// </summary>
+        /// <param name="columnId"></param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetColumnArticleComplete( int columnId )
+        {
+            this.propSelect = "fdArtiID, fdArtiTitle, fdArtiColuID";
+            this.propWhere = string.Format( "fdArtiIsDel=0 AND fdArtiColuID={0}", columnId );
+            return this.funcGetList();
+        }
+
+        /// <summary>
+        /// 取消发布某个栏目下的文档
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public int funcCancelPublishArticleByColumnID( int columnId )
+        {
+            string sql = string.Format( "UPDATE AW_Article SET fdArtiStatus=0 WHERE fdArtiStatus<>0 AND fdArtiColuID={0}", columnId );
+            return funcExecute( sql );
         }
 
         /// <summary>

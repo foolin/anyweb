@@ -77,30 +77,22 @@ public class PublishService
                 {
                     switch( bean.ObjectType )
                     {
-                        //case PublishObjectType.Site:
-                        //    {
-                        //        FA_Site_bean site = new FA_Site_dao().funcGetSiteInfo( queue.fdQueuObjID );
-                        //        if( site != null )
-                        //        {
-                        //            result = PublishSite( queue, site, queue.PublishType );
-                        //        }
-                        //        break;
-                        //    }
-                        //case QueueObjectType.Column:
-                        //    {
-                        //        FA_Column_bean column = new FA_Column_dao().funcGetColumnInfo( queue.fdQueuObjID );
-                        //        if( column != null )
-                        //        {
-                        //            result = PublishColumn( queue, column, queue.PublishType );
-                        //        }
-                        //        break;
-                        //    }
+                        case PublishObjectType.Site:
+                            {
+                                AW_Site_bean site = new AW_Site_dao().funcGetSiteInfo( bean.fdPublObjID );
+                                if( site != null )
+                                {
+                                    result = PublishSite( bean, site, bean.PublishType );
+                                }
+                                break;
+                            }
                         case PublishObjectType.Column:
                             {
+                                bool pubSite = bean.PublishType == PublishType.HomeOnly ? false : true;
                                 AW_Column_bean column = new AW_Column_dao().funcGetColumnInfo( bean.fdPublObjID );
                                 if( column != null )
                                 {
-                                    result = PublishColumn( bean, column, bean.PublishType );
+                                    result = PublishColumn( bean, column, pubSite, bean.PublishType );
                                 }
                                 break;
                             }
@@ -114,21 +106,6 @@ public class PublishService
                                 result = PublishSingleDocument( bean, bean.fdPublObjID, bean.PublishType );
                                 break;
                             }
-                        //case QueueObjectType.Picture:
-                        //    {
-                        //        result = PublishPicture( queue, queue.Column, queue.fdQueuObjID, true, queue.PublishType );
-                        //        break;
-                        //    }
-                        //case QueueObjectType.Video:
-                        //    {
-                        //        result = PublishVideo( queue, queue.Column, queue.fdQueuObjID, true, queue.PublishType );
-                        //        break;
-                        //    }
-                        //case QueueObjectType.Song:
-                        //    {
-                        //        result = PublishSong( queue, queue.Column, queue.fdQueuObjID, true, queue.PublishType );
-                        //        break;
-                        //    }
                         //case QueueObjectType.Product:
                         //    {
                         //        result = PublishProduct( queue, queue.Column, queue.fdQueuObjID, true, queue.PublishType );
@@ -231,7 +208,7 @@ public class PublishService
                         AW_Column_bean parent = column;
                         while( parent != null )
                         {
-                            PublishColumn( publish, column, PublishType.HomeOnly );
+                            PublishColumn( publish, column, true, PublishType.HomeOnly );
                             parent = parent.Parent;
                         }
                     }
@@ -288,7 +265,7 @@ public class PublishService
             AW_Column_bean parent = column;
             while( parent != null )
             {
-                PublishColumn( publish, column, PublishType.HomeOnly );
+                PublishColumn( publish, column, true, PublishType.HomeOnly );
                 parent = parent.Parent;
             }
         }
@@ -299,9 +276,9 @@ public class PublishService
     /// <summary>
     /// 发布单篇文档栏目
     /// </summary>
-    /// <param name="publish"></param>
-    /// <param name="docID"></param>
-    /// <param name="pubType"></param>
+    /// <param name="publish">发布任务</param>
+    /// <param name="docID">栏目编号</param>
+    /// <param name="pubType">发布类型</param>
     /// <returns></returns>
     int PublishSingleDocument( AW_Publish_bean publish, int docID, PublishType pubType )
     {
@@ -373,7 +350,15 @@ public class PublishService
         return 0;
     }
 
-    int PublishColumn( AW_Publish_bean publish, AW_Column_bean column, PublishType pubType )
+    /// <summary>
+    /// 发布栏目
+    /// </summary>
+    /// <param name="publish">发布任务</param>
+    /// <param name="column">发布的栏目</param>
+    /// <param name="column">是否更新站点首页</param>
+    /// <param name="pubType">发布类型</param>
+    /// <returns></returns>
+    int PublishColumn( AW_Publish_bean publish, AW_Column_bean column, bool pubSite, PublishType pubType )
     {
         string exe = this.BuilderPath;
         string saveTo = string.Format( "{0}\\{1}{2}", this.PublishPath, column.Site.fdSitePath, column.VirtualPath.Replace( "/", "\\" ) );
@@ -409,8 +394,8 @@ public class PublishService
                             pageSize = int.Parse( mPageSize.Value );
                         }
 
-                        string getChildReg1 = "(<IBOX:ARTICLELIST|<IBOX:PICTURELIST|<IBOX:MULTIARTICLELIST)[^>]+PAGERID=[^>]+GETCHILD=['\"]TRUE['\"]";
-                        string getChildReg2 = "(<IBOX:ARTICLELIST|<IBOX:PICTURELIST|<IBOX:MULTIARTICLELIST)[^>]+GETCHILD=['\"]TRUE['\"][^>]+PAGERID=";
+                        string getChildReg1 = "(<AW:ARTICLELIST|<AW:PICTURELIST|<AW:PRODUCTLIST)[^>]+PAGERID=[^>]+GETCHILD=['\"]TRUE['\"]";
+                        string getChildReg2 = "(<AW:ARTICLELIST|<AW:PICTURELIST|<AW:PRODUCTLIST)[^>]+GETCHILD=['\"]TRUE['\"][^>]+PAGERID=";
 
                         bool getChild = false;
                         if( Regex.IsMatch( template.fdTempContent, getChildReg1, RegexOptions.IgnoreCase ) || Regex.IsMatch( template.fdTempContent, getChildReg1, RegexOptions.IgnoreCase ) )
@@ -420,7 +405,7 @@ public class PublishService
 
                         string getWhereReg1 = "(<AW:ARTICLELIST|<AW:PICTURELIST|<AW:PRODUCTLIST)[^>]+PAGERID=[^>]+WHERE=['\"]\\s+?['\"]";
                         string getWhereReg2 = "(<AW:ARTICLELIST|<AW:PICTURELIST|<AW:PRODUCTLIST)[^>]+WHERE=['\"]\\s+?['\"][^>]+PAGERID=";
-                        
+
                         string where = "";
                         Match mWhere = Regex.Match( template.fdTempContent, getWhereReg1, RegexOptions.IgnoreCase );
                         if( mWhere.Success )
@@ -446,7 +431,7 @@ public class PublishService
                             default:
                                 break;
                         }
-                        
+
                         int pages = 1;
                         if( recordCount > pageSize )
                         {
@@ -462,395 +447,260 @@ public class PublishService
 
                         }
                     }
+                    //发布站点首页
+                    if( pubSite )
+                    {
+                        PublishSite( publish, column.Site, PublishType.HomeOnly );
+                    }
                     return 0;
+                }
+            case PublishType.Additional:
+                {
+                    AW_Column_dao columnDao = new AW_Column_dao();
+                    switch( ( ColumnType ) column.fdColuType )
+                    {
+                        case ColumnType.Article:
+                            {
+                                List<AW_Article_bean> articles = new AW_Article_dao().funcGetColumnArticleAdditional( column.fdColuID );
+                                string ids = "";
+
+                                foreach( AW_Article_bean article in articles )
+                                {
+                                    article.Column = columnDao.funcGetColumnInfo( article.fdArtiColuID );
+                                    int result = PublishDocument( publish, article.fdArtiID, false, PublishType.Complete );
+                                    if( result == 0 )
+                                    {
+                                        ids += article.fdArtiID.ToString() + ",";
+                                    }
+                                }
+                                if( ids.Length > 0 )
+                                {
+                                    ids = ids.Remove( ids.Length - 1, 1 );
+                                    new AW_Article_dao().funcPublishArticleByIds( ids, 2 );
+                                }
+                                break;
+                            }
+                        case ColumnType.Single:
+                            {
+                                PublishSingleDocument( publish, column.fdColuID, PublishType.Complete );
+                                break;
+                            }
+                        //case ColumnType.Product:
+                        //    {
+                        //        //产品
+                        //        List<AW_Product_bean> products = new AW_Product_dao().funcGetColumnProductAdditional( column.fdColuIdPath );
+                        //        string ids = "";
+
+                        //        foreach( FA_Product_bean product in products )
+                        //        {
+                        //            product.Column = columnDao.funcGetColumnInfo( product.fdProdColuID );
+                        //            int result = PublishProduct( queue, product.Column, product.fdProdID, false, PublishType.Complete );
+                        //            if( result > 0 )
+                        //            {
+                        //                //return result;
+                        //            }
+                        //            else
+                        //            {
+                        //                ids += product.fdProdID.ToString() + ",";
+                        //            }
+                        //        }
+                        //        if( ids.Length > 0 )
+                        //        {
+                        //            ids = ids.Remove( ids.Length - 1, 1 );
+                        //            new FA_Product_dao().funcPublishProductByIds( ids );
+                        //        }
+                        //        break;
+                        //    }
+                    }
+                    //发布子栏目
+                    foreach( AW_Column_bean childColumn in column.Children )
+                    {
+                        PublishColumn( publish, childColumn, false, PublishType.Additional );
+                    }
+                    //发布首页
+                    PublishColumn( publish, column, false, PublishType.HomeOnly );
+                    //发布站点首页
+                    if( pubSite )
+                    {
+                        PublishSite( publish, column.Site, PublishType.HomeOnly );
+                    }
+                    return 0;
+                }
+            case PublishType.Complete:
+                {
+                    switch( ( ColumnType ) column.fdColuType )
+                    {
+                        case ColumnType.Article:
+                            {
+                                List<AW_Article_bean> articles = new AW_Article_dao().funcGetColumnArticleComplete( column.fdColuID );
+                                string ids = "";
+                                foreach( AW_Article_bean article in articles )
+                                {
+                                    int result = PublishDocument( publish, article.fdArtiID, false, PublishType.Complete );
+                                    if( result == 0 )
+                                    {
+                                        ids += article.fdArtiID.ToString() + ",";
+                                    }
+                                }
+                                if( ids.Length > 0 )
+                                {
+                                    ids = ids.Remove( ids.Length - 1, 1 );
+                                    new AW_Article_dao().funcPublishArticleByIds( ids, 2 );
+                                }
+                                break;
+                            }
+                        case ColumnType.Single:
+                            {
+                                PublishSingleDocument( publish, column.fdColuID, PublishType.Complete );
+                                break;
+                            }
+                        //case ColumnType.Product:
+                        //    {
+                        //        List<FA_Product_bean> products = new FA_Product_dao().funcGetColumnProductForPub( column.fdColuID );
+                        //        string ids = "";
+                        //        foreach( FA_Product_bean product in products )
+                        //        {
+                        //            int result = PublishProduct( queue, column, product.fdProdID, false, PublishType.Complete );
+                        //            if( result > 0 )
+                        //            {
+                        //                //return result;
+                        //            }
+                        //            else
+                        //            {
+                        //                ids += product.fdProdID.ToString() + ",";
+                        //            }
+                        //        }
+                        //        if( ids.Length > 0 )
+                        //        {
+                        //            ids = ids.Remove( ids.Length - 1, 1 );
+                        //            new FA_Product_dao().funcPublishProductByIds( ids );
+                        //        }
+                        //        break;
+                        //    }
+                    }
+                    //发布子栏目
+                    foreach( AW_Column_bean childColumn in column.Children )
+                    {
+                        PublishColumn( publish, childColumn, false, PublishType.Complete );
+                    }
+                    //发布首页
+                    PublishColumn( publish, column, false, PublishType.HomeOnly );
+                    //发布站点首页
+                    if( pubSite )
+                    {
+                        PublishSite( publish, column.Site, PublishType.HomeOnly );
+                    }
+                    return 0;
+                }
+            case PublishType.Cancel:
+                {
+                    return this.CancelPublishColumn( publish, column );
                 }
             default:
                 return 0;
         }
-    //    switch( pubType )
-    //    {
-    //        case PublishType.HomeOnly:
-    //            {
-    //                FA_Template_bean template = column.IndexTemplate;
-    //                if( template == null )
-    //                {
-    //                    template = column.InheritedIndexTemplate;
-    //                }
-    //                //if (template == null)
-    //                //{
-    //                //    return 101;
-    //                //}
-    //                exe += "?queueid=" + queue.fdQueuID.ToString() + "&cid=" + column.fdColuID.ToString() + "&ttype=1&urlprefix=" + column.Url + "index__pid" + ( template == null ? ".ascx" : template.fdTempExtension );
-    //                string htmlFile = PublishPage( exe, saveTo, 1, ( template == null ? ".ascx" : template.fdTempExtension ), column.Site.Setting.Encoding );
+    }
 
-    //                if( template != null )
-    //                {
+    /// <summary>
+    /// 撤消栏目发布
+    /// </summary>
+    /// <param name="publish">发布任务</param>
+    /// <param name="column">撤消的栏目</param>
+    /// <returns></returns>
+    int CancelPublishColumn( AW_Publish_bean publish, AW_Column_bean column )
+    {
+        DirectoryInfo dirColumn = new DirectoryInfo( string.Format( "{0}\\{1}\\{2}\\", this.PublishPath, column.Site.fdSitePath, column.fdColuID ) );
+        if( !dirColumn.Exists )
+        {
+            return 0;
+        }
+        dirColumn.Delete( true );
+        //级联删除所有子栏目页
+        foreach( AW_Column_bean childColumn in column.Children )
+        {
+            CancelPublishColumn( publish, childColumn );
+        }
+        //更新文档发布状态
+        new AW_Article_dao().funcCancelPublishArticleByColumnID( column.fdColuID );
+        return 0;
+    }
 
-    //                    string hasPagerReg = "(<IBOX:ARTICLELIST|<IBOX:PICTURELIST|<IBOX:MULTIARTICLELIST)[^>]+PAGERID=";
-    //                    Match mPager = Regex.Match( template.fdTempContent, hasPagerReg, RegexOptions.IgnoreCase );
-    //                    if( mPager.Success )
-    //                    {
-    //                        int pageSize = 20;
-    //                        string pageSizeReg = "(?<=PAGESIZE=['\"])\\d+?(?=['\"])";
-    //                        Match mPageSize = Regex.Match( template.fdTempContent, pageSizeReg, RegexOptions.IgnoreCase );
-    //                        if( mPageSize.Success )
-    //                        {
-    //                            pageSize = int.Parse( mPageSize.Value );
-    //                        }
+    /// <summary>
+    /// 发布站点
+    /// </summary>
+    /// <param name="publish">发布任务</param>
+    /// <param name="site">发布的站点</param>
+    /// <param name="pubType">发布类型</param>
+    /// <returns></returns>
+    int PublishSite( AW_Publish_bean publish, AW_Site_bean site, PublishType pubType )
+    {
+        string exe = this.BuilderPath;
+        string saveTo = string.Format( "{0}\\{1}\\", this.PublishPath, site.fdSitePath );
+        switch( pubType )
+        {
+            case PublishType.HomeOnly:
+                {
+                    if( site.IndexTemplate == null )
+                    {
+                        return 101;
+                    }
+                    exe += string.Format( "?sid={0}&type=site", site.fdSiteID );
+                    string htmlFile = PublishPage( exe, saveTo, 1 );
+                    return 0;
+                }
+            case PublishType.Additional:
+                {
+                    foreach( AW_Column_bean column in site.Columns )
+                    {
+                        PublishColumn( publish, column, false, PublishType.Additional );
+                    }
+                    PublishSite( publish, site, PublishType.HomeOnly );
+                    return 0;
+                }
+            case PublishType.Complete:
+                {
+                    foreach( AW_Column_bean column in site.Columns )
+                    {
+                        PublishColumn( publish, column, false, PublishType.Complete );
+                    }
+                    PublishSite( publish, site, PublishType.HomeOnly );
 
-    //                        string getChildReg1 = "(<IBOX:ARTICLELIST|<IBOX:PICTURELIST|<IBOX:MULTIARTICLELIST)[^>]+PAGERID=[^>]+GETCHILD=['\"]1['\"]";
-    //                        string getChildReg2 = "(<IBOX:ARTICLELIST|<IBOX:PICTURELIST|<IBOX:MULTIARTICLELIST)[^>]+GETCHILD=['\"]1['\"][^>]+PAGERID=";
+                    return 0;
+                }
+            case PublishType.Cancel:
+                {
+                    return this.CancelPublishSite( publish, site );
+                }
+            default:
+                {
+                    return 0;
+                }
+        }
+    }
 
-    //                        bool getChild = false;
-    //                        if( Regex.IsMatch( template.fdTempContent, getChildReg1, RegexOptions.IgnoreCase ) ||
-    //                            Regex.IsMatch( template.fdTempContent, getChildReg2, RegexOptions.IgnoreCase ) )
-    //                        {
-    //                            getChild = true;
-    //                        }
-
-    //                        int recordCount = new FA_Article_dao().funcGetArticleCount( column.fdColuID, getChild );
-    //                        if( column.fdColuTypeEnum == ColumnType.Album )
-    //                        {
-    //                            recordCount = new FA_Picture_dao().funcGetPictureCount( column.fdColuID, getChild );
-    //                        }
-    //                        int pages = 1;
-    //                        if( recordCount > pageSize )
-    //                        {
-    //                            if( recordCount % pageSize == 0 )
-    //                                pages = recordCount / pageSize;
-    //                            else
-    //                                pages = recordCount / pageSize + 1;
-    //                        }
-    //                        for( int i = 2; i <= pages; i++ )
-    //                        {
-    //                            exe = this.BuilderPath + "?queueid=" + queue.fdQueuID.ToString() + "&cid=" + column.fdColuID.ToString() + "&pid=" + i.ToString() + "&ttype=1&urlprefix=" + column.Url + "index__pid" + template.fdTempExtension;
-    //                            //saveTo = this.PublishPath + column.FullVirtualPath + "\\";
-    //                            htmlFile = PublishPage( exe, saveTo, i, template.fdTempExtension, column.Site.Setting.Encoding );
-                                
-    //                        }
-    //                    }
-    //                }
-
-    //                string imageFile = "", toImageFile = "";
-    //                //发布栏目图标
-    //                if( column.fdColuIcon != "" )
-    //                {
-    //                    imageFile = this.AdminDataPath + column.Site.fdSiteVirtualPath + column.fdColuIcon;
-    //                    toImageFile = this.PublishPath + column.Site.fdSiteVirtualPath + column.fdColuIcon;
-    //                    CopyFile( imageFile, toImageFile );
-    //                    if( column.Site.Setting.NeedFTP == true ) //分发页面
-    //                    {
-    //                        queue.FtpQueues.Add( new FtpQueue( toImageFile, GetFtpPath( column.Site, toImageFile ), FtpMethod.Add, column.Site.Setting.FtpSites ) );
-    //                    }
-    //                }
-    //                if( column.fdColuPict != "" )
-    //                {
-    //                    imageFile = this.AdminDataPath + column.Site.fdSiteVirtualPath + column.fdColuPict;
-    //                    toImageFile = this.PublishPath + column.Site.fdSiteVirtualPath + column.fdColuPict;
-    //                    CopyFile( imageFile, toImageFile );
-    //                    if( column.Site.Setting.NeedFTP == true ) //分发页面
-    //                    {
-    //                        queue.FtpQueues.Add( new FtpQueue( toImageFile, GetFtpPath( column.Site, toImageFile ), FtpMethod.Add, column.Site.Setting.FtpSites ) );
-    //                    }
-    //                }
-    //                //发布RSS
-    //                //string rssFile = PublishRss(column, saveTo);
-    //                //if (column.Site.Setting.NeedFTP == true) //分发页面
-    //                //{
-    //                //    queue.FtpQueues.Add(new FtpQueue(rssFile, GetFtpPath(column.Site, rssFile), FtpMethod.Add, column.Site.Setting.FtpSites));
-    //                //}
-    //                return 0;
-    //            }
-    //        case PublishType.Additional:
-    //            {
-    //                FA_Column_dao columnDao = new FA_Column_dao();
-    //                switch( column.fdColuTypeEnum )
-    //                {
-    //                    case ColumnType.Article:
-    //                        {
-    //                            List<FA_Article_bean> articles = new FA_Article_dao().funcGetColumnArticleAdditional( column.fdColuIdPath );
-    //                            string ids = "";
-
-    //                            foreach( FA_Article_bean article in articles )
-    //                            {
-    //                                article.Column = columnDao.funcGetColumnInfo( article.fdArtiColuID );
-    //                                int result = PublishDocument( queue, article.Column, article.fdArtiID, false, PublishType.Complete );
-    //                                if( result > 0 )
-    //                                {
-    //                                    //return result;
-    //                                }
-    //                                else
-    //                                {
-    //                                    ids += article.fdArtiID.ToString() + ",";
-    //                                }
-    //                            }
-    //                            if( ids.Length > 0 )
-    //                            {
-    //                                ids = ids.Remove( ids.Length - 1, 1 );
-    //                                new FA_Article_dao().funcPublishArticleByIds( ids );
-    //                            }
-    //                            break;
-    //                        }
-    //                    case ColumnType.Album:
-    //                        {
-    //                            //图片
-    //                            List<FA_Picture_bean> pictures = new FA_Picture_dao().funcGetColumnPictureAdditional( column.fdColuIdPath );
-    //                            string ids = "";
-
-    //                            foreach( FA_Picture_bean picture in pictures )
-    //                            {
-    //                                picture.Column = columnDao.funcGetColumnInfo( picture.fdPictColuID );
-    //                                int result = PublishPicture( queue, picture.Column, picture.fdPictID, false, PublishType.Complete );
-    //                                if( result > 0 )
-    //                                {
-    //                                    //return result;
-    //                                }
-    //                                else
-    //                                {
-    //                                    ids += picture.fdPictID.ToString() + ",";
-    //                                }
-    //                            }
-    //                            if( ids.Length > 0 )
-    //                            {
-    //                                ids = ids.Remove( ids.Length - 1, 1 );
-    //                                new FA_Picture_dao().funcPublishPictureByIds( ids );
-    //                            }
-    //                            break;
-    //                        }
-    //                    case ColumnType.Video:
-    //                        {
-    //                            //视频
-    //                            List<FA_Video_bean> videos = new FA_Video_dao().funcGetColumnVideoAdditional( column.fdColuIdPath );
-    //                            string ids = "";
-
-    //                            foreach( FA_Video_bean video in videos )
-    //                            {
-    //                                video.Column = columnDao.funcGetColumnInfo( video.fdVideColuID );
-    //                                int result = PublishVideo( queue, video.Column, video.fdVideID, false, PublishType.Complete );
-    //                                if( result > 0 )
-    //                                {
-    //                                    //return result;
-    //                                }
-    //                                else
-    //                                {
-    //                                    ids += video.fdVideID.ToString() + ",";
-    //                                }
-    //                            }
-    //                            if( ids.Length > 0 )
-    //                            {
-    //                                ids = ids.Remove( ids.Length - 1, 1 );
-    //                                new FA_Video_dao().funcPublishVideoByIds( ids );
-    //                            }
-    //                            break;
-    //                        }
-    //                    case ColumnType.Product:
-    //                        {
-    //                            //产品
-    //                            List<FA_Product_bean> products = new FA_Product_dao().funcGetColumnProductAdditional( column.fdColuIdPath );
-    //                            string ids = "";
-
-    //                            foreach( FA_Product_bean product in products )
-    //                            {
-    //                                product.Column = columnDao.funcGetColumnInfo( product.fdProdColuID );
-    //                                int result = PublishProduct( queue, product.Column, product.fdProdID, false, PublishType.Complete );
-    //                                if( result > 0 )
-    //                                {
-    //                                    //return result;
-    //                                }
-    //                                else
-    //                                {
-    //                                    ids += product.fdProdID.ToString() + ",";
-    //                                }
-    //                            }
-    //                            if( ids.Length > 0 )
-    //                            {
-    //                                ids = ids.Remove( ids.Length - 1, 1 );
-    //                                new FA_Product_dao().funcPublishProductByIds( ids );
-    //                            }
-    //                            break;
-    //                        }
-    //                    case ColumnType.Song:
-    //                        {
-    //                            //音频
-    //                            List<FA_Song_bean> songs = new FA_Song_dao().funcGetColumnSongAdditional( column.fdColuIdPath );
-    //                            string ids = "";
-
-    //                            foreach( FA_Song_bean song in songs )
-    //                            {
-    //                                song.Column = columnDao.funcGetColumnInfo( song.fdSongColuID );
-    //                                int result = PublishSong( queue, song.Column, song.fdSongID, false, PublishType.Complete );
-    //                                if( result > 0 )
-    //                                {
-    //                                    //return result;
-    //                                }
-    //                                else
-    //                                {
-    //                                    ids += song.fdSongID.ToString() + ",";
-    //                                }
-    //                            }
-    //                            if( ids.Length > 0 )
-    //                            {
-    //                                ids = ids.Remove( ids.Length - 1, 1 );
-    //                                new FA_Song_dao().funcPublishSongByIds( ids );
-    //                            }
-    //                            break;
-    //                        }
-    //                }
-
-    //                //:发布首页
-    //                PublishColumn( queue, column, PublishType.HomeOnly );
-    //                return 0;
-    //            }
-    //        case PublishType.Complete:
-    //            {
-    //                //step1:发布当前栏目的文档
-    //                switch( column.fdColuTypeEnum )
-    //                {
-    //                    case ColumnType.Article:
-    //                        {
-    //                            List<FA_Article_bean> articles = new FA_Article_dao().funcGetColumnArticleForPub( column.fdColuID );
-    //                            string ids = "";
-    //                            foreach( FA_Article_bean article in articles )
-    //                            {
-    //                                int result = PublishDocument( queue, column, article.fdArtiID, false, PublishType.Complete );
-    //                                if( result > 0 )
-    //                                {
-    //                                    //return result;
-    //                                }
-    //                                else
-    //                                {
-    //                                    ids += article.fdArtiID.ToString() + ",";
-    //                                }
-    //                            }
-    //                            if( ids.Length > 0 )
-    //                            {
-    //                                ids = ids.Remove( ids.Length - 1, 1 );
-    //                                new FA_Article_dao().funcPublishArticleByIds( ids );
-    //                            }
-    //                            break;
-    //                        }
-    //                    case ColumnType.Album:
-    //                        {
-    //                            List<FA_Picture_bean> pictures = new FA_Picture_dao().funcGetColumnPictureForPub( column.fdColuID );
-    //                            string ids = "";
-    //                            foreach( FA_Picture_bean picture in pictures )
-    //                            {
-    //                                int result = PublishPicture( queue, column, picture.fdPictID, false, PublishType.Complete );
-    //                                if( result > 0 )
-    //                                {
-    //                                    //return result;
-    //                                }
-    //                                else
-    //                                {
-    //                                    ids += picture.fdPictID.ToString() + ",";
-    //                                }
-    //                            }
-    //                            if( ids.Length > 0 )
-    //                            {
-    //                                ids = ids.Remove( ids.Length - 1, 1 );
-    //                                new FA_Picture_dao().funcPublishPictureByIds( ids );
-    //                            }
-    //                            break;
-    //                        }
-    //                    case ColumnType.Video:
-    //                        {
-    //                            List<FA_Video_bean> videos = new FA_Video_dao().funcGetColumnVideoForPub( column.fdColuID );
-    //                            string ids = "";
-    //                            foreach( FA_Video_bean video in videos )
-    //                            {
-    //                                int result = PublishVideo( queue, column, video.fdVideID, false, PublishType.Complete );
-    //                                if( result > 0 )
-    //                                {
-    //                                    //return result;
-    //                                }
-    //                                else
-    //                                {
-    //                                    ids += video.fdVideID.ToString() + ",";
-    //                                }
-    //                            }
-    //                            if( ids.Length > 0 )
-    //                            {
-    //                                ids = ids.Remove( ids.Length - 1, 1 );
-    //                                new FA_Video_dao().funcPublishVideoByIds( ids );
-    //                            }
-    //                            break;
-    //                        }
-    //                    case ColumnType.Product:
-    //                        {
-    //                            List<FA_Product_bean> products = new FA_Product_dao().funcGetColumnProductForPub( column.fdColuID );
-    //                            string ids = "";
-    //                            foreach( FA_Product_bean product in products )
-    //                            {
-    //                                int result = PublishProduct( queue, column, product.fdProdID, false, PublishType.Complete );
-    //                                if( result > 0 )
-    //                                {
-    //                                    //return result;
-    //                                }
-    //                                else
-    //                                {
-    //                                    ids += product.fdProdID.ToString() + ",";
-    //                                }
-    //                            }
-    //                            if( ids.Length > 0 )
-    //                            {
-    //                                ids = ids.Remove( ids.Length - 1, 1 );
-    //                                new FA_Product_dao().funcPublishProductByIds( ids );
-    //                            }
-    //                            break;
-    //                        }
-    //                    case ColumnType.Song:
-    //                        {
-    //                            //音频
-    //                            List<FA_Song_bean> songs = new FA_Song_dao().funcGetColumnSongForPub( column.fdColuID );
-    //                            string ids = "";
-
-    //                            foreach( FA_Song_bean song in songs )
-    //                            {
-    //                                int result = PublishSong( queue, column, song.fdSongID, false, PublishType.Complete );
-    //                                if( result > 0 )
-    //                                {
-    //                                    //return result;
-    //                                }
-    //                                else
-    //                                {
-    //                                    ids += song.fdSongID.ToString() + ",";
-    //                                }
-    //                            }
-    //                            if( ids.Length > 0 )
-    //                            {
-    //                                ids = ids.Remove( ids.Length - 1, 1 );
-    //                                new FA_Song_dao().funcPublishSongByIds( ids );
-    //                            }
-    //                            break;
-    //                        }
-
-    //                }
-
-    //                //step2:级联发布下级栏目
-    //                foreach( FA_Column_bean childColumn in column.Childs )
-    //                {
-    //                    PublishColumn( queue, childColumn, PublishType.Complete );
-    //                }
-    //                //step3:发布首页
-    //                PublishColumn( queue, column, PublishType.HomeOnly );
-    //                return 0;
-    //            }
-    //        case PublishType.Cancel:
-    //            {
-    //                return this.CancelPublishColumn( queue, column );
-    //            }
-    //        case PublishType.Seo:
-    //            {
-    //                //发布RSS
-    //                if( ( bool ) queue.Arguments[ "IsRss" ] )
-    //                {
-    //                    PublishRss( column, saveTo, ( int ) queue.Arguments[ "RssCount" ] );
-    //                }
-    //                return 0;
-    //            }
-    //        default:
-    //            return 0;
-    //    }
+    /// <summary>
+    /// 撤消站点发布
+    /// </summary>
+    /// <param name="publish">发布任务</param>
+    /// <param name="site">撤消的站点</param>
+    /// <returns></returns>
+    int CancelPublishSite( AW_Publish_bean publish, AW_Site_bean site )
+    {
+        DirectoryInfo dirSite = new DirectoryInfo( string.Format( "{0}\\{1}\\", this.PublishPath, site.fdSitePath ) );
+        if( !dirSite.Exists )
+        {
+            return 0;
+        }
+        foreach( AW_Column_bean column in site.Columns )
+        {
+            CancelPublishColumn( publish, column );
+        }
+        FileInfo[] indexFiles = dirSite.GetFiles( "index*.html", SearchOption.TopDirectoryOnly );
+        foreach( FileInfo indexFile in indexFiles )
+        {
+            indexFile.Delete();
+        }
+        return 0;
     }
 
     /// <summary>
@@ -881,8 +731,6 @@ public class PublishService
         {
             fi.Directory.Create();
         }
-
-        //url = url + "&saveFile=" + HttpUtility.UrlEncode( saveTo );
 
         string result = ReadRemoteFile( url, encoding );
         using( StreamWriter sw = new StreamWriter( saveTo, false, encoding ) )

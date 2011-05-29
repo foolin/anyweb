@@ -14,7 +14,7 @@
     <DropMenuItem id="20" name="个人服务">
       <DropMenuItem id="2001" name="我的资料" url="Person/InfoEdit.aspx"></DropMenuItem>
       <DropMenuItem id="2002" name="修改密码" url="person/PasswordEdit.aspx"></DropMenuItem>
-      <DropMenuItem id="2003" name="查看操作日志" url="Person/UserLog.aspx"></DropMenuItem>
+      <DropMenuItem id="2003" name="我的操作日志" url="Person/UserLog.aspx"></DropMenuItem>
     </DropMenuItem>
     <DropMenuItem id="30" name="管理工具">
       <DropMenuItem id="3001" name="发布监控" url="Sys/PublishList.aspx">
@@ -23,7 +23,8 @@
         <DropMenuItem id="300103" name="成功队列" url="Sys/PublishList.aspx?status=2"></DropMenuItem>
         <DropMenuItem id="300104" name="失败队列" url="Sys/PublishList.aspx?status=3"></DropMenuItem>
       </DropMenuItem>
-      <DropMenuItem id="3002" name="用户管理" url="User/UserList.aspx"></DropMenuItem>
+      <DropMenuItem id="3002" name="操作日志" url="Sys/LogList.aspx"></DropMenuItem>
+      <DropMenuItem id="3003" name="用户管理" url="User/UserList.aspx"></DropMenuItem>
     </DropMenuItem>
   </DropMenuItem>
 </DropMenu>

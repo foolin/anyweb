@@ -2225,6 +2225,23 @@ function clearPersonLog() {
     });
 }
 
+//清空操作日志
+function clearLog() {
+    if (!confirm("确定清空所有操作日志？")) return;
+    var url = "../Ajax/LogClear.aspx";
+    $.ajax({
+        url: url,
+        cache: false,
+        success: function(result) {
+            if (result.length > 0) {
+                alert(result);
+            } else {
+                window.location.reload();
+            }
+        }
+    });
+}
+
 //清空发布日志
 function clearPublish() {
     if (!confirm("确定清空所有发布日志(未发布完成的日志无法删除)？")) return;

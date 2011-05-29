@@ -40,9 +40,9 @@ namespace AnyWell.AW_DL
                     case 2:
                         return "新增";
                     case 3:
-                        return "修改";
-                    case 4:
                         return "删除";
+                    case 4:
+                        return "修改";
                     default:
                         return "";
                 }

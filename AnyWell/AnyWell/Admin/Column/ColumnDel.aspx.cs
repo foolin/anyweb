@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
+using System.IO;
 
 public partial class Admin_Content_ColumnDel : PageAdmin
 {
@@ -37,6 +38,7 @@ public partial class Admin_Content_ColumnDel : PageAdmin
         {
             if( dao.funcDelete( cid ) > 0 )
             {
+                DeleteColumnFiles( bean );
                 AddLog( EventType.Delete, "删除栏目", string.Format( "删除栏目:{0}({1})", bean.fdColuName, bean.fdColuID ) );
                 Response.Write( string.Format( "<script type=text/javascript>parent.delColumnOK('{0}');</script>", bean.fdColuID ) );
                 Response.End();
@@ -45,6 +47,24 @@ public partial class Admin_Content_ColumnDel : PageAdmin
             {
                 Fail( "栏目删除失败，请稍候再试！", true );
             }
+        }
+    }
+
+    /// <summary>
+    /// 删除已发布的静态文件
+    /// </summary>
+    /// <param name="column"></param>
+    void DeleteColumnFiles( AW_Column_bean column )
+    {
+        DirectoryInfo dirColumn = new DirectoryInfo( string.Format( "{0}\\{1}\\{2}\\", Server.MapPath( "~/" ), column.Site.fdSitePath, column.fdColuID ) );
+        if( dirColumn.Exists )
+        {
+            dirColumn.Delete( true );
+        }
+        //级联删除所有子栏目页
+        foreach( AW_Column_bean childColumn in column.Children )
+        {
+            DeleteColumnFiles( childColumn );
         }
     }
 }

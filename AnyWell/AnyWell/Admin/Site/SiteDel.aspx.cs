@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
+using System.IO;
 
 public partial class Admin_Content_SiteDel : PageAdmin
 {
@@ -29,6 +30,11 @@ public partial class Admin_Content_SiteDel : PageAdmin
         else
         {
             new AW_Site_dao().funcDelSite( bean );
+            DirectoryInfo dirSite = new DirectoryInfo( string.Format( "{0}\\{1}\\", Server.MapPath( "~/" ), bean.fdSitePath ) );
+            if( dirSite.Exists )
+            {
+                dirSite.Delete( true );
+            }
             AddLog( EventType.Delete, "删除站点", "删除站点:" + bean.fdSiteName );
             Response.Write( string.Format( "<script type=text/javascript>parent.delSiteOK({0});</script>", bean.fdSiteID ) );
             Response.End();

@@ -610,11 +610,10 @@ public class PublishService
     int CancelPublishColumn( AW_Publish_bean publish, AW_Column_bean column )
     {
         DirectoryInfo dirColumn = new DirectoryInfo( string.Format( "{0}\\{1}\\{2}\\", this.PublishPath, column.Site.fdSitePath, column.fdColuID ) );
-        if( !dirColumn.Exists )
+        if( dirColumn.Exists )
         {
-            return 0;
+            dirColumn.Delete( true );
         }
-        dirColumn.Delete( true );
         //级联删除所有子栏目页
         foreach( AW_Column_bean childColumn in column.Children )
         {

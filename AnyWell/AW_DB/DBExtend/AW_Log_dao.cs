@@ -20,11 +20,14 @@ namespace AnyWell.AW_DL
         /// <param name="pageSize">每页记录数</param>
         /// <param name="recordCount">总记录数</param>
         /// <returns></returns>
-        public List<AW_Log_bean> funcGetLogList( int adminId,string key, string field, string orderBy, int pageIndex, int pageSize, out int recordCount )
+        public List<AW_Log_bean> funcGetLogList( int adminId, string key, string field, string orderBy, int pageIndex, int pageSize, out int recordCount )
         {
             this.propTableApp = "INNER JOIN AW_Admin ON fdLogAdminID=fdAdmiID";
             this.propSelect = "fdLogID,fdLogName,fdLogDesc,fdLogAdminID,fdLogType,fdLogIP,fdLogCreateAt,fdAdmiAccount";
-            this.propWhere = "fdLogAdminID=" + adminId;
+            if( adminId > 0 )
+            {
+                this.propWhere = "fdLogAdminID=" + adminId;
+            }
             if( !string.IsNullOrEmpty( key ) )
             {
                 this.propWhere += string.Format( " AND fdLogName LIKE '%{0}%'", key );

@@ -413,7 +413,7 @@ function lockUser() {
     }
 }
 
-//锁定用户
+//解锁用户
 function unlockUser() {
     var ids = getSelect();
     if (ids) {

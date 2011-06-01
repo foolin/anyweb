@@ -26,7 +26,7 @@ public partial class Admin_Content_ArticleRecycle : PageAdmin
         }
         else
         {
-            if( dao.funcRecycleArticle( ids ) > 0 )
+            if (dao.funcRecycleArticle(ids) > 0)
             {
                 foreach( AW_Article_bean bean in list )
                 {
@@ -46,6 +46,31 @@ public partial class Admin_Content_ArticleRecycle : PageAdmin
                         PublishService.GetService().AddPublish( publish );
                     }
                     AddLog( EventType.Delete, "删除文档", string.Format( "删除文档:{0}({1})", bean.fdArtiTitle, bean.fdArtiID ) );
+                }
+                
+            }
+            if (dao.funcRecycleReferArticle(ids) > 0)
+            {
+                AW_Article_dao rdao = new AW_Article_dao();
+                List<AW_Article_bean> rlist = rdao.funcGetReferArticleList(ids);
+                foreach (AW_Article_bean bean in rlist)
+                {
+                    if (bean.fdArtiStatus == 2)
+                    {
+                        AW_Publish_bean publish = new AW_Publish_bean();
+                        publish.fdPublID = publishDao.funcNewID();
+                        publish.fdPublName = "撤销发布文档:[" + bean.fdArtiTitle + "]";
+                        publish.fdPublCreateAt = DateTime.Now;
+                        publish.fdPublAdminID = AdminInfo.fdAdmiID;
+                        publish.fdPublObjID = bean.fdArtiID;
+                        publish.fdPublObjType = 3;
+                        publish.fdPublType = 4;
+                        publish.fdPublStatus = 0;
+
+                        publishDao.funcInsert(publish);
+                        PublishService.GetService().AddPublish(publish);
+                    }
+                    AddLog(EventType.Delete, "删除文档", string.Format("删除文档:{0}({1})", bean.fdArtiTitle, bean.fdArtiID));
                 }
             }
             Response.Write( "<script type=text/javascript>parent.recycleArticleOK();</script>" );

@@ -27,6 +27,9 @@ public partial class Shop_Admin_Login : System.Web.UI.Page
         using( AW_Admin_dao dao = new AW_Admin_dao() )
         {
             int adminId = dao.funcLogin( txtUserName.Text, txtPassword.Text );
+            AW_Admin_bean bean = dao.funcGetAdminInfo(adminId);
+            if(bean.fdAdmiStatus == 1)
+                WebAgent.AlertAndBack("帐号已锁定");
             if( adminId > 0 )
             {
                 this.AddLog( adminId, "管理登录", "管理员帐号" + txtUserName.Text + "登录成功" );

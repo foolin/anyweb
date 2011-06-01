@@ -151,7 +151,7 @@ namespace AnyWell.AW_DL
         }
 
         /// <summary>
-        /// 锁定用户
+        /// 解锁用户
         /// </summary>
         /// <param name="ids"></param>
         public void funcUnlockAdmin( string ids )

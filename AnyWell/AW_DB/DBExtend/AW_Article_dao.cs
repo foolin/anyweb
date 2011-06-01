@@ -24,6 +24,19 @@ namespace AnyWell.AW_DL
         }
 
         /// <summary>
+        /// 获取引用文章列表
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetReferArticleList(string ids)
+        {
+            this.propSelect = "fdArtiID,fdArtiTitle,fdArtiType,fdArtiSourceID,fdArtiStatus";
+            this.propWhere = string.Format("fdArtiSourceID IN ({0})", ids);
+            this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
+            return this.funcGetList();
+        }
+
+        /// <summary>
         /// 获取文章列表(所有字段)
         /// </summary>
         /// <param name="ids"></param>
@@ -283,6 +296,17 @@ namespace AnyWell.AW_DL
         {
             string sql = string.Format( "UPDATE AW_Article SET fdArtiIsDel=1,fdArtiStatus=0 WHERE fdArtiID IN ({0})", ids );
             return this.funcExecute( sql );
+        }
+
+        /// <summary>
+        /// 把引用文档放入回收站
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public int funcRecyclePointArticle(string ids)
+        {
+            string sql = string.Format("UPDATE AW_Article SET fdArtiIsDel=1,fdArtiStatus=0 WHERE fdArtiSourceID IN ({0})", ids);
+            return this.funcExecute(sql);
         }
 
         /// <summary>

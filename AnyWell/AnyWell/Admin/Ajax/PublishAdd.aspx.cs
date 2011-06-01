@@ -11,7 +11,7 @@ public partial class Admin_Ajax_PublishAdd : AjaxPageAdmin
     {
         int objID = 0, objType = 0, pubType = 1;
         int.TryParse( QF( "id" ), out objID );//对象ID
-        int.TryParse( QF( "type" ), out objType );//1:站点;2:栏目;3:文档;4:单篇文档;5:产品;
+        int.TryParse( QF( "type" ), out objType );//1:站点;2:栏目;3:文档;4:单篇文档;5:产品;10:展商;
         int.TryParse( QF( "ptype" ), out pubType );//1:仅发布首页,2:增量发布,3:完整发布,4:撤销发布
 
         if( objID > 0 && objType > 0 && pubType > 0 )
@@ -59,6 +59,9 @@ public partial class Admin_Ajax_PublishAdd : AjaxPageAdmin
                 break;
             case PublishObjectType.Product:
                 objTypeName = "产品";
+                break;
+            case PublishObjectType.Exhibitor:
+                objTypeName = "展商";
                 break;
             default:
                 objTypeName = "未知";
@@ -139,6 +142,13 @@ public partial class Admin_Ajax_PublishAdd : AjaxPageAdmin
                     return product.fdProdName;
                 else
                     RenderString( "产品不存在！" );
+                break;
+            case PublishObjectType.Exhibitor:
+                AW_Exhibitor_bean exhibitor = AW_Exhibitor_bean.funcGetByID( objID );
+                if( exhibitor != null )
+                    return exhibitor.fdExhiName;
+                else
+                    RenderString( "展商不存在！" );
                 break;
             default:
                 RenderString( "未知发布类型！" );

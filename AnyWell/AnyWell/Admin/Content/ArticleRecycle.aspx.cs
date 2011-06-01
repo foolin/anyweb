@@ -47,15 +47,11 @@ public partial class Admin_Content_ArticleRecycle : PageAdmin
                     }
                     AddLog( EventType.Delete, "删除文档", string.Format( "删除文档:{0}({1})", bean.fdArtiTitle, bean.fdArtiID ) );
                 }
-                
-            }
-            if (dao.funcRecycleReferArticle(ids) > 0)
-            {
-                AW_Article_dao rdao = new AW_Article_dao();
-                List<AW_Article_bean> rlist = rdao.funcGetReferArticleList(ids);
-                foreach (AW_Article_bean bean in rlist)
+                //删除引用文档
+                List<AW_Article_bean> rlist = dao.funcGetReferArticleList( ids );
+                foreach( AW_Article_bean bean in rlist )
                 {
-                    if (bean.fdArtiStatus == 2)
+                    if( bean.fdArtiStatus == 2 )
                     {
                         AW_Publish_bean publish = new AW_Publish_bean();
                         publish.fdPublID = publishDao.funcNewID();
@@ -67,10 +63,9 @@ public partial class Admin_Content_ArticleRecycle : PageAdmin
                         publish.fdPublType = 4;
                         publish.fdPublStatus = 0;
 
-                        publishDao.funcInsert(publish);
-                        PublishService.GetService().AddPublish(publish);
+                        publishDao.funcInsert( publish );
+                        PublishService.GetService().AddPublish( publish );
                     }
-                    AddLog(EventType.Delete, "删除文档", string.Format("删除文档:{0}({1})", bean.fdArtiTitle, bean.fdArtiID));
                 }
             }
             Response.Write( "<script type=text/javascript>parent.recycleArticleOK();</script>" );

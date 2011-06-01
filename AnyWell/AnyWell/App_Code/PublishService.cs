@@ -106,6 +106,11 @@ public class PublishService
                                 result = PublishSingleDocument( bean, bean.fdPublObjID, bean.PublishType );
                                 break;
                             }
+                        case PublishObjectType.Exhibitor:
+                            {
+                                result = PublishExhibitor( bean, bean.fdPublObjID, true, bean.PublishType );
+                                break;
+                            }
                         //case QueueObjectType.Product:
                         //    {
                         //        result = PublishProduct( queue, queue.Column, queue.fdQueuObjID, true, queue.PublishType );
@@ -350,6 +355,119 @@ public class PublishService
     }
 
     /// <summary>
+    /// 发布展商
+    /// </summary>
+    /// <param name="queue"></param>
+    /// <param name="column"></param>
+    /// <param name="docID"></param>
+    /// <param name="pubColumn"></param>
+    /// <param name="pubType"></param>
+    /// <returns></returns>
+    int PublishExhibitor( AW_Publish_bean publish, int docID, bool pubColumn, PublishType pubType )
+    {
+        switch( pubType )
+        {
+            case PublishType.Cancel:
+                {
+                    return this.CancelPublishExhibitor( publish, docID, true );
+                }
+            default:
+                {
+                    AW_Exhibitor_bean exhibitor = AW_Exhibitor_bean.funcGetByID( docID );
+                    if( exhibitor == null )
+                    {
+                        return 100;
+                    }
+                    AW_Column_bean column = new AW_Column_dao().funcGetColumnInfo( exhibitor.fdExhiColuID );
+
+                    if( column == null )
+                    {
+                        return 100;
+                    }
+
+                    exhibitor.Column = column;
+
+                    string exe, saveTo;
+                    AW_Template_bean template = column.ContentTemplate;
+                    if( template == null )
+                    {
+                        template = column.InheritedContentTemplate;
+                    }
+
+                    for( int pageID = 1; pageID <= exhibitor.PageCount; pageID++ )
+                    {
+                        exe = string.Format( "{0}?cid={1}&did={2}&dpid={3}&urlprefix={4}", this.BuilderPath, column.fdColuID, exhibitor.fdExhiID, pageID, exhibitor.Url.Replace( exhibitor.fdExhiID.ToString(), exhibitor.fdExhiID.ToString() + "__pid" ) );
+                        saveTo = string.Format( "{0}\\{1}\\{2}\\{3}", this.PublishPath, column.Site.fdSitePath, column.fdColuID, exhibitor.fdExhiID );
+                        string htmlFile = PublishPage( exe, saveTo, pageID );
+                    }
+                    
+                    if( pubColumn ) //级联更新栏目首页
+                    {
+                        AW_Column_bean parent = column;
+                        while( parent != null )
+                        {
+                            PublishColumn( publish, column, true, PublishType.HomeOnly );
+                            parent = parent.Parent;
+                        }
+                    }
+                    new AW_Exhibitor_dao().funcPublishExhibitorByIds( exhibitor.fdExhiID.ToString(), 2 );
+                    return 0;
+                }
+        }
+    }
+
+    /// <summary>
+    /// 撤消发布展商
+    /// </summary>
+    /// <param name="queue"></param>
+    /// <param name="docID"></param>
+    /// <param name="pubColumn"></param>
+    /// <returns></returns>
+    int CancelPublishExhibitor( AW_Publish_bean publish, int docID, bool pubColumn )
+    {
+        AW_Exhibitor_bean exhibitor = AW_Exhibitor_bean.funcGetByID( docID );
+        if( exhibitor == null )
+        {
+            return 100;
+        }
+        AW_Column_bean column = new AW_Column_dao().funcGetColumnInfo( exhibitor.fdExhiID );
+        if( column == null )
+        {
+            return 100;
+        }
+
+        string directory = string.Format( "{0}\\{1}\\{2}\\", this.PublishPath, column.Site.fdSitePath, column.fdColuID );
+        DirectoryInfo dirPub = new DirectoryInfo( directory );
+        if( !dirPub.Exists )
+        {
+            return 0;
+        }
+
+        FileInfo file = new FileInfo( directory + docID.ToString() + ".html" );
+        if( file.Exists )
+        {
+            file.Delete();
+        }
+        FileInfo[] files = dirPub.GetFiles( docID.ToString() + "_*", SearchOption.TopDirectoryOnly );
+        foreach( FileInfo f in files )
+        {
+            f.Delete();
+        }
+
+        if( pubColumn ) //级联更新栏目首页
+        {
+            AW_Column_bean parent = column;
+            while( parent != null )
+            {
+                PublishColumn( publish, column, true, PublishType.HomeOnly );
+                parent = parent.Parent;
+            }
+        }
+        new AW_Exhibitor_dao().funcPublishExhibitorByIds( exhibitor.fdExhiID.ToString(), 0 );
+        return 0;
+    }
+
+    /// <summary>
     /// 发布栏目
     /// </summary>
     /// <param name="publish">发布任务</param>
@@ -381,7 +499,7 @@ public class PublishService
                     exe += string.Format( "?cid={0}&urlprefix={1}", column.fdColuID.ToString(), column.Url.Replace( "index", "index__pid" ) );
                     string htmlFile = PublishPage( exe, saveTo, 1 );
 
-                    string hasPagerReg = "(<AW:ARTICLELIST|<AW:PICTURELIST|<AW:PRODUCTLIST)[^>]+PAGERID=";
+                    string hasPagerReg = "(<AW:ARTICLELIST|<AW:PICTURELIST|<AW:PRODUCTLIST|<AW:EXHIBITORLIST)[^>]+PAGERID=";
                     Match mPager = Regex.Match( template.fdTempContent, hasPagerReg, RegexOptions.IgnoreCase );
                     if( mPager.Success )
                     {
@@ -393,8 +511,8 @@ public class PublishService
                             pageSize = int.Parse( mPageSize.Value );
                         }
 
-                        string getChildReg1 = "(<AW:ARTICLELIST|<AW:PICTURELIST|<AW:PRODUCTLIST)[^>]+PAGERID=[^>]+GETCHILD=['\"]TRUE['\"]";
-                        string getChildReg2 = "(<AW:ARTICLELIST|<AW:PICTURELIST|<AW:PRODUCTLIST)[^>]+GETCHILD=['\"]TRUE['\"][^>]+PAGERID=";
+                        string getChildReg1 = "(<AW:ARTICLELIST|<AW:PICTURELIST|<AW:PRODUCTLIST|<AW:EXHIBITORLIST)[^>]+PAGERID=[^>]+GETCHILD=['\"]TRUE['\"]";
+                        string getChildReg2 = "(<AW:ARTICLELIST|<AW:PICTURELIST|<AW:PRODUCTLIST|<AW:EXHIBITORLIST)[^>]+GETCHILD=['\"]TRUE['\"][^>]+PAGERID=";
 
                         bool getChild = false;
                         if( Regex.IsMatch( template.fdTempContent, getChildReg1, RegexOptions.IgnoreCase ) || Regex.IsMatch( template.fdTempContent, getChildReg1, RegexOptions.IgnoreCase ) )
@@ -402,8 +520,8 @@ public class PublishService
                             getChild = true;
                         }
 
-                        string getWhereReg1 = "(<AW:ARTICLELIST|<AW:PICTURELIST|<AW:PRODUCTLIST)[^>]+PAGERID=[^>]+WHERE=['\"]\\s+?['\"]";
-                        string getWhereReg2 = "(<AW:ARTICLELIST|<AW:PICTURELIST|<AW:PRODUCTLIST)[^>]+WHERE=['\"]\\s+?['\"][^>]+PAGERID=";
+                        string getWhereReg1 = "(<AW:ARTICLELIST|<AW:PICTURELIST|<AW:PRODUCTLIST|<AW:EXHIBITORLIST)[^>]+PAGERID=[^>]+WHERE=['\"]\\s+?['\"]";
+                        string getWhereReg2 = "(<AW:ARTICLELIST|<AW:PICTURELIST|<AW:PRODUCTLIST|<AW:EXHIBITORLIST)[^>]+WHERE=['\"]\\s+?['\"][^>]+PAGERID=";
 
                         string where = "";
                         Match mWhere = Regex.Match( template.fdTempContent, getWhereReg1, RegexOptions.IgnoreCase );
@@ -426,6 +544,9 @@ public class PublishService
                                 break;
                             case ColumnType.Product:
                                 recordCount = new AW_Product_dao().funcGetProductCount( column.fdColuID, getChild, where );
+                                break;
+                            case ColumnType.Exhibitor:
+                                recordCount = new AW_Exhibitor_dao().funcGetExhibitorCount( column.fdColuID, getChild, where );
                                 break;
                             default:
                                 break;
@@ -482,6 +603,27 @@ public class PublishService
                         case ColumnType.Single:
                             {
                                 PublishSingleDocument( publish, column.fdColuID, PublishType.Complete );
+                                break;
+                            }
+                        case ColumnType.Exhibitor:
+                            {
+                                List<AW_Exhibitor_bean> exhibitors = new AW_Exhibitor_dao().funcGetColumnExhibitorAdditional( column.fdColuID );
+                                string ids = "";
+
+                                foreach( AW_Exhibitor_bean exhibitor in exhibitors )
+                                {
+                                    exhibitor.Column = columnDao.funcGetColumnInfo( exhibitor.fdExhiColuID );
+                                    int result = PublishExhibitor( publish, exhibitor.fdExhiID, false, PublishType.Complete );
+                                    if( result == 0 )
+                                    {
+                                        ids += exhibitor.fdExhiID.ToString() + ",";
+                                    }
+                                }
+                                if( ids.Length > 0 )
+                                {
+                                    ids = ids.Remove( ids.Length - 1, 1 );
+                                    new AW_Exhibitor_dao().funcPublishExhibitorByIds( ids, 2 );
+                                }
                                 break;
                             }
                         //case ColumnType.Product:
@@ -551,6 +693,25 @@ public class PublishService
                         case ColumnType.Single:
                             {
                                 PublishSingleDocument( publish, column.fdColuID, PublishType.Complete );
+                                break;
+                            }
+                        case ColumnType.Exhibitor:
+                            {
+                                List<AW_Exhibitor_bean> exhibitors = new AW_Exhibitor_dao().funcGetColumnExhibitorComplete( column.fdColuID );
+                                string ids = "";
+                                foreach( AW_Exhibitor_bean exhibitor in exhibitors )
+                                {
+                                    int result = PublishExhibitor( publish, exhibitor.fdExhiID, false, PublishType.Complete );
+                                    if( result == 0 )
+                                    {
+                                        ids += exhibitor.fdExhiID.ToString() + ",";
+                                    }
+                                }
+                                if( ids.Length > 0 )
+                                {
+                                    ids = ids.Remove( ids.Length - 1, 1 );
+                                    new AW_Exhibitor_dao().funcPublishExhibitorByIds( ids, 2 );
+                                }
                                 break;
                             }
                         //case ColumnType.Product:

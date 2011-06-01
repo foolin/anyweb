@@ -101,7 +101,8 @@ namespace AnyWell.AW_DL
         Column = 2,
         Document = 3,
         Single = 4,
-        Product = 5
+        Product = 5,
+        Exhibitor = 10
     }
 
     public enum PublishType : int

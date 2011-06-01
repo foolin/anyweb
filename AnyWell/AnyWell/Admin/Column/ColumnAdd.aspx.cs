@@ -62,7 +62,7 @@ public partial class Admin_Content_ColumnAdd : PageAdmin
                     case 0:
                         foreach( string str in AnyWellSetting.GetSetting().ColumnType )
                         {
-                            if( str.StartsWith( "0" ) || str.StartsWith( "3" ) )
+                            if( str.StartsWith( "0:" ) || str.StartsWith( "3:" ) )
                             {
                                 drpType.Items.Add( new ListItem( str.Split( ':' )[ 1 ], str.Split( ':' )[ 0 ] ) );
                             }
@@ -73,7 +73,7 @@ public partial class Admin_Content_ColumnAdd : PageAdmin
                     case 1:
                         foreach( string str in AnyWellSetting.GetSetting().ColumnType )
                         {
-                            if( str.StartsWith( "1" ) )
+                            if( str.StartsWith( "1:" ) )
                             {
                                 drpType.Items.Add( new ListItem( str.Split( ':' )[ 1 ], str.Split( ':' )[ 0 ] ) );
                             }
@@ -83,7 +83,7 @@ public partial class Admin_Content_ColumnAdd : PageAdmin
                     case 2:
                         foreach( string str in AnyWellSetting.GetSetting().ColumnType )
                         {
-                            if( str.StartsWith( "2" ) )
+                            if( str.StartsWith( "2:" ) )
                             {
                                 drpType.Items.Add( new ListItem( str.Split( ':' )[ 1 ], str.Split( ':' )[ 0 ] ) );
                             }
@@ -93,13 +93,22 @@ public partial class Admin_Content_ColumnAdd : PageAdmin
                     case 3:
                         foreach( string str in AnyWellSetting.GetSetting().ColumnType )
                         {
-                            if( str.StartsWith( "0" ) || str.StartsWith( "3" ) )
+                            if( str.StartsWith( "0:" ) || str.StartsWith( "3:" ) )
                             {
                                 drpType.Items.Add( new ListItem( str.Split( ':' )[ 1 ], str.Split( ':' )[ 0 ] ) );
                             }
                         }
                         //drpType.Items.Add( new ListItem( "文档栏目", "0" ) );
                         //drpType.Items.Add( new ListItem( "单篇文档栏目", "3" ) );
+                        break;
+                    case 10:
+                        foreach( string str in AnyWellSetting.GetSetting().ColumnType )
+                        {
+                            if( str.StartsWith( "10:" ) )
+                            {
+                                drpType.Items.Add( new ListItem( str.Split( ':' )[ 1 ], str.Split( ':' )[ 0 ] ) );
+                            }
+                        }
                         break;
                     default:
                         break;

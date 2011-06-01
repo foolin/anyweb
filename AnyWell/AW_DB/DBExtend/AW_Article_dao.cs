@@ -32,7 +32,6 @@ namespace AnyWell.AW_DL
         {
             this.propSelect = "fdArtiID,fdArtiTitle,fdArtiType,fdArtiSourceID,fdArtiStatus";
             this.propWhere = string.Format("fdArtiSourceID IN ({0})", ids);
-            this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
             return this.funcGetList();
         }
 
@@ -294,7 +293,7 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public int funcRecycleArticle( string ids )
         {
-            string sql = string.Format( "UPDATE AW_Article SET fdArtiIsDel=1,fdArtiStatus=0 WHERE fdArtiID IN ({0})", ids );
+            string sql = string.Format( "UPDATE AW_Article SET fdArtiIsDel=1 WHERE fdArtiID IN ({0}) OR fdArtiSourceID IN ({0});", ids );
             return this.funcExecute( sql );
         }
 

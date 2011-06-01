@@ -69,6 +69,7 @@ public partial class Publish_Builder : System.Web.UI.Page
                     Fail( "栏目未设置内容模板！" );
                 }
                 AW_Template_bean currentTemplate = CurrentColumn.ContentTemplate == null ? CurrentSite.ContentTemplate : CurrentColumn.ContentTemplate;
+                Context.Items[ "OBJECTTYPE" ] = CurrentColumn.fdColuType;
                 switch( ( ColumnType ) CurrentColumn.fdColuType )
                 {
                     case ColumnType.Article:
@@ -77,13 +78,19 @@ public partial class Publish_Builder : System.Web.UI.Page
                         {
                             Fail( "文档不存在！" );
                         }
-                        Context.Items[ "OBJECTTYPE" ] = CurrentColumn.fdColuType;
                         if( view )
                         {
                             if( article.fdArtiType == 2 || article.fdArtiType == 3 )
                             {
                                 Response.Redirect( article.fdArtiLink );
                             }
+                        }
+                        break;
+                    case ColumnType.Exhibitor:
+                        AW_Exhibitor_bean exhibitor = AW_Exhibitor_bean.funcGetByID( did );
+                        if( exhibitor == null )
+                        {
+                            Fail( "展商不存在！" );
                         }
                         break;
                     default:

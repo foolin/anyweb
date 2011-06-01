@@ -9,6 +9,7 @@ using System.IO;
 public partial class Publish_Builder : System.Web.UI.Page
 {
     string templatePath = "/Files/Template";
+    bool view = false;
 
     protected void Page_Load( object sender, EventArgs e )
     {
@@ -16,6 +17,7 @@ public partial class Publish_Builder : System.Web.UI.Page
         int.TryParse( QS( "sid" ), out sid );
         int.TryParse( QS( "cid" ), out cid );
         int.TryParse( QS( "did" ), out did );
+        bool.TryParse( QS( "view" ), out view );
         string type = QS( "type" ).Trim().ToLower();
 
         Context.Items.Add( "OBJECTTYPE", null );
@@ -76,6 +78,13 @@ public partial class Publish_Builder : System.Web.UI.Page
                             Fail( "文档不存在！" );
                         }
                         Context.Items[ "OBJECTTYPE" ] = CurrentColumn.fdColuType;
+                        if( view )
+                        {
+                            if( article.fdArtiType == 2 || article.fdArtiType == 3 )
+                            {
+                                Response.Redirect( article.fdArtiLink );
+                            }
+                        }
                         break;
                     default:
                         return;

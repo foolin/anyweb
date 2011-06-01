@@ -129,6 +129,8 @@ namespace AnyWell.AW_DL
                         return "产品栏目";
                     case (int)ColumnType.Single:
                         return "单篇文档栏目";
+                    case (int)ColumnType.Exhibitor:
+                        return "参展商栏目";
                     default:
                         return "";
                 }
@@ -221,6 +223,7 @@ namespace AnyWell.AW_DL
         Article = 0,
         Product = 1,
         Album = 2,
-        Single = 3
+        Single = 3,
+        Exhibitor = 10
     }
 }

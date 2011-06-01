@@ -511,6 +511,9 @@ function column(site, id, name, index, type, haschild) {
         case 'Single':
             this.url = "/Admin/Content/SingleArticle.aspx?cid=" + this.id;
             break;
+        case 'Exhibitor':
+            this.url = "/Admin/Content/ExhibitorList.aspx?cid=" + this.id;
+            break;
     }
     //对象类型
     this.objecttype = "column";
@@ -1650,7 +1653,7 @@ function createProductColumnPopMenu(c) {
 //文档右键菜单
 function createArticlePopMenu(obj, aid, cid) {
     var menu = new ContextMenu(), item;
-    item = new menu.Item("预览这篇文档", "预览这篇文档", "../Publish/Builder.aspx?cid=" + cid + "&did=" + aid, "_blank");
+    item = new menu.Item("预览这篇文档", "预览这篇文档", "../Publish/Builder.aspx?view=true&cid=" + cid + "&did=" + aid, "_blank");
     menu.addItem(item);
     item = new menu.Item("修改这篇文档", "修改这篇文档", "Content/ArticleEdit.aspx?id=" + aid, "article");
     menu.addItem(item);

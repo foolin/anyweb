@@ -51,8 +51,6 @@ public partial class Admin_Content_ArticleEdit : ArticlePageAdmin
                 case 2:
                     txtLink.Text = bean.fdArtiLink;
                     break;
-                case 3:
-                    break;
                 default:
                     break;
             }
@@ -109,7 +107,11 @@ public partial class Admin_Content_ArticleEdit : ArticlePageAdmin
                 bean.fdArtiLink = "";
                 break;
             case 2:
-                bean.fdArtiLink = txtLink.Text.Trim();
+                bean.fdArtiLink = txtLink.Text.Trim().ToLower();
+                if( bean.fdArtiLink.StartsWith( "http://" ) )
+                {
+                    bean.fdArtiLink = "http://" + bean.fdArtiLink;
+                }
                 bean.fdArtiContent = "";
                 bean.fdArtiDescription = "";
                 break;

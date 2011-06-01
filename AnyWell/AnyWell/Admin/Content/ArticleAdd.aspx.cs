@@ -84,7 +84,11 @@ public partial class Admin_Content_ArticleAdd : ArticlePageAdmin
                 GetDesc( bean, chkDesc.Checked );
                 break;
             case 2:
-                bean.fdArtiLink = txtLink.Text.Trim();
+                bean.fdArtiLink = txtLink.Text.Trim().ToLower();
+                if( bean.fdArtiLink.StartsWith( "http://" ) )
+                {
+                    bean.fdArtiLink = "http://" + bean.fdArtiLink;
+                }
                 break;
             case 3:
                 bean.fdArtiLink = articleFile;

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AnyWell", "E:\PROJECT\DOTNET\AnyWell\AnyWell\", "{7230044A-8A05-46CE-B23F-AD35FDFE2643}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AnyWell", "AnyWell\", "{7230044A-8A05-46CE-B23F-AD35FDFE2643}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "2.0"
 		ProjectReferences = "{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}|AW_DB.dll;{F1D4186F-C0BD-46DF-B0E2-B264C9EDAA6E}|AW_UC.dll;"
@@ -24,7 +24,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AnyWell", "E:\PROJECT\DOTNE
 		ProjOutputReferences = "{2DE918BB-DDF4-4FD3-81B8-C714AA9332C1}|ClientBin|false;"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW_DB", "E:\PROJECT\DOTNET\AnyWell\AW_DB\AW_DB.csproj", "{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AW_DB", "AW_DB\AW_DB.csproj", "{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uploader", "Uploader\Uploader.csproj", "{2DE918BB-DDF4-4FD3-81B8-C714AA9332C1}"
 EndProject

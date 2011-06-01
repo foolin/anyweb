@@ -49,7 +49,7 @@ namespace AnyWell.AW_DL
             {
                 if( _ColumnType == null )
                 {
-                    _ColumnType = new string[] { "0:文档栏目", "1:产品栏目", "2:图片栏目", "3:单篇文档栏目" };
+                    _ColumnType = new string[] { "0:文档栏目", /*"1:产品栏目", "2:图片栏目",*/ "3:单篇文档栏目", "10:参展商栏目" };
                 }
                 return _ColumnType;
             }

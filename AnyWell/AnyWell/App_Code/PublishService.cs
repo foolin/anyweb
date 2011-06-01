@@ -239,26 +239,25 @@ public class PublishService
             return 100;
         }
 
-        if( article.fdArtiType == 4 )
+        if( article.fdArtiType != 4 )
         {
-            return 0;
-        }
-        string directory = string.Format( "{0}\\{1}\\{2}\\", this.PublishPath, column.Site.fdSitePath, column.fdColuID );
-        DirectoryInfo dirPub = new DirectoryInfo( directory );
-        if( !dirPub.Exists )
-        {
-            return 0;
-        }
+            string directory = string.Format( "{0}\\{1}\\{2}\\", this.PublishPath, column.Site.fdSitePath, column.fdColuID );
+            DirectoryInfo dirPub = new DirectoryInfo( directory );
+            if( !dirPub.Exists )
+            {
+                return 0;
+            }
 
-        FileInfo file = new FileInfo( directory + docID.ToString() + ".html" );
-        if( file.Exists )
-        {
-            file.Delete();
-        }
-        FileInfo[] files = dirPub.GetFiles( docID.ToString() + "_*", SearchOption.TopDirectoryOnly );
-        foreach( FileInfo f in files )
-        {
-            f.Delete();
+            FileInfo file = new FileInfo( directory + docID.ToString() + ".html" );
+            if( file.Exists )
+            {
+                file.Delete();
+            }
+            FileInfo[] files = dirPub.GetFiles( docID.ToString() + "_*", SearchOption.TopDirectoryOnly );
+            foreach( FileInfo f in files )
+            {
+                f.Delete();
+            }
         }
         if( pubColumn ) //级联更新栏目首页
         {

@@ -117,12 +117,13 @@ namespace AnyWell.AW_DL
         /// 检查模板名称是否存在
         /// </summary>
         /// <param name="id">模板编号</param>
+        /// <param name="name">站点编号</param>
         /// <param name="name">模板名称</param>
         /// <returns></returns>
-        public bool funcCheckNameExist( int id, string name )
+        public bool funcCheckNameExist( int id, int siteID, string name )
         {
             this.propSelect = "fdTempID";
-            this.propWhere = string.Format( "fdTempName='{0}'", name );
+            this.propWhere = string.Format( "fdTempSiteID={0} AND fdTempName='{1}'", siteID, name );
             if( id > 0 )
             {
                 this.propWhere += " AND fdTempID<>" + id;

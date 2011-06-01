@@ -52,7 +52,7 @@ public partial class Admin_Content_TemplateEdit : PageAdmin
     protected void btnSave_Click( object sender, EventArgs e )
     {
         AW_Template_dao dao = new AW_Template_dao();
-        if( dao.funcCheckNameExist( bean.fdTempID, txtName.Text.Trim() ) )
+        if( dao.funcCheckNameExist( bean.fdTempID, CurrentSite.fdSiteID, txtName.Text.Trim() ) )
         {
             Fail( "模板名称已存在，请重新输入！", true );
         }

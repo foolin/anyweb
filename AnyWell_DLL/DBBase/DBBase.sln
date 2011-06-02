@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBBase", "DBBase.csproj", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Studio", "..\Studio\Studio.csproj", "{2FEB2769-C1A2-40C6-ACB0-2214C1E7DF41}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBBase_2000", "..\DBBase_2000\DBBase_2000.csproj", "{D88D832F-2901-4074-A7F0-AB31783CA271}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{2FEB2769-C1A2-40C6-ACB0-2214C1E7DF41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FEB2769-C1A2-40C6-ACB0-2214C1E7DF41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FEB2769-C1A2-40C6-ACB0-2214C1E7DF41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D88D832F-2901-4074-A7F0-AB31783CA271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D88D832F-2901-4074-A7F0-AB31783CA271}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D88D832F-2901-4074-A7F0-AB31783CA271}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D88D832F-2901-4074-A7F0-AB31783CA271}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

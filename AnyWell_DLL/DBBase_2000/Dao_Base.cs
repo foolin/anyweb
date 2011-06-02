@@ -691,7 +691,7 @@ namespace AnyWell.AW_DL
             else //分页,仅支持sql2005和Oracle
                 if (string.IsNullOrEmpty(aOrder))
                 {
-                    if (dbType == 2)
+                    if( dbType == 2 )
                     {
                         aSql = string.Format
                        (
@@ -701,16 +701,15 @@ namespace AnyWell.AW_DL
                     }
                     else
                     {
-                        aSql = string.Format
-                       (
-                       "SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY GETDATE()) AS idx, {0} FROM {1} {2} WHERE {3}) T WHERE idx BETWEEN {4} AND {5}",
-                       aSelect, aTable.ToUpper(), aTableApp, aWhere, aMinID, aMaxID
-                       );
+                        aSql = string.Format(
+                            "DECLARE @TempTable TABLE(AutoID INT IDENTITY(1,1) NOT NULL,PKID INT NOT NULL);INSERT INTO @TempTable(PKID) SELECT {0} FROM {1} {2} WHERE {3};SELECT {4} FROM {1} {2} INNER JOIN @TempTable ON PKID={0} WHERE AutoID BETWEEN {5} AND {6} ORDER BY AutoID",
+                            _propPK, aTable.ToUpper(), aTableApp, aWhere, aSelect, aMinID, aMaxID
+                            );
                     }
                 }
                 else
                 {
-                    if (dbType == 2)
+                    if( dbType == 2 )
                     {
                         aSql = string.Format
                        (
@@ -720,11 +719,10 @@ namespace AnyWell.AW_DL
                     }
                     else
                     {
-                        aSql = string.Format
-                       (
-                       "SELECT * FROM (SELECT ROW_NUMBER() OVER({4}) AS idx, {0} FROM {1} {2} WHERE {3}) T WHERE idx BETWEEN {5} AND {6}",
-                       aSelect, aTable.ToUpper(), aTableApp, aWhere, aOrder, aMinID, aMaxID
-                       );
+                        aSql = string.Format(
+                            "DECLARE @TempTable TABLE(AutoID INT IDENTITY(1,1) NOT NULL,PKID INT NOT NULL);INSERT INTO @TempTable(PKID) SELECT {0} FROM {1} {2} WHERE {3} {4};SELECT {5} FROM {1} {2} INNER JOIN @TempTable ON PKID={0} WHERE AutoID BETWEEN {6} AND {7} ORDER BY AutoID",
+                            _propPK, aTable.ToUpper(), aTableApp, aWhere, aOrder, aSelect, aMinID, aMaxID
+                            );
                     }
                 }
 

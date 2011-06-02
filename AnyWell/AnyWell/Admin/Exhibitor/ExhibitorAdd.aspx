@@ -33,13 +33,13 @@
             </sw:Validator>
             类型：
             <asp:DropDownList ID="drpType" runat="server">
-                <asp:ListItem Value="1">类型1</asp:ListItem>
-                <asp:ListItem Value="2">类型2</asp:ListItem>
-                <asp:ListItem Value="3">类型3</asp:ListItem>
-                <asp:ListItem Value="4">类型4</asp:ListItem>
-                <asp:ListItem Value="5">类型5</asp:ListItem>
-                <asp:ListItem Value="6">类型6</asp:ListItem>
-                <asp:ListItem Value="7">类型7</asp:ListItem>
+                <asp:ListItem Value="1">黑色家电</asp:ListItem>
+                <asp:ListItem Value="2">白色家电</asp:ListItem>
+                <asp:ListItem Value="3">小家电</asp:ListItem>
+                <asp:ListItem Value="4">厨房及浴室家电</asp:ListItem>
+                <asp:ListItem Value="5">家电配件</asp:ListItem>
+                <asp:ListItem Value="6">水家电</asp:ListItem>
+                <asp:ListItem Value="7">服务及刊物</asp:ListItem>
             </asp:DropDownList>
         </li>
         <li>所属栏目：<asp:Label ID="lblColumn" runat="server"></asp:Label></li>

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -33,7 +33,7 @@
   <ItemGroup>
     <Reference Include="DBBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\DBBase.dll</HintPath>
+      <HintPath>..\..\AnyWell_DLL\DBBase_2000\obj\Release\DBBase.dll</HintPath>
     </Reference>
     <Reference Include="Studio, Version=1.0.4079.40898, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configs\AnyWellSetting.cs" />
+    <Compile Include="Configs\SmtpAgent.cs" />
     <Compile Include="DBExtend\AW_Admin_bean.cs" />
     <Compile Include="DBExtend\AW_Admin_dao.cs" />
     <Compile Include="DBExtend\AW_Article_bean.cs" />

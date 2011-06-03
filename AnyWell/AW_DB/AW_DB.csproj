@@ -66,6 +66,8 @@
     <Compile Include="DBExtend\AW_SingleArticle_dao.cs" />
     <Compile Include="DBExtend\AW_Site_bean.cs" />
     <Compile Include="DBExtend\AW_Site_dao.cs" />
+    <Compile Include="DBExtend\AW_Subscribe_bean.cs" />
+    <Compile Include="DBExtend\AW_Subscribe_dao.cs" />
     <Compile Include="DBExtend\AW_Template_bean.cs" />
     <Compile Include="DBExtend\AW_Template_dao.cs" />
     <Compile Include="DBFile\AW_Admin_bean.cs" />
@@ -86,6 +88,8 @@
     <Compile Include="DBFile\AW_SingleArticle_dao.cs" />
     <Compile Include="DBFile\AW_Site_bean.cs" />
     <Compile Include="DBFile\AW_Site_dao.cs" />
+    <Compile Include="DBFile\AW_Subscribe_bean.cs" />
+    <Compile Include="DBFile\AW_Subscribe_dao.cs" />
     <Compile Include="DBFile\AW_Template_bean.cs" />
     <Compile Include="DBFile\AW_Template_dao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

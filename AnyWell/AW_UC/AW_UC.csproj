@@ -51,8 +51,6 @@
     <Compile Include="Column.cs" />
     <Compile Include="ColumnList.cs" />
     <Compile Include="ControlBase.cs" />
-    <Compile Include="Exhibitor.cs" />
-    <Compile Include="ExhibitorList.cs" />
     <Compile Include="ItemControlBase.cs" />
     <Compile Include="ListControlBase.cs" />
     <Compile Include="Pager.cs" />

@@ -14,7 +14,7 @@ namespace AnyWell.AW_DL
         {
             this._propTable = "AW_Exhibitor";
             this._propPK = "fdExhiID";
-            this._propFields = "fdExhiID,fdExhiColuID,fdExhiName,fdExhiEnName,fdExhiNumber,fdExhiType,fdExhiUrl,fdExhiContent,fdExhiCreateAt,fdExhiIsDel,fdExhiStatus,fdExhiSort";
+            this._propFields = "fdExhiID,fdExhiSiteID,fdExhiName,fdExhiEnName,fdExhiNumber,fdExhiType,fdExhiUrl,fdExhiDesc,fdExhiCreateAt,fdExhiSort";
         }
 
         public List<AW_Exhibitor_bean> funcGetList()

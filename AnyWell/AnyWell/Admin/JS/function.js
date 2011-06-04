@@ -443,35 +443,26 @@ function deletePublish() {
     }
 }
 
+//添加展商
+function addExhibitor(sid) {
+    var url = "/Admin/Plugins/Exhibitor/ExhibitorAdd.aspx";
+    if (sid) {
+        url += "?sid=" + sid;
+    }
+    goPopupUrl(485, 341, url);
+}
+
+//修改展商
+function editExhibitor(id) {
+    var url = "/Admin/Plugins/Exhibitor/ExhibitorEdit.aspx?id=" + id;
+    goPopupUrl(485, 341, url);
+}
+
 //删除展商
-function recycleExhibitor(aid) {
-    if (aid) {
-        goPopupUrl(485, 363, "/Admin/Exhibitor/ExhibitorRecycle.aspx?ids=" + aid);
-    } else {
-        var ids = getSelect();
-        if (ids) {
-            parent.goPopupUrl(485, 363, "/Admin/Exhibitor/ExhibitorRecycle.aspx?ids=" + ids);
-        } else {
-            parent.showError("系统提示信息", "请选择展商！", 485, 223);
-        }
-    }
-}
-
-//恢复展商
-function revokeExhibitor() {
-    var ids = getSelect();
-    if (ids) {
-        parent.goPopupUrl(485, 363, "/Admin/Exhibitor/ExhibitorRevoke.aspx?ids=" + ids);
-    } else {
-        parent.showError("系统提示信息", "请选择展商！", 485, 223);
-    }
-}
-
-//彻底删除文档
 function deleteExhibitor() {
     var ids = getSelect();
     if (ids) {
-        parent.goPopupUrl(485, 363, "/Admin/Exhibitor/ExhibitorDel.aspx?ids=" + ids);
+        parent.goPopupUrl(485, 363, "/Admin/Plugins/Exhibitor/ExhibitorDel.aspx?ids=" + ids);
     } else {
         parent.showError("系统提示信息", "请选择展商！", 485, 223);
     }
@@ -544,9 +535,6 @@ function column(site, id, name, index, type, haschild) {
             break;
         case 'Single':
             this.url = "/Admin/Content/SingleArticle.aspx?cid=" + this.id;
-            break;
-        case 'Exhibitor':
-            this.url = "/Admin/Exhibitor/ExhibitorList.aspx?cid=" + this.id;
             break;
     }
     //对象类型
@@ -1573,7 +1561,7 @@ function createSitePopMenu(s) {
     item = new menu.Item("删除站点", "删除站点", "javascript:delSite(" + s.id + ")");
     menu.addItem(item);
     menu.addSeparator();
-    item = new menu.Item("预览站点首页", "预览站点首页", "../Publish/Builder.aspx?type=site&sid=" + s.id, "_blank");
+    item = new menu.Item("预览站点首页", "预览站点首页", "../Publish/Builder.aspx?type=site&view=true&sid=" + s.id, "_blank");
     menu.addItem(item);
     item = new menu.Item("发布站点首页", "发布这个站点的首页", "javascript:publishSiteHome(" + s.id + ")");
     menu.addItem(item);
@@ -1603,7 +1591,7 @@ function createArticleColumnPopMenu(c) {
     item = new menu.Item("删除该栏目", "删除该栏目", "javascript:delColumn(" + c.id + ")");
     menu.addItem(item);
     menu.addSeparator();
-    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?cid=" + c.id, "_blank");
+    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?view=true&cid=" + c.id, "_blank");
     menu.addItem(item);
     item = new menu.Item("发布栏目首页", "发布栏目首页", "javascript:pubishColumnHome(" + c.id + ")");
     menu.addItem(item);
@@ -1630,7 +1618,7 @@ function createSingleArticleColumnPopMenu(c) {
     item = new menu.Item("删除该栏目", "删除该栏目", "javascript:delColumn(" + c.id + ")");
     menu.addItem(item);
     menu.addSeparator();
-    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?cid=" + c.id, "_blank");
+    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?view=true&cid=" + c.id, "_blank");
     menu.addItem(item);
     item = new menu.Item("发布栏目首页", "发布栏目首页", "javascript:pubishSingleArticle(" + c.id + ")");
     menu.addItem(item);
@@ -1671,7 +1659,7 @@ function createProductColumnPopMenu(c) {
     item = new menu.Item("删除该栏目", "删除该栏目", "javascript:delColumn(" + c.id + ")");
     menu.addItem(item);
     menu.addSeparator();
-    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?cid=" + c.id, "_blank");
+    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?view=true&cid=" + c.id, "_blank");
     menu.addItem(item);
     item = new menu.Item("发布栏目首页", "发布栏目首页", "javascript:pubishColumnHome(" + c.id + ")");
     menu.addItem(item);
@@ -1679,33 +1667,6 @@ function createProductColumnPopMenu(c) {
     item = new menu.Item("新建产品", "新建产品", "Product/ProductAdd.aspx?cid=" + c.id, "product");
     menu.addItem(item);
     item = new menu.Item("新建子栏目", "新建子栏目", "javascript:addColumn(" + c.id + ")");
-    menu.addItem(item);
-
-    c.menu = menu;
-}
-
-//展商栏目右键菜单
-function createExhibitorColumnPopMenu(c) {
-    var menu = new ContextMenu(), item;
-    item = new menu.Item("修改该栏目", "修改该栏目", "javascript:editColumn(" + c.id + ")");
-    menu.addItem(item);
-    item = new menu.Item("删除该栏目", "删除该栏目", "javascript:delColumn(" + c.id + ")");
-    menu.addItem(item);
-    menu.addSeparator();
-    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?cid=" + c.id, "_blank");
-    menu.addItem(item);
-    item = new menu.Item("发布栏目首页", "发布栏目首页", "javascript:pubishColumnHome(" + c.id + ")");
-    menu.addItem(item);
-    item = new menu.Item("增量发布栏目", "仅发布尚未发布的文档并更新相关栏目首页和站点首页", "javascript:publishColumnAdditional(" + c.id + ")");
-    menu.addItem(item);
-    item = new menu.Item("完全发布栏目", "发布这个栏目的所有内容页并更新相关栏目首页和站点首页", "javascript:publishColumnAll(" + c.id + ")");
-    menu.addItem(item);
-    item = new menu.Item("撤销发布栏目", "删除本栏目及下级栏目已经发布的静态文件", "javascript:publishColumnCancel(" + c.id + ")");
-    menu.addItem(item);
-    menu.addSeparator();
-    item = new menu.Item("新建展商", "新建展商", "Exhibitor/ExhibitorAdd.aspx?cid=" + c.id, "exhibitor");
-    menu.addItem(item);
-    item = new menu.Item("新建子栏目", "创建子栏目", "javascript:addColumn(" + c.id + ")");
     menu.addItem(item);
 
     c.menu = menu;
@@ -1744,7 +1705,7 @@ function createProductPopMenu(obj, pid, cid) {
     item = new menu.Item("放入回收站", "放入回收站", "javascript:recycleProduct(" + pid + ")");
     menu.addItem(item);
     menu.addSeparator();
-    item = new menu.Item("预览这个产品", "预览这个产品", "../Publish/Builder.aspx?cid=" + cid + "&did=" + pid, "_blank");
+    item = new menu.Item("预览这个产品", "预览这个产品", "../Publish/Builder.aspx?cid=" + cid + "&view=true&did=" + pid, "_blank");
     menu.addItem(item);
     menu.addSeparator();
     item = new menu.Item("移动这个产品到", "移动这个产品到", "javascript:moveProduct(" + pid + ")");
@@ -1752,25 +1713,6 @@ function createProductPopMenu(obj, pid, cid) {
     item = new menu.Item("复制这个产品到", "复制这个产品到", "javascript:copyProduct(" + pid + ")");
     menu.addItem(item);
     item = new menu.Item("引用这个产品到", "引用这个产品到", "javascript:pointProduct(" + pid + ")");
-    menu.addItem(item);
-
-    obj.menu = menu;
-}
-
-//展商右键菜单
-function createExhibitorPopMenu(obj, aid, cid) {
-    var menu = new ContextMenu(), item;
-    item = new menu.Item("预览这个展商", "预览这个展商", "../Publish/Builder.aspx?view=true&cid=" + cid + "&did=" + aid, "_blank");
-    menu.addItem(item);
-    item = new menu.Item("修改这个展商", "修改这个展商", "Exhibitor/ExhibitorEdit.aspx?id=" + aid, "exhibitor");
-    menu.addItem(item);
-    menu.addSeparator();
-    item = new menu.Item("发布这个展商", "发布这个展商", "javascript:pubishExhibitor(" + aid + ")");
-    menu.addItem(item);
-    item = new menu.Item("撤销发布这个展商", "撤销发布这个展商", "javascript:cancelPublishExhibitor(" + aid + ")");
-    menu.addItem(item);
-    menu.addSeparator();
-    item = new menu.Item("放入回收站", "放入回收站", "javascript:recycleExhibitor(" + aid + ")");
     menu.addItem(item);
 
     obj.menu = menu;
@@ -1800,9 +1742,6 @@ function showColumnMenu(c, e) {
                 break;
             case 'Single':
                 createSingleArticleColumnPopMenu(c);
-                break;
-            case 'Exhibitor':
-                createExhibitorColumnPopMenu(c);
                 break;
         }
     }
@@ -2056,39 +1995,6 @@ function deleteProductOK() {
     parent.disablePopup();
 }
 
-//添加展商回调函数
-function addExhibitorOK(sid, colpath, iscontinue) {
-    if (sid && colpath) {
-        if (opener) {
-            if (opener.location.href.toLowerCase().indexOf("index") > 0) {
-                opener.window.frames["left"].gotoColumn(sid, colpath);
-            }
-            else {
-                opener.parent.window.frames["left"].gotoColumn(sid, colpath);
-            }
-        }
-        if (iscontinue) {
-            window.location.href = window.location.href;
-        } else {
-            window.close();
-        }
-    }
-}
-
-//修改展商回调函数
-function editExhibitorOK() {
-    if (opener) {
-        opener.window.location.reload();
-    }
-    window.close();
-}
-
-//删除展商回调函数
-function recycleExhibitorOK() {
-    parent.window.frames["mainFrame"].window.location.reload();
-    parent.disablePopup();
-}
-
 //清空回收站
 function clearRecycle(cid, children) {
     var msg = "";
@@ -2224,6 +2130,24 @@ function deleteExhibitorOK() {
     parent.disablePopup();
 }
 
+//添加展商回调函数
+function addExhibitorOK(sid) {
+    parent.window.frames["mainFrame"].window.location = "/Admin/Plugins/Exhibitor/ExhibitorList.aspx?sid=" + sid;
+    parent.disablePopup();
+}
+
+//修改展商回调函数
+function editExhibitorOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
+}
+
+//删除展商回调函数
+function deleteExhibitorOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
+}
+
 //清空展商回收站
 function clearExhibitorRecycle(cid, children) {
     var msg = "";
@@ -2274,10 +2198,10 @@ function showFolder(id) {
     $("#" + id + " img:first").each(function() {
         if ($(this).attr("src").indexOf("arrow.gif") > -1) {
             show = false;
-            $(this).attr("src", "../images/icons/arrow2.gif");
+            $(this).attr("src", "/Admin/images/icons/arrow2.gif");
         } else {
             show = true;
-            $(this).attr("src", "../images/icons/arrow.gif");
+            $(this).attr("src", "/Admin/images/icons/arrow.gif");
         }
     });
     var box = $("#" + id + " > .opr-mbd");

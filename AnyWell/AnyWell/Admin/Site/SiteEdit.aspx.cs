@@ -14,6 +14,10 @@ public partial class Admin_Content_SiteEdit : PageAdmin
         bean = ( new AW_Site_dao() ).funcGetSiteInfo( int.Parse( QS( "id" ) ) );
         if( !IsPostBack )
         {
+            if( bean == null )
+            {
+                ShowError( "站点不存在！" );
+            }
             txtName.Text = bean.fdSiteName;
             txtUrl.Text = string.IsNullOrEmpty( bean.fdSiteUrl ) ? "http://" : bean.fdSiteUrl;
             lblPath.Text = bean.fdSitePath;

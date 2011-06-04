@@ -1,12 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Master/List.master" AutoEventWireup="true"
-    CodeFile="ExhibitorList.aspx.cs" Inherits="Admin_Exhibitor_ExhibitorList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Master/InnerList.master"
+    AutoEventWireup="true" CodeFile="ExhibitorList.aspx.cs" Inherits="Admin_Plugins_Exhibitor_ExhibitorList" %>
 
-<%@ Register Src="../Control/ExhibitorOperation.ascx" TagName="ExhibitorOperation" TagPrefix="uc1" %>
-<%@ Register Src="../Control/ColumnInfo.ascx" TagName="ColumnInfo" TagPrefix="uc1" %>
-<%@ Register Src="../Control/ExhibitorFooter.ascx" TagName="ExhibitorFooter" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="Server">
 
-    <script type="text/javascript" src="../JS/jquery.tablednd.js"></script>
+    <script type="text/javascript" src="../../JS/jquery.tablednd.js"></script>
 
     <script type="text/javascript">
         var selStatus = false;
@@ -33,7 +30,7 @@
                         $(rows[i]).find("td:first").html(startIndex + i);
                     }
 
-                    var url = "../Ajax/ExhibitorSort.aspx?id=" + articleId + "&previewid=" + previewId + "&nextid=" + nextId;
+                    var url = "../../Ajax/ExhibitorSort.aspx?id=" + articleId + "&previewid=" + previewId + "&nextid=" + nextId;
                     $.ajax({
                         url: url,
                         cache: false,
@@ -53,19 +50,26 @@
                 $(this).removeClass("hover");
             });
         });
+            
+        function change(obj){
+            window.location = "?sid=" + obj;
+        }
     </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphTitle" runat="Server">
+    <form runat="server">
     <ul>
         <li style="color: #000; font-size: 12px; font-weight: normal;">
-            <input id="chkChildren" type="checkbox" <%=QS("getch")=="1"?"checked=\"checked\"":"" %>
-                onchange="showChildren(<%=QS("cid") %>,this.checked)" /><label for="chkChildren">级联显示下级展商</label></li>
+            <asp:DropDownList ID="drpSite" runat="server" onchange="change(this.value);">
+            </asp:DropDownList>
+        </li>
     </ul>
+    </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContent" runat="Server">
     <div id="noDatas" runat="server" visible="false" class="nodatas">
-        未找到展商，<a href="ExhibitorAdd.aspx?cid=<%=CurrentColumn.fdColuID %>" target="exhibitor">点击这里</a>新建一个展商</div>
+        未找到展商，<a href="javascript:parent.addExhibitor(<%=QS("sid") %>);">点击这里</a>新建一个展商</div>
     <div class="datas">
         <table id="datatable">
             <asp:Repeater ID="repExhibitors" runat="server">
@@ -76,24 +80,13 @@
                                 序号
                             </th>
                             <th>
-                                <a href="javascript:<%=getOrderJs("fdExhiName") %>" title="点击按照公司名称排序">公司名称</a>
-                                <span class="<%=getOrderCssClass("fdExhiName") %>"></span>
+                                公司名称
                             </th>
                             <th>
-                                <a href="javascript:<%=getOrderJs("fdExhiEnName") %>" title="点击按照英文名称排序">英文名称</a>
-                                <span class="<%=getOrderCssClass("fdExhiEnName") %>"></span>
+                                英文名称
                             </th>
                             <th>
-                                <a href="javascript:<%=getOrderJs("fdExhiCreateAt")%>" title="点击按照创建时间排序">创建时间</a>
-                                <span class="<%=getOrderCssClass("fdExhiCreateAt") %>"></span>
-                            </th>
-                            <th>
-                                <a href="javascript:<%=getOrderJs("fdColuName")%>" title="点击按照栏目名排序">所在栏目</a> <span
-                                    class="<%=getOrderCssClass("fdColuName") %>"></span>
-                            </th>
-                            <th style="width: 43px">
-                                <a href="javascript:<%=getOrderJs("fdExhiStatus")%>" title="点击按照状态排序">状态</a> <span
-                                    class="<%=getOrderCssClass("fdExhiStatus") %>"></span>
+                                创建时间
                             </th>
                             <th class="edit">
                                 修改
@@ -110,9 +103,8 @@
                         <td class="dragTd" title="点击拖动排序">
                             <%#Eval("fdAutoID")%>
                         </td>
-                        <td oncontextmenu="return parent.showExhibitorMenu(this,<%#Eval("fdExhiID") %>,<%#Eval("fdExhiColuID") %>,event);">
-                            <a href="ExhibitorEdit.aspx?id=<%#Eval("fdExhiID") %>" target="exhibitor">
-                                <%#Eval( "fdExhiName" )%></a>
+                        <td>
+                            <%#Eval( "fdExhiName" )%>
                         </td>
                         <td>
                             <%#Eval( "fdExhiEnName" )%>
@@ -120,16 +112,9 @@
                         <td style="width: 100px; text-align: center;">
                             <%# Eval( "fdExhiCreateAt", "{0:yy-MM-dd HH:mm}" )%>
                         </td>
-                        <td style="width: 100px; text-align: center;">
-                            <a href="ExhibitorList.aspx?cid=<%#Eval("Column.fdColuID") %>">
-                                <%#Eval("Column.fdColuName")%></a>
-                        </td>
                         <td>
-                            <%#Eval( "Status" )%>
-                        </td>
-                        <td>
-                            <a href="ExhibitorEdit.aspx?id=<%#Eval("fdExhiID")%>" title="点击修改展商" target="exhibitor">
-                                <img src="../images/icons/icon04.gif" alt="" /></a>
+                            <a href="javascript:parent.editExhibitor(<%# Eval("fdExhiID")%>);" title="点击修改展商">
+                                <img src="../../images/icons/icon04.gif" alt="" /></a>
                         </td>
                         <td>
                             <input type="checkbox" name="ids" value="<%# Eval("fdExhiID")%>" class="checkbox" />
@@ -155,14 +140,15 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cphOpr" runat="Server">
-    <uc1:ExhibitorOperation runat="server" />
-    <uc1:ColumnInfo runat="server" />
-</asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="cphFooter" runat="Server">
-    <uc1:ExhibitorFooter runat="server" />
-
-    <script type="text/javascript">
-        selectFooter("Exhibitor");
-    </script>
-
+    <div class="operation" id="ExhibitorOpr">
+        <h3 class="opr-mhd">
+            <a href="javascript:showFolder('ExhibitorOpr')">
+                <img src="../../images/icons/arrow2.gif" /></a>展商操作任务</h3>
+        <div class="opr-mbd">
+            <ul>
+                <li class="new"><a href="javascript:parent.addExhibitor(<%=QS("sid") %>);">添加展商</a></li>
+                <li class="delFile"><a href="javascript:deleteExhibitor();">删除展商</a></li>
+            </ul>
+        </div>
+    </div>
 </asp:Content>

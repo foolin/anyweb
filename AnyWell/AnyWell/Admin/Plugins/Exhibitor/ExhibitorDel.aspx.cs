@@ -5,7 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
 
-public partial class Admin_Exhibitor_ExhibitorRevoke : PageAdmin
+public partial class Admin_Plugins_Exhibitor_ExhibitorDel : PageAdmin
 {
     protected void Page_Load( object sender, EventArgs e )
     {
@@ -25,14 +25,14 @@ public partial class Admin_Exhibitor_ExhibitorRevoke : PageAdmin
         }
         else
         {
-            if( dao.funcRevokeExhibitor( ids ) > 0 )
+            if( dao.funcDeletes( ids ) > 0 )
             {
                 foreach( AW_Exhibitor_bean bean in list )
                 {
-                    AddLog( EventType.Update, "恢复展商", string.Format( "恢复展商:{0}({1})", bean.fdExhiName, bean.fdExhiID ) );
+                    AddLog( EventType.Delete, "删除展商", string.Format( "删除展商:{0}({1})", bean.fdExhiName, bean.fdExhiID ) );
                 }
             }
-            Response.Write( "<script type=text/javascript>parent.revokeExhibitorOK();</script>" );
+            Response.Write( "<script type=text/javascript>parent.deleteExhibitorOK();</script>" );
             Response.End();
         }
     }

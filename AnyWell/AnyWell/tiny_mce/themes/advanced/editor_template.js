@@ -294,9 +294,13 @@
             var t = this, ed = t.editor, c, i = 0, cl = [];
             lineheight = {};
             lineheight["10px"] = "10px";
+            lineheight["15px"] = "15px";
             lineheight["20px"] = "20px";
+            lineheight["25px"] = "25px";
             lineheight["30px"] = "30px";
+            lineheight["35px"] = "35px";
             lineheight["40px"] = "40px";
+            lineheight["45px"] = "45px";
             lineheight["50px"] = "50px";
 
             c = ed.controlManager.createListBox('lineheightselect', { title: '行高', onselect: function(v) {

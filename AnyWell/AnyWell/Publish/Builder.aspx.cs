@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
 using System.IO;
+using System.Text.RegularExpressions;
 
 public partial class Publish_Builder : System.Web.UI.Page
 {
@@ -137,6 +138,31 @@ public partial class Publish_Builder : System.Web.UI.Page
         else
         {
             Fail( string.Format( "模板文件[{0}]不存在！", template.fdTempName ) );
+        }
+    }
+
+    protected override void Render( HtmlTextWriter writer )
+    {
+        if( view )
+        {
+            TextWriter tempWriter = new StringWriter();
+            base.Render( new HtmlTextWriter( tempWriter ) );
+            string responseHTML = tempWriter.ToString();
+
+            //样式文件
+            string f1 = "<link.*href=\"(.+)\".*/>", t1 = string.Format( "<link rel=\"stylesheet\" type=\"text/css\" href=\"/{0}$1\"/>", CurrentSite.fdSitePath );
+            //脚本文件
+            string f2 = "<script.*src=\"(.+)\".*/></script>", t2 = string.Format( "<script type=\"text/javascript\" src=\"/{0}$1\"></script>", CurrentSite.fdSitePath );
+            //图片文件
+            string f3 = "/*images", t3 = string.Format( "/{0}/images", CurrentSite.fdSitePath );
+            responseHTML = Regex.Replace( responseHTML, f1, t1, RegexOptions.IgnoreCase );
+            responseHTML = Regex.Replace( responseHTML, f2, t2, RegexOptions.IgnoreCase );
+            responseHTML = Regex.Replace( responseHTML, f3, t3, RegexOptions.IgnoreCase );
+            Response.Write( responseHTML );
+        }
+        else
+        {
+            base.Render( writer );
         }
     }
 

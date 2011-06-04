@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Master/CenterPopup.master" AutoEventWireup="true" CodeFile="ExhibitorRecycle.aspx.cs" Inherits="Admin_Exhibitor_ExhibitorRecycle" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Master/CenterPopup.master" AutoEventWireup="true" CodeFile="ExhibitorDel.aspx.cs" Inherits="Admin_Plugins_Exhibitor_ExhibitorDel" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphTitle" Runat="Server">
-    确定要将以下展商放入回收站？
+    确定要彻底删除以下展商？
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContent" Runat="Server">
     <div class="optionhead">

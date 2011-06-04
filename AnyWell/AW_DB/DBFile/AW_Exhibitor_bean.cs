@@ -19,14 +19,14 @@ namespace AnyWell.AW_DL
 			get{return _fdExhiID;}
 			set{_fdExhiID = value;}
 		}
-		private int _fdExhiColuID = 0;
+		private int _fdExhiSiteID = 0;
 		 /// <summary>
-		 /// 栏目编号
+		 /// 站点编号
 		 /// </summary>
-		public int fdExhiColuID
+		public int fdExhiSiteID
 		{
-			get{return _fdExhiColuID;}
-			set{_fdExhiColuID = value;}
+			get{return _fdExhiSiteID;}
+			set{_fdExhiSiteID = value;}
 		}
 		private string _fdExhiName = "";
 		 /// <summary>
@@ -48,7 +48,7 @@ namespace AnyWell.AW_DL
 		}
 		private string _fdExhiNumber = "";
 		 /// <summary>
-		 /// 展商号
+		 /// 展商号 25 varchar
 		 /// </summary>
 		public string fdExhiNumber
 		{
@@ -73,14 +73,14 @@ namespace AnyWell.AW_DL
 			get{return _fdExhiUrl;}
 			set{_fdExhiUrl = value;}
 		}
-		private string _fdExhiContent = "";
+		private string _fdExhiDesc = "";
 		 /// <summary>
-		 /// 简介
+		 /// 简介 50 nvarchar
 		 /// </summary>
-		public string fdExhiContent
+		public string fdExhiDesc
 		{
-			get{return _fdExhiContent;}
-			set{_fdExhiContent = value;}
+			get{return _fdExhiDesc;}
+			set{_fdExhiDesc = value;}
 		}
 		private DateTime _fdExhiCreateAt = DateTime.Now;
 		 /// <summary>
@@ -90,24 +90,6 @@ namespace AnyWell.AW_DL
 		{
 			get{return _fdExhiCreateAt;}
 			set{_fdExhiCreateAt = value;}
-		}
-		private int _fdExhiIsDel = 0;
-		 /// <summary>
-		 /// 是否删除(0正常1删除)
-		 /// </summary>
-		public int fdExhiIsDel
-		{
-			get{return _fdExhiIsDel;}
-			set{_fdExhiIsDel = value;}
-		}
-		private int _fdExhiStatus = 0;
-		 /// <summary>
-		 /// 展商状态(0新稿1已改2已发)
-		 /// </summary>
-		public int fdExhiStatus
-		{
-			get{return _fdExhiStatus;}
-			set{_fdExhiStatus = value;}
 		}
 		private int _fdExhiSort = 0;
 		 /// <summary>

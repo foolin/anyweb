@@ -57,59 +57,60 @@ function init() {
 	setPopupControlsDisabled(true);
 
 	if (action == "update") {
-		var href = inst.dom.getAttrib(elm, 'href');
-		var onclick = inst.dom.getAttrib(elm, 'onclick');
+	    var href = inst.dom.getAttrib(elm, 'href');
+	    var onclick = inst.dom.getAttrib(elm, 'onclick');
 
-		// Setup form data
-		setFormValue('href', href);
-		setFormValue('title', inst.dom.getAttrib(elm, 'title'));
-		setFormValue('id', inst.dom.getAttrib(elm, 'id'));
-		setFormValue('style', inst.dom.getAttrib(elm, "style"));
-		setFormValue('rel', inst.dom.getAttrib(elm, 'rel'));
-		setFormValue('rev', inst.dom.getAttrib(elm, 'rev'));
-		setFormValue('charset', inst.dom.getAttrib(elm, 'charset'));
-		setFormValue('hreflang', inst.dom.getAttrib(elm, 'hreflang'));
-		setFormValue('dir', inst.dom.getAttrib(elm, 'dir'));
-		setFormValue('lang', inst.dom.getAttrib(elm, 'lang'));
-		setFormValue('tabindex', inst.dom.getAttrib(elm, 'tabindex', typeof(elm.tabindex) != "undefined" ? elm.tabindex : ""));
-		setFormValue('accesskey', inst.dom.getAttrib(elm, 'accesskey', typeof(elm.accesskey) != "undefined" ? elm.accesskey : ""));
-		setFormValue('type', inst.dom.getAttrib(elm, 'type'));
-		setFormValue('onfocus', inst.dom.getAttrib(elm, 'onfocus'));
-		setFormValue('onblur', inst.dom.getAttrib(elm, 'onblur'));
-		setFormValue('onclick', onclick);
-		setFormValue('ondblclick', inst.dom.getAttrib(elm, 'ondblclick'));
-		setFormValue('onmousedown', inst.dom.getAttrib(elm, 'onmousedown'));
-		setFormValue('onmouseup', inst.dom.getAttrib(elm, 'onmouseup'));
-		setFormValue('onmouseover', inst.dom.getAttrib(elm, 'onmouseover'));
-		setFormValue('onmousemove', inst.dom.getAttrib(elm, 'onmousemove'));
-		setFormValue('onmouseout', inst.dom.getAttrib(elm, 'onmouseout'));
-		setFormValue('onkeypress', inst.dom.getAttrib(elm, 'onkeypress'));
-		setFormValue('onkeydown', inst.dom.getAttrib(elm, 'onkeydown'));
-		setFormValue('onkeyup', inst.dom.getAttrib(elm, 'onkeyup'));
-		setFormValue('target', inst.dom.getAttrib(elm, 'target'));
-		setFormValue('classes', inst.dom.getAttrib(elm, 'class'));
+	    // Setup form data
+	    setFormValue('href', href);
+	    setFormValue('title', inst.dom.getAttrib(elm, 'title'));
+	    setFormValue('id', inst.dom.getAttrib(elm, 'id'));
+	    setFormValue('style', inst.dom.getAttrib(elm, "style"));
+	    setFormValue('rel', inst.dom.getAttrib(elm, 'rel'));
+	    setFormValue('rev', inst.dom.getAttrib(elm, 'rev'));
+	    setFormValue('charset', inst.dom.getAttrib(elm, 'charset'));
+	    setFormValue('hreflang', inst.dom.getAttrib(elm, 'hreflang'));
+	    setFormValue('dir', inst.dom.getAttrib(elm, 'dir'));
+	    setFormValue('lang', inst.dom.getAttrib(elm, 'lang'));
+	    setFormValue('tabindex', inst.dom.getAttrib(elm, 'tabindex', typeof (elm.tabindex) != "undefined" ? elm.tabindex : ""));
+	    setFormValue('accesskey', inst.dom.getAttrib(elm, 'accesskey', typeof (elm.accesskey) != "undefined" ? elm.accesskey : ""));
+	    setFormValue('type', inst.dom.getAttrib(elm, 'type'));
+	    setFormValue('onfocus', inst.dom.getAttrib(elm, 'onfocus'));
+	    setFormValue('onblur', inst.dom.getAttrib(elm, 'onblur'));
+	    setFormValue('onclick', onclick);
+	    setFormValue('ondblclick', inst.dom.getAttrib(elm, 'ondblclick'));
+	    setFormValue('onmousedown', inst.dom.getAttrib(elm, 'onmousedown'));
+	    setFormValue('onmouseup', inst.dom.getAttrib(elm, 'onmouseup'));
+	    setFormValue('onmouseover', inst.dom.getAttrib(elm, 'onmouseover'));
+	    setFormValue('onmousemove', inst.dom.getAttrib(elm, 'onmousemove'));
+	    setFormValue('onmouseout', inst.dom.getAttrib(elm, 'onmouseout'));
+	    setFormValue('onkeypress', inst.dom.getAttrib(elm, 'onkeypress'));
+	    setFormValue('onkeydown', inst.dom.getAttrib(elm, 'onkeydown'));
+	    setFormValue('onkeyup', inst.dom.getAttrib(elm, 'onkeyup'));
+	    setFormValue('target', inst.dom.getAttrib(elm, 'target'));
+	    setFormValue('classes', inst.dom.getAttrib(elm, 'class'));
 
-		// Parse onclick data
-		if (onclick != null && onclick.indexOf('window.open') != -1)
-			parseWindowOpen(onclick);
-		else
-			parseFunction(onclick);
+	    // Parse onclick data
+	    if (onclick != null && onclick.indexOf('window.open') != -1)
+	        parseWindowOpen(onclick);
+	    else
+	        parseFunction(onclick);
 
-		// Select by the values
-		selectByValue(formObj, 'dir', inst.dom.getAttrib(elm, 'dir'));
-		selectByValue(formObj, 'rel', inst.dom.getAttrib(elm, 'rel'));
-		selectByValue(formObj, 'rev', inst.dom.getAttrib(elm, 'rev'));
-		selectByValue(formObj, 'linklisthref', href);
+	    // Select by the values
+	    selectByValue(formObj, 'dir', inst.dom.getAttrib(elm, 'dir'));
+	    selectByValue(formObj, 'rel', inst.dom.getAttrib(elm, 'rel'));
+	    selectByValue(formObj, 'rev', inst.dom.getAttrib(elm, 'rev'));
+	    selectByValue(formObj, 'linklisthref', href);
 
-		if (href.charAt(0) == '#')
-			selectByValue(formObj, 'anchorlist', href);
+	    if (href.charAt(0) == '#')
+	        selectByValue(formObj, 'anchorlist', href);
 
-		addClassesToList('classlist', 'advlink_styles');
+	    addClassesToList('classlist', 'advlink_styles');
 
-		selectByValue(formObj, 'classlist', inst.dom.getAttrib(elm, 'class'), true);
-		selectByValue(formObj, 'targetlist', inst.dom.getAttrib(elm, 'target'), true);
-	} else
-		addClassesToList('classlist', 'advlink_styles');
+	    selectByValue(formObj, 'classlist', inst.dom.getAttrib(elm, 'class'), true);
+	    selectByValue(formObj, 'targetlist', inst.dom.getAttrib(elm, 'target'), true);
+	} else {
+	    addClassesToList('classlist', 'advlink_styles');
+	}
 }
 
 function checkPrefix(n) {

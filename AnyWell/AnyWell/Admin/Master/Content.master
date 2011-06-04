@@ -10,11 +10,11 @@
 	<link href="/Admin/class/forIE6.css" rel="stylesheet" type="text/css" />
 	<![endif]-->
 
-    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="/Admin/js/jquery.js"></script>
     
-    <script type="text/javascript" src="../js/calendar.js"></script>
+    <script type="text/javascript" src="/Admin/js/calendar.js"></script>
 
-    <script type="text/javascript" src="../js/function.js"></script>
+    <script type="text/javascript" src="/Admin/js/function.js"></script>
 
 </head>
 <body scroll="no" class="article">

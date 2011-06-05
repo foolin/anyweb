@@ -475,6 +475,30 @@ function showError(title, msg, width, height) {
     goPopupUrl(width, height, url);
 }
 
+//添加订阅
+function addSubscribe(sid) {
+    var url = "/Admin/Plugins/Subscribe/SubscribeAdd.aspx";
+    if (sid) {
+        url += "?sid=" + sid;
+    }
+    goPopupUrl(485, 341, url);
+}
+
+//修改订阅
+function editSubscribe(id) {
+    goPopupUrl(485, 339, '/Admin/Plugins/Subscribe/SubscribeEdit.aspx?id=' + id);
+}
+
+//删除订阅
+function delSubscribe() {
+    var ids = getSelect();
+    if (ids) {
+        parent.goPopupUrl(485, 363, "/Admin/Plugins/Subscribe/SubscribeDel.aspx?ids=" + ids);
+    } else {
+        parent.showError("系统提示信息", "请选择订阅！", 485, 223);
+    }
+}
+
 /*---------------- 栏目树 --------------------------*/
 function site(id, name, index) {
     //编号
@@ -2172,6 +2196,24 @@ function clearExhibitorRecycle(cid, children) {
             }
         }
     });
+}
+
+//添加订阅回调函数
+function addSubscribeOK(sid) {
+    parent.window.frames["mainFrame"].window.location = "/Admin/Plugins/Subscribe/SubscribeList.aspx?sid=" + sid;
+    parent.disablePopup();
+}
+
+//修改订阅回调函数
+function editSubscribeOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
+}
+
+//删除订阅回调函数
+function deleteSubscribeOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
 }
 
 //tab导航事件

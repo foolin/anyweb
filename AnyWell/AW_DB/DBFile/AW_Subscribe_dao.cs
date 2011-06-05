@@ -14,7 +14,7 @@ namespace AnyWell.AW_DL
         {
             this._propTable = "AW_Subscribe";
             this._propPK = "fdSubsID";
-            this._propFields = "fdSubsID,fdSubsSiteID,fdSubsCompany,fdSubsSurname,fdSubsName,fdSubsEmail";
+            this._propFields = "fdSubsID,fdSubsSiteID,fdSubsCompany,fdSubsSurname,fdSubsName,fdSubsEmail,fdSubsSort";
         }
 
         public List<AW_Subscribe_bean> funcGetList()

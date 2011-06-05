@@ -64,6 +64,16 @@ namespace AnyWell.AW_DL
 			get{return _fdSubsEmail;}
 			set{_fdSubsEmail = value;}
 		}
+        private int _fdSubsSort = 0;
+		 /// <summary>
+		 /// 排序
+		 /// </summary>
+        public int fdSubsSort
+		{
+            get { return _fdSubsSort; }
+            set { _fdSubsSort = value; }
+		}
+        
 
 
 		/////////////////////////////////////////

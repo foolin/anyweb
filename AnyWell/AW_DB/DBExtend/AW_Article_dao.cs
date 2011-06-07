@@ -817,7 +817,7 @@ namespace AnyWell.AW_DL
         /// <param name="where">附加筛选条件</param>
         /// <param name="order">附加排序条件</param>
         /// <returns></returns>
-        public List<AW_Article_bean> funcGetArticleListByUC( int columnID, int topCount, bool getChild, string where, string order)
+        public List<AW_Article_bean> funcGetArticleListByUC( int siteID, int columnID, int topCount, bool getChild, string where, string order )
         {
             this.propSelect = this.selectStr;
             this.propWhere = "fdArtiIsDel=0";
@@ -837,6 +837,10 @@ namespace AnyWell.AW_DL
                 {
                     this.propWhere += string.Format( " AND fdArtiColuID={0}", columnID );
                 }
+            }
+            else
+            {
+                this.propWhere += string.Format( " AND fdArtiColuID IN (SELECT fdColuID FROM AW_Column WHERE fdColuSiteID={0})", siteID );
             }
 
             if( string.IsNullOrEmpty( where ) == false )
@@ -869,7 +873,7 @@ namespace AnyWell.AW_DL
         /// <param name="pageSize">每页记录数</param>
         /// <param name="recordCount">总记录数</param>
         /// <returns></returns>
-        public List<AW_Article_bean> funcGetArticleListByUC( int columnID, bool getChild, string where, string order, int pageID, int pageSize, out int recordCount )
+        public List<AW_Article_bean> funcGetArticleListByUC( int siteID, int columnID, bool getChild, string where, string order, int pageID, int pageSize, out int recordCount )
         {
             this.propSelect = this.selectStr;
             this.propWhere = "fdArtiIsDel=0";
@@ -884,6 +888,10 @@ namespace AnyWell.AW_DL
                 {
                     this.propWhere += string.Format( " AND fdArtiColuID={0}", columnID );
                 }
+            }
+            else
+            {
+                this.propWhere += string.Format( " AND fdArtiColuID IN (SELECT fdColuID FROM AW_Column WHERE fdColuSiteID={0})", siteID );
             }
 
             if( string.IsNullOrEmpty( where ) == false )

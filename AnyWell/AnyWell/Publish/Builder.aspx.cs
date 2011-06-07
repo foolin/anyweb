@@ -85,13 +85,10 @@ public partial class Publish_Builder : System.Web.UI.Page
                             {
                                 Response.Redirect( article.fdArtiLink );
                             }
-                        }
-                        break;
-                    case ColumnType.Exhibitor:
-                        AW_Exhibitor_bean exhibitor = AW_Exhibitor_bean.funcGetByID( did );
-                        if( exhibitor == null )
-                        {
-                            Fail( "展商不存在！" );
+                            if( article.fdArtiType == 4 )
+                            {
+                                Response.Redirect( string.Format( "Builder.aspx?view=true&sid={0}&cid={1}&did={2}", sid, cid, article.fdArtiSourceID ) );
+                            }
                         }
                         break;
                     default:

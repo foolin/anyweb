@@ -29,8 +29,8 @@
                     公司名称：
                 </th>
                 <td>
-                    <asp:TextBox ID="txtCompany" runat="server" CssClass="text" Width="200" MaxLength="50"></asp:TextBox>
-                    <sw:Validator ID="val1" ControlID="txtName" ValidateType="Required" ErrorMessage="请填写公司名"
+                    <asp:TextBox ID="txtCompany" runat="server" CssClass="text" Width="200" MaxLength="100"></asp:TextBox>
+                    <sw:Validator ID="val1" ControlID="txtCompany" ValidateType="Required" ErrorMessage="请填写公司名"
                         runat="server">
                     </sw:Validator>
                 </td>
@@ -40,7 +40,10 @@
                     姓氏：
                 </th>
                 <td>
-                    <asp:TextBox ID="txtSurname" Width="200" CssClass="text" runat="server" MaxLength="50"></asp:TextBox>
+                    <asp:TextBox ID="txtSurname" Width="200" CssClass="text" runat="server" MaxLength="10"></asp:TextBox>
+                    <sw:Validator ID="Validator1" ControlID="txtSurname" ValidateType="Required" ErrorMessage="请填写姓氏"
+                        runat="server">
+                    </sw:Validator>
                 </td>
             </tr>
             <tr>
@@ -48,7 +51,10 @@
                     名称：
                 </th>
                 <td>
-                    <asp:TextBox ID="txtName" Width="200" CssClass="text" runat="server" MaxLength="50"></asp:TextBox>
+                    <asp:TextBox ID="txtName" Width="200" CssClass="text" runat="server" MaxLength="10"></asp:TextBox>
+                    <sw:Validator ID="Validator2" ControlID="txtName" ValidateType="Required" ErrorMessage="请填写名称"
+                        runat="server">
+                    </sw:Validator>
                 </td>
             </tr>
             <tr>
@@ -57,6 +63,9 @@
                 </th>
                 <td>
                     <asp:TextBox ID="txtEmail" Width="200" CssClass="text" runat="server" MaxLength="50" ></asp:TextBox>
+                    <sw:Validator ID="Validator3" ControlID="txtEmail" ValidateType="Required" ErrorMessage="请填写电子邮件"
+                        runat="server">
+                    </sw:Validator>
                 </td>
             </tr>
         </table>

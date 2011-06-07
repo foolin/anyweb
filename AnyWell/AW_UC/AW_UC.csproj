@@ -54,6 +54,7 @@
     <Compile Include="ItemControlBase.cs" />
     <Compile Include="ListControlBase.cs" />
     <Compile Include="Pager.cs" />
+    <Compile Include="Position.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleArticle.cs" />
     <Compile Include="Template.cs" />

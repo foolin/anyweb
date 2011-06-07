@@ -86,6 +86,8 @@ namespace AnyWell.AW_UC
             }
             else
             {
+                int sid = 0;
+                List<AW_Article_bean> articles;
                 if( this.ColumnID != -1 )
                 {
                     AW_Column_bean bean = AW_Column_bean.funcGetByID( this.ColumnID );
@@ -93,18 +95,39 @@ namespace AnyWell.AW_UC
                     {
                         return "栏目不存在！";
                     }
-                }
-                List<AW_Article_bean> articles;
-                if( this.Pager == null )
-                {
-                    articles = new AW_Article_dao().funcGetArticleListByUC( this.ColumnID, this.TopCount, this.GetChild, this.Where, this.Order);
+
+                    if( this.Pager == null )
+                    {
+                        articles = new AW_Article_dao().funcGetArticleListByUC( 0, this.ColumnID, this.TopCount, this.GetChild, this.Where, this.Order );
+                    }
+                    else
+                    {
+                        int recordCount = 0;
+                        articles = new AW_Article_dao().funcGetArticleListByUC( 0, this.ColumnID, this.GetChild, this.Where, this.Order, this.Pager.PageID, this.Pager.PageSize, out recordCount );
+                        this.Pager.RecordCount = recordCount;
+                    }
                 }
                 else
                 {
-                    int recordCount = 0;
-                    articles = new AW_Article_dao().funcGetArticleListByUC( this.ColumnID, this.GetChild, this.Where, this.Order, this.Pager.PageID, this.Pager.PageSize, out recordCount );
-                    this.Pager.RecordCount = recordCount;
+                    int.TryParse( QS( "sid" ), out sid );
+                    if( sid == 0 )
+                    {
+                        return "站点不存在！";
+                    }
+
+                    if( this.Pager == null )
+                    {
+                        articles = new AW_Article_dao().funcGetArticleListByUC( sid, this.ColumnID, this.TopCount, this.GetChild, this.Where, this.Order );
+                    }
+                    else
+                    {
+                        int recordCount = 0;
+                        articles = new AW_Article_dao().funcGetArticleListByUC( sid, this.ColumnID, this.GetChild, this.Where, this.Order, this.Pager.PageID, this.Pager.PageSize, out recordCount );
+                        this.Pager.RecordCount = recordCount;
+                    }
                 }
+
+                
                 return articles;
             }
         }

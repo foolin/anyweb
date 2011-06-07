@@ -307,7 +307,7 @@ public class PublishService
 
                     for( int pageID = 1; pageID <= article.PageCount; pageID++ )
                     {
-                        exe = string.Format( "{0}?cid={1}&dpid={2}&urlprefix={3}", this.BuilderPath, column.fdColuID, pageID, column.Url.Replace( column.fdColuID.ToString(), column.fdColuID.ToString() + "__pid" ) );
+                        exe = string.Format( "{0}?sid={4}&cid={1}&dpid={2}&urlprefix={3}", this.BuilderPath, column.fdColuID, pageID, column.Url.Replace( column.fdColuID.ToString(), column.fdColuID.ToString() + "__pid" ), column.fdColuSiteID );
                         saveTo = string.Format( "{0}\\{1}\\{2}\\", this.PublishPath, column.Site.fdSitePath, column.fdColuID );
                         string htmlFile = PublishPage( exe, saveTo, pageID );
                     }
@@ -378,7 +378,7 @@ public class PublishService
                     {
                         return 101;
                     }
-                    exe += string.Format( "?cid={0}&urlprefix={1}", column.fdColuID.ToString(), column.Url.Replace( "index", "index__pid" ) );
+                    exe += string.Format( "?sid={0}&cid={1}&urlprefix={2}", column.fdColuSiteID, column.fdColuID.ToString(), column.Url.Replace( "index", "index__pid" ) );
                     string htmlFile = PublishPage( exe, saveTo, 1 );
 
                     string hasPagerReg = "(<AW:ARTICLELIST|<AW:PICTURELIST|<AW:PRODUCTLIST|<AW:EXHIBITORLIST)[^>]+PAGERID=";
@@ -441,7 +441,7 @@ public class PublishService
                         }
                         for( int i = 2; i <= pages; i++ )
                         {
-                            exe = string.Format( "{0}?cid={1}&urlprefix={2}&pid={3}", BuilderPath, column.fdColuID.ToString(), column.Url.Replace( "index", "index__pid" ), i );
+                            exe = string.Format( "{0}?sid={4}&cid={1}&urlprefix={2}&pid={3}", BuilderPath, column.fdColuID.ToString(), column.Url.Replace( "index", "index__pid" ), i, column.fdColuSiteID );
                             htmlFile = PublishPage( exe, saveTo, i );
 
                         }

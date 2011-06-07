@@ -1608,14 +1608,14 @@ function createSitePopMenu(s) {
 }
 
 //文档栏目右键菜单
-function createArticleColumnPopMenu(c) {
+function createArticleColumnPopMenu(c, sid) {
     var menu = new ContextMenu(), item;
     item = new menu.Item("修改该栏目", "修改该栏目", "javascript:editColumn(" + c.id + ")");
     menu.addItem(item);
     item = new menu.Item("删除该栏目", "删除该栏目", "javascript:delColumn(" + c.id + ")");
     menu.addItem(item);
     menu.addSeparator();
-    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?view=true&cid=" + c.id, "_blank");
+    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?view=true&sid=" + sid + "&cid=" + c.id, "_blank");
     menu.addItem(item);
     item = new menu.Item("发布栏目首页", "发布栏目首页", "javascript:pubishColumnHome(" + c.id + ")");
     menu.addItem(item);
@@ -1635,14 +1635,14 @@ function createArticleColumnPopMenu(c) {
 }
 
 //单篇文档栏目右键菜单
-function createSingleArticleColumnPopMenu(c) {
+function createSingleArticleColumnPopMenu(c, sid) {
     var menu = new ContextMenu(), item;
     item = new menu.Item("修改该栏目", "修改该栏目", "javascript:editColumn(" + c.id + ")");
     menu.addItem(item);
     item = new menu.Item("删除该栏目", "删除该栏目", "javascript:delColumn(" + c.id + ")");
     menu.addItem(item);
     menu.addSeparator();
-    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?view=true&cid=" + c.id, "_blank");
+    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?view=true&sid=" + sid + "&cid=" + c.id, "_blank");
     menu.addItem(item);
     item = new menu.Item("发布栏目首页", "发布栏目首页", "javascript:pubishSingleArticle(" + c.id + ")");
     menu.addItem(item);
@@ -1676,14 +1676,14 @@ function createAlbumColumnPopMenu(c) {
 }
 
 //产品栏目右键菜单
-function createProductColumnPopMenu(c) {
+function createProductColumnPopMenu(c, sid) {
     var menu = new ContextMenu(), item;
     item = new menu.Item("修改该栏目", "修改该栏目", "javascript:editColumn(" + c.id + ")");
     menu.addItem(item);
     item = new menu.Item("删除该栏目", "删除该栏目", "javascript:delColumn(" + c.id + ")");
     menu.addItem(item);
     menu.addSeparator();
-    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?view=true&cid=" + c.id, "_blank");
+    item = new menu.Item("预览栏目首页", "预览栏目首页", "../Publish/Builder.aspx?view=true&sid=" + sid + "&cid=" + c.id, "_blank");
     menu.addItem(item);
     item = new menu.Item("发布栏目首页", "发布栏目首页", "javascript:pubishColumnHome(" + c.id + ")");
     menu.addItem(item);
@@ -1697,9 +1697,9 @@ function createProductColumnPopMenu(c) {
 }
 
 //文档右键菜单
-function createArticlePopMenu(obj, aid, cid) {
+function createArticlePopMenu(obj, aid, sid, cid) {
     var menu = new ContextMenu(), item;
-    item = new menu.Item("预览这篇文档", "预览这篇文档", "../Publish/Builder.aspx?view=true&cid=" + cid + "&did=" + aid, "_blank");
+    item = new menu.Item("预览这篇文档", "预览这篇文档", "../Publish/Builder.aspx?view=true&sid=" + sid + "&cid=" + cid + "&did=" + aid, "_blank");
     menu.addItem(item);
     item = new menu.Item("修改这篇文档", "修改这篇文档", "Content/ArticleEdit.aspx?id=" + aid, "article");
     menu.addItem(item);
@@ -1754,18 +1754,28 @@ function showSiteMenu(s, e) {
 //显示栏目右键菜单
 function showColumnMenu(c, e) {
     if (c.menu == null) {
+        var sid = 0;
+        if (c.site) {
+            sid = c.site.id;
+        } else {
+            var parent = c.parent;
+            while (!parent.site) {
+                parent = parent.parent;
+            }
+            sid = parent.site.id;
+        }
         switch (c.type) {
             case 'Article':
-                createArticleColumnPopMenu(c);
+                createArticleColumnPopMenu(c, sid);
                 break;
             case 'Album':
-                createAlbumColumnPopMenu(c);
+                createAlbumColumnPopMenu(c, sid);
                 break;
             case 'Product':
-                createProductColumnPopMenu(c);
+                createProductColumnPopMenu(c, sid);
                 break;
             case 'Single':
-                createSingleArticleColumnPopMenu(c);
+                createSingleArticleColumnPopMenu(c, sid);
                 break;
         }
     }
@@ -1774,9 +1784,9 @@ function showColumnMenu(c, e) {
 }
 
 //显示文档右键菜单
-function showArticleMenu(obj, aid, cid, e) {
+function showArticleMenu(obj, aid, sid, cid, e) {
     if (obj.menu == null) {
-        createArticlePopMenu(obj, aid, cid);
+        createArticlePopMenu(obj, aid, sid, cid);
     }
     obj.menu.show(e.clientX + 201, e.clientY + 55);
     return false;

@@ -7,42 +7,6 @@ CodeFile="SubscribeList.aspx.cs" Inherits="Admin_Plugins_Subscribe_SubscribeList
     <script type="text/javascript">
         var selStatus = false;
         $(function() {
-            $("#datatable").tableDnD({
-                onDrop: function(table, row) {
-                    var rows = table.tBodies[0].rows;
-                    var subscribeId = row.id.replace("row_", "");
-                    var nextId = "0";
-                    var previewId = "0";
-                    var total = rows.length;
-                    if (total <= 1) return;
-                    var startIndex = <%=PN1.PageSize*(PN1.PageIndex-1)+1%>;
-                    for (i = 0; i < rows.length; i++) {
-                        rows[i].className = i % 2 == 0 ? "even" : "";
-                        if (rows[i].id == "row_" + articleId) {
-                            if (i == 0)
-                                nextId = rows[i + 1].id.replace("row_", "");
-                            else if (i + 1 == total)
-                                previewId = rows[i - 1].id.replace("row_", "");
-                            else
-                                previewId = rows[i - 1].id.replace("row_", "");
-                        }
-                        $(rows[i]).find("td:first").html(startIndex + i);
-                    }
-
-                    var url = "../../Ajax/SubscribeSort.aspx?id=" + subscribeId + "&previewid=" + previewId + "&nextid=" + nextId;
-                    $.ajax({
-                        url: url,
-                        cache: false,
-                        success: function(result) {
-                            if (result.length > 0) {
-                                alert(result);
-                                window.location.href = window.location.href;
-                            }
-                        }
-                    });
-                }
-            });
-            
             $("#datatable tbody tr").hover(function(){
                 $(this).addClass("hover"); 
             },function(){
@@ -103,8 +67,8 @@ CodeFile="SubscribeList.aspx.cs" Inherits="Admin_Plugins_Subscribe_SubscribeList
                     <tbody>
                 </HeaderTemplate>
                 <ItemTemplate>
-                    <tr id="row_<%#Eval("fdSubsID")%>" class="<%# Container.ItemIndex % 2 == 0 ? "" : "even" %>">
-                        <td class="dragTd" title="点击拖动排序" style="text-align: center;">
+                    <tr class="<%# Container.ItemIndex % 2 == 0 ? "" : "even" %>">
+                        <td style="text-align: center;">
                             <%#Eval("fdAutoID")%>
                         </td>
                         <td style="text-align: center;">

@@ -47,10 +47,6 @@ namespace AnyWell.AW_UC
             int index = 0;
             if( dataBinding && dataSource != null && _itemTemplate != null )
             {
-                foreach( Control control in CreateControlCollection() )
-                {
-                    Controls.Add( control );
-                }
                 foreach( object dataItem in dataSource )
                 {
                     TemplateItem ti = new TemplateItem( dataItem, index );
@@ -93,6 +89,18 @@ namespace AnyWell.AW_UC
                 }
             }
             base.OnPreRender( e );
+        }
+
+        public override void RenderBeginTag( HtmlTextWriter writer )
+        {
+            //移除开始标记
+            writer.Write( "" );
+        }
+
+        public override void RenderEndTag( HtmlTextWriter writer )
+        {
+            //移除结束标记
+            writer.Write( "" );
         }
 
         /// <summary>

@@ -6,6 +6,7 @@ using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Text;
 
 public partial class Publish_Builder : System.Web.UI.Page
 {
@@ -114,7 +115,7 @@ public partial class Publish_Builder : System.Web.UI.Page
                 {
                     Context.Items[ "OBJECTTYPE" ] = CurrentColumn.fdColuType;
                 }
-                BuildPage( CurrentColumn.IndexTemplate );
+                BuildPage( template );
             }
         }
     }
@@ -136,6 +137,7 @@ public partial class Publish_Builder : System.Web.UI.Page
         {
             Fail( string.Format( "模板文件[{0}]不存在！", template.fdTempName ) );
         }
+        Response.ContentEncoding = Encoding.UTF8;
     }
 
     protected override void Render( HtmlTextWriter writer )
@@ -149,7 +151,7 @@ public partial class Publish_Builder : System.Web.UI.Page
             //样式文件
             string f1 = "<link.*href=\"(.+)\".*/>", t1 = string.Format( "<link rel=\"stylesheet\" type=\"text/css\" href=\"/{0}$1\"/>", CurrentSite.fdSitePath );
             //脚本文件
-            string f2 = "<script.*src=\"(.+)\".*/></script>", t2 = string.Format( "<script type=\"text/javascript\" src=\"/{0}$1\"></script>", CurrentSite.fdSitePath );
+            string f2 = "<script.*src=\"(.+)\".*></script>", t2 = string.Format( "<script type=\"text/javascript\" src=\"/{0}$1\"></script>", CurrentSite.fdSitePath );
             //图片文件
             string f3 = "/*images", t3 = string.Format( "/{0}/images", CurrentSite.fdSitePath );
             responseHTML = Regex.Replace( responseHTML, f1, t1, RegexOptions.IgnoreCase );

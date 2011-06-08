@@ -12,5 +12,10 @@
         <sw:Uploader ID="Uploader" MultiSelect="false" runat="server"></sw:Uploader>
     </div>
     </form>
+    <aw:ArticleList runat="server" ColumnID="-1">
+        <ItemTemplate>
+            <%#Eval("fdArtiTitle") %>
+        </ItemTemplate>
+    </aw:ArticleList>
 </body>
 </html>

@@ -24,6 +24,14 @@
             url += "&orderby=" + orderby;
             window.location.href = url;
         }
+        
+        $(function(){
+            $("#datatable tbody tr").hover(function(){
+                $(this).addClass("hover"); 
+            },function(){
+                $(this).removeClass("hover");
+            });
+        });
     </script>
 
 </asp:Content>

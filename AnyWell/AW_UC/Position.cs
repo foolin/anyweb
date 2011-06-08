@@ -47,7 +47,7 @@ namespace AnyWell.AW_UC
             AW_Column_bean parent = column.Parent;
             while( parent != null )
             {
-                sb.Insert( 0, string.Format( "{0}<a href=\"{1}\">{2}</a>", SplitText, column.Url, column.fdColuName ) );
+                sb.Insert( 0, string.Format( "{0}<a href=\"{1}\">{2}</a>", SplitText, parent.Url, parent.fdColuName ) );
                 parent = parent.Parent;
             }
             sb.Insert( 0, "<a href=\"/index.html\">首页</a>" );

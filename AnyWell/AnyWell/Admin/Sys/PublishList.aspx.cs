@@ -9,6 +9,13 @@ public partial class Admin_Sys_PublishList : PageAdmin
 {
     protected void Page_Load( object sender, EventArgs e )
     {
+        //设置页面不缓存
+        Response.Buffer = true;
+        Response.ExpiresAbsolute = DateTime.Now.AddSeconds( -1 );
+        Response.Expires = 0;
+        Response.CacheControl = "no-cache";
+        Response.AddHeader( "Pragma", "No-Cache" );
+
         int status = 0, adminId = 0;
         bool owner = false;
         int.TryParse( QS( "status" ), out status );

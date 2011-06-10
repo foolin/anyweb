@@ -35,7 +35,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Service", "Service\", "{B7AB6092-56A0-4611-BB26-D09A25B6B8E5}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "2.0"
-		ProjectReferences = "{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}|AW_DB.dll;"
+		ProjectReferences = "{3D6C921A-6804-4583-AA3B-F3C0F1A4CADD}|AW_DB.dll;{F1D4186F-C0BD-46DF-B0E2-B264C9EDAA6E}|AW_UC.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Service"
 		Debug.AspNetCompiler.PhysicalPath = "Service\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Service\"
@@ -53,6 +53,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Service", "Service\", "{B7A
 		VWDPort = "2696"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
+EndProject
+Project("{2CFEAB61-6A3B-4EB8-B523-560B4BEEF521}") = "AnyWell_Service_deploy", "..\publish\AnyWell_Service_deploy\AnyWell_Service_deploy.wdproj", "{351F87D5-50FE-445D-84E2-0FF37AA16524}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,6 +86,10 @@ Global
 		{B7AB6092-56A0-4611-BB26-D09A25B6B8E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7AB6092-56A0-4611-BB26-D09A25B6B8E5}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{B7AB6092-56A0-4611-BB26-D09A25B6B8E5}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{351F87D5-50FE-445D-84E2-0FF37AA16524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{351F87D5-50FE-445D-84E2-0FF37AA16524}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{351F87D5-50FE-445D-84E2-0FF37AA16524}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{351F87D5-50FE-445D-84E2-0FF37AA16524}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

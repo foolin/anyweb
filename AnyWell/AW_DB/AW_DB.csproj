@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configs\AnyWellSetting.cs" />
+    <Compile Include="Configs\LicenseConfig.cs" />
     <Compile Include="Configs\SmtpAgent.cs" />
     <Compile Include="DBExtend\AW_Admin_bean.cs" />
     <Compile Include="DBExtend\AW_Admin_dao.cs" />

@@ -59,7 +59,7 @@ namespace AnyWell.AW_UC
             }
             else
             {
-                writer.Write( "IBOX Pager V1.0" );
+                writer.Write( "" );
             }
         }
 
@@ -175,11 +175,13 @@ namespace AnyWell.AW_UC
             writer.Write( "</div>" );
         }
 
+        //顺德家电分页
         void RendNavigator5( HtmlTextWriter writer )
         {
             int begin, end, pages = PageCount;
 
-            writer.Write( "<a {0}>&lt;</a>", PageID > 1 ? String.Format( "href='{0}' title='上一页'", GetPageUrl( PageID - 1 ) ) : "disabled" );
+            writer.Write( "<a href=\"{0}\" title=\"首页\" class=\"btn_Blue\"><i>首页</i></a>", GetPageUrl( 1 ) );
+            writer.Write( "<a {0} class=\"btn_Blue\"><i>上页</i></a>", PageID > 1 ? String.Format( "href=\"{0}\" title=\"上页\"", GetPageUrl( PageID - 1 ) ) : "disabled" );
             if( PageCount > 9 )
             {
                 if( PageID - 4 >= 1 && PageID + 4 <= PageCount )
@@ -207,11 +209,12 @@ namespace AnyWell.AW_UC
             for( int i = begin; i <= end; i++ )
             {
                 if( i == PageID )
-                    writer.Write( "<a href=\"{0}\" class=\"cur\">{1}</a>", GetPageUrl( i ), i );
+                    writer.Write( "<a href=\"{0}\" class=\"btn_Blue\"><i>{1}</i></a>", GetPageUrl( i ), i );
                 else
                     writer.Write( "<a href=\"{0}\">{1}</a>", GetPageUrl( i ), i );
             }
-            writer.Write( "<a {0}>&gt;</a>", PageID < pages ? String.Format( "href='{0}' title='下一页'", GetPageUrl( PageID + 1 ) ) : "disabled" );
+            writer.Write( "<a {0} class=\"btn_Blue\"><i>下页</i></a>", PageID < pages ? String.Format( "href=\"{0}\" title=\"下页\"", GetPageUrl( PageID + 1 ) ) : "disabled" );
+            writer.Write( "<a href=\"{0}\" title=\"末页\" class=\"btn_Blue\"><i>末页</i></a>", GetPageUrl( end ) );
         }
 
         #region Attributes

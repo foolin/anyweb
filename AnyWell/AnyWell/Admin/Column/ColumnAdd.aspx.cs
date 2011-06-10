@@ -149,6 +149,15 @@ public partial class Admin_Content_ColumnAdd : PageAdmin
 
             if( result > 0 )
             {
+                if( bean.fdColuType == 3 )
+                {
+                    AW_SingleArticle_dao articleDao = new AW_SingleArticle_dao();
+                    AW_SingleArticle_bean singleArticle = new AW_SingleArticle_bean();
+                    singleArticle.fdSingID = articleDao.funcNewID();
+                    singleArticle.fdSingColuID = bean.fdColuID;
+                    articleDao.funcInsert( singleArticle );
+                }
+
                 AddLog( EventType.Insert, "添加栏目", string.Format( "添加栏目:{0}({1})", bean.fdColuName, bean.fdColuID ) );
                 Response.Write( string.Format( "<script type=text/javascript>parent.addColumnOK({0},\"{1}\");</script>", bean.fdColuSiteID, bean.ColumnIDPath ) );
                 Response.End();

@@ -22,6 +22,17 @@ namespace AnyWell.AW_DL
         }
 
         /// <summary>
+        /// 获取站点订阅列表
+        /// </summary>
+        /// <param name="sid"></param>
+        /// <returns></returns>
+        public List<AW_Subscribe_bean> funcGetSubscribeList( int sid )
+        {
+            this.propWhere = string.Format( "fdSubsSiteID={0}", sid );
+            return this.funcGetList();
+        }
+
+        /// <summary>
         /// 获取订阅列表
         /// </summary>
         /// <param name="siteId"></param>

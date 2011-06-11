@@ -47,7 +47,7 @@
 </table>
 <div class="blank20px">
 </div>
-<div class="tc lblue">
-    <aw:Pager ID="PN1" runat="server" StyleID="5" PageSize="1">
+<div class="tc lblue pageButton">
+    <aw:Pager ID="PN1" runat="server" StyleID="5" PageSize="20">
     </aw:Pager>
 </div>

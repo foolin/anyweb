@@ -500,13 +500,8 @@ function delSubscribe() {
 }
 
 //导出订阅
-function exportSubscribe() {
-    var ids = getSelect();
-    if (ids) {
-        parent.goPopupUrl(485, 363, "/Admin/Plugins/Subscribe/SubscribeExport.aspx?ids=" + ids);
-    } else {
-        parent.showError("系统提示信息", "请选择订阅！", 485, 223);
-    }
+function exportSubscribe(sid) {
+    parent.goPopupUrl(485, 363, "/Admin/Plugins/Subscribe/SubscribeExport.aspx?sid=" + sid);
 }
 
 
@@ -2238,19 +2233,10 @@ function deleteSubscribeOK() {
 }
 
 //导出订阅回调函数
-function exportSubscribeOK() {
-    alert("导出成功！");
-    parent.window.frames["mainFrame"].window.location.reload();
+function exportSubscribeOK(path) {
     parent.disablePopup();
+    parent.location.href = path;
 }
-
-//导出订阅失败回调函数
-function exportSubscribeFail() {
-    alert("导出订阅失败，请稍候再试！");
-    parent.window.frames["mainFrame"].window.location.reload();
-    parent.disablePopup();
-}
-
 
 //tab导航事件
 function selectOption(title, content, index) {

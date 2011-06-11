@@ -27,6 +27,9 @@ namespace AnyWell.AW_DL
 
             AW_Admin_bean bean = beans[0];
 
+            if( bean.fdAdmiStatus == 1 )
+                return -1;
+
             HttpCookie co = new HttpCookie("ADMINUSER");
             co["ID"] = HttpUtility.UrlEncode(bean.fdAdmiID.ToString());
             co["NAME"] = HttpUtility.UrlEncodeUnicode(bean.fdAdmiName);
@@ -69,10 +72,6 @@ namespace AnyWell.AW_DL
             List<AW_Admin_bean> admins = (List<AW_Admin_bean>)HttpRuntime.Cache["PageAdmins"];
             if (admins != null) return admins;
             admins = this.funcGetList();
-            foreach (AW_Admin_bean admin in admins)
-            {
-                admin.funcSetPurviews();
-            }
             HttpRuntime.Cache.Insert("PageAdmins", admins, null, DateTime.MaxValue, TimeSpan.FromMinutes(5));
             return admins;
         }

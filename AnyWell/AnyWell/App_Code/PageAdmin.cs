@@ -37,7 +37,7 @@ public class PageAdmin : Page
     protected override void OnPreInit( EventArgs e )
     {
         _adminInfo = (new AW_Admin_dao()).funcGetAdminFromCookie();
-        if( _adminInfo == null )
+        if( _adminInfo == null || _adminInfo.fdAdmiStatus == 1 )
         {
             Response.Clear();
             Response.Write( "<script language=\"javascript\">parent.location.href=\"/Admin/Login.aspx\";</script>" );

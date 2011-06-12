@@ -15,6 +15,12 @@ public partial class Admin_User_UserDel : PageAdmin
             ShowError( "请选择用户！" );
         }
 
+        ids = RemoveOwner( ids );
+        if( string.IsNullOrEmpty( ids ) )
+        {
+            ShowError( "不能删除自己的帐号！" );
+        }
+
         AW_Admin_dao dao = new AW_Admin_dao();
         List<AW_Admin_bean> list = dao.funcGetAdminList( ids );
 
@@ -33,5 +39,18 @@ public partial class Admin_User_UserDel : PageAdmin
             Response.Write( "<script type=text/javascript>parent.deleteUserOK();</script>" );
             Response.End();
         }
+    }
+
+    protected string RemoveOwner(string ids)
+    {
+        string str = "";
+        foreach( string s in ids.Split( ',' ) )
+        {
+            if( s != AdminInfo.fdAdmiID.ToString() )
+            {
+                str += "," + s;
+            }
+        }
+        return str.Length > 0 ? str.Substring( 1 ) : str;
     }
 }

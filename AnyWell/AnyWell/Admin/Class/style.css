@@ -239,6 +239,7 @@ a.login-text01:hover{font-family: "宋体";font-size: 12px;color: #FF0000;text-d
 .operation .opr-mbd ul li.moveFile a{background:url(../images/icons/icon08.gif) no-repeat 0;}
 .operation .opr-mbd ul li.copyFile a{background:url(../images/icons/icon10.gif) no-repeat 0;}
 .operation .opr-mbd ul li.pointFile a{background:url(../images/icons/icon11.gif) no-repeat 0;}
+.operation .opr-mbd ul li.downloadFile a{background:url(../images/icons/download.gif) no-repeat 0;}
 .operation .opr-mbd ul li.lock a{background:url(../images/icons/icon10.gif) no-repeat 0;}
 .operation .opr-mbd ul li.unlock a{background:url(../images/icons/icon11.gif) no-repeat 0;}
 .operation .opr-mbd ul li.inXML a{background:url(../images/icons/icon10.gif) no-repeat 0;}

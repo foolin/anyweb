@@ -35,6 +35,11 @@ public partial class Admin_User_UserEdit : PageAdmin
 
     protected void btnSave_Click( object sender, EventArgs e )
     {
+        if( bean.fdAdmiID == AdminInfo.fdAdmiID && chkLocked.Checked )
+        {
+            Fail( "不能锁定自己的帐号！", true );
+        }
+
         bean.fdAdmiName = txtName.Text.Trim();
         bean.fdAdmiEmail = txtEmail.Text.Trim();
         bean.fdAdmiQQ = txtQQ.Text.Trim();

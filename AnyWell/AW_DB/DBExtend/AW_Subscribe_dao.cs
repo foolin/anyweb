@@ -18,6 +18,7 @@ namespace AnyWell.AW_DL
         public List<AW_Subscribe_bean> funcGetSubscribeList(string ids)
         {
             this.propWhere = string.Format("fdSubsID IN ({0})", ids);
+            this.propOrder = "ORDER BY fdSubsSort DESC,fdSubsID DESC";
             return this.funcGetList();
         }
 
@@ -29,6 +30,7 @@ namespace AnyWell.AW_DL
         public List<AW_Subscribe_bean> funcGetSubscribeList( int sid )
         {
             this.propWhere = string.Format( "fdSubsSiteID={0}", sid );
+            this.propOrder = "ORDER BY fdSubsSort DESC,fdSubsID DESC";
             return this.funcGetList();
         }
 
@@ -43,6 +45,7 @@ namespace AnyWell.AW_DL
         public List<AW_Subscribe_bean> funcGetSubscribeList(int siteId, int pageIndex, int pageSize, out int recordCount)
         {
             this.propWhere = "fdSubsSiteID=" + siteId;
+            this.propOrder = "ORDER BY fdSubsSort DESC,fdSubsID DESC";
             this.propPage = pageIndex;
             this.propPageSize = pageSize;
             this.propGetCount = true;
@@ -61,105 +64,15 @@ namespace AnyWell.AW_DL
         }
 
         /// <summary>
-        /// 订阅排序
+        /// 检查邮箱是否存在
         /// </summary>
-        /// <param name="subscribe">订阅</param>    
-        /// <param name="preview">上一个订阅</param>
-        /// <param name="next">下一个订阅</param>
-        public bool funcSortSubscribe(AW_Subscribe_bean subscribe, AW_Subscribe_bean preview, AW_Subscribe_bean next)
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public bool funcCheckEmailExist( string email )
         {
-            this.propSelect = " fdSubsID,fdSubsSort";
-            this.propOrder = " ORDER BY fdSubsSort DESC";
-            this._propFields = "fdSubsID,fdSubsSort";
-
-            bool result = false;
-
-            IDbConnection conn = this.NewConnection();
-            conn.Open();
-            IDbTransaction tran = conn.BeginTransaction();
-
-            try
-            {
-                if (next != null)
-                {
-                    if (subscribe.fdSubsSort > next.fdSubsSort) //从上往下移
-                    {
-                        this.propWhere += " AND fdSubsSort<=" + subscribe.fdSubsSort + " AND fdSubsSort>" + next.fdSubsSort.ToString();
-                        List<AW_Subscribe_bean> list = this.funcGetList();
-                        if (list.Count > 1)
-                        {
-                            subscribe.fdSubsSort = list[list.Count - 1].fdSubsSort;
-                            this.funcUpdate(subscribe, tran);
-                            for (int i = 1; i < list.Count; i++)
-                            {
-                                list[i].fdSubsSort = list[i - 1].fdSubsSort;
-                                this.funcUpdate(list[i], tran);
-                            }
-                        }
-                    }
-                    else //从下往上移
-                    {
-                        this.propWhere += " AND fdSubsSort>=" + subscribe.fdSubsSort + " AND fdSubsSort<=" + next.fdSubsSort.ToString();
-                        List<AW_Subscribe_bean> list = this.funcGetList();
-                        if (list.Count > 1)
-                        {
-                            subscribe.fdSubsSort = list[0].fdSubsSort;
-                            this.funcUpdate(subscribe, tran);
-                            for (int i = 0; i < list.Count - 1; i++)
-                            {
-                                list[i].fdSubsSort = list[i + 1].fdSubsSort;
-                                this.funcUpdate(list[i], tran);
-                            }
-                        }
-                    }
-                }
-                else if (preview != null)
-                {
-                    if (subscribe.fdSubsSort > preview.fdSubsSort) //从上往下移
-                    {
-                        this.propWhere += " AND fdSubsSort<=" + subscribe.fdSubsSort + " AND fdSubsSort>=" + preview.fdSubsSort.ToString();
-                        List<AW_Subscribe_bean> list = this.funcGetList();
-                        if (list.Count > 1)
-                        {
-                            subscribe.fdSubsSort = list[list.Count - 1].fdSubsSort;
-                            this.funcUpdate(subscribe, tran);
-                            for (int i = list.Count - 1; i > 0; i--)
-                            {
-                                list[i].fdSubsSort = list[i - 1].fdSubsSort;
-                                this.funcUpdate(list[i], tran);
-                            }
-                        }
-                    }
-                    else //从下往上移
-                    {
-                        this.propWhere += " AND fdSubsSort>=" + subscribe.fdSubsSort + " AND fdSubsSort<" + preview.fdSubsSort.ToString();
-                        List<AW_Subscribe_bean> list = this.funcGetList();
-                        if (list.Count > 1)
-                        {
-                            subscribe.fdSubsSort = list[0].fdSubsSort;
-                            this.funcUpdate(subscribe, tran);
-                            for (int i = 0; i < list.Count - 1; i++)
-                            {
-                                list[i].fdSubsSort = list[i + 1].fdSubsSort;
-                                this.funcUpdate(list[i], tran);
-                            }
-                        }
-
-                    }
-                }
-                tran.Commit();
-                result = true;
-            }
-            catch (Exception)
-            {
-                tran.Rollback();
-                result = false;
-            }
-            finally
-            {
-                conn.Dispose();
-            }
-            return result;
+            this.propSelect = "fdSubsID";
+            this.propWhere = string.Format( "fdSubsEmail='{0}'", email );
+            return this.funcCommon().Tables[ 0 ].Rows.Count > 0;
         }
 	}
 }

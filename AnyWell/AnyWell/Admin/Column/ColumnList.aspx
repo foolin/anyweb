@@ -7,7 +7,6 @@
 <%@ Register Src="../Control/ColumnFooter.ascx" TagName="ColumnFooter" TagPrefix="uc1" %>
 <%@ Register Src="../Control/ProductFooter.ascx" TagName="ProductFooter" TagPrefix="uc1" %>
 <%@ Register Src="../Control/SingleArticleFooter.ascx" TagName="SingleArticleFooter" TagPrefix="uc1" %>
-<%@ Register Src="../Control/ExhibitorFooter.ascx" TagName="ExhibitorFooter" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" runat="Server">
 
     <script type="text/javascript" src="../js/jquery.ui.core.js"></script>
@@ -102,11 +101,6 @@
           case ( int ) ColumnType.Single:
     %>
     <uc1:SingleArticleFooter runat="server" />
-    <%break;
-
-          case ( int ) ColumnType.Exhibitor:
-    %>
-    <uc1:ExhibitorFooter runat="server" />
     <%break;
           default:
       break; %>

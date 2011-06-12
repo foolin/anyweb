@@ -11,7 +11,7 @@
             $("#datatable").tableDnD({
                 onDrop: function(table, row) {
                     var rows = table.tBodies[0].rows;
-                    var articleId = row.id.replace("row_", "");
+                    var exhibitorId = row.id.replace("row_", "");
                     var nextId = "0";
                     var previewId = "0";
                     var total = rows.length;
@@ -19,7 +19,7 @@
                     var startIndex = <%=PN1.PageSize*(PN1.PageIndex-1)+1%>;
                     for (i = 0; i < rows.length; i++) {
                         rows[i].className = i % 2 == 0 ? "even" : "";
-                        if (rows[i].id == "row_" + articleId) {
+                        if (rows[i].id == "row_" + exhibitorId) {
                             if (i == 0)
                                 nextId = rows[i + 1].id.replace("row_", "");
                             else if (i + 1 == total)
@@ -30,7 +30,7 @@
                         $(rows[i]).find("td:first").html(startIndex + i);
                     }
 
-                    var url = "../../Ajax/ExhibitorSort.aspx?id=" + articleId + "&previewid=" + previewId + "&nextid=" + nextId;
+                    var url = "/Admin/Ajax/ExhibitorSort.aspx?id=" + exhibitorId + "&previewid=" + previewId + "&nextid=" + nextId + "&sid=" + <%=GetSiteID() %>;
                     $.ajax({
                         url: url,
                         cache: false,
@@ -146,7 +146,7 @@
                 <img src="../../images/icons/arrow2.gif" /></a>展商操作任务</h3>
         <div class="opr-mbd">
             <ul>
-                <li class="new"><a href="javascript:parent.addExhibitor(<%=QS("sid") %>);">添加展商</a></li>
+                <li class="new"><a href="javascript:parent.addExhibitor(<%=GetSiteID() %>);">添加展商</a></li>
                 <li class="delFile"><a href="javascript:deleteExhibitor();">删除展商</a></li>
             </ul>
         </div>

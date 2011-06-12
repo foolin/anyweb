@@ -18,6 +18,7 @@ namespace AnyWell.AW_DL
         public List<AW_Exhibitor_bean> funcGetExhibitorList( string ids )
         {
             this.propWhere = string.Format( "fdExhiID IN ({0})", ids );
+            this.propOrder = "ORDER BY fdExhiSort DESC,fdExhiID DESC";
             return this.funcGetList();
         }
 
@@ -32,6 +33,7 @@ namespace AnyWell.AW_DL
         public List<AW_Exhibitor_bean> funcGetExhibitorList( int siteId, int pageIndex, int pageSize, out int recordCount )
         {
             this.propWhere = "fdExhiSiteID=" + siteId;
+            this.propOrder = "ORDER BY fdExhiSort DESC,fdExhiID DESC";
             this.propPage = pageIndex;
             this.propPageSize = pageSize;
             this.propGetCount = true;
@@ -63,6 +65,7 @@ namespace AnyWell.AW_DL
         {
             this.propSelect = string.Format( "TOP {0} *", top );
             this.propWhere = "fdExhiSiteID=" + siteId;
+            this.propOrder = "ORDER BY fdExhiSort DESC,fdExhiID DESC";
             if( type > 0 )
             {
                 this.propWhere += string.Format( " AND fdExhiType={0}", type );
@@ -97,6 +100,7 @@ namespace AnyWell.AW_DL
         public List<AW_Exhibitor_bean> funcGetExhibitorList( int siteId, int type, string number, string name, string enName, int pageIndex, int pageSize, out int recordCount )
         {
             this.propWhere = "fdExhiSiteID=" + siteId;
+            this.propOrder = "ORDER BY fdExhiSort DESC,fdExhiID DESC";
             if( type > 0 )
             {
                 this.propWhere += string.Format( " AND fdExhiType={0}", type );
@@ -119,6 +123,111 @@ namespace AnyWell.AW_DL
             List<AW_Exhibitor_bean> list = this.funcGetList();
             recordCount = this.propCount;
             return list;
+        }
+
+        /// <summary>
+        /// 展商排序
+        /// </summary>
+        /// <param name="siteId">站点编号</param>
+        /// <param name="exhibitor">展商</param>    
+        /// <param name="preview">上一篇展商</param>
+        /// <param name="next">下一篇展商</param>
+        public bool funcSortExhibitor( int siteId,AW_Exhibitor_bean exhibitor, AW_Exhibitor_bean preview, AW_Exhibitor_bean next )
+        {
+            this.propSelect = " fdExhiID,fdExhiSort";
+            this.propWhere = "fdExhiSiteID=" + siteId;
+            this.propOrder = "ORDER BY fdExhiSort DESC,fdExhiID DESC";
+
+            this._propFields = "fdExhiID,fdExhiSort";
+
+            bool result = false;
+
+            IDbConnection conn = this.NewConnection();
+            conn.Open();
+            IDbTransaction tran = conn.BeginTransaction();
+
+            try
+            {
+                if( next != null )
+                {
+                    if( exhibitor.fdExhiSort > next.fdExhiSort ) //从上往下移
+                    {
+                        this.propWhere += " AND fdExhiSort<=" + exhibitor.fdExhiSort + " AND fdExhiSort>" + next.fdExhiSort.ToString();
+                        List<AW_Exhibitor_bean> list = this.funcGetList();
+                        if( list.Count > 1 )
+                        {
+                            exhibitor.fdExhiSort = list[ list.Count - 1 ].fdExhiSort;
+                            this.funcUpdate( exhibitor, tran );
+                            for( int i = 1; i < list.Count; i++ )
+                            {
+                                list[ i ].fdExhiSort = list[ i - 1 ].fdExhiSort;
+                                this.funcUpdate( list[ i ], tran );
+                            }
+                        }
+                    }
+                    else //从下往上移
+                    {
+                        this.propWhere += " AND fdExhiSort>=" + exhibitor.fdExhiSort + " AND fdExhiSort<=" + next.fdExhiSort.ToString();
+                        List<AW_Exhibitor_bean> list = this.funcGetList();
+                        if( list.Count > 1 )
+                        {
+                            exhibitor.fdExhiSort = list[ 0 ].fdExhiSort;
+                            this.funcUpdate( exhibitor, tran );
+                            for( int i = 0; i < list.Count - 1; i++ )
+                            {
+                                list[ i ].fdExhiSort = list[ i + 1 ].fdExhiSort;
+                                this.funcUpdate( list[ i ], tran );
+                            }
+                        }
+                    }
+                }
+                else if( preview != null )
+                {
+                    if( exhibitor.fdExhiSort > preview.fdExhiSort ) //从上往下移
+                    {
+                        this.propWhere += " AND fdExhiSort<=" + exhibitor.fdExhiSort + " AND fdExhiSort>=" + preview.fdExhiSort.ToString();
+                        List<AW_Exhibitor_bean> list = this.funcGetList();
+                        if( list.Count > 1 )
+                        {
+                            exhibitor.fdExhiSort = list[ list.Count - 1 ].fdExhiSort;
+                            this.funcUpdate( exhibitor, tran );
+                            for( int i = list.Count - 1; i > 0; i-- )
+                            {
+                                list[ i ].fdExhiSort = list[ i - 1 ].fdExhiSort;
+                                this.funcUpdate( list[ i ], tran );
+                            }
+                        }
+                    }
+                    else //从下往上移
+                    {
+                        this.propWhere += " AND fdExhiSort>=" + exhibitor.fdExhiSort + " AND fdExhiSort<" + preview.fdExhiSort.ToString();
+                        List<AW_Exhibitor_bean> list = this.funcGetList();
+                        if( list.Count > 1 )
+                        {
+                            exhibitor.fdExhiSort = list[ 0 ].fdExhiSort;
+                            this.funcUpdate( exhibitor, tran );
+                            for( int i = 0; i < list.Count - 1; i++ )
+                            {
+                                list[ i ].fdExhiSort = list[ i + 1 ].fdExhiSort;
+                                this.funcUpdate( list[ i ], tran );
+                            }
+                        }
+
+                    }
+                }
+                tran.Commit();
+                result = true;
+            }
+            catch( Exception )
+            {
+                tran.Rollback();
+                result = false;
+            }
+            finally
+            {
+                conn.Dispose();
+            }
+            return result;
         }
 
         /**************************************************自定义控件********************************************************************************/

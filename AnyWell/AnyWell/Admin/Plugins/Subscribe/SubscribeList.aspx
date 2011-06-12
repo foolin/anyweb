@@ -120,7 +120,7 @@ CodeFile="SubscribeList.aspx.cs" Inherits="Admin_Plugins_Subscribe_SubscribeList
             <ul>
                 <li class="new"><a href="javascript:parent.addSubscribe(<%=QS("sid") %>);">添加订阅</a></li>
                 <li class="delFile"><a href="javascript:delSubscribe();">删除订阅</a></li>
-                <li><a href="javascript:exportSubscribe(<%=QS("sid") %>);">导出订阅</a></li>
+                <li class="downloadFile"><a href="javascript:exportSubscribe(<%=QS("sid") %>);">导出订阅</a></li>
             </ul>
         </div>
     </div>

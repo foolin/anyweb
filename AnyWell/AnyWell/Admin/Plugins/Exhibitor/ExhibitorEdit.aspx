@@ -63,7 +63,7 @@
                     展位号：
                 </th>
                 <td>
-                    <asp:TextBox ID="txtNumber" Width="100" CssClass="text" runat="server" MaxLength="50"></asp:TextBox>
+                    <asp:TextBox ID="txtNumber" Width="100" CssClass="text" runat="server" MaxLength="25"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -71,7 +71,7 @@
                     网址：
                 </th>
                 <td>
-                    <asp:TextBox ID="txtUrl" Width="300" CssClass="text" runat="server" MaxLength="200" Text="http://"></asp:TextBox>
+                    <asp:TextBox ID="txtUrl" Width="300" CssClass="text" runat="server" MaxLength="90" Text="http://"></asp:TextBox>
                 </td>
             </tr>
             <tr>

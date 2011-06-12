@@ -37,7 +37,7 @@
     <div class="pbd">
         <div class="popmhd" id="PopupTitle">
             <a href="javascript:parent.disablePopup();">
-                <img src="../images/icons/close.gif" alt="" /></a>
+                <img src="/Admin/images/icons/close.gif" alt="" /></a>
             <h3>
                 <asp:ContentPlaceHolder ID="cphTitle" runat="server">
                 </asp:ContentPlaceHolder>

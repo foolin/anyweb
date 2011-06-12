@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphTitle" Runat="Server">
-    确定要删除以下用户？
+    确定要删除以下用户(不能删除自己的帐号)？
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphContent" Runat="Server">
     <div class="optionhead">

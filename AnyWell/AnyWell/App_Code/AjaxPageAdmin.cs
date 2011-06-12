@@ -11,7 +11,7 @@ public class AjaxPageAdmin : PageAdmin
     protected override void OnPreInit( EventArgs e )
     {
         AdminInfo = ( new AW_Admin_dao() ).funcGetAdminFromCookie();
-        if( AdminInfo == null )
+        if( AdminInfo == null || AdminInfo.fdAdmiStatus == 1 )
         {
             RenderString( "" );
         }

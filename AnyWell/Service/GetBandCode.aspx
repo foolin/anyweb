@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="GetBandCode.aspx.cs" Inherits="GetBandCode" %>

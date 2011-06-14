@@ -57,6 +57,9 @@
                 </th>
                 <td>
                     <asp:TextBox ID="txtEnName" Width="300" CssClass="text" runat="server" MaxLength="100"></asp:TextBox>
+                    <sw:Validator ID="Validator1" ControlID="txtEnName" ValidateType="DataType" DataType="English" ErrorMessage="英文名称格式错误"
+                        runat="server">
+                    </sw:Validator>
                 </td>
             </tr>
             <tr>

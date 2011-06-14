@@ -21,7 +21,7 @@ Validator.prototype = {
         qq: /^[1-9]\d{4,10}$/,
         integer: /^[-\+]?\d+$/,
         double: /^[-\+]?\d+(\.\d+)?$/,
-        english: /^[A-Za-z]+$/,
+        english: /^[A-Za-z.]+$/,
         chinese: /^[\u0391-\uFFE5]+$/
     },
     Control: function(id, name, ctlid) {

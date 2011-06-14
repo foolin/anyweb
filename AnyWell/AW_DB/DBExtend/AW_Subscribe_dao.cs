@@ -68,10 +68,10 @@ namespace AnyWell.AW_DL
         /// </summary>
         /// <param name="email"></param>
         /// <returns></returns>
-        public bool funcCheckEmailExist( string email )
+        public bool funcCheckEmailExist( int sid, string email )
         {
             this.propSelect = "fdSubsID";
-            this.propWhere = string.Format( "fdSubsEmail='{0}'", email );
+            this.propWhere = string.Format( "fdSubsEmail='{0}'&&fdSubsSiteID={1}", email, sid );
             return this.funcCommon().Tables[ 0 ].Rows.Count > 0;
         }
 	}

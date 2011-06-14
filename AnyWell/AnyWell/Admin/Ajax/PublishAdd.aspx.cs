@@ -130,9 +130,9 @@ public partial class Admin_Ajax_PublishAdd : AjaxPageAdmin
                     RenderString( "文档不存在！" );
                 break;
             case PublishObjectType.Single:
-                AW_SingleArticle_bean singleArticle = new AW_SingleArticle_dao().funcGetSingleArticle( objID );
-                if( singleArticle != null )
-                    return singleArticle.fdSingTitle;
+                AW_Column_bean singleColumn = new AW_Column_dao().funcGetColumnInfo( objID );
+                if( singleColumn != null )
+                    return singleColumn.fdColuName;
                 else
                     RenderString( "单篇文档栏目不存在！" );
                 break;

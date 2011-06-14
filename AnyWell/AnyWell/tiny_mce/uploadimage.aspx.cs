@@ -37,7 +37,7 @@ namespace BLOG.tiny_mce
         private void UploadFile()
         {
             string fileName = DL_helper.funcGetTicks().ToString();
-            string savePath = "/Files/Editor/Pictures";
+            string savePath = "/Files/Editor/Pictures/";
             if( !Directory.Exists( Server.MapPath( savePath ) ) )
             {
                 Directory.CreateDirectory( Server.MapPath( savePath ) );

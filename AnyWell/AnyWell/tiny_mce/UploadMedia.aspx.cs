@@ -42,10 +42,9 @@ namespace BLOG.tiny_mce
 
         private void UploadFile()
         {
-            string url = "";
             HttpPostedFile file1 = Request.Files[0];
 
-            string savePath = "/Files/Editor/Medias";
+            string savePath = "/Files/Editor/Medias/";
             if( !Directory.Exists( Server.MapPath( savePath ) ) )
             {
                 Directory.CreateDirectory( Server.MapPath( savePath ) );

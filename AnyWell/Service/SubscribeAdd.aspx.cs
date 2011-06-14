@@ -16,7 +16,7 @@ public partial class SubscribeAdd : PageBase
         bean.fdSubsSurname = QF( "surname" );
         bean.fdSubsName = QF( "name" );
         bean.fdSubsEmail = QF( "email" );
-        if( dao.funcCheckEmailExist( bean.fdSubsEmail ) )
+        if( dao.funcCheckEmailExist( SiteID, bean.fdSubsEmail ) )
         {
             WebAgent.AlertAndBack( "电子邮件已存在！" );
         }

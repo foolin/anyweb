@@ -49,6 +49,22 @@ public class PageBase : System.Web.UI.Page
         }
     }
 
+    private string _language;
+    /// <summary>
+    /// 语言版本
+    /// </summary>
+    public string Language
+    {
+        get
+        {
+            if( string.IsNullOrEmpty( _language ) )
+            {
+                _language = ConfigurationManager.AppSettings[ "Language" ];
+            }
+            return _language;
+        }
+    }
+
     protected string QS( string key )
     {
         return Request.QueryString[ key ] + "";

@@ -71,7 +71,7 @@ namespace AnyWell.AW_DL
         public bool funcCheckEmailExist( int sid, string email )
         {
             this.propSelect = "fdSubsID";
-            this.propWhere = string.Format( "fdSubsEmail='{0}'&&fdSubsSiteID={1}", email, sid );
+            this.propWhere = string.Format( "fdSubsEmail='{0}' AND fdSubsSiteID={1}", email, sid );
             return this.funcCommon().Tables[ 0 ].Rows.Count > 0;
         }
 	}

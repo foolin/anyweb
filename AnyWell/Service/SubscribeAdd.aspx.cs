@@ -18,18 +18,39 @@ public partial class SubscribeAdd : PageBase
         bean.fdSubsEmail = QF( "email" );
         if( dao.funcCheckEmailExist( SiteID, bean.fdSubsEmail ) )
         {
-            WebAgent.AlertAndBack( "电子邮件已存在！" );
+            if( Language == "ch" )
+            {
+                WebAgent.AlertAndBack( "电子邮件已存在！" );
+            }
+            else
+            {
+                WebAgent.AlertAndBack( "The email already exists！" );
+            }
         }
         bean.fdSubsID = dao.funcNewID();
         bean.fdSubsSort = bean.fdSubsID * 10;
         bean.fdSubsSiteID = SiteID;
         if( dao.funcInsert( bean ) > 0 )
         {
-            WebAgent.SuccAndGo( "电子展讯订阅注册成功！" );
+            if( Language == "ch" )
+            {
+                WebAgent.SuccAndGo( "电子展讯订阅注册成功！" );
+            }
+            else
+            {
+                WebAgent.SuccAndGo( "Registered success！" );
+            }
         }
         else
         {
-            WebAgent.AlertAndBack( "电子展讯订阅注册失败，请稍候再试！" );
+            if( Language == "ch" )
+            {
+                WebAgent.AlertAndBack( "电子展讯订阅注册失败，请稍候再试！" );
+            }
+            else
+            {
+                WebAgent.AlertAndBack( "Registered failure, please try again later！" );
+            }
         }
     }
 }

@@ -5,11 +5,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
 
-public partial class Contorls_Exhibitor_List_33 : UserControlBase
+public partial class Contorls_Exhibitor_List_38 : UserControlBase
 {
     protected void Page_Load( object sender, EventArgs e )
     {
-        rep.DataSource = new AW_Exhibitor_dao().funcGetExhibitorList( 33, 30, 0, "", "", "" );
+        rep.DataSource = new AW_Exhibitor_dao().funcGetExhibitorList( 38, 30, 0, "", "", "" );
         rep.DataBind();
     }
 }

@@ -180,8 +180,8 @@ namespace AnyWell.AW_UC
         {
             int begin, end, pages = PageCount;
 
-            writer.Write( "<a href=\"{0}\" title=\"首页\" class=\"btn_Blue\"><i>首页</i></a>", GetPageUrl( 1 ) );
-            writer.Write( "<a {0} class=\"btn_Blue\"><i>上页</i></a>", PageID > 1 ? String.Format( "href=\"{0}\" title=\"上页\"", GetPageUrl( PageID - 1 ) ) : "disabled" );
+            writer.Write( "<a href=\"{0}\" title=\"{1}\" class=\"btn_Blue\"><i>{1}</i></a>", GetPageUrl( 1 ), FirstPageText );
+            writer.Write( "<a {0} class=\"btn_Blue\"><i>{1}</i></a>", PageID > 1 ? String.Format( "href=\"{0}\" title=\"上页\"", GetPageUrl( PageID - 1 ) ) : "disabled", PrePageText );
             if( PageCount > 9 )
             {
                 if( PageID - 4 >= 1 && PageID + 4 <= PageCount )
@@ -213,8 +213,8 @@ namespace AnyWell.AW_UC
                 else
                     writer.Write( "<a href=\"{0}\">{1}</a>", GetPageUrl( i ), i );
             }
-            writer.Write( "<a {0} class=\"btn_Blue\"><i>下页</i></a>", PageID < pages ? String.Format( "href=\"{0}\" title=\"下页\"", GetPageUrl( PageID + 1 ) ) : "disabled" );
-            writer.Write( "<a href=\"{0}\" title=\"末页\" class=\"btn_Blue\"><i>末页</i></a>", GetPageUrl( end ) );
+            writer.Write( "<a {0} class=\"btn_Blue\"><i>{1}</i></a>", PageID < pages ? String.Format( "href=\"{0}\" title=\"{1}\"", GetPageUrl( PageID + 1 ), NextPageText ) : "disabled", NextPageText );
+            writer.Write( "<a href=\"{0}\" title=\"{1}\" class=\"btn_Blue\"><i>{1}</i></a>", GetPageUrl( end ), LastPageText );
         }
 
         #region Attributes
@@ -373,11 +373,11 @@ namespace AnyWell.AW_UC
             }
         }
 
-        private string _prePageText = "前一页";
+        private string _prePageText = "上页";
         /// <summary>
         /// 获取或设置“前一页”显示文本
         /// </summary>
-        [Description( "记录前一页显示文本" ), DefaultValue( "前一页" )]
+        [Description( "记录前一页显示文本" ), DefaultValue( "上页" )]
         public virtual string PrePageText
         {
             get
@@ -390,11 +390,11 @@ namespace AnyWell.AW_UC
             }
         }
 
-        private string _nextPageText = "后一页";
+        private string _nextPageText = "下页";
         /// <summary>
         /// 获取或设置“后一页”显示文本
         /// </summary>
-        [Description( "记录后一页显示文本" ), DefaultValue( "后一页" )]
+        [Description( "记录后一页显示文本" ), DefaultValue( "下页" )]
         public virtual string NextPageText
         {
             get

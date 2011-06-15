@@ -14,7 +14,14 @@ public partial class RegistAdd : PageBase
         bean.fdRegiEmail = QF( "email" ).Trim();
         if( dao.funcCheckEmailExist( SiteID, bean.fdRegiEmail ) )
         {
-            Fail( "error:Email已经存在！" );
+            if( Language == "ch" )
+            {
+                Fail( "error:Email已经存在！" );
+            }
+            else
+            {
+                Fail( "error:The email already exists！" );
+            }
         }
         bean.fdRegiAppellation = int.Parse( QF( "appellation" ) );
         bean.fdRegiSurname = QF( "surname" ).Trim();
@@ -88,7 +95,14 @@ public partial class RegistAdd : PageBase
         }
         else
         {
-            Fail( "error:观众预登记注册失败，请稍候再试！" );
+            if( Language == "ch" )
+            {
+                Fail( "error:观众预登记注册失败，请稍候再试！" );
+            }
+            else
+            {
+                Fail( "error:Registered failure, please try again later！" );
+            }
         }
     }
 }

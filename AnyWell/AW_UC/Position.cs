@@ -26,6 +26,20 @@ namespace AnyWell.AW_UC
             }
         }
 
+        string _homeText = "首页";
+        [Description( "设置首页名称" ), DefaultValue( "首页" )]
+        public virtual string HomeText
+        {
+            get
+            {
+                return _homeText;
+            }
+            set
+            {
+                _homeText = value;
+            }
+        }
+
         string GetPosition()
         {
             int cid = 0;
@@ -33,7 +47,7 @@ namespace AnyWell.AW_UC
 
             if( cid == 0 )
             {
-                return "<a href=\"/index.html\">首页</a>";
+                return string.Format( "<a href=\"/index.html\">{0}</a>", HomeText );
             }
 
             AW_Column_bean column = new AW_Column_dao().funcGetColumnInfo( cid );
@@ -50,7 +64,7 @@ namespace AnyWell.AW_UC
                 sb.Insert( 0, string.Format( "{0}<a href=\"{1}\">{2}</a>", SplitText, parent.Url, parent.fdColuName ) );
                 parent = parent.Parent;
             }
-            sb.Insert( 0, "<a href=\"/index.html\">首页</a>" );
+            sb.Insert( 0, string.Format( "<a href=\"/index.html\">{0}</a>", HomeText ) );
             return sb.ToString();
         }
 

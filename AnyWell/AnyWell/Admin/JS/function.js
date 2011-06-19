@@ -682,9 +682,19 @@ function clearColumn(c, ownerDel) {
     if (ownerDel) {
         $(c.row).remove();
         if (c.parent) {
-            c.parent.children.shift();
+            for (var i = 0; i < c.parent.children.length; i++) {
+                if (c.parent.children[i].id == c.id) {
+                    c.parent.children.splice(i, 1);
+                    break;
+                }
+            }
         } else {
-            c.site.columns.shift();
+            for (var i = 0; i < c.site.columns.length; i++) {
+                if (c.site.columns[i].id == c.id) {
+                    c.site.columns.splice(i, 1);
+                    break;
+                }
+            }
         }
     }
 }

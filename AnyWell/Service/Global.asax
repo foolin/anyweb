@@ -47,9 +47,9 @@
                     FileInfo fi = new FileInfo( Server.MapPath( "/Error.log" ) );
                     if( fi.Exists && fi.Length > 1024 * 1024 * 100 )
                     {
-                        fi.MoveTo( Server.MapPath( string.Format( "/Error_{0}.log", DateTime.Now.ToString( "yyyyMMddHHmmss" ) ) ) );
+                        fi.MoveTo( Server.MapPath( string.Format( "/Service/Error_{0}.log", DateTime.Now.ToString( "yyyyMMddHHmmss" ) ) ) );
                     }
-                    Studio.IO.FileAgent.WriteText( Server.MapPath( "/Error.log" ), sb.ToString(), true );
+                    Studio.IO.FileAgent.WriteText( Server.MapPath( "/Service/Error.log" ), sb.ToString(), true );
                 }
                 finally
                 {

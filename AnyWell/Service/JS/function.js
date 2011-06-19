@@ -159,7 +159,7 @@ function resetForm1() {
     $("#webSite").val('');
 }
 
-function checkForm2() {
+function checkForm2(en) {
     var error = false, error_top;
     var business = $("input[name=business]:checked").val();
     var business_other = $.trim($("#business_other").val());
@@ -252,7 +252,11 @@ function checkForm2() {
     if (error) {
         $(document).scrollTop($("#" + error_top).offset().top);
     } else {
-        initForm3();
+        if (en) {
+            initEnForm3();
+        } else {
+            initForm3();
+        }
         next(3);
     }
 }
@@ -318,6 +322,56 @@ function initForm3() {
             break;
         case "6":
             $("#view_PositionType").html("其他");
+            break;
+    }
+    $("#view_Company").html($.trim($("#company").val()));
+    $("#view_Address").html($.trim($("#address").val()));
+    $("#view_Post").html($.trim($("#post").val()));
+    $("#view_Phone").html($.trim($("#phohe").val()));
+    $("#view_Fax").html($.trim($("#fax").val()));
+    $("#view_Mobile").html($.trim($("#mobile").val()));
+    $("#view_Email").html($.trim($("#email").val()));
+    $("#view_WebSite").html($.trim($("#webSite").val()));
+}
+
+function initEnForm3() {
+    var appellation = $("input[name=business]:checked").val();
+    switch (appellation) {
+        case "1":
+            $("#view_Appellation").html("Mr.");
+            break;
+        case "2":
+            $("#view_Appellation").html("Mrs.");
+            break;
+        case "3":
+            $("#view_Appellation").html("Miss.");
+            break;
+        case "4":
+            $("#view_Appellation").html("Ms.");
+            break;
+    }
+    $("#view_Surname").html($.trim($("#surname").val()));
+    $("#view_Name").html($.trim($("#name").val()));
+    $("#view_Position").html($.trim($("#position").val()));
+    var positionType = $("#positionType").val();
+    switch (positionType) {
+        case "1":
+            $("#view_PositionType").html("Executive Management (CEO, President, Owner)");
+            break;
+        case "2":
+            $("#view_PositionType").html("Vice President, Director, General Manager");
+            break;
+        case "3":
+            $("#view_PositionType").html("Middle Management (Retail Manager, Department Manager)");
+            break;
+        case "4":
+            $("#view_PositionType").html("Manager (Sales Manager, Marketing Manager)");
+            break;
+        case "5":
+            $("#view_PositionType").html("Purchasing Department (Product Manager, Buyer)");
+            break;
+        case "6":
+            $("#view_PositionType").html("Other");
             break;
     }
     $("#view_Company").html($.trim($("#company").val()));

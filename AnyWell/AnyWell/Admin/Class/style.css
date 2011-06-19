@@ -204,7 +204,7 @@ a.login-text01:hover{font-family: "宋体";font-size: 12px;color: #FF0000;text-d
 
 .mbd-main .pt1{float:left;margin-right:-176px;width:100%;}
 .mbd-main .pt1 .datalist{margin:0 176px 0 0; overflow:auto;}
-.mbd-main .pt1 .datalist .datas{margin-left:20px;}
+.mbd-main .pt1 .datalist .datas{/*margin-left:20px;*/}
 .mbd-main .pt1 .datalist .datas .asc{background:url("../images/icons/sort_asc.gif") no-repeat scroll right center transparent;padding-left:15px;}
 .mbd-main .pt1 .datalist .datas .desc{background:url("../images/icons/sort_desc.gif") no-repeat scroll right center transparent;padding-left:15px;}
 .mbd-main .pt1 .datalist .datas .record{display:inline;float:left;}

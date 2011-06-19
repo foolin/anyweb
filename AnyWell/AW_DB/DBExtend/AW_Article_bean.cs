@@ -89,7 +89,16 @@ namespace AnyWell.AW_DL
         {
             get
             {
-                return string.Format( "{0}{1}.html", Column.VirtualPath, fdArtiID );
+                if( fdArtiType == 2 || fdArtiType == 3 )
+                {
+                    return fdArtiLink;
+                }
+                if( fdArtiType == 4 )
+                {
+                    AW_Article_bean source = AW_Article_bean.funcGetByID( fdArtiSourceID );
+                    return string.Format( "/{0}/{1}.html", source.fdArtiColuID, source.fdArtiID );
+                }
+                return string.Format( "/{0}/{1}.html", fdArtiColuID, fdArtiID );
             }
         }
 	}

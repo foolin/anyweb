@@ -84,7 +84,10 @@ public partial class RegistAdd : PageBase
         {
             bean.fdRegiFrom += ":" + QF( "from_other" ).Trim();
         }
-        bean.fdRegiInterest = int.Parse( QF( "interest" ) );
+        //bean.fdRegiInterest = int.Parse( QF( "interest" ) );
+        int interest = 0;
+        int.TryParse( QF( "interest" ), out interest );
+        bean.fdRegiInterest = interest;
         bean.fdRegiID = dao.funcNewID();
         bean.fdRegiSiteID = SiteID;
         if( dao.funcInsert( bean ) > 0 )

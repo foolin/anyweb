@@ -126,16 +126,23 @@ public partial class Publish_Builder : System.Web.UI.Page
     /// <param name="template"></param>
     private void BuildPage( AW_Template_bean template )
     {
-        string templateName = string.Format( "{0}/{1}/{2}.ascx", templatePath, CurrentSite.fdSiteID, template.fdTempName );
-        string templateFile = Server.MapPath( templateName );
-        if( File.Exists( templateFile ) )
+        try
         {
-            Control templateControl = LoadControl( templateName );
-            Controls.Add( templateControl );
+            string templateName = string.Format( "{0}/{1}/{2}.ascx", templatePath, CurrentSite.fdSiteID, template.fdTempName );
+            string templateFile = Server.MapPath( templateName );
+            if( File.Exists( templateFile ) )
+            {
+                Control templateControl = LoadControl( templateName );
+                Controls.Add( templateControl );
+            }
+            else
+            {
+                Fail( string.Format( "模板文件[{0}]不存在！", template.fdTempName ) );
+            }
         }
-        else
+        catch( Exception ex )
         {
-            Fail( string.Format( "模板文件[{0}]不存在！", template.fdTempName ) );
+            Fail( ex.Message );
         }
         Response.ContentEncoding = Encoding.UTF8;
     }

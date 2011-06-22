@@ -50,7 +50,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Service", "Service\", "{B7A
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "2696"
+		VWDPort = "2697"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject

@@ -3,7 +3,7 @@
     onmouseover="this.stop()" onmouseout="this.start()" id="c2">
     <asp:Repeater ID="rep" runat="server">
     <ItemTemplate>
-        <a href="/247/index.html?id=<%#Eval("fdExhiID") %>"><%#Eval("fdExhiName") %></a><br />
+        <a href="/247/index.html?id=<%#Eval("fdExhiID") %>"><%#Eval( "fdExhiEnName" )%></a><br />
     </ItemTemplate>
     </asp:Repeater>
 </marquee>

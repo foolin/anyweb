@@ -29,13 +29,12 @@
                 </th>
                 <td>
                     <asp:DropDownList ID="drpType" runat="server">
-                        <asp:ListItem Value="1">黑色家电</asp:ListItem>
-                        <asp:ListItem Value="2">白色家电</asp:ListItem>
-                        <asp:ListItem Value="3">小家电</asp:ListItem>
-                        <asp:ListItem Value="4">厨房及浴室家电</asp:ListItem>
-                        <asp:ListItem Value="5">家电配件</asp:ListItem>
-                        <asp:ListItem Value="6">水家电</asp:ListItem>
-                        <asp:ListItem Value="7">服务及刊物</asp:ListItem>
+                        <asp:ListItem Value="1">品牌区</asp:ListItem>
+                        <asp:ListItem Value="2">燃气具专区</asp:ListItem>
+                        <asp:ListItem Value="3">配件区</asp:ListItem>
+                        <asp:ListItem Value="4">卫浴电器区</asp:ListItem>
+                        <asp:ListItem Value="5">小家电区</asp:ListItem>
+                        <asp:ListItem Value="6">精品厨电区</asp:ListItem>
                     </asp:DropDownList>
                 </td>
             </tr>

@@ -42,7 +42,7 @@
         </li>
         <li>所属栏目：<asp:Label ID="lblColumn" runat="server"></asp:Label></li>
         <li>
-            <sw:TinyMce ID="txtContent" runat="server" />
+            <sw:TinyMce ID="txtContent" runat="server" Buttons3="tablecontrols" />
         </li>
         <li>其他设置：
             <asp:CheckBox ID="chkEnableComment" runat="server" CssClass="checkbox" Text="允许评论"

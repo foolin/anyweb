@@ -83,7 +83,7 @@
         </li>
         <li>所属栏目：<asp:Label ID="lblColumn" runat="server"></asp:Label></li>
         <li id="type0">
-            <sw:TinyMce ID="txtContent" runat="server" />
+            <sw:TinyMce ID="txtContent" runat="server" Buttons3="tablecontrols" />
         </li>
         <li id="type1" style="display: none;">
             <asp:TextBox ID="txtTextContent" runat="server" TextMode="MultiLine" Width="98%"></asp:TextBox>

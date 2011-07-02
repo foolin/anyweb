@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Master/List.master" AutoEventWireup="true" 
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/Master/InnerList.master" AutoEventWireup="true" 
 CodeFile="SubscribeList.aspx.cs" Inherits="Admin_Plugins_Subscribe_SubscribeList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHead" Runat="Server">
@@ -120,7 +120,7 @@ CodeFile="SubscribeList.aspx.cs" Inherits="Admin_Plugins_Subscribe_SubscribeList
             <ul>
                 <li class="new"><a href="javascript:parent.addSubscribe(<%=QS("sid") %>);">添加订阅</a></li>
                 <li class="delFile"><a href="javascript:delSubscribe();">删除订阅</a></li>
-                <li class="downloadFile"><a href="javascript:exportSubscribe(<%=QS("sid") %>);">导出订阅</a></li>
+                <li class="downloadFile"><a href="javascript:exportSubscribe(<%=GetSiteID() %>);">导出订阅</a></li>
             </ul>
         </div>
     </div>

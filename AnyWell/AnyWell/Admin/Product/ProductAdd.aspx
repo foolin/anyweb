@@ -58,7 +58,7 @@
         </li>
         <li>所属栏目：<asp:Label ID="lblColumn" runat="server"></asp:Label></li>
         <li id="type0">
-            <sw:TinyMce ID="txtContent" runat="server" />
+            <sw:TinyMce ID="txtContent" runat="server" Buttons3="tablecontrols" />
         </li>
     </ul>
     <div class="mft">

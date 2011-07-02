@@ -198,7 +198,7 @@ public class PublishService
                         //发布文章页面，支持内容分页
                         for( int pageID = 1; pageID <= article.PageCount; pageID++ )
                         {
-                            exe = string.Format( "{0}?cid={1}&did={2}&dpid={3}&urlprefix={4}", this.BuilderPath, column.fdColuID, article.fdArtiID, pageID, article.Url.Replace( article.fdArtiID.ToString(), article.fdArtiID.ToString() + "__pid" ) );
+                            exe = string.Format( "{0}?cid={1}&did={2}&dpid={3}&urlprefix={4}&sid={5}", this.BuilderPath, column.fdColuID, article.fdArtiID, pageID, article.Url.Replace( article.fdArtiID.ToString(), article.fdArtiID.ToString() + "__pid" ), column.Site.fdSiteID );
                             saveTo = string.Format( "{0}\\{1}\\{2}\\{3}", this.PublishPath, column.Site.fdSitePath, column.fdColuID, article.fdArtiID );
                             string htmlFile = PublishPage( exe, saveTo, pageID );
                         }

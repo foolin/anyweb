@@ -42,4 +42,9 @@ public partial class Admin_Plugins_Subscribe_SubscribeList : PageAdmin
             tableFooter.Visible = false;
         }
     }
+
+    public string GetSiteID()
+    {
+        return drpSite.SelectedValue;
+    }
 }

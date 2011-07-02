@@ -29,6 +29,7 @@
     <DropMenuItem id="40" name="选件">
       <DropMenuItem id="4001" name="展商列表" url="Plugins/Exhibitor/ExhibitorList.aspx"></DropMenuItem>
       <DropMenuItem id="4002" name="电子展讯订阅" url="Plugins/Subscribe/SubscribeList.aspx"></DropMenuItem>
+      <DropMenuItem id="4003" name="观众预登记" url="Plugins/Regist/RegistList.aspx"></DropMenuItem>
     </DropMenuItem>
   </DropMenuItem>
 </DropMenu>

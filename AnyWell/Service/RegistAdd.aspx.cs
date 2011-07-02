@@ -41,7 +41,7 @@ public partial class RegistAdd : PageBase
             bean.fdRegiWebSite = "http://" + bean.fdRegiWebSite;
         }
         bean.fdRegiBusiness = QF( "business" );
-        if( bean.fdRegiBusiness.Contains( "9" ) )
+        if( bean.fdRegiBusiness.Contains( "10" ) )
         {
             bean.fdRegiBusiness += ":" + QF( "business_other" ).Trim();
         }
@@ -78,7 +78,9 @@ public partial class RegistAdd : PageBase
             bean.fdRegiPurpose += ":" + QF( "purpose_other" ).Trim();
         }
         bean.fdRegiDecision = int.Parse( QF( "decision" ) );
-        bean.fdRegiBudget = int.Parse( QF( "budget" ) );
+        int budget = 0;
+        int.TryParse( QF( "budget" ), out budget );
+        bean.fdRegiBudget = budget;
         bean.fdRegiFrom = QF( "from" );
         if( bean.fdRegiFrom.Contains( "10" ) )
         {

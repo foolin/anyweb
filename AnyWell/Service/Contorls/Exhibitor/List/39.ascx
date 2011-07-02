@@ -3,12 +3,12 @@
     onmouseover="this.stop()" onmouseout="this.start()" id="c2">
     <asp:Repeater ID="rep" runat="server">
     <ItemTemplate>
-        <a href="/247/index.html?id=<%#Eval("fdExhiID") %>"><%#Eval( "fdExhiEnName" )%></a><br />
+        <a href="/290/index.html?id=<%#Eval("fdExhiID") %>"><%#Eval( "fdExhiEnName" )%></a><br />
     </ItemTemplate>
     </asp:Repeater>
 </marquee>
 <div class="blank15px">
 </div>
 <div class="tc">
-    <a href="/247/index.html" class="btn_Blue"><i>Search</i></a>
+    <a href="/290/index.html" class="btn_Blue"><i>Search</i></a>
 </div>

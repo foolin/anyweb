@@ -504,6 +504,20 @@ function exportSubscribe(sid) {
     parent.goPopupUrl(485, 363, "/Admin/Plugins/Subscribe/SubscribeExport.aspx?sid=" + sid);
 }
 
+//删除观众预登记
+function delRegist() {
+    var ids = getSelect();
+    if (ids) {
+        parent.goPopupUrl(485, 363, "/Admin/Plugins/Regist/RegistDel.aspx?ids=" + ids);
+    } else {
+        parent.showError("系统提示信息", "请选择观众预登记！", 485, 223);
+    }
+}
+
+//导出观众预登记
+function exportRegist(sid) {
+    parent.goPopupUrl(485, 363, "/Admin/Plugins/Regist/RegistExport.aspx?sid=" + sid);
+}
 
 /*---------------- 栏目树 --------------------------*/
 function site(id, name, index) {
@@ -2244,6 +2258,18 @@ function deleteSubscribeOK() {
 
 //导出订阅回调函数
 function exportSubscribeOK(path) {
+    parent.disablePopup();
+    parent.location.href = path;
+}
+
+//删除观众预登记回调函数
+function deleteRegistOK() {
+    parent.window.frames["mainFrame"].window.location.reload();
+    parent.disablePopup();
+}
+
+//导出观众预登记回调函数
+function exportRegistOK(path) {
     parent.disablePopup();
     parent.location.href = path;
 }

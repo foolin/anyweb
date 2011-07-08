@@ -117,6 +117,10 @@ public class PageAdmin : Page
             log.fdLogType = (int)type;
             log.fdLogName = name;
             log.fdLogDesc = description;
+            if( log.fdLogDesc.Length > 400 )
+            {
+                log.fdLogDesc = log.fdLogDesc.Substring( 0, 400 );
+            }
             log.fdLogAdminID = AdminInfo.fdAdmiID;
             log.fdLogIP = Request.UserHostAddress;
             log.fdLogCreateAt = DateTime.Now;

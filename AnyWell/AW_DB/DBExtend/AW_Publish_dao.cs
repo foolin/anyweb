@@ -99,5 +99,16 @@ namespace AnyWell.AW_DL
             string sql = "DELETE AW_Publish WHERE fdPublStatus=2 OR fdPublStatus=3";
             this.funcExecute( sql );
         }
+
+        /// <summary>
+        /// 初始化发布任务(在数据库同步出错时调用)
+        /// </summary>
+        /// <returns></returns>
+        public List<AW_Publish_bean> funcInitPublish()
+        {
+            this.propWhere = "fdPublStatus<>2 AND fdPublStatus<>3";
+            this.propOrder = "ORDER BY fdPublID ASC";
+            return this.funcGetList();
+        }
 	}
 }

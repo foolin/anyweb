@@ -7,6 +7,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using Studio.IO;
 
 /// <summary>
 /// 发布服务
@@ -35,11 +36,13 @@ public class PublishService
         }
         catch( Exception ex )
         {
-            //string content = "\r\n" + DateTime.Now.ToString() + "\r\n";
-            //content += ex.InnerException.ToString();
-            //content += "\r\n\r\n";
-            //FileAgent.WriteText( HttpContext.Current.Server.MapPath( "/log/pub.log" ), content, true );
-            throw ex;
+            string content = "\r\n" + DateTime.Now.ToString() + "\r\n";
+            content += ex.Message;
+            content += "\r\n";
+            FileAgent.WriteText( this.PublishPath + "pub.log", content, true );
+
+            //重新初始化发布任务列表
+            nPublish = new AW_Publish_dao().funcInitPublish();
         }
         finally
         {

@@ -131,6 +131,9 @@
                         <th>
                             栏目
                         </th>
+                        <th>
+                            类型
+                        </th>
                         <th class="end">
                             操 作
                         </th>
@@ -144,10 +147,13 @@
                             </td>
                             <td style="text-align: left;" class="dragTd" title="拖动排序">
                                 <a href="<%#Eval("fdArtiPath") %>" target="_blank">
-                                    <%#Eval("fdArtiTitle")%></a>
+                                    <%#Eval("fdArtiTitle")%><%#( int ) Eval( "fdArtiType" ) == 2 && ( int ) Eval( "fdArtiRecommend" ) == 1 ? "<font style=\"color:red\">【推荐】</font>" : ""%></a>
                             </td>
                             <td>
                                 <%#Eval("Column.fdColuName")%>
+                            </td>
+                            <td>
+                                <%#( int ) Eval( "fdArtiType" ) == 1 ? "图片文章" : ( int ) Eval( "fdArtiType" ) == 2 ? "专题文章" : "普通文章"%>
                             </td>
                             <td>
                                 <a href="ArticleEdit.aspx?id=<%# Eval("fdArtiID")%>">修改</a> <a href="ArticleDel.aspx?id=<%# Eval("fdArtiID")%>"

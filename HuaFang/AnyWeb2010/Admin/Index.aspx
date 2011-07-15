@@ -38,7 +38,7 @@
                                 <tr>
                                     <td width="1%">
                                         <a href="../index.aspx" target="_blank">
-                                            <img src="images/Logo.png" border="0" alt="" /></a>
+                                            <%--<img src="images/Logo.png" border="0" alt="" />--%></a>
                                     </td>
                                 </tr>
                             </table>

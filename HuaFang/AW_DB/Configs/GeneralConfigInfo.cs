@@ -243,14 +243,52 @@ namespace AnyWell.Configs
             set { _goodsListImageHeight = value; }
         }
 
+        private int _articleImageWidth = 0;
+        /// <summary>
+        /// 文章图片宽度
+        /// </summary>
+        public int ArticleImageWidth
+        {
+            get
+            {
+                return _articleImageWidth;
+            }
+            set
+            {
+                _articleImageWidth = value;
+            }
+        }
+
+        private int _articleImageHeight = 0;
+        /// <summary>
+        /// 文章图片高度
+        /// </summary>
+        public int ArticleImageHeight
+        {
+            get
+            {
+                return _articleImageHeight;
+            }
+            set
+            {
+                _articleImageHeight = value;
+            }
+        }
+
         private int _columnImageWidth = 120;
         /// <summary>
         /// 栏目图片宽度
         /// </summary>
         public int ColumnImageWidth
         {
-            get { return _columnImageWidth; }
-            set { _columnImageWidth = value; }
+            get
+            {
+                return _columnImageWidth;
+            }
+            set
+            {
+                _columnImageWidth = value;
+            }
         }
 
         private int _columnImageHeight = 120;
@@ -259,8 +297,46 @@ namespace AnyWell.Configs
         /// </summary>
         public int ColumnImageHeight
         {
-            get { return _columnImageHeight; }
-            set { _columnImageHeight = value; }
+            get
+            {
+                return _columnImageHeight;
+            }
+            set
+            {
+                _columnImageHeight = value;
+            }
+        }
+
+        private int _categoryImageWidth = 0;
+        /// <summary>
+        /// 类别图片宽度
+        /// </summary>
+        public int CategoryImageWidth
+        {
+            get
+            {
+                return _categoryImageWidth;
+            }
+            set
+            {
+                _categoryImageWidth = value;
+            }
+        }
+
+        private int _categoryImageHeight = 0;
+        /// <summary>
+        /// 类别图片高度
+        /// </summary>
+        public int CategoryImageHeight
+        {
+            get
+            {
+                return _categoryImageHeight;
+            }
+            set
+            {
+                _categoryImageHeight = value;
+            }
         }
 
         private int _goodsImageWidth = 300;

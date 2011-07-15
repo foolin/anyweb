@@ -23,6 +23,16 @@ public partial class Admin_TagAdd : PageAdmin
         AW_Tag_bean bean = new AW_Tag_bean();
         bean.fdTagID = dao.funcNewID();
         bean.fdTagName = txtTitle.Text.Trim();
+        bean.fdTagHightLight = chkHightLight.Checked ? 1 : 0;
+        int sort = 0;
+        if( int.TryParse( txtSort.Text.Trim(), out sort ) && sort > 0 )
+        {
+            bean.fdTagSort = sort;
+        }
+        else
+        {
+            bean.fdTagSort = bean.fdTagID * 100;
+        }
         int record = dao.funcInsert( bean );
         if( record > 0 )
         {

@@ -481,3 +481,5 @@ input[type=file]{height:18px;}
 .absolute{ position:absolute;}
 .dashLine{ border-bottom:1px dashed #C8C8C8; height:12px; margin-bottom:12px; clear:both;}
 .blank5px,.blank6px,.blank8px,.blank10px,.blank12px,.blank15px,.blank20px,.blank30px{display:block; clear:both; font-size:1px; overflow:hidden;}
+
+.choArea dl{margin-left:0;overflow:hidden;width:500px}.choArea dd{overflow:hidden;}.choArea dd a{white-space:nowrap}.choArea dt{_display:inline;margin-left:0}

@@ -25,7 +25,12 @@ public partial class Admin_WaterPictureUpload : PageAdmin
         }
         else
         {
-            string path = "/Files/Water/" + DL_helper.funcGetTicks().ToString() + Path.GetExtension(Request.Files[0].FileName);
+            string path = "/Files/Water/" ;
+            if( !Directory.Exists( Server.MapPath( path ) ) )
+            {
+                Directory.CreateDirectory( Server.MapPath( path ) );
+            }
+            path += DL_helper.funcGetTicks().ToString() + Path.GetExtension(Request.Files[0].FileName);
             Request.Files[0].SaveAs(Server.MapPath(path));
             Response.Write("0:" + path);
         }

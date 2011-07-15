@@ -7,16 +7,15 @@
     <div class="con gray">
         <dl>
             <dt>标签设置：</dt>
-            <dd style="width: 100%">
+            <dd style="width: 300px;">
                 <input id="txtTag" style="width: 200px" />
                 <input type="button" value="确定" onclick="SetTags()" />
             </dd>
         </dl>
-        <dl>
+        <dl id="topTag">
             <dt>常用标签：</dt>
-            <div id="topTag">
-                正在加载，请稍候。。。
-            </div>
+            <dd style="width: 100%">
+                正在加载，请稍候。。。</dd>
         </dl>
         <dl>
             <dt>标签查找：</dt>
@@ -46,19 +45,20 @@
         });
 
         function GetTopTag() {
+            $("#topTag dd").remove();
             $.ajax({
                 type: "GET",
                 url: "/Admin/Setting/TagTopGet.aspx",
                 cache: false,
                 success: function(data) {
                     if ($.trim(data).length > 0) {
-                        $("#topTag").html(data);
+                        $("#topTag").append(data);
                     } else {
-                        $("#topTag").html("常用标签不存在，请点击【<a href=\"javascript:GetTopTag();\">刷新</a>】重试。。。");
+                    $("#topTag").append("<dd style=\"width:100%\">常用标签不存在，请点击【<a href=\"javascript:GetTopTag();\" style=\"display:inline;\">刷新</a>】重试。。。</dd>");
                     }
                 },
                 error: function() {
-                    $("#topTag").html("加载失败，请点击【<a href=\"javascript:GetTopTag();\">刷新</a>】重试。。。");
+                $("#topTag").append("<dd style=\"width:100%\">加载失败，请点击【<a href=\"javascript:GetTopTag();\" style=\"display:inline;\">刷新</a>】重试。。。</dd>");
                 }
             });
         }

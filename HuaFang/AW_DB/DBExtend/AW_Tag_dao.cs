@@ -44,7 +44,7 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public List<AW_Tag_bean> funcGetTagList( string key, int pageSize, int pageIndex, out int recordCount )
         {
-            this.propSelect = "fdTagID,fdTagName,fdArtiCount=(SELECT COUNT(fdTaAsID) from AW_Tag_Associated where fdTaAsTagID=fdTagID AND fdTaAsType=0),fdGoodCount=(SELECT COUNT(fdTaAsID) from AW_Tag_Associated where fdTaAsTagID=fdTagID AND fdTaAsType=1)";
+            this.propSelect = "fdTagID,fdTagName,fdTagHightLight,fdArtiCount=(SELECT COUNT(fdTaAsID) from AW_Tag_Associated where fdTaAsTagID=fdTagID AND fdTaAsType=0),fdGoodCount=(SELECT COUNT(fdTaAsID) from AW_Tag_Associated where fdTaAsTagID=fdTagID AND fdTaAsType=1)";
             if( !string.IsNullOrEmpty( key ) )
             {
                 key = key.Replace( "[", "[[]" ).Replace( "%", "[%]" );
@@ -52,7 +52,7 @@ namespace AnyWell.AW_DL
                 this.propWhere += "fdTagName LIKE @key";
                 this.funcAddParam( "@key", key );
             }
-            this.propOrder = "ORDER BY fdTagName ASC";
+            this.propOrder = "ORDER BY fdTagSort DESC,fdTagID DESC";
             this.propGetCount = true;
             this.propPageSize = pageSize;
             this.propPage = pageIndex;
@@ -164,6 +164,92 @@ namespace AnyWell.AW_DL
             this.propTableApp = "INNER JOIN AW_Tag_Associated ON fdTagID=fdTaAsTagID";
             this.propWhere = string.Format( "fdTaAsDataID={0} AND fdTaAsType={1}", objId, type );
             return this.funcGetList();
+        }
+
+        /// <summary>
+        /// 调整标签排序
+        /// </summary>
+        /// <param name="tagId"></param>
+        /// <param name="nextId"></param>
+        /// <param name="previewId"></param>
+        public void funcSortTag( int tagId, int nextId, int previewId )
+        {
+            AW_Tag_bean tag = AW_Tag_bean.funcGetByID( tagId, "fdTagID,fdTagSort" );
+            AW_Tag_bean next = nextId == 0 ? null : AW_Tag_bean.funcGetByID( nextId, "fdTagID,fdTagSort" );
+            AW_Tag_bean preview = previewId == 0 ? null : AW_Tag_bean.funcGetByID( previewId, "fdTagID,fdTagSort" );
+
+            this.propSelect = " fdTagID,fdTagSort";
+            this.propOrder = " ORDER BY fdTagSort DESC";
+
+            this._propFields = "fdTagID,fdTagSort";
+
+            if( next != null )
+            {
+                if( tag.fdTagSort > next.fdTagSort ) //从上往下移
+                {
+                    this.propWhere += " AND fdTagSort<=" + tag.fdTagSort + " AND fdTagSort>" + next.fdTagSort.ToString();
+                    List<AW_Tag_bean> list = this.funcGetList();
+                    if( list.Count > 1 )
+                    {
+                        tag.fdTagSort = list[ list.Count - 1 ].fdTagSort;
+                        this.funcUpdate( tag );
+                        for( int i = 1; i < list.Count; i++ )
+                        {
+                            list[ i ].fdTagSort = list[ i - 1 ].fdTagSort;
+                            this.funcUpdate( list[ i ] );
+                        }
+                    }
+                }
+                else //从下往上移
+                {
+                    this.propWhere += " AND fdTagSort>=" + tag.fdTagSort + " AND fdTagSort<=" + next.fdTagSort.ToString();
+                    List<AW_Tag_bean> list = this.funcGetList();
+                    if( list.Count > 1 )
+                    {
+                        tag.fdTagSort = list[ 0 ].fdTagSort;
+                        this.funcUpdate( tag );
+                        for( int i = 0; i < list.Count - 1; i++ )
+                        {
+                            list[ i ].fdTagSort = list[ i + 1 ].fdTagSort;
+                            this.funcUpdate( list[ i ] );
+                        }
+                    }
+                }
+            }
+            else if( preview != null )
+            {
+                if( tag.fdTagSort > preview.fdTagSort ) //从上往下移
+                {
+                    this.propWhere += " AND fdTagSort<=" + tag.fdTagSort + " AND fdTagSort>=" + preview.fdTagSort.ToString();
+                    List<AW_Tag_bean> list = this.funcGetList();
+                    if( list.Count > 1 )
+                    {
+                        tag.fdTagSort = list[ list.Count - 1 ].fdTagSort;
+                        this.funcUpdate( tag );
+                        for( int i = list.Count - 1; i > 0; i-- )
+                        {
+                            list[ i ].fdTagSort = list[ i - 1 ].fdTagSort;
+                            this.funcUpdate( list[ i ] );
+                        }
+                    }
+                }
+                else //从下往上移
+                {
+                    this.propWhere += " AND fdTagSort>=" + tag.fdTagSort + " AND fdTagSort<" + preview.fdTagSort.ToString();
+                    List<AW_Tag_bean> list = this.funcGetList();
+                    if( list.Count > 1 )
+                    {
+                        tag.fdTagSort = list[ 0 ].fdTagSort;
+                        this.funcUpdate( tag );
+                        for( int i = 0; i < list.Count - 1; i++ )
+                        {
+                            list[ i ].fdTagSort = list[ i + 1 ].fdTagSort;
+                            this.funcUpdate( list[ i ] );
+                        }
+                    }
+
+                }
+            }
         }
 	}
 }

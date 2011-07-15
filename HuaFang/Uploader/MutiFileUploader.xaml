@@ -1,0 +1,71 @@
+﻿<aw:UserControlBase x:Class="AnyWell.Uploader.MutiFileUploader"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:aw="clr-namespace:AnyWell.Uploader"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <Style x:Key="TextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#ff444444" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="#ff444444" />
+            <Setter Property="FontSize" Value="12" />
+        </Style>
+    </UserControl.Resources>
+    <Grid x:Name="fileUploaderGrid" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="21"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="White" Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="13"></RowDefinition>
+            </Grid.RowDefinitions>
+            <HyperlinkButton x:Name="addFilesButton" Height="13" Content="添加文件" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalContentAlignment="Center"></HyperlinkButton>
+            <ProgressBar x:Name="progressBar" Height="13" Minimum="0" Grid.Column="1" Grid.Row="0" Visibility="Collapsed" ></ProgressBar>
+            <TextBlock x:Name="totalSizeTextBlock" Height="13" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Visibility="Collapsed" />
+        </Grid>
+        <Grid x:Name="fileListGrid" Background="White" Grid.Row="1" Grid.Column="0" Width="281" Height="150" Visibility="Collapsed">
+            <Border x:Name="controlBorder" CornerRadius="10" BorderBrush="#ff444444" BorderThickness="2">
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0">
+                        <GradientStop Color="#ffdbeef2"/>
+                        <GradientStop Color="#ffdbeef2" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="60" />
+                        <ColumnDefinition Width="60" />
+                        <ColumnDefinition Width="60" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="100" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Style="{StaticResource TextStyle}" Text="文件" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Style="{StaticResource TextStyle}" Text="状态" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="12 0 0 0" />
+                    <TextBlock Style="{StaticResource TextStyle}" Text="大小" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Style="{StaticResource TextStyle}" Text="操作" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="9 0"  />
+                    <ScrollViewer x:Name="filesScrollViewer" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible" Background="White">
+                        <ItemsControl x:Name="fileList" >
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <aw:FileUploadRowControl Margin="0,2"></aw:FileUploadRowControl>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</aw:UserControlBase>

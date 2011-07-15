@@ -77,13 +77,29 @@ public class FileUploadProcess
         }
     }
 
+    private string _filename;
+    public string filename
+    {
+        get
+        {
+            return _filename;
+        }
+        set
+        {
+            _filename = value;
+        }
+    }
+
     public FileUploadProcess()
     {
     }
 
     public void ProcessRequest( HttpContext context, string uploadPath )
     {
-        string filename = context.Request.QueryString[ "filename" ];
+        if( string.IsNullOrEmpty( filename ) )
+        {
+            filename = context.Request.QueryString[ "filename" ];
+        }
         bool complete = string.IsNullOrEmpty( context.Request.QueryString[ "Complete" ] ) ? true : bool.Parse( context.Request.QueryString[ "Complete" ] );
         bool getBytes = string.IsNullOrEmpty( context.Request.QueryString[ "GetBytes" ] ) ? false : bool.Parse( context.Request.QueryString[ "GetBytes" ] );
         long startByte = string.IsNullOrEmpty( context.Request.QueryString[ "StartByte" ] ) ? 0 : long.Parse( context.Request.QueryString[ "StartByte" ] );
@@ -121,7 +137,6 @@ public class FileUploadProcess
 
             if( startByte > 0 && File.Exists( filePath ) )
             {
-
                 using( FileStream fs = File.Open( filePath, FileMode.Append ) )
                 {
                     SaveFile( context.Request.InputStream, fs );

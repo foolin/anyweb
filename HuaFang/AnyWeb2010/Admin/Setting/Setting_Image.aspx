@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
-    <script type="text/javascript" src="js/ajaxfileupload.js"></script>
+    <script type="text/javascript" src="../js/ajaxfileupload.js"></script>
     <script type="text/javascript">
         function uploadPictures() {
             $.ajaxFileUpload(
@@ -100,6 +100,48 @@
             </div>
             <div class="fi even">
                 <label>
+                    文章图片：</label>
+                <div class="cont">
+                    宽<asp:TextBox ID="txtArticleWidth" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素,高<asp:TextBox
+                        ID="txtArticleHeight" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素
+                    <sw:Validator ID="Validator3" ControlID="txtArticleWidth" ValidateType="Required" ErrorText="请输入文章图片宽度"
+                        ErrorMessage="请输入文章图片宽度" runat="server">
+                    </sw:Validator>
+                    <sw:Validator ID="Validator4" ControlID="txtArticleHeight" ValidateType="Required" ErrorText="请输入文章图片高度"
+                        ErrorMessage="请输入文章图片高度" runat="server">
+                    </sw:Validator>
+                </div>
+            </div>
+            <div class="fi">
+                <label>
+                    类别图片：</label>
+                <div class="cont">
+                    宽<asp:TextBox ID="txtCategoryWidth" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素,高<asp:TextBox
+                        ID="txtCategoryHeight" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素
+                    <sw:Validator ID="Validator10" ControlID="txtCategoryWidth" ValidateType="Required" ErrorText="请输入类别图片宽度"
+                        ErrorMessage="请输入类别图片宽度" runat="server">
+                    </sw:Validator>
+                    <sw:Validator ID="Validator11" ControlID="txtCategoryHeight" ValidateType="Required" ErrorText="请输入类别图片高度"
+                        ErrorMessage="请输入类别图片高度" runat="server">
+                    </sw:Validator>
+                </div>
+            </div>
+            <div class="fi even">
+                <label>
+                    商品图片：</label>
+                <div class="cont">
+                    宽<asp:TextBox ID="txtGoodsWidth" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素,高<asp:TextBox
+                        ID="txtGoodsHeight" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素
+                    <sw:Validator ID="Validator12" ControlID="txtGoodsWidth" ValidateType="Required" ErrorText="请输入商品图片宽度"
+                        ErrorMessage="请输入商品图片宽度" runat="server">
+                    </sw:Validator>
+                    <sw:Validator ID="Validator13" ControlID="txtGoodsHeight" ValidateType="Required" ErrorText="请输入商品图片高度"
+                        ErrorMessage="请输入商品图片高度" runat="server">
+                    </sw:Validator>
+                </div>
+            </div>
+            <div class="fi">
+                <label>
                     幻灯片：</label>
                 <div class="cont">
                     宽<asp:TextBox ID="txtFlashWidth" runat="server" MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素,高<asp:TextBox
@@ -112,7 +154,7 @@
                     </sw:Validator>
                 </div>
             </div>
-            <div class="fi">
+            <div class="fi even">
                 <label>
                     水印类型：</label>
                 <div class="cont">
@@ -124,7 +166,7 @@
                     </asp:RadioButtonList>
                 </div>
             </div>
-            <div class="fi even">
+            <div class="fi">
                 <label>
                     水印图片：</label>
                 <div class="cont">
@@ -146,7 +188,7 @@
                         }
                         #images li.on
                         {
-                            background: url(../public/images/goods_lst_bg.jpg);
+                            background: url(../images/goods_lst_bg.jpg);
                         }
                         #images li img
                         {
@@ -174,14 +216,14 @@
                     </div>
                 </div>
             </div>
-            <div class="fi">
+            <div class="fi even">
                 <label>
                     水印文字：</label>
                 <div class="cont">
                     <asp:TextBox ID="txtWaterText" runat="server" CssClass="text" MaxLength="100"></asp:TextBox>                    
                 </div>
             </div>
-            <div class="fi even">
+            <div class="fi">
                 <label>
                     水印字体：</label>
                 <div class="cont">
@@ -194,7 +236,7 @@
                     </sw:Validator>
                 </div>
             </div>
-            <div class="fi">
+            <div class="fi even">
                 <label>
                     文字形状：</label>
                 <asp:DropDownList ID="drpFontCss" runat="server">
@@ -204,21 +246,21 @@
                     <asp:ListItem Text="中划线" Value="Strikeout"></asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <div class="fi even">
+            <div class="fi">
                 <label>
                     文字颜色：</label>
                 <div class="cont">
-                    <asp:TextBox ID="txtFontColor" runat="server"  MaxLength="7" Style="cursor:default" Width="35px" CssClass="text"></asp:TextBox>
-                    <img id="Img1" alt="选择颜色" src="images/color1.gif" border="0" title="选择颜色" onmouseover="src='images/color2.gif'" onmouseout="src='images/color1.gif'" Style="cursor: default; position: absolute;" onClick='SelectColor(<%=txtFontColor.UniqueID %>)' />
+                    <asp:TextBox ID="txtFontColor" runat="server"  MaxLength="7" style="cursor:default;float:left;" Width="35px" CssClass="text"></asp:TextBox>
+                    <img id="Img1" alt="选择颜色" src="../images/color1.gif" border="0" title="选择颜色" onmouseover="src='../images/color2.gif'" onmouseout="src='../images/color1.gif'" Style="cursor:pointer;" onClick='SelectColor("<%=txtFontColor.ClientID %>")' />
                 </div>
             </div>
-            <div class="fi">
+            <div class="fi even">
                 <label>
                     阴影颜色：</label>
-                <asp:TextBox ID="txtShadowColor" runat="server"  MaxLength="7" Style="cursor:default" Width="35px" CssClass="text"></asp:TextBox>
-                <img id="Img2" alt="选择颜色" src="images/color1.gif" border="0" title="选择颜色" onmouseover="src='images/color2.gif'" onmouseout="src='images/color1.gif'" Style="cursor: default; position: absolute;" onClick='SelectColor(<%=txtShadowColor.UniqueID %>)' />
+                <asp:TextBox ID="txtShadowColor" runat="server"  MaxLength="7" style="cursor:default;float:left;" Width="35px" CssClass="text"></asp:TextBox>
+                <img id="Img2" alt="选择颜色" src="../images/color1.gif" border="0" title="选择颜色" onmouseover="src='../images/color2.gif'" onmouseout="src='../images/color1.gif'" Style="cursor:default;" onClick='SelectColor("<%=txtShadowColor.ClientID %>")' />
             </div>
-            <div class="fi even">
+            <div class="fi">
                 <label>
                     水印透明度：</label>
                 <div class="cont">
@@ -228,7 +270,7 @@
                     </sw:Validator>
                 </div>
             </div>
-            <div class="fi">
+            <div class="fi even">
                 <label>
                     旋转角度：</label>
                 <div class="cont">
@@ -238,7 +280,7 @@
                     </sw:Validator>
                 </div>                
             </div>
-            <div class="fi even">
+            <div class="fi">
                 <label>
                     水印位置：</label>
                 <div class="cont">
@@ -273,11 +315,12 @@
     <script type="text/javascript">
         function SelectColor(form) {
             var url = 'selcolor.aspx';    
-            var arr = showModalDialog(url, window, 'dialogWidth:280px;dialogHeight:250px;help:no;scroll:no;status:no');
+            var arr = showModalDialog(url, window, 'dialogWidth:300px;dialogHeight:250px;help:no;scroll:no;status:no');
             if (arr) {
-                form.value = arr;
-                form.style.backgroundColor = arr;
-                form.style.color = arr;
+                var obj = document.getElementById(form);
+                obj.value = arr;
+                obj.style.backgroundColor = arr;
+                obj.style.color = arr;
             }
         }
     </script>

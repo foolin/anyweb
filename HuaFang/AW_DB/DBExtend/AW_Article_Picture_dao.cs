@@ -21,11 +21,13 @@ namespace AnyWell.AW_DL
                 return;
             }
             this.propWhere = "fdArPiArtiID=" + article.fdArtiID;
+            this.propOrder = "ORDER BY fdArPiSort ASC";
             List<AW_Article_Picture_bean> list = this.funcGetList();
             article.PictureList = new List<AW_Article_Picture_bean>();
             article.CatWalkList = new List<AW_Article_Picture_bean>();
             article.BackStageList = new List<AW_Article_Picture_bean>();
             article.CloseUpList = new List<AW_Article_Picture_bean>();
+            article.FrontRowList = new List<AW_Article_Picture_bean>();
             foreach( AW_Article_Picture_bean bean in list )
             {
                 switch( bean.fdArPiType )
@@ -41,6 +43,9 @@ namespace AnyWell.AW_DL
                         break;
                     case 3:
                         article.CloseUpList.Add( bean );
+                        break;
+                    case 4:
+                        article.FrontRowList.Add( bean );
                         break;
                     default:
                         break;

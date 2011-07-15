@@ -6,6 +6,15 @@
     <iframe style="width: 0px; height: 0px;" id="ifrSelf" name="ifrSelf"></iframe>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
+
+    <script type="text/javascript" src="../js/jquery.ui.core.js"></script>
+
+    <script type="text/javascript" src="../js/jquery.ui.widget.js"></script>
+
+    <script type="text/javascript" src="../js/jquery.ui.mouse.js"></script>
+
+    <script type="text/javascript" src="../js/jquery.ui.sortable.js"></script>
+
     <style type="text/css">
         .images li
         {
@@ -34,6 +43,10 @@
         {
             border: 0;
             background: 0;
+        }
+        .imagelist li
+        {
+            height: 150px;
         }
     </style>
 
@@ -66,83 +79,155 @@
                     $("#div0").show();
                     $("#div1").hide();
                     $("#div2").hide();
+                    $("#divTag").attr("class","fi");
+                    $("#divSort").attr("class","fi even");
                     break;
                 case "1":
                     $("#div1").show();
                     $("#div0").hide();
                     $("#div2").hide();
+                    $("#divTag").attr("class","fi even");
+                    $("#divSort").attr("class","fi");
                     break;
                 case "2":
                     $("#div2").show();
                     $("#div0").hide();
                     $("#div1").hide();
+                    $("#divTag").attr("class","fi even");
+                    $("#divSort").attr("class","fi");
                     break;
             }
         }
         
         function setPicture(path){
             if(path.length>0){
+                path = "/Files/Articles/" + path;
                 $("#img").attr("src",path).parent("li").show();
                 $("#imgPath").val(path);
             }
-            HideUploader("divUpload");
         }
         
         function setPicList(path){
             if(path.length>0){
                 var allPath=path.split(",");
                 for(var i=0;i<allPath.length;i++){
+                    var iPath = "/Files/Articles/" + allPath[i];
                     $("#imgList_demo ul li").clone().insertAfter("#imgList ul li:last");
-                    $("#imgList ul li:last img").attr("src", allPath[i]);
-                    $("#imgList ul li:last input").attr("value", allPath[i]);
+                    $("#imgList ul li:last img").attr("src", iPath);
+                    $("#imgList ul li:last input").attr("value", iPath);
                 }
+                sortBind("imgList");
+                setDesc($("#<%=chkDesc.ClientID %>").attr("checked"));
             }
-            HideUploader("divList");
         }
         
         function setCatWalk(path){
             if(path.length>0){
                 var allPath=path.split(",");
                 for(var i=0;i<allPath.length;i++){
+                    var iPath = "/Files/Articles/" + allPath[i];
                     $("#CatWalk_demo ul li").clone().insertAfter("#CatWalkList ul li:last");
-                    $("#CatWalkList ul li:last img").attr("src", allPath[i]);
-                    $("#CatWalkList ul li:last input").attr("value", allPath[i]);
+                    $("#CatWalkList ul li:last img").attr("src", iPath);
+                    $("#CatWalkList ul li:last input").attr("value", iPath);
                 }
+                sortBind("CatWalkList");
             }
-            HideUploader("divCatWalk");
         }
         
         function setBackStage(path){
             if(path.length>0){
                 var allPath=path.split(",");
                 for(var i=0;i<allPath.length;i++){
+                    var iPath = "/Files/Articles/" + allPath[i];
                     $("#BackStage_demo ul li").clone().insertAfter("#BackStageList ul li:last");
-                    $("#BackStageList ul li:last img").attr("src", allPath[i]);
-                    $("#BackStageList ul li:last input").attr("value", allPath[i]);
+                    $("#BackStageList ul li:last img").attr("src", iPath);
+                    $("#BackStageList ul li:last input").attr("value", iPath);
                 }
+                sortBind("BackStageList");
             }
-            HideUploader("divBackStage");
         }
         
         function setCloseUp(path){
             if(path.length>0){
                 var allPath=path.split(",");
                 for(var i=0;i<allPath.length;i++){
+                    var iPath = "/Files/Articles/" + allPath[i];
                     $("#CloseUp_demo ul li").clone().insertAfter("#CloseUpList ul li:last");
-                    $("#CloseUpList ul li:last img").attr("src", allPath[i]);
-                    $("#CloseUpList ul li:last input").attr("value", allPath[i]);
+                    $("#CloseUpList ul li:last img").attr("src", iPath);
+                    $("#CloseUpList ul li:last input").attr("value", iPath);
                 }
+                sortBind("CloseUpList");
             }
-            HideUploader("divCloseUp");
+        }
+        
+        function setFrontRow(path){
+            if(path.length>0){
+                var allPath=path.split(",");
+                for(var i=0;i<allPath.length;i++){
+                    var iPath = "/Files/Articles/" + allPath[i];
+                    $("#FrontRow_demo ul li").clone().insertAfter("#FrontRowList ul li:last");
+                    $("#FrontRowList ul li:last img").attr("src", iPath);
+                    $("#FrontRowList ul li:last input").attr("value", iPath);
+                }
+                sortBind("FrontRowList");
+            }
         }
         
         function delPicture(obj) {
-            if(obj){
-                $(obj).parent("li").remove();
-            }else{
-                $("#imgPath").val("");
-                $("#img").attr("src","").parent("li").hide();
+            if(confirm("确定要删除图片？")){
+                if(obj){
+                    $(obj).parent("li").remove();
+                }else{
+                    $("#imgPath").val("");
+                    $("#img").attr("src","").parent("li").hide();
+                }
             }
+        }
+        
+        function sortBind(obj){
+            $("#"+obj+" ul").sortable({
+                items: '> li',
+                handle: 'img.imglistmove',
+                cursor: 'move',
+                appendTo: 'body',
+                start: function(e, ui) {
+                    ui.helper.css("width", ui.item.width());
+                },
+                update: function(e, ui) {
+                    if (ui.sender) {
+                        var w = ui.element.width();
+                        ui.placeholder.width(w);
+                        ui.helper.css("width", ui.element.children().width());
+                    }
+                }
+            });
+        }
+        
+        function setDesc(checked){
+            if(checked){
+               $("#imgList textarea").hide();
+               $("#imgList").removeClass("imagelist");
+            }else{
+                $("#imgList textarea").show();
+                $("#imgList").addClass("imagelist");
+            }
+        }
+        
+        function setFlash(path) {
+            if (path) {
+                $("#flashLink").attr("href", "/Files/Articles/" + path);
+                $("#txtflash").val("/Files/Articles/" + path);
+                $("#flashLink").show();
+            }
+        }
+        
+        function delFlash(){
+            if (confirm("确定删除该视频？")) {
+                $("#flashLink").attr("href", "");
+                $("#txtflash").val("");
+                $("#flashLink").hide();
+            }
+            return false;
         }
     </script>
 
@@ -183,8 +268,10 @@
                 <label>
                     文章图片：</label>
                 <div class="cont">
-                    <a href="javascript:void(0);" onclick="ShowUploader('divUpload','/Files/Articles/','setPicture',false,1);" class="choAreabtn" title="上传/修改图片">
-                        上传/修改图片</a>
+                    <sw:Uploader ID="PicUploader" UploadPage="/Admin/Ajax/ArticlePicUpload.ashx" FilePath="/Files/Articles/"
+                        MaxSizeToUpload="2097152" Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
+                        JavascriptCompleteFunction="setPicture" MultiSelect="false" runat="server">
+                    </sw:Uploader>
                     <div id="divUpload">
                     </div>
                     <span id="results"></span>
@@ -224,18 +311,29 @@
             <div id="div1" style="display: none">
                 <div class="fi even">
                     <label>
+                        图片描述：</label>
+                    <div class="cont">
+                        <asp:CheckBox ID="chkDesc" runat="server" Text="使用文章描述" CssClass="checkbox" onclick="setDesc(this.checked);" />
+                    </div>
+                </div>
+                <div class="fi">
+                    <label>
                         图片列表：</label>
                     <div class="cont">
-                        <a href="javascript:void(0);" onclick="ShowUploader('divList','/Files/Articles/','setPicList',true,-1);" class="choAreabtn"
-                            title="上传/修改图片">上传/修改图片</a>
+                        <sw:Uploader ID="Uploader1" UploadPage="/Admin/Ajax/ArticlePicListUpload.ashx" FilePath="/Files/Articles/"
+                            Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
+                            JavascriptCompleteFunction="setPicList" MultiSelect="true" runat="server">
+                        </sw:Uploader>
                         <div id="divList">
                         </div>
                         <div id="imgList_demo" style="display: none;">
                             <ul>
                                 <li>
-                                    <img alt="" src="" /><input type="hidden" name="pics" value="" />
+                                    <img class="imglistmove" alt="" src="" /><input type="hidden" name="pics" value="" />
                                     <button onclick="delPicture(this);" type="button">
-                                        删除</button></li>
+                                        删除</button>
+                                    <textarea name="txtPicDesc" style="width: 99px; height: 50px;"></textarea>
+                                </li>
                             </ul>
                         </div>
                         <div id="imgList" class="images">
@@ -244,9 +342,12 @@
                                 <asp:Repeater ID="repImgList" runat="server">
                                     <ItemTemplate>
                                         <li>
-                                            <img alt="" src="<%#Eval("fdArPiPath") %>" /><input type="hidden" name="pics" value="<%#Eval("fdArPiID") %>:<%#Eval("fdArPiPath") %>" />
+                                            <img class="imglistmove" alt="" src="<%#Eval("fdArPiPath") %>" /><input type="hidden"
+                                                name="pics" value="<%#Eval("fdArPiID") %>:<%#Eval("fdArPiPath") %>" />
                                             <button onclick="delPicture(this);" type="button">
-                                                删除</button></li>
+                                                删除</button>
+                                            <textarea name="txtPicDesc" style="width: 99px; height: 50px;"><%#Eval( "fdArPiDesc" )%></textarea>
+                                        </li>
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </ul>
@@ -264,16 +365,19 @@
                 </div>
                 <div class="fi">
                     <label>
-                        CatWalk：</label>
+                        T台风云：</label>
                     <div class="cont">
-                        <a href="javascript:void(0);" onclick="ShowUploader('divCatWalk','/Files/Articles/','setCatWalk',true,-1);" class="choAreabtn"
-                            title="上传/修改图片">上传/修改图片</a>
+                        <sw:Uploader ID="Uploader2" UploadPage="/Admin/Ajax/ArticlePicListUpload.ashx" FilePath="/Files/Articles/"
+                            Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
+                            JavascriptCompleteFunction="setCatWalk" MultiSelect="true" runat="server">
+                        </sw:Uploader>
                         <div id="divCatWalk">
                         </div>
                         <div id="CatWalk_demo" style="display: none;">
                             <ul>
                                 <li>
-                                    <img alt="" src="" /><input type="hidden" name="CatWalkPics" value="" />
+                                    <img class="imglistmove" alt="" src="" /><input type="hidden" name="CatWalkPics"
+                                        value="" />
                                     <button onclick="delPicture(this);" type="button">
                                         删除</button></li>
                             </ul>
@@ -284,7 +388,8 @@
                                 <asp:Repeater ID="repCatWalk" runat="server">
                                     <ItemTemplate>
                                         <li>
-                                            <img alt="" src="<%#Eval("fdArPiPath") %>" /><input type="hidden" name="CatWalkPics" value="<%#Eval("fdArPiID") %>:<%#Eval("fdArPiPath") %>" />
+                                            <img class="imglistmove" alt="" src="<%#Eval("fdArPiPath") %>" /><input type="hidden"
+                                                name="CatWalkPics" value="<%#Eval("fdArPiID") %>:<%#Eval("fdArPiPath") %>" />
                                             <button onclick="delPicture(this);" type="button">
                                                 删除</button></li>
                                     </ItemTemplate>
@@ -295,47 +400,19 @@
                 </div>
                 <div class="fi even">
                     <label>
-                        BackStage：</label>
+                        细节鉴赏：</label>
                     <div class="cont">
-                        <a href="javascript:void(0);" onclick="ShowUploader('divBackStage','/Files/Articles/','setBackStage',true,-1);" class="choAreabtn"
-                            title="上传/修改图片">上传/修改图片</a>
-                        <div id="divBackStage">
-                        </div>
-                        <div id="BackStage_demo" style="display: none;">
-                            <ul>
-                                <li>
-                                    <img alt="" src="" /><input type="hidden" name="BackStagePics" value="" />
-                                    <button onclick="delPicture(this);" type="button">
-                                        删除</button></li>
-                            </ul>
-                        </div>
-                        <div id="BackStageList" class="images">
-                            <ul>
-                                <li style="display: none;"></li>
-                                <asp:Repeater ID="repBackStage" runat="server">
-                                    <ItemTemplate>
-                                        <li>
-                                            <img alt="" src="<%#Eval("fdArPiPath") %>" /><input type="hidden" name="BackStagePics" value="<%#Eval("fdArPiID") %>:<%#Eval("fdArPiPath") %>" />
-                                            <button onclick="delPicture(this);" type="button">
-                                                删除</button></li>
-                                    </ItemTemplate>
-                                </asp:Repeater>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="fi">
-                    <label>
-                        Close-Up：</label>
-                    <div class="cont">
-                        <a href="javascript:void(0);" onclick="ShowUploader('divCloseUp','/Files/Articles/','setCloseUp',true,-1);" class="choAreabtn"
-                            title="上传/修改图片">上传/修改图片</a>
+                        <sw:Uploader ID="Uploader4" UploadPage="/Admin/Ajax/ArticlePicListUpload.ashx" FilePath="/Files/Articles/"
+                            Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
+                            JavascriptCompleteFunction="setCloseUp" MultiSelect="true" runat="server">
+                        </sw:Uploader>
                         <div id="divCloseUp">
                         </div>
                         <div id="CloseUp_demo" style="display: none;">
                             <ul>
                                 <li>
-                                    <img alt="" src="" /><input type="hidden" name="CloseUpPics" value="" />
+                                    <img class="imglistmove" alt="" src="" /><input type="hidden" name="CloseUpPics"
+                                        value="" />
                                     <button onclick="delPicture(this);" type="button">
                                         删除</button></li>
                             </ul>
@@ -346,13 +423,139 @@
                                 <asp:Repeater ID="repCloseUp" runat="server">
                                     <ItemTemplate>
                                         <li>
-                                            <img alt="" src="<%#Eval("fdArPiPath") %>" /><input type="hidden" name="CloseUpPics" value="<%#Eval("fdArPiID") %>:<%#Eval("fdArPiPath") %>" />
+                                            <img class="imglistmove" alt="" src="<%#Eval("fdArPiPath") %>" /><input type="hidden"
+                                                name="CloseUpPics" value="<%#Eval("fdArPiID") %>:<%#Eval("fdArPiPath") %>" />
                                             <button onclick="delPicture(this);" type="button">
                                                 删除</button></li>
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </ul>
                         </div>
+                    </div>
+                </div>
+                <div class="fi">
+                    <label>
+                        幕后花絮：</label>
+                    <div class="cont">
+                        <sw:Uploader ID="Uploader3" UploadPage="/Admin/Ajax/ArticlePicListUpload.ashx" FilePath="/Files/Articles/"
+                            Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
+                            JavascriptCompleteFunction="setBackStage" MultiSelect="true" runat="server">
+                        </sw:Uploader>
+                        <div id="divBackStage">
+                        </div>
+                        <div id="BackStage_demo" style="display: none;">
+                            <ul>
+                                <li>
+                                    <img class="imglistmove" alt="" src="" /><input type="hidden" name="BackStagePics"
+                                        value="" />
+                                    <button onclick="delPicture(this);" type="button">
+                                        删除</button></li>
+                            </ul>
+                        </div>
+                        <div id="BackStageList" class="images">
+                            <ul>
+                                <li style="display: none;"></li>
+                                <asp:Repeater ID="repBackStage" runat="server">
+                                    <ItemTemplate>
+                                        <li>
+                                            <img class="imglistmove" alt="" src="<%#Eval("fdArPiPath") %>" /><input type="hidden"
+                                                name="BackStagePics" value="<%#Eval("fdArPiID") %>:<%#Eval("fdArPiPath") %>" />
+                                            <button onclick="delPicture(this);" type="button">
+                                                删除</button></li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="fi even">
+                    <label>
+                        前排景观：</label>
+                    <div class="cont">
+                        <sw:Uploader ID="Uploader5" UploadPage="/Admin/Ajax/ArticlePicListUpload.ashx" FilePath="/Files/Articles/"
+                            Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
+                            JavascriptCompleteFunction="setFrontRow" MultiSelect="true" runat="server">
+                        </sw:Uploader>
+                        <div id="divFrontRow">
+                        </div>
+                        <div id="FrontRow_demo" style="display: none;">
+                            <ul>
+                                <li>
+                                    <img class="imglistmove" alt="" src="" /><input type="hidden" name="FrontRowPics"
+                                        value="" />
+                                    <button onclick="delPicture(this);" type="button">
+                                        删除</button></li>
+                            </ul>
+                        </div>
+                        <div id="FrontRowList" class="images">
+                            <ul>
+                                <li style="display: none;"></li>
+                                <asp:Repeater ID="repFrontRow" runat="server">
+                                    <ItemTemplate>
+                                        <li>
+                                            <img class="imglistmove" alt="" src="<%#Eval("fdArPiPath") %>" /><input type="hidden"
+                                                name="FrontRowPics" value="<%#Eval("fdArPiID") %>:<%#Eval("fdArPiPath") %>" />
+                                            <button onclick="delPicture(this);" type="button">
+                                                删除</button></li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="fi">
+                    <label>
+                        视频直击：</label>
+                    <div class="cont">
+                        <sw:Uploader ID="Uploader6" UploadPage="/Admin/Ajax/ArticleFlashUpload.ashx" FilePath="/Files/Articles/"
+                            Filter="Flash (*.swf;*.flv)|*.swf;*.flv;" JavascriptCompleteFunction="setFlash"
+                            MultiSelect="false" runat="server" Style="margin-left: 6px">
+                        </sw:Uploader>
+                        <a id="flashLink" href="<%=article.fdArtiFlashPath %>" target="_blank" title="右键删除视频" style="<%=string.IsNullOrEmpty( article.fdArtiFlashPath )?"display:none;": ""%>" oncontextmenu="return delFlash();">
+                            <img src="../images/rar.gif" alt="" /></a>
+                        <input type="hidden" id="txtflash" name="txtflash" value="<%=article.fdArtiFlashPath %>" />
+                    </div>
+                </div>
+                <div class="fi even">
+                    <label>
+                        视频描述：</label>
+                    <div class="cont">
+                        <asp:TextBox ID="txtFlashDesc" TextMode="MultiLine" Width="400px" Height="150px"
+                            runat="server"></asp:TextBox>
+                        <span>视频描述不得超过400字。</span>
+                        <sw:Validator ID="Validator5" ControlID="txtDesc" ValidateType="MaxLength" MaxLength="400"
+                            ErrorText="视频描述不得超过400字" ErrorMessage="视频描述不得超过400字" runat="server">
+                        </sw:Validator>
+                    </div>
+                </div>
+                <div class="fi">
+                    <label>
+                        类别：</label>
+                    <div class="cont">
+                        <asp:DropDownList ID="drpCategory" runat="server">
+                            <asp:ListItem Value="1" Text="男装"></asp:ListItem>
+                            <asp:ListItem Value="2" Text="高级成衣"></asp:ListItem>
+                            <asp:ListItem Value="3" Text="高级定制"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <div class="fi even">
+                    <label>
+                        城市：</label>
+                    <div class="cont">
+                        <asp:DropDownList ID="drpCity" runat="server">
+                            <asp:ListItem Value="1" Text="巴黎"></asp:ListItem>
+                            <asp:ListItem Value="2" Text="米兰"></asp:ListItem>
+                            <asp:ListItem Value="3" Text="伦敦"></asp:ListItem>
+                            <asp:ListItem Value="4" Text="纽约"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <div class="fi">
+                    <label>
+                        是否推荐：</label>
+                    <div class="cont">
+                        <asp:CheckBox ID="chkRecommend" runat="server" Text="推荐" CssClass="checkbox" />
                     </div>
                 </div>
             </div>
@@ -415,6 +618,15 @@
             }
         });
         typeChange($("#<%=drpType.ClientID %>").val());
+        if ($("#<%=drpType.ClientID %>").val() == "1") {
+            sortBind("imgList");
+            setDesc($("#<%=chkDesc.ClientID %>").attr("checked"));
+        } else if ($("#<%=drpType.ClientID %>").val() == "2") {
+            sortBind("CatWalkList");
+            sortBind("CloseUpList");
+            sortBind("BackStageList");
+            sortBind("FrontRowList");
+        }
     </script>
 
 </asp:Content>

@@ -14,7 +14,7 @@ namespace AnyWell.AW_DL
         {
             this._propTable = "AW_Tag";
             this._propPK = "fdTagID";
-            this._propFields = "fdTagID,fdTagName";
+            this._propFields = "fdTagID,fdTagName,fdTagSort,fdTagHightLight";
         }
 
         public List<AW_Tag_bean> funcGetList()

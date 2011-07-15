@@ -82,6 +82,19 @@ namespace AnyWell.AW_DL
             }
         }
 
+        private List<AW_Article_Picture_bean> _FrontRowList;
+        public List<AW_Article_Picture_bean> FrontRowList
+        {
+            get
+            {
+                return _FrontRowList;
+            }
+            set
+            {
+                _FrontRowList = value;
+            }
+        }
+
         public string fdArtiPath
         {
             get 

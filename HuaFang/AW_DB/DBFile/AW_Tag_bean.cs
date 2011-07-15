@@ -37,6 +37,15 @@ namespace AnyWell.AW_DL
             get{return _fdTagSort;}
             set{ _fdTagSort = value;}
         }
+        private int _fdTagHightLight = 0;
+        /// <summary>
+        /// 高亮(0否1是)
+        /// </summary>
+        public int fdTagHightLight
+        {
+            get{return _fdTagHightLight;}
+            set{_fdTagHightLight = value;}
+        }
 
 
 		/////////////////////////////////////////

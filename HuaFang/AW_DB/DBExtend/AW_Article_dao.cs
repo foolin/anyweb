@@ -21,7 +21,7 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public List<AW_Article_bean> funcGetArticle(AW_Column_bean column, int pageSize, int pageIndex)
         {
-            this.propSelect = "a.fdArtiID,a.fdArtiTitle,c.fdColuName";
+            this.propSelect = "a.fdArtiID,a.fdArtiTitle,c.fdColuName,a.fdArtiRecommend,a.fdArtiType";
             this.propTableApp = " a INNER JOIN AW_Column c ON a.fdArtiColumnID = c.fdColuID";
             this.propOrder = "ORDER BY a.fdArtiSort DESC,fdArtiID DESC";
             if (column != null)

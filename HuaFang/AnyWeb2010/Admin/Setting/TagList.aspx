@@ -8,7 +8,37 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
 
+    <script type="text/javascript" src="/Admin/js/jquery.tablednd.js"></script>
+
     <script type="text/javascript">
+        $(document).ready(function() {
+            $("#datas").tableDnD({
+                onDrop: function(table, row) {
+                    var rows = table.tBodies[0].rows;
+                    var tagId = row.id.replace("row_", "");
+                    var nextId = "0";
+                    var previewId = "0";
+                    var total = rows.length;
+                    if (total <= 1)
+                        return;
+                    for (i = 0; i < rows.length; i++) {
+                        rows[i].className = i % 2 == 0 ? "even" : "";
+                        if (rows[i].id == "row_" + tagId) {
+                            if (i == 0)
+                                nextId = rows[i + 1].id.replace("row_", "");
+                            else if (i + 1 == total)
+                                previewId = rows[i - 1].id.replace("row_", "");
+                            else
+                                previewId = rows[i - 1].id.replace("row_", "");
+                        }
+                    }
+
+                    var url = "TagSort.aspx?id=" + tagId + "&previewid=" + previewId + "&nextid=" + nextId;
+                    $.get(url, "", function(htm) { });
+                }
+            });
+        });
+    
         function SelectAll(v) {
             var list = document.getElementsByTagName("input");
             for (var i = 0; i < list.length; i++) {
@@ -68,6 +98,9 @@
                         <th>
                             标签
                         </th>
+                        <th style="width:60px;">
+                            是否高亮
+                        </th>
                         <th class="end">
                             操 作
                         </th>
@@ -75,14 +108,17 @@
                 </thead>
                 <asp:Repeater ID="compRep" runat="server" EnableViewState="False">
                     <ItemTemplate>
-                        <tr align="center" class="editalt">
+                        <tr align="center" class="editalt" id="row_<%# Eval("fdTagID")%>">
                             <td style="width: 30px;">
                                 <input type="checkbox" name="ids" value="<%# Eval("fdTagID")%>" />
                             </td>
-                            <td style="text-align: left;" class="dragTd">
+                            <td style="text-align: left;" class="dragTd" title="拖动排序">
                                 </a>
                                 <%#Eval("fdTagName")%>（<a href="TagArticleList.aspx?id=<%#Eval("fdTagID") %>&back=<%#Request.Url.PathAndQuery.Replace("pid","pageindex") %>">文章：<%#Eval("fdArtiCount") %></a>）（<a
                                     href="TagGoodList.aspx?id=<%#Eval("fdTagID") %>&back=<%#Request.Url.PathAndQuery.Replace("pid","pageindex") %>">商品：<%#Eval("fdGoodCount") %></a>）
+                            </td>
+                            <td>
+                                <%#( int ) Eval( "fdTagHightLight" ) == 1 ? "是" : ""%>
                             </td>
                             <td>
                                 <a href="TagEdit.aspx?id=<%# Eval("fdTagID")%>">修改</a> <a href="TagDel.aspx?id=<%# Eval("fdTagID")%>"

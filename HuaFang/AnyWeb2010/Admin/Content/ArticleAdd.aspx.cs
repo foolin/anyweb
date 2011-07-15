@@ -116,6 +116,7 @@ public partial class Admin_ArticleAdd : ArticleBase
 
         if( bean.fdArtiType == 1 )
         {
+            bean.fdArtiPicDesc = chkDesc.Checked ? 1 : 0;
             bean.PictureList = new List<AW_Article_Picture_bean>();
             string pics = QF( "pics" );
             if( pics.Length > 0 )
@@ -125,9 +126,15 @@ public partial class Admin_ArticleAdd : ArticleBase
         }
         else if( bean.fdArtiType == 2 )
         {
+            bean.fdArtiCategory = int.Parse( drpCategory.SelectedValue );
+            bean.fdArtiCity = int.Parse( drpCity.SelectedValue );
+            bean.fdArtiRecommend = chkRecommend.Checked ? 1 : 0;
+            bean.fdArtiFlashPath = QF( "txtflash" ).Trim();
+            bean.fdArtiFlashDesc = txtFlashDesc.Text;
             bean.CatWalkList = new List<AW_Article_Picture_bean>();
             bean.BackStageList = new List<AW_Article_Picture_bean>();
             bean.CloseUpList = new List<AW_Article_Picture_bean>();
+            bean.FrontRowList = new List<AW_Article_Picture_bean>();
             string pics = QF( "CatWalkPics" );
             if( pics.Length > 0 )
             {
@@ -142,6 +149,11 @@ public partial class Admin_ArticleAdd : ArticleBase
             if( pics.Length > 0 )
             {
                 InitPic( bean, pics, 3 );
+            }
+            pics = QF( "FrontRowPics" );
+            if( pics.Length > 0 )
+            {
+                InitPic( bean, pics, 4 );
             }
         }
 
@@ -196,6 +208,15 @@ public partial class Admin_ArticleAdd : ArticleBase
                         dao.funcInsert( pic );
                     }
                 }
+                if( bean.FrontRowList.Count > 0 )
+                {
+                    foreach( AW_Article_Picture_bean pic in bean.FrontRowList )
+                    {
+                        pic.fdArPiID = dao.funcNewID();
+                        pic.fdArPiArtiID = bean.fdArtiID;
+                        dao.funcInsert( pic );
+                    }
+                }
             }
         }
         this.SetTags( bean, QF( "tags" ).Trim() );
@@ -226,17 +247,45 @@ public partial class Admin_ArticleAdd : ArticleBase
             case 3:
                 list = article.CloseUpList;
                 break;
+            case 4:
+                list = article.FrontRowList;
+                break;
             default:
                 return;
         }
-        foreach( string str in pics.Split( ',' ) )
+        string[] pic = pics.Split( ',' );
+        if( picType != 0 || chkDesc.Checked )
         {
-            if( str.Trim().Length > 0 )
+            for( int i = 0; i < pic.Length; i++ )
             {
-                AW_Article_Picture_bean picture = new AW_Article_Picture_bean();
-                picture.fdArPiPath = str;
-                picture.fdArPiType = picType;
-                list.Add( picture );
+                if( pic[ i ].Trim().Length > 0 )
+                {
+                    AW_Article_Picture_bean picture = new AW_Article_Picture_bean();
+                    picture.fdArPiPath = pic[ i ].Trim();
+                    picture.fdArPiType = picType;
+                    picture.fdArPiSort = i;
+                    list.Add( picture );
+                }
+            }
+        }
+        else
+        {
+            string[] picDesc = Request.Form.GetValues( "txtPicDesc" );
+            for( int i = 0; i < pic.Length; i++ )
+            {
+                if( pic[ i ].Trim().Length > 0 )
+                {
+                    AW_Article_Picture_bean picture = new AW_Article_Picture_bean();
+                    picture.fdArPiPath = pic[ i ].Trim();
+                    picture.fdArPiType = picType;
+                    picture.fdArPiDesc = picDesc[ i ];
+                    picture.fdArPiSort = i;
+                    if( picture.fdArPiDesc.Length > 400 )
+                    {
+                        picture.fdArPiDesc = picture.fdArPiDesc.Substring( 0, 400 );
+                    }
+                    list.Add( picture );
+                }
             }
         }
     }

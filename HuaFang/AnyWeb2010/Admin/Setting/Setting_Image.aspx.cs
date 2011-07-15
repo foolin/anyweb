@@ -38,20 +38,16 @@ public partial class Admin_Setting_Image : PageAdmin
         }
 
         GeneralConfigInfo config = GeneralConfigs.GetConfig();
-        //txtBrandWdith.Text = config.BrandImageWidth.ToString();
-        //txtBrandHeight.Text = config.BrandImageHeight.ToString();
-        //txtGoodsHeight.Text = config.GoodsImageHeight.ToString();
-        //txtGoodsWidth.Text = config.GoodsImageWidth.ToString();
-        //txtGoodsListWidth.Text = config.GoodsListImageWidth.ToString();
-        //txtGoodsListHeight.Text = config.GoodsListImageHeight.ToString();
-        //txtMemberImageHeight.Text = config.MemberAvatorHeight.ToString();
-        //txtMemberImageWidth.Text = config.MemberAvatorWidth.ToString();
         txtColumnWidth.Text = config.ColumnImageWidth.ToString();
         txtColumnHeight.Text = config.ColumnImageHeight.ToString();
+        txtArticleWidth.Text = config.ArticleImageWidth.ToString();
+        txtArticleHeight.Text = config.ArticleImageHeight.ToString();
+        txtCategoryWidth.Text = config.CategoryImageWidth.ToString();
+        txtCategoryHeight.Text = config.CategoryImageHeight.ToString();
+        txtGoodsHeight.Text = config.GoodsImageHeight.ToString();
+        txtGoodsWidth.Text = config.GoodsImageWidth.ToString();
         txtFlashWidth.Text = config.FlashWidth.ToString();
         txtFlashHeight.Text = config.FlashHeight.ToString();
-        //txtBigADHeight.Text = config.BigADImageHeight.ToString();
-        //txtBigADWidth.Text = config.BigADImageWidth.ToString();
 
         ListItem li;
         li = radioWaterType.Items.FindByValue(config.ImageWatermarkType.ToString());
@@ -132,6 +128,60 @@ public partial class Admin_Setting_Image : PageAdmin
         else
         {
             WebAgent.AlertAndBack("栏目图片宽度格式错误");
+        }
+
+        if( int.TryParse( txtArticleWidth.Text, out number ) )
+        {
+            config.ArticleImageWidth = number;
+        }
+        else
+        {
+            WebAgent.AlertAndBack( "文章图片宽度格式错误" );
+        }
+
+        if( int.TryParse( txtArticleHeight.Text, out number ) )
+        {
+            config.ArticleImageHeight = number;
+        }
+        else
+        {
+            WebAgent.AlertAndBack( "文章图片高度格式错误" );
+        }
+
+        if( int.TryParse( txtCategoryWidth.Text, out number ) )
+        {
+            config.CategoryImageWidth = number;
+        }
+        else
+        {
+            WebAgent.AlertAndBack( "类别图片宽度格式错误" );
+        }
+
+        if( int.TryParse( txtCategoryHeight.Text, out number ) )
+        {
+            config.CategoryImageHeight = number;
+        }
+        else
+        {
+            WebAgent.AlertAndBack( "类别图片高度格式错误" );
+        }
+
+        if( int.TryParse( txtGoodsWidth.Text, out number ) )
+        {
+            config.GoodsImageWidth = number;
+        }
+        else
+        {
+            WebAgent.AlertAndBack( "商品图片宽度格式错误" );
+        }
+
+        if( int.TryParse( txtGoodsHeight.Text, out number ) )
+        {
+            config.GoodsImageHeight = number;
+        }
+        else
+        {
+            WebAgent.AlertAndBack( "商品图片高度格式错误" );
         }
 
         if (int.TryParse(txtFlashWidth.Text, out number))

@@ -28,6 +28,15 @@ namespace AnyWell.AW_DL
 			get{return _fdArPiPath;}
 			set{_fdArPiPath = value;}
 		}
+        private string _fdArPiDesc = "";
+        /// <summary>
+        /// 图片描述
+        /// </summary>
+        public string fdArPiDesc
+        {
+            get{return _fdArPiDesc;}
+            set{_fdArPiDesc = value;}
+        }
 		private int _fdArPiArtiID = 0;
 		 /// <summary>
 		 /// 文章编号
@@ -39,13 +48,22 @@ namespace AnyWell.AW_DL
 		}
 		private int _fdArPiType = 0;
 		 /// <summary>
-		 /// 类型(0:图片1CatWalk2BackStage3CloseUp)
+		 /// 类型(0:图片1CatWalk2BackStage3CloseUp4FrontRow)
 		 /// </summary>
 		public int fdArPiType
 		{
 			get{return _fdArPiType;}
 			set{_fdArPiType = value;}
 		}
+        private int _fdArPiSort;
+        /// <summary>
+        /// 排序
+        /// </summary>
+        public int fdArPiSort
+        {
+            get{return _fdArPiSort;}
+            set{_fdArPiSort = value;}
+        }
 
 
 		/////////////////////////////////////////

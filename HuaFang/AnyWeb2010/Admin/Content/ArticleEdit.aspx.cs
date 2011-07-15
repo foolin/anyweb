@@ -57,6 +57,11 @@ public partial class Admin_ArticleEdit : ArticleBase
             repBackStage.DataBind();
             repCloseUp.DataSource = article.CloseUpList;
             repCloseUp.DataBind();
+            repFrontRow.DataSource = article.FrontRowList;
+            repFrontRow.DataBind();
+            drpCategory.SelectedValue = article.fdArtiCategory.ToString();
+            drpCity.SelectedValue = article.fdArtiCity.ToString();
+            chkRecommend.Checked = article.fdArtiRecommend == 1 ? true : false;
         }
         txtDesc.Text = article.fdArtiDesc;
         txtSort.Text = article.fdArtiSort.ToString();
@@ -165,6 +170,7 @@ public partial class Admin_ArticleEdit : ArticleBase
         //设置图片
         if( article.fdArtiType == 1 )
         {
+            article.fdArtiPicDesc = chkDesc.Checked ? 1 : 0;
             article.PictureList = new List<AW_Article_Picture_bean>();
             string pics = QF( "pics" );
             if( pics.Length > 0 )
@@ -174,9 +180,15 @@ public partial class Admin_ArticleEdit : ArticleBase
         }
         else if( article.fdArtiType == 2 )
         {
+            article.fdArtiCategory = int.Parse( drpCategory.SelectedValue );
+            article.fdArtiCity = int.Parse( drpCity.SelectedValue );
+            article.fdArtiRecommend = chkRecommend.Checked ? 1 : 0;
+            article.fdArtiFlashPath = QF( "txtflash" ).Trim();
+            article.fdArtiFlashDesc = txtFlashDesc.Text;
             article.CatWalkList = new List<AW_Article_Picture_bean>();
             article.BackStageList = new List<AW_Article_Picture_bean>();
             article.CloseUpList = new List<AW_Article_Picture_bean>();
+            article.FrontRowList = new List<AW_Article_Picture_bean>();
             string pics = QF( "CatWalkPics" );
             if( pics.Length > 0 )
             {
@@ -191,6 +203,11 @@ public partial class Admin_ArticleEdit : ArticleBase
             if( pics.Length > 0 )
             {
                 InitPic( article, pics, 3 );
+            }
+            pics = QF( "FrontRowPics" );
+            if( pics.Length > 0 )
+            {
+                InitPic( article, pics, 4 );
             }
         }
 
@@ -210,6 +227,10 @@ public partial class Admin_ArticleEdit : ArticleBase
                             pic.fdArPiID = dao.funcNewID();
                             dao.funcInsert( pic );
                         }
+                        else
+                        {
+                            dao.funcUpdate( pic );
+                        }
                         temp += "," + pic.fdArPiID.ToString();
                     }
                 }
@@ -225,6 +246,10 @@ public partial class Admin_ArticleEdit : ArticleBase
                             pic.fdArPiID = dao.funcNewID();
                             dao.funcInsert( pic );
                         }
+                        else
+                        {
+                            dao.funcUpdate( pic );
+                        }
                         temp += "," + pic.fdArPiID.ToString();
                     }
                 }
@@ -237,6 +262,10 @@ public partial class Admin_ArticleEdit : ArticleBase
                             pic.fdArPiID = dao.funcNewID();
                             dao.funcInsert( pic );
                         }
+                        else
+                        {
+                            dao.funcUpdate( pic );
+                        }
                         temp += "," + pic.fdArPiID.ToString();
                     }
                 }
@@ -248,6 +277,26 @@ public partial class Admin_ArticleEdit : ArticleBase
                         {
                             pic.fdArPiID = dao.funcNewID();
                             dao.funcInsert( pic );
+                        }
+                        else
+                        {
+                            dao.funcUpdate( pic );
+                        }
+                        temp += "," + pic.fdArPiID.ToString();
+                    }
+                }
+                if( article.FrontRowList.Count > 0 )
+                {
+                    foreach( AW_Article_Picture_bean pic in article.FrontRowList )
+                    {
+                        if( pic.fdArPiID == 0 )
+                        {
+                            pic.fdArPiID = dao.funcNewID();
+                            dao.funcInsert( pic );
+                        }
+                        else
+                        {
+                            dao.funcUpdate( pic );
                         }
                         temp += "," + pic.fdArPiID.ToString();
                     }
@@ -309,28 +358,65 @@ public partial class Admin_ArticleEdit : ArticleBase
             case 3:
                 list = article.CloseUpList;
                 break;
+            case 4:
+                list = article.FrontRowList;
+                break;
             default:
                 return;
         }
-        foreach( string str in pics.Split( ',' ) )
+        string[] pic = pics.Split( ',' );
+        if( picType != 0 || chkDesc.Checked )
         {
-            if( str.Trim().Length > 0 )
+            for( int i = 0; i < pic.Length; i++ )
             {
-                AW_Article_Picture_bean picture = new AW_Article_Picture_bean();
-                if( str.Contains( ":" ) )
+                if( pic[ i ].Trim().Length > 0 )
                 {
-                    picture.fdArPiID = int.Parse( str.Substring( 0, str.IndexOf( ":" ) ) );
-                    picture.fdArPiArtiID = article.fdArtiID;
-                    picture.fdArPiPath = str.Substring( str.IndexOf( ":" ) + 1 );
+                    AW_Article_Picture_bean picture = new AW_Article_Picture_bean();
+                    if( pic[ i ].Contains( ":" ) )
+                    {
+                        picture.fdArPiID = int.Parse( pic[ i ].Substring( 0, pic[ i ].IndexOf( ":" ) ) );
+                        picture.fdArPiArtiID = article.fdArtiID;
+                        picture.fdArPiPath = pic[ i ].Substring( pic[ i ].IndexOf( ":" ) + 1 );
+                    }
+                    else
+                    {
+                        picture.fdArPiArtiID = article.fdArtiID;
+                        picture.fdArPiPath = pic[ i ];
+                    }
                     picture.fdArPiType = picType;
+                    picture.fdArPiSort = i;
+                    list.Add( picture );
                 }
-                else
+            }
+        }
+        else
+        {
+            string[] picDesc = Request.Form.GetValues( "txtPicDesc" );
+            for( int i = 0; i < pic.Length; i++ )
+            {
+                if( pic[ i ].Trim().Length > 0 )
                 {
-                    picture.fdArPiArtiID = article.fdArtiID;
-                    picture.fdArPiPath = str;
+                    AW_Article_Picture_bean picture = new AW_Article_Picture_bean();
+                    if( pic[ i ].Contains( ":" ) )
+                    {
+                        picture.fdArPiID = int.Parse( pic[ i ].Substring( 0, pic[ i ].IndexOf( ":" ) ) );
+                        picture.fdArPiArtiID = article.fdArtiID;
+                        picture.fdArPiPath = pic[ i ].Substring( pic[ i ].IndexOf( ":" ) + 1 );
+                    }
+                    else
+                    {
+                        picture.fdArPiArtiID = article.fdArtiID;
+                        picture.fdArPiPath = pic[ i ];
+                    }
                     picture.fdArPiType = picType;
+                    picture.fdArPiDesc = picDesc[ i ];
+                    picture.fdArPiSort = i;
+                    if( picture.fdArPiDesc.Length > 400 )
+                    {
+                        picture.fdArPiDesc = picture.fdArPiDesc.Substring( 0, 400 );
+                    }
+                    list.Add( picture );
                 }
-                list.Add( picture );
             }
         }
     }

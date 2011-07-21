@@ -72,6 +72,12 @@
       </xMenuItem>
       <xMenuItem id="406" url ="/Admin/Content/NoticeAdd.aspx" name ="添加公告"></xMenuItem>
       <xMenuItem id="407" url ="/Admin/Content/SiteInfoList.aspx" name ="基本信息"></xMenuItem>
+	  <xMenuItem id="408" url ="/Admin/Content/LibraryList.aspx" name ="两库管理" >
+		<xMenuItem url ="/Admin/Content/LibraryAdd.aspx" name ="添加库信息" type="3" ></xMenuItem>
+		<xMenuItem url ="/Admin/Content/LibraryEdit.aspx" name ="修改库信息" type="3" ></xMenuItem>
+		<xMenuItem url ="/Admin/Content/LibrarysMove.aspx" name ="移动库信息" type="3" ></xMenuItem>
+		<xMenuItem url ="/Admin/Content/LibraryDel.aspx" name ="删除库信息" type="3" ></xMenuItem>
+	  </xMenuItem>
     </xMenuItem>
     <xMenuItem id="5" name="招聘" module="7">
       <xMenuItem id="501" url ="/Admin/Recruit/RecruitList.aspx" name ="招聘列表" >

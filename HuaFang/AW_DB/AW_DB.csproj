@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{67EDE50C-1A2F-4B66-B336-11EFBE1B8802}</ProjectGuid>
     <OutputType>Library</OutputType>
@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="DBBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\AnyWell_DLL\DBBase\obj\Release\DBBase.dll</HintPath>
+      <HintPath>..\..\..\DBBase.dll</HintPath>
     </Reference>
     <Reference Include="Studio, Version=1.0.4079.40898, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -93,6 +93,8 @@
     <Compile Include="DBExtend\AW_Help_Type_dao.cs" />
     <Compile Include="DBExtend\AW_KeyWord_bean.cs" />
     <Compile Include="DBExtend\AW_KeyWord_dao.cs" />
+    <Compile Include="DBExtend\AW_Library_bean.cs" />
+    <Compile Include="DBExtend\AW_Library_dao.cs" />
     <Compile Include="DBExtend\AW_Link_bean.cs" />
     <Compile Include="DBExtend\AW_Link_dao.cs" />
     <Compile Include="DBExtend\AW_Log_bean.cs" />
@@ -157,6 +159,8 @@
     <Compile Include="DBFile\AW_Help_Type_dao.cs" />
     <Compile Include="DBFile\AW_KeyWord_bean.cs" />
     <Compile Include="DBFile\AW_KeyWord_dao.cs" />
+    <Compile Include="DBFile\AW_Library_bean.cs" />
+    <Compile Include="DBFile\AW_Library_dao.cs" />
     <Compile Include="DBFile\AW_Link_bean.cs" />
     <Compile Include="DBFile\AW_Link_dao.cs" />
     <Compile Include="DBFile\AW_Log_bean.cs" />

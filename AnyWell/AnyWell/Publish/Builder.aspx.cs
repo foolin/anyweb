@@ -181,7 +181,8 @@ public partial class Publish_Builder : System.Web.UI.Page
     {
         Response.Clear();
         Response.Write( msg );
-        Response.End();
+        //Response.End();
+        ApplicationInstance.CompleteRequest(); 
     }
 
     private AW_Site_bean _CurrentSite;

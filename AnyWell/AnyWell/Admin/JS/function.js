@@ -433,7 +433,7 @@ function deleteUser() {
     }
 }
 
-//删除产品
+//删除发布日志
 function deletePublish() {
     var ids = getSelect();
     if (ids) {
@@ -2435,7 +2435,7 @@ function clearLog() {
 
 //清空发布日志
 function clearPublish() {
-    if (!confirm("确定清空所有发布日志(未发布完成的日志无法删除)？")) return;
+    if (!confirm("确定清空所有发布日志？")) return;
     var url = "../Ajax/PublishClear.aspx";
     $.ajax({
         url: url,

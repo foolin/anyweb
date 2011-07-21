@@ -37,7 +37,7 @@ public class PublishService
         catch( Exception ex )
         {
             string content = "\r\n" + DateTime.Now.ToString() + "\r\n";
-            content += ex.Message;
+            content += ex.ToString();
             content += "\r\n";
             FileAgent.WriteText( this.PublishPath + "pub.log", content, true );
 

@@ -58,6 +58,10 @@
 
     <script type="text/javascript">
         $(function() {
+            if (document.documentElement.clientWidth < window.screen.width) {
+                window.moveTo(0, 0);
+                window.resizeTo(window.screen.width, window.screen.height);
+            }
             initFrame();
         });
     </script>

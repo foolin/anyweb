@@ -87,7 +87,7 @@ namespace AnyWell.AW_DL
         /// <param name="ids"></param>
         public void funcDeletePublish( string ids )
         {
-            string sql = string.Format( "DELETE AW_Publish WHERE (fdPublStatus=2 OR fdPublStatus=3) AND fdPublID IN ({0})", ids );
+            string sql = string.Format( "DELETE AW_Publish WHERE fdPublID IN ({0})", ids );
             this.funcExecute( sql );
         }
 
@@ -96,7 +96,7 @@ namespace AnyWell.AW_DL
         /// </summary>
         public void funcClearPublish()
         {
-            string sql = "DELETE AW_Publish WHERE fdPublStatus=2 OR fdPublStatus=3";
+            string sql = "DELETE AW_Publish";
             this.funcExecute( sql );
         }
 

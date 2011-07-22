@@ -38,12 +38,12 @@ public partial class Admin_Setting_Image : PageAdmin
         }
 
         GeneralConfigInfo config = GeneralConfigs.GetConfig();
-        txtColumnWidth.Text = config.ColumnImageWidth.ToString();
-        txtColumnHeight.Text = config.ColumnImageHeight.ToString();
+        //txtColumnWidth.Text = config.ColumnImageWidth.ToString();
+        //txtColumnHeight.Text = config.ColumnImageHeight.ToString();
         txtArticleWidth.Text = config.ArticleImageWidth.ToString();
         txtArticleHeight.Text = config.ArticleImageHeight.ToString();
-        txtCategoryWidth.Text = config.CategoryImageWidth.ToString();
-        txtCategoryHeight.Text = config.CategoryImageHeight.ToString();
+        //txtCategoryWidth.Text = config.CategoryImageWidth.ToString();
+        //txtCategoryHeight.Text = config.CategoryImageHeight.ToString();
         txtGoodsHeight.Text = config.GoodsImageHeight.ToString();
         txtGoodsWidth.Text = config.GoodsImageWidth.ToString();
         txtFlashWidth.Text = config.FlashWidth.ToString();
@@ -112,23 +112,23 @@ public partial class Admin_Setting_Image : PageAdmin
         //{
         //    WebAgent.AlertAndBack("幻灯图片高度格式错误");
         //}
-        if (int.TryParse(txtColumnHeight.Text, out number))
-        {
-            config.ColumnImageHeight = number;
-        }
-        else
-        {
-            WebAgent.AlertAndBack("栏目图片高度格式错误");
-        }
+        //if (int.TryParse(txtColumnHeight.Text, out number))
+        //{
+        //    config.ColumnImageHeight = number;
+        //}
+        //else
+        //{
+        //    WebAgent.AlertAndBack("栏目图片高度格式错误");
+        //}
 
-        if (int.TryParse(txtColumnWidth.Text, out number))
-        {
-            config.ColumnImageWidth = number;
-        }
-        else
-        {
-            WebAgent.AlertAndBack("栏目图片宽度格式错误");
-        }
+        //if (int.TryParse(txtColumnWidth.Text, out number))
+        //{
+        //    config.ColumnImageWidth = number;
+        //}
+        //else
+        //{
+        //    WebAgent.AlertAndBack("栏目图片宽度格式错误");
+        //}
 
         if( int.TryParse( txtArticleWidth.Text, out number ) )
         {
@@ -148,23 +148,23 @@ public partial class Admin_Setting_Image : PageAdmin
             WebAgent.AlertAndBack( "文章图片高度格式错误" );
         }
 
-        if( int.TryParse( txtCategoryWidth.Text, out number ) )
-        {
-            config.CategoryImageWidth = number;
-        }
-        else
-        {
-            WebAgent.AlertAndBack( "类别图片宽度格式错误" );
-        }
+        //if( int.TryParse( txtCategoryWidth.Text, out number ) )
+        //{
+        //    config.CategoryImageWidth = number;
+        //}
+        //else
+        //{
+        //    WebAgent.AlertAndBack( "类别图片宽度格式错误" );
+        //}
 
-        if( int.TryParse( txtCategoryHeight.Text, out number ) )
-        {
-            config.CategoryImageHeight = number;
-        }
-        else
-        {
-            WebAgent.AlertAndBack( "类别图片高度格式错误" );
-        }
+        //if( int.TryParse( txtCategoryHeight.Text, out number ) )
+        //{
+        //    config.CategoryImageHeight = number;
+        //}
+        //else
+        //{
+        //    WebAgent.AlertAndBack( "类别图片高度格式错误" );
+        //}
 
         if( int.TryParse( txtGoodsWidth.Text, out number ) )
         {

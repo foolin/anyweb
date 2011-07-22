@@ -18,7 +18,7 @@ public partial class Admin_FlashAdd : PageAdmin
 {
     protected override void OnPreRender(EventArgs e)
     {
-        if (new AW_FlaAW_dao().funcGetFlashCount() >= 5) {
+        if (new AW_Flash_dao().funcGetFlashCount() >= 5) {
             WebAgent.AlertAndBack("幻灯图片数最多不能超过五张");
         }    
     }
@@ -29,10 +29,18 @@ public partial class Admin_FlashAdd : PageAdmin
             WebAgent.AlertAndBack("请上传图片文件");
 
         if (!fileUpload.PostedFile.ContentType.ToLower().Contains("image"))
-            WebAgent.AlertAndBack("您上次的文件不是图片格式");
+            WebAgent.AlertAndBack("您上传的文件不是图片格式");
+
+
+        if( txtDesc.Text.Length > 200 )
+            WebAgent.AlertAndBack( "图片描述不能超出200字" );
 
         string fileName = DL_helper.funcGetTicks().ToString();
         string savePath = "/Files/Flash/";
+        if( !Directory.Exists( Server.MapPath( savePath ) ) )
+        {
+            Directory.CreateDirectory( Server.MapPath( savePath ) );
+        }
         string path = savePath + fileName + Path.GetExtension(fileUpload.PostedFile.FileName);
 
         ImageWaterMark wm = new ImageWaterMark();
@@ -84,9 +92,9 @@ public partial class Admin_FlashAdd : PageAdmin
                 break;
         }
 
-        using (AW_FlaAW_dao dao = new AW_FlaAW_dao())
+        using( AW_Flash_dao dao = new AW_Flash_dao() )
         {
-            AW_FlaAW_bean bean = new AW_FlaAW_bean();
+            AW_Flash_bean bean = new AW_Flash_bean();
             bean.fdFlasName = txtName.Text;
             bean.fdFlasUrl = txtUrl.Text;
             bean.fdFlasPicture = path;

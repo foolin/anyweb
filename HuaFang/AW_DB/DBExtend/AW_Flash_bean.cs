@@ -9,7 +9,7 @@ using Studio.Data;
 
 namespace AnyWell.AW_DL
 {
-	public partial class AW_FlaAW_bean
+    public partial class AW_Flash_bean
 	{
 	}
 }

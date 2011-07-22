@@ -16,7 +16,7 @@ public partial class Admin_FlashList : PageAdmin
     {
         base.OnPreRender(e);
 
-        using (AW_FlaAW_dao dao = new AW_FlaAW_dao())
+        using (AW_Flash_dao dao = new AW_Flash_dao())
         {
             compRep.DataSource = dao.funcGetFlashes();
             compRep.DataBind();

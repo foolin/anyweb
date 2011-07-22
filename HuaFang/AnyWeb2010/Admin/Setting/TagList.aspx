@@ -114,8 +114,7 @@
                             </td>
                             <td style="text-align: left;" class="dragTd" title="拖动排序">
                                 </a>
-                                <%#Eval("fdTagName")%>（<a href="TagArticleList.aspx?id=<%#Eval("fdTagID") %>&back=<%#Request.Url.PathAndQuery.Replace("pid","pageindex") %>">文章：<%#Eval("fdArtiCount") %></a>）（<a
-                                    href="TagGoodList.aspx?id=<%#Eval("fdTagID") %>&back=<%#Request.Url.PathAndQuery.Replace("pid","pageindex") %>">商品：<%#Eval("fdGoodCount") %></a>）
+                                <%#Eval("fdTagName")%>（文章：<%#Eval("fdArtiCount") %>）（商品：<%#Eval("fdGoodCount") %>）
                             </td>
                             <td>
                                 <%#( int ) Eval( "fdTagHightLight" ) == 1 ? "是" : ""%>

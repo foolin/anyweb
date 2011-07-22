@@ -47,6 +47,7 @@ public partial class Admin_ArticleEdit : ArticleBase
         {
             repImgList.DataSource = article.PictureList;
             repImgList.DataBind();
+            chkDesc.Checked = article.fdArtiPicDesc == 1 ? true : false;
         }
         else
         {
@@ -62,9 +63,13 @@ public partial class Admin_ArticleEdit : ArticleBase
             drpCategory.SelectedValue = article.fdArtiCategory.ToString();
             drpCity.SelectedValue = article.fdArtiCity.ToString();
             chkRecommend.Checked = article.fdArtiRecommend == 1 ? true : false;
+            txtFlashDesc.Text = article.fdArtiFlashDesc;
         }
         txtDesc.Text = article.fdArtiDesc;
         txtSort.Text = article.fdArtiSort.ToString();
+        txtCreateAt.Text = article.fdArtiCreateAt.ToString("yyyy-MM-dd");
+        txtFrom.Text = article.fdArtiFrom;
+        txtAuthor.Text = article.fdArtiAuthor;
         int i = 0;
         foreach (AW_Column_bean bean1 in (new AW_Column_dao()).funcGetColumns())
         {
@@ -126,11 +131,21 @@ public partial class Admin_ArticleEdit : ArticleBase
 
         if( !WebAgent.IsInt32( txtSort.Text.Trim() ) )
             WebAgent.AlertAndBack( "排序格式不正确" );
+
+        DateTime date = DateTime.Now;
+        if( !string.IsNullOrEmpty( txtCreateAt.Text.Trim() ) && !DateTime.TryParse( txtCreateAt.Text.Trim(), out date ) )
+        {
+            WebAgent.AlertAndBack( "发布时间格式不正确" );
+        }
+
         article = new AW_Article_dao().funcGetArticleById( int.Parse( QS( "id" ) ), false );
         string childColumn = Request.Form[ drpChild.UniqueID ] + "";
-
+        article.fdArtiCreateAt = date;
         article.fdArtiTitle = txtTitle.Text.Trim();
         article.fdArtiType = int.Parse( drpType.SelectedValue );
+        article.fdArtiPic = QF( "imgPath" ).Trim();
+        article.fdArtiFrom = txtFrom.Text.Trim();
+        article.fdArtiAuthor = txtAuthor.Text.Trim();
         if( article.fdArtiType == 0 )
         {
             article.fdArtiContent = txtContent.Text;
@@ -365,7 +380,7 @@ public partial class Admin_ArticleEdit : ArticleBase
                 return;
         }
         string[] pic = pics.Split( ',' );
-        if( picType != 0 || chkDesc.Checked )
+        if( picType != 0 )
         {
             for( int i = 0; i < pic.Length; i++ )
             {

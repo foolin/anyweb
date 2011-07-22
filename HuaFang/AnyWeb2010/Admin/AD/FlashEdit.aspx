@@ -35,6 +35,17 @@
                     <asp:FileUpload ID="fileUpload" Width="400px" runat="server" CssClass="text" /><br />
                     <asp:Image ID="imgPicture" runat="server" Width="100px" Height="65px" /></div>
             </div>
+            <div class="fi even">
+                <label>
+                    图片描述：</label>
+                <div class="cont">
+                    <asp:TextBox ID="txtDesc" TextMode="MultiLine" Width="400px" Height="150px" runat="server"></asp:TextBox>
+                    <span>图片描述不得超过200字。</span>
+                    <sw:Validator ID="Validator3" ControlID="txtDesc" ValidateType="MaxLength" MaxLength="200"
+                        ErrorText="图片描述不得超过200字" ErrorMessage="图片描述不得超过200字" runat="server">
+                    </sw:Validator>
+                </div>
+            </div>
             <div class="fi fiBtns">
                 <asp:Button ID="btnOk" runat="server" Text="保存图片" OnClick="btnOk_Click" CssClass="submit">
                 </asp:Button>
@@ -46,7 +57,7 @@
     </div>
     <div>
         <ul class="Help">
-            <li>图片应小于150k，jpg或gif格式。建议为994x710像素。</li>
+            <li>图片应小于150k，jpg或gif格式。建议为690x375像素。</li>
         </ul>
     </div>
 </asp:Content>

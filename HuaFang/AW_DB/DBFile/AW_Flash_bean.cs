@@ -9,7 +9,7 @@ using Studio.Data;
 
 namespace AnyWell.AW_DL
 {
-	public partial class AW_FlaAW_bean : Bean_Base
+    public partial class AW_Flash_bean : Bean_Base
 	{
 		private int _fdFlasID = 0;
 		/// <summary>
@@ -51,6 +51,16 @@ namespace AnyWell.AW_DL
 			set{_fdFlasPicture = value;}
 		}
 
+        private string _fdFlashDesc = "";
+        /// <summary>
+        /// 描述
+        /// </summary>
+        public string fdFlashDesc
+        {
+            get{return _fdFlashDesc;}
+            set{_fdFlashDesc = value;}
+        }
+
 		private int _fdFlasSort = 0;
 		/// <summary>
 		/// 排序
@@ -71,33 +81,33 @@ namespace AnyWell.AW_DL
             get { 
 				if( _dao == null)
 				{
-					_dao = new AW_FlaAW_dao(); 
+                    _dao = new AW_Flash_dao(); 
 				}
 				return _dao;
 			}
         }
 
-        public static AW_FlaAW_bean funcGetByID(string id)
+        public static AW_Flash_bean funcGetByID( string id )
         {
-            AW_FlaAW_bean bean = new AW_FlaAW_bean();
+            AW_Flash_bean bean = new AW_Flash_bean();
             return bean.funcGetDataByID(id) ? bean : null;
         }
 
-        public static AW_FlaAW_bean funcGetByID(int id)
+        public static AW_Flash_bean funcGetByID( int id )
         {
-            AW_FlaAW_bean bean = new AW_FlaAW_bean();
+            AW_Flash_bean bean = new AW_Flash_bean();
             return bean.funcGetDataByID(id) ? bean : null;
         }
 
-        public static AW_FlaAW_bean funcGetByID(string id, string columns)
+        public static AW_Flash_bean funcGetByID( string id, string columns )
         {
-            AW_FlaAW_bean bean = new AW_FlaAW_bean();
+            AW_Flash_bean bean = new AW_Flash_bean();
             return bean.funcGetDataByID(id, columns) ? bean : null;
         }
 
-        public static AW_FlaAW_bean funcGetByID(int id, string columns)
+        public static AW_Flash_bean funcGetByID( int id, string columns )
         {
-            AW_FlaAW_bean bean = new AW_FlaAW_bean();
+            AW_Flash_bean bean = new AW_Flash_bean();
             return bean.funcGetDataByID(id, columns) ? bean : null;
         }
 		/////////////////////////////////////////

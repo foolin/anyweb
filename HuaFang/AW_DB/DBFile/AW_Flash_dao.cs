@@ -9,22 +9,22 @@ using Studio.Data;
 
 namespace AnyWell.AW_DL
 {
-	public partial class AW_FlaAW_dao : Dao_Base
+	public partial class AW_Flash_dao : Dao_Base
 	{
-		public AW_FlaAW_dao()
+        public AW_Flash_dao()
         {
             this._propTable = "AW_Flash";
             this._propPK = "fdFlasID";
-            this._propFields = "fdFlasID,fdFlasName,fdFlasUrl,fdFlasPicture,fdFlasSort";
+            this._propFields = "fdFlasID,fdFlasName,fdFlasUrl,fdFlasPicture,fdFlashDesc,fdFlasSort";
         }
 
-        public List<AW_FlaAW_bean> funcGetList()
+        public List<AW_Flash_bean> funcGetList()
         {
             DataSet ds = base.funcCommon();
-            List<AW_FlaAW_bean> list = new List<AW_FlaAW_bean>();
+            List<AW_Flash_bean> list = new List<AW_Flash_bean>();
             foreach (DataRow r in ds.Tables[0].Rows)
             {
-                AW_FlaAW_bean bean = new AW_FlaAW_bean();
+                AW_Flash_bean bean = new AW_Flash_bean();
                 bean.funcFromDataRow(r);
                 list.Add(bean);
             }

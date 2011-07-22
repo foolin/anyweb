@@ -84,21 +84,30 @@
                     $("#div1").hide();
                     $("#div2").hide();
                     $("#divTag").attr("class","fi");
-                    $("#divSort").attr("class","fi even");
+                    $("#divFrom").attr("class","fi even");
+                    $("#divAuthor").attr("class","fi");
+                    $("#divCreateAt").attr("class","fi even");
+                    $("#divSort").attr("class","fi");
                     break;
                 case "1":
                     $("#div1").show();
                     $("#div0").hide();
                     $("#div2").hide();
                     $("#divTag").attr("class","fi even");
-                    $("#divSort").attr("class","fi");
+                    $("#divFrom").attr("class","fi");
+                    $("#divAuthor").attr("class","fi even");
+                    $("#divCreateAt").attr("class","fi");
+                    $("#divSort").attr("class","fi even");
                     break;
                 case "2":
                     $("#div2").show();
                     $("#div0").hide();
                     $("#div1").hide();
                     $("#divTag").attr("class","fi even");
-                    $("#divSort").attr("class","fi");
+                    $("#divAuthor").attr("class","fi");
+                    $("#divCreateAt").attr("class","fi even");
+                    $("#divCreateAt").attr("class","fi");
+                    $("#divSort").attr("class","fi even");
                     break;
             }
         }
@@ -115,7 +124,7 @@
             if(path.length>0){
                 var allPath=path.split(",");
                 for(var i=0;i<allPath.length;i++){
-                    var iPath = "/Files/Articles/" + allPath[i];
+                    var iPath = "/Files/Articles/S_" + allPath[i];
                     $("#imgList_demo ul li").clone().insertAfter("#imgList ul li:last");
                     $("#imgList ul li:last img").attr("src", iPath);
                     $("#imgList ul li:last input").attr("value", iPath);
@@ -129,7 +138,7 @@
             if(path.length>0){
                 var allPath=path.split(",");
                 for(var i=0;i<allPath.length;i++){
-                    var iPath = "/Files/Articles/" + allPath[i];
+                    var iPath = "/Files/Articles/S_" + allPath[i];
                     $("#CatWalk_demo ul li").clone().insertAfter("#CatWalkList ul li:last");
                     $("#CatWalkList ul li:last img").attr("src", iPath);
                     $("#CatWalkList ul li:last input").attr("value", iPath);
@@ -142,7 +151,7 @@
             if(path.length>0){
                 var allPath=path.split(",");
                 for(var i=0;i<allPath.length;i++){
-                    var iPath = "/Files/Articles/" + allPath[i];
+                    var iPath = "/Files/Articles/S_" + allPath[i];
                     $("#BackStage_demo ul li").clone().insertAfter("#BackStageList ul li:last");
                     $("#BackStageList ul li:last img").attr("src", iPath);
                     $("#BackStageList ul li:last input").attr("value", iPath);
@@ -155,7 +164,7 @@
             if(path.length>0){
                 var allPath=path.split(",");
                 for(var i=0;i<allPath.length;i++){
-                    var iPath = "/Files/Articles/" + allPath[i];
+                    var iPath = "/Files/Articles/S_" + allPath[i];
                     $("#CloseUp_demo ul li").clone().insertAfter("#CloseUpList ul li:last");
                     $("#CloseUpList ul li:last img").attr("src", iPath);
                     $("#CloseUpList ul li:last input").attr("value", iPath);
@@ -168,7 +177,7 @@
             if(path.length>0){
                 var allPath=path.split(",");
                 for(var i=0;i<allPath.length;i++){
-                    var iPath = "/Files/Articles/" + allPath[i];
+                    var iPath = "/Files/Articles/S_" + allPath[i];
                     $("#FrontRow_demo ul li").clone().insertAfter("#FrontRowList ul li:last");
                     $("#FrontRowList ul li:last img").attr("src", iPath);
                     $("#FrontRowList ul li:last input").attr("value", iPath);
@@ -222,6 +231,7 @@
                 $("#flashLink").attr("href", "/Files/Articles/" + path);
                 $("#txtflash").val("/Files/Articles/" + path);
                 $("#flashLink").show();
+                $("#flashDesc").show();
             }
         }
         
@@ -230,6 +240,7 @@
                 $("#flashLink").attr("href", "");
                 $("#txtflash").val("");
                 $("#flashLink").hide();
+                $("#flashDesc").hide();
             }
             return false;
         }
@@ -316,7 +327,7 @@
                     <label>
                         图片描述：</label>
                     <div class="cont">
-                        <asp:CheckBox ID="chkDesc" runat="server" Text="使用文章描述" CssClass="checkbox" onclick="setDesc(this.checked);" />
+                        <asp:CheckBox ID="chkDesc" runat="server" Text="使用文章摘要" CssClass="checkbox" onclick="setDesc(this.checked);" />
                     </div>
                 </div>
                 <div class="fi">
@@ -327,6 +338,7 @@
                             Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
                             JavascriptCompleteFunction="setPicList" MultiSelect="true" runat="server">
                         </sw:Uploader>
+                        图片描述不得超过400个汉字。
                         <div id="divList">
                         </div>
                         <div id="imgList_demo" style="display: none;">
@@ -469,6 +481,7 @@
                         </sw:Uploader>
                         <a id="flashLink" href="" target="_blank" title="右键删除视频" style="display: none;" oncontextmenu="return delFlash();">
                             <img src="../images/rar.gif" alt="" /></a>
+                        <span id="flashDesc" style="display:none">点击图标浏览视频，对图标右键删除视频。</span>
                         <input type="hidden" id="txtflash" name="txtflash" />
                     </div>
                 </div>
@@ -479,7 +492,7 @@
                         <asp:TextBox ID="txtFlashDesc" TextMode="MultiLine" Width="400px" Height="150px"
                             runat="server"></asp:TextBox>
                         <span>视频描述不得超过400字。</span>
-                        <sw:Validator ID="Validator5" ControlID="txtDesc" ValidateType="MaxLength" MaxLength="400"
+                        <sw:Validator ID="Validator5" ControlID="txtFlashDesc" ValidateType="MaxLength" MaxLength="400"
                             ErrorText="视频描述不得超过400字" ErrorMessage="视频描述不得超过400字" runat="server">
                         </sw:Validator>
                     </div>
@@ -504,6 +517,7 @@
                             <asp:ListItem Value="2" Text="米兰"></asp:ListItem>
                             <asp:ListItem Value="3" Text="伦敦"></asp:ListItem>
                             <asp:ListItem Value="4" Text="纽约"></asp:ListItem>
+                            <asp:ListItem Value="5" Text="其他"></asp:ListItem>
                         </asp:DropDownList>
                     </div>
                 </div>
@@ -520,11 +534,27 @@
                     文章标签：</label>
                 <div class="cont">
                     <a href="javascript:void(0);" id="btnTag" onclick="ChooseTag();" class="choAreabtn"
-                        title="选择/修改">选择/修改</a> <span>使用逗号分隔不同标签, 最多可输入5个。</span>
+                        title="选择/修改">选择/修改</a> <span>使用英文逗号分隔不同标签, 最多可输入5个。（注意：中文的逗号不起作用，请使用英文逗号）</span>
                     <input type="hidden" id="tags" name="tags" value="" />
                 </div>
             </div>
-            <div id="divSort" class="fi even">
+            <div id="divFrom" class="fi even">
+                <label>
+                    文章来源：</label>
+                <asp:TextBox ID="txtFrom" runat="server" CssClass="text" Width="400" MaxLength="100"></asp:TextBox>
+            </div>
+            <div id="divAuthor" class="fi">
+                <label>
+                    文章作者：</label>
+                <asp:TextBox ID="txtAuthor" runat="server" CssClass="text" Width="400" MaxLength="50"></asp:TextBox>
+            </div>
+            <div id="divCreateAt" class="fi even">
+                <label>
+                    发布时间：</label>
+                <asp:TextBox ID="txtCreateAt" runat="server" CssClass="text" Width="80" onclick="calendar(this)"></asp:TextBox>
+                <span>如：2011-01-01，为空则为当前时间。</span>
+            </div>
+            <div id="divSort" class="fi">
                 <label>
                     文章排序：</label>
                 <asp:TextBox ID="txtSort" runat="server" Text="0" CssClass="text" Width="80"></asp:TextBox>

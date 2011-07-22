@@ -3,7 +3,6 @@ using System.Data;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using AnyWell.AW_DL;
 using System.Web;
 using Studio.Data;
 
@@ -15,7 +14,7 @@ namespace AnyWell.AW_DL
         {
             this._propTable = "AW_Link";
             this._propPK = "fdLinkID";
-            this._propFields = "fdLinkID,fdLinkName,fdLinkUrl,fdLinkPicture";
+            this._propFields = "fdLinkID,fdLinkName,fdLinkUrl,fdLinkPicture,fdLinkSort";
         }
 
         public List<AW_Link_bean> funcGetList()

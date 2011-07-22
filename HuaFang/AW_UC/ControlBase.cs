@@ -85,6 +85,18 @@ namespace AnyWell.AW_UC
             base.OnPreRender(e);
         }
 
+        public override void RenderBeginTag( HtmlTextWriter writer )
+        {
+            //移除开始标记
+            writer.Write( "" );
+        }
+
+        public override void RenderEndTag( HtmlTextWriter writer )
+        {
+            //移除结束标记
+            writer.Write( "" );
+        }
+
         /// <summary>
         /// 从URL读取参数
         /// </summary>

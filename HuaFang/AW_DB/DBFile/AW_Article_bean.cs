@@ -154,6 +154,24 @@ namespace AnyWell.AW_DL
 			get{return _fdArtiClick;}
 			set{_fdArtiClick = value;}
 		}
+        private string _fdArtiFrom = "";
+        /// <summary>
+        /// 来源
+        /// </summary>
+        public string fdArtiFrom
+        {
+            get{return _fdArtiFrom;}
+            set{_fdArtiFrom = value;}
+        }
+        private string _fdArtiAuthor = "";
+        /// <summary>
+        /// 作者
+        /// </summary>
+        public string fdArtiAuthor
+        {
+            get{return _fdArtiAuthor;}
+            set{_fdArtiAuthor = value;}
+        }
 
 
 		/////////////////////////////////////////

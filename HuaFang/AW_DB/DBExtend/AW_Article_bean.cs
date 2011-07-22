@@ -95,11 +95,60 @@ namespace AnyWell.AW_DL
             }
         }
 
+        public string fdArtiCategoryName
+        {
+            get
+            {
+                switch( this.fdArtiCategory )
+                {
+                    case 1:
+                        return "男装";
+                    case 2:
+                        return "高级成衣";
+                    case 3:
+                        return "高级定制";
+                    default:
+                        return "";
+                }
+            }
+        }
+
+        public string fdArtiCityName
+        {
+            get
+            {
+                switch( this.fdArtiCity )
+                {
+                    case 1:
+                        return "巴黎";
+                    case 2:
+                        return "米兰";
+                    case 3:
+                        return "伦敦";
+                    case 4:
+                        return "纽约";
+                    default:
+                        return "其他";
+
+                }
+            }
+        }
+
         public string fdArtiPath
         {
             get 
             {
-                return string.Format("/a/{0}.aspx", this.fdArtiID);
+                switch( fdArtiType )
+                {
+                    case 0:
+                        return string.Format( "/a/{0}.aspx", this.fdArtiID );
+                    case 1:
+                        return string.Format( "/p/{0}.aspx", this.fdArtiID );
+                    case 2:
+                        return string.Format( "/f/{0}.aspx", this.fdArtiID );
+                    default:
+                        return string.Format( "/a/{0}.aspx", this.fdArtiID );
+                }
             }
         }
 	}

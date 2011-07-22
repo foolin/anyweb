@@ -19,8 +19,6 @@ public partial class Admin_LibraryAdd : PageAdmin
             WebAgent.AlertAndBack("名称不能为空");
         if (string.IsNullOrEmpty(txtLibrEnName.Text))
             WebAgent.AlertAndBack("英文名称不能为空");
-        if (string.IsNullOrEmpty(txtLibrDesc.Text))
-            WebAgent.AlertAndBack("介绍不能为空");
         if (string.IsNullOrEmpty(txtLibrOrder.Text))
             WebAgent.AlertAndBack("排序不能为空");
         if (!WebAgent.IsInt32(txtLibrOrder.Text.Trim()))
@@ -33,15 +31,15 @@ public partial class Admin_LibraryAdd : PageAdmin
             bean.fdLibrType = int.Parse(drpLibrary.SelectedValue);
             bean.fdLibrName = txtLibrName.Text.Trim();
             bean.fdLibrEnName = txtLibrEnName.Text.Trim();
-            bean.fdLibrFirLetter = drpFirstLetter.SelectedValue.ToString().Trim();
+            bean.fdLibrFirLetter = int.Parse( drpFirstLetter.SelectedValue );
             bean.fdLibrDesc = txtLibrDesc.Text;
             if (int.Parse(txtLibrOrder.Text) == 0)
             {
-                bean.fdLibrOrder = bean.fdLibrID * 100;
+                bean.fdLibrSort = bean.fdLibrID * 100;
             }
             else
             {
-                bean.fdLibrOrder = int.Parse(txtLibrOrder.Text);
+                bean.fdLibrSort = int.Parse( txtLibrOrder.Text );
             }
             dao.funcInsert(bean);
 

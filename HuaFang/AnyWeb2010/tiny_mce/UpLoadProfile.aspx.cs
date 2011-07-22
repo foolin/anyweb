@@ -44,9 +44,15 @@ namespace BLOG.tiny_mce
         {
             string url = "";
             HttpPostedFile file1 = Request.Files[0];
-            path = Request.ApplicationPath + "/Files/Others/" + DL_helper.funcGetTicks().ToString() + Path.GetExtension(file1.FileName);
+            string vPath = Request.ApplicationPath + "/Files/Others/";
+            string savePath = Server.MapPath( vPath );
+            if( !Directory.Exists( savePath ) )
+            {
+                Directory.CreateDirectory( savePath );
+            }
+            path = savePath + DL_helper.funcGetTicks().ToString() + Path.GetExtension( file1.FileName );
 
-            file1.SaveAs(Server.MapPath(path));
+            file1.SaveAs( path );
 
             url = String.Format("http://{0}{1}{2}",
                 Request.Url.Host,

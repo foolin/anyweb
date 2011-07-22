@@ -1,11 +1,192 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
+<%@ Register Src="~/Controls/Navigation.ascx" TagName="Navigation" TagPrefix="uc1" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <asp:Literal ID="lt_description" runat="server" />
+    <asp:Literal ID="lt_keywords" runat="server" />
+    <title>华纺资讯</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="/js/jquery.js"></script>
+
+    <script type="text/javascript" src="/js/jquery.jcarousel.min.js"></script>
+
+    <script type="text/javascript" src="/js/jquery.anythingslider.min.js"></script>
+
+    <script type="text/javascript" src="/js/main.js"></script>
+
+    <script type="text/javascript" src="/js/show.js"></script>
+
 </head>
 <body>
+    <div class="site-nav">
+        <div class="con cs-clear">
+            <p>
+                <span>账号</span><input class="ipt-simple" type="text" /></p>
+            <p>
+                <span>密码</span><input class="ipt-simple" type="password" /></p>
+            <p>
+                <button class="btn-simple">
+                    登录</button>
+                <button class="btn-simple">
+                    注册</button></p>
+        </div>
+    </div>
+    <div class="masthead">
+        <a href="/Index.aspx" class="logo">华纺</a>
+    </div>
+    <uc1:Navigation runat="server" />
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+    <div class="MoreInformation cs-clear">
+        <div class="title-bar">
+            <h2 class="cs-clear">
+                <p class="title-ch cs-fl">
+                    <span>更多资讯</span></p>
+                <p class="title-eng cs-fr">
+                    MORE<span>INFORMATION</span></p>
+            </h2>
+        </div>
+        <div class="MoreInforCon cs-clear">
+            <div class="Info-item Info-item-first">
+                <h4>
+                    童装</h4>
+                <asp:Repeater ID="repKid1" runat="server">
+                    <ItemTemplate>
+                        <a href="<%#Eval("fdArtiPath") %>">
+                            <img src="<%#Eval("fdArtiPic") %>" height="160" width="110" /></a>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <ul class="list-disc">
+                    <asp:Repeater ID="repKid2" runat="server">
+                    <ItemTemplate>
+                        <li><a href="<%#Eval("fdArtiPath") %>"><%#Eval( "fdArtiTitle" )%></a></li>
+                    </ItemTemplate>
+                </asp:Repeater>
+                </ul>
+            </div>
+            <div class="Info-item">
+                <h4>
+                    现场报道</h4>
+                <a href="#">
+                    <img src="img/demo1.jpg" height="160" width="110" /></a>
+                <ul class="list-disc">
+                    <li><a href="#">威廉王子大婚特辑</a></li>
+                    <li><a href="#">70年代风格回潮明星示范撞色</a></li>
+                    <li><a href="#">70年代风格回潮明星示范撞色</a></li>
+                </ul>
+            </div>
+            <div class="Info-item">
+                <h4>
+                    潮人街拍</h4>
+                <asp:Repeater ID="repStreet1" runat="server">
+                    <ItemTemplate>
+                        <a href="<%#Eval("fdArtiPath") %>">
+                            <img src="<%#Eval("fdArtiPic") %>" height="160" width="110" /></a>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <ul class="list-disc">
+                    <asp:Repeater ID="repStreet2" runat="server">
+                    <ItemTemplate>
+                        <li><a href="<%#Eval("fdArtiPath") %>"><%#Eval( "fdArtiTitle" )%></a></li>
+                    </ItemTemplate>
+                </asp:Repeater>
+                </ul>
+            </div>
+            <div class="Info-item">
+                <h4>
+                    美妆美容</h4>
+                <asp:Repeater ID="repBeauty1" runat="server">
+                    <ItemTemplate>
+                        <a href="<%#Eval("fdArtiPath") %>">
+                            <img src="<%#Eval("fdArtiPic") %>" height="160" width="110" /></a>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <ul class="list-disc">
+                    <asp:Repeater ID="repBeauty2" runat="server">
+                    <ItemTemplate>
+                        <li><a href="<%#Eval("fdArtiPath") %>"><%#Eval( "fdArtiTitle" )%></a></li>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+            <div class="Info-item">
+                <h4>
+                    服装配饰</h4>
+                <asp:Repeater ID="repAccessory1" runat="server">
+                    <ItemTemplate>
+                        <a href="<%#Eval("fdArtiPath") %>">
+                            <img src="<%#Eval("fdArtiPic") %>" height="160" width="110" /></a>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <ul class="list-disc">
+                    <asp:Repeater ID="repAccessory2" runat="server">
+                    <ItemTemplate>
+                        <li><a href="<%#Eval("fdArtiPath") %>"><%#Eval( "fdArtiTitle" )%></a></li>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+            <div class="Info-item">
+                <h4>
+                    时尚活动</h4>
+                <asp:Repeater ID="repEvents1" runat="server">
+                    <ItemTemplate>
+                        <a href="<%#Eval("fdArtiPath") %>">
+                            <img src="<%#Eval("fdArtiPic") %>" height="160" width="110" /></a>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <ul class="list-disc">
+                    <asp:Repeater ID="repEvents2" runat="server">
+                    <ItemTemplate>
+                        <li><a href="<%#Eval("fdArtiPath") %>"><%#Eval( "fdArtiTitle" )%></a></li>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+            <div class="Info-item Info-item-last">
+                <h4>
+                    高清大片</h4>
+                <asp:Repeater ID="repEditorial1" runat="server">
+                    <ItemTemplate>
+                        <a href="<%#Eval("fdArtiPath") %>">
+                            <img src="<%#Eval("fdArtiPic") %>" height="160" width="110" /></a>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <ul class="list-disc">
+                    <asp:Repeater ID="repEditorial2" runat="server">
+                    <ItemTemplate>
+                        <li><a href="<%#Eval("fdArtiPath") %>"><%#Eval( "fdArtiTitle" )%></a></li>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+        </div>
+    </div>
+    <div class="foot">
+        <div class="friendly-link">
+            <h5>
+                友情链接</h5>
+            <div class="foot-con">
+                <asp:Repeater ID="repLink" runat="server">
+                    <ItemTemplate>
+                        <span><a href="<%#Eval("fdLinkUrl") %>" target="_blank">
+                            <%#Eval( "fdLinkName" )%></a></span>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>
+                Copyright &copy; 2006 - 2011 Anywell. All Right Reserved.</p>
+            <p>
+                <a href="#">关于华纺</a>|<a href="#">联系华纺</a>|<a href="#">隐私保护</a>|<a href="#">加入华纺</a></p>
+            <p>
+                本网站原创内容（文字，图片）受法律保护，“观潮”欢迎引用，但请注明出处。</p>
+            <p>
+                获得最佳浏览效果，请升级至IE8</p>
+            <p>
+                沪ICP 备 06058678 号</p>
+        </div>
+    </div>
 </body>
 </html>

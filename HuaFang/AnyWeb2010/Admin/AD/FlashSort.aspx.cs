@@ -22,7 +22,7 @@ public partial class Admin_FlashSort : PageAdmin
     {
         string type = QS("type");
         int flashId = int.Parse(QS("id"));
-        AW_FlaAW_dao dao = new AW_FlaAW_dao();
+        AW_Flash_dao dao = new AW_Flash_dao();
 
         if (type == "up")
         {

@@ -9,10 +9,10 @@ using Studio.Data;
 
 namespace AnyWell.AW_DL
 {
-	public partial class AW_FlaAW_dao
+    public partial class AW_Flash_dao
 	{
 
-        public List<AW_FlaAW_bean> funcGetFlashes()
+        public List<AW_Flash_bean> funcGetFlashes()
         {
             this.propOrder = " ORDER BY fdFlasSort ASC";
             return this.funcGetList();
@@ -23,7 +23,7 @@ namespace AnyWell.AW_DL
         /// </summary>
         public bool funcUp(int flashId)
         {
-            AW_FlaAW_bean bean = AW_FlaAW_bean.funcGetByID(flashId);
+            AW_Flash_bean bean = AW_Flash_bean.funcGetByID( flashId );
             if (bean == null) return false;
 
             this.propSelect = " TOP 1 *";
@@ -32,7 +32,7 @@ namespace AnyWell.AW_DL
 
             DataSet ds = this.funcCommon();
             if (ds.Tables[0].Rows.Count == 0) return false;
-            AW_FlaAW_bean beanUp = new AW_FlaAW_bean();
+            AW_Flash_bean beanUp = new AW_Flash_bean();
             beanUp.funcFromDataRow(ds.Tables[0].Rows[0]);
 
             int temp = beanUp.fdFlasSort;
@@ -49,7 +49,7 @@ namespace AnyWell.AW_DL
         /// </summary>
         public bool funcDown(int flashId)
         {
-            AW_FlaAW_bean bean = AW_FlaAW_bean.funcGetByID(flashId);
+            AW_Flash_bean bean = AW_Flash_bean.funcGetByID( flashId );
             if (bean == null) return false;
 
             this.propSelect = " TOP 1 *";
@@ -57,7 +57,7 @@ namespace AnyWell.AW_DL
             this.propOrder = " ORDER BY fdFlasSort ASC";
             DataSet ds = this.funcCommon();
             if (ds.Tables[0].Rows.Count == 0) return false;
-            AW_FlaAW_bean beanDown = new AW_FlaAW_bean();
+            AW_Flash_bean beanDown = new AW_Flash_bean();
             beanDown.funcFromDataRow(ds.Tables[0].Rows[0]);
 
             int temp = beanDown.fdFlasSort;
@@ -73,14 +73,14 @@ namespace AnyWell.AW_DL
         /// 获取首页幻灯片
         /// </summary>
         /// <returns></returns>
-        public List<AW_FlaAW_bean> funcGetFlashList()
+        public List<AW_Flash_bean> funcGetFlashList()
         {
-            List<AW_FlaAW_bean> list = (List<AW_FlaAW_bean>)HttpRuntime.Cache["FLASH"];
+            List<AW_Flash_bean> list = ( List<AW_Flash_bean> ) HttpRuntime.Cache[ "FLASH" ];
             if (list != null)
             {
                 return list;
             }
-            list = new List<AW_FlaAW_bean>();
+            list = new List<AW_Flash_bean>();
             this.propOrder = " ORDER BY fdFlasSort ASC";
             list = this.funcGetList();
             HttpRuntime.Cache.Insert("FLASH", list, null, DateTime.MaxValue, TimeSpan.FromMinutes(5));

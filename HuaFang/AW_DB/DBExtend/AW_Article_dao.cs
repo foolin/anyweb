@@ -182,6 +182,27 @@ namespace AnyWell.AW_DL
             }
         }
 
+        /// <summary>
+        /// 获取搜索结果
+        /// </summary>
+        /// <param name="querryString"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="recordCount"></param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetSearchArtcile( string querryString, int pageIndex, int pageSize, out int recordCount )
+        {
+            this.propSelect = "fdArtiID,fdArtiTitle,fdArtiCreateAt,fdArtiPic,fdArtiDesc,fdArtiType";
+            this.propPage = pageIndex;
+            this.propPageSize = pageSize;
+            this.propGetCount = true;
+            this.propWhere = querryString;
+            this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
+            List<AW_Article_bean> list = this.funcGetList();
+            recordCount = this.propCount;
+            return list;
+        }
+
         public override int funcInsert( Bean_Base aBean )
         {
             int result = base.funcInsert( aBean );
@@ -213,7 +234,7 @@ namespace AnyWell.AW_DL
         }
 
         /**************************************************自定义控件********************************************************************************/
-        string selectStr = "fdArtiID,fdArtiColumnID,fdArtiTitle,fdArtiCreateAt";
+        string selectStr = "fdArtiID,fdArtiColumnID,fdArtiTitle,fdArtiCreateAt,fdArtiPic,fdArtiDesc,fdArtiType,fdArtiCategory,fdColuID,fdColuName";
 
         /// <summary>
         /// 下一篇文章编号
@@ -296,10 +317,10 @@ namespace AnyWell.AW_DL
                 this.propSelect = " TOP " + topCount + " " + this.propSelect;
             }
 
+            this.propTableApp = ",AW_Column ";
+
             if( columnID != -1 )
             {
-                this.propTableApp = ",AW_Column ";
-
                 if( getChild )
                 {
                     this.propWhere = "(fdColuID = @fdColuID OR fdColuParentID=@fdColuID)";
@@ -308,10 +329,14 @@ namespace AnyWell.AW_DL
                 {
                     this.propWhere = "fdColuID = @fdColuID";
                 }
-
-                this.propWhere += " AND fdColuID=fdArtiColumnID ";    
                 this.funcAddParam( "@fdColuID", columnID );
             }
+            else
+            {
+                this.propWhere = "1=1";
+            }
+
+            this.propWhere += " AND fdColuID=fdArtiColumnID ";  
 
             if (string.IsNullOrEmpty(where) == false)
             {
@@ -327,7 +352,15 @@ namespace AnyWell.AW_DL
                 this.propOrder = "ORDER BY fdArtiSort DESC";
             }
 
-            List<AW_Article_bean> articles = this.funcGetList();
+            List<AW_Article_bean> articles = new List<AW_Article_bean>();
+            foreach( DataRow row in this.funcCommon().Tables[ 0 ].Rows )
+            {
+                AW_Article_bean bean = new AW_Article_bean();
+                bean.funcFromDataRow( row );
+                bean.Column = new AW_Column_bean();
+                bean.Column.funcFromDataRow( row );
+                articles.Add( bean );
+            }
 
             if (!string.IsNullOrEmpty(cacheName))
             {
@@ -396,7 +429,15 @@ namespace AnyWell.AW_DL
             this.propGetCount = true;
 
             this.funcAddParam("@fdColuID", columnID);
-            List<AW_Article_bean> articles = this.funcGetList();
+            List<AW_Article_bean> articles = new List<AW_Article_bean>();
+            foreach( DataRow row in this.funcCommon().Tables[ 0 ].Rows )
+            {
+                AW_Article_bean bean = new AW_Article_bean();
+                bean.funcFromDataRow( row );
+                bean.Column = new AW_Column_bean();
+                bean.Column.funcFromDataRow( row );
+                articles.Add( bean );
+            }
             recordCount = this.propCount;
 
             return articles;

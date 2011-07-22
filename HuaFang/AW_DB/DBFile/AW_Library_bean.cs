@@ -30,7 +30,7 @@ namespace AnyWell.AW_DL
         }
         private string _fdLibrName = "";
         /// <summary>
-        /// 名称 nvarchar(MAX)
+        /// 名称 nvarchar(100)
         /// </summary>
         public string fdLibrName
         {
@@ -39,39 +39,39 @@ namespace AnyWell.AW_DL
         }
         private string _fdLibrEnName = "";
         /// <summary>
-        /// 英文名称 nvarchar(MAX)
+        /// 英文名称 nvarchar(100)
         /// </summary>
         public string fdLibrEnName
         {
             get { return _fdLibrEnName; }
             set { _fdLibrEnName = value; }
         }
-        private string _fdLibrFirLetter = "";
+        private int _fdLibrFirLetter = 0;
         /// <summary>
-        /// 首字母 1 varchar
+        /// 首字母
         /// </summary>
-        public string fdLibrFirLetter
+        public int fdLibrFirLetter
         {
             get { return _fdLibrFirLetter; }
             set { _fdLibrFirLetter = value; }
         }
         private string _fdLibrDesc = "";
         /// <summary>
-        /// 介绍 nvarchar(MAX)
+        /// 介绍
         /// </summary>
         public string fdLibrDesc
         {
             get { return _fdLibrDesc; }
             set { _fdLibrDesc = value; }
         }
-        private int _fdLibrOrder = 0;
+        private int _fdLibrSort = 0;
         /// <summary>
         /// 排序
         /// </summary>
-        public int fdLibrOrder
+        public int fdLibrSort
         {
-            get { return _fdLibrOrder; }
-            set { _fdLibrOrder = value; }
+            get { return _fdLibrSort; }
+            set { _fdLibrSort = value; }
         }
 
 

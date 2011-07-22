@@ -65,12 +65,6 @@
         <xMenuItem url ="/Admin/Content/ColumnSort.aspx" name ="栏目排序" type="3" ></xMenuItem>
       </xMenuItem>
       <xMenuItem id="404" url ="/Admin/Content/ColumnAdd.aspx" name ="添加栏目"></xMenuItem>
-      <xMenuItem id="405" url ="/Admin/Content/NoticeList.aspx" name ="公告列表" >
-        <xMenuItem url ="/Admin/Content/NoticeAdd.aspx" name ="添加公告" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/Content/NoticeEdit.aspx" name ="修改公告" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/Content/NoticeDel.aspx" name ="删除公告" type="3" ></xMenuItem>
-      </xMenuItem>
-      <xMenuItem id="406" url ="/Admin/Content/NoticeAdd.aspx" name ="添加公告"></xMenuItem>
       <xMenuItem id="407" url ="/Admin/Content/SiteInfoList.aspx" name ="基本信息"></xMenuItem>
 	  <xMenuItem id="408" url ="/Admin/Content/LibraryList.aspx" name ="两库管理" >
 		<xMenuItem url ="/Admin/Content/LibraryAdd.aspx" name ="添加库信息" type="3" ></xMenuItem>
@@ -78,14 +72,6 @@
 		<xMenuItem url ="/Admin/Content/LibrarysMove.aspx" name ="移动库信息" type="3" ></xMenuItem>
 		<xMenuItem url ="/Admin/Content/LibraryDel.aspx" name ="删除库信息" type="3" ></xMenuItem>
 	  </xMenuItem>
-    </xMenuItem>
-    <xMenuItem id="5" name="招聘" module="7">
-      <xMenuItem id="501" url ="/Admin/Recruit/RecruitList.aspx" name ="招聘列表" >
-        <xMenuItem url ="/Admin/Recruit/RecruitAdd.aspx" name ="添加招聘" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/Recruit/RecruitEdit.aspx" name ="修改招聘" type="3" ></xMenuItem>
-        <xMenuItem url ="/Admin/Recruit/RecruitDel.aspx" name ="删除招聘" type="3" ></xMenuItem>
-      </xMenuItem>
-      <xMenuItem id="502" url ="/Admin/Recruit/RecruitAdd.aspx" name ="添加招聘"></xMenuItem>
     </xMenuItem>
     <xMenuItem id="6" name="配置" module="5">
       <xMenuItem id="601" url ="/Admin/Setting/NavigationList.aspx" name ="导航栏设置" >
@@ -98,22 +84,27 @@
         <xMenuItem url ="/Admin/Setting/TagEdit.aspx" name ="修改标签" type="3" ></xMenuItem>
         <xMenuItem url ="/Admin/Setting/TagDel.aspx" name ="删除标签" type="3" ></xMenuItem>
       </xMenuItem>
-      <xMenuItem id="603" url ="/Admin/Setting/Setting_Register.aspx" name ="用户注册" >
+      <xMenuItem id="603" url ="/Admin/Setting/LinkList.aspx" name ="友情链接" >
+        <xMenuItem url ="/Admin/Setting/LinkAdd.aspx" name ="添加链接" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/Setting/LinkEdit.aspx" name ="修改链接" type="3" ></xMenuItem>
+        <xMenuItem url ="/Admin/Setting/LinkDel.aspx" name ="删除链接" type="3" ></xMenuItem>
       </xMenuItem>
-      <xMenuItem id="604" url ="/Admin/Setting/Setting_Seo.aspx" name ="搜索引擎优化" >
+      <xMenuItem id="604" url ="/Admin/Setting/Setting_Register.aspx" name ="用户注册" >
       </xMenuItem>
-      <xMenuItem id="605" url ="/Admin/Setting/Setting_Payment.aspx" name ="支付方式" >
+      <xMenuItem id="605" url ="/Admin/Setting/Setting_Seo.aspx" name ="搜索引擎优化" >
       </xMenuItem>
-      <xMenuItem id="606" url ="/Admin/Setting/Setting_Email.aspx" name ="邮件设置" >
+      <xMenuItem id="606" url ="/Admin/Setting/Setting_Payment.aspx" name ="支付方式" >
       </xMenuItem>
-      <xMenuItem id="607" url ="/Admin/Setting/Setting_Image.aspx" name ="图片配置" >
+      <xMenuItem id="607" url ="/Admin/Setting/Setting_Email.aspx" name ="邮件设置" >
       </xMenuItem>
-      <xMenuItem id="608" url ="/Admin/Setting/Setting_SearchSplit.aspx" name ="搜索分词" >
+      <xMenuItem id="608" url ="/Admin/Setting/Setting_Image.aspx" name ="图片配置" >
       </xMenuItem>
-      <xMenuItem id="609" url ="/Admin/AD/FlashList.aspx" name ="幻灯片管理" >
+      <xMenuItem id="609" url ="/Admin/Setting/Setting_SearchSplit.aspx" name ="搜索分词" >
+      </xMenuItem>
+      <xMenuItem id="610" url ="/Admin/AD/FlashList.aspx" name ="幻灯片管理" >
         <xMenuItem url ="/Admin/AD/FlashEdit.aspx" name ="修改幻灯片" type="3" ></xMenuItem>
       </xMenuItem>
-      <xMenuItem id="610" url ="/Admin/Setting/FileList.aspx" name ="文件管理" >
+      <xMenuItem id="611" url ="/Admin/Setting/FileList.aspx" name ="文件管理" >
         <xMenuItem url ="/Admin/Setting/FileAdd.aspx" name ="上传文件" type="3">
         </xMenuItem>
         <xMenuItem url ="/Admin/Setting/FileFolderAdd.aspx" name ="信件文件夹" type="3">
@@ -121,7 +112,7 @@
         <xMenuItem url ="/Admin/Setting/FileEdit.aspx" name ="修改文件" type="3">
         </xMenuItem>
       </xMenuItem>
-      <xMenuItem id="610" url ="/Admin/Setting/LogList.aspx" name ="操作日志" >
+      <xMenuItem id="612" url ="/Admin/Setting/LogList.aspx" name ="操作日志" >
       </xMenuItem>
     </xMenuItem>
 

@@ -55,13 +55,13 @@ namespace AnyWell.AW_UC
                     RendNavigator(writer);
                     if (_index == 0 && this.ShowGo == true) //输出Go按钮
                     {
-                        writer.Write("<script language='javascript'>function GoToPage(url,pid){document.location = url.replace('_pid', pid).replace('_1.','.');}</script>");
+                        writer.Write( "<script language='javascript'>function GoToPage(url,pid){if(pid.search(/^[0-9]+$/)==-1){alert(\"页码格式错误，只能输入数字类型！\");return;}if(pid<1)pid=1;if(pid>" + PageCount + ")pid=" + PageCount + "; document.location = url.replace('_pid', pid).replace('_1.','.');}</script>" );
                     }
                 }
             }
             else
             {
-                writer.Write("IBOX Pager V1.0");
+                writer.Write("");
             }
         }
 
@@ -79,6 +79,11 @@ namespace AnyWell.AW_UC
                     case 5:
                         {
                             RendNavigator5( writer );
+                            break;
+                        }
+                    case 6:
+                        {
+                            RendNavigator6( writer );
                             break;
                         }
                     default:
@@ -214,6 +219,16 @@ namespace AnyWell.AW_UC
                     writer.Write( "<a href=\"{0}\">{1}</a>", GetPageUrl( i ), i );
             }
             writer.Write( "<a {0}>&gt;</a>", PageID < pages ? String.Format( "href='{0}' title='下一页'", GetPageUrl( PageID + 1 ) ) : "disabled" );
+        }
+
+        void RendNavigator6( HtmlTextWriter writer )
+        {
+            int pages = PageCount;
+
+            writer.Write( "<a class=\"Pagination_L\" {0}></a>", PageID > 1 ? String.Format( "href='{0}' title='上一页'", GetPageUrl( PageID - 1 ) ) : "disabled" );
+            writer.Write( "<a class=\"Pagination_R\" {0}></a>", PageID < pages ? String.Format( "href='{0}' title='下一页'", GetPageUrl( PageID + 1 ) ) : "disabled" );
+            writer.Write( "<span>共{0}页</span><span class=\"Pagination-nopa\">/</span>", pages );
+            writer.Write( "<span class=\"Pagination-nopa\">第<input type=\"text\" class=\"ipt-simple\" value=\"{0}\">页</span><button class=\"btn-simple btn-simple2\" onclick=\"javascript:GoToPage('" + UrlPrefix + "' , this.parentNode.children[4].children[0].value);\">GO</button>", PageID );
         }
 
         #region Attributes

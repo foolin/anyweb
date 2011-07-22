@@ -251,5 +251,17 @@ namespace AnyWell.AW_DL
                 }
             }
         }
+
+        /// <summary>
+        /// 获取前台热门标签列表
+        /// </summary>
+        /// <param name="top"></param>
+        /// <returns></returns>
+        public List<AW_Tag_bean> funcGetTopIndexTagList( int top )
+        {
+            this.propSelect = string.Format( " TOP {0} *", top );
+            this.propOrder = "ORDER BY fdTagSort DESC";
+            return this.funcGetList();
+        }
 	}
 }

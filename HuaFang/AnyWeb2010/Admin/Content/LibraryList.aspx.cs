@@ -20,7 +20,7 @@ public partial class Admin_LibraryList : PageAdmin
 
         using (AW_Library_dao dao = new AW_Library_dao())
         {
-            repLibrary.DataSource = dao.funcGetLibrary(int.Parse(drpLibrary.SelectedValue), drpFirstLetter.SelectedValue.ToString(), PN1.PageSize, PN1.PageIndex);
+            repLibrary.DataSource = dao.funcGetLibrary( int.Parse( drpLibrary.SelectedValue ), int.Parse( drpFirstLetter.SelectedValue ), PN1.PageSize, PN1.PageIndex );
             repLibrary.DataBind();
             PN1.SetPage(dao.propCount);
         }

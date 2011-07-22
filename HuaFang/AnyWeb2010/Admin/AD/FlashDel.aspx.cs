@@ -21,7 +21,7 @@ public partial class Admin_FlashDel : PageAdmin
             Response.Redirect(url);
         }
 
-        int record = new AW_FlaAW_dao().funcDelete(int.Parse(id));
+        int record = new AW_Flash_dao().funcDelete(int.Parse(id));
         if (record > 0)
         {
             Studio.Web.WebAgent.SuccAndGo("删除成功", url);

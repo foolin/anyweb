@@ -20,27 +20,35 @@ public partial class Admin_FlashEdit : PageAdmin
     protected override void OnPreRender(EventArgs e)
     {
         base.OnPreRender(e);
-        AW_FlaAW_bean flash = AW_FlaAW_bean.funcGetByID(int.Parse(QS("id")));
+        AW_Flash_bean flash = AW_Flash_bean.funcGetByID( int.Parse( QS( "id" ) ) );
         txtName.Text = flash.fdFlasName;
         txtUrl.Text = flash.fdFlasUrl;
         imgPicture.ImageUrl = flash.fdFlasPicture;
+        txtDesc.Text = flash.fdFlashDesc;
     }
 
     protected void btnOk_Click(object sender, EventArgs e)
     {
         if (fileUpload.PostedFile.ContentLength > 0 && !fileUpload.PostedFile.ContentType.ToLower().Contains("image"))
-            WebAgent.AlertAndBack("您上次的文件不是图片格式");
+            WebAgent.AlertAndBack("您上传的文件不是图片格式");
 
+        if( txtDesc.Text.Length > 200 )
+            WebAgent.AlertAndBack( "图片描述不能超出200字" );
 
-        using (AW_FlaAW_dao dao = new AW_FlaAW_dao())
+        using( AW_Flash_dao dao = new AW_Flash_dao() )
         {
-            AW_FlaAW_bean bean = AW_FlaAW_bean.funcGetByID(int.Parse(QS("id")));
+            AW_Flash_bean bean = AW_Flash_bean.funcGetByID( int.Parse( QS( "id" ) ) );
             bean.fdFlasName = txtName.Text;
             bean.fdFlasUrl = txtUrl.Text;
+            bean.fdFlashDesc = txtDesc.Text;
             if (fileUpload.PostedFile.ContentLength > 0)
             {
                 string fileName = DL_helper.funcGetTicks().ToString();
                 string savePath = "/Files/Flash/";
+                if( !Directory.Exists( Server.MapPath( savePath ) ) )
+                {
+                    Directory.CreateDirectory( Server.MapPath( savePath ) );
+                }
                 string path = savePath + fileName + Path.GetExtension(fileUpload.PostedFile.FileName);
                 uploadPic(fileName, savePath, path);
                 bean.fdFlasPicture = path;

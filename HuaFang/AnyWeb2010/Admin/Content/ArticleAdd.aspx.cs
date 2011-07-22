@@ -74,9 +74,16 @@ public partial class Admin_ArticleAdd : ArticleBase
         if( !WebAgent.IsInt32( txtSort.Text.Trim() ) )
             WebAgent.AlertAndBack( "排序格式不正确" );
 
+        DateTime date = DateTime.Now;
+        if( !string.IsNullOrEmpty( txtCreateAt.Text.Trim() ) && !DateTime.TryParse( txtCreateAt.Text.Trim(), out date ) )
+        {
+            WebAgent.AlertAndBack( "发布时间格式不正确" );
+        }
+
         string childColumn = Request.Form[ "drpChild" ] + "";
 
         bean = new AW_Article_bean();
+        bean.fdArtiCreateAt = date;
         if( childColumn != "0" )
         {
             bean.fdArtiColumnID = int.Parse( childColumn );
@@ -113,6 +120,8 @@ public partial class Admin_ArticleAdd : ArticleBase
         }
         bean.fdArtiSort = int.Parse( txtSort.Text.Trim() );
         bean.fdArtiPic = QF( "imgPath" ).Trim();
+        bean.fdArtiFrom = txtFrom.Text.Trim();
+        bean.fdArtiAuthor = txtAuthor.Text.Trim();
 
         if( bean.fdArtiType == 1 )
         {
@@ -254,7 +263,7 @@ public partial class Admin_ArticleAdd : ArticleBase
                 return;
         }
         string[] pic = pics.Split( ',' );
-        if( picType != 0 || chkDesc.Checked )
+        if( picType != 0 )
         {
             for( int i = 0; i < pic.Length; i++ )
             {

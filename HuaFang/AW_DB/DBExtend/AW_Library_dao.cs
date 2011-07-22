@@ -20,11 +20,11 @@ namespace AnyWell.AW_DL
         /// <param name="pageSize"></param>
         /// <param name="pageIndex"></param>
         /// <returns></returns>
-        public List<AW_Library_bean> funcGetLibrary(int library, string firstLetter, int pageSize, int pageIndex)
+        public List<AW_Library_bean> funcGetLibrary(int library, int firstLetter, int pageSize, int pageIndex)
         {
-            this.propSelect = "fdLibrID,fdLibrType,fdLibrName,fdLibrEnName,fdLibrFirLetter,fdLibrDesc,fdLibrOrder";
+            this.propSelect = "fdLibrID,fdLibrType,fdLibrName,fdLibrEnName,fdLibrFirLetter,fdLibrDesc,fdLibrSort";
             this.propOrder = "ORDER BY fdLibrID DESC";
-            this.propWhere = " fdLibrType = " + library.ToString() + " AND fdLibrFirLetter = '" + firstLetter.ToString() + "'";
+            this.propWhere = string.Format( " fdLibrType={0} AND fdLibrFirLetter={1}", library, firstLetter );
 
             this.propPageSize = pageSize;
             this.propPage = pageIndex;
@@ -41,7 +41,7 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public AW_Library_bean funcGetLibraryItemByID(int id)
         {
-            this.propSelect = "fdLibrID,fdLibrType,fdLibrName,fdLibrEnName,fdLibrFirLetter,fdLibrDesc,fdLibrOrder";
+            this.propSelect = "fdLibrID,fdLibrType,fdLibrName,fdLibrEnName,fdLibrFirLetter,fdLibrDesc,fdLibrSort";
             this.propWhere = " fdLibrID = " + id.ToString();
 
             List<AW_Library_bean> list = this.funcGetList();

@@ -32,14 +32,14 @@
 								<td colspan="2"><table border="0" cellspacing="0" cellpadding="0">
 									<tr> 
 									  <td>
-										<label><input type="radio" name="srctype" id="type1" onclick="ImageDialog.changeSource(1)" style="border:0;width:20px;" checked="checked"/>{#advimage_dlg.image_haspic}</label>
-										<label><input type="radio" name="srctype" id="type2" onclick="ImageDialog.changeSource(2)" style="border:0;width:20px;"/>{#advimage_dlg.image_localpic}</label>
+										<label><input type="radio" name="srctype" id="type1" onclick="ImageDialog.changeSource(1)" style="border:0;width:20px;"/>{#advimage_dlg.image_haspic}</label>
+										<label><input type="radio" name="srctype" id="type2" onclick="ImageDialog.changeSource(2)" style="border:0;width:20px;" checked="checked"/>{#advimage_dlg.image_localpic}</label>
 									  </td> 
 									  <td>&nbsp;</td>
 									</tr>
 								  </table></td>
 							</tr>
-							<tr id="rowNetwork" style="display:;">
+							<tr id="rowNetwork" style="display:none;">
 								<td class="column1"><label id="srclabel" for="src">{#advimage_dlg.image_netaddr}</label></td>
 								<td colspan="2"><table border="0" cellspacing="0" cellpadding="0">
 									<tr> 
@@ -48,7 +48,7 @@
 									</tr>
 								  </table></td>
 							</tr>
-							<tr id="rowLocal" style="display:none;">
+							<tr id="rowLocal" style="display:;">
 								<td class="column1"><label id="localdisklabel" for="image_localdisk">{#advimage_dlg.image_localdisk}</label></td>
 								<td colspan="2"><table border="0" cellspacing="0" cellpadding="0">
 									<tr> 

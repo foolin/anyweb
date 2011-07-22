@@ -118,6 +118,18 @@
                     Context.Items.Add( "ARTICLEID", urlInfo[ 1 ] );
                     break;
                 }
+            case "p":
+                {
+                    realPath = "/PictureArticle.aspx";
+                    Context.Items.Add( "ARTICLEID", urlInfo[ 1 ] );
+                    break;
+                }
+            case "f":
+                {
+                    realPath = "/FashionArticle.aspx";
+                    Context.Items.Add( "ARTICLEID", urlInfo[ 1 ] );
+                    break;
+                }
             case "c":   //文章列表页
                 {
                     realPath = "/Column.aspx";
@@ -128,18 +140,6 @@
                 {
                     realPath = "/Goods.aspx";
                     Context.Items.Add( "GOODSID", urlInfo[ 1 ] );
-                    break;
-                }
-            case "n":   //公告内容页
-                {
-                    realPath = "/NoticeDetail.aspx";
-                    Context.Items.Add( "NOTICEID", urlInfo[ 1 ] );
-                    break;
-                }
-            case "r":   //招聘详情页
-                {
-                    realPath = "/Recruit.aspx";
-                    Context.Items.Add( "RECRUITID", urlInfo[ 1 ] );
                     break;
                 }
             case "s":
@@ -156,7 +156,7 @@
         }
     }
 
-    string[] urls = { "/", "/index.aspx", "/login.aspx", "/import.aspx", "/User/Index.aspx", "/logout.aspx", "/search.aspx", "/register.aspx", "/notice.aspx", "/addfavorite.aspx", "/applyresume.aspx", "/applyresumes.aspx", "/refurbishall.aspx", "/recruitlist.aspx", "/getpassword.aspx", "/resetpwd.aspx", "/error.aspx", "/initarea.aspx", "/initmajor.aspx", "/initindustryweb.aspx", "/initindustry2.aspx", "/initposition.aspx", "/initpositionweb.aspx", "/initpositionweb2.aspx", "/initmajor2.aspx", "/fileuploadtestpage.aspx", "/testsql.aspx" };
+    string[] urls = { "/", "/index.aspx", "/error.aspx", "/c/118.aspx", "/c/123.aspx", "/c/124.aspx", "/c/125.aspx", "/c/126.aspx", "/c/127.aspx", "/c/128.aspx", "/articlesearch.aspx" };
        
 </script>
 

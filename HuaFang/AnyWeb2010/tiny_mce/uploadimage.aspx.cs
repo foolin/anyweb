@@ -41,9 +41,13 @@ namespace BLOG.tiny_mce
             string fileName = DL_helper.funcGetTicks().ToString();
             string vPath = Request.ApplicationPath + "/Files/Others/";
             string savePath = Server.MapPath( vPath );
+            if( !Directory.Exists( savePath ) )
+            {
+                Directory.CreateDirectory( savePath );
+            }
             string path = savePath + fileName + Path.GetExtension(Request.Files[0].FileName);
             string thumbPath = savePath + "s_" + fileName + Path.GetExtension( Request.Files[ 0 ].FileName );
-            int thumbWidth = 0, thumbHeight = 0;
+            int thumbWidth = 460, thumbHeight = 716;
             //Request.Files[0].SaveAs(Server.MapPath(path));
 
             ImageWaterMark wm = new ImageWaterMark();

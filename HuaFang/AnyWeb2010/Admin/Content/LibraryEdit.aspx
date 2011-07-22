@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true" 
-CodeFile="LibraryEdit.aspx.cs" Inherits="Admin_LibraryEdit" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Admin/AdminPage.master" AutoEventWireup="true"
+    CodeFile="LibraryEdit.aspx.cs" Inherits="Admin_LibraryEdit" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="cph2" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="cph1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
@@ -21,7 +21,7 @@ CodeFile="LibraryEdit.aspx.cs" Inherits="Admin_LibraryEdit" %>
             <div class="fi">
                 <label>
                     名称：</label>
-                <asp:TextBox ID="txtLibrName" Width="400px" runat="server" CssClass="text"></asp:TextBox>
+                <asp:TextBox ID="txtLibrName" Width="400px" runat="server" CssClass="text" MaxLength="100"></asp:TextBox>
                 <span class="required">*</span>
                 <sw:Validator ID="Validator1" ControlID="txtLibrName" ValidateType="Required" ErrorText="请输入名称"
                     ErrorMessage="请输入名称" runat="server">
@@ -30,7 +30,7 @@ CodeFile="LibraryEdit.aspx.cs" Inherits="Admin_LibraryEdit" %>
             <div class="fi">
                 <label>
                     英文名称：</label>
-                <asp:TextBox ID="txtLibrEnName" Width="400px" runat="server" CssClass="text"></asp:TextBox>
+                <asp:TextBox ID="txtLibrEnName" Width="400px" runat="server" CssClass="text" MaxLength="100"></asp:TextBox>
                 <span class="required">*</span>
                 <sw:Validator ID="Validator2" ControlID="txtLibrEnName" ValidateType="Required" ErrorText="请输入英文名称"
                     ErrorMessage="请输入英文名称" runat="server">
@@ -40,32 +40,33 @@ CodeFile="LibraryEdit.aspx.cs" Inherits="Admin_LibraryEdit" %>
                 <label>
                     首字母：</label>
                 <asp:DropDownList ID="drpFirstLetter" runat="server">
-                    <asp:ListItem Text="A" Value="A"></asp:ListItem>
-                    <asp:ListItem Text="B" Value="B"></asp:ListItem>
-                    <asp:ListItem Text="C" Value="C"></asp:ListItem>
-                    <asp:ListItem Text="D" Value="D"></asp:ListItem>
-                    <asp:ListItem Text="E" Value="E"></asp:ListItem>
-                    <asp:ListItem Text="F" Value="F"></asp:ListItem>
-                    <asp:ListItem Text="G" Value="G"></asp:ListItem>
-                    <asp:ListItem Text="H" Value="H"></asp:ListItem>
-                    <asp:ListItem Text="I" Value="I"></asp:ListItem>
-                    <asp:ListItem Text="J" Value="J"></asp:ListItem>
-                    <asp:ListItem Text="K" Value="K"></asp:ListItem>
-                    <asp:ListItem Text="L" Value="L"></asp:ListItem>
-                    <asp:ListItem Text="M" Value="M"></asp:ListItem>
-                    <asp:ListItem Text="N" Value="N"></asp:ListItem>
-                    <asp:ListItem Text="O" Value="O"></asp:ListItem>
-                    <asp:ListItem Text="P" Value="P"></asp:ListItem>
-                    <asp:ListItem Text="Q" Value="Q"></asp:ListItem>
-                    <asp:ListItem Text="R" Value="R"></asp:ListItem>
-                    <asp:ListItem Text="S" Value="S"></asp:ListItem>
-                    <asp:ListItem Text="T" Value="T"></asp:ListItem>
-                    <asp:ListItem Text="U" Value="U"></asp:ListItem>
-                    <asp:ListItem Text="V" Value="V"></asp:ListItem>
-                    <asp:ListItem Text="W" Value="W"></asp:ListItem>
-                    <asp:ListItem Text="X" Value="X"></asp:ListItem>
-                    <asp:ListItem Text="Y" Value="Y"></asp:ListItem>
-                    <asp:ListItem Text="Z" Value="Z"></asp:ListItem>
+                    <asp:ListItem Text="A" Value="0"></asp:ListItem>
+                    <asp:ListItem Text="B" Value="1"></asp:ListItem>
+                    <asp:ListItem Text="C" Value="2"></asp:ListItem>
+                    <asp:ListItem Text="D" Value="3"></asp:ListItem>
+                    <asp:ListItem Text="E" Value="4"></asp:ListItem>
+                    <asp:ListItem Text="F" Value="5"></asp:ListItem>
+                    <asp:ListItem Text="G" Value="6"></asp:ListItem>
+                    <asp:ListItem Text="H" Value="7"></asp:ListItem>
+                    <asp:ListItem Text="I" Value="8"></asp:ListItem>
+                    <asp:ListItem Text="J" Value="9"></asp:ListItem>
+                    <asp:ListItem Text="K" Value="10"></asp:ListItem>
+                    <asp:ListItem Text="L" Value="11"></asp:ListItem>
+                    <asp:ListItem Text="M" Value="12"></asp:ListItem>
+                    <asp:ListItem Text="N" Value="13"></asp:ListItem>
+                    <asp:ListItem Text="O" Value="14"></asp:ListItem>
+                    <asp:ListItem Text="P" Value="15"></asp:ListItem>
+                    <asp:ListItem Text="Q" Value="16"></asp:ListItem>
+                    <asp:ListItem Text="R" Value="17"></asp:ListItem>
+                    <asp:ListItem Text="S" Value="18"></asp:ListItem>
+                    <asp:ListItem Text="T" Value="19"></asp:ListItem>
+                    <asp:ListItem Text="U" Value="20"></asp:ListItem>
+                    <asp:ListItem Text="V" Value="21"></asp:ListItem>
+                    <asp:ListItem Text="W" Value="22"></asp:ListItem>
+                    <asp:ListItem Text="X" Value="23"></asp:ListItem>
+                    <asp:ListItem Text="Y" Value="24"></asp:ListItem>
+                    <asp:ListItem Text="Z" Value="25"></asp:ListItem>
+                    <asp:ListItem Text="其他" Value="26"></asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="fi even">
@@ -102,7 +103,26 @@ CodeFile="LibraryEdit.aspx.cs" Inherits="Admin_LibraryEdit" %>
         </ul>
     </div>
 
+    <script type="text/javascript" src="/tiny_mce/tiny_mce.js"></script>
+
+    <script type="text/javascript">
+        tinyMCE.init({
+            mode: "exact",
+            verify_html: false,
+            elements: "<%=txtLibrDesc.ClientID%>",
+            theme: "advanced",
+            language: "zh",
+            plugins: "safari,pagebreak,style,layer,table,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,profile,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,pageseparator,iboximage",
+            content_css: "/tiny_mce/css/content.css",
+            template_external_list_url: "/tiny_mce/lists/template_list.js",
+            external_link_list_url: "/tiny_mce/lists/link_list.js",
+            external_image_list_url: "/tiny_mce/lists/image_list.js",
+            media_external_list_url: "/tiny_mce/lists/media_list.js",
+            template_replace_values: {
+                username: "Some User",
+                staffid: "991234"
+            }
+        });
+    </script>
+
 </asp:Content>
-
-
-

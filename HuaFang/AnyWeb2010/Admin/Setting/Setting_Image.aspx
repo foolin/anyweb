@@ -83,7 +83,7 @@
                     宽<asp:TextBox ID="txtMemberImageWidth" runat="server" MaxLength="4" CssClass="text"
                         Width="50px"></asp:TextBox>像素,高<asp:TextBox ID="txtMemberImageHeight" runat="server"
                             MaxLength="4" CssClass="text" Width="50px"></asp:TextBox>像素</div>
-            </div>--%>
+            </div>
             <div class="fi">
                 <label>
                     栏目图片：</label>
@@ -97,8 +97,8 @@
                         ErrorMessage="请输入栏目图片高度" runat="server">
                     </sw:Validator>
                 </div>
-            </div>
-            <div class="fi even">
+            </div>--%>
+            <div class="fi">
                 <label>
                     文章图片：</label>
                 <div class="cont">
@@ -112,7 +112,7 @@
                     </sw:Validator>
                 </div>
             </div>
-            <div class="fi">
+            <%--<div class="fi">
                 <label>
                     类别图片：</label>
                 <div class="cont">
@@ -125,7 +125,7 @@
                         ErrorMessage="请输入类别图片高度" runat="server">
                     </sw:Validator>
                 </div>
-            </div>
+            </div>--%>
             <div class="fi even">
                 <label>
                     商品图片：</label>

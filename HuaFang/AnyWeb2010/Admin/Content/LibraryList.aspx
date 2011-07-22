@@ -151,7 +151,7 @@
                             <td style="width: 30px;">
                                 <input type="checkbox" name="ids" value="<%# Eval("fdLibrID")%>" />
                             </td>
-                            <td align="center">
+                            <td align="center" class="dragTd" title="拖动排序">
                                 <%#Eval("fdLibrName")%>
                             </td>
                             <td align="center">

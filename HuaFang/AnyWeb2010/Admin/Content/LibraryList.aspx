@@ -8,7 +8,37 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
 
+    <script type="text/javascript" src="/Admin/js/jquery.tablednd.js"></script>
+
     <script type="text/javascript">
+        $(document).ready(function() {
+            $("#datas").tableDnD({
+                onDrop: function(table, row) {
+                    var rows = table.tBodies[0].rows;
+                    var Id = row.id.replace("row_", "");
+                    var nextId = "0";
+                    var previewId = "0";
+                    var total = rows.length;
+                    if (total <= 1)
+                        return;
+                    for (i = 0; i < rows.length; i++) {
+                        rows[i].className = i % 2 == 0 ? "even" : "";
+                        if (rows[i].id == "row_" + Id) {
+                            if (i == 0)
+                                nextId = rows[i + 1].id.replace("row_", "");
+                            else if (i + 1 == total)
+                                previewId = rows[i - 1].id.replace("row_", "");
+                            else
+                                previewId = rows[i - 1].id.replace("row_", "");
+                        }
+                    }
+
+                    var url = "LibrarySort.aspx?id=" + Id + "&previewid=" + previewId + "&nextid=" + nextId;
+                    $.get(url, "", function(htm) { });
+                }
+            });
+        });
+        
         function Change() {
             var url = "?library=" + document.getElementById("<%=drpLibrary.ClientID %>").value
                     + "&firstLetter=" + document.getElementById("<%=drpFirstLetter.ClientID %>").value;
@@ -115,9 +145,9 @@
                         </th>
                     </tr>
                 </thead>
-                <asp:Repeater ID="repLibrary" runat="server">
+                <asp:Repeater ID="repLibrary" runat="server"  EnableViewState="False">
                     <ItemTemplate>
-                        <tr>
+                        <tr align="center" class="editalt" id="row_<%# Eval("fdLibrID")%>">
                             <td style="width: 30px;">
                                 <input type="checkbox" name="ids" value="<%# Eval("fdLibrID")%>" />
                             </td>

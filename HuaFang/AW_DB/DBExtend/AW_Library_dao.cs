@@ -47,5 +47,91 @@ namespace AnyWell.AW_DL
             List<AW_Library_bean> list = this.funcGetList();
             return list[0];
         }
+
+        /// <summary>
+        /// 调整库信息排序
+        /// </summary>
+        /// <param name="column"></param>
+        /// <param name="Id"></param>
+        /// <param name="nextId"></param>
+        /// <param name="previewId"></param>
+        public void funcSortLibrary(int Id, int nextId, int previewId)
+        {
+            AW_Library_bean bean = AW_Library_bean.funcGetByID(Id, "fdLibrID,fdLibrSort");
+            AW_Library_bean next = nextId == 0 ? null : AW_Library_bean.funcGetByID(nextId, "fdLibrID,fdLibrSort");
+            AW_Library_bean preview = previewId == 0 ? null : AW_Library_bean.funcGetByID(previewId, "fdLibrID,fdLibrSort");
+
+            this.propSelect = " fdLibrID,fdLibrSort";
+            this.propOrder = " ORDER BY fdLibrSort DESC";
+            this._propFields = "fdLibrID,fdLibrSort";
+
+            if (next != null)
+            {
+                if (bean.fdLibrSort > next.fdLibrSort) //从上往下移
+                {
+                    this.propWhere += " AND fdLibrSort<=" + bean.fdLibrSort + " AND fdLibrSort>" + next.fdLibrSort.ToString();
+                    List<AW_Library_bean> list = this.funcGetList();
+                    if (list.Count > 1)
+                    {
+                        bean.fdLibrSort = list[list.Count - 1].fdLibrSort;
+                        this.funcUpdate(bean);
+                        for (int i = 1; i < list.Count; i++)
+                        {
+                            list[i].fdLibrSort = list[i - 1].fdLibrSort;
+                            this.funcUpdate(list[i]);
+                        }
+                    }
+                }
+                else //从下往上移
+                {
+                    this.propWhere += " AND fdLibrSort>=" + bean.fdLibrSort + " AND fdLibrSort<=" + next.fdLibrSort.ToString();
+                    List<AW_Library_bean> list = this.funcGetList();
+                    if (list.Count > 1)
+                    {
+                        bean.fdLibrSort = list[0].fdLibrSort;
+                        this.funcUpdate(bean);
+                        for (int i = 0; i < list.Count - 1; i++)
+                        {
+                            list[i].fdLibrSort = list[i + 1].fdLibrSort;
+                            this.funcUpdate(list[i]);
+                        }
+                    }
+                }
+            }
+            else if (preview != null)
+            {
+                if (bean.fdLibrSort > preview.fdLibrSort) //从上往下移
+                {
+                    this.propWhere += " AND fdLibrSort<=" + bean.fdLibrSort + " AND fdLibrSort>=" + preview.fdLibrSort.ToString();
+                    List<AW_Library_bean> list = this.funcGetList();
+                    if (list.Count > 1)
+                    {
+                        bean.fdLibrSort = list[list.Count - 1].fdLibrSort;
+                        this.funcUpdate(bean);
+                        for (int i = list.Count - 1; i > 0; i--)
+                        {
+                            list[i].fdLibrSort = list[i - 1].fdLibrSort;
+                            this.funcUpdate(list[i]);
+                        }
+                    }
+                }
+                else //从下往上移
+                {
+                    this.propWhere += " AND fdLibrSort>=" + bean.fdLibrSort + " AND fdLibrSort<" + preview.fdLibrSort.ToString();
+                    List<AW_Library_bean> list = this.funcGetList();
+                    if (list.Count > 1)
+                    {
+                        bean.fdLibrSort = list[0].fdLibrSort;
+                        this.funcUpdate(bean);
+                        for (int i = 0; i < list.Count - 1; i++)
+                        {
+                            list[i].fdLibrSort = list[i + 1].fdLibrSort;
+                            this.funcUpdate(list[i]);
+                        }
+                    }
+
+                }
+            }
+        }
     }
 }

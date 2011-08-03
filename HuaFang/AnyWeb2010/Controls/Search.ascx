@@ -38,6 +38,12 @@
                 case "1":
                     url = "/ArticleSearch.aspx?t=1";
                     break;
+                case "4":
+                    url = "/ls/2.aspx?t=4";
+                    break;
+                case "5":
+                    url = "/ls/1.aspx?t=5";
+                    break;
             }
             url += "&k=" + decodeURI($("#skey").val());
             window.location = url;

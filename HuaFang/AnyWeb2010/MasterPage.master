@@ -12,8 +12,6 @@
 
     <script type="text/javascript" src="/js/jquery.js"></script>
 
-    <script type="text/javascript" src="/js/jquery.jcarousel.min.js"></script>
-
     <script type="text/javascript" src="/js/jquery.anythingslider.min.js"></script>
 
     <script type="text/javascript" src="/js/main.js"></script>
@@ -62,21 +60,29 @@
                 </asp:Repeater>
                 <ul class="list-disc">
                     <asp:Repeater ID="repKid2" runat="server">
-                    <ItemTemplate>
-                        <li><a href="<%#Eval("fdArtiPath") %>"><%#Eval( "fdArtiTitle" )%></a></li>
-                    </ItemTemplate>
-                </asp:Repeater>
+                        <ItemTemplate>
+                            <li><a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
+                                <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </ul>
             </div>
             <div class="Info-item">
                 <h4>
-                    现场报道</h4>
-                <a href="#">
-                    <img src="img/demo1.jpg" height="160" width="110" /></a>
+                    品牌新闻</h4>
+                <asp:Repeater ID="repNews1" runat="server">
+                    <ItemTemplate>
+                        <a href="<%#Eval("fdArtiPath") %>">
+                            <img src="<%#Eval("fdArtiPic") %>" height="160" width="110" /></a>
+                    </ItemTemplate>
+                </asp:Repeater>
                 <ul class="list-disc">
-                    <li><a href="#">威廉王子大婚特辑</a></li>
-                    <li><a href="#">70年代风格回潮明星示范撞色</a></li>
-                    <li><a href="#">70年代风格回潮明星示范撞色</a></li>
+                    <asp:Repeater ID="repNews2" runat="server">
+                        <ItemTemplate>
+                            <li><a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
+                                <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </ul>
             </div>
             <div class="Info-item">
@@ -90,10 +96,11 @@
                 </asp:Repeater>
                 <ul class="list-disc">
                     <asp:Repeater ID="repStreet2" runat="server">
-                    <ItemTemplate>
-                        <li><a href="<%#Eval("fdArtiPath") %>"><%#Eval( "fdArtiTitle" )%></a></li>
-                    </ItemTemplate>
-                </asp:Repeater>
+                        <ItemTemplate>
+                            <li><a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
+                                <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </ul>
             </div>
             <div class="Info-item">
@@ -107,10 +114,11 @@
                 </asp:Repeater>
                 <ul class="list-disc">
                     <asp:Repeater ID="repBeauty2" runat="server">
-                    <ItemTemplate>
-                        <li><a href="<%#Eval("fdArtiPath") %>"><%#Eval( "fdArtiTitle" )%></a></li>
-                    </ItemTemplate>
-                </asp:Repeater>
+                        <ItemTemplate>
+                            <li><a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
+                                <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
             </div>
             <div class="Info-item">
                 <h4>
@@ -123,10 +131,11 @@
                 </asp:Repeater>
                 <ul class="list-disc">
                     <asp:Repeater ID="repAccessory2" runat="server">
-                    <ItemTemplate>
-                        <li><a href="<%#Eval("fdArtiPath") %>"><%#Eval( "fdArtiTitle" )%></a></li>
-                    </ItemTemplate>
-                </asp:Repeater>
+                        <ItemTemplate>
+                            <li><a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
+                                <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
             </div>
             <div class="Info-item">
                 <h4>
@@ -139,10 +148,11 @@
                 </asp:Repeater>
                 <ul class="list-disc">
                     <asp:Repeater ID="repEvents2" runat="server">
-                    <ItemTemplate>
-                        <li><a href="<%#Eval("fdArtiPath") %>"><%#Eval( "fdArtiTitle" )%></a></li>
-                    </ItemTemplate>
-                </asp:Repeater>
+                        <ItemTemplate>
+                            <li><a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
+                                <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
             </div>
             <div class="Info-item Info-item-last">
                 <h4>
@@ -155,10 +165,11 @@
                 </asp:Repeater>
                 <ul class="list-disc">
                     <asp:Repeater ID="repEditorial2" runat="server">
-                    <ItemTemplate>
-                        <li><a href="<%#Eval("fdArtiPath") %>"><%#Eval( "fdArtiTitle" )%></a></li>
-                    </ItemTemplate>
-                </asp:Repeater>
+                        <ItemTemplate>
+                            <li><a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
+                                <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
             </div>
         </div>
     </div>
@@ -188,5 +199,8 @@
                 沪ICP 备 06058678 号</p>
         </div>
     </div>
+
+    <script type="text/javascript" src="/js/jquery.jcarousel.min.js"></script>
+
 </body>
 </html>

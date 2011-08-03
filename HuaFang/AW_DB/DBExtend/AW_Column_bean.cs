@@ -37,7 +37,14 @@ namespace AnyWell.AW_DL
         {
             get 
             {
-                return string.Format("/c/{0}.aspx", this.fdColuID);
+                if( fdColuParentID == 124 )
+                {
+                    return string.Format( "/Fashion.aspx?col={0}", this.fdColuID );
+                }
+                else
+                {
+                    return string.Format( "/c/{0}.aspx", this.fdColuID );
+                }
             }
         }
 	}

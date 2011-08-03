@@ -59,37 +59,14 @@ public partial class Admin_NavigationAdd : PageAdmin
                 bean.fdNaviLink = "/index.aspx";
                 break;
             case "2":
-                bean.fdNaviLink = "/User/Index.aspx";
-                break;
-            case "3":
-                bean.fdNaviLink = "/search.aspx";
-                break;
-            case "4":
-                bean.fdNaviLink = "/notice.aspx";
-                break;
-            case "5":
                 bean.fdNaviLink = string.Format( "/c/{0}.aspx", drpColumn.SelectedValue );
                 bean.fdNaviItemID = int.Parse( drpColumn.SelectedValue );
                 break;
-            case "6":
-                {
-                    switch( drpRecruit.SelectedValue )
-                    {
-                        case "-1":
-                            bean.fdNaviLink = "/RecruitList.aspx";
-                            break;
-                        default:
-                            bean.fdNaviLink = "/RecruitList.aspx?type=" + drpRecruit.SelectedValue;
-                            break;
-                    }
-                    bean.fdNaviItemID = int.Parse( drpRecruit.SelectedValue );
-                    break;
-                }
-            case "7":
+            case "3":
                 bean.fdNaviLink = string.Format( "/s/{0}.aspx", drpSite.SelectedValue );
                 bean.fdNaviItemID = int.Parse( drpSite.SelectedValue );
                 break;
-            case "8":
+            case "4":
                 if( txtLink.Text.ToLower().StartsWith( "http://" ) )
                 {
                     bean.fdNaviLink = txtLink.Text.ToLower();

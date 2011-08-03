@@ -369,6 +369,7 @@
             elements: "<%=txtIntro.ClientID%>",
             theme: "advanced",
             language: "zh",
+            convert_urls: false,
             plugins: "safari,pagebreak,style,layer,table,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,profile,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,pageseparator,iboximage",
             content_css: "/tiny_mce/css/content.css",
             template_external_list_url: "/tiny_mce/lists/template_list.js",

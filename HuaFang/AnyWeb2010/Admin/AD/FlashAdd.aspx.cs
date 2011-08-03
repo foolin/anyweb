@@ -42,55 +42,55 @@ public partial class Admin_FlashAdd : PageAdmin
             Directory.CreateDirectory( Server.MapPath( savePath ) );
         }
         string path = savePath + fileName + Path.GetExtension(fileUpload.PostedFile.FileName);
-
-        ImageWaterMark wm = new ImageWaterMark();
-        switch (GeneralConfigs.GetConfig().ImageWatermarkType)
-        {
-            case 0:
-                WebAgent.SaveFile(fileUpload.PostedFile, Server.MapPath(path), GeneralConfigs.GetConfig().FlashWidth, GeneralConfigs.GetConfig().FlashHeight);
-                break;
-            case 1:
-                wm.SaveWaterMarkImageByText(
-                    fileUpload.PostedFile,
-                    fileName,
-                    Server.MapPath(savePath),
-                    GeneralConfigs.GetConfig().ImageWatermarkText,
-                    GeneralConfigs.GetConfig().ImageWatermarkFontFamily,
-                    GeneralConfigs.GetConfig().ImageWatermarkFontsize,
-                    GeneralConfigs.GetConfig().ImageWatermarkFontColor,
-                    GeneralConfigs.GetConfig().ImageWatermarkShadowColor,
-                    wm.GetTextCSS(GeneralConfigs.GetConfig().ImageWatermarkFontCss),
-                    GeneralConfigs.GetConfig().ImageWatermarkTransparency,
-                    3,
-                    -3,
-                    GeneralConfigs.GetConfig().ImageWatermarkAngle,
-                    wm.GetImageAlign(GeneralConfigs.GetConfig().ImageWatermarkPosition),
-                    GeneralConfigs.GetConfig().FlashWidth,
-                    GeneralConfigs.GetConfig().FlashHeight,
-                    0,
-                    0,
-                    false
-                    );
-                break;
-            case 2:
-                wm.SaveWaterMarkImageByPic(
-                    fileUpload.PostedFile,
-                    fileName,
-                    Server.MapPath(savePath),
-                    Server.MapPath(GeneralConfigs.GetConfig().ImageWatermarkUrl),
-                    GeneralConfigs.GetConfig().ImageWatermarkAngle,
-                    wm.GetImageAlign(GeneralConfigs.GetConfig().ImageWatermarkPosition),
-                    GeneralConfigs.GetConfig().FlashWidth,
-                    GeneralConfigs.GetConfig().FlashHeight,
-                    0,
-                    0,
-                    false
-                    );
-                break;
-            default:
-                WebAgent.SaveFile(fileUpload.PostedFile, Server.MapPath(path), GeneralConfigs.GetConfig().FlashWidth, GeneralConfigs.GetConfig().FlashHeight);
-                break;
-        }
+        WebAgent.SaveFile( fileUpload.PostedFile, Server.MapPath( path ), GeneralConfigs.GetConfig().FlashWidth, GeneralConfigs.GetConfig().FlashHeight );
+        //ImageWaterMark wm = new ImageWaterMark();
+        //switch (GeneralConfigs.GetConfig().ImageWatermarkType)
+        //{
+        //    case 0:
+        //        WebAgent.SaveFile(fileUpload.PostedFile, Server.MapPath(path), GeneralConfigs.GetConfig().FlashWidth, GeneralConfigs.GetConfig().FlashHeight);
+        //        break;
+        //    case 1:
+        //        wm.SaveWaterMarkImageByText(
+        //            fileUpload.PostedFile,
+        //            fileName,
+        //            Server.MapPath(savePath),
+        //            GeneralConfigs.GetConfig().ImageWatermarkText,
+        //            GeneralConfigs.GetConfig().ImageWatermarkFontFamily,
+        //            GeneralConfigs.GetConfig().ImageWatermarkFontsize,
+        //            GeneralConfigs.GetConfig().ImageWatermarkFontColor,
+        //            GeneralConfigs.GetConfig().ImageWatermarkShadowColor,
+        //            wm.GetTextCSS(GeneralConfigs.GetConfig().ImageWatermarkFontCss),
+        //            GeneralConfigs.GetConfig().ImageWatermarkTransparency,
+        //            3,
+        //            -3,
+        //            GeneralConfigs.GetConfig().ImageWatermarkAngle,
+        //            wm.GetImageAlign(GeneralConfigs.GetConfig().ImageWatermarkPosition),
+        //            GeneralConfigs.GetConfig().FlashWidth,
+        //            GeneralConfigs.GetConfig().FlashHeight,
+        //            0,
+        //            0,
+        //            false
+        //            );
+        //        break;
+        //    case 2:
+        //        wm.SaveWaterMarkImageByPic(
+        //            fileUpload.PostedFile,
+        //            fileName,
+        //            Server.MapPath(savePath),
+        //            Server.MapPath(GeneralConfigs.GetConfig().ImageWatermarkUrl),
+        //            GeneralConfigs.GetConfig().ImageWatermarkAngle,
+        //            wm.GetImageAlign(GeneralConfigs.GetConfig().ImageWatermarkPosition),
+        //            GeneralConfigs.GetConfig().FlashWidth,
+        //            GeneralConfigs.GetConfig().FlashHeight,
+        //            0,
+        //            0,
+        //            false
+        //            );
+        //        break;
+        //    default:
+        //        WebAgent.SaveFile(fileUpload.PostedFile, Server.MapPath(path), GeneralConfigs.GetConfig().FlashWidth, GeneralConfigs.GetConfig().FlashHeight);
+        //        break;
+        //}
 
         using( AW_Flash_dao dao = new AW_Flash_dao() )
         {

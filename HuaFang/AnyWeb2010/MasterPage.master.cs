@@ -69,53 +69,105 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
         repEditorial2.DataSource = editorialList;
         repEditorial2.DataBind();
+
+        //品牌新闻
+        if( newsList.Count > 0 )
+        {
+            repNews1.DataSource = newsList.GetRange( 0, 1 );
+            repNews1.DataBind();
+        }
+        repNews2.DataSource = newsList;
+        repNews2.DataBind();
     }
 
+    private List<AW_Article_bean> _kidList;
     public List<AW_Article_bean> kidList
     {
         get
         {
-            return new AW_Article_dao().funcGetArticleListByUC( 121, 3, true, "", "", "", false );
+            if( _kidList == null )
+            {
+                _kidList = new AW_Article_dao().funcGetArticleListByUC( 121, 3, true, "", "", "", false );
+            }
+            return _kidList;
         }
     }
 
+    private List<AW_Article_bean> _streetList;
     public List<AW_Article_bean> streetList
     {
         get
         {
-            return new AW_Article_dao().funcGetArticleListByUC( 126, 3, true, "", "", "", false );
+            if( _streetList == null )
+            {
+                _streetList = new AW_Article_dao().funcGetArticleListByUC( 126, 3, true, "", "", "", false );
+            }
+            return _streetList;
         }
     }
 
+    private List<AW_Article_bean> _newsList;
+    public List<AW_Article_bean> newsList
+    {
+        get
+        {
+            if( _newsList == null )
+            {
+                _newsList = new AW_Article_dao().funcGetArticleListByUC( 130, 3, true, "", "", "", false );
+            }
+            return _newsList;
+        }
+    }
+
+    private List<AW_Article_bean> _beautyList;
     public List<AW_Article_bean> beautyList
     {
         get
         {
-            return new AW_Article_dao().funcGetArticleListByUC( 149, 3, true, "", "", "", false );
+            if( _beautyList == null )
+            {
+                _beautyList = new AW_Article_dao().funcGetArticleListByUC( 149, 3, true, "", "", "", false );
+            }
+            return _beautyList;
         }
     }
 
+    private List<AW_Article_bean> _accessoryList;
     public List<AW_Article_bean> accessoryList
     {
         get
         {
-            return new AW_Article_dao().funcGetArticleListByUC( 150, 3, true, "", "", "", false );
+            if( _accessoryList == null )
+            {
+                _accessoryList = new AW_Article_dao().funcGetArticleListByUC( 150, 3, true, "", "", "", false );
+            }
+            return _accessoryList;
         }
     }
 
+    private List<AW_Article_bean> _eventsList;
     public List<AW_Article_bean> eventsList
     {
         get
         {
-            return new AW_Article_dao().funcGetArticleListByUC( 151, 3, true, "", "", "", false );
+            if( _eventsList == null )
+            {
+                _eventsList = new AW_Article_dao().funcGetArticleListByUC( 151, 3, true, "", "", "", false );
+            }
+            return _eventsList;
         }
     }
 
+    private List<AW_Article_bean> _editorialList;
     public List<AW_Article_bean> editorialList
     {
         get
         {
-            return new AW_Article_dao().funcGetArticleListByUC( 128, 3, true, "", "", "", false );
+            if( _editorialList == null )
+            {
+                _editorialList = new AW_Article_dao().funcGetArticleListByUC( 128, 3, true, "", "", "", false );
+            }
+            return _editorialList;
         }
     }
 }

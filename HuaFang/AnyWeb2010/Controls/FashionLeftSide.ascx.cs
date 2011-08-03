@@ -8,6 +8,7 @@ using AnyWell.AW_DL;
 public partial class Controls_FashionLeftSide : System.Web.UI.UserControl
 {
     protected int coluCount = 0;
+    protected int col = 0, cate = 0, city = 0;
 
     protected void Page_Load( object sender, EventArgs e )
     {
@@ -21,5 +22,19 @@ public partial class Controls_FashionLeftSide : System.Web.UI.UserControl
             repColumn.DataSource = newList;
             repColumn.DataBind();
         }
+
+        int.TryParse( QS( "col" ), out col );
+        int.TryParse( QS( "cate" ), out cate );
+        int.TryParse( QS( "city" ), out city );
+    }
+
+    protected string QS( string key )
+    {
+        return Request.QueryString[ key ] + "";
+    }
+
+    protected string QF( string key )
+    {
+        return Request.Form[ key ] + "";
     }
 }

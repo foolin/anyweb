@@ -50,7 +50,6 @@
     </div>
     <div class="cs-group">
         <div class="g_760">
-            <!-- -->
             <div class="title-bar">
                 <h2 class="cs-clear">
                     <p class="title-ch title-ch3 cs-fl">
@@ -77,9 +76,7 @@
                     <%if( bean.CatWalkList.Count == 0 && bean.CloseUpList.Count == 0 && bean.BackStageList.Count == 0 && bean.FrontRowList.Count == 0 && string.IsNullOrEmpty( bean.fdArtiFlashPath ) )
                       {%>
                     <div class="Show_filmstrip">
-                        <a href="" class="ShowTime_link" target="_blank">
-                            <img src="<%=bean.fdArtiPic %>" width="398" /></a><a href="#" class="Filmstrip_Loupe">
-                            </a>
+                        <img src="<%=bean.fdArtiPic %>" width="398" />
                     </div>
                     <%}
                       else
@@ -87,7 +84,7 @@
                     <div class="Show_filmstrip">
                         <a href="" class="ShowTime_link" target="_blank" id="imageShow">
                             <img src="" width="398" /></a> <a href="javascript:pre();" class="Filmstrip_L">
-                        </a><a href="javascript:next()" class="Filmstrip_R"></a><a href="#" class="Filmstrip_Loupe">
+                        </a><a href="javascript:next()" class="Filmstrip_R"></a><a id="imageLink" href="" class="Filmstrip_Loupe" target="_blank">
                         </a>
                     </div>
                     <div class="Article_picpage ">
@@ -261,7 +258,8 @@
             <div class="title-bar">
                 <h2 class="cs-clear">
                     <p class="title-ch title-ch2 cs-fl">
-                        <span class="title-size1"><%=bean.Column.fdColuName %></span><span>其他相关秀场</span></p>
+                        <span class="title-size1">
+                            <%=bean.Column.fdColuName %></span><span>其他相关秀场</span></p>
                 </h2>
             </div>
             <div class="Piclist_outline">
@@ -292,7 +290,8 @@
             <div class="title-bar">
                 <h2 class="cs-clear">
                     <p class="title-ch title-ch2 cs-fl">
-                        <span class="title-size1"><%=bean.fdArtiCityName %></span><span>其他相关秀场</span></p>
+                        <span class="title-size1">
+                            <%=bean.fdArtiCityName %></span><span>其他相关秀场</span></p>
                 </h2>
             </div>
             <div class="Piclist_outline">
@@ -323,9 +322,9 @@
         </div>
         <div class="g_192">
             <uc1:FashionLeftSide runat="server" />
-            <uc1:LeftSide1 ID="LeftSide1" runat="server" />
-            <uc1:LeftSide2 ID="LeftSide2" runat="server" />
-            <uc1:LeftSide3 ID="LeftSide3" runat="server" />
+            <uc1:LeftSide1 runat="server" />
+            <uc1:LeftSide2 runat="server" />
+            <uc1:LeftSide3 runat="server" />
         </div>
     </div>
 
@@ -340,8 +339,10 @@
             var index = $(tabTitle).index($(tabTitle + "[class='on']"));
             var image = $(tabContent).eq(index).find("a").eq(current).find("img");
             $("#imageShow").attr("href", $(image).attr("src").replace("S_", ""));
+            $("#imageLink").attr("href", $(image).attr("src").replace("S_", ""));
             $("#imageShow img").attr("src", $(image).attr("src"));
             $("#imagePage").val(current + 1);
+            $(document).scrollTop($("#imageShow").offset().top);
         }
         function pre() {
             if (current == 0) {
@@ -400,6 +401,7 @@
                             $("#divContent1").hide();
                             $("#divContent2").show();
                             $("#divFolding").css("visibility", "hidden");
+                            $(document).scrollTop($(this).offset().top);
                         } else {
                             $("#divContent1").show();
                             $("#divContent2").hide();

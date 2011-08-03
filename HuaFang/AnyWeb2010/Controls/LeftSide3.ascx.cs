@@ -11,7 +11,7 @@ public partial class Controls_LeftSide3 : System.Web.UI.UserControl
     {
         repRecomment1.DataSource = recommentList.Count > 0 ? recommentList.GetRange( 0, 1 ) : null;
         repRecomment1.DataBind();
-        repRecomment2.DataSource = recommentList.Count > 1 ? recommentList.GetRange( 0, 1 ) : null;
+        repRecomment2.DataSource = recommentList.Count > 1 ? recommentList.GetRange( 1, recommentList.Count - 1 ) : null;
         repRecomment2.DataBind();
     }
 

@@ -22,8 +22,8 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public List<AW_Library_bean> funcGetLibrary(int library, int firstLetter, int pageSize, int pageIndex)
         {
-            this.propSelect = "fdLibrID,fdLibrType,fdLibrName,fdLibrEnName,fdLibrFirLetter,fdLibrDesc,fdLibrSort";
-            this.propOrder = "ORDER BY fdLibrID DESC";
+            this.propSelect = "fdLibrID,fdLibrType,fdLibrName,fdLibrEnName,fdLibrFirLetter,fdLibrPic,fdLibrDesc,fdLibrSort";
+            this.propOrder = "ORDER BY fdLibrSort DESC,fdLibrID DESC";
             this.propWhere = string.Format( " fdLibrType={0} AND fdLibrFirLetter={1}", library, firstLetter );
 
             this.propPageSize = pageSize;
@@ -57,7 +57,7 @@ namespace AnyWell.AW_DL
         /// <param name="previewId"></param>
         public void funcSortLibrary(int Id, int nextId, int previewId)
         {
-            AW_Library_bean bean = AW_Library_bean.funcGetByID(Id, "fdLibrID,fdLibrSort");
+            AW_Library_bean bean = AW_Library_bean.funcGetByID( Id, "fdLibrID,fdLibrSort,fdLibrType,fdLibrFirLetter" );
             AW_Library_bean next = nextId == 0 ? null : AW_Library_bean.funcGetByID(nextId, "fdLibrID,fdLibrSort");
             AW_Library_bean preview = previewId == 0 ? null : AW_Library_bean.funcGetByID(previewId, "fdLibrID,fdLibrSort");
 
@@ -69,7 +69,7 @@ namespace AnyWell.AW_DL
             {
                 if (bean.fdLibrSort > next.fdLibrSort) //从上往下移
                 {
-                    this.propWhere += " AND fdLibrSort<=" + bean.fdLibrSort + " AND fdLibrSort>" + next.fdLibrSort.ToString();
+                    this.propWhere += " AND fdLibrSort<=" + bean.fdLibrSort + " AND fdLibrSort>" + next.fdLibrSort.ToString() + " AND fdLibrType=" + bean.fdLibrType + " AND fdLibrFirLetter=" + bean.fdLibrFirLetter;
                     List<AW_Library_bean> list = this.funcGetList();
                     if (list.Count > 1)
                     {
@@ -84,7 +84,7 @@ namespace AnyWell.AW_DL
                 }
                 else //从下往上移
                 {
-                    this.propWhere += " AND fdLibrSort>=" + bean.fdLibrSort + " AND fdLibrSort<=" + next.fdLibrSort.ToString();
+                    this.propWhere += " AND fdLibrSort>=" + bean.fdLibrSort + " AND fdLibrSort<=" + next.fdLibrSort.ToString() + " AND fdLibrType=" + bean.fdLibrType + " AND fdLibrFirLetter=" + bean.fdLibrFirLetter;
                     List<AW_Library_bean> list = this.funcGetList();
                     if (list.Count > 1)
                     {
@@ -102,7 +102,7 @@ namespace AnyWell.AW_DL
             {
                 if (bean.fdLibrSort > preview.fdLibrSort) //从上往下移
                 {
-                    this.propWhere += " AND fdLibrSort<=" + bean.fdLibrSort + " AND fdLibrSort>=" + preview.fdLibrSort.ToString();
+                    this.propWhere += " AND fdLibrSort<=" + bean.fdLibrSort + " AND fdLibrSort>=" + preview.fdLibrSort.ToString() + " AND fdLibrType=" + bean.fdLibrType + " AND fdLibrFirLetter=" + bean.fdLibrFirLetter;
                     List<AW_Library_bean> list = this.funcGetList();
                     if (list.Count > 1)
                     {
@@ -117,7 +117,7 @@ namespace AnyWell.AW_DL
                 }
                 else //从下往上移
                 {
-                    this.propWhere += " AND fdLibrSort>=" + bean.fdLibrSort + " AND fdLibrSort<" + preview.fdLibrSort.ToString();
+                    this.propWhere += " AND fdLibrSort>=" + bean.fdLibrSort + " AND fdLibrSort<" + preview.fdLibrSort.ToString() + " AND fdLibrType=" + bean.fdLibrType + " AND fdLibrFirLetter=" + bean.fdLibrFirLetter;
                     List<AW_Library_bean> list = this.funcGetList();
                     if (list.Count > 1)
                     {
@@ -129,9 +129,39 @@ namespace AnyWell.AW_DL
                             this.funcUpdate(list[i]);
                         }
                     }
-
                 }
             }
+        }
+
+        public List<AW_Library_bean> funcGetLibraryList( int library, int firstLetter, int libId, int topCount )
+        {
+            this.propSelect = "fdLibrID,fdLibrType,fdLibrName,fdLibrEnName,fdLibrFirLetter,fdLibrPic,fdLibrDesc,fdLibrSort";
+            if( topCount > 0 )
+            {
+                this.propSelect = string.Format( "TOP {0} {1}", topCount, this.propSelect );
+            }
+            this.propWhere = string.Format( "fdLibrType={0} AND fdLibrFirLetter={1}", library, firstLetter );
+            if( libId > 0 )
+            {
+                this.propWhere += " AND fdLibrID<>" + libId;
+            }
+            this.propOrder = "ORDER BY fdLibrSort DESC,fdLibrID DESC";
+            List<AW_Library_bean> list = this.funcGetList();
+            return list;
+        }
+
+        public List<AW_Library_bean> funcGetLibrary( int library, string key, int pageSize, int pageIndex )
+        {
+            this.propSelect = "fdLibrID,fdLibrType,fdLibrName,fdLibrEnName,fdLibrFirLetter,fdLibrPic,fdLibrDesc,fdLibrSort";
+            this.propOrder = "ORDER BY fdLibrSort DESC,fdLibrID DESC";
+            this.propWhere = string.Format( " fdLibrType={0} AND (fdLibrName LIKE '%{1}%' OR fdLibrEnName LIKE '%{1}%')", library, key );
+
+            this.propPageSize = pageSize;
+            this.propPage = pageIndex;
+            this.propGetCount = true;
+
+            List<AW_Library_bean> list = this.funcGetList();
+            return list;
         }
     }
 }

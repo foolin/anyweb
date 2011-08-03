@@ -39,7 +39,7 @@ namespace BLOG.tiny_mce
         {
             string url = "";
             string fileName = DL_helper.funcGetTicks().ToString();
-            string vPath = Request.ApplicationPath + "/Files/Others/";
+            string vPath = Request.ApplicationPath + "Files/Others/";
             string savePath = Server.MapPath( vPath );
             if( !Directory.Exists( savePath ) )
             {
@@ -102,11 +102,12 @@ namespace BLOG.tiny_mce
             }
 
 
-            url = String.Format("http://{0}{1}{2}",
-                Request.Url.Host,
-                Request.Url.Port == 80 ? "" : (":" + Request.Url.Port.ToString()),
-                vPath + "s_" + fileName + Path.GetExtension( Request.Files[ 0 ].FileName )
-                );
+            //url = String.Format("http://{0}{1}{2}",
+            //    Request.Url.Host,
+            //    Request.Url.Port == 80 ? "" : (":" + Request.Url.Port.ToString()),
+            //    vPath + "s_" + fileName + Path.GetExtension( Request.Files[ 0 ].FileName )
+            //    );
+            url = vPath + "s_" + fileName + Path.GetExtension( Request.Files[ 0 ].FileName );
             Response.Write("<script language='javascript'>if(parent)parent.ImageDialog.uploadOk('" + url + "');</script>");
         }
 

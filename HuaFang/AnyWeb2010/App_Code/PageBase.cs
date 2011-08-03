@@ -8,4 +8,13 @@ using System.Web.UI;
 /// </summary>
 public class PageBase : Page
 {
+    protected string QS( string key )
+    {
+        return Request.QueryString[ key ] + "";
+    }
+
+    protected string QF( string key )
+    {
+        return Request.Form[ key ] + "";
+    }
 }

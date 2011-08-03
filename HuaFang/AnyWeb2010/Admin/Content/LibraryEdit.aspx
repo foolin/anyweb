@@ -4,6 +4,61 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
+    <style type="text/css">
+        .images li
+        {
+            float: left;
+            margin-right: 8px;
+            margin-top: 8px;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            border: 1px #ccc solid;
+        }
+        .images li.on
+        {
+            background: url(/admin/images/goods_lst_bg.jpg);
+        }
+        .images li img
+        {
+            width: 70px;
+            height: 70px;
+            border: 0px solid #ccc;
+            margin-top: 5px;
+            margin-bottom: 4px;
+        }
+        .images li button
+        {
+            border: 0;
+            background: 0;
+        }
+        .imagelist li
+        {
+            height: 150px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function setPicture(path) {
+            if (path.length > 0) {
+                path = "/Files/Librarys/" + path;
+                $("#img").attr("src", path).parent("li").show();
+                $("#imgPath").val(path);
+            }
+        }
+        function delPicture(obj) {
+            if (confirm("确定要删除图片？")) {
+                if (obj) {
+                    $(obj).parent("li").remove();
+                } else {
+                    $("#imgPath").val("");
+                    $("#img").attr("src", "").parent("li").hide();
+                }
+            }
+        }
+    </script>
+
     <div class="Mod Form MainForm" id="InfoEdit">
         <div class="mhd">
             <h3>
@@ -18,7 +73,7 @@
                     <asp:ListItem Text="品牌库" Value="2"></asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <div class="fi">
+            <div class="fi even">
                 <label>
                     名称：</label>
                 <asp:TextBox ID="txtLibrName" Width="400px" runat="server" CssClass="text" MaxLength="100"></asp:TextBox>
@@ -35,6 +90,29 @@
                 <sw:Validator ID="Validator2" ControlID="txtLibrEnName" ValidateType="Required" ErrorText="请输入英文名称"
                     ErrorMessage="请输入英文名称" runat="server">
                 </sw:Validator>
+            </div>
+            <div class="fi even">
+                <label>
+                    图片：</label>
+                <div class="cont">
+                    <sw:Uploader ID="PicUploader" UploadPage="/Admin/Ajax/LibraryPicUpload.ashx" FilePath="/Files/Librarys/"
+                        MaxSizeToUpload="2097152" Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
+                        JavascriptCompleteFunction="setPicture" MultiSelect="false" runat="server">
+                    </sw:Uploader>
+                    <div id="divUpload">
+                    </div>
+                    <span id="results"></span>
+                    <div class="images">
+                        <ul>
+                            <li <%=string.IsNullOrEmpty(bean.fdLibrPic)?"style=\"display: none;\"":"" %>>
+                                <img id="img" src="<%=bean.fdLibrPic %>" alt="" />
+                                <button type="button" onclick="delPicture();">
+                                    删除</button>
+                            </li>
+                        </ul>
+                        <input type="hidden" id="imgPath" name="imgPath" value="<%=bean.fdLibrPic %>" />
+                    </div>
+                </div>
             </div>
             <div class="fi">
                 <label>
@@ -76,7 +154,7 @@
                     <asp:TextBox ID="txtLibrDesc" TextMode="MultiLine" Width="100%" Height="300px" runat="server"></asp:TextBox>
                 </div>
             </div>
-            <div class="fi even">
+            <div class="fi">
                 <label>
                     排序：</label>
                 <asp:TextBox ID="txtLibrOrder" runat="server" Text="0" CssClass="text" Width="80"></asp:TextBox>
@@ -112,6 +190,7 @@
             elements: "<%=txtLibrDesc.ClientID%>",
             theme: "advanced",
             language: "zh",
+            convert_urls: false,
             plugins: "safari,pagebreak,style,layer,table,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,profile,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,pageseparator,iboximage",
             content_css: "/tiny_mce/css/content.css",
             template_external_list_url: "/tiny_mce/lists/template_list.js",

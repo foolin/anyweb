@@ -33,6 +33,7 @@ public partial class Admin_LibraryAdd : PageAdmin
             bean.fdLibrEnName = txtLibrEnName.Text.Trim();
             bean.fdLibrFirLetter = int.Parse( drpFirstLetter.SelectedValue );
             bean.fdLibrDesc = txtLibrDesc.Text;
+            bean.fdLibrPic = QF( "imgPath" ).Trim();
             if (int.Parse(txtLibrOrder.Text) == 0)
             {
                 bean.fdLibrSort = bean.fdLibrID * 100;

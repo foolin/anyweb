@@ -331,7 +331,7 @@
                     <label>
                         图片列表：</label>
                     <div class="cont">
-                        <sw:Uploader ID="Uploader1" UploadPage="/Admin/Ajax/ArticlePicListUpload.ashx" FilePath="/Files/Articles/"
+                        <sw:Uploader ID="Uploader1" UploadPage="/Admin/Ajax/ArticlePicListUpload2.ashx" FilePath="/Files/Articles/"
                             Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
                             JavascriptCompleteFunction="setPicList" MultiSelect="true" runat="server">
                         </sw:Uploader>
@@ -520,7 +520,7 @@
                         视频直击：</label>
                     <div class="cont">
                         <sw:Uploader ID="Uploader6" UploadPage="/Admin/Ajax/ArticleFlashUpload.ashx" FilePath="/Files/Articles/"
-                            Filter="Flash (*.swf;*.flv)|*.swf;*.flv;" JavascriptCompleteFunction="setFlash"
+                            Filter="Flash (*.flv)|*.flv;" JavascriptCompleteFunction="setFlash"
                             MultiSelect="false" runat="server" Style="margin-left: 6px">
                         </sw:Uploader>
                         <a id="flashLink" href="<%=article.fdArtiFlashPath %>" target="_blank" title="右键删除视频" style="<%=string.IsNullOrEmpty( article.fdArtiFlashPath )?"display:none;": ""%>" oncontextmenu="return delFlash();">
@@ -636,6 +636,7 @@
             elements: "<%=txtContent.ClientID%>,<%=txtContent2.ClientID %>",
             theme: "advanced",
             language: "zh",
+            convert_urls: false,
             plugins: "safari,pagebreak,style,layer,table,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,profile,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,pageseparator,iboximage",
             content_css: "/tiny_mce/css/content.css",
             template_external_list_url: "/tiny_mce/lists/template_list.js",

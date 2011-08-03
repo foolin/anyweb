@@ -8,8 +8,24 @@
                     <img src="<%#Eval("fdArtiPic") %>" /></a>
                 <div class="Column5_tit">
                     <h2>
-                        <a href="<%#Eval("fdArtiPath") %>">
-                            <%#Eval( "fdArtiTitle" )%></a>
+                        <a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
+                            <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 11, false )%></a>
+                    </h2>
+                    <p>
+                        <%#Studio.Web.WebAgent.GetLeft((string)Eval("fdArtiDesc"),75,false) %></p>
+                </div>
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+    <asp:Repeater ID="rep3" runat="server">
+        <ItemTemplate>
+            <div class="Column5_item Column5_itemR cs-clear">
+                <a class="Column5_pic" href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
+                    <img src="<%#Eval("fdArtiPic") %>"></a>
+                <div class="Column5_tit">
+                    <h2>
+                        <a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
+                            <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 11, false )%></a>
                     </h2>
                     <p>
                         <%#Studio.Web.WebAgent.GetLeft((string)Eval("fdArtiDesc"),75,false) %></p>
@@ -26,7 +42,24 @@
                     <img src="<%#Eval("fdArtiPic") %>" /></a>
                 <div class="Column5_tit">
                     <h2>
-                        <a href="<%#Eval("fdArtiPath") %>"><%#Eval( "fdArtiTitle" )%></a>
+                        <a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
+                            <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 11, false )%></a>
+                    </h2>
+                    <p>
+                        <%#Studio.Web.WebAgent.GetLeft((string)Eval("fdArtiDesc"),75,false) %></p>
+                </div>
+            </div>
+        </ItemTemplate>
+    </asp:Repeater>
+    <asp:Repeater ID="rep4" runat="server">
+        <ItemTemplate>
+            <div class="Column5_item Column5_itemR cs-clear">
+                <a class="Column5_pic" href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
+                    <img src="<%#Eval("fdArtiPic") %>"></a>
+                <div class="Column5_tit">
+                    <h2>
+                        <a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
+                            <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 11, false )%></a>
                     </h2>
                     <p>
                         <%#Studio.Web.WebAgent.GetLeft((string)Eval("fdArtiDesc"),75,false) %></p>

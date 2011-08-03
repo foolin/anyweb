@@ -59,9 +59,9 @@ button.btn-simple{height:21px;_height:22px}
 .BannerTab li.hover,.thumbNav a.cur{background:#51b3bc url(../img/BannerTab-hover.png) repeat-x;color:#fff}
 .anythingWindow{position:relative;overflow:hidden;width:986px;height:375px}
 .anythingSlider-default{overflow:hidden;height:375px}
-#slider2{height:375px;width:986px}
-.anythingBase{position:absolute}
-.anythingBase li{float:left;height:375px;width:986px;overflow:hidden;float:left}
+#slider2{height:375px;width:986px;position:absolute;overflow:hidden;}
+#slider2 li{float:left;height:375px;width:986px;overflow:hidden;float:left}
+#slider2 li a{height:375px;width:986px;float:left}
 .arrow{cursor:pointer;height:375px;width:30px;display:block;position:absolute;top:0;overflow:hidden;line-height:1000em;z-index:100}
 .forward{background:url(../img/forward.png) no-repeat center;_background:url(../img/forward.gif) no-repeat center 160px;right:0}
 .back{background:url(../img/back.png) no-repeat center;_background:url(../img/back.gif) no-repeat center 160px;left:0}
@@ -129,7 +129,7 @@ button.btn-simple{height:21px;_height:22px}
 .MoreInformation{width:986px;margin:0 auto 45px}
 .MoreInforCon{overflow:hidden;height:330px}
 .Info-item{float:left;border-right:#202020 dotted 1px;width:112px;padding:0 16px;height:330px}
-.Info-item img{width:110px;height:171px;}
+.Info-item img{width:110px;height:171px;display:block}
 .Info-item-first{padding-left:0;padding-right:18px}
 .Info-item-last{padding-right:0;padding-left:18px;border:0}
 .Info-item h4{color:#000;text-align:center;font-size:14px;line-height:2.4em;}
@@ -174,7 +174,7 @@ button.btn-simple{height:21px;_height:22px}
 /*Featured*/
 .Featured{margin-left:-20px}
 .Featured2{margin-left:0;margin-bottom:20px}
-.Featured-item{width:170px;margin-bottom:40px;float:left;margin-left:20px;_display:inline}
+.Featured-item{width:170px;margin-bottom:40px;float:left;margin-left:20px;_display:inline;height:260px;overflow:hidden}
 .Featured2 .Featured-item{margin:10px 12px 15px}
 .Featured-item img{padding:4px}
 .Featured-item h2{font-weight:bold;padding:10px 0 2px}
@@ -258,7 +258,7 @@ button.btn-simple{height:21px;_height:22px}
 /*Pho_Cap_Recom*/
 .Pho_Cap_Recom{padding-bottom:30px}
 .PhoCap-a{display:block}
-.Pho_Cap_Recom img{padding:6px;background:#b5b5b6;border:0;width:180px;height:284px;}
+.Pho_Cap_Recom img{padding:6px;background:#b5b5b6;border:0;width:180px;height:284px;display:block}
 .Pho_Cap_Recom h3{font-size:18px;line-height:24px;padding:12px 10px 5px;}
 .Pho_Cap_Recom h3 a{color:#000}
 .Minor-tit a:hover,
@@ -333,19 +333,21 @@ button.btn-simple{height:21px;_height:22px}
 
 .PhoGal_unfold .PhoGal_list{height:100%}
 .PhoGal_list{height:300px;overflow-y:auto}
-.PhoGal_list a{float:left;border:#fff solid 5px}
+.PhoGal_list a{float:left;border:#fff solid 5px;width:96px;height:140px;overflow:hidden}
 .PhoGal_list img{width:80px;border:0;padding:8px}
 .PhoGal_list2{height:350px}
+.PhoGal_list2 a{width:110px;height:157px;}
 .PhoGal_list2 img{width:94px}
 .PhoGal_list a:hover{border:#5cb7c0 solid 5px}
 .PhoGal_list a:hover img{background:0}
 
 /*Pho_Gallery_tab*/
 .Pho_Gallery_tab{position:relative}
-.PhoG_Tabtit{height:28px;position:absolute;top:0;border-left:#8b8b8b solid 1px}
-.PhoG_Tabtit p{float:left;border-right:#8b8b8b solid 1px;border-top:#8b8b8b solid 1px;width:99px;height:28px;line-height:26px;text-align:center;cursor:pointer;background:#fff}
+.PhoG_Tabtit{height:27px;position:absolute;top:0;border-left:#8b8b8b solid 1px;border-bottom:#8b8b8b solid 1px}
+.PhoG_Tabtit p{float:left;border-right:#8b8b8b solid 1px;border-top:#8b8b8b solid 1px;width:99px;height:27px;line-height:26px;text-align:center;cursor:pointer;background:#fff}
 .PhoG_Tabtit p.on{background:#8b8b8b;color:#fff}
-.Pho_Gallery_tab .PhoGal_mod{margin-top:6px;border:5px solid #8b8b8b}
+.Pho_Gallery_tab .PhoGal_mod{margin-top:0;border:5px solid #8b8b8b}
+.Pho_Gallery_tab .btn-simple1{margin-bottom:6px}
 
 /*ShowNav*/
 .ShowNav{border-top:#777 dotted 1px;padding:5px 0 30px}
@@ -360,13 +362,15 @@ button.btn-simple{height:21px;_height:22px}
 .ShowNav-btn .btn-simple{margin-left:0}
 .ShowNav-search{background:url(../img/search-icon1.gif) no-repeat 174px 4px;position:relative}
 .ShowNav-search .ipt-simple{width:188px;margin:0;background:none}
-.ShowNav-list{background:#f7f8f8;border-top:#fff solid 8px;height:223px;overflow-y:auto;position:absolute;width:190px;padding:1px;_left:0;_top:22px}
+.ShowNav-list{background:#f7f8f8;border-top:#fff solid 8px;height:223px;overflow-y:auto;width:190px;padding:1px;}/*position:absolute;_left:0;_top:22px*/
 .ShowNav-list a{display:block;color:#727171;padding:0 5px}
 .ShowNav-list a:hover{background:#dcdddd}
 .SeaList-Up{position:absolute;right:0;top:0;width:19px;height:15px;background:url(../img/SeaList-Up.gif) no-repeat center}
 .SeaList-Down{position:absolute;right:0;bottom:0;width:19px;height:15px;background:url(../img/SeaList-Down.gif) no-repeat center}
 .SeaList-Up:hover{background:url(../img/SeaList-Upon.gif) no-repeat center}
 .SeaList-Down:hover{background:url(../img/SeaList-Downon.gif) no-repeat center}
+.Show_term a{background:url(../img/ico-close.gif) no-repeat center right;padding:1px 15px 1px 2px;display:inline-block;border:#fff solid 1px;}
+.Show_term a:hover{border:#5fbac3 solid 1px}
 
 /*ShowTime*/
 .ShowTime{padding:10px 0 20px}
@@ -403,7 +407,7 @@ button.btn-simple{height:21px;_height:22px}
 .HotShow-odd .HotShow-info{background:#000;filter: Alpha(opacity=70);opacity:0.7;}
 .HotShow-odd .HotShow-tit{color:#88ebf0;margin-top:260px}
 .HotShow-item{width:212px;height:424px;margin:0}
-.HotShow-item .HotShow-info{background:#62c3cc;border:#f7fbfc solid 1px;height:80px;width:210px;top:329px;filter: Alpha(opacity=100);opacity:1;}
+.HotShow-item .HotShow-info{background:#62c3cc;border:#f7fbfc solid 1px;height:80px;width:210px;top:329px;filter: Alpha(opacity=100);opacity:1;overflow:hidden}
 .HotShow-item img{width:210px;border:#f7fbfc solid 1px;margin:0}
 .HotShow-item .HotShow-tit{font-size:18px;color:#fff;padding:0 12px;margin:0;height:auto;}
 .HotShow-item span{padding:0 12px;display:block}
@@ -417,11 +421,11 @@ button.btn-simple{height:21px;_height:22px}
 .PicBlack_tab{position:absolute;bottom:160px;right:15px;}
 .PicBlack_tab li{float:left;width:10px;height:10px;background:url(../img/PicBlack_tab.gif) no-repeat center;padding:4px;cursor:pointer}
 .PicBlack_tab li.active{background:url(../img/PicBlack_on.gif) no-repeat center}
-.PicBlack_mod img{padding:5px;border:0;width:350px;height:543px;background:#b5b5b6}
+.PicBlack_mod img{padding:5px;border:0;width:350px;height:543px;background:#b5b5b6;display:block}
 .PicBlack_mod2 img{border:0;padding:0}
 .PicBlack_tit{position:absolute;color:#fff;bottom:5px;_bottom:4px;left:5px;width:306px;padding:30px 22px 20px;background:#000}
 .PicBlack_tit h2{font-size:18px;line-height:24px;padding-bottom:10px}
-.PicBlack_tit2{padding-top:50px;position:static;_margin-top:-5px}
+.PicBlack_tit2{padding-top:50px;position:static;_margin-top:-5px;height:118px}
 .Pic_point{position:absolute;display:block;width:14px;height:7px;top:-7px;background:url(../img/Pic_point.gif) no-repeat;left:28px}
 .Index_picarticle{text-align:center;width:75px;line-height:1.2em;margin-top:5px}
 .Index_picarticle img{width:75px;margin-bottom:3px;display:block}
@@ -448,8 +452,8 @@ button.btn-simple{height:21px;_height:22px}
 .Pic_GoL,.jcarousel-prev{left:0px;top:3px;background:url(../img/Editorial-GOl.gif) no-repeat center}
 .Pic_GoR,.jcarousel-next{right:0;top:3px;background:url(../img/Editorial-GOr.gif) no-repeat center}
 .Pic_GoRound a{float:left;_display:inline;margin-left:2px;}
-.Pic_GoRound img{height:238;width:153px;}
-.jcarousel-container-horizontal{padding:0 21px;width:944px}
+.Pic_GoRound img{height:238px;width:153px;display:block}
+.jcarousel-container-horizontal{padding:0 21px;width:944px;height:240px}
 .jcarousel-clip-horizontal{width:944px;overflow:hidden}
 .Perio_List .jcarousel-container-horizontal{width:430px;padding:0 20px}
 .Perio_List .jcarousel-clip-horizontal{overflow:hidden;width:430px}
@@ -468,7 +472,7 @@ button.btn-simple{height:21px;_height:22px}
 .Column_sec1{height:560px;margin-bottom:30px;overflow:hidden}
 .Column_sec5{margin-bottom:40px}
 .Column5_item{width:360px;}
-.Column5_item img{width:178px;height:278px;}
+.Column5_item img{width:178px;height:278px;display:block}
 .Column5_tit{width:140px;}
 .Column5_itemL .Column5_tit{padding-left:20px;float:right;background:url(../img/Column5_titL.gif) no-repeat left 50px}
 .Column5_itemL .Column5_pic{float:left;width:180px}
@@ -495,7 +499,7 @@ button.btn-simple{height:21px;_height:22px}
 .PicBlack_Roll{background:#000;border:#B5B5B5 solid 5px;width:350px;position:relative;height:732px;_height:732px;overflow:hidden}
 .PicBReel{width:3600px;position:absolute}
 .PicBReel .PicBlack_mod2{float:left;position:static;padding:0}
-.PicBReel .PicBlack_mod2 img{width:350px}
+.PicBReel .PicBlack_mod2 img{width:350px;height:544px;display:block}
 .PicB_win{width:350px;overflow:hidden}
 
 /*Star-post*/

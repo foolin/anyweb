@@ -17,7 +17,7 @@
                             <img class="nobor" src="<%#Eval("fdFlasPicture") %>" />
                             <div class="BannerSlide_tit">
                                 <h2>
-                                    <%#Eval( "fdFlasName" )%></h2>
+                                    <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdFlasName" ), 25, false )%></h2>
                                 <p>
                                     <%#Eval( "fdFlashDesc" )%>
                                 </p>
@@ -68,7 +68,7 @@
                                 <img src="<%#Eval("fdArtiPic") %>" />
                                 <div class="PicBlack_tit">
                                     <h2>
-                                        <%#Eval( "fdArtiTitle" )%></h2>
+                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 30, false )%></h2>
                                     <p>
                                         <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 40, false )%></p>
                                     <span class="Pic_point"></span>
@@ -89,7 +89,7 @@
                     <div class="Hotnews_minor Hotnews_minor2">
                         <asp:Repeater ID="repCelebs" runat="server">
                             <ItemTemplate>
-                                <%#Container.ItemIndex == 0 || Container.ItemIndex == 3 ? string.Format( "<div class=\"Minor-item Minor-item2 cs-clear\"><a class=\"Minor-pic\" href=\"{0}\"><img class=\"nobor\" src=\"{1}\"></a><div class=\"Minor-intro\"><h2 class=\"Minor-tit Minor-tit2\"><a href=\"{0}\">{2}</a></h2><p>{3}</p><div class=\"cs-clear\">", Eval( "fdArtiPath" ), Eval( "fdArtiPic" ), Eval( "fdArtiTitle" ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 24, false ) ) : ""%>
+                                <%#Container.ItemIndex == 0 || Container.ItemIndex == 3 ? string.Format( "<div class=\"Minor-item Minor-item2 cs-clear\"><a class=\"Minor-pic\" href=\"{0}\"><img class=\"nobor\" src=\"{1}\"></a><div class=\"Minor-intro\"><h2 class=\"Minor-tit Minor-tit2\"><a href=\"{0}\">{2}</a></h2><p>{3}</p><div class=\"cs-clear\">", Eval( "fdArtiPath" ), Eval( "fdArtiPic" ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 11, false ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 24, false ) ) : ""%>
                                 <%#Container.ItemIndex != 0 && Container.ItemIndex != 3 ? string.Format( "<a href=\"{0}\" class=\"Index_picarticle {3}\"><img class=\"nobor\" src=\"{1}\" /><span>{2}</span></a>", Eval( "fdArtiPath" ), Eval( "fdArtiPic" ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 10, false ), Container.ItemIndex == 1 || Container.ItemIndex == 4 ? "cs-fl" : "cs-fr" ) : ""%>
                                 <%#Container.ItemIndex == 2 || Container.ItemIndex == 5 || Container.ItemIndex == celebsCount - 1 ? "</div></div></div>" : ""%>
                             </ItemTemplate>
@@ -110,9 +110,9 @@
                     <div class="Hotnews_minor Hotnews_minor2">
                         <asp:Repeater ID="repStreet" runat="server">
                             <ItemTemplate>
-                                <%#Container.ItemIndex == 0 || Container.ItemIndex == 3 ? string.Format( "<div class=\"Minor-item Minor-item2 cs-clear\"><a class=\"Minor-pic\" href=\"{0}\"><img class=\"nobor\" src=\"{1}\"></a><div class=\"Minor-intro\"><h2 class=\"Minor-tit Minor-tit2\"><a href=\"{0}\">{2}</a></h2><p>{3}</p><div class=\"cs-clear\">", Eval( "fdArtiPath" ), Eval( "fdArtiPic" ), Eval( "fdArtiTitle" ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 24, false ) ) : ""%>
+                                <%#Container.ItemIndex == 0 || Container.ItemIndex == 3 ? string.Format( "<div class=\"Minor-item Minor-item2 cs-clear\"><a class=\"Minor-pic\" href=\"{0}\"><img class=\"nobor\" src=\"{1}\"></a><div class=\"Minor-intro\"><h2 class=\"Minor-tit Minor-tit2\"><a href=\"{0}\">{2}</a></h2><p>{3}</p><div class=\"cs-clear\">", Eval( "fdArtiPath" ), Eval( "fdArtiPic" ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 11, false ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 24, false ) ) : ""%>
                                 <%#Container.ItemIndex != 0 && Container.ItemIndex != 3 ? string.Format( "<a href=\"{0}\" class=\"Index_picarticle {3}\"><img class=\"nobor\" src=\"{1}\" /><span>{2}</span></a>", Eval( "fdArtiPath" ), Eval( "fdArtiPic" ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 10, false ), Container.ItemIndex == 1 || Container.ItemIndex == 4 ? "cs-fl" : "cs-fr" ) : ""%>
-                                <%#Container.ItemIndex == 2 || Container.ItemIndex == 5 || Container.ItemIndex == celebsCount - 1 ? "</div></div></div>" : ""%>
+                                <%#Container.ItemIndex == 2 || Container.ItemIndex == 5 || Container.ItemIndex == streetStyleCount - 1 ? "</div></div></div>" : ""%>
                             </ItemTemplate>
                         </asp:Repeater>
                     </div>
@@ -199,15 +199,22 @@
                     </div>
                     <div class="Fashion_search">
                         <p>
-                            <span>季&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;节：</span><a href="#" class="on">2011春夏</a><a
-                                href="#">2011秋冬</a><a href="#">2010春夏</a><a href="#">2010秋冬</a><a href="#" class="special">全部</a></p>
+                            <span>季&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;节：</span>
+                            <asp:Repeater ID="repFashionColumn" runat="server">
+                                <ItemTemplate>
+                                    <a id="col_<%#Eval("fdColuID") %>" href="javascript:setCol(<%#Eval("fdColuID") %>)">
+                                        <%#Eval("fdColuName") %></a>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <a id="col_0" href="javascript:setCol(0);" class="special on">全部</a></p>
                         <p>
-                            <span>服装类型：</span><a href="#">男装</a><a href="#" class="on">高级成衣</a><a href="#">高级定制</a><a
-                                href="#" class="special">全部</a></p>
+                            <span>服装类型：</span><a id="cate_1" href="javascript:setCate(1);">男装</a><a id="cate_2"
+                                href="javascript:setCate(2);">高级成衣</a><a id="cate_3" href="javascript:setCate(3);">高级定制</a><a
+                                    id="cate_0" href="javascript:setCate(0);" class="special on">全部</a></p>
                         <p>
-                            <span>设&nbsp;计&nbsp;师&nbsp;：</span><input type="password" class="ipt-simple" /></p>
+                            <span>设&nbsp;计&nbsp;师&nbsp;：</span><input id="txtTitle" type="text" class="ipt-simple" maxlength="100" /></p>
                         <p class="cs-clear Fashion_s_btn">
-                            <button class="btn-simple btn-simple2">
+                            <button class="btn-simple btn-simple2" onclick="search();">
                                 搜索</button></p>
                     </div>
                 </div>
@@ -282,4 +289,31 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        var col = 0, cate = 0;
+        function setCol(num) {
+            col = num;
+            $(".Fashion_search a[id^='col_']").each(function() {
+                if ($(this).attr("id") == "col_" + num) {
+                    $(this).addClass("on");
+                } else {
+                    $(this).removeClass("on");
+                }
+            });
+        }
+        function setCate(num) {
+            cate = num;
+            $(".Fashion_search a[id^='cate_']").each(function() {
+                if ($(this).attr("id") == "cate_" + num) {
+                    $(this).addClass("on");
+                } else {
+                    $(this).removeClass("on");
+                }
+            });
+        }
+        function search() {
+            var url = "/Fashion.aspx?col=" + col + "&cate=" + cate + "&t=" + encodeURI($.trim($("#txtTitle").val()));
+            window.location = url;
+        }
+    </script>
 </asp:Content>

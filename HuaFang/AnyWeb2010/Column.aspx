@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="Column.aspx.cs" Inherits="Column" %>
+    CodeFile="Column.aspx.cs" Inherits="Asp_Column" %>
 
 <%@ Register Src="~/Controls/TagList.ascx" TagName="TagList" TagPrefix="uc1" %>
 <%@ Register Src="~/Controls/Search.ascx" TagName="Search" TagPrefix="uc1" %>
@@ -75,7 +75,7 @@
                     <p class="List_order_tit cs-fl">
                         1-5项</p>
                     <div class="Pagination cs-fr">
-                        <AW:Pager ID="PN1" runat="server" StyleID="6" PageSize="18">
+                        <AW:Pager ID="PN1" runat="server" StyleID="6" PageSize="15">
                         </AW:Pager>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
                                     <p>
                                         <%#Eval("fdArtiCreateAt","{0:yyyy-MM-dd}") %></p>
                                     <a class="OtherHot_tit" href="<%#Eval("fdArtiPath") %>">
-                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 120, false )%></a>
+                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 30, false )%></a>
                                     <p class="Article">
                                         <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 120, false )%></p>
                                     <div class="More cs-clear">
@@ -113,7 +113,7 @@
                                     <p>
                                         <%#Eval("fdArtiCreateAt","{0:yyyy-MM-dd}") %></p>
                                     <a class="OtherHot_tit" href="<%#Eval("fdArtiPath") %>">
-                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 120, false )%></a>
+                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 30, false )%></a>
                                     <p class="Article">
                                         <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 120, false )%></p>
                                     <div class="More cs-clear">
@@ -137,7 +137,7 @@
                                     <p>
                                         <%#Eval("fdArtiCreateAt","{0:yyyy-MM-dd}") %></p>
                                     <a class="OtherHot_tit" href="<%#Eval("fdArtiPath") %>">
-                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 120, false )%></a>
+                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 30, false )%></a>
                                     <p class="Article">
                                         <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 120, false )%></p>
                                     <div class="More cs-clear">
@@ -149,7 +149,7 @@
                 </asp:Repeater>
                 <div class="OtherHot-pag">
                     <div class="Pagination cs-fr">
-                        <AW:Pager ID="PN2" runat="server" StyleID="6" PageSize="18">
+                        <AW:Pager ID="PN2" runat="server" StyleID="6" PageSize="15">
                         </AW:Pager>
                     </div>
                 </div>

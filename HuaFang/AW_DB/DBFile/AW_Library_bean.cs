@@ -46,6 +46,15 @@ namespace AnyWell.AW_DL
             get { return _fdLibrEnName; }
             set { _fdLibrEnName = value; }
         }
+        private string _fdLibrPic = "";
+        /// <summary>
+        /// 图片 varchar(100)
+        /// </summary>
+        public string fdLibrPic
+        {
+            get{return _fdLibrPic;}
+            set{_fdLibrPic = value;}
+        }
         private int _fdLibrFirLetter = 0;
         /// <summary>
         /// 首字母
@@ -84,7 +93,7 @@ namespace AnyWell.AW_DL
             {
                 if (_dao == null)
                 {
-                    _dao = new AW_Admin_dao();
+                    _dao = new AW_Library_dao();
                 }
                 return _dao;
             }

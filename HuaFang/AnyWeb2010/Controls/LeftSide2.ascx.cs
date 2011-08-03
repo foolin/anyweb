@@ -11,7 +11,7 @@ public partial class Controls_LeftSide2 : System.Web.UI.UserControl
     {
         repHot1.DataSource = hotList.Count > 0 ? hotList.GetRange( 0, 1 ) : null;
         repHot1.DataBind();
-        repHot2.DataSource = hotList.Count > 1 ? hotList.GetRange( 0, 1 ) : null;
+        repHot2.DataSource = hotList.Count > 1 ? hotList.GetRange( 1, hotList.Count - 1 ) : null;
         repHot2.DataBind();
     }
 

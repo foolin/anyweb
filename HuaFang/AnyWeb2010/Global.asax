@@ -136,6 +136,24 @@
                     Context.Items.Add( "COLUMNID", urlInfo[ 1 ] );
                     break;
                 }
+            case "l":
+                {
+                    realPath = "/LibraryList.aspx";
+                    Context.Items.Add( "LIBRARYTYPE", urlInfo[ 1 ] );
+                    break;
+                }
+            case "lc":
+                {
+                    realPath = "/Library.aspx";
+                    Context.Items.Add( "LIBRARYID", urlInfo[ 1 ] );
+                    break;
+                }
+            case "ls":
+                {
+                    realPath = "/LibrarySearch.aspx";
+                    Context.Items.Add( "LIBRARYTYPE", urlInfo[ 1 ] );
+                    break;
+                }
             case "g":   //商品内容页
                 {
                     realPath = "/Goods.aspx";
@@ -156,7 +174,7 @@
         }
     }
 
-    string[] urls = { "/", "/index.aspx", "/error.aspx", "/c/118.aspx", "/c/123.aspx", "/c/124.aspx", "/c/125.aspx", "/c/126.aspx", "/c/127.aspx", "/c/128.aspx", "/articlesearch.aspx" };
+    string[] urls = { "/", "/index.aspx", "/error.aspx", "/c/118.aspx", "/c/123.aspx", "/c/124.aspx", "/c/125.aspx", "/c/126.aspx", "/c/127.aspx", "/articlesearch.aspx", "/getfashionarticles.aspx", "/fashion.aspx" };
        
 </script>
 

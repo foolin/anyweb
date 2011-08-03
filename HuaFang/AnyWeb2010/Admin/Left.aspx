@@ -71,7 +71,7 @@
                                         <img src="images/ico02.gif" width="35" height="35" />
                                     </td>
                                     <td width="75%" height="22" class="left-font01">
-                                        您好，<span class="left-font02"><%=AdminInfo.fdAdmiName%></span>
+                                        您好，<span><%=AdminInfo.fdAdmiName%></span>
                                     </td>
                                 </tr>
                                 <tr>

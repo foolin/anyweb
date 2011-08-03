@@ -55,6 +55,20 @@ public partial class Index : PageBase
         //高清大片
         repEditorial.DataSource = new AW_Article_dao().funcGetArticleListByUC( 128, 20, true, "", "", "", false );
         repEditorial.DataBind();
+
+        //秀场直击搜索
+        List<AW_Column_bean> columnList = new AW_Column_dao().funcGetColumnInfo( 124 ).Children;
+        List<AW_Column_bean> fashionList = new List<AW_Column_bean>();
+        for( int i = columnList.Count - 1; i >= 0; i-- )
+        {
+            fashionList.Add( columnList[ i ] );
+            if( fashionList.Count >= 4 )
+            {
+                break;
+            }
+        }
+        repFashionColumn.DataSource = fashionList;
+        repFashionColumn.DataBind();
     }
 
     private List<AW_Flash_bean> _flashList;

@@ -16,7 +16,7 @@ public partial class ArticleSearch : PageBase
         {
             WebAgent.AlertAndBack( "请输入搜索关键词！" );
         }
-        string keyword = Request.QueryString[ "k" ];
+        string keyword = QS( "k" );
         if( keyword.Contains( "%" ) )
         {
             keyword = keyword.Replace( "%", "[%]" );

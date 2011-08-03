@@ -12,14 +12,14 @@
                 <img src="<%#Eval("fdArtiPic") %>" /></a>
             <h3>
                 <a href="<%#Eval("fdArtiPath") %>">
-                    <%#Eval( "fdArtiTitle" )%></a></h3>
+                    <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 15, false )%></a></h3>
         </ItemTemplate>
     </asp:Repeater>
     <ul class="list-disc">
         <asp:Repeater ID="repRecomment2" runat="server">
             <ItemTemplate>
                 <li><a href="<%#Eval("fdArtiPath") %>">
-                    <%#Eval( "fdArtiTitle" )%></a></li>
+                    <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 20, false )%></a></li>
             </ItemTemplate>
         </asp:Repeater>
     </ul>

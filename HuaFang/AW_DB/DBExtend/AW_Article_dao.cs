@@ -21,7 +21,7 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public List<AW_Article_bean> funcGetArticle(AW_Column_bean column, int pageSize, int pageIndex)
         {
-            this.propSelect = "a.fdArtiID,a.fdArtiTitle,c.fdColuName,a.fdArtiRecommend,a.fdArtiType";
+            this.propSelect = "a.fdArtiID,a.fdArtiColumnID,a.fdArtiTitle,a.fdArtiCreateAt,a.fdArtiPic,a.fdArtiDesc,a.fdArtiType,a.fdArtiCategory,c.fdColuID,c.fdColuName";
             this.propTableApp = " a INNER JOIN AW_Column c ON a.fdArtiColumnID = c.fdColuID";
             this.propOrder = "ORDER BY a.fdArtiSort DESC,fdArtiID DESC";
             if (column != null)
@@ -441,6 +441,91 @@ namespace AnyWell.AW_DL
             recordCount = this.propCount;
 
             return articles;
+        }
+
+        /**************************************************前台********************************************************************************/
+        /// <summary>
+        /// 根据标签或者其它文章
+        /// </summary>
+        /// <param name="artiId"></param>
+        /// <param name="tagIds"></param>
+        /// <param name="top"></param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetArticleListByTag( int artiId,string tagIds, int top )
+        {
+            string sql = string.Format( "SELECT TOP {0} fdArtiID,fdArtiColumnID,fdArtiTitle,fdArtiCreateAt,fdArtiPic,fdArtiDesc,fdArtiType FROM AW_Article WHERE fdArtiID IN (SELECT DISTINCT fdTaAsDataID FROM AW_Tag_Associated WHERE fdTaAsDataID<>{1} AND fdTaAsType=0 AND fdTaAsTagID IN ({2})) ORDER BY fdArtiSort DESC,fdArtiID DESC", top, artiId, tagIds );
+            List<AW_Article_bean> list = new List<AW_Article_bean>();
+            foreach( DataRow row in this.funcGet(sql).Tables[ 0 ].Rows )
+            {
+                AW_Article_bean bean = new AW_Article_bean();
+                bean.funcFromDataRow( row );
+                list.Add( bean );
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 获取设计师(专题文章左侧索引)
+        /// </summary>
+        /// <param name="columnId"></param>
+        /// <param name="category"></param>
+        /// <param name="city"></param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetFashionArticleList( int columnId, int category, int city )
+        {
+            this.propSelect = "fdArtiID,fdArtiTitle";
+            this.propWhere = string.Format( "fdArtiColumnID={0} AND fdArtiCategory={1} AND fdArtiCity={2}", columnId, category, city );
+            this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
+            return this.funcGetList();
+        }
+
+        /// <summary>
+        /// 获取秀场直击文章列表
+        /// </summary>
+        /// <param name="columnId"></param>
+        /// <param name="category"></param>
+        /// <param name="city"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="recordCount"></param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetFashionArticleList( int columnId, int category, int city, string title, int pageIndex, int pageSize, out int recordCount )
+        {
+            this.propSelect = "fdArtiID,fdArtiTitle,fdArtiPic,fdArtiType,fdArtiCategory,fdArtiCity,fdColuID,fdColuName";
+            this.propTableApp = " INNER JOIN AW_Column ON fdColuID=fdArtiColumnID";
+            this.propWhere = "1=1";
+            if( columnId > 0 )
+            {
+                this.propWhere += string.Format( " AND (fdColuID={0} OR fdColuParentID={0})", columnId );
+            }
+            if( category > 0 )
+            {
+                this.propWhere += string.Format( " AND fdArtiCategory={0}", category );
+            }
+            if( city > 0 )
+            {
+                this.propWhere += string.Format( " AND fdArtiCity={0}", city );
+            }
+            if( title.Length > 0 )
+            {
+                this.propWhere += string.Format( " AND fdArtiTitle LIKE '%{0}%'", title );
+            }
+            this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
+            this.propPage = pageIndex;
+            this.propPageSize = pageSize;
+            this.propGetCount = true;
+            DataSet ds = this.funcCommon();
+            recordCount = this.propCount;
+            List<AW_Article_bean> list = new List<AW_Article_bean>();
+            foreach( DataRow row in ds.Tables[ 0 ].Rows )
+            {
+                AW_Article_bean bean = new AW_Article_bean();
+                bean.funcFromDataRow( row );
+                bean.Column = new AW_Column_bean();
+                bean.Column.funcFromDataRow( row );
+                list.Add( bean );
+            }
+            return list;
         }
     }
 }

@@ -50,7 +50,8 @@ public partial class Admin_FlashEdit : PageAdmin
                     Directory.CreateDirectory( Server.MapPath( savePath ) );
                 }
                 string path = savePath + fileName + Path.GetExtension(fileUpload.PostedFile.FileName);
-                uploadPic(fileName, savePath, path);
+                WebAgent.SaveFile( fileUpload.PostedFile, Server.MapPath( path ), GeneralConfigs.GetConfig().FlashWidth, GeneralConfigs.GetConfig().FlashHeight );
+                //uploadPic(fileName, savePath, path);
                 bean.fdFlasPicture = path;
             }
             dao.funcUpdate(bean);

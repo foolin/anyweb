@@ -60,16 +60,6 @@ $(document).ready(function(){
 });
 
 
-//ShowNav-search————————————————————————————————————————————————————————————ShowNav-search//
-$(function(){
-	$(".ShowNav-search input").click(function(){
-			$(this).next().show();
-	}).parent().hover(function(){},function(){
-		$(this).find(".ShowNav-list").fadeOut();
-	})
-})
-
-
 //Hot_Show————————————————————————————————————————————————————————————Hot_Show//
 $(document).ready(function(){
 	$(".Hot_Show div").each(function(){

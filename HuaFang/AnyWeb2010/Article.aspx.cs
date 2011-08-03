@@ -1,0 +1,126 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using AnyWell.AW_DL;
+using Studio.Web;
+using AnyWell.Configs;
+
+public partial class Asp_Article : PageBase
+{
+    protected void Page_Load( object sender, EventArgs e )
+    {
+        int aid = 0;
+        int.TryParse( ( string ) Context.Items[ "ARTICLEID" ], out aid );
+        if( aid == 0 )
+        {
+            WebAgent.AlertAndBack( "页面不存在！" );
+        }
+        bean = new AW_Article_dao().funcGetArticleById( aid, true );
+        if( bean == null )
+        {
+            WebAgent.AlertAndBack( "页面不存在！" );
+        }
+        bean.Column = new AW_Column_dao().funcGetColumnInfo( bean.fdArtiColumnID );
+        //用于面包屑
+        Context.Items.Add( "COLUMNID", bean.fdArtiColumnID.ToString() );
+
+        this.Title = bean.fdArtiTitle + GeneralConfigs.GetConfig().TitleExtension;
+
+        repTag1.DataSource = repTag2.DataSource = bean.TagList;
+        repTag1.DataBind();
+        repTag2.DataBind();
+
+        string tagIds = "";
+        foreach( AW_Tag_bean tag in bean.TagList )
+        {
+            tagIds += "," + tag.fdTagID;
+        }
+
+        if( tagIds.Length > 0 )
+        {
+            repOther.DataSource = new AW_Article_dao().funcGetArticleListByTag( bean.fdArtiID, tagIds.Substring( 1 ), 7 );
+            repOther.DataBind();
+        }
+
+        List<AW_Article_bean> list1 = new AW_Article_dao().funcGetArticleListByUC( bean.fdArtiColumnID, 4, true, "fdArtiID<>" + bean.fdArtiID, "", "", false );
+        rep11.DataSource = list1.Count > 1 ? list1.GetRange( 0, 1 ) : list1;
+        rep11.DataBind();
+        rep12.DataSource = list1.Count > 1 ? list1.GetRange( 1, list1.Count - 1 ) : null;
+        rep12.DataBind();
+
+        if( bean.Column.fdColuParentID > 0 )
+        {
+            List<AW_Article_bean> list2 = new AW_Article_dao().funcGetArticleListByUC( bean.Column.fdColuParentID, 4, true, "fdArtiID<>" + bean.fdArtiID, "", "", false );
+            rep21.DataSource = list2.Count > 1 ? list2.GetRange( 0, 1 ) : list2;
+            rep21.DataBind();
+            rep22.DataSource = list2.Count > 1 ? list2.GetRange( 1, list2.Count - 1 ) : null;
+            rep22.DataBind();
+        }
+
+        if( otherPicList.Count > 0 )
+        {
+            rep3.DataSource = otherPicList;
+            rep3.DataBind();
+        }
+    }
+
+    private AW_Article_bean _bean;
+    public AW_Article_bean bean
+    {
+        get
+        {
+            return _bean;
+        }
+        set
+        {
+            _bean = value;
+        }
+    }
+
+    private AW_Article_bean _preArticle;
+    public AW_Article_bean preArticle
+    {
+        get
+        {
+            if( _preArticle == null )
+            {
+                int id = new AW_Article_dao().funcGetPreviousArticleIDByUC( bean.fdArtiID );
+                if( id == 0 )
+                    return null;
+                _preArticle = AW_Article_bean.funcGetByID( id, "fdArtiID,fdArtiTitle,fdArtiType" );
+            }
+            return _preArticle;
+        }
+    }
+
+    private AW_Article_bean _nextArticle;
+    public AW_Article_bean nextArticle
+    {
+        get
+        {
+            if( _nextArticle == null )
+            {
+                int id = new AW_Article_dao().funcGetNextArticleIDByUC( bean.fdArtiID );
+                if( id == 0 )
+                    return null;
+                _nextArticle = AW_Article_bean.funcGetByID( id, "fdArtiID,fdArtiTitle,fdArtiType" );
+            }
+            return _nextArticle;
+        }
+    }
+
+    private List<AW_Article_bean> _otherPicList;
+    public List<AW_Article_bean> otherPicList
+    {
+        get
+        {
+            if( _otherPicList == null )
+            {
+                _otherPicList = new AW_Article_dao().funcGetArticleListByUC( bean.fdArtiColumnID, 3, true, string.Format( "fdArtiID<>{0} AND fdArtiType=1", bean.fdArtiID ), "", "", false );
+            }
+            return _otherPicList;
+        }
+    }
+}

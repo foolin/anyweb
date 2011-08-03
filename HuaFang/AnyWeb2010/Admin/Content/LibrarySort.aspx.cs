@@ -38,13 +38,20 @@ public partial class Admin_LibrarySort : PageAdmin
         {
             using (AW_Library_dao dao = new AW_Library_dao())
             {
-                AW_Library_bean bean = dao.funcGetLibraryItemByID(Id);
+                AW_Library_bean bean = AW_Library_bean.funcGetByID( Id );
                 if (bean == null)
                 {
                     return;
                 }
                 dao.funcSortLibrary(Id, nextId, previewId);
-                this.AddLog(EventType.Update, "修改文章排序", "修改文章[" + bean.fdLibrName + "]排序");
+                if( bean.fdLibrType == 1 )
+                {
+                    this.AddLog( EventType.Update, "修改名人排序", "修改名人[" + bean.fdLibrName + "]排序" );
+                }
+                else
+                {
+                    this.AddLog( EventType.Update, "修改品牌排序", "修改品牌[" + bean.fdLibrName + "]排序" );
+                }
                 Response.Write("ok");
             }
         }

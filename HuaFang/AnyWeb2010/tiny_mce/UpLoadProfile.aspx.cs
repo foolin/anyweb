@@ -42,7 +42,7 @@ namespace BLOG.tiny_mce
 
         private void UploadFile()
         {
-            string url = "";
+            //string url = "";
             HttpPostedFile file1 = Request.Files[0];
             string vPath = Request.ApplicationPath + "/Files/Others/";
             string savePath = Server.MapPath( vPath );
@@ -54,13 +54,13 @@ namespace BLOG.tiny_mce
 
             file1.SaveAs( path );
 
-            url = String.Format("http://{0}{1}{2}",
-                Request.Url.Host,
-                Request.Url.Port == 80 ? "" : (":" + Request.Url.Port.ToString()),
-                path
-                );
+            //url = String.Format("http://{0}{1}{2}",
+            //    Request.Url.Host,
+            //    Request.Url.Port == 80 ? "" : (":" + Request.Url.Port.ToString()),
+            //    path
+            //    );
 
-            Response.Write("<script language='javascript'>if(parent)parent.uploadOk('" + url + "');</script>");
+            Response.Write("<script language='javascript'>if(parent)parent.uploadOk('" + path + "');</script>");
         }
 
         private string GetPath()

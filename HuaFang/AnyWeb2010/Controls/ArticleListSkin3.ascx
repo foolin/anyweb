@@ -5,7 +5,7 @@
         <div class="PicBReel cs-clear">
             <asp:Repeater ID="rep1" runat="server">
                 <ItemTemplate>
-                    <a class="PicBlack_mod2" href="#">
+                    <a class="PicBlack_mod2" href="<%#Eval("fdArtiPath") %>">
                         <img src="<%#Eval("fdArtiPic") %>" class="nobor" />
                         <div class="PicBlack_tit PicBlack_tit2">
                             <h2>

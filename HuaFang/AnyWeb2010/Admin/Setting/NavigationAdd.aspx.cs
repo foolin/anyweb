@@ -67,6 +67,10 @@ public partial class Admin_NavigationAdd : PageAdmin
                 bean.fdNaviItemID = int.Parse( drpSite.SelectedValue );
                 break;
             case "4":
+                bean.fdNaviLink = string.Format( "/l/{0}.aspx", drpLibrary.SelectedValue );
+                bean.fdNaviItemID = int.Parse( drpLibrary.SelectedValue );
+                break;
+            case "5":
                 if( txtLink.Text.ToLower().StartsWith( "http://" ) )
                 {
                     bean.fdNaviLink = txtLink.Text.ToLower();

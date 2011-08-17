@@ -18,7 +18,7 @@ public partial class Asp_Column : PageBase
             WebAgent.AlertAndBack( "栏目不存在！" );
         }
         AW_Column_bean column = new AW_Column_dao().funcGetColumnInfo( columnID );
-        if( columnID == null )
+        if( column == null )
         {
             WebAgent.AlertAndBack( "栏目不存在！" );
         }

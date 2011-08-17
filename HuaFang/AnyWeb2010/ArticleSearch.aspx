@@ -19,7 +19,7 @@
                     <p class="title-ch cs-fl">
                         <a href="/index.aspx">首页</a>//<span>资讯搜索</span>
                     </p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit SEARCH cs-fr">
                         SEAR<span>CH</span></p>
                 </h2>
             </div>

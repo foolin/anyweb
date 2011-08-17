@@ -20,7 +20,7 @@
                         <AW:Position runat="server" SplitText="//">
                         </AW:Position>
                     </p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit HOTNEWS cs-fr">
                         HOT<span>NEWS</span></p>
                 </h2>
             </div>
@@ -66,7 +66,7 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>更多资讯</span></p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit OTHERNEWS cs-fr">
                         OTHER<span>NEWS</span></p>
                 </h2>
             </div>

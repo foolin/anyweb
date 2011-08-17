@@ -84,8 +84,8 @@
                     <div class="Show_filmstrip">
                         <a href="" class="ShowTime_link" target="_blank" id="imageShow">
                             <img src="" width="398" /></a> <a href="javascript:pre();" class="Filmstrip_L">
-                        </a><a href="javascript:next()" class="Filmstrip_R"></a><a id="imageLink" href="" class="Filmstrip_Loupe" target="_blank">
-                        </a>
+                        </a><a href="javascript:next()" class="Filmstrip_R"></a><a id="imageLink" href=""
+                            class="Filmstrip_Loupe" target="_blank"></a>
                     </div>
                     <div class="Article_picpage ">
                         <div class="Pic_Page Pic_PageL cs-clear">
@@ -238,8 +238,8 @@
                                 <a href="<%#Eval("fdArtiPath") %>">
                                     <img width="95" height="150" src="<%#Eval("fdArtiPic") %>"></a>
                                 <div class="Show_intro Show_introbor">
-                                    <a href="<%#Eval("fdArtiPath") %>">
-                                        <%#Eval( "fdArtiTitle" )%></a></div>
+                                    <strong><a href="<%#Eval("fdArtiPath") %>">
+                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 15, false )%></a></strong></div>
                                 <div class="Show_intro">
                                     <p>
                                         <%#Eval( "Column.fdColuName" )%></p>
@@ -270,8 +270,8 @@
                                 <a href="<%#Eval("fdArtiPath") %>">
                                     <img width="95" height="150" src="<%#Eval("fdArtiPic") %>"></a>
                                 <div class="Show_intro Show_introbor">
-                                    <a href="<%#Eval("fdArtiPath") %>">
-                                        <%#Eval( "fdArtiTitle" )%></a></div>
+                                    <strong><a href="<%#Eval("fdArtiPath") %>">
+                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 15, false )%></a></strong></div>
                                 <div class="Show_intro">
                                     <p>
                                         <%#Eval( "Column.fdColuName" )%></p>
@@ -302,8 +302,8 @@
                                 <a href="<%#Eval("fdArtiPath") %>">
                                     <img width="95" height="150" src="<%#Eval("fdArtiPic") %>"></a>
                                 <div class="Show_intro Show_introbor">
-                                    <a href="<%#Eval("fdArtiPath") %>">
-                                        <%#Eval( "fdArtiTitle" )%></a></div>
+                                    <strong><a href="<%#Eval("fdArtiPath") %>">
+                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 15, false )%></a></strong></div>
                                 <div class="Show_intro">
                                     <p>
                                         <%#Eval( "Column.fdColuName" )%></p>
@@ -338,11 +338,18 @@
             }
             var index = $(tabTitle).index($(tabTitle + "[class='on']"));
             var image = $(tabContent).eq(index).find("a").eq(current).find("img");
+            $(tabContent).eq(index).find("a").removeClass("Pho_on");
+            $(tabContent).eq(index).find("a").eq(current).addClass("Pho_on");
             $("#imageShow").attr("href", $(image).attr("src").replace("S_", ""));
             $("#imageLink").attr("href", $(image).attr("src").replace("S_", ""));
             $("#imageShow img").attr("src", $(image).attr("src"));
             $("#imagePage").val(current + 1);
-            $(document).scrollTop($("#imageShow").offset().top);
+//            $(document).scrollTop($("#imageShow").offset().top);
+            $("#imageShow img").load(function() {
+                $(".Filmstrip_L").css("top", ($("#imageShow img").height() - 63) / 2);
+                $(".Filmstrip_R").css("top", ($("#imageShow img").height() - 63) / 2);
+                $(".Filmstrip_Loupe").css("top", ($("#imageShow img").height() - 29) / 2);
+            });
         }
         function pre() {
             if (current == 0) {

@@ -24,7 +24,15 @@ namespace AnyWell.AW_DL
         {
             this.propSelect = "fdLibrID,fdLibrType,fdLibrName,fdLibrEnName,fdLibrFirLetter,fdLibrPic,fdLibrDesc,fdLibrSort";
             this.propOrder = "ORDER BY fdLibrSort DESC,fdLibrID DESC";
-            this.propWhere = string.Format( " fdLibrType={0} AND fdLibrFirLetter={1}", library, firstLetter );
+            this.propWhere = "1=1";
+            if( library > 0 )
+            {
+                this.propWhere += " AND fdLibrType=" + library;
+            }
+            if( firstLetter > -1 )
+            {
+                this.propWhere += " AND fdLibrFirLetter=" + firstLetter;
+            }
 
             this.propPageSize = pageSize;
             this.propPage = pageIndex;
@@ -162,6 +170,38 @@ namespace AnyWell.AW_DL
 
             List<AW_Library_bean> list = this.funcGetList();
             return list;
+        }
+
+        public AW_Library_bean funcGetNextLibrary( AW_Library_bean library )
+        {
+            string cmdText = string.Format( "SELECT TOP 1 fdLibrID,fdLibrType,fdLibrName,fdLibrEnName FROM AW_Library WHERE fdLibrType={0} AND fdLibrFirLetter={1} AND fdLibrSort<{2} ORDER BY fdLibrSort DESC", library.fdLibrType, library.fdLibrFirLetter, library.fdLibrSort );
+            DataSet ds = this.funcGet( cmdText );
+            AW_Library_bean bean = new AW_Library_bean();
+            if( ds.Tables[ 0 ].Rows.Count > 0 )
+            {
+                bean.funcFromDataRow( ds.Tables[ 0 ].Rows[ 0 ] );
+                return bean;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public AW_Library_bean funcGetPreLibrary( AW_Library_bean library )
+        {
+            string cmdText = string.Format( "SELECT TOP 1 fdLibrID,fdLibrType,fdLibrName,fdLibrEnName FROM AW_Library WHERE fdLibrType={0} AND fdLibrFirLetter={1} AND fdLibrSort>{2} ORDER BY fdLibrSort", library.fdLibrType, library.fdLibrFirLetter, library.fdLibrSort );
+            DataSet ds = this.funcGet( cmdText );
+            AW_Library_bean bean = new AW_Library_bean();
+            if( ds.Tables[ 0 ].Rows.Count > 0 )
+            {
+                bean.funcFromDataRow( ds.Tables[ 0 ].Rows[ 0 ] );
+                return bean;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

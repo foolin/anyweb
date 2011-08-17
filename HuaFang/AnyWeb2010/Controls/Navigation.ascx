@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Navigation.ascx.cs" Inherits="Controls_Navigation" %>
 <div class="nav">
     <div class="nav-con">
-        <ul class="nav-list">
+        <ul class="nav-list cs-clear">
             <li class="nav-special" onmouseover="navTab(0)"><a href="/Index.aspx">首页</a></li>
             <AW:Navigation runat="server">
                 <ItemTemplate>
@@ -9,8 +9,8 @@
                         <%#Eval("fdNaviTitle") %></a></li>
                 </ItemTemplate>
             </AW:Navigation>
-            <li class="nav-special" onmouseover="navTab(100001)"><a href="/c/100.aspx">专业资讯</a></li>
-            <li class="nav-special" onmouseover="navTab(100002)"><a href="/c/101.aspx">人才市场</a></li>
+            <li class="nav-special" onmouseover="navTab(100001)"><a href="#">专业资讯</a></li>
+            <li class="nav-special" onmouseover="navTab(100002)"><a href="#">人才市场</a></li>
         </ul>
     </div>
 </div>

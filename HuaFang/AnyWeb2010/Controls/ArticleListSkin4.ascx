@@ -22,8 +22,8 @@
             <ItemTemplate>
                 <a href="<%#Eval("fdArtiPath") %>">
                     <img class="nobor" src="<%#Eval("fdArtiPic") %>" />
-                    <span>
-                        <%#Eval( "fdArtiTitle" )%></span> </a>
+                    <strong>
+                        <%#Eval( "fdArtiTitle" )%></strong> </a>
             </ItemTemplate>
         </asp:Repeater>
     </div>

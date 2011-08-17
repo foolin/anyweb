@@ -17,7 +17,7 @@ public partial class Shop_Admin_Logout : System.Web.UI.Page
         using (AW_Admin_dao dao = new AW_Admin_dao())
         {
             dao.funcLogout();
-            Response.Redirect("login.aspx");
+            Response.Redirect("/Admin/login.aspx");
         }
     }
 }

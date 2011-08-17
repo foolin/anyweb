@@ -23,8 +23,8 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>服装配饰</span></p>
-                    <p class="title-eng cs-fr">
-                        ENGLISH<span>NAME</span></p>
+                    <p class="title-eng EngTit ACCESSORY cs-fr">
+                        ACCESS<span>ORY</span></p>
                 </h2>
             </div>
             <div class="cs-section Column_sec1">
@@ -36,7 +36,7 @@
                         <h2 class="cs-clear">
                             <p class="title-ch cs-fl">
                                 <span>时尚活动</span></p>
-                            <p class="title-eng cs-fr">
+                            <p class="title-eng EngTit EVENTS cs-fr">
                                 EVENT<span>S</span></p>
                         </h2>
                     </div>
@@ -47,7 +47,7 @@
                         <h2 class="cs-clear">
                             <p class="title-ch cs-fl">
                                 <span>美妆美容</span></p>
-                            <p class="title-eng cs-fr">
+                            <p class="title-eng EngTit BEAUTY cs-fr">
                                 BEAU<span>TY</span></p>
                         </h2>
                     </div>
@@ -58,7 +58,7 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>品味人生</span></p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit GOODTASTE cs-fr">
                         GOOD<span>TASTE</span></p>
                 </h2>
             </div>
@@ -69,7 +69,7 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>旅行生活</span></p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit TRAVEL cs-fr">
                         TRA<span>VEL</span></p>
                 </h2>
             </div>

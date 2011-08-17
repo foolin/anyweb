@@ -5,9 +5,11 @@
 <div class="title-bar">
     <h2 class="cs-clear">
         <p class="title-ch title-ch2 cs-fl">
-            <span class="title-size1"><%=splitName[ 1 ]%></span>/<span><%=splitName[ 0 ]%></span></p>
+            <span class="title-size1">
+                <%=splitName[ 1 ]%></span>/<span><%=splitName[ 0 ]%></span></p>
         <p class="title-ch cs-fr">
-            <a href="/Fashion.aspx?col=<%=column.fdColuID %>&cate=1">本季男装</a>/<a href="/Fashion.aspx?col=<%=column.fdColuID %>&cate=2">本季高级成衣</a>/<a href="/Fashion.aspx?col=<%=column.fdColuID %>&cate=3">本季高级定制</a>/<a href="/Fashion.aspx?col=<%=column.fdColuID %>">本季全部</a></p>
+            <a href="/Fashion.aspx?col=<%=column.fdColuID %>&cate=1">本季男装</a>/<a href="/Fashion.aspx?col=<%=column.fdColuID %>&cate=2">本季高级成衣</a>/<a
+                href="/Fashion.aspx?col=<%=column.fdColuID %>&cate=3">本季高级定制</a>/<a href="/Fashion.aspx?col=<%=column.fdColuID %>">本季全部</a></p>
     </h2>
 </div>
 <div class="Showpic_list cs-section">
@@ -34,8 +36,8 @@
                             <a href="<%#Eval("fdArtiPath") %>">
                                 <img width="95" height="150" src="<%#Eval("fdArtiPic") %>"></a>
                             <div class="Show_intro Show_introbor">
-                                <a href="<%#Eval("fdArtiPath") %>">
-                                    <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 20, false )%></a></div>
+                                <strong><a href="<%#Eval("fdArtiPath") %>">
+                                    <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 20, false )%></a></strong></div>
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>

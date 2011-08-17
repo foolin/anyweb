@@ -14,7 +14,7 @@ html{-overflow-y:scroll}body{color:#888;background:#fff;font-size:12px;line-heig
 .con-login{text-align:right}
 .con-login a{padding:0 8px}
 .ipt-simple,
-.btn-simple{background:#fff;border:#a1a1a1 solid 1px;margin-left:5px;}
+.btn-simple{background:#fff;border:#a1a1a1 solid 1px;margin-left:3px;}
 .ipt-simple{padding:1px;height:17px;width:130px}
 .btn-simple{width:34px;float:left;_display:inline;text-align:center}
 button.btn-simple{height:21px;_height:22px}
@@ -28,21 +28,21 @@ button.btn-simple{height:21px;_height:22px}
 /*nav*/
 .nav{background:#898989;height:26px;}
 .nav-con{width:986px;margin:0 auto;overflow:hidden;_width:986px;}
-.nav-list{width:1200px;margin-left:-12px}
+.nav-list{width:1200px;margin-left:-12px;height:26px;overflow:hidden}
 .nav-list li{float:left;}
-.nav-list a{color:#fff;font-size:14px;text-align:center;width:112px;float:left;height:26px;float:left;_display:inline;margin-left:-11px;_margin-left:0;_width:100px}
+.nav-list a{color:#fff;font-size:14px;text-align:center;width:112px;float:left;height:26px;float:left;_display:inline;margin-left:-11px;_margin-left:0;_width:100px;line-height:1.7em;}
 .nav-list .nav-special a{background:url(../img/nav-special.png) no-repeat;_background:url(../img/nav-special.gif) no-repeat/*_background:#60bac3*/}
-.nav-list a:hover{background:url(../img/nav-hover.png) no-repeat;color:#fff;_background:url(../img/nav-hover.gif) no-repeat/*_background:#666*/}
+.nav-list a:hover{background:url(../img/nav-on.png) no-repeat;color:#000;_background:url(../img/nav-on.gif) no-repeat/*_background:#666*/}
 .nav-list .on a{color:#000;background:url(../img/nav-on.png) no-repeat;_background:url(../img/nav-on.gif) no-repeat/*_background:#fff*/}
 .subNav{height:25px;padding:4px 10px 0;width:966px;margin:0 auto}
 .subNav div{display:none}
 .subNav a{color:#000;padding:0 10px}
 .subNav a:hover{color:#5cb7c0}
-/**/
-.nav-list2 a{width:100px;margin-left:0}
-.nav-list2 .nav-special a{background:#60bac3}
-.nav-list2 a:hover{background:#666}
-.nav-list2 .on a{background:#fff}
+/*nav for ie6*/
+.nav-list a{_width:100px;_margin-left:0}
+.nav-list .nav-special a{_background:#60bac3}
+.nav-list a:hover{_background:#666}
+.nav-list .on a{_background:#fff}
 
 
 /*BannerPic*/
@@ -65,7 +65,8 @@ button.btn-simple{height:21px;_height:22px}
 .arrow{cursor:pointer;height:375px;width:30px;display:block;position:absolute;top:0;overflow:hidden;line-height:1000em;z-index:100}
 .forward{background:url(../img/forward.png) no-repeat center;_background:url(../img/forward.gif) no-repeat center 160px;right:0}
 .back{background:url(../img/back.png) no-repeat center;_background:url(../img/back.gif) no-repeat center 160px;left:0}
-.start-stop{position:absolute;bottom:5px;right:30px}
+.start-stop{position:absolute;bottom:5px;right:30px;color:#000}
+.start-stop:hover{color:#fff}
 
 /*title-bar*/
 .title-bar{border-bottom:#000 5px solid;width:100%;margin:0 auto 10px;padding-bottom:2px;line-height:36px;overflow:hidden}
@@ -113,8 +114,8 @@ button.btn-simple{height:21px;_height:22px}
 /*product*/
 .product{width:986px;margin:0 auto;height:76px;}
 .product-list{float:left;height:58px;border:#d3d3d4 solid 1px;background:#f2f2f3;width:694px;position:relative}
-.product-con{padding:9px 5px}
-.product-con a{padding:0 4px;float:left}
+.product-con{margin:9px 5px;overflow:hidden;height:40px;width:684px}
+.product-con a{padding:0 4px}
 .product-con a.col1{color:#62c3cc}
 .product-point{background:url(../img/product-point.png) no-repeat;position:absolute;height:14px;width:14px;top:58px;left:22px}
 .search{float:right;width:268px;height:60px;background:#000;padding:0 10px}
@@ -241,6 +242,7 @@ button.btn-simple{height:21px;_height:22px}
 .Pagination_R:hover{background:url(../img/Pagination_Ron.gif) no-repeat center;}
 .Page_btm{border-bottom:#777 dotted 1px;margin-bottom:8px;padding:0 12px}
 .PageSet{height:28px}
+.PageSet-ch{_line-height:1.9em}
 .PageSet strong,
 .PageSet .on{color:#000;font-weight:bold}
 .Star_name{width:986px;margin:0 auto;color:#000;font-size:20px;padding-bottom:20px}
@@ -306,8 +308,8 @@ button.btn-simple{height:21px;_height:22px}
 /*Article_main*/
 .Article_main{margin-bottom:25px}
 .Article_tit{font-size:24px;margin:40px 0 0;color:#000}
-.Article_content p{text-indent:2em;margin-bottom:16px}
-.Article_content img{display:block;margin-bottom:16px;border:0;background:#b5b5b5;padding:5px}
+.Article_content p{text-indent:2em}
+.Article_content img{display:block;margin-bottom:0;border:0;background:#b5b5b5;padding:5px}
 .keywords,.keywords a{color:#23aab8}
 .keywords a{padding:0 5px}
 .keywords a:hover{color:#000}
@@ -336,9 +338,10 @@ button.btn-simple{height:21px;_height:22px}
 .PhoGal_list a{float:left;border:#fff solid 5px;width:96px;height:140px;overflow:hidden}
 .PhoGal_list img{width:80px;border:0;padding:8px}
 .PhoGal_list2{height:350px}
-.PhoGal_list2 a{width:110px;height:157px;}
+.PhoGal_list2 a{width:110px;height:162px;}
 .PhoGal_list2 img{width:94px}
-.PhoGal_list a:hover{border:#5cb7c0 solid 5px}
+.PhoGal_list a:hover{border:#fff solid 5px}
+.PhoGal_list a.Pho_on{border:#5cb7c0 solid 5px}
 .PhoGal_list a:hover img{background:0}
 
 /*Pho_Gallery_tab*/
@@ -354,10 +357,17 @@ button.btn-simple{height:21px;_height:22px}
 .ShowNav_season{border:0}
 .ShowNav-all{color:#5fbac3}
 .ShowNav span{padding-right:10px}
+.ShowNav span a{white-space:nowrap}
 .ShowNav .on{font-weight:bold;color:#000}
 .SeasonList{position:relative}
-.SeasonList-con{width:170px;height:80px;overflow:hidden;margin:5px 0；position:relative}
-.SeasonList-con span{padding-right:30px}
+.SeasonList-div{width:175px;height:80px;overflow:hidden;margin:5px 0;position:relative}
+.SeasonList-con{position:relative}
+.SeasonList-con li{float:left;width:72px;padding-right:12px;height:20px;overflow:hidden}
+/*
+.SeasonList-con span{display:inline-block;width:72px;padding-right:12px;height:20px;overflow:hidden}
+.SeasonList-con li{height:20px;overflow:hidden}
+*/
+.SeasonList-con .SeaList-long{width:167px}
 .ShowNav-btn{margin:5px 0}
 .ShowNav-btn .btn-simple{margin-left:0}
 .ShowNav-search{background:url(../img/search-icon1.gif) no-repeat 174px 4px;position:relative}
@@ -376,12 +386,13 @@ button.btn-simple{height:21px;_height:22px}
 .ShowTime{padding:10px 0 20px}
 .ShowTime_pic{width:400px;float:right;padding-top:5px}
 .ShowTime_link{display:block;margin-bottom:10px}
+.ShowTime_link img{margin:0 auto}
 .ShowTime_intro{width:315px;float:left}
-.Show_filmstrip{position:relative}
+.Show_filmstrip{position:relative;margin:10px auto 0;zoom:1}
 .Show_filmstrip a{display:block}
-.Filmstrip_L{background:url(../img/Filmstrip_L.gif) no-repeat;width:32px;height:63px;position:absolute;top:260px;left:1px}
-.Filmstrip_R{background:url(../img/Filmstrip_R.gif) no-repeat;width:32px;height:63px;position:absolute;top:260px;right:1px}
-.Filmstrip_Loupe{background:url(../img/Filmstrip_Loupe.png) no-repeat;_background:url(../img/Filmstrip_Loupe.gif) no-repeat;width:38px;height:29px;position:absolute;top:280px;left:50%;margin-left:-19px}
+.Filmstrip_L{background:url(../img/Filmstrip_L.gif) no-repeat center;width:32px;height:63px;position:absolute;top:50%;left:1px;/*margin-top:-32px;*/zoom:1;_top:200px;_margin-top:0}
+.Filmstrip_R{background:url(../img/Filmstrip_R.gif) no-repeat center;width:32px;height:63px;position:absolute;top:50%;right:1px;/*margin-top:-32px;*/zoom:1;_top:200px;_margin-top:0}/**/
+.Filmstrip_Loupe{background:url(../img/Filmstrip_Loupe.png) no-repeat;_background:url(../img/Filmstrip_Loupe.gif) no-repeat;width:38px;height:29px;position:absolute;top:50%;left:50%;margin:0 0 0 -19px;zoom:1;_top:217px;_margin-top:0}/**/
 .ShowV_intro{width:760px}
 .ShowV_intro .Article_picpage{width:530px;margin-left:20px;_display:inline;padding-top:3px}
 .MvGal_list{height:466px}
@@ -434,7 +445,7 @@ button.btn-simple{height:21px;_height:22px}
 .Index_piclist img{width:88px;height:140px;display:block;margin-bottom:4px}
 .Fashion_search{border-bottom:1px dotted #898989;padding:12px 7px 6px}
 .Fashion_search p{padding-bottom:8px}
-.Fashion_search a{padding:0 5px}
+.Fashion_search a{padding:0 3px}
 .Fashion_search span{color:#000}
 .Fashion_search .on{font-weight:bold;}
 .Fashion_search .special{color:#62c3cc}
@@ -489,7 +500,7 @@ button.btn-simple{height:21px;_height:22px}
 .Perio_List .Pic_GoRound_mod3{width:580px}
 .Perio_List .Pic_GoRound_mod4{width:346px}
 .Perio_List .Index_picarticle{width:96px;margin:0 6px;height:192px;overflow:hidden;}
-.Perio_List img{width:90px;padding:2px;}
+.Perio_List img{width:90px;padding:2px;height:auto}
 .Perio_List2 img{width:72px;padding:0}
 .Perio_List2 .Index_picarticle{width:74px;margin:0 1px;height:117px}
 .Perio_List .Pic_Go{width:24px;height:170px;top:0}
@@ -516,3 +527,57 @@ a:hover img{border-color:#5cb7c0;background:#5cb7c0}
 a:hover .nobor,
 img.nobor{border:0}
 button{cursor:pointer}
+
+
+/*EngTit*/
+.EngTit{height:36px;line-height:3000em;overflow:hidden;padding-right:0;margin:0}
+
+.ACCESSORY{background:url(../EngTit/ACCESSORY.png) no-repeat -160px 6px;width:240px}
+.BEAUTY{background:url(../EngTit/BEAUTY.png) no-repeat right 6px;width:240px}
+.BOOKLIST{background:url(../EngTit/BOOKLIST.png) no-repeat right 6px;width:240px}
+.BRANDPROFILE{background:url(../EngTit/BRANDPROFILE.png) no-repeat right 6px;width:240px}
+.BRANDS{background:url(../EngTit/BRANDS.png) no-repeat right 6px;width:240px}
+.CELEBPROFILE{background:url(../EngTit/CELEBPROFILE.png) no-repeat right 6px;width:240px}
+.CELEBS{background:url(../EngTit/CELEBS.png) no-repeat -160px 6px;width:240px}
+.CELEBSGALLERY{background:url(../EngTit/CELEBSGALLERY.png) no-repeat right 6px;width:265px}
+.CELEBSGOSSIP{background:url(../EngTit/CELEBSGOSSIP.png) no-repeat right 6px;width:240px}
+.CONTENT{background:url(../EngTit/CONTENT.png) no-repeat right 6px;width:240px}
+.DESIGNERGOSSIP{background:url(../EngTit/DESIGNERGOSSIP.png) no-repeat right 6px;width:270px}
+.EDITORIAL{background:url(../EngTit/EDITORIAL.png) no-repeat right 6px;width:240px}
+.EVENTS{background:url(../EngTit/EVENTS.png) no-repeat right 6px;width:240px}
+.FASHIONSHOWS{background:url(../EngTit/FASHIONSHOWS.png) no-repeat right 6px;width:260px}
+.FEATURE{background:url(../EngTit/FEATURE.png) no-repeat right 6px;width:240px}
+.FEMME{background:url(../EngTit/FEMME.png) no-repeat -160px 6px;width:240px}
+.FILELIST{background:url(../EngTit/FILELIST.png) no-repeat right 6px;width:240px}
+.GOODTASTE{background:url(../EngTit/GOODTASTE.png) no-repeat right 6px;width:240px}
+.GOSSIP{background:url(../EngTit/GOSSIP.png) no-repeat right 6px;width:240px}
+.HOMME{background:url(../EngTit/HOMME.png) no-repeat right 6px;width:240px}
+.INSIDERPROFILE{background:url(../EngTit/INSIDERPROFILE.png) no-repeat right 6px;width:260px}
+.KIDS{background:url(../EngTit/KIDS.png) no-repeat right 6px;width:240px}
+.LIFE{background:url(../EngTit/LIFE.png) no-repeat -160px 6px;width:240px}
+.LOOKBOOK{background:url(../EngTit/LOOKBOOK.png) no-repeat right 6px;width:240px}
+.MODELPROFILE{background:url(../EngTit/MODELPROFILE.png) no-repeat right 6px;width:250px}
+.MOREINFORMATION{background:url(../EngTit/MOREINFORMATION.png) no-repeat right 6px;width:330px}
+.NEWARRIVAL{background:url(../EngTit/NEWARRIVAL.png) no-repeat right 6px;width:240px}
+.NEWS{background:url(../EngTit/NEWS.png) no-repeat -160px 6px;width:240px}
+.NEWSLIST{background:url(../EngTit/NEWSLIST.png) no-repeat right 6px;width:240px}
+.OTHERHOT{background:url(../EngTit/OTHERHOT.png) no-repeat right 6px;width:240px}
+.RECRUITMENT{background:url(../EngTit/RECRUITMENT.png) no-repeat right 6px;width:240px}
+.RELATED{background:url(../EngTit/RELATED.png) no-repeat right 6px;width:240px}
+.SPORTSWEAR{background:url(../EngTit/SPORTSWEAR.png) no-repeat right 6px;width:240px}
+.STREETPHOTOS{background:url(../EngTit/STREETPHOTOS.png) no-repeat right 6px;width:250px}
+.STREETSTYLE{background:url(../EngTit/STREETSTYLE.png) no-repeat right 6px;width:240px}
+.STYLISTAPROFILE{background:url(../EngTit/STYLISTAPROFILE.png) no-repeat right 6px;width:280px}
+.TRAVEL{background:url(../EngTit/TRAVEL.png) no-repeat right 6px;width:240px}
+.TRENDS{background:url(../EngTit/TRENDS.png) no-repeat right 6px;width:240px}
+.WHATSHOT{background:url(../EngTit/WHATSHOT.png) no-repeat right 6px;width:240px}
+.CAMPAIGN{background:url(../EngTit/CAMPAIGN.png) no-repeat right 6px;width:240px}
+
+.HOTNEWS{background:url(../EngTit/HOTNEWS.png) no-repeat right 6px;width:240px}
+.OTHERNEWS{background:url(../EngTit/OTHERNEWS.png) no-repeat right 6px;width:260px}
+.SEARCH{background:url(../EngTit/SEARCH.png) no-repeat right 6px;width:240px}
+.BRANDNEWS{background:url(../EngTit/BRANDNEWS.png) no-repeat right 6px;width:270px}
+.FASHIONNEWS{background:url(../EngTit/FASHIONNEWS.png) no-repeat right 6px;width:300px}
+.FASHIONTRENDS{background:url(../EngTit/FASHIONTRENDS.png) no-repeat right 6px;width:330px}
+.FASHIONSHOW{background:url(../EngTit/FASHIONSHOW.png) no-repeat right 6px;width:240px}
+.FASHIONLIFE{background:url(../EngTit/FASHIONLIFE.png) no-repeat right 6px;width:370px}

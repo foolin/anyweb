@@ -22,17 +22,18 @@
     <div class="SeasonList cs-clear">
         <a href="javascript:void(0);" class="SeaList-Up" id="btn2"></a><a href="javascript:void(0);"
             class="SeaList-Down" id="btn1"></a>
-        <div class="SeasonList-con cs-fl" id="scrollDiv">
-            <ul class="SeaList-main">
-                <asp:Repeater ID="repColumn" runat="server">
-                    <ItemTemplate>
-                        <%#Container.ItemIndex % 2 == 0 ? "<li>" : ""%>
-                        <span><a id="col_<%#Eval("fdColuID") %>" href="javascript:setCol(<%#Eval("fdColuID") %>);">
-                            <%#Eval("fdColuName") %></a></span>
-                        <%#Container.ItemIndex % 2 == 1 || Container.ItemIndex == coluCount - 1 ? "</li>" : ""%>
-                    </ItemTemplate>
-                </asp:Repeater>
-            </ul>
+        <div class="SeasonList-div">
+            <div id="scrollDiv" class="SeasonList-con cs-fl">
+                <ul class="SeaList-main cs-clear">
+                    <asp:Repeater ID="repColumn" runat="server">
+                        <ItemTemplate>
+                            <li class="<%#System.Text.Encoding.Default.GetByteCount((string)Eval("fdColuName"))>10?"SeaList-long":"" %>">
+                                <a id="col_<%#Eval("fdColuID") %>" href="javascript:setCol(<%#Eval("fdColuID") %>);">
+                                    <%#Eval("fdColuName") %></a> </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </ul>
+            </div>
         </div>
     </div>
     <a id="col_0" href="javascript:setCol(0);" class="ShowNav-all on">全部</a>

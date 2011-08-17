@@ -21,7 +21,7 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>星级影踪</span></p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit CELEBSGALLERY cs-fr">
                         CELEBS<span>GALLERY</span></p>
                 </h2>
             </div>
@@ -32,7 +32,7 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>星级八卦</span></p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit CELEBSGOSSIP cs-fr">
                         CELEBS<span>GOSSIP</span></p>
                 </h2>
             </div>

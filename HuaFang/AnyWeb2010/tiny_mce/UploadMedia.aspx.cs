@@ -35,7 +35,7 @@ namespace BLOG.tiny_mce
             }
             catch (Exception ex)
             {
-                Failed(String.Format("{1}：\n{0}", ex.Message, "上传文件错误"));
+                Failed( "上传文件失败" );
             }
         }
 

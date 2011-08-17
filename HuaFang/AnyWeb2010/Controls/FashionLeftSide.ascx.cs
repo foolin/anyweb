@@ -25,7 +25,7 @@ public partial class Controls_FashionLeftSide : System.Web.UI.UserControl
 
         int.TryParse( QS( "col" ), out col );
         int.TryParse( QS( "cate" ), out cate );
-        int.TryParse( QS( "city" ), out city );
+        int.TryParse( QS( "city" ), out city );  
     }
 
     protected string QS( string key )

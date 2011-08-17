@@ -34,7 +34,7 @@ public class LibraryPicUpload : IHttpHandler
     {
         string filePath = Path.Combine( args.FilePath, args.FileName );
         string ThumbPath = Path.Combine( args.FilePath, args.FileName.Substring( 5 ) );
-        WebAgent.MakeThumbnail( filePath, ThumbPath, 100, 0, "W", WebAgent.GetImageType( args.Extension ) );
+        WebAgent.MakeThumbnail( filePath, ThumbPath, 358, 0, "W", WebAgent.GetImageType( args.Extension ) );
     }
 
     public bool IsReusable

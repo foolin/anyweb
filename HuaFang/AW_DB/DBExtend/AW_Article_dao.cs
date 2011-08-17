@@ -527,5 +527,101 @@ namespace AnyWell.AW_DL
             }
             return list;
         }
+
+        /// <summary>
+        /// 根据标签获取文章列表
+        /// </summary>
+        /// <param name="tagId"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="recordCount"></param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetArticleListByTag( int tagId, int pageIndex, int pageSize, out int recordCount )
+        {
+            this.propSelect = "fdArtiID,fdArtiColumnID,fdArtiTitle,fdArtiCreateAt,fdArtiPic,fdArtiDesc,fdArtiType";
+            this.propTableApp = " INNER JOIN AW_Tag_Associated ON fdTaAsDataID=fdArtiID";
+            this.propWhere = string.Format( "fdTaAsTagID={0} AND fdTaAsType=0", tagId );
+            this.propPageSize = pageSize;
+            this.propPage = pageIndex;
+            this.propGetCount = true;
+            List<AW_Article_bean> list = this.funcGetList();
+            recordCount = this.propCount;
+            return list;
+        }
+
+        /// <summary>
+        /// 获取专题文章更多秀场
+        /// </summary>
+        /// <param name="coluId"></param>
+        /// <param name="artiId"></param>
+        /// <param name="artiTitle"></param>
+        /// <param name="top"></param>
+        /// <returns></returns>
+        public List<AW_Article_bean> funcGetFashionMoreArticleList( int coluId, int artiId, string artiTitle, int topCount )
+        {
+            this.propSelect = this.selectStr;
+
+            if( topCount > 0 )
+            {
+                this.propSelect = " TOP " + topCount + " " + this.propSelect;
+            }
+
+            this.propTableApp = ",AW_Column ";
+            this.propWhere = "fdColuID=fdArtiColumnID ";
+            if( coluId > 0 )
+            {
+                this.propWhere += " AND fdColuID = " + coluId;
+            }
+            this.propWhere += string.Format( " AND fdArtiTitle=@fdArtiTitle AND fdArtiID<>{0} AND fdArtiType=2", artiId );
+            this.funcAddParam( "@fdArtiTitle", artiTitle );
+
+            this.propOrder = "ORDER BY fdArtiSort DESC";
+
+            List<AW_Article_bean> articles = new List<AW_Article_bean>();
+            foreach( DataRow row in this.funcCommon().Tables[ 0 ].Rows )
+            {
+                AW_Article_bean bean = new AW_Article_bean();
+                bean.funcFromDataRow( row );
+                bean.Column = new AW_Column_bean();
+                bean.Column.funcFromDataRow( row );
+                articles.Add( bean );
+            }
+            return articles;
+        }
+
+        public List<AW_Article_bean> funcGetArticleListByLibrary( int columnId, int topCount, int articleType, AW_Library_bean library )
+        {
+            this.propSelect = this.selectStr;
+
+            if( topCount > 0 )
+            {
+                this.propSelect = " TOP " + topCount + " " + this.propSelect;
+            }
+
+            this.propTableApp = ",AW_Column ";
+            this.propWhere = "fdColuID=fdArtiColumnID ";
+            if( columnId > 0 )
+            {
+                this.propWhere += " AND fdColuID = " + columnId;
+            }
+            if( articleType > -1 )
+            {
+                this.propWhere += " AND fdArtiType=" + articleType;
+            }
+            this.propWhere += string.Format( " AND (fdArtiTitle LIKE '%{0}%' OR fdArtiTitle LIKE '%{0}%')", library.fdLibrName.Replace( "%", "[%]" ).Replace( "'", "''" ), library.fdLibrEnName.Replace( "%", "[%]" ).Replace( "'", "''" ) );
+
+            this.propOrder = "ORDER BY fdArtiSort DESC";
+
+            List<AW_Article_bean> articles = new List<AW_Article_bean>();
+            foreach( DataRow row in this.funcCommon().Tables[ 0 ].Rows )
+            {
+                AW_Article_bean bean = new AW_Article_bean();
+                bean.funcFromDataRow( row );
+                bean.Column = new AW_Column_bean();
+                bean.Column.funcFromDataRow( row );
+                articles.Add( bean );
+            }
+            return articles;
+        }
     }
 }

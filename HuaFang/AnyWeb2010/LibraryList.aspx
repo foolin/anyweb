@@ -13,7 +13,7 @@
             <h2 class="cs-clear">
                 <p class="title-ch cs-fl">
                     <a href="/Index.aspx">首页</a>//<span><%=typeName %></span></p>
-                <p class="title-eng cs-fr">
+                <p class="title-eng EngTit FILELIST cs-fr">
                     FILE<span>LIST</span></p>
             </h2>
         </div>
@@ -38,7 +38,7 @@
                     <%=cate==21?"class=\"on\"":"" %>>V</a> <a href="/l/<%=type %>.aspx?c=22" <%=cate==22?"class=\"on\"":"" %>>
                         W</a> <a href="/l/<%=type %>.aspx?c=23" <%=cate==23?"class=\"on\"":"" %>>X</a>
                 <a href="/l/<%=type %>.aspx?c=24" <%=cate==24?"class=\"on\"":"" %>>Y</a> <a href="/l/<%=type %>.aspx?c=25"
-                    <%=cate==25?"class=\"on\"":"" %>>Z</a> <a href="/l/<%=type %>.aspx?c=26" <%=cate==26?"class=\"on\"":"" %>>
+                    <%=cate==25?"class=\"on\"":"" %>>Z</a> <a href="/l/<%=type %>.aspx?c=26" class="PageSet-ch <%=cate==26?"on":"" %>">
                         其他</a>
             </div>
         </div>
@@ -55,8 +55,9 @@
                 <ItemTemplate>
                     <div class="Star_picitem">
                         <a href="/lc/<%#Eval("fdLibrID") %>.aspx">
-                            <img src="<%#Eval("fdLibrPic") %>" width="110" /></a> <a href="/lc/<%#Eval("fdLibrID") %>.aspx"><%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdLibrEnName" ), 17 )%><br />
-                                <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdLibrName" ), 9 )%></a>
+                            <img src="<%#Eval("fdLibrPic") %>" width="110" /></a> <strong><a href="/lc/<%#Eval("fdLibrID") %>.aspx">
+                                <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdLibrEnName" ), 17 )%><br />
+                                <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdLibrName" ), 9 )%></a></strong>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>

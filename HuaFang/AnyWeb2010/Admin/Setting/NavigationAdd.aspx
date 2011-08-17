@@ -12,6 +12,7 @@
                     $("#divSite").hide();
                     $("#divTitle").attr("class", "fi");
                     $("#divLink").hide();
+                    $("#divLibrary").hide();
                     $("#<%=txtTitle.ClientID %>").val($("#<%=drpType.ClientID %>").find("option:selected").text());
                     break;
                 case "2":
@@ -19,6 +20,7 @@
                     $("#divSite").hide();
                     $("#divTitle").attr("class", "fi even");
                     $("#divLink").hide();
+                    $("#divLibrary").hide();
                     $("#<%=txtTitle.ClientID %>").val($("#<%=drpColumn.ClientID %>").find("option:selected").text());
                     break;
                 case "3":
@@ -26,11 +28,21 @@
                     $("#divSite").show().attr("class", "fi");
                     $("#divTitle").attr("class", "fi even");
                     $("#divLink").hide();
+                    $("#divLibrary").hide();
                     $("#<%=txtTitle.ClientID %>").val($("#<%=drpSite.ClientID %>").find("option:selected").text());
                     break;
-                case "4": ;
+                case "4":
                     $("#divColumn").hide();
                     $("#divSite").hide();
+                    $("#divTitle").attr("class", "fi even");
+                    $("#divLink").hide();
+                    $("#divLibrary").show();
+                    $("#<%=txtTitle.ClientID %>").val($("#<%=drpLibrary.ClientID %>").find("option:selected").text());
+                    break;
+                case "5": ;
+                    $("#divColumn").hide();
+                    $("#divSite").hide();
+                    $("#divLibrary").hide();
                     $("#divTitle").attr("class", "fi");
                     $("#divLink").show().attr("class", "fi even");
                     $("#<%=txtTitle.ClientID %>").val($("#<%=drpType.ClientID %>").find("option:selected").text());
@@ -48,6 +60,10 @@
 
         function ChangeSite() {
             $("#<%=txtTitle.ClientID %>").val($("#<%=drpSite.ClientID %>").find("option:selected").text());
+        }
+
+        function ChangeLibrary() {
+            $("#<%=txtTitle.ClientID %>").val($("#<%=drpLibrary.ClientID %>").find("option:selected").text());
         }
 
         function CheckLink() {
@@ -83,7 +99,8 @@
                     <asp:ListItem Value="1" Text="首页"></asp:ListItem>
                     <asp:ListItem Value="2" Text="文章栏目"></asp:ListItem>                
                     <asp:ListItem Value="3" Text="基本信息"></asp:ListItem>
-                    <asp:ListItem Value="4" Text="自定义链接"></asp:ListItem>
+                    <asp:ListItem Value="4" Text="两库信息"></asp:ListItem>
+                    <asp:ListItem Value="5" Text="自定义链接"></asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div id="divColumn" class="fi" style="display:none">
@@ -103,6 +120,14 @@
                     <asp:ListItem Text="电话" Value="5"></asp:ListItem>
                     <asp:ListItem Text="备案" Value="6"></asp:ListItem>
                     <asp:ListItem Text="企业介绍" Value="7"></asp:ListItem>
+                </asp:DropDownList>
+            </div>
+            <div id="divLibrary" class="fi" style="display:none">
+                <label>
+                    两库：</label>
+                <asp:DropDownList ID="drpLibrary" runat="server" onchange="ChangeLibrary()">
+                    <asp:ListItem Text="名人库" Value="1"></asp:ListItem>
+                    <asp:ListItem Text="品牌库" Value="2"></asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div id="divTitle" class="fi even">

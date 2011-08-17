@@ -44,7 +44,7 @@
             <h2 class="cs-clear">
                 <p class="title-ch cs-fl">
                     <span>更多资讯</span></p>
-                <p class="title-eng cs-fr">
+                <p class="title-eng EngTit MOREINFORMATION cs-fr">
                     MORE<span>INFORMATION</span></p>
             </h2>
         </div>
@@ -180,8 +180,8 @@
             <div class="foot-con">
                 <asp:Repeater ID="repLink" runat="server">
                     <ItemTemplate>
-                        <span><a href="<%#Eval("fdLinkUrl") %>" target="_blank">
-                            <%#Eval( "fdLinkName" )%></a></span>
+                        <span><a href="<%#Eval("fdLinkUrl") %>" target="_blank" title="<%#Eval( "fdLinkName" ) %>">
+                            <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdLinkName" ), 9, false )%></a></span>
                     </ItemTemplate>
                 </asp:Repeater>
             </div>

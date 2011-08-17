@@ -18,7 +18,7 @@ public partial class Shop_Admin_AdminPage : System.Web.UI.MasterPage
         _adminInfo = (new AW_Admin_dao()).funcGetAdminFromCookie();
         if (_adminInfo == null)
         {
-            Response.Write("<script language=javascript>parent.location.href='Login.aspx';</script>");
+            Response.Write("<script language=javascript>parent.location.href='/Admin/Login.aspx';</script>");
             Response.Flush();
             Response.End();
         }

@@ -62,7 +62,7 @@ public partial class Index : PageBase
         for( int i = columnList.Count - 1; i >= 0; i-- )
         {
             fashionList.Add( columnList[ i ] );
-            if( fashionList.Count >= 4 )
+            if( fashionList.Count >= 2 )
             {
                 break;
             }

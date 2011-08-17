@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
 using Studio.Web;
+using AnyWell.Configs;
 
 public partial class Library : PageBase
 {
@@ -15,29 +16,20 @@ public partial class Library : PageBase
         {
             WebAgent.AlertAndBack( "页面不存在！" );
         }
+        this.Title = string.Format( "{0}({1}){2}", library.fdLibrName, library.fdLibrEnName, GeneralConfigs.GetConfig().TitleExtension );
 
-        List<AW_Article_bean> list = new AW_Article_dao().funcGetArticleListByUC( -1, 14, true, string.Format( "fdArtiTitle='{0}' OR fdArtiTitle='{1}'", library.fdLibrName, library.fdLibrEnName ), "", "", false );
-        if( list.Count > 0 )
-        {
-            rep1.DataSource = list.GetRange( 0, 1 );
-            rep1.DataBind();
-        }
-        if( list.Count > 1 )
-        {
-            rep2.DataSource = list.GetRange( 1, list.Count > 3 ? 2 : list.Count - 1 );
-            rep2.DataBind();
-        }
-        if( list.Count > 3 )
-        {
-            rep3.DataSource = list.GetRange( 3, list.Count - 3 );
-            rep3.DataBind();
-        }
+        preLibrary = new AW_Library_dao().funcGetPreLibrary( library );
+        nextLibrary = new AW_Library_dao().funcGetNextLibrary( library );
+
+        List<AW_Article_bean> list = new AW_Article_dao().funcGetArticleListByLibrary( -1, 11, -1, library );
+        rep.DataSource = list;
+        rep.DataBind();
 
         List<AW_Library_bean> relatedList = new AW_Library_dao().funcGetLibraryList( library.fdLibrType, library.fdLibrFirLetter, library.fdLibrID, 6 );
         repRelated.DataSource = relatedList;
         repRelated.DataBind();
 
-        List<AW_Article_bean> picList = new AW_Article_dao().funcGetArticleListByUC( -1, 21, true, string.Format( "fdArtiType=1 AND (fdArtiTitle='{0}' OR fdArtiTitle='{1}')", library.fdLibrName, library.fdLibrEnName ), "", "", false );
+        List<AW_Article_bean> picList = new AW_Article_dao().funcGetArticleListByLibrary( -1, 21, 1, library );
         repPic.DataSource = picList;
         repPic.DataBind();
     }
@@ -52,6 +44,32 @@ public partial class Library : PageBase
         set
         {
             _library = value;
+        }
+    }
+
+    private AW_Library_bean _preLibrary;
+    public AW_Library_bean preLibrary
+    {
+        get
+        {
+            return _preLibrary;
+        }
+        set
+        {
+            _preLibrary = value;
+        }
+    }
+
+    private AW_Library_bean _nextLibrary;
+    public AW_Library_bean nextLibrary
+    {
+        get
+        {
+            return _nextLibrary;
+        }
+        set
+        {
+            _nextLibrary = value;
         }
     }
 

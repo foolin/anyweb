@@ -32,8 +32,8 @@
                                 <a href="<%#Eval("fdArtiPath") %>" target="_blank">
                                     <img width="95" height="150" src="<%#Eval("fdArtiPic") %>"></a>
                                 <div class="Show_intro Show_introbor">
-                                    <a href="<%#Eval("fdArtiPath") %>" target="_blank">
-                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 15, false )%></a></div>
+                                    <strong><a href="<%#Eval("fdArtiPath") %>" target="_blank">
+                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 15, false )%></a></strong></div>
                                 <div class="Show_intro">
                                     <p>
                                         <%#Eval("Column.fdColuName") %></p>

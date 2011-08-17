@@ -38,7 +38,7 @@
                 }
             });
         });
-        
+
         function Change() {
             var url = "?library=" + document.getElementById("<%=drpLibrary.ClientID %>").value
                     + "&firstLetter=" + document.getElementById("<%=drpFirstLetter.ClientID %>").value;
@@ -91,10 +91,12 @@
         <div class="fi filter">
             分类：
             <asp:DropDownList ID="drpLibrary" runat="server" onchange="Change()">
+                <asp:ListItem Text="所有分类" Value="0"></asp:ListItem>
                 <asp:ListItem Text="名人库" Value="1"></asp:ListItem>
                 <asp:ListItem Text="品牌库" Value="2"></asp:ListItem>
             </asp:DropDownList>
             <asp:DropDownList ID="drpFirstLetter" runat="server" onchange="Change()">
+                <asp:ListItem Text="所有" Value="-1"></asp:ListItem>
                 <asp:ListItem Text="A" Value="0"></asp:ListItem>
                 <asp:ListItem Text="B" Value="1"></asp:ListItem>
                 <asp:ListItem Text="C" Value="2"></asp:ListItem>
@@ -138,27 +140,23 @@
                             英文名称
                         </th>
                         <th align="center">
-                            介绍
-                        </th>
-                        <th align="center">
                             操作
                         </th>
                     </tr>
                 </thead>
-                <asp:Repeater ID="repLibrary" runat="server"  EnableViewState="False">
+                <asp:Repeater ID="repLibrary" runat="server" EnableViewState="False">
                     <ItemTemplate>
                         <tr align="center" class="editalt" id="row_<%# Eval("fdLibrID")%>">
                             <td style="width: 30px;">
                                 <input type="checkbox" name="ids" value="<%# Eval("fdLibrID")%>" />
                             </td>
                             <td align="center" class="dragTd" title="拖动排序">
-                                <%#Eval("fdLibrName")%>
+                                <a href="/lc/<%#Eval("fdLibrID") %>.aspx" target="_blank">
+                                    <%#Eval("fdLibrName")%></a>
                             </td>
                             <td align="center">
-                                <%#Eval("fdLibrEnName")%>
-                            </td>
-                            <td align="center">
-                                <%#Eval("fdLibrDesc")%>
+                                <a href="/lc/<%#Eval("fdLibrID") %>.aspx" target="_blank">
+                                    <%#Eval("fdLibrEnName")%></a>
                             </td>
                             <td align="center">
                                 <a href="LibraryEdit.aspx?id=<%#Eval("fdLibrID") %>" title="修改信息">修改</a> <a href="LibraryDel.aspx?id=<%#Eval("fdLibrID") %>"

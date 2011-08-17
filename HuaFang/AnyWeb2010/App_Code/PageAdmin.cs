@@ -41,7 +41,7 @@ public class PageAdmin : Page
         if( _adminInfo == null )
         {
             Response.Clear();
-            Response.Write( "<script language=\"javascript\">parent.location.href=\"Login.aspx\";</script>" );
+            Response.Write( "<script language=\"javascript\">parent.location.href=\"/Admin/Login.aspx\";</script>" );
             Response.End();
         }
             //Response.Redirect("~/Admin/Login.aspx");
@@ -159,6 +159,7 @@ public class PageAdmin : Page
                         bean.fdTaAsTagID = tagbean.fdTagID;
                         bean.fdTaAsDataID = article.fdArtiID;
                         bean.fdTaAsType = 0;
+                        dao.funcInsert( bean );
                     }
                 }
             }
@@ -223,6 +224,7 @@ public class PageAdmin : Page
                         bean.fdTaAsTagID = tagbean.fdTagID;
                         bean.fdTaAsDataID = article.fdArtiID;
                         bean.fdTaAsType = 0;
+                        dao.funcInsert( bean );
                     }
                 }
             }

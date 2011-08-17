@@ -38,7 +38,7 @@
                 }
             });
         });
-    
+
         function SelectAll(v) {
             var list = document.getElementsByTagName("input");
             for (var i = 0; i < list.length; i++) {
@@ -98,7 +98,7 @@
                         <th>
                             标签
                         </th>
-                        <th style="width:60px;">
+                        <th style="width: 60px;">
                             是否高亮
                         </th>
                         <th class="end">
@@ -113,8 +113,7 @@
                                 <input type="checkbox" name="ids" value="<%# Eval("fdTagID")%>" />
                             </td>
                             <td style="text-align: left;" class="dragTd" title="拖动排序">
-                                </a>
-                                <%#Eval("fdTagName")%>（文章：<%#Eval("fdArtiCount") %>）（商品：<%#Eval("fdGoodCount") %>）
+                                <%#Eval("fdTagName")%>（<a href="/t/<%#Eval("fdTagID") %>.aspx" target="_blank">文章：<%#Eval("fdArtiCount") %></a>）（商品：<%#Eval("fdGoodCount") %>）
                             </td>
                             <td>
                                 <%#( int ) Eval( "fdTagHightLight" ) == 1 ? "是" : ""%>

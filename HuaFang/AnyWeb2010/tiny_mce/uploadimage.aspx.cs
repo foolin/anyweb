@@ -31,7 +31,7 @@ namespace BLOG.tiny_mce
             }
             catch (Exception ex)
             {
-                Failed(String.Format("{1}：\n{0}", ex.Message, "上传文件错误"));
+                Failed( "上传文件失败" );
             }
         }
 
@@ -48,16 +48,13 @@ namespace BLOG.tiny_mce
             string path = savePath + fileName + Path.GetExtension(Request.Files[0].FileName);
             string thumbPath = savePath + "s_" + fileName + Path.GetExtension( Request.Files[ 0 ].FileName );
             int thumbWidth = 460, thumbHeight = 716;
-            //Request.Files[0].SaveAs(Server.MapPath(path));
 
             ImageWaterMark wm = new ImageWaterMark();
             switch( GeneralConfigs.GetConfig().ImageWatermarkType )
             {
                 case 0:
-                    if( GeneralConfigs.GetConfig().ArticleImageWidth > 0 )
-                    {
-                        WebAgent.MakeThumbnail( path, thumbPath, thumbWidth, thumbHeight, "W", WebAgent.GetImageType( Path.GetExtension( Request.Files[ 0 ].FileName ) ) );
-                    }
+                    Request.Files[ 0 ].SaveAs( path );
+                    WebAgent.MakeThumbnail( path, thumbPath, thumbWidth, thumbHeight, "W", WebAgent.GetImageType( Request.Files[ 0 ].FileName.Substring( Request.Files[ 0 ].FileName.LastIndexOf( "." ) + 1 ) ) );
                     break;
                 case 1:
                     wm.SaveWaterMarkImageByText(

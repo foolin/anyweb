@@ -1,8 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Search.ascx.cs" Inherits="Controls_Search" %>
 <div class="search">
     <ul class="search-tab" id="stype">
-        <span class="hover" value="1">资讯</span>|<span value="2">刊物</span>|<span value="3">招聘</span>|<span
-            value="4">品牌</span>|<span value="5">名人</span>
+        <span class="hover" value="1">资讯</span>|<span value="4">品牌</span>|<span value="5">名人</span>|<span
+            value="2">刊物</span>|<span value="3">招聘</span>
     </ul>
     <div class="search-form cs-clear">
         <form id="formSearch">

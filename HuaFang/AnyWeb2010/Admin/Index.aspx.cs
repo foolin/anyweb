@@ -12,7 +12,7 @@ public partial class Admin_Index : PageAdmin
         AdminInfo = ( new AW_Admin_dao() ).funcGetAdminFromCookie();
         if( AdminInfo == null )
         {
-            Response.Redirect( "Login.aspx" );
+            Response.Redirect( "/Admin/Login.aspx" );
         }
     }
 }

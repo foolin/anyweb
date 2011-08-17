@@ -28,16 +28,16 @@
                 <div class="g_470 cs-fl">
                     <div class="Article_main">
                         <div class="Article_head cs-clear">
-                            <p class="cs-fl">
+                            <p>
                                 发表时间：<span><%=bean.fdArtiCreateAt.ToString("yyyy年M月d日") %></span></p>
-                            <p class="cs-fl">
+                            <p>
                                 来源：<span><%=bean.fdArtiFrom %></span> 作者：<span><%=bean.fdArtiAuthor %></span></p>
                         </div>
                         <p class="keywords">
                             <span>关键字：</span>
                             <asp:Repeater ID="repTag1" runat="server">
                                 <ItemTemplate>
-                                    <span><a href="#">
+                                    <span><a href="/t/<%#Eval("fdTagID") %>.aspx">
                                         <%#Eval( "fdTagName" )%></a></span>
                                 </ItemTemplate>
                             </asp:Repeater>
@@ -49,13 +49,17 @@
                               { %>
                             <img src="<%=bean.fdArtiPic %>" width="460" height="716" />
                             <p>
-                                <%=bean.fdArtiDesc%>
+                                <%=bean.fdArtiDesc.Replace( "\r\n", "<br />" )%>
                             </p>
                             <%}
                               else
                               { %>
-                            <a href="" target="_blank" id="imageShow">
-                                <img src="" /></a>
+                            <div class="Show_filmstrip">
+                                <a class="ShowTime_link" href="" id="imageShow" target="_blank">
+                                    <img src=""></a> <a class="Filmstrip_L" href="javascript:pre();"></a><a class="Filmstrip_R"
+                                        href="javascript:next();"></a><a id="imageLink" class="Filmstrip_Loupe" href="" target="_blank">
+                                        </a>
+                            </div>
                             <div class="Article_picpage">
                                 <div class="Pic_Page Pic_PageL cs-clear">
                                     <a href="javascript:first();">&lt;&lt;首页</a> <a href="javascript:pre();">&lt;上一页</a>
@@ -71,7 +75,7 @@
                                 </div>
                             </div>
                             <p id="imageContent">
-                                <%=bean.fdArtiDesc%>
+                                <%=bean.fdArtiDesc.Replace( "\r\n", "<br />" )%>
                             </p>
                             <%} %>
                         </div>
@@ -88,7 +92,7 @@
                                     <asp:Repeater ID="repPicList" runat="server">
                                         <ItemTemplate>
                                             <a href="javascript:setPic(<%#Container.ItemIndex %>)">
-                                                <img src="<%#Eval("fdArPiPath") %>" /><textarea style="display: none"><%#Eval( "fdArPiDesc" )%></textarea></a>
+                                                <img src="<%#Eval("fdArPiPath") %>" /><span style="display: none"><%#(( string ) Eval( "fdArPiDesc" )).Replace( "\r\n", "<br />" )%></span></a>
                                         </ItemTemplate>
                                     </asp:Repeater>
                                 </div>
@@ -100,7 +104,7 @@
                             关键字：
                             <asp:Repeater ID="repTag2" runat="server">
                                 <ItemTemplate>
-                                    <a href="#">
+                                    <a href="/t/<%#Eval("fdTagID") %>.aspx">
                                         <%#Eval( "fdTagName" )%></a>
                                 </ItemTemplate>
                             </asp:Repeater>
@@ -281,13 +285,22 @@
                 current = index;
             }
             var image = $(tabContent).find("a").eq(current).find("img");
+            $(tabContent).find("a").removeClass("Pho_on");
+            $(tabContent).find("a").eq(current).addClass("Pho_on");
             $("#imageShow").attr("href", $(image).attr("src").replace("S_", ""));
+            $("#imageLink").attr("href", $(image).attr("src").replace("S_", ""));
             $("#imageShow img").attr("src", $(image).attr("src"));
             $("#imagePage").val(current + 1);
-            $(document).scrollTop($("#imageShow").offset().top);
+//            $(document).scrollTop($("#imageShow").offset().top);
             if(<%=bean.fdArtiPicDesc %>==0){
-                $("#imageContent").html($(tabContent).find("a").eq(current).find("textarea").html());
+                $("#imageContent").html($(tabContent).find("a").eq(current).find("span").html());
             }
+            $("#imageShow img").load(function(){
+                $(".Show_filmstrip").width($("#imageShow img").width()+10);
+                $(".Filmstrip_L").css("top",($("#imageShow img").height()-63)/2);
+                $(".Filmstrip_R").css("top",($("#imageShow img").height()-63)/2);
+                $(".Filmstrip_Loupe").css("top",($("#imageShow img").height()-29)/2);
+            });
         }
         function first() {
             setPic(0);

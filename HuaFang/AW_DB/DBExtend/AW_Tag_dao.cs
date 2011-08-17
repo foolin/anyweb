@@ -47,10 +47,9 @@ namespace AnyWell.AW_DL
             this.propSelect = "fdTagID,fdTagName,fdTagHightLight,fdArtiCount=(SELECT COUNT(fdTaAsID) from AW_Tag_Associated where fdTaAsTagID=fdTagID AND fdTaAsType=0),fdGoodCount=(SELECT COUNT(fdTaAsID) from AW_Tag_Associated where fdTaAsTagID=fdTagID AND fdTaAsType=1)";
             if( !string.IsNullOrEmpty( key ) )
             {
-                key = key.Replace( "[", "[[]" ).Replace( "%", "[%]" );
+                key = key.Replace( "[", "[[]" ).Replace( "'", "''" ).Replace( "%", "[%]" );
                 key = string.Format( "%{0}%", key );
-                this.propWhere += "fdTagName LIKE @key";
-                this.funcAddParam( "@key", key );
+                this.propWhere = string.Format( "fdTagName LIKE '{0}'", key );
             }
             this.propOrder = "ORDER BY fdTagSort DESC,fdTagID DESC";
             this.propGetCount = true;
@@ -101,10 +100,9 @@ namespace AnyWell.AW_DL
         {
             if( !string.IsNullOrEmpty( key ) )
             {
-                key = key.Replace( "[", "[[]" ).Replace( "%", "[%]" );
+                key = key.Replace( "[", "[[]" ).Replace( "'", "''" ).Replace( "%", "[%]" );
                 key = string.Format( "%{0}%", key );
-                this.propWhere = "fdTagName LIKE @key";
-                this.funcAddParam( "@key", key );
+                this.propWhere = string.Format( "fdTagName LIKE '{0}'", key );
             }
             switch( order )
             {

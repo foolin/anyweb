@@ -10,8 +10,8 @@
         <ItemTemplate>
             <div class="plain_menu <%#Container.ItemIndex==navigationCount-1?"cs-nobor":"" %>">
                 <h3>
-                    <strong>
-                        <%#Eval("fdNaviTitle") %></strong></h3>
+                    <strong><a href="<%#Eval("fdNaviLink") %>">
+                        <%#Eval("fdNaviTitle") %></a></strong></h3>
                 <p>
                     <asp:Repeater runat="server" DataSource='<%#Eval("Children") %>'>
                         <ItemTemplate>

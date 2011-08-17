@@ -32,5 +32,6 @@ public partial class Fashion : PageBase
         int record = 0;
         rep.DataSource = new AW_Article_dao().funcGetFashionArticleList( col, cate, city, keyword, PN1.PageID, PN1.PageSize, out record );
         rep.DataBind();
+        PN1.RecordCount = record;
     }
 }

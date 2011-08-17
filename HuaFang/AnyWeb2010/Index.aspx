@@ -58,7 +58,7 @@
                         <h2 class="cs-clear">
                             <p class="title-ch cs-fl">
                                 <span>品牌动态</span></p>
-                            <p class="title-eng cs-fr">
+                            <p class="title-eng EngTit BRANDNEWS cs-fr">
                                 BRAND<span>NEWS</span></p>
                         </h2>
                     </div>
@@ -82,15 +82,15 @@
                         <h2 class="cs-clear">
                             <p class="title-ch cs-fl">
                                 <span>明星名媛</span></p>
-                            <p class="title-eng cs-fr">
-                                FASHION<span>NEWS</span></p>
+                            <p class="title-eng EngTit CELEBS cs-fr">
+                                CELE<span>BS</span></p>
                         </h2>
                     </div>
                     <div class="Hotnews_minor Hotnews_minor2">
                         <asp:Repeater ID="repCelebs" runat="server">
                             <ItemTemplate>
                                 <%#Container.ItemIndex == 0 || Container.ItemIndex == 3 ? string.Format( "<div class=\"Minor-item Minor-item2 cs-clear\"><a class=\"Minor-pic\" href=\"{0}\"><img class=\"nobor\" src=\"{1}\"></a><div class=\"Minor-intro\"><h2 class=\"Minor-tit Minor-tit2\"><a href=\"{0}\">{2}</a></h2><p>{3}</p><div class=\"cs-clear\">", Eval( "fdArtiPath" ), Eval( "fdArtiPic" ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 11, false ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 24, false ) ) : ""%>
-                                <%#Container.ItemIndex != 0 && Container.ItemIndex != 3 ? string.Format( "<a href=\"{0}\" class=\"Index_picarticle {3}\"><img class=\"nobor\" src=\"{1}\" /><span>{2}</span></a>", Eval( "fdArtiPath" ), Eval( "fdArtiPic" ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 10, false ), Container.ItemIndex == 1 || Container.ItemIndex == 4 ? "cs-fl" : "cs-fr" ) : ""%>
+                                <%#Container.ItemIndex != 0 && Container.ItemIndex != 3 ? string.Format( "<a href=\"{0}\" class=\"Index_picarticle {3}\"><img class=\"nobor\" src=\"{1}\" /><strong>{2}</strong></a>", Eval( "fdArtiPath" ), Eval( "fdArtiPic" ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 10, false ), Container.ItemIndex == 1 || Container.ItemIndex == 4 ? "cs-fl" : "cs-fr" ) : ""%>
                                 <%#Container.ItemIndex == 2 || Container.ItemIndex == 5 || Container.ItemIndex == celebsCount - 1 ? "</div></div></div>" : ""%>
                             </ItemTemplate>
                         </asp:Repeater>
@@ -103,7 +103,7 @@
                         <h2 class="cs-clear">
                             <p class="title-ch cs-fl">
                                 <span>潮流街拍</span></p>
-                            <p class="title-eng cs-fr">
+                            <p class="title-eng EngTit STREETSTYLE cs-fr">
                                 STREET<span>STYLE</span></p>
                         </h2>
                     </div>
@@ -111,7 +111,7 @@
                         <asp:Repeater ID="repStreet" runat="server">
                             <ItemTemplate>
                                 <%#Container.ItemIndex == 0 || Container.ItemIndex == 3 ? string.Format( "<div class=\"Minor-item Minor-item2 cs-clear\"><a class=\"Minor-pic\" href=\"{0}\"><img class=\"nobor\" src=\"{1}\"></a><div class=\"Minor-intro\"><h2 class=\"Minor-tit Minor-tit2\"><a href=\"{0}\">{2}</a></h2><p>{3}</p><div class=\"cs-clear\">", Eval( "fdArtiPath" ), Eval( "fdArtiPic" ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 11, false ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 24, false ) ) : ""%>
-                                <%#Container.ItemIndex != 0 && Container.ItemIndex != 3 ? string.Format( "<a href=\"{0}\" class=\"Index_picarticle {3}\"><img class=\"nobor\" src=\"{1}\" /><span>{2}</span></a>", Eval( "fdArtiPath" ), Eval( "fdArtiPic" ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 10, false ), Container.ItemIndex == 1 || Container.ItemIndex == 4 ? "cs-fl" : "cs-fr" ) : ""%>
+                                <%#Container.ItemIndex != 0 && Container.ItemIndex != 3 ? string.Format( "<a href=\"{0}\" class=\"Index_picarticle {3}\"><img class=\"nobor\" src=\"{1}\" /><strong>{2}</strong></a>", Eval( "fdArtiPath" ), Eval( "fdArtiPic" ), Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 10, false ), Container.ItemIndex == 1 || Container.ItemIndex == 4 ? "cs-fl" : "cs-fr" ) : ""%>
                                 <%#Container.ItemIndex == 2 || Container.ItemIndex == 5 || Container.ItemIndex == streetStyleCount - 1 ? "</div></div></div>" : ""%>
                             </ItemTemplate>
                         </asp:Repeater>
@@ -136,8 +136,8 @@
                         <h2 class="cs-clear">
                             <p class="title-ch cs-fl">
                                 <span>流行趋势</span></p>
-                            <p class="title-eng cs-fr">
-                                FASHION<span>TRENDS</span></p>
+                            <p class="title-eng EngTit TRENDS cs-fr">
+                                TREND<span>S</span></p>
                         </h2>
                     </div>
                     <div class="PicBlack_Roll">
@@ -173,8 +173,8 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>秀场直击</span></p>
-                    <p class="title-eng cs-fr">
-                        FASHION<span>SHOW</span></p>
+                    <p class="title-eng EngTit FASHIONSHOWS cs-fr">
+                        FASHION<span>SHOWS</span></p>
                 </h2>
             </div>
             <div class="cs-section Index_sec3">
@@ -192,8 +192,8 @@
                             <ItemTemplate>
                                 <a href="<%#Eval("fdArtiPath") %>">
                                     <img class="nobor" src="<%#Eval("fdArtiPic") %>" />
-                                    <span>
-                                        <%#Eval( "fdArtiTitle" )%></span> </a>
+                                    <strong>
+                                        <%#Eval( "fdArtiTitle" )%></strong> </a>
                             </ItemTemplate>
                         </asp:Repeater>
                     </div>
@@ -206,13 +206,14 @@
                                         <%#Eval("fdColuName") %></a>
                                 </ItemTemplate>
                             </asp:Repeater>
-                            <a id="col_0" href="javascript:setCol(0);" class="special on">全部</a></p>
+                            <a id="col_0" href="javascript:setCol(0);" class="special on">全部</a><a href="/c/124.aspx" class="special">更多>></a></p>
                         <p>
                             <span>服装类型：</span><a id="cate_1" href="javascript:setCate(1);">男装</a><a id="cate_2"
                                 href="javascript:setCate(2);">高级成衣</a><a id="cate_3" href="javascript:setCate(3);">高级定制</a><a
                                     id="cate_0" href="javascript:setCate(0);" class="special on">全部</a></p>
                         <p>
-                            <span>设&nbsp;计&nbsp;师&nbsp;：</span><input id="txtTitle" type="text" class="ipt-simple" maxlength="100" /></p>
+                            <span>设&nbsp;计&nbsp;师&nbsp;：</span><input id="txtTitle" type="text" class="ipt-simple"
+                                maxlength="100" /></p>
                         <p class="cs-clear Fashion_s_btn">
                             <button class="btn-simple btn-simple2" onclick="search();">
                                 搜索</button></p>
@@ -223,7 +224,7 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>时尚生活</span></p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit FASHIONLIFE cs-fr">
                         FASHION<span>LIFE</span></p>
                 </h2>
             </div>
@@ -250,8 +251,8 @@
                             <ItemTemplate>
                                 <a href="<%#Eval("fdArtiPath") %>">
                                     <img class="nobor" src="<%#Eval("fdArtiPic") %>" />
-                                    <span>
-                                        <%#Eval( "fdArtiTitle" )%></span> </a>
+                                    <strong>
+                                        <%#Eval( "fdArtiTitle" )%></strong> </a>
                             </ItemTemplate>
                         </asp:Repeater>
                     </div>
@@ -270,7 +271,7 @@
             <h2 class="cs-clear">
                 <p class="title-ch cs-fl">
                     <span>高清大片</span></p>
-                <p class="title-eng cs-fr">
+                <p class="title-eng EngTit EDITORIAL cs-fr">
                     EDITOR<span>IAL</span></p>
             </h2>
         </div>
@@ -280,7 +281,7 @@
                     <ul id="mycarousel" class="jcarousel-skin-tango">
                         <asp:Repeater ID="repEditorial" runat="server">
                             <ItemTemplate>
-                                <li><a href="<%#Eval("fdArtiPath") %>">
+                                <li><a href="<%#Eval("fdArtiPath") %>" title="<%#Eval("fdArtiTitle") %>">
                                     <img src="<%#Eval("fdArtiPic") %>" /></a></li>
                             </ItemTemplate>
                         </asp:Repeater>
@@ -289,6 +290,7 @@
             </div>
         </div>
     </div>
+
     <script type="text/javascript">
         var col = 0, cate = 0;
         function setCol(num) {
@@ -316,4 +318,5 @@
             window.location = url;
         }
     </script>
+
 </asp:Content>

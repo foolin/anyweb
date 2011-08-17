@@ -22,7 +22,7 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>潮人搭配</span></p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit STREETPHOTOS cs-fr">
                         STREET<span>PHOTOS</span></p>
                 </h2>
             </div>
@@ -33,7 +33,7 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>花边新闻</span></p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit GOSSIP cs-fr">
                         GOSS<span>IP</span></p>
                 </h2>
             </div>

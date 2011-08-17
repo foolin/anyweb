@@ -21,7 +21,7 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>女装</span></p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit FEMME cs-fr">
                         FEM<span>ME</span></p>
                 </h2>
             </div>
@@ -32,7 +32,7 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>男装</span></p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit HOMME cs-fr">
                         HOM<span>ME</span></p>
                 </h2>
             </div>
@@ -43,7 +43,7 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>童装</span></p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit KIDS cs-fr">
                         KID<span>S</span></p>
                 </h2>
             </div>

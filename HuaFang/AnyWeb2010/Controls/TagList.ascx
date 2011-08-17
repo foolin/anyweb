@@ -3,7 +3,7 @@
     <div class="product-con cs-clear">
         <asp:Repeater ID="repTag" runat="server">
             <ItemTemplate>
-                <a href="#" <%#(int)Eval("fdTagHightLight")==1?"class=\"col1\"":"" %>>
+                <a href="/t/<%#Eval("fdTagID") %>.aspx" title="<%#Eval( "fdTagName" )%>" <%#(int)Eval("fdTagHightLight")==1?"class=\"col1\"":"" %>>
                     <%#Eval( "fdTagName" )%></a>
             </ItemTemplate>
         </asp:Repeater>

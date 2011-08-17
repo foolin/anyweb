@@ -22,7 +22,7 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>品牌新闻</span></p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit NEWS cs-fr">
                         NEW<span>S</span></p>
                 </h2>
             </div>
@@ -33,7 +33,7 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>大师花边</span></p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit DESIGNERGOSSIP cs-fr">
                         DESIGNER<span>GOSSIP</span></p>
                 </h2>
             </div>
@@ -44,7 +44,7 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>广告大片</span></p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit CAMPAIGN cs-fr">
                         CAMP<span>AIGN</span></p>
                 </h2>
             </div>
@@ -55,7 +55,7 @@
                 <h2 class="cs-clear">
                     <p class="title-ch cs-fl">
                         <span>造型画册</span></p>
-                    <p class="title-eng cs-fr">
+                    <p class="title-eng EngTit LOOKBOOK cs-fr">
                         LOOK<span>BOOK</span></p>
                 </h2>
             </div>

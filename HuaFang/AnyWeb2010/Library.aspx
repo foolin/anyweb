@@ -12,39 +12,41 @@
         <div class="title-bar">
             <h2 class="cs-clear">
                 <p class="title-ch cs-fl">
-                    <a href="/Index.aspx">首页</a>/<a href="/l/<%=library.fdLibrType %>.aspx"><%=typeName %></a>/<span><%=library.fdLibrName %></span></p>
-                <p class="title-eng cs-fr">
+                    <a href="/Index.aspx">首页</a>/<a href="/l/<%=library.fdLibrType %>.aspx"><%=typeName %></a>/<span><%=library.fdLibrName %>(<%=library.fdLibrEnName %>)</span></p>
+                <p class="title-eng EngTit CONTENT cs-fr">
                     CON<span>TENT</span></p>
             </h2>
         </div>
         <div class="g_360 cs-fl">
-            <asp:Repeater ID="rep1" runat="server">
-                <ItemTemplate>
-                    <a href="<%#Eval("fdArtiPath") %>" class="nobor" target="_blank">
-                        <img src="<%#Eval("fdArtiPic") %>" width="358" /></a>
-                </ItemTemplate>
-            </asp:Repeater>
+            <img src="<%=library.fdLibrPic %>" width="358" />
             <div class="Star-post cs-clear">
-                <asp:Repeater ID="rep2" runat="server">
-                    <ItemTemplate>
-                        <div class="Star-postL <%#Container.ItemIndex==0?"cs-fl":"cs-fr" %>">
-                            <a href="<%#Eval("fdArtiPath") %>" title="<%#Eval("fdLibrEnName") %>" target="_blank">
-                                <%#Studio.Web.WebAgent.GetLeft((string)Eval("fdLibrEnName"),25) %></a> <a href="<%#Eval("fdArtiPath") %>"
-                                    title="<%#Eval("fdLibrName") %>" target="_blank">
-                                    <%#Studio.Web.WebAgent.GetLeft((string)Eval("fdLibrName"),12) %></a>
-                        </div>
-                    </ItemTemplate>
-                </asp:Repeater>
+                <%if( preLibrary != null )
+                  {%>
+                <div class="Star-postL cs-fl">
+                    <a href="/lc/<%=preLibrary.fdLibrID %>.aspx" title="<%=preLibrary.fdLibrEnName %>">
+                        <%=Studio.Web.WebAgent.GetLeft( preLibrary.fdLibrEnName, 25 )%></a> <a href="/lc/<%=preLibrary.fdLibrID %>.aspx"
+                            title="<%=preLibrary.fdLibrName %>">
+                            <%=Studio.Web.WebAgent.GetLeft( preLibrary.fdLibrName, 12 )%></a>
+                </div>
+                <%} %>
+                <%if( nextLibrary != null )
+                  {%>
+                <div class="Star-postR cs-fr">
+                    <a href="/lc/<%=nextLibrary.fdLibrID %>.aspx" title="<%=nextLibrary.fdLibrEnName %>">
+                        <%=Studio.Web.WebAgent.GetLeft( nextLibrary.fdLibrEnName, 25 )%></a> <a href="/lc/<%=nextLibrary.fdLibrID %>.aspx"
+                            title="<%=nextLibrary.fdLibrName %>">
+                            <%=Studio.Web.WebAgent.GetLeft( nextLibrary.fdLibrName, 12 )%></a>
+                </div>
+                <%} %>
             </div>
         </div>
         <div class="g_580">
             <div class="title-sub title-sub2">
                 <p class="cs-fl">
-                    <%=library.fdLibrName %>
-                    资讯</p>
-                <a href="#" class="tit_more cs-fr">更多</a></div>
+                    <%=library.fdLibrName %>(<%=library.fdLibrEnName %>) 资讯</p>
+            </div>
             <div class="OtherHot OtherHot-js">
-                <asp:Repeater ID="rep3" runat="server">
+                <asp:Repeater ID="rep" runat="server">
                     <ItemTemplate>
                         <div class="OtherHot-item <%#Container.ItemIndex==0?"OtherHot-yes":"" %>">
                             <div class="OtherHot_list">
@@ -87,9 +89,9 @@
                         <ItemTemplate>
                             <div class="Star_picitem">
                                 <a href="/lc/<%#Eval("fdLibrID") %>.aspx">
-                                    <img src="<%#Eval("fdLibrPic") %>" width="110" /></a> <a href="/lc/<%#Eval("fdLibrID") %>.aspx">
+                                    <img src="<%#Eval("fdLibrPic") %>" width="110" /></a> <strong><a href="/lc/<%#Eval("fdLibrID") %>.aspx">
                                         <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdLibrEnName" ), 16 )%><br />
-                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdLibrName" ), 9 )%></a>
+                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdLibrName" ), 9 )%></a></strong>
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -105,14 +107,14 @@
         <div class="g_580">
             <div class="title-sub title-sub2">
                 <p class="cs-fl">
-                    <%=library.fdLibrName %>的图片</p>
+                    <%=library.fdLibrName %>(<%=library.fdLibrEnName %>)的图片</p>
             </div>
             <div class="Featured Featured2">
                 <div class="Featured-com2 cs-clear">
                     <asp:Repeater ID="repPic" runat="server">
                         <ItemTemplate>
                             <div class="Featured-item">
-                                <a href="<%#Eval("fdArtiPath") %>" target="_blank">
+                                <a href="<%#Eval("fdArtiPath") %>" target="_blank" title="<%#Eval("fdArtiTitle") %>">
                                     <img src="<%#Eval("fdArtiPic") %>" width="160" /></a></div>
                         </ItemTemplate>
                     </asp:Repeater>

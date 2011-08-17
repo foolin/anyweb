@@ -28,16 +28,16 @@
                 <div class="g_470 cs-fl">
                     <div class="Article_main">
                         <div class="Article_head cs-clear">
-                            <p class="cs-fl">
+                            <p>
                                 发表时间：<span><%=bean.fdArtiCreateAt.ToString("yyyy年M月d日") %></span></p>
-                            <p class="cs-fl">
+                            <p>
                                 来源：<span><%=bean.fdArtiFrom %></span> 作者：<span><%=bean.fdArtiAuthor %></span></p>
                         </div>
                         <p class="keywords">
                             <span>关键字：</span>
                             <asp:Repeater ID="repTag1" runat="server">
                                 <ItemTemplate>
-                                    <span><a href="#">
+                                    <span><a href="/t/<%#Eval("fdTagID") %>.aspx">
                                         <%#Eval( "fdTagName" )%></a></span>
                                 </ItemTemplate>
                             </asp:Repeater>
@@ -52,7 +52,7 @@
                             关键字：
                             <asp:Repeater ID="repTag2" runat="server">
                                 <ItemTemplate>
-                                    <a href="#">
+                                    <a href="/t/<%#Eval("fdTagID") %>.aspx">
                                         <%#Eval( "fdTagName" )%></a>
                                 </ItemTemplate>
                             </asp:Repeater>

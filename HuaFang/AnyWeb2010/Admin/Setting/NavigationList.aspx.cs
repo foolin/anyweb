@@ -29,6 +29,8 @@ public partial class Admin_NavigationList : PageAdmin
             case 3:
                 return "基本信息";
             case 4:
+                return "两库信息";
+            case 5:
                 return "自定义链接";
             default:
                 return "首页";

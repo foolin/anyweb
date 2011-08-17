@@ -136,6 +136,12 @@
                     Context.Items.Add( "COLUMNID", urlInfo[ 1 ] );
                     break;
                 }
+            case "t": 
+                {
+                    realPath = "/Tag.aspx";
+                    Context.Items.Add( "TAGID", urlInfo[ 1 ] );
+                    break;
+                }
             case "l":
                 {
                     realPath = "/LibraryList.aspx";

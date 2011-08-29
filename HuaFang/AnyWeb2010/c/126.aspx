@@ -5,8 +5,6 @@
 <%@ Register Src="~/Controls/Search.ascx" TagName="Search" TagPrefix="uc1" %>
 <%@ Register Src="~/Controls/SideMenu.ascx" TagName="SideMenu" TagPrefix="uc1" %>
 <%@ Register Src="~/Controls/LeftSide1.ascx" TagName="LeftSide1" TagPrefix="uc1" %>
-<%@ Register Src="~/Controls/LeftSide2.ascx" TagName="LeftSide2" TagPrefix="uc1" %>
-<%@ Register Src="~/Controls/LeftSide3.ascx" TagName="LeftSide3" TagPrefix="uc1" %>
 <%@ Register Src="~/Controls/ArticleListSkin1.ascx" TagName="ArticleListSkin1" TagPrefix="uc1" %>
 <%@ Register Src="~/Controls/ArticleListSkin4.ascx" TagName="ArticleListSkin4" TagPrefix="uc1" %>
 <%@ Register Src="~/Controls/ArticleListSkin5.ascx" TagName="ArticleListSkin5" TagPrefix="uc1" %>
@@ -44,8 +42,6 @@
         <div class="g_192">
             <uc1:SideMenu ID="SideMenu1" runat="server" />
             <uc1:LeftSide1 ID="LeftSide1" runat="server" />
-            <uc1:LeftSide2 ID="LeftSide2" runat="server" />
-            <uc1:LeftSide3 ID="LeftSide3" runat="server" />
         </div>
     </div>
 </asp:Content>

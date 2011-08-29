@@ -145,7 +145,7 @@
                             <div class="PicBReel cs-clear">
                                 <asp:Repeater ID="repFashion" runat="server">
                                     <ItemTemplate>
-                                        <a class="PicBlack_mod2" href="#">
+                                        <a class="PicBlack_mod2" href="<%#Eval("fdArtiPath") %>">
                                             <img src="<%#Eval("fdArtiPic") %>" class="nobor" />
                                             <div class="PicBlack_tit PicBlack_tit2">
                                                 <h2>
@@ -206,7 +206,8 @@
                                         <%#Eval("fdColuName") %></a>
                                 </ItemTemplate>
                             </asp:Repeater>
-                            <a id="col_0" href="javascript:setCol(0);" class="special on">全部</a><a href="/c/124.aspx" class="special">更多>></a></p>
+                            <a id="col_0" href="javascript:setCol(0);" class="special on">全部</a><a href="/c/124.aspx"
+                                class="special">更多>></a></p>
                         <p>
                             <span>服装类型：</span><a id="cate_1" href="javascript:setCate(1);">男装</a><a id="cate_2"
                                 href="javascript:setCate(2);">高级成衣</a><a id="cate_3" href="javascript:setCate(3);">高级定制</a><a

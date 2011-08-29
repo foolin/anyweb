@@ -333,7 +333,7 @@
                     <div class="cont">
                         <sw:Uploader ID="Uploader1" UploadPage="/Admin/Ajax/ArticlePicListUpload2.ashx" FilePath="/Files/Articles/"
                             Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
-                            JavascriptCompleteFunction="setPicList" MultiSelect="true" runat="server">
+                            JavascriptSingleCompleteFunction="setPicList" MultiSelect="true" runat="server">
                         </sw:Uploader>
                         图片描述不得超过400个汉字。
                         <div id="divList">
@@ -381,7 +381,7 @@
                     <div class="cont">
                         <sw:Uploader ID="Uploader2" UploadPage="/Admin/Ajax/ArticlePicListUpload.ashx" FilePath="/Files/Articles/"
                             Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
-                            JavascriptCompleteFunction="setCatWalk" MultiSelect="true" runat="server">
+                            JavascriptSingleCompleteFunction="setCatWalk" MultiSelect="true" runat="server">
                         </sw:Uploader>
                         <div id="divCatWalk">
                         </div>
@@ -416,7 +416,7 @@
                     <div class="cont">
                         <sw:Uploader ID="Uploader4" UploadPage="/Admin/Ajax/ArticlePicListUpload.ashx" FilePath="/Files/Articles/"
                             Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
-                            JavascriptCompleteFunction="setCloseUp" MultiSelect="true" runat="server">
+                            JavascriptSingleCompleteFunction="setCloseUp" MultiSelect="true" runat="server">
                         </sw:Uploader>
                         <div id="divCloseUp">
                         </div>
@@ -451,7 +451,7 @@
                     <div class="cont">
                         <sw:Uploader ID="Uploader3" UploadPage="/Admin/Ajax/ArticlePicListUpload.ashx" FilePath="/Files/Articles/"
                             Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
-                            JavascriptCompleteFunction="setBackStage" MultiSelect="true" runat="server">
+                            JavascriptSingleCompleteFunction="setBackStage" MultiSelect="true" runat="server">
                         </sw:Uploader>
                         <div id="divBackStage">
                         </div>
@@ -486,7 +486,7 @@
                     <div class="cont">
                         <sw:Uploader ID="Uploader5" UploadPage="/Admin/Ajax/ArticlePicListUpload.ashx" FilePath="/Files/Articles/"
                             Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
-                            JavascriptCompleteFunction="setFrontRow" MultiSelect="true" runat="server">
+                            JavascriptSingleCompleteFunction="setFrontRow" MultiSelect="true" runat="server">
                         </sw:Uploader>
                         <div id="divFrontRow">
                         </div>
@@ -520,12 +520,14 @@
                         视频直击：</label>
                     <div class="cont">
                         <sw:Uploader ID="Uploader6" UploadPage="/Admin/Ajax/ArticleFlashUpload.ashx" FilePath="/Files/Articles/"
-                            Filter="Flash (*.flv)|*.flv;" JavascriptCompleteFunction="setFlash"
-                            MultiSelect="false" runat="server" Style="margin-left: 6px">
+                            Filter="Flash (*.flv)|*.flv;" JavascriptCompleteFunction="setFlash" MultiSelect="false"
+                            runat="server" Style="margin-left: 6px">
                         </sw:Uploader>
-                        <a id="flashLink" href="<%=article.fdArtiFlashPath %>" target="_blank" title="右键删除视频" style="<%=string.IsNullOrEmpty( article.fdArtiFlashPath )?"display:none;": ""%>" oncontextmenu="return delFlash();">
-                            <img src="../images/rar.gif" alt="" /></a>
-                        <span id="flashDesc" style="<%=string.IsNullOrEmpty( article.fdArtiFlashPath )?"display:none;": ""%>">点击图标浏览视频，对图标右键删除视频。</span>
+                        <a id="flashLink" href="<%=article.fdArtiFlashPath %>" target="_blank" title="右键删除视频"
+                            style="<%=string.IsNullOrEmpty( article.fdArtiFlashPath )?"display:none;": ""%>"
+                            oncontextmenu="return delFlash();">
+                            <img src="../images/rar.gif" alt="" /></a> <span id="flashDesc" style="<%=string.IsNullOrEmpty( article.fdArtiFlashPath )?"display:none;": ""%>">
+                                点击图标浏览视频，对图标右键删除视频。</span>
                         <input type="hidden" id="txtflash" name="txtflash" value="<%=article.fdArtiFlashPath %>" />
                     </div>
                 </div>

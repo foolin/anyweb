@@ -91,8 +91,9 @@
                                 <div class="PhoGal_list cs-clear">
                                     <asp:Repeater ID="repPicList" runat="server">
                                         <ItemTemplate>
-                                            <a href="javascript:setPic(<%#Container.ItemIndex %>)">
-                                                <img src="<%#Eval("fdArPiPath") %>" /><span style="display: none"><%#(( string ) Eval( "fdArPiDesc" )).Replace( "\r\n", "<br />" )%></span></a>
+                                            <a href="javascript:setPic(<%#Container.ItemIndex %>)"><span class="vertical-m">
+                                                <img src="<%#Eval("fdArPiPath") %>" /><span style="display: none"><%#(( string ) Eval( "fdArPiDesc" )).Replace( "\r\n", "<br />" )%></span>
+                                            </span></a>
                                         </ItemTemplate>
                                     </asp:Repeater>
                                 </div>
@@ -291,15 +292,16 @@
             $("#imageLink").attr("href", $(image).attr("src").replace("S_", ""));
             $("#imageShow img").attr("src", $(image).attr("src"));
             $("#imagePage").val(current + 1);
-//            $(document).scrollTop($("#imageShow").offset().top);
             if(<%=bean.fdArtiPicDesc %>==0){
-                $("#imageContent").html($(tabContent).find("a").eq(current).find("span").html());
+                $("#imageContent").html($(tabContent).find("a").eq(current).find("span>span").html());
             }
             $("#imageShow img").load(function(){
-                $(".Show_filmstrip").width($("#imageShow img").width()+10);
-                $(".Filmstrip_L").css("top",($("#imageShow img").height()-63)/2);
-                $(".Filmstrip_R").css("top",($("#imageShow img").height()-63)/2);
-                $(".Filmstrip_Loupe").css("top",($("#imageShow img").height()-29)/2);
+                var Width=$("#imageShow img").width();
+                $(".Show_filmstrip").width(Width+10);
+                var Height=$("#imageShow img").height() + 2;
+	            $(".Filmstrip_L").height(Height);
+	            $(".Filmstrip_R").height(Height);
+	            $(".Filmstrip_Loupe").height(Height).width(Width-64).css("margin-left",0-(Width-64)/2);
             });
         }
         function first() {

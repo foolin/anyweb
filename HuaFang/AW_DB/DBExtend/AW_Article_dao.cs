@@ -19,31 +19,38 @@ namespace AnyWell.AW_DL
         /// <param name="pageSize"></param>
         /// <param name="pageIndex"></param>
         /// <returns></returns>
-        public List<AW_Article_bean> funcGetArticle(AW_Column_bean column, int pageSize, int pageIndex)
+        public List<AW_Article_bean> funcGetArticle( AW_Column_bean column, string key, int pageSize, int pageIndex )
         {
             this.propSelect = "a.fdArtiID,a.fdArtiColumnID,a.fdArtiTitle,a.fdArtiCreateAt,a.fdArtiPic,a.fdArtiDesc,a.fdArtiType,a.fdArtiCategory,c.fdColuID,c.fdColuName";
             this.propTableApp = " a INNER JOIN AW_Column c ON a.fdArtiColumnID = c.fdColuID";
             this.propOrder = "ORDER BY a.fdArtiSort DESC,fdArtiID DESC";
-            if (column != null)
+
+            if( !string.IsNullOrEmpty( key ) )
             {
-                this.propWhere = " c.fdColuID = " + column.fdColuID.ToString();
-                if (column.Children != null)
+                this.propWhere += string.Format( " AND fdArtiTitle LIKE '%{0}%'", key.Replace( "%", "[%]" ).Replace( "'", "''" ) );
+            }
+
+            if( column != null )
+            {
+                string where = "c.fdColuID = " + column.fdColuID.ToString();
+                if( column.Children != null )
                 {
-                    this.propWhere += " OR c.fdColuParentID = " + column.fdColuID.ToString();
+                    where = string.Format( "({0} OR c.fdColuParentID = {1})", where, column.fdColuID );
                 }
+                this.propWhere += " AND " + where;
             }
             this.propPageSize = pageSize;
             this.propPage = pageIndex;
             this.propGetCount = true;
             DataSet ds = this.funcCommon();
             List<AW_Article_bean> list = new List<AW_Article_bean>();
-            foreach (DataRow r in ds.Tables[0].Rows)
+            foreach( DataRow r in ds.Tables[ 0 ].Rows )
             {
                 AW_Article_bean bean = new AW_Article_bean();
-                bean.funcFromDataRow(r);
+                bean.funcFromDataRow( r );
                 bean.Column = new AW_Column_bean();
-                bean.Column.funcFromDataRow(r);
-                list.Add(bean);
+                bean.Column.funcFromDataRow( r );
+                list.Add( bean );
             }
             return list;
         }
@@ -473,8 +480,24 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public List<AW_Article_bean> funcGetFashionArticleList( int columnId, int category, int city )
         {
-            this.propSelect = "fdArtiID,fdArtiTitle";
-            this.propWhere = string.Format( "fdArtiColumnID={0} AND fdArtiCategory={1} AND fdArtiCity={2}", columnId, category, city );
+            this.propSelect = "TOP 50 fdArtiID,fdArtiTitle";
+            if( columnId == 0 )
+            {
+                this.propWhere = "fdArtiColumnID=124";
+            }
+            else
+            {
+                this.propWhere = "fdArtiColumnID=" + columnId;
+            }
+            if( category > 0 )
+            {
+                this.propWhere += " AND fdArtiCategory=" + category;
+            }
+            if( city > 0 )
+            {
+                this.propWhere += " AND fdArtiCity=" + city;
+            }
+            //this.propWhere = string.Format( "fdArtiColumnID={0} AND fdArtiCategory={1} AND fdArtiCity={2}", columnId, category, city );
             this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
             return this.funcGetList();
         }

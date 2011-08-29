@@ -6,9 +6,9 @@
 <%@ Register Src="~/Controls/SideMenu.ascx" TagName="SideMenu" TagPrefix="uc1" %>
 <%@ Register Src="~/Controls/LeftSide1.ascx" TagName="LeftSide1" TagPrefix="uc1" %>
 <%@ Register Src="~/Controls/LeftSide2.ascx" TagName="LeftSide2" TagPrefix="uc1" %>
-<%@ Register Src="~/Controls/LeftSide3.ascx" TagName="LeftSide3" TagPrefix="uc1" %>
 <%@ Register Src="~/Controls/ArticleListSkin1.ascx" TagName="ArticleListSkin1" TagPrefix="uc1" %>
 <%@ Register Src="~/Controls/ArticleListSkin4.ascx" TagName="ArticleListSkin4" TagPrefix="uc1" %>
+<%@ Register Src="~/Controls/ArticleListSkin5.ascx" TagName="ArticleListSkin5" TagPrefix="uc1" %>
 <%@ Register Src="~/Controls/ArticleListSkin6.ascx" TagName="ArticleListSkin6" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="product cs-clear">
@@ -50,12 +50,22 @@
             <div class="cs-section Index_sec4">
                 <uc1:ArticleListSkin4 runat="server" columnID="121" />
             </div>
+            <div class="title-bar">
+                <h2 class="cs-clear">
+                    <p class="title-ch cs-fl">
+                        <span>运动</span></p>
+                    <p class="title-eng EngTit SPORTSWEAR cs-fr">
+                        SPORTS<span>WEAR</span></p>
+                </h2>
+            </div>
+            <div class="cs-section Column_sec5">
+                <uc1:ArticleListSkin5 runat="server" columnID="122" />
+            </div>
         </div>
         <div class="g_192">
             <uc1:SideMenu runat="server" />
             <uc1:LeftSide1 runat="server" />
             <uc1:LeftSide2 runat="server" />
-            <uc1:LeftSide3 runat="server" />
         </div>
     </div>
 </asp:Content>

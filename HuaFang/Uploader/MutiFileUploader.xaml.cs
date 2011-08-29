@@ -25,7 +25,10 @@ namespace AnyWell.Uploader
             InitializeComponent();
             uploadChunkSize = 102400;
             addFilesButton.Click += new RoutedEventHandler( addFilesButton_Click );
+            stopFilesButton.Click += new RoutedEventHandler( stopFilesButton_Click );
+            clearFilesButton.Click += new RoutedEventHandler( clearFilesButton_Click );
             progressBar.MouseEnter += new MouseEventHandler( progressBar_MouseEnter );
+            totalSizeTextBlock.MouseEnter += new MouseEventHandler( progressBar_MouseEnter );
             fileUploaderGrid.MouseLeave += new MouseEventHandler( fileUploaderGrid_MouseLeave );
             helper = new ScrollHelper( filesScrollViewer );
             Loaded += new RoutedEventHandler( FileUploader_Loaded );
@@ -79,6 +82,8 @@ namespace AnyWell.Uploader
                 progressBar.Value = 0;
                 progressBar.Visibility = Visibility.Visible;
                 totalSizeTextBlock.Visibility = Visibility.Visible;
+                stopFilesButton.Visibility = Visibility.Visible;
+                clearFilesButton.Visibility = Visibility.Visible;
                 if( !uploading )
                 {
                     HtmlPage.Window.Eval( string.Format( "document.getElementById(\"{0}\").width=280;", uploaderID ) );
@@ -108,9 +113,11 @@ namespace AnyWell.Uploader
         protected override void UploadFiles()
         {
             uploading = true;
+            if( stopFilesButton.Content.ToString() == "继续" )
+                return;
             if( files.Count( f => f.status == FileUploadStatus.Waiting ) > 0 )
             {
-                FileBean bean = files.First( f => f.status != FileUploadStatus.Uploading && f.status != FileUploadStatus.Removed && f.status != FileUploadStatus.Complete && f.status != FileUploadStatus.Error );
+                FileBean bean = files.First( f => f.status == FileUploadStatus.Waiting );
                 bean.Upload();
             }
             else
@@ -169,6 +176,51 @@ namespace AnyWell.Uploader
                  new ByteConverter().Convert( totalUploaded, this.GetType(), null, null ).ToString(),
                 new ByteConverter().Convert( totalUploadSize, this.GetType(), null, null ).ToString(),
                 percent + "%" );
+        }
+
+        /// <summary>
+        /// 暂停
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void stopFilesButton_Click( object sender, RoutedEventArgs e )
+        {
+            if( stopFilesButton.Content.ToString() == "暂停" )
+            {
+                stopFilesButton.Content = "继续";
+                foreach( FileBean file in files.Where( f => f.status == FileUploadStatus.Uploading || f.status != FileUploadStatus.Waiting ) )
+                {
+                    file.StopUpload();
+                }
+            }
+            else
+            {
+                stopFilesButton.Content = "暂停";
+                foreach( FileBean file in files.Where( f => f.status == FileUploadStatus.Stoped ) )
+                {
+                    file.ContinueUpload();
+                }
+                UploadFiles();
+            }
+        }
+
+        /// <summary>
+        /// 清空
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void clearFilesButton_Click( object sender, RoutedEventArgs e )
+        {
+            MessageBoxResult result = MessageBox.Show( "确定清空所有文件？", "清空文件?", MessageBoxButton.OKCancel );
+            if( result == MessageBoxResult.OK )
+            {
+                foreach( FileBean file in files.Where( f => f.status != FileUploadStatus.Complete ) )
+                {
+                    file.RemoveUpload();
+                }
+                stopFilesButton.Content = "暂停";
+                UploadFiles();
+            }
         }
     }
 }

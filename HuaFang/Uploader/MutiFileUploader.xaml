@@ -22,15 +22,18 @@
         </Grid.RowDefinitions>
         <Grid Background="White" Grid.Column="0" Grid.Row="0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="60"></ColumnDefinition>
                 <ColumnDefinition Width="150"></ColumnDefinition>
+                <ColumnDefinition Width="32"></ColumnDefinition>
+                <ColumnDefinition Width="32"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="13"></RowDefinition>
             </Grid.RowDefinitions>
-            <HyperlinkButton x:Name="addFilesButton" Height="13" Content="添加文件" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalContentAlignment="Center"></HyperlinkButton>
-            <ProgressBar x:Name="progressBar" Height="13" Minimum="0" Grid.Column="1" Grid.Row="0" Visibility="Collapsed" ></ProgressBar>
-            <TextBlock x:Name="totalSizeTextBlock" Height="13" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Visibility="Collapsed" />
+            <HyperlinkButton x:Name="addFilesButton" Height="13" Content="添加文件" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalContentAlignment="Center"></HyperlinkButton>
+            <ProgressBar x:Name="progressBar" Height="13" Minimum="0" Grid.Column="0" Grid.Row="0" Visibility="Collapsed" ></ProgressBar>
+            <TextBlock x:Name="totalSizeTextBlock" Height="13" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Visibility="Collapsed" />
+            <HyperlinkButton x:Name="stopFilesButton" Height="13" Content="暂停" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" Visibility="Collapsed"></HyperlinkButton>
+            <HyperlinkButton x:Name="clearFilesButton" Height="13" Content="清空" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalContentAlignment="Center" Visibility="Collapsed"></HyperlinkButton>
         </Grid>
         <Grid x:Name="fileListGrid" Background="White" Grid.Row="1" Grid.Column="0" Width="281" Height="150" Visibility="Collapsed">
             <Border x:Name="controlBorder" CornerRadius="10" BorderBrush="#ff444444" BorderThickness="2">

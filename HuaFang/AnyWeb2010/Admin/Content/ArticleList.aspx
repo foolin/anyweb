@@ -38,6 +38,39 @@
                 }
             });
         });
+        
+        var child = new Array;
+        <asp:Literal ID="litJs" runat="server"></asp:Literal>
+        function columnChange(){
+            var i, index;
+            index = document.getElementById("<%=drpColumn.ClientID %>").selectedIndex;
+            var objChild = document.getElementById("<%=drpChild.ClientID %>");
+            var iCount = child[index].length;
+            for (i = objChild.options.length - 1; i >= 0; i--) {
+                objChild.remove(i);
+            }
+            var option = document.createElement("OPTION");
+            option.value = "0";
+            option.text = "所有栏目";
+            objChild.options.add(option);
+            for (i = 0; i <= iCount - 1; i++) {
+                var option = document.createElement("OPTION");
+                option.value = child[index][i].substring(0,child[index][i].indexOf(":"));
+                option.text = child[index][i].substring(child[index][i].indexOf(":")+1,child[index][i].length);
+                objChild.options.add(option);
+            }
+        }
+        
+        function search(){
+            var cid=0;
+            if($("#<%=drpChild.ClientID %>").val()!="0"){
+                cid=$("#<%=drpChild.ClientID %>").val();
+            }else{
+                cid=$("#<%=drpColumn.ClientID %>").val();
+            }
+            window.location = "ArticleList.aspx?cid="+cid+"&key="+encodeURI($("#<%=txtKey.ClientID %>").val());
+        }
+        
         function SelectAll(v) {
             var list = document.getElementsByTagName("input");
             for (var i = 0; i < list.length; i++) {
@@ -46,9 +79,7 @@
                 }
             }
         }
-        function columnchange() {
-            window.location = "ArticleList.aspx?id=" + $("#<%=drpColumn.ClientID %>").val() + "&cid=" + $("#<%=drpChildColumn.ClientID %>").val();
-        }
+
         function delArticles() {
             var list = document.getElementsByTagName("input");
             var selected = false;
@@ -111,12 +142,14 @@
                 文章管理</h3>
         </div>
         <div class="fi filter">
-            栏目：<asp:DropDownList ID="drpColumn" onchange="columnchange()" runat="server">
+            栏目：<asp:DropDownList ID="drpColumn" onchange="columnChange()" runat="server">
                 <asp:ListItem Value="0">所有栏目</asp:ListItem>
             </asp:DropDownList>
-            <asp:DropDownList ID="drpChildColumn" onchange="columnchange()" runat="server">
+            <asp:DropDownList ID="drpChild" runat="server">
                 <asp:ListItem Value="0">所有栏目</asp:ListItem>
             </asp:DropDownList>
+            标题：<asp:TextBox ID="txtKey" runat="server" MaxLength="100"></asp:TextBox>
+            <input type="button" onclick="search()" value="搜索" />
         </div>
         <div class="mbd">
             <table id="datas">

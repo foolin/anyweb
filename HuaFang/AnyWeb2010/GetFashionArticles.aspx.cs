@@ -14,7 +14,7 @@ public partial class GetFashionArticles : PageBase
         int.TryParse( QS( "col" ), out col );
         int.TryParse( QS( "cate"), out cate  );
         int.TryParse( QS( "city" ), out city );
-        if( col == 0 || cate == 0 || city == 0 )
+        if( col == 0 && cate == 0 && city == 0 )
             return;
         List<AW_Article_bean> list = new AW_Article_dao().funcGetFashionArticleList( col, cate, city );
         StringBuilder sb = new StringBuilder();

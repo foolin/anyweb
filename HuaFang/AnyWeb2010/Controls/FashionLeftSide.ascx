@@ -28,7 +28,7 @@
                     <asp:Repeater ID="repColumn" runat="server">
                         <ItemTemplate>
                             <li class="<%#System.Text.Encoding.Default.GetByteCount((string)Eval("fdColuName"))>10?"SeaList-long":"" %>">
-                                <a id="col_<%#Eval("fdColuID") %>" href="javascript:setCol(<%#Eval("fdColuID") %>);">
+                                <a id="col_<%#Eval("fdColuID") %>" href="javascript:setCol(<%#Eval("fdColuID") %>,true);">
                                     <%#Eval("fdColuName") %></a> </li>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -36,16 +36,16 @@
             </div>
         </div>
     </div>
-    <a id="col_0" href="javascript:setCol(0);" class="ShowNav-all on">全部</a>
+    <a id="col_0" href="javascript:setCol(0,true);" class="ShowNav-all on">全部</a>
 </div>
 <div class="ShowNav">
     <h3>
         <strong>产品类别</strong></h3>
     <div class="">
         <p>
-            <span><a id="cate_1" href="javascript:setCate(1);">男装</a></span><span><a id="cate_2"
-                href="javascript:setCate(2);">高级成衣</a></span><span><a id="cate_3" href="javascript:setCate(3);">高级定制</a></span><span><a
-                    id="cate_0" href="javascript:setCate(0);" class="ShowNav-all on">全部</a></span></p>
+            <span><a id="cate_1" href="javascript:setCate(1,true);">男装</a></span><span><a id="cate_2"
+                href="javascript:setCate(2,true);">高级成衣</a></span><span><a id="cate_3" href="javascript:setCate(3,true);">高级定制</a></span><span><a
+                    id="cate_0" href="javascript:setCate(0,true);" class="ShowNav-all on">全部</a></span></p>
     </div>
 </div>
 <div class="ShowNav">
@@ -53,21 +53,24 @@
         <strong>城市列表</strong></h3>
     <div class="">
         <p>
-            <span><a id="city_1" href="javascript:setCity(1);">巴黎</a></span><span><a id="city_2"
-                href="javascript:setCity(2);">米兰</a></span><span><a id="city_3" href="javascript:setCity(3);">伦敦</a></span><span><a
-                    id="city_4" href="javascript:setCity(4);">纽约</a></span><span><a id="city_5" href="javascript:setCity(5);">其他</a></span><span><a
-                        id="city_0" href="javascript:setCity(0);" class="ShowNav-all on">全部</a></span></p>
+            <span><a id="city_1" href="javascript:setCity(1,true);">巴黎</a></span><span><a id="city_2"
+                href="javascript:setCity(2,true);">米兰</a></span><span><a id="city_3" href="javascript:setCity(3,true);">伦敦</a></span><span><a
+                    id="city_4" href="javascript:setCity(4,true);">纽约</a></span><span><a id="city_5"
+                        href="javascript:setCity(5,true);">其他</a></span><span><a id="city_0" href="javascript:setCity(0,true);"
+                            class="ShowNav-all on">全部</a></span></p>
     </div>
 </div>
 <div class="ShowNav">
     <h3>
         <strong>设计师/品牌</strong></h3>
-    <div class="ShowNav-btn cs-clear">
-        <a class="btn-simple" href="javascript:search();">搜索</a></div>
     <div class="ShowNav-search">
-        <input type="text" class="ipt-simple" id="txtKey" onkeyup="regex(this.value);" />
+        <div class="ShowNav-simple cs-clear">
+            <input type="text" class="ipt-simple" id="txtKey" onkeyup="regex(this.value);" />
+            <div class="ShowNav-btn">
+                <a href="javascript:search();" class="btn-simple">搜索</a></div>
+        </div>
         <div class="ShowNav-list" id="searchList">
-            <a href="javascript:void(0);">请选择季节、产品类别和城市</a>
+            <a href="javascript:void(0);">请选择季节、产品类别或城市</a>
         </div>
     </div>
 </div>
@@ -88,7 +91,7 @@
         this.name = name;
         this.href = "/f/" + this.id + ".aspx";
     }
-    function setCol(num) {
+    function setCol(num,isGet) {
         col = num;
         $(".ShowNav a[id^='col_']").each(function() {
             if ($(this).attr("id") == "col_" + num) {
@@ -103,8 +106,11 @@
             $("#condition_col").html("<a href=\"javascript:delCol();\">" + $("#col_" + num).html() + "</a>");
         }
         setCondition();
+        if(isGet){
+            getArticle();
+        }
     }
-    function setCate(num) {
+    function setCate(num,isGet) {
         cate = num;
         $(".ShowNav a[id^='cate_']").each(function() {
             if ($(this).attr("id") == "cate_" + num) {
@@ -119,8 +125,11 @@
             $("#condition_cate").html("<a href=\"javascript:delCate();\">" + $("#cate_" + num).html() + "</a>");
         }
         setCondition();
+        if(isGet){
+            getArticle();
+        }
     }
-    function setCity(num) {
+    function setCity(num,isGet) {
         city = num;
         $(".ShowNav a[id^='city_']").each(function() {
             if ($(this).attr("id") == "city_" + num) {
@@ -135,6 +144,9 @@
             $("#condition_city").html("<a href=\"javascript:delCity();\">" + $("#city_" + num).html() + "</a>");
         }
         setCondition();
+        if(isGet){
+            getArticle();
+        }
     }
     function setCondition() {
         if (col == 0 && cate == 0 && city == 0) {
@@ -144,9 +156,10 @@
             $("#condition").show();
             $("#condition").next().removeClass("ShowNav_season");
         }
-
-        if (col == 0 || cate == 0 || city == 0) {
-            $("#searchList").html("<a href=\"javascript:void(0);\">请选择季节、产品类别和城市</a>");
+    }
+    function getArticle(){
+        if (col == 0 && cate == 0 && city == 0) {
+            $("#searchList").html("<a href=\"javascript:void(0);\">请选择季节、产品类别或城市</a>");
         } else {
             articles = new Array();
             $("#txtKey").val("");
@@ -170,23 +183,26 @@
         $("#condition_col").html("");
         setCol(0);
         setCondition();
+        getArticle();
     }
     function delCate() {
         $("#condition_cate").html("");
         setCate(0);
         setCondition();
+        getArticle();
     }
     function delCity() {
         $("#condition_city").html("");
         setCity(0);
         setCondition();
+        getArticle();
     }
     function search(){
         var url="/Fashion.aspx?col="+col+"&cate="+cate+"&city="+city;
         window.location=url;
     }
     function regex(value){
-        if(col>0&&cate>0&&city>0){
+        if(col>0||cate>0||city>0){
             $("#searchList").html("");
             for(var i=0;i<articles.length;i++){
                 if(articles[i].name.toLowerCase().indexOf(value.toLowerCase())>-1){
@@ -199,6 +215,7 @@
         setCol(<%=col %>);
         setCate(<%=cate %>);
         setCity(<%=city %>);
+        getArticle();
     });
 </script>
 

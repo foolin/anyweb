@@ -53,6 +53,9 @@ namespace AnyWell.Uploader
                     case FileUploadStatus.Removed:
                         status.Text = "删除";
                         break;
+                    case FileUploadStatus.Stoped:
+                        status.Text = "暂停";
+                        break;
                     default:
                         break;
                 }

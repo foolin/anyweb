@@ -75,6 +75,14 @@ namespace AnyWell.Uploader
             set;
         }
         /// <summary>
+        /// 单个任务完成调用JS方法
+        /// </summary>
+        public string javascriptSingleCompleteFunction
+        {
+            get;
+            set;
+        }
+        /// <summary>
         /// 上传完成调用JS方法
         /// </summary>
         public string javascriptCompleteFunction
@@ -154,6 +162,23 @@ namespace AnyWell.Uploader
         }
 
         /// <summary>
+        /// 单个任务调用JS方法
+        /// </summary>
+        protected virtual void singleCompleteFuntion(FileBean bean)
+        {
+            if( !string.IsNullOrEmpty( javascriptSingleCompleteFunction ) && bean != null )
+            {
+                try
+                {
+                    HtmlPage.Window.Eval( string.Format( "{0}('{1}')", javascriptSingleCompleteFunction, bean.newName ) );
+                }
+                catch
+                {
+                }
+            }
+        }
+
+        /// <summary>
         /// 上传状态变更
         /// </summary>
         /// <param name="sender"></param>
@@ -163,6 +188,7 @@ namespace AnyWell.Uploader
             FileBean bean = sender as FileBean;
             if( bean.status == FileUploadStatus.Complete )
             {
+                singleCompleteFuntion( bean );
                 if( uploading )
                     UploadFiles();
             }

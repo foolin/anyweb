@@ -61,6 +61,11 @@ namespace Uploader
                     fileUploader.javascriptCompleteFunction = e.InitParams[ "JavascriptCompleteFunction" ];
                 }
 
+                if( e.InitParams.Keys.Contains( "JavascriptSingleCompleteFunction" ) && !string.IsNullOrEmpty( e.InitParams[ "JavascriptSingleCompleteFunction" ] ) )
+                {
+                    fileUploader.javascriptSingleCompleteFunction = e.InitParams[ "JavascriptSingleCompleteFunction" ];
+                }
+
                 if( e.InitParams.Keys.Contains( "FilePath" ) && !string.IsNullOrEmpty( e.InitParams[ "FilePath" ] ) )
                 {
                     fileUploader.filePath = e.InitParams[ "FilePath" ];

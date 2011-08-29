@@ -10,7 +10,7 @@ public partial class Index : PageBase
 {
     protected void Page_Load( object sender, EventArgs e )
     {
-        this.Title = "华纺" + GeneralConfigs.GetConfig().TitleExtension;
+        this.Title = "首页" + GeneralConfigs.GetConfig().TitleExtension;
 
         List<AW_Flash_bean> list = flashList;
         repFlash.DataSource = list;

@@ -336,7 +336,7 @@
                     <div class="cont">
                         <sw:Uploader ID="Uploader1" UploadPage="/Admin/Ajax/ArticlePicListUpload2.ashx" FilePath="/Files/Articles/"
                             Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
-                            JavascriptCompleteFunction="setPicList" MultiSelect="true" runat="server">
+                            JavascriptSingleCompleteFunction="setPicList" MultiSelect="true" runat="server">
                         </sw:Uploader>
                         图片描述不得超过400个汉字。
                         <div id="divList">
@@ -373,7 +373,7 @@
                     <div class="cont">
                         <sw:Uploader ID="Uploader2" UploadPage="/Admin/Ajax/ArticlePicListUpload.ashx" FilePath="/Files/Articles/"
                             Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
-                            JavascriptCompleteFunction="setCatWalk" MultiSelect="true" runat="server">
+                            JavascriptSingleCompleteFunction="setCatWalk" MultiSelect="true" runat="server">
                         </sw:Uploader>
                         <div id="divCatWalk">
                         </div>
@@ -399,7 +399,7 @@
                     <div class="cont">
                         <sw:Uploader ID="Uploader4" UploadPage="/Admin/Ajax/ArticlePicListUpload.ashx" FilePath="/Files/Articles/"
                             Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
-                            JavascriptCompleteFunction="setCloseUp" MultiSelect="true" runat="server">
+                            JavascriptSingleCompleteFunction="setCloseUp" MultiSelect="true" runat="server">
                         </sw:Uploader>
                         <div id="divCloseUp">
                         </div>
@@ -425,7 +425,7 @@
                     <div class="cont">
                         <sw:Uploader ID="Uploader3" UploadPage="/Admin/Ajax/ArticlePicListUpload.ashx" FilePath="/Files/Articles/"
                             Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
-                            JavascriptCompleteFunction="setBackStage" MultiSelect="true" runat="server">
+                            JavascriptSingleCompleteFunction="setBackStage" MultiSelect="true" runat="server">
                         </sw:Uploader>
                         <div id="divBackStage">
                         </div>
@@ -451,7 +451,7 @@
                     <div class="cont">
                         <sw:Uploader ID="Uploader5" UploadPage="/Admin/Ajax/ArticlePicListUpload.ashx" FilePath="/Files/Articles/"
                             Filter="Images (*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp)|*.jpg;*.gif;*.png;*.jpg;*.jpeg;*.bmp"
-                            JavascriptCompleteFunction="setFrontRow" MultiSelect="true" runat="server">
+                            JavascriptSingleCompleteFunction="setFrontRow" MultiSelect="true" runat="server">
                         </sw:Uploader>
                         <div id="divFrontRow">
                         </div>

@@ -34,7 +34,7 @@ button.btn-simple{height:21px;_height:22px}
 .nav-list .nav-special a{background:url(../img/nav-special.png) no-repeat;_background:url(../img/nav-special.gif) no-repeat/*_background:#60bac3*/}
 .nav-list a:hover{background:url(../img/nav-on.png) no-repeat;color:#000;_background:url(../img/nav-on.gif) no-repeat/*_background:#666*/}
 .nav-list .on a{color:#000;background:url(../img/nav-on.png) no-repeat;_background:url(../img/nav-on.gif) no-repeat/*_background:#fff*/}
-.subNav{height:25px;padding:4px 10px 0;width:966px;margin:0 auto}
+.subNav{height:25px;padding:4px 0 0;width:1006px;margin:0 auto}
 .subNav div{display:none}
 .subNav a{color:#000;padding:0 10px}
 .subNav a:hover{color:#5cb7c0}
@@ -43,6 +43,15 @@ button.btn-simple{height:21px;_height:22px}
 .nav-list .nav-special a{_background:#60bac3}
 .nav-list a:hover{_background:#666}
 .nav-list .on a{_background:#fff}
+
+#navC_navT_4,
+#navC_navT_5,
+#navC_navT_6,
+#navC_navT_7{text-align:center}
+
+#navC_navT_8,
+#navC_navT_9,
+#navC_navT_10{text-align:right}
 
 
 /*BannerPic*/
@@ -280,7 +289,7 @@ button.btn-simple{height:21px;_height:22px}
 .Side_menu{padding-bottom:20px}
 .common_menu{padding:8px 0;border-bottom:#898989 dotted 1px;}
 .plain_menu{border-bottom:#898989 dotted 1px;padding:10px 0 20px}
-.plain_menu span{padding-right:15px}
+.plain_menu span{padding-right:13px}
 .cs-nobor{border:0}
 
 /*Hotnews_pic*/
@@ -308,7 +317,7 @@ button.btn-simple{height:21px;_height:22px}
 /*Article_main*/
 .Article_main{margin-bottom:25px}
 .Article_tit{font-size:24px;margin:40px 0 0;color:#000}
-.Article_content p{text-indent:2em}
+/*.Article_content p{text-indent:2em}*/
 .Article_content img{display:block;margin-bottom:0;border:0;background:#b5b5b5;padding:5px}
 .keywords,.keywords a{color:#23aab8}
 .keywords a{padding:0 5px}
@@ -319,7 +328,7 @@ button.btn-simple{height:21px;_height:22px}
 .Related_Infor .list-disc{padding:0 11px 0}
 .Related_Infor .list-disc li{margin-bottom:5px}
 .Article_nav{margin-top:10px}
-.Article_collect{border:#62c3cc solid 1px;background:url(../img/Article_collect.gif) no-repeat  10px center;color:#62c3cc;line-height:24px;display:block;width:50px;padding:0 15px 0 30px;margin-bottom:15px}
+.Article_collect{border:#62c3cc solid 1px;background:url(../img/Article_collect.gif) no-repeat  10px center;color:#62c3cc;line-height:24px;display:block;width:50px;padding:0 15px 0 30px;margin:15px 0}
 .Article_picpage{position:relative;height:30px}
 .Article_picpage .Pagination,
 .Pic_Page{position:absolute}
@@ -336,7 +345,8 @@ button.btn-simple{height:21px;_height:22px}
 .PhoGal_unfold .PhoGal_list{height:100%}
 .PhoGal_list{height:300px;overflow-y:auto}
 .PhoGal_list a{float:left;border:#fff solid 5px;width:96px;height:140px;overflow:hidden}
-.PhoGal_list img{width:80px;border:0;padding:8px}
+.vertical-m{display: table-cell;vertical-align:middle;text-align:center;/* ForIE */*display: block;*font-size: 122px;*font-family:Arial;width:96px;height:140px;}
+.PhoGal_list img{width:80px;border:0;padding:8px;vertical-align:middle;}
 .PhoGal_list2{height:350px}
 .PhoGal_list2 a{width:110px;height:162px;}
 .PhoGal_list2 img{width:94px}
@@ -370,7 +380,7 @@ button.btn-simple{height:21px;_height:22px}
 .SeasonList-con .SeaList-long{width:167px}
 .ShowNav-btn{margin:5px 0}
 .ShowNav-btn .btn-simple{margin-left:0}
-.ShowNav-search{background:url(../img/search-icon1.gif) no-repeat 174px 4px;position:relative}
+.ShowNav-search{}
 .ShowNav-search .ipt-simple{width:188px;margin:0;background:none}
 .ShowNav-list{background:#f7f8f8;border-top:#fff solid 8px;height:223px;overflow-y:auto;width:190px;padding:1px;}/*position:absolute;_left:0;_top:22px*/
 .ShowNav-list a{display:block;color:#727171;padding:0 5px}
@@ -382,6 +392,10 @@ button.btn-simple{height:21px;_height:22px}
 .Show_term a{background:url(../img/ico-close.gif) no-repeat center right;padding:1px 15px 1px 2px;display:inline-block;border:#fff solid 1px;}
 .Show_term a:hover{border:#5fbac3 solid 1px}
 
+.ShowNav-simple{background:url(../img/search-icon1.gif) no-repeat 130px 4px}
+.ShowNav-simple .ipt-simple{float:left;width:144px;height:18px}
+.ShowNav-simple .ShowNav-btn{float:left;margin:0 0 0 8px;display:inline}
+
 /*ShowTime*/
 .ShowTime{padding:10px 0 20px}
 .ShowTime_pic{width:400px;float:right;padding-top:5px}
@@ -390,9 +404,22 @@ button.btn-simple{height:21px;_height:22px}
 .ShowTime_intro{width:315px;float:left}
 .Show_filmstrip{position:relative;margin:10px auto 0;zoom:1}
 .Show_filmstrip a{display:block}
-.Filmstrip_L{background:url(../img/Filmstrip_L.gif) no-repeat center;width:32px;height:63px;position:absolute;top:50%;left:1px;/*margin-top:-32px;*/zoom:1;_top:200px;_margin-top:0}
-.Filmstrip_R{background:url(../img/Filmstrip_R.gif) no-repeat center;width:32px;height:63px;position:absolute;top:50%;right:1px;/*margin-top:-32px;*/zoom:1;_top:200px;_margin-top:0}/**/
-.Filmstrip_Loupe{background:url(../img/Filmstrip_Loupe.png) no-repeat;_background:url(../img/Filmstrip_Loupe.gif) no-repeat;width:38px;height:29px;position:absolute;top:50%;left:50%;margin:0 0 0 -19px;zoom:1;_top:217px;_margin-top:0}/**/
+/*
+0823
+.Filmstrip_L{background:url(../img/Filmstrip_L.gif) no-repeat center;width:32px;height:63px;position:absolute;top:50%;left:1px;zoom:1;_top:200px;_margin-top:0}
+.Filmstrip_R{background:url(../img/Filmstrip_R.gif) no-repeat center;width:32px;height:63px;position:absolute;top:50%;right:1px;zoom:1;_top:200px;_margin-top:0}
+.Filmstrip_Loupe{background:url(../img/Filmstrip_Loupe.png) no-repeat;_background:url(../img/Filmstrip_Loupe.gif) no-repeat;width:38px;height:29px;position:absolute;top:50%;left:50%;margin:0 0 0 -19px;zoom:1;_top:217px;_margin-top:0}
+*/
+
+.Filmstrip_L,
+.Filmstrip_R,
+.Filmstrip_Loupe{background:url(../img/transparent.gif) repeat}
+.Filmstrip_L{width:32px;height:100%;position:absolute;top:0;left:1px;zoom:1}
+.Filmstrip_L:hover{background:url(../img/Filmstrip_L.gif) no-repeat center}
+.Filmstrip_R{width:32px;height:100%;position:absolute;top:0;right:1px;zoom:1}
+.Filmstrip_R:hover{background:url(../img/Filmstrip_R.gif) no-repeat center}
+.Filmstrip_Loupe{width:334px;height:100%;position:absolute;top:0;left:50%;margin:0 0 0 -167px;zoom:1}
+.Filmstrip_Loupe:hover{background:url(../img/Filmstrip_Loupe.png) no-repeat center;_background:url(../img/Filmstrip_Loupe.gif) no-repeat center;}
 .ShowV_intro{width:760px}
 .ShowV_intro .Article_picpage{width:530px;margin-left:20px;_display:inline;padding-top:3px}
 .MvGal_list{height:466px}
@@ -457,12 +484,12 @@ button.btn-simple{height:21px;_height:22px}
 .Fashion_s_btn{padding-left:60px}
 
 /*Pic_GoRound*/
-.Editorial{background:#000;padding:3px 0;border-bottom:#a3a3a3 solid 1px;margin-bottom:40px;position:relative}
+.Editorial{background:#000;padding:3px 0;border-bottom:#a3a3a3 solid 1px;margin-bottom:40px;position:relative;height:240px;overflow:hidden}
 .Pic_GoRound_mod{width:986px;overflow:hidden;margin:auto}
 .Pic_Go,.jcarousel-prev,.jcarousel-next{position:absolute;height:240px;width:22px;position:absolute;cursor:pointer}
 .Pic_GoL,.jcarousel-prev{left:0px;top:3px;background:url(../img/Editorial-GOl.gif) no-repeat center}
 .Pic_GoR,.jcarousel-next{right:0;top:3px;background:url(../img/Editorial-GOr.gif) no-repeat center}
-.Pic_GoRound a{float:left;_display:inline;margin-left:2px;}
+.Pic_GoRound a{float:left;_display:inline;margin-left:2px;margin-bottom:3px}
 .Pic_GoRound img{height:238px;width:153px;display:block}
 .jcarousel-container-horizontal{padding:0 21px;width:944px;height:240px}
 .jcarousel-clip-horizontal{width:944px;overflow:hidden}

@@ -160,6 +160,7 @@ namespace AnyWell.Uploader
             }
         }
         public bool removed = false;
+        public bool stoped = false;
 
         public FileBean( FileInfo file, Dispatcher dispatcher )
         {
@@ -209,7 +210,7 @@ namespace AnyWell.Uploader
             Stream fileStream = file.OpenRead();
 
             fileStream.Position = bytesUploaded;
-            while( ( bytesRead = fileStream.Read( buffer, 0, buffer.Length ) ) != 0 && tempTotal + bytesRead < chunkSize && !removed )
+            while( ( bytesRead = fileStream.Read( buffer, 0, buffer.Length ) ) != 0 && tempTotal + bytesRead < chunkSize && !removed && !stoped )
             {
                 requestStream.Write( buffer, 0, bytesRead );
                 requestStream.Flush();
@@ -239,13 +240,19 @@ namespace AnyWell.Uploader
             string responsestring = reader.ReadToEnd();
             reader.Close();
 
-            if( removed )
+            if( stoped )
+            {
+                status = FileUploadStatus.Stoped;
+            }
+            else if( removed )
             {
                 DelFileOnServer();
                 status = FileUploadStatus.Removed;
             }
             else if( bytesUploaded < fileLength )
+            {
                 UploadFileEx();
+            }
             else
             {
                 status = FileUploadStatus.Complete;
@@ -276,6 +283,24 @@ namespace AnyWell.Uploader
         }
 
         /// <summary>
+        /// 暂停上传
+        /// </summary>
+        public void StopUpload()
+        {
+            stoped = true;
+        }
+
+        /// <summary>
+        /// 继续上传
+        /// </summary>
+        public void ContinueUpload()
+        {
+            stoped = false;
+            if( status == FileUploadStatus.Stoped )
+                status = FileUploadStatus.Waiting;
+        }
+
+        /// <summary>
         /// 删除远程文件
         /// </summary>
         private void DelFileOnServer()
@@ -300,6 +325,7 @@ namespace AnyWell.Uploader
         Uploading,
         Complete,
         Removed,
+        Stoped,
         Error
     }
 }

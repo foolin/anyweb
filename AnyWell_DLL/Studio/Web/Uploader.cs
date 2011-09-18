@@ -88,6 +88,38 @@ namespace Studio.Web
             }
         }
 
+        private string _JavascriptBeginFunction;
+        /// <summary>
+        /// 任务开始回调函数
+        /// </summary>
+        public string JavascriptBeginFunction
+        {
+            get
+            {
+                return _JavascriptBeginFunction;
+            }
+            set
+            {
+                _JavascriptBeginFunction = value;
+            }
+        }
+
+        private string _JavascriptSingleCompleteFunction;
+        /// <summary>
+        /// 单个任务上传完成后回调函数
+        /// </summary>
+        public string JavascriptSingleCompleteFunction
+        {
+            get
+            {
+                return _JavascriptSingleCompleteFunction;
+            }
+            set
+            {
+                _JavascriptSingleCompleteFunction = value;
+            }
+        }
+
         private string _JavascriptCompleteFunction;
         /// <summary>
         /// 上传完成后回调函数
@@ -170,15 +202,27 @@ namespace Studio.Web
 
         protected override void Render( HtmlTextWriter writer )
         {
-            int width = 0, height = 13;
-            string initParams = string.Format( "UploaderID={0},UploadPage={1},UploadChunkSize={2},JavascriptCompleteFunction={3},FilePath={4},Multiselect={5},Filter={6}", ID, UploadPage, UploadChunkSize, JavascriptCompleteFunction, FilePath, MultiSelect, Filter );
+            int width = 60, height = 13;
+            string initParams = string.Format( "UploaderID={0},UploadPage={1},UploadChunkSize={2},FilePath={4},Multiselect={5},Filter={6}", ID, UploadPage, UploadChunkSize, JavascriptCompleteFunction, FilePath, MultiSelect, Filter );
             if( MultiSelect )
             {
-                width = 182;
+                //width = 182;
+                if( !string.IsNullOrEmpty( JavascriptSingleCompleteFunction ) )
+                {
+                    initParams += string.Format( ",JavascriptSingleCompleteFunction={0}", JavascriptSingleCompleteFunction );
+                }
             }
-            else
+            //else
+            //{
+            //    //width = 60;
+            //}
+            if( !string.IsNullOrEmpty( JavascriptBeginFunction ) )
             {
-                width = 60;
+                initParams += string.Format( ",JavascriptBeginFunction={0}", JavascriptBeginFunction );
+            }
+            if( !string.IsNullOrEmpty( JavascriptCompleteFunction ) )
+            {
+                initParams += string.Format( ",JavascriptCompleteFunction={0}", JavascriptCompleteFunction );
             }
             writer.Write( "<object id=\"{0}\" {3} data=\"data:application/x-silverlight-2,\" type=\"application/x-silverlight-2\" width=\"{1}\" height=\"{2}\">", ID, width, height, string.IsNullOrEmpty( Style ) ? "" : string.Format( "Style=\"{0}\"", Style ) );
             writer.Write( "<param name=\"source\" value=\"/ClientBin/Uploader.xap\"/>" );

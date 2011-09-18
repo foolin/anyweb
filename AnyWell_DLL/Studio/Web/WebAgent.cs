@@ -95,6 +95,57 @@ namespace Studio.Web
         }
 
         /// <summary>
+        /// 根据横纵向宽度制作相应压缩图片
+        /// </summary>
+        /// <param name="originalImagePath"></param>
+        /// <param name="thumbnailPath"></param>
+        /// <param name="width"></param>
+        /// <param name="maxWidth"></param>
+        /// <param name="imgFormat"></param>
+        public static void MakeThumbnail( string originalImagePath, string thumbnailPath, int width, int maxWidth, ImageFormat imgFormat )
+        {
+            Image image = Image.FromFile( originalImagePath );
+            int num = width;
+            int num2 = 0;
+            int x = 0;
+            int y = 0;
+            int num5 = image.Width;
+            int num6 = image.Height;
+            if( num5 <= num6 )
+            {
+                num2 = ( image.Height * width ) / image.Width;
+            }
+            else
+            {
+                num = maxWidth;
+                num2 = ( image.Height * maxWidth ) / image.Width;
+            }
+            Image image2 = new Bitmap( num, num2 );
+            Graphics graphics = Graphics.FromImage( image2 );
+            graphics.InterpolationMode = InterpolationMode.High;
+            graphics.SmoothingMode = SmoothingMode.HighQuality;
+            graphics.Clear( Color.Transparent );
+            graphics.DrawImage( image, new Rectangle( 0, 0, num, num2 ), new Rectangle( x, y, num5, num6 ), GraphicsUnit.Pixel );
+            try
+            {
+                try
+                {
+                    image2.Save( thumbnailPath, ( imgFormat == null ) ? ImageFormat.Jpeg : imgFormat );
+                }
+                catch( Exception exception )
+                {
+                    throw exception;
+                }
+            }
+            finally
+            {
+                image.Dispose();
+                image2.Dispose();
+                graphics.Dispose();
+            }
+        }
+
+        /// <summary>
         /// 提取字符串的左边length个字符
         /// </summary>
         /// <param name="input">从中提取的字符串</param>

@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Studio", "Studio\Studio.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBBase", "DBBase\DBBase.csproj", "{11A91CE2-95BD-4D6D-AB37-3B98A0757BBB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBBase_2000", "DBBase_2000\DBBase_2000.csproj", "{D88D832F-2901-4074-A7F0-AB31783CA271}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{11A91CE2-95BD-4D6D-AB37-3B98A0757BBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11A91CE2-95BD-4D6D-AB37-3B98A0757BBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11A91CE2-95BD-4D6D-AB37-3B98A0757BBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D88D832F-2901-4074-A7F0-AB31783CA271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D88D832F-2901-4074-A7F0-AB31783CA271}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D88D832F-2901-4074-A7F0-AB31783CA271}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D88D832F-2901-4074-A7F0-AB31783CA271}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

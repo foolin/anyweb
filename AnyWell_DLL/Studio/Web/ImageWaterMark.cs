@@ -147,7 +147,17 @@ namespace Studio.Web
             int num = (Math.Abs(this.MiniatureImageWidth) / 4) * 3;
             int width = image.Width;
             int height = image.Height;
-            this.ImageZip(width, height, this.MiniatureImageWidth, this.MiniatureImageHeight);
+            int toWidth = this.MiniatureImageWidth;
+            int toHeight = 0;
+            if( MiniatureMaxImageWidth > 0 )
+            {
+                if( width > height )
+                {
+                    toWidth = MiniatureMaxImageWidth;
+                }
+                toHeight = ( height * toWidth ) / width;
+            }
+            this.ImageZip( width, height, toWidth, toHeight );
             Bitmap bitmap = new Bitmap(this.zipwidth, this.zipheight, PixelFormat.Format32bppArgb);
             Graphics graphics = Graphics.FromImage(bitmap);
 
@@ -247,8 +257,9 @@ namespace Studio.Web
             {
                 throw new ArgumentException("原图片文件格式不正确,支持的格式有[ " + this.AllowExt + " ]");
             }
-            FileStream stream = File.OpenRead(this.SourceImagePath);
-            Image original = Image.FromStream(stream, true);
+
+            FileStream stream = File.OpenRead( this.SourceImagePath );
+            Image original = Image.FromStream( stream, true );
             stream.Close();
 
             int width = original.Width;
@@ -264,8 +275,13 @@ namespace Studio.Web
             if ((this.WaterMarkText == null) || (this.WaterMarkText.Trim().Length <= 0))
             {
                 Image image2 = new Bitmap(this.WaterMarkImagePath);
+                if( image2.Width > this.zipwidth )
+                {
+                    image2 = new Bitmap( image2, this.zipwidth - 20, ( int ) ( ( ( ( float ) this.zipwidth - 20 ) / ( float ) image2.Width ) * image2.Height ) );
+                }
                 int num5 = image2.Width;
                 int num6 = image2.Height;
+                
                 Bitmap bitmap2 = new Bitmap(image);
                 image.Dispose();
                 bitmap2.SetResolution(horizontalResolution, verticalResolution);
@@ -710,6 +726,22 @@ namespace Studio.Web
             }
         }
 
+        private int _miniatureMaxImageWidth;
+        /// <summary>
+        /// 缩略图最大宽度
+        /// </summary>
+        public int MiniatureMaxImageWidth
+        {
+            get
+            {
+                return this._miniatureMaxImageWidth;
+            }
+            set
+            {
+                _miniatureMaxImageWidth = value;
+            }
+        }
+
         /// <summary>
         /// 保存图片路径
         /// </summary>
@@ -1044,9 +1076,9 @@ namespace Studio.Web
             string pt = saveTo + fileName + "_temp" + Path.GetExtension(file.FileName);
             file.SaveAs(pt);
 
-            this.SaveWaterMarkImagePath = saveTo + fileName + ".jpg";
+            this.SaveWaterMarkImagePath = saveTo + fileName + Path.GetExtension( file.FileName );
             this.SourceImagePath = pt;
-            this.MiniatureImagePath = saveTo + "S_" + fileName + ".jpg";
+            this.MiniatureImagePath = saveTo + "S_" + fileName + Path.GetExtension( file.FileName );
             this.MiniatureImageWidth = minWidth;
             this.MiniatureImageHeight = minHeight;
             this.ImageZipWidth = maxWidth;
@@ -1064,6 +1096,57 @@ namespace Studio.Web
 
             this.GetWaterMarkImage();
             if (orginal)
+            {
+                this.GetToMiniatureImage();
+            }
+        }
+
+        /// <summary>
+        /// 上传水印图片
+        /// </summary>
+        /// <param name="sourseFileName">源文件名</param>
+        /// <param name="fileName">文件名</param>
+        /// <param name="saveTo">保存路径</param>
+        /// <param name="wText">水印文字</param>
+        /// <param name="font">字体</param>
+        /// <param name="fontSize">文字大小</param>
+        /// <param name="fontColor">文字颜色</param>
+        /// <param name="ShadowColor">阴影颜色</param>
+        /// <param name="fontCss">文字形状(加粗、下划线、倾斜、中划线)</param>
+        /// <param name="transparence">透明度</param>
+        /// <param name="placeX">阴影深度X轴</param>
+        /// <param name="placeY">阴影深度Y轴</param>
+        /// <param name="angle">旋转角度</param>
+        /// <param name="align">位置</param>
+        /// <param name="maxWidth">宽度</param>
+        /// <param name="maxHeight">高度</param>
+        /// <param name="minWidth">缩略图宽度</param>
+        /// <param name="minHeight">缩略图高度</param>
+        /// <param name="orginal">是否生成缩略图</param>
+        public void SaveWaterMarkImageByText( string sourseFileName, string fileName, string saveTo, string wText, string font, int fontSize, string fontColor, string ShadowColor, ImageWaterMark.TextCSS fontCss, int transparence, int placeX, int placeY, int angle, ImageWaterMark.ImageAlign align, int maxWidth, int maxHeight, int minWidth, int minHeight, bool orginal )
+        {
+            string pt = saveTo + sourseFileName;
+
+            this.SaveWaterMarkImagePath = saveTo + fileName;
+            this.SourceImagePath = pt;
+            this.MiniatureImagePath = saveTo + "S_" + fileName;
+            this.MiniatureImageWidth = minWidth;
+            this.MiniatureImageHeight = minHeight;
+            this.ImageZipWidth = maxWidth;
+            this.ImageZipHeight = maxHeight;
+            this.WaterMarkText = wText;
+            this.WaterMarkTextFont = font;
+            this.WaterMarkTextSize = fontSize;
+            this.WaterMarkAlign = align;
+            this.WaterMarkTextColor = fontColor;
+            this.WaterMarkTextShadowColor = ShadowColor;
+            this.WaterMarkTextCSS = fontCss;
+            this.WaterMarkTransparence = transparence;
+            this.WaterMarkTextShadowDepthX = placeX;
+            this.WaterMarkTextShadowDepthY = placeY;
+
+            this.GetWaterMarkImage();
+            if( orginal )
             {
                 this.GetToMiniatureImage();
             }
@@ -1106,6 +1189,44 @@ namespace Studio.Web
 
             this.GetWaterMarkImage();
             if (orginal)
+            {
+                this.GetToMiniatureImage();
+            }
+        }
+
+        /// <summary>
+        /// 上传水印图片
+        /// </summary>
+        /// <param name="sourseFileName">源文件名</param>
+        /// <param name="fileName">文件名</param>
+        /// <param name="saveTo">保存路径</param>
+        /// <param name="wPath">水印图片路径</param>
+        /// <param name="transparence">透明度</param>
+        /// <param name="angle">旋转角度</param>
+        /// <param name="align">位置</param>
+        /// <param name="maxWidth">宽度</param>
+        /// <param name="maxHeight">高度</param>
+        /// <param name="minWidth">缩略图宽度</param>
+        /// <param name="minHeight">缩略图高度</param>
+        /// <param name="orginal">是否生成缩略图</param>
+        public void SaveWaterMarkImageByPic( string sourseFileName, string fileName, string saveTo, string wPath, int angle, ImageWaterMark.ImageAlign align, int maxWidth, int maxHeight, int minWidth, int minHeight, bool orginal )
+        {
+            string pt = saveTo + sourseFileName;
+
+            this.SaveWaterMarkImagePath = saveTo + fileName;
+            this.SourceImagePath = pt;
+            this.MiniatureImagePath = saveTo + "S_" + fileName;
+            this.MiniatureImageWidth = minWidth;
+            this.MiniatureImageHeight = minHeight;
+            this.ImageZipHeight = maxHeight;
+            this.ImageZipWidth = maxWidth;
+            this.WaterMarkImagePath = wPath;
+            this.WaterMarkAlign = align;
+            this.ConverImageEffect = ImageWaterMark.ConvertEffect.None;
+            this.WaterMarkAngle = angle;
+
+            this.GetWaterMarkImage();
+            if( orginal )
             {
                 this.GetToMiniatureImage();
             }

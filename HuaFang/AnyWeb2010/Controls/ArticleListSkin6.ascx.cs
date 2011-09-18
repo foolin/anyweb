@@ -18,9 +18,8 @@ public partial class Controls_ArticleListSkin6 : System.Web.UI.UserControl
         rep2.DataBind();
         if( list.Count > 12 )
         {
-            rep3.DataSource = rep4.DataSource = list.GetRange( 12, list.Count - 12 );
+            rep3.DataSource = list.GetRange( 12, list.Count - 12 );
             rep3.DataBind();
-            rep4.DataBind();
         }
     }
 

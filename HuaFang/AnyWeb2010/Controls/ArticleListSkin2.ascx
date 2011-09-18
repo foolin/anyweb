@@ -9,6 +9,7 @@
         </ItemTemplate>
     </asp:Repeater>
 </div>
+<a href="/c/<%=columnID %>.aspx" class="More-mod More-item">more</a>
 <div class="title-bar title-bar2">
     <h2 class="cs-clear">
         <p class="title-ch cs-fl">

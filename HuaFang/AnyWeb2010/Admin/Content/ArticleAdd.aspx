@@ -80,7 +80,6 @@
         function typeChange(obj){
             switch(obj){
                 case "0":
-                    $("#div0").show();
                     $("#div1").hide();
                     $("#div2").hide();
                     $("#divTag").attr("class","fi");
@@ -91,21 +90,19 @@
                     break;
                 case "1":
                     $("#div1").show();
-                    $("#div0").hide();
                     $("#div2").hide();
-                    $("#divTag").attr("class","fi even");
-                    $("#divFrom").attr("class","fi");
-                    $("#divAuthor").attr("class","fi even");
-                    $("#divCreateAt").attr("class","fi");
-                    $("#divSort").attr("class","fi even");
+                    $("#divTag").attr("class","fi");
+                    $("#divFrom").attr("class","fi even");
+                    $("#divAuthor").attr("class","fi");
+                    $("#divCreateAt").attr("class","fi even");
+                    $("#divSort").attr("class","fi");
                     break;
                 case "2":
                     $("#div2").show();
-                    $("#div0").hide();
                     $("#div1").hide();
                     $("#divTag").attr("class","fi even");
-                    $("#divAuthor").attr("class","fi");
-                    $("#divCreateAt").attr("class","fi even");
+                    $("#divFrom").attr("class","fi");
+                    $("#divAuthor").attr("class","fi even");
                     $("#divCreateAt").attr("class","fi");
                     $("#divSort").attr("class","fi even");
                     break;
@@ -313,24 +310,22 @@
                     </sw:Validator>
                 </div>
             </div>
-            <div id="div0">
-                <div class="fi even">
-                    <label>
-                        文章内容：</label>
-                    <div class="cont">
-                        <asp:TextBox ID="txtContent" TextMode="MultiLine" Width="100%" Height="300px" runat="server"></asp:TextBox>
-                    </div>
+            <div class="fi even">
+                <label>
+                    文章内容：</label>
+                <div class="cont">
+                    <asp:TextBox ID="txtContent" TextMode="MultiLine" Width="100%" Height="300px" runat="server"></asp:TextBox>
                 </div>
             </div>
             <div id="div1" style="display: none">
-                <div class="fi even">
+                <div class="fi">
                     <label>
                         图片描述：</label>
                     <div class="cont">
                         <asp:CheckBox ID="chkDesc" runat="server" Text="使用文章摘要" CssClass="checkbox" onclick="setDesc(this.checked);" />
                     </div>
                 </div>
-                <div class="fi">
+                <div class="fi even">
                     <label>
                         图片列表：</label>
                     <div class="cont">
@@ -360,13 +355,6 @@
                 </div>
             </div>
             <div id="div2" style="display: none">
-                <div class="fi even">
-                    <label>
-                        文章内容：</label>
-                    <div class="cont">
-                        <asp:TextBox ID="txtContent2" TextMode="MultiLine" Width="100%" Height="300px" runat="server"></asp:TextBox>
-                    </div>
-                </div>
                 <div class="fi">
                     <label>
                         T台风云：</label>
@@ -476,12 +464,12 @@
                         视频直击：</label>
                     <div class="cont">
                         <sw:Uploader ID="Uploader6" UploadPage="/Admin/Ajax/ArticleFlashUpload.ashx" FilePath="/Files/Articles/"
-                            Filter="Flash (*.flv)|*.flv;" JavascriptCompleteFunction="setFlash"
-                            MultiSelect="false" runat="server" Style="margin-left: 6px">
+                            Filter="Flash (*.flv)|*.flv;" JavascriptCompleteFunction="setFlash" MultiSelect="false"
+                            runat="server" Style="margin-left: 6px">
                         </sw:Uploader>
                         <a id="flashLink" href="" target="_blank" title="右键删除视频" style="display: none;" oncontextmenu="return delFlash();">
-                            <img src="../images/rar.gif" alt="" /></a>
-                        <span id="flashDesc" style="display:none">点击图标浏览视频，对图标右键删除视频。</span>
+                            <img src="../images/rar.gif" alt="" /></a> <span id="flashDesc" style="display: none">
+                                点击图标浏览视频，对图标右键删除视频。</span>
                         <input type="hidden" id="txtflash" name="txtflash" />
                     </div>
                 </div>
@@ -588,7 +576,7 @@
         tinyMCE.init({
             mode: "exact",
             verify_html: false,
-            elements: "<%=txtContent.ClientID%>,<%=txtContent2.ClientID %>",
+            elements: "<%=txtContent.ClientID%>",
             theme: "advanced",
             language: "zh",
             convert_urls: false,

@@ -55,12 +55,7 @@ public partial class Admin_ArticleAdd : ArticleBase
         if( String.IsNullOrEmpty( txtTitle.Text ) )
             WebAgent.AlertAndBack( "标题不能为空" );
 
-        if( drpType.SelectedValue == "0" && String.IsNullOrEmpty( txtContent.Text ) )
-        {
-            WebAgent.AlertAndBack( "内容不能为空" );
-        }
-
-        if( drpType.SelectedValue == "2" && string.IsNullOrEmpty( txtContent2.Text ) )
+        if( String.IsNullOrEmpty( txtContent.Text ) )
         {
             WebAgent.AlertAndBack( "内容不能为空" );
         }
@@ -94,14 +89,7 @@ public partial class Admin_ArticleAdd : ArticleBase
         }
         bean.fdArtiType = int.Parse( drpType.SelectedValue );
         bean.fdArtiTitle = txtTitle.Text.Trim();
-        if( bean.fdArtiType == 0 )
-        {
-            bean.fdArtiContent = txtContent.Text;
-        }
-        else if( bean.fdArtiType == 2 )
-        {
-            bean.fdArtiContent = txtContent2.Text;
-        }
+        bean.fdArtiContent = txtContent.Text;
         if( txtDesc.Text.Trim().Length > 0 )
         {
             bean.fdArtiDesc = txtDesc.Text.Trim();

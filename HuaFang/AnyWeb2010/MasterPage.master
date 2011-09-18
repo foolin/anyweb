@@ -8,6 +8,8 @@
     <asp:Literal ID="lt_description" runat="server" />
     <asp:Literal ID="lt_keywords" runat="server" />
     <title>华纺资讯</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" />
     <link href="/css/style.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="/js/jquery.js"></script>
@@ -190,7 +192,7 @@
             <p>
                 Copyright &copy; 2006 - 2011 Anywell. All Right Reserved.</p>
             <p>
-                <a href="#">关于华纺</a>|<a href="#">联系华纺</a>|<a href="#">隐私保护</a>|<a href="#">加入华纺</a></p>
+                <a href="/s/1.aspx">关于华纺</a>|<a href="/s/2.aspx">联系华纺</a>|<a href="/s/3.aspx">隐私保护</a>|<a href="/s/4.aspx">加入华纺</a></p>
             <p>
                 本网站原创内容（文字，图片）受法律保护，“华纺”欢迎引用，但请注明出处。</p>
             <p>
@@ -201,6 +203,8 @@
     </div>
 
     <script type="text/javascript" src="/js/jquery.jcarousel.min.js"></script>
+
+    <script type="text/javascript" src="/js/slides.min.jquery.js"></script>
 
 </body>
 </html>

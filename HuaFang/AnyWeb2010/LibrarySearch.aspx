@@ -18,7 +18,7 @@
         </div>
         <div class="List_order List_order2 List_order4 cs-clear">
             <div class="Pagination cs-fr">
-                <AW:Pager ID="PN1" runat="server" StyleID="6" PageSize="28">
+                <AW:Pager ID="PN1" runat="server" StyleID="7" PageSize="28">
                 </AW:Pager>
             </div>
         </div>
@@ -35,7 +35,7 @@
         </div>
         <div class="PageTurning cs-clear">
             <div class="Pagination cs-fr">
-                <AW:Pager ID="PN2" runat="server" StyleID="6" PageSize="28">
+                <AW:Pager ID="PN2" runat="server" StyleID="7" PageSize="28">
                 </AW:Pager>
             </div>
         </div>

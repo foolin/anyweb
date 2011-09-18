@@ -84,6 +84,7 @@ namespace AnyWell.Uploader
             uploading = true;
             if( files.Count( f => f.status == FileUploadStatus.Waiting ) > 0 )
             {
+                beginFuntion();
                 FileBean bean = files.First( f => f.status != FileUploadStatus.Uploading && f.status != FileUploadStatus.Removed && f.status != FileUploadStatus.Complete && f.status != FileUploadStatus.Error );
                 bean.Upload();
             }

@@ -45,6 +45,9 @@ public partial class FashionArticle : PageBase
         repCity.DataBind();
 
         this.Title = bean.fdArtiTitle + GeneralConfigs.GetConfig().TitleExtension;
+                   
+        //更新点击数
+        new AW_Article_dao().funcUpdateClick( aid );
     }
 
     private AW_Article_bean _bean;

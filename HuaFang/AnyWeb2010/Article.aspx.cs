@@ -44,26 +44,14 @@ public partial class Asp_Article : PageBase
             repOther.DataBind();
         }
 
-        List<AW_Article_bean> list1 = new AW_Article_dao().funcGetArticleListByUC( bean.fdArtiColumnID, 4, true, "fdArtiID<>" + bean.fdArtiID, "", "", false );
-        rep11.DataSource = list1.Count > 1 ? list1.GetRange( 0, 1 ) : list1;
-        rep11.DataBind();
-        rep12.DataSource = list1.Count > 1 ? list1.GetRange( 1, list1.Count - 1 ) : null;
-        rep12.DataBind();
-
-        if( bean.Column.fdColuParentID > 0 )
-        {
-            List<AW_Article_bean> list2 = new AW_Article_dao().funcGetArticleListByUC( bean.Column.fdColuParentID, 4, true, "fdArtiID<>" + bean.fdArtiID, "", "", false );
-            rep21.DataSource = list2.Count > 1 ? list2.GetRange( 0, 1 ) : list2;
-            rep21.DataBind();
-            rep22.DataSource = list2.Count > 1 ? list2.GetRange( 1, list2.Count - 1 ) : null;
-            rep22.DataBind();
-        }
-
         if( otherPicList.Count > 0 )
         {
             rep3.DataSource = otherPicList;
             rep3.DataBind();
         }
+
+        //更新点击数
+        new AW_Article_dao().funcUpdateClick( aid );
     }
 
     private AW_Article_bean _bean;

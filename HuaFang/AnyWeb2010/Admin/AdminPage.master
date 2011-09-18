@@ -7,6 +7,8 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" />
     <link href="/Admin/class/style.css" rel="stylesheet" type="text/css" />
     <!--[if lte IE 6]>
 	<link href="/Admin/class/forIE6.css" rel="stylesheet" type="text/css" />

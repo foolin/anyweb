@@ -28,7 +28,7 @@
                     <p class="List_order_tit cs-fl">
                         1-5项</p>
                     <div class="Pagination cs-fr">
-                        <AW:Pager ID="PN1" runat="server" StyleID="6" PageSize="15">
+                        <AW:Pager ID="PN1" runat="server" StyleID="7" PageSize="15">
                         </AW:Pager>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                 </asp:Repeater>
                 <div class="OtherHot-pag">
                     <div class="Pagination cs-fr">
-                        <AW:Pager ID="PN2" runat="server" StyleID="6" PageSize="15">
+                        <AW:Pager ID="PN2" runat="server" StyleID="7" PageSize="15">
                         </AW:Pager>
                     </div>
                 </div>

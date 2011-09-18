@@ -19,7 +19,7 @@
                     <p class="title-ch cs-fl">
                         <a href="/Index.aspx">首页</a>//<span>秀场直击</span></p>
                     <div class="Pagination cs-fr">
-                        <AW:Pager ID="PN1" runat="server" StyleID="6" PageSize="24">
+                        <AW:Pager ID="PN1" runat="server" StyleID="7" PageSize="24">
                         </AW:Pager>
                     </div>
                 </h2>
@@ -47,6 +47,14 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
+            </div>
+            <div class="title-bar title-bar_bottom">
+                <h2 class="cs-clear">
+                    <div class="Pagination cs-fr">
+                        <AW:Pager ID="PN2" runat="server" StyleID="7" PageSize="24">
+                        </AW:Pager>
+                    </div>
+                </h2>
             </div>
         </div>
         <div class="g_192">

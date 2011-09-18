@@ -10,6 +10,7 @@
             </ItemTemplate>
         </asp:Repeater>
     </div>
+    <a href="/c/<%=columnID %>.aspx" class="More-mod More-item">more</a>
     <div class="title-bar title-bar2">
         <h2 class="cs-clear">
             <p class="title-ch cs-fl">
@@ -26,31 +27,52 @@
     </ul>
 </div>
 <div class="g_360 cs-fr">
-    <div class="PicBlack_Roll">
-        <div class="PicB_win">
-            <div class="PicBReel cs-clear">
-                <asp:Repeater ID="rep3" runat="server">
-                    <ItemTemplate>
-                        <a class="PicBlack_mod2" href="#">
-                            <img src="<%#Eval("fdArtiPic") %>" class="nobor" />
-                            <div class="PicBlack_tit PicBlack_tit2">
-                                <h2>
-                                    <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 30, false )%></h2>
-                                <p>
-                                    <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 65, false )%></p>
-                            </div>
-                        </a>
-                    </ItemTemplate>
-                </asp:Repeater>
+    <div id="bannerBox" class="PicBlack_Roll">
+        <div class="banner">
+            <div id="slides" class="PicB_win">
+                <div class="slides_container PicBReel cs-clear">
+                    <asp:Repeater ID="rep3" runat="server">
+                        <ItemTemplate>
+                            <a class="PicBlack_mod2" href="#">
+                                <img src="<%#Eval("fdArtiPic") %>" class="nobor" />
+                                <div class="PicBlack_tit PicBlack_tit2">
+                                    <h2>
+                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 30, false )%></h2>
+                                    <p>
+                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 65, false )%></p>
+                                </div>
+                            </a>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </div>
             </div>
         </div>
-        <ul class="PicBlack_tab cs-clear">
-            <asp:Repeater ID="rep4" runat="server">
-            <ItemTemplate>
-                <li <%#Container.ItemIndex==0?"class=\"active\"":"" %> href="" rel="<%#Container.ItemIndex+1 %>">
-                </li>
-            </ItemTemplate>
-        </asp:Repeater>
-        </ul>
     </div>
 </div>
+
+<script type="text/javascript">
+        $(function () {
+            $('#slides').slides({
+                preload: true,
+                preloadImage: 'img/loading.gif',
+                play: 3000,
+                pause: 2500,
+                hoverPause: true,
+                animationStart: function () {
+                    $('.caption').animate({
+                        bottom: -35
+                    }, 100);
+                },
+                animationComplete: function (current) {
+                    $('.caption').animate({
+                        bottom: 0
+                    }, 200);
+                    if (window.console && console.log) {
+                        // example return of current slide number
+                        console.log(current);
+                    };
+                }
+            });
+        });
+</script>
+

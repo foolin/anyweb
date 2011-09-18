@@ -12,8 +12,6 @@ public partial class Controls_ArticleListSkin3 : System.Web.UI.UserControl
         List<AW_Article_bean> list = new AW_Article_dao().funcGetArticleListByUC( columnID, 4, true, "", "", "", false );
         rep1.DataSource = list;
         rep1.DataBind();
-        rep2.DataSource = list;
-        rep2.DataBind();
     }
 
     private int _columnID;

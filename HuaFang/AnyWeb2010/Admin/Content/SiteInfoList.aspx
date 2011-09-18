@@ -25,7 +25,8 @@
                     <ItemTemplate>
                         <tr class="editalt">
                             <td>
-                                <%#Eval("fdSiInTitle")%>
+                                <a href="/s/<%#Eval("fdSiInID") %>.aspx" target="_blank">
+                                    <%#Eval("fdSiInTitle")%></a>
                             </td>
                             <td align="center">
                                 <a href="SiteInfoEdit.aspx?id=<%# Eval("fdSiInID")%>">修改</a>

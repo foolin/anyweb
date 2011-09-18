@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
 using AnyWell.Configs;
+using Studio.Web;
 
 public partial class Index : PageBase
 {
@@ -29,8 +30,6 @@ public partial class Index : PageBase
         //流行趋势
         repFashion.DataSource = fashionRends;
         repFashion.DataBind();
-        repFashionButton.DataSource = fashionRends;
-        repFashionButton.DataBind();
 
         //秀场直击
         repFashionShow.DataSource = fashionShow.Count > 0 ? fashionShow.GetRange( 0, 1 ) : null;
@@ -91,7 +90,7 @@ public partial class Index : PageBase
             string name = "";
             foreach( AW_Flash_bean bean in _flashList )
             {
-                name += string.Format( ",\"{0}\"", bean.fdFlasName );
+                name += string.Format( ",\"{0}\"", WebAgent.GetLeft( bean.fdFlasName, 26 ) );
             }
             return name.Length > 0 ? name.Substring( 1 ) : name;
         }

@@ -21,7 +21,7 @@ public partial class Library : PageBase
         preLibrary = new AW_Library_dao().funcGetPreLibrary( library );
         nextLibrary = new AW_Library_dao().funcGetNextLibrary( library );
 
-        List<AW_Article_bean> list = new AW_Article_dao().funcGetArticleListByLibrary( -1, 11, -1, library );
+        List<AW_Article_bean> list = new AW_Article_dao().funcGetArticleListByLibrary( -1, 11, "fdArtiType=0", library );
         rep.DataSource = list;
         rep.DataBind();
 
@@ -29,7 +29,7 @@ public partial class Library : PageBase
         repRelated.DataSource = relatedList;
         repRelated.DataBind();
 
-        List<AW_Article_bean> picList = new AW_Article_dao().funcGetArticleListByLibrary( -1, 21, 1, library );
+        List<AW_Article_bean> picList = new AW_Article_dao().funcGetArticleListByLibrary( -1, 21, "fdArtiType<>0", library );
         repPic.DataSource = picList;
         repPic.DataBind();
     }

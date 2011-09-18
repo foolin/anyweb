@@ -16,6 +16,8 @@
         }
         -->
     </style>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" />
     <link href="class/css.css" rel="stylesheet" type="text/css" />
     <script language="javascript" type="text/javascript" src="js/jquery.js"></script>
     <script language="javascript" type="text/javascript" src="js/validator1.2.js"></script>

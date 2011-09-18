@@ -356,7 +356,7 @@ namespace AnyWell.AW_DL
             }
             else
             {
-                this.propOrder = "ORDER BY fdArtiSort DESC";
+                this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
             }
 
             List<AW_Article_bean> articles = new List<AW_Article_bean>();
@@ -428,7 +428,7 @@ namespace AnyWell.AW_DL
             }
             else
             {
-                this.propOrder = "ORDER BY fdArtiSort DESC";
+                this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
             }
 
             this.propPage = pageID;
@@ -498,7 +498,7 @@ namespace AnyWell.AW_DL
                 this.propWhere += " AND fdArtiCity=" + city;
             }
             //this.propWhere = string.Format( "fdArtiColumnID={0} AND fdArtiCategory={1} AND fdArtiCity={2}", columnId, category, city );
-            this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
+            this.propOrder = "ORDER BY fdArtiTitle ASC";
             return this.funcGetList();
         }
 
@@ -564,6 +564,7 @@ namespace AnyWell.AW_DL
             this.propSelect = "fdArtiID,fdArtiColumnID,fdArtiTitle,fdArtiCreateAt,fdArtiPic,fdArtiDesc,fdArtiType";
             this.propTableApp = " INNER JOIN AW_Tag_Associated ON fdTaAsDataID=fdArtiID";
             this.propWhere = string.Format( "fdTaAsTagID={0} AND fdTaAsType=0", tagId );
+            this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
             this.propPageSize = pageSize;
             this.propPage = pageIndex;
             this.propGetCount = true;
@@ -598,7 +599,7 @@ namespace AnyWell.AW_DL
             this.propWhere += string.Format( " AND fdArtiTitle=@fdArtiTitle AND fdArtiID<>{0} AND fdArtiType=2", artiId );
             this.funcAddParam( "@fdArtiTitle", artiTitle );
 
-            this.propOrder = "ORDER BY fdArtiSort DESC";
+            this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
 
             List<AW_Article_bean> articles = new List<AW_Article_bean>();
             foreach( DataRow row in this.funcCommon().Tables[ 0 ].Rows )
@@ -612,7 +613,7 @@ namespace AnyWell.AW_DL
             return articles;
         }
 
-        public List<AW_Article_bean> funcGetArticleListByLibrary( int columnId, int topCount, int articleType, AW_Library_bean library )
+        public List<AW_Article_bean> funcGetArticleListByLibrary( int columnId, int topCount, string where, AW_Library_bean library )
         {
             this.propSelect = this.selectStr;
 
@@ -627,13 +628,15 @@ namespace AnyWell.AW_DL
             {
                 this.propWhere += " AND fdColuID = " + columnId;
             }
-            if( articleType > -1 )
-            {
-                this.propWhere += " AND fdArtiType=" + articleType;
-            }
-            this.propWhere += string.Format( " AND (fdArtiTitle LIKE '%{0}%' OR fdArtiTitle LIKE '%{0}%')", library.fdLibrName.Replace( "%", "[%]" ).Replace( "'", "''" ), library.fdLibrEnName.Replace( "%", "[%]" ).Replace( "'", "''" ) );
 
-            this.propOrder = "ORDER BY fdArtiSort DESC";
+            if (!string.IsNullOrEmpty(where))
+            {
+                this.propWhere += " AND " + where.Replace(";", "；").Replace("--", "－－");
+            }
+
+            this.propWhere += string.Format( " AND (fdArtiTitle LIKE '%{0}%' OR fdArtiTitle LIKE '%{1}%')", library.fdLibrName.Replace( "%", "[%]" ).Replace( "'", "''" ), library.fdLibrEnName.Replace( "%", "[%]" ).Replace( "'", "''" ) );
+
+            this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
 
             List<AW_Article_bean> articles = new List<AW_Article_bean>();
             foreach( DataRow row in this.funcCommon().Tables[ 0 ].Rows )

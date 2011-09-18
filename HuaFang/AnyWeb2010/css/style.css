@@ -1,7 +1,7 @@
 @charset "utf-8";
 /*
  * Name : 华纺
- * By : Zhaoxue zx@cswui.com 2011-06
+ * By : Zhaoxue zx0110@gmail.com 2011-06
  */
 
 /*Classtyle2.0.0.beta 0415*/
@@ -64,7 +64,7 @@ button.btn-simple{height:21px;_height:22px}
 .BannerTab,.thumbNav{position:absolute;left:1px;bottom:-55px;_bottom:-56px;background:#eee url(../img/BannerTab.png) repeat-x}
 .thumbNav li{float:left}
 .BannerTab li,.thumbNav li a{float:left;height:54px;width:196px;border:#898989 solid;border-width:0 1px 1px;margin-left:-1px;_display:inline;position:relative;cursor:pointer}
-.BannerTab li span,.thumbNav li span{position:absolute;bottom:8px;width:172px;padding-right:10px;left:10px}
+.BannerTab li span,.thumbNav li span{position:absolute;top:6px;width:172px;padding-right:10px;left:10px}
 .BannerTab li.hover,.thumbNav a.cur{background:#51b3bc url(../img/BannerTab-hover.png) repeat-x;color:#fff}
 .anythingWindow{position:relative;overflow:hidden;width:986px;height:375px}
 .anythingSlider-default{overflow:hidden;height:375px}
@@ -91,7 +91,7 @@ button.btn-simple{height:21px;_height:22px}
 .title-eng{font-family:"DilleniaUPC","Courier New";font-size:36px;font-style:italic;padding-right:10px}
 .title-eng span{color:#62c3cc}
 .title-bar2{border:0;}
-.title-bar .Pagination{margin-top:10px}
+.title-bar .Pagination{margin-top:12px}
 
 /*title-sub*/
 .title-sub{border:#000 solid;border-width:1px 0;color:#000;height:24px;line-height:25px;width:100%;margin:0 auto 10px;overflow:hidden}
@@ -111,6 +111,7 @@ button.btn-simple{height:21px;_height:22px}
 
 /*group*/
 .cs-group{width:986px;margin:0 auto}
+.g_690{width:690px;float:left}
 .g_580{width:580px;float:right}
 .g_192{width:192px;float:left}
 .g_760{width:760px;float:right}
@@ -240,10 +241,10 @@ button.btn-simple{height:21px;_height:22px}
 .Pagination span,
 .PageSet a,
 .PageSet strong,
-.PageSet span{float:left;_display:inline;margin:0 5px}
+.PageSet span{float:left;_display:inline;margin:0 1px;padding:0 4px}
 .Pagination span,.Pagination a{_padding-top:3px}
 .Pagination .Pagination-nopa{padding:0}
-.Pagination .ipt-simple{width:24px;margin:0 5px;height:16px}
+.Pagination .ipt-simple{width:24px;margin:0 5px;height:14px}
 .Pagination .btn-simple2{height:20px;line-height:16px}
 .Pagination_L{background:url(../img/Pagination_L.gif) no-repeat center;width:20px;height:20px;}
 .Pagination_L:hover{background:url(../img/Pagination_Lon.gif) no-repeat center;}
@@ -270,12 +271,12 @@ button.btn-simple{height:21px;_height:22px}
 .Pho_Cap_Recom{padding-bottom:30px}
 .PhoCap-a{display:block}
 .Pho_Cap_Recom img{padding:6px;background:#b5b5b6;border:0;width:180px;height:284px;display:block}
-.Pho_Cap_Recom h3{font-size:18px;line-height:24px;padding:12px 10px 5px;}
+.Pho_Cap_Recom h3{font-size:18px;line-height:24px;padding:12px 10px 5px;height:47px;overflow:hidden;}
 .Pho_Cap_Recom h3 a{color:#000}
 .Minor-tit a:hover,
 .Pho_Cap_Recom h3 a:hover{color:#5cb7c0}
 .Pho_Cap_Recom .list-disc{padding:0 11px 10px}
-.Pho_Cap_Recom .list-disc li{margin-top:5px}
+.Pho_Cap_Recom .list-disc li{margin-top:5px;height:19px;overflow:hidden}
 .Pho_Cap_intro{color:#5cb7c0;padding:0 11px 20px}
 
 /*Piclist_outline*/
@@ -289,7 +290,8 @@ button.btn-simple{height:21px;_height:22px}
 .Side_menu{padding-bottom:20px}
 .common_menu{padding:8px 0;border-bottom:#898989 dotted 1px;}
 .plain_menu{border-bottom:#898989 dotted 1px;padding:10px 0 20px}
-.plain_menu span{padding-right:13px}
+.plain_menu span{padding-right:13px;float:left;height:20px;white-space:nowrap}
+.plain_menu span a{display:block}
 .cs-nobor{border:0}
 
 /*Hotnews_pic*/
@@ -316,6 +318,7 @@ button.btn-simple{height:21px;_height:22px}
 
 /*Article_main*/
 .Article_main{margin-bottom:25px}
+.PhoGal_list .Article_tit{margin-top:0}
 .Article_tit{font-size:24px;margin:40px 0 0;color:#000}
 /*.Article_content p{text-indent:2em}*/
 .Article_content img{display:block;margin-bottom:0;border:0;background:#b5b5b5;padding:5px}
@@ -329,7 +332,9 @@ button.btn-simple{height:21px;_height:22px}
 .Related_Infor .list-disc li{margin-bottom:5px}
 .Article_nav{margin-top:10px}
 .Article_collect{border:#62c3cc solid 1px;background:url(../img/Article_collect.gif) no-repeat  10px center;color:#62c3cc;line-height:24px;display:block;width:50px;padding:0 15px 0 30px;margin:15px 0}
-.Article_picpage{position:relative;height:30px}
+.PhoGal_list2 a.Article_collect{margin:15px 0;width:50px;border:1px solid #62C3CC;height:auto}
+.PhoGal_list2 a.Article_collect:hover{border:1px solid #62C3CC;}
+.Article_picpage{position:relative;height:30px;margin-top:10px}
 .Article_picpage .Pagination,
 .Pic_Page{position:absolute}
 .Article_picpage .Pagination{width:170px;left:50%;margin-left:-86px}
@@ -340,7 +345,7 @@ button.btn-simple{height:21px;_height:22px}
 
 /*Pho_Gallery*/
 .Pho_Gallery .btn-simple1{float:right}
-.PhoGal_mod{border:#b5b5b6 solid 5px;padding:6px;margin:10px 0 20px}
+.PhoGal_mod{border:#898989 solid 5px;border-width:0 5px 5px;padding:6px;margin:0px 0 20px}
 
 .PhoGal_unfold .PhoGal_list{height:100%}
 .PhoGal_list{height:300px;overflow-y:auto}
@@ -353,6 +358,7 @@ button.btn-simple{height:21px;_height:22px}
 .PhoGal_list a:hover{border:#fff solid 5px}
 .PhoGal_list a.Pho_on{border:#5cb7c0 solid 5px}
 .PhoGal_list a:hover img{background:0}
+.PhoGal_list_article{padding:10px}
 
 /*Pho_Gallery_tab*/
 .Pho_Gallery_tab{position:relative}
@@ -392,17 +398,19 @@ button.btn-simple{height:21px;_height:22px}
 .Show_term a{background:url(../img/ico-close.gif) no-repeat center right;padding:1px 15px 1px 2px;display:inline-block;border:#fff solid 1px;}
 .Show_term a:hover{border:#5fbac3 solid 1px}
 
-.ShowNav-simple{background:url(../img/search-icon1.gif) no-repeat 130px 4px}
-.ShowNav-simple .ipt-simple{float:left;width:144px;height:18px}
+.ShowNav-simple{background:url(../img/search-icon1.gif) no-repeat 4px 4px;border:#A1A1A1 solid 1px;padding-left:24px}
+.ShowNav-simple .ipt-simple{float:left;width:120px;height:18px;border:0}
+.ShowNav-simple .btn-simple{border-width:0 0 0 1px;height:20px}
 .ShowNav-simple .ShowNav-btn{float:left;margin:0 0 0 8px;display:inline}
 
 /*ShowTime*/
 .ShowTime{padding:10px 0 20px}
 .ShowTime_pic{width:400px;float:right;padding-top:5px}
-.ShowTime_link{display:block;margin-bottom:10px}
+.ShowTime_pic2{float:none;margin:0 auto}
+.ShowTime_link{display:block}
 .ShowTime_link img{margin:0 auto}
 .ShowTime_intro{width:315px;float:left}
-.Show_filmstrip{position:relative;margin:10px auto 0;zoom:1}
+.Show_filmstrip{position:relative;margin:0 auto;zoom:1}
 .Show_filmstrip a{display:block}
 /*
 0823
@@ -456,9 +464,14 @@ button.btn-simple{height:21px;_height:22px}
 .Index_sec4{height:280px;overflow:hidden;margin-bottom:30px}
 .PicBlack_mod{position:relative;height:553px;display:block;cursor:pointer;overflow:hidden}
 .PicBlack_mod2{height:728px;padding:5px;background:#b5b5b6}
-.PicBlack_tab{position:absolute;bottom:160px;right:15px;}
-.PicBlack_tab li{float:left;width:10px;height:10px;background:url(../img/PicBlack_tab.gif) no-repeat center;padding:4px;cursor:pointer}
-.PicBlack_tab li.active{background:url(../img/PicBlack_on.gif) no-repeat center}
+.PicBlack_tab,
+.pagination{position:absolute;bottom:160px;right:15px;}
+.PicBlack_tab li,
+.pagination li a{float:left;width:10px;height:10px;background:url(../img/PicBlack_tab.gif) no-repeat center 4px;padding:4px;cursor:pointer}
+.pagination a{overflow:hidden;line-height:1000em}
+.pagination li{float:left}
+.PicBlack_tab li.active,
+.pagination li.current a{background:url(../img/PicBlack_on.gif) no-repeat center 4px}
 .PicBlack_mod img{padding:5px;border:0;width:350px;height:543px;background:#b5b5b6;display:block}
 .PicBlack_mod2 img{border:0;padding:0}
 .PicBlack_tit{position:absolute;color:#fff;bottom:5px;_bottom:4px;left:5px;width:306px;padding:30px 22px 20px;background:#000}
@@ -608,3 +621,89 @@ button{cursor:pointer}
 .FASHIONTRENDS{background:url(../EngTit/FASHIONTRENDS.png) no-repeat right 6px;width:330px}
 .FASHIONSHOW{background:url(../EngTit/FASHIONSHOW.png) no-repeat right 6px;width:240px}
 .FASHIONLIFE{background:url(../EngTit/FASHIONLIFE.png) no-repeat right 6px;width:370px}
+
+
+/*More*/
+.More-mod{background:url(../img/More2.gif) no-repeat right 5px;display:block}
+.More-item{background:url(../img/More.gif) no-repeat right 5px;border:#898989 dotted;border-width:1px 0;height:19px;overflow:hidden;line-height:500em}
+.More-item-bottom{margin-bottom:30px}
+
+.PicBlack_mod .More-mod{position:absolute;bottom:18px;left:28px;width:42px;height:19px;overflow:hidden;line-height:500em;}
+.PicBlack_tit{padding-bottom:40px}
+.Index_sec1{height:650px}
+.Column_sec1{height:600px}
+.Hotnews_minor2{height:596px}
+.PicBlack_a{display:block;background:#B5B5B6;padding:5px;height:580px}
+.PicBlack_a:hover{background:#5cb7c0}
+.PicBlack_mod{height:590px}
+.PicBlack_mod img{padding:0}
+.Fashion_search{border:0;padding-bottom:15px}
+.Column_sec5{height:610px}
+.Column_sec5 .More-item{margin-top:18px}
+.Index_sec4{margin-bottom:18px;height:340px}
+.Index_sec4 .cs-clear{height:280px;overflow:hidden;margin-bottom:18px}
+
+.title-bar .Pagination .Pagination_L,.title-bar .Pagination .Pagination_R{margin:0}
+.title-bar .Pagination a{line-height:1.2em;margin-top:3px}
+.title-bar .Pagination a.on{background:#737172;color:#fff}
+.title-bar .Pagination .btn-simple2{font-weight:bold;height:15px;margin:2px 0 0 5px}
+
+
+.Fashion_search .on,
+.ShowNav .on{color:#fff;background:#737172;padding:0 4px}
+
+/*Loading*/
+.Loading{background:#fff url(../img/Loading.gif) center no-repeat;height:619px;width:398px;border:1px solid #777;}
+
+/**/
+
+#slides .PicBlack_mod2{float:none;overflow:hidde;height:732px;width:350px}
+.pagination{z-index:999;}
+#slides .PicBlack_tit2{_padding-bottom:20px;}
+
+
+/*weibo*/
+.weibo{margin:20px 0}
+.weibo .Article_collect{margin:0}
+.weibo p{float:left;display:inline;margin-right:5px}
+.weibo img{border:0;height:24px}
+
+.title-bar_bottom{border:#a4a4a4 solid;border-width:2px 0 0;margin-top:20px}
+.title-bar_bottom h2{border:0}
+
+/*915*/
+.Article_content img{margin:0 auto;}
+.Article_hd{position:relative;height:100px;width:690px;}
+.Article_hd .Article_tit{margin:0;position:absolute;bottom:10px;line-height:1.4em;text-align:center;width:690px;}
+.OtherHot_info5{width:535px}
+.Perio_List3 .Pic_GoRound_mod{width:690px}
+.Perio_List3 .jcarousel-clip-horizontal,
+.Perio_List3 .jcarousel-container-horizontal{width:650px}
+
+.ArticlePic_con{position:relative;margin:10px 0 20px}
+.ArticlePic_con a{position:absolute;bottom:0;right:0}
+.ArticlePic_intro{width:620px;overflow:hidden;height:20px;}
+.ArticlePic_all{padding-bottom:24px}
+
+.Pho_Gal_hd{background:#898989;height:25px;overflow:hidden}
+.Pho_Gal_hd a{color:#fff;float:right;height:25px;line-height:25px;padding:0 28px 0 20px}
+.PhoGal_mod{width:680px;height:auto;position:relative;padding:0}
+.PhoGal_mod .PhoGal_list{width:636px;height:176px;overflow-x:auto;padding:6px 22px}
+.PhoGal_con{width:1100px}
+.PhoGal-prev{background:url("../img/jcarousel-prev.gif") no-repeat center center #fff;width:20px;height:170px;display:block;position:absolute;top:0;left:0}
+.PhoGal-next{background:url("../img/jcarousel-next.gif") no-repeat center center #fff;width:20px;height:170px;display:block;position:absolute;top:0;right:0}
+.PhoGal_unfold,
+.PhoGal_Report{position:static}/*CZM*/
+.PhoGal_unfold .PhoGal-prev,
+.PhoGal_unfold .PhoGal-next{display:none}
+.PhoGal_unfold .PhoGal_list,
+.PhoGal_Report .PhoGal_list,/*CZM*/
+.PhoGal_unfold .PhoGal_con{height:auto;width:auto}
+.Pho_Gal_hd .Unfold{background:#000 url(../img/Unfold.gif) no-repeat 100px center}
+.Pho_Gal_hd .Packup{background:#000 url(../img/Packup.gif) no-repeat 100px center}
+
+/**/
+.About-Art h1{font-size:24px;padding:30px 0 18px}
+.About-nav{border-top:#000 solid 1px;color:#000;margin-top:30px;padding:10px 0}
+.About-nav a{color:#000;padding:0 5px}
+.About-nav a:hover{color:#52bfca}

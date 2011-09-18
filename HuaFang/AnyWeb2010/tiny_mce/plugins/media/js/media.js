@@ -1,4 +1,5 @@
 var formAction = "/tiny_mce/uploadmedia.aspx?type=swf,rm,jpg,bmp,png";
+var uploading = false;
 
 tinyMCEPopup.requireLangPack();
 
@@ -18,8 +19,11 @@ function init() {
 
 	fe = ed.selection.getNode();
 	if (/mceItem(Flash|ShockWave|WindowsMedia|QuickTime|RealMedia)/.test(ed.dom.getAttrib(fe, 'class'))) {
+	    document.getElementById("type1").checked = true;
+	    changeSource(1);
+	
 		pl = fe.title;
-
+        
 		switch (ed.dom.getAttrib(fe, 'class')) {
 			case 'mceItemFlash':
 				type = 'flash';
@@ -180,6 +184,11 @@ function init() {
 }
 
 function changeSource(t) {
+    if (uploading && t == "1") {
+        document.getElementById('type2').checked = true;
+        alert("文件上传中，请稍候！");
+        return false;
+    }
 	if(t == "1")
 	{
 		document.getElementById('rowNetwork').style.display = "";
@@ -202,14 +211,19 @@ function uploadOk(url)
 }
 
 function insertMedia() {
+    if (uploading) {
+        document.getElementById('type2').checked = true;
+        alert("文件上传中，请稍候！");
+        return false;
+    }
 	var fe, f = document.forms[0], h;
 
-	if(document.getElementById("type2").checked == true)
-	{
-		f.action = formAction;
-		f.submit();
-		return;
-	}
+//	if(document.getElementById("type2").checked == true)
+//	{
+//		f.action = formAction;
+//		f.submit();
+//		return;
+//	}
 
 	tinyMCEPopup.restoreSelection();
     
@@ -265,7 +279,7 @@ function insertMedia() {
 		fe.style.height = f.height.value + (f.height.value.indexOf('%') == -1 ? 'px' : '');
 		fe.align = f.align.options[f.align.selectedIndex].value;
 	} else {
-		h = '<img src="' + tinyMCEPopup.getWindowArg("plugin_url") + '/img/trans.gif"' ;
+		h = '<img src="/img/trans.gif"' ;
 
 		switch (f.media_type.options[f.media_type.selectedIndex].value) {
 			case "flash":
@@ -662,6 +676,57 @@ function generatePreview(c) {
 		h += '</object>';
 
 	p.innerHTML = "<!-- x --->" + h;
+}
+
+function changeTab(tab_id, panel_id) {
+    if (uploading) {
+        alert("文件上传中，请稍候！");
+        return;
+    }
+    var tabElm, panelElm;
+    tabElm = document.getElementById(tab_id);
+    tabContainerElm = tabElm ? tabElm.parentNode : null;
+    panelElm = document.getElementById(panel_id);
+    panelContainerElm = panelElm ? panelElm.parentNode : null;
+    
+    if (tabElm && tabContainerElm) {
+        nodes = tabContainerElm.childNodes;
+
+        // Hide all other tabs
+        for (i = 0; i < nodes.length; i++) {
+            if (nodes[i].nodeName == "LI")
+                nodes[i].className = '';
+        }
+
+        // Show selected tab
+        tabElm.className = 'current';
+    }
+
+    if (panelElm && panelContainerElm) {
+        nodes = panelContainerElm.childNodes;
+
+        // Hide all other panels
+        for (i = 0; i < nodes.length; i++) {
+            if (nodes[i].nodeName == "DIV")
+                nodes[i].className = 'panel';
+        }
+
+        // Show selected panel
+        panelElm.className = 'current';
+    }
+}
+
+function uploadBegin() {
+    uploading = true;
+}
+
+function uploadComplete(path) {
+    uploading = false;
+    if (path) {
+        document.getElementById("src").value = "/Files/Others/" + path;
+        document.getElementById("type1").checked = true;
+        changeSource(1);
+    }
 }
 
 tinyMCEPopup.onInit.add(init);

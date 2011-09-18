@@ -39,19 +39,15 @@ public partial class Admin_ArticleEdit : ArticleBase
 
         txtTitle.Text = article.fdArtiTitle;
         drpType.SelectedValue = article.fdArtiType.ToString();
-        if( article.fdArtiType == 0 )
-        {
-            txtContent.Text = article.fdArtiContent;
-        }
-        else if( article.fdArtiType == 1 )
+        txtContent.Text = article.fdArtiContent;
+        if( article.fdArtiType == 1 )
         {
             repImgList.DataSource = article.PictureList;
             repImgList.DataBind();
             chkDesc.Checked = article.fdArtiPicDesc == 1 ? true : false;
         }
-        else
+        else if( article.fdArtiType == 2 )
         {
-            txtContent2.Text = article.fdArtiContent;
             repCatWalk.DataSource = article.CatWalkList;
             repCatWalk.DataBind();
             repBackStage.DataSource = article.BackStageList;
@@ -113,12 +109,7 @@ public partial class Admin_ArticleEdit : ArticleBase
         if( String.IsNullOrEmpty( txtTitle.Text ) )
             WebAgent.AlertAndBack( "标题不能为空" );
 
-        if( drpType.SelectedValue == "0" && String.IsNullOrEmpty( txtContent.Text ) )
-        {
-            WebAgent.AlertAndBack( "内容不能为空" );
-        }
-
-        if( drpType.SelectedValue == "2" && string.IsNullOrEmpty( txtContent2.Text ) )
+        if( String.IsNullOrEmpty( txtContent.Text ) )
         {
             WebAgent.AlertAndBack( "内容不能为空" );
         }
@@ -146,14 +137,7 @@ public partial class Admin_ArticleEdit : ArticleBase
         article.fdArtiPic = QF( "imgPath" ).Trim();
         article.fdArtiFrom = txtFrom.Text.Trim();
         article.fdArtiAuthor = txtAuthor.Text.Trim();
-        if( article.fdArtiType == 0 )
-        {
-            article.fdArtiContent = txtContent.Text;
-        }
-        else if( article.fdArtiType == 2 )
-        {
-            article.fdArtiContent = txtContent2.Text;
-        }
+        article.fdArtiContent = txtContent.Text;
         if( txtDesc.Text.Trim().Length > 0 )
         {
             article.fdArtiDesc = txtDesc.Text.Trim();

@@ -70,9 +70,21 @@
                 <p class="keywords">
                     来源：<%=bean.fdArtiFrom %>
                     作者：<%=bean.fdArtiAuthor%></p>
+                <div class="cs-clear weibo">
+                    <p>
+                        <a class="Article_collect" href="javascript:addFavorites();">收藏分享</a></p>
+
+                    <script type="text/javascript">
+                        var _t = encodeURI(document.title);
+                        var _url = encodeURIComponent(document.location);
+                        document.write("<p><a alt=\"转播到腾讯微博\" href=\"http://v.t.qq.com/share/share.php?url=" + _url + "&title=" + _t + "\" target=\"_blank\"><img border=\"0\" align=\"absmiddle\" alt=\"转播到腾讯微博\" src=\"/img/weibo_qq24.png\"></a></p>");
+                        document.write("<p><a alt=\"转播到新浪微博\" href=\"http://service.weibo.com/share/share.php?url=" + _url + "&title=" + _t + "\" target=\"_blank\"><img border=\"0\" align=\"absmiddle\" alt=\"转播到新浪微博\" src=\"/img/weibo_sina24.gif\"></a></p>");
+                    </script>
+
+                </div>
             </div>
-            <div id="divContent1" class="ShowTime cs-clear">
-                <div class="ShowTime_pic" id="divPic">
+            <div class="ShowTime cs-clear">
+                <div class="ShowTime_pic ShowTime_pic2">
                     <%if( bean.CatWalkList.Count == 0 && bean.CloseUpList.Count == 0 && bean.BackStageList.Count == 0 && bean.FrontRowList.Count == 0 && string.IsNullOrEmpty( bean.fdArtiFlashPath ) )
                       {%>
                     <div class="Show_filmstrip">
@@ -81,11 +93,13 @@
                     <%}
                       else
                       { %>
-                    <div class="Show_filmstrip">
+                    <div class="Loading">
+                    </div>
+                    <div class="Show_filmstrip" style="display: none">
                         <a href="" class="ShowTime_link" target="_blank" id="imageShow">
                             <img src="" width="398" /></a> <a href="javascript:pre();" class="Filmstrip_L">
-                        </a><a href="javascript:next()" class="Filmstrip_R"></a><a id="imageLink" href=""
-                            class="Filmstrip_Loupe" target="_blank"></a>
+                            </a><a href="javascript:next()" class="Filmstrip_R"></a><a id="imageLink" href=""
+                                class="Filmstrip_Loupe" target="_blank"></a>
                     </div>
                     <div class="Article_picpage ">
                         <div class="Pic_Page Pic_PageL cs-clear">
@@ -103,49 +117,41 @@
                     </div>
                     <%} %>
                 </div>
-                <div class="ShowTime_intro">
-                    <div class="Article_content">
-                        <%=bean.fdArtiContent %>
-                    </div>
-                    <a class="Article_collect" href="javascript:addFavorites();">收藏分享</a>
-                </div>
             </div>
-            <div id="divContent2" class="ShowTime cs-clear" style="display: none">
-                <div class="ShowTime_intro ShowV_intro">
-                    <div class="Article_content">
-                        <%=bean.fdArtiFlashDesc %>
-                    </div>
-                    <div class="cs-clear">
-                        <a class="Article_collect cs-fl" href="javascript:addFavorites();">收藏分享</a>
-                    </div>
-                </div>
-            </div>
+            <style>
+                .PhoGal_mod{border:#b5b5b6 solid 5px;padding:6px;margin:10px 0 20px;width:;}
+            </style>
             <div class="Pho_Gallery">
                 <div class="Pho_Gallery_tab">
                     <div class="PhoG_Tabtit">
+                        <%if( !string.IsNullOrEmpty( bean.fdArtiContent.Trim() ) )
+                          { %>
+                        <p name="p1">
+                            现场报道</p>
+                        <%} %>
                         <%if( bean.CatWalkList.Count > 0 )
                           {%>
-                        <p id="p1">
+                        <p name="p2">
                             T台风云</p>
                         <%} %>
                         <%if( bean.CloseUpList.Count > 0 )
                           {%>
-                        <p id="p2">
+                        <p name="p2">
                             细节鉴赏</p>
                         <%} %>
                         <%if( bean.BackStageList.Count > 0 )
                           {%>
-                        <p id="p3">
+                        <p name="p2">
                             幕后花絮</p>
                         <%} %>
                         <%if( bean.FrontRowList.Count > 0 )
                           {%>
-                        <p id="p4">
+                        <p name="p2">
                             前排观景</p>
                         <%} %>
                         <%if( !string.IsNullOrEmpty( bean.fdArtiFlashPath ) )
                           {%>
-                        <p id="p5">
+                        <p name="p1">
                             视频直击</p>
                         <%} %>
                     </div>
@@ -158,9 +164,19 @@
                     </div>
                     <%} %>
                     <div class="PhoGal_mod">
+                        <%if( !string.IsNullOrEmpty( bean.fdArtiContent.Trim() ) )
+                          { %>
+                        <div class="PhoGal_list PhoGal_list2 cs-clear">
+                            <div class="PhoGal_list_article">
+                                <div class="Article_content">
+                                    <%=bean.fdArtiContent%>
+                                </div>
+                            </div>
+                        </div>
+                        <%} %>
                         <%if( bean.CatWalkList.Count > 0 )
                           {%>
-                        <div id="d1" class="PhoGal_list PhoGal_list2 cs-clear">
+                        <div class="PhoGal_list PhoGal_list2 cs-clear">
                             <asp:Repeater ID="repCatWalk" runat="server">
                                 <ItemTemplate>
                                     <a href="javascript:setPic(<%#Container.ItemIndex %>)">
@@ -171,7 +187,7 @@
                         <%} %>
                         <%if( bean.CloseUpList.Count > 0 )
                           {%>
-                        <div id="d2" class="PhoGal_list PhoGal_list2 cs-clear">
+                        <div class="PhoGal_list PhoGal_list2 cs-clear">
                             <asp:Repeater ID="repCloseUp" runat="server">
                                 <ItemTemplate>
                                     <a href="javascript:setPic(<%#Container.ItemIndex %>)">
@@ -182,7 +198,7 @@
                         <%} %>
                         <%if( bean.BackStageList.Count > 0 )
                           {%>
-                        <div id="d3" class="PhoGal_list PhoGal_list2 cs-clear">
+                        <div class="PhoGal_list PhoGal_list2 cs-clear">
                             <asp:Repeater ID="repBackStage" runat="server">
                                 <ItemTemplate>
                                     <a href="javascript:setPic(<%#Container.ItemIndex %>)">
@@ -193,7 +209,7 @@
                         <%} %>
                         <%if( bean.FrontRowList.Count > 0 )
                           {%>
-                        <div id="d4" class="PhoGal_list PhoGal_list2 cs-clear">
+                        <div class="PhoGal_list PhoGal_list2 cs-clear">
                             <asp:Repeater ID="repFrontRow" runat="server">
                                 <ItemTemplate>
                                     <a href="javascript:setPic(<%#Container.ItemIndex %>)">
@@ -204,7 +220,7 @@
                         <%} %>
                         <%if( !string.IsNullOrEmpty( bean.fdArtiFlashPath ) )
                           {%>
-                        <div id="d5" class="PhoGal_list PhoGal_list2 MvGal_list cs-clear">
+                        <div class="PhoGal_list PhoGal_list2 MvGal_list cs-clear">
                             <div class="FLVPlayer_mod">
                                 <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
                                     width="660" height="440" id="FLVPlayer">
@@ -217,6 +233,11 @@
                                         quality="high" scale="noscale" width="660" height="440" name="FLVPlayer" salign="LT"
                                         type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
                                 </object>
+                            </div>
+                            <div class="PhoGal_list_article">
+                                <div class="Article_content">
+                                    <%=bean.fdArtiFlashDesc.Replace( "\r\n", "<br />" )%>
+                                </div>
                             </div>
                         </div>
                         <%} %>
@@ -330,25 +351,25 @@
 
     <script type="text/javascript">
         var current = 0;
+        var tabIndex = 0;
         var tabTitle = ".Pho_Gallery_tab .PhoG_Tabtit p";
         var tabContent = ".Pho_Gallery_tab .PhoGal_mod .PhoGal_list";
         function setPic(index) {
             if (index >= 0) {
                 current = index;
             }
-            var index = $(tabTitle).index($(tabTitle + "[class='on']"));
-            var image = $(tabContent).eq(index).find("a").eq(current).find("img");
-            $(tabContent).eq(index).find("a").removeClass("Pho_on");
-            $(tabContent).eq(index).find("a").eq(current).addClass("Pho_on");
+            var image = $(tabContent).eq(tabIndex).find("a").eq(current).find("img");
+            $(tabContent).eq(tabIndex).find("a").removeClass("Pho_on");
+            $(tabContent).eq(tabIndex).find("a").eq(current).addClass("Pho_on");
             $("#imageShow").attr("href", $(image).attr("src").replace("S_", ""));
             $("#imageLink").attr("href", $(image).attr("src").replace("S_", ""));
             $("#imageShow img").attr("src", $(image).attr("src"));
             $("#imagePage").val(current + 1);
-//            $(document).scrollTop($("#imageShow").offset().top);
             $("#imageShow img").load(function() {
-                $(".Filmstrip_L").css("top", ($("#imageShow img").height() - 63) / 2);
-                $(".Filmstrip_R").css("top", ($("#imageShow img").height() - 63) / 2);
-                $(".Filmstrip_Loupe").css("top", ($("#imageShow img").height() - 29) / 2);
+                var Height = $("#imageShow img").height() + 2;
+                $(".Filmstrip_L").height(Height);
+                $(".Filmstrip_R").height(Height);
+                $(".Filmstrip_Loupe").height(Height);
             });
         }
         function pre() {
@@ -360,8 +381,7 @@
             setPic(current);
         }
         function next() {
-            var index = $(tabTitle).index($(tabTitle + "[class='on']"));
-            var count = $(tabContent).eq(index).find("a").length;
+            var count = $(tabContent).eq(tabIndex).find("a").length;
             if (current == count - 1) {
                 alert("已经是最后一张图片！");
                 return;
@@ -375,45 +395,44 @@
                 alert("页码格式错误，只能输入数字类型！");
                 return;
             }
-            var index = $(tabTitle).index($(tabTitle + "[class='on']"));
-            var count = $(tabContent).eq(index).find("a").length;
+            var count = $(tabContent).eq(tabIndex).find("a").length;
             if (pageIndex < 1) pageIndex = 1;
             if (pageIndex > count) pageIndex = count;
             setPic(pageIndex - 1);
 
         }
         $(function() {
-            if ($(tabTitle).length == 0) {
-                $("#divPic").hide();
-            } else {
+            if ($(tabTitle).length > 0) {
+                $(".Loading").hide();
+                $(".Show_filmstrip").show();
                 $(tabTitle + ":first").addClass("on");
                 $(tabContent).not(":first").hide();
-                if ($(tabTitle + ":first").attr("id") == "p5") {
-                    $("#divContent1").hide();
-                    $("#divContent2").show();
+                if ($(tabTitle + ":first").attr("name") == "p1") {
                     $("#divFolding").css("visibility", "hidden");
-                } else {
-                    var index = $(tabTitle).index($(tabTitle + "[class='on']"));
-                    var count = $(tabContent).eq(index).find("a").length;
+                    $(".Pho_Gallery_tab .PhoGal_mod").addClass("PhoGal_Report");
+                }
+
+                if ($(tabTitle + "[name='p2']").length > 0) {
+                    tabIndex = $(tabTitle).index($(tabTitle + "[name='p2']:first"));
+                    var count = $(tabContent).eq(tabIndex).find("a").length;
                     $("#imageCount").html("共" + count + "页");
                     $("#imagePage").val(1);
                     setPic();
                 }
+
                 if ($(tabTitle).length > 1) {
                     $(tabTitle).bind("click", function() {
                         $(this).siblings("p").removeClass("on").end().addClass("on");
                         var index = $(tabTitle).index($(this));
                         $(tabContent).eq(index).siblings(tabContent).hide().end().fadeIn(0);
-                        if ($(this).attr("id") == "p5") {
-                            $("#divContent1").hide();
-                            $("#divContent2").show();
+                        if ($(this).attr("name") == "p1") {
                             $("#divFolding").css("visibility", "hidden");
-                            $(document).scrollTop($(this).offset().top);
+                            $(".Pho_Gallery_tab .PhoGal_mod").addClass("PhoGal_Report");
                         } else {
-                            $("#divContent1").show();
-                            $("#divContent2").hide();
+                            tabIndex = index;
                             $("#divFolding").css("visibility", "visible");
-                            var count = $(tabContent).eq(index).find("a").length;
+                            $(".Pho_Gallery_tab .PhoGal_mod").removeClass("PhoGal_Report");
+                            var count = $(tabContent).eq(tabIndex).find("a").length;
                             $("#imageCount").html("共" + count + "页");
                             $("#imagePage").val(1);
                             setPic();

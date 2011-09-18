@@ -12,13 +12,14 @@
                 <h3>
                     <strong><a href="<%#Eval("fdNaviLink") %>">
                         <%#Eval("fdNaviTitle") %></a></strong></h3>
-                <p>
+                <p class="cs-clear">
                     <asp:Repeater runat="server" DataSource='<%#Eval("Children") %>'>
                         <ItemTemplate>
                             <span><a href="<%#Eval("fdNaviLink") %>">
                                 <%#Eval("fdNaviTitle") %></a></span>
                         </ItemTemplate>
                     </asp:Repeater>
+                </p>
             </div>
         </ItemTemplate>
     </asp:Repeater>

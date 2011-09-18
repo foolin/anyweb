@@ -83,6 +83,11 @@ namespace Uploader
                         fileUploader.maxiSize = tempLong;
                 }
 
+                if( e.InitParams.Keys.Contains( "JavascriptBeginFunction" ) && !string.IsNullOrEmpty( e.InitParams[ "JavascriptBeginFunction" ] ) )
+                {
+                    fileUploader.javascriptBeginFunction = e.InitParams[ "JavascriptBeginFunction" ];
+                }
+
                 this.RootVisual = fileUploader;
             }
             else
@@ -118,6 +123,11 @@ namespace Uploader
                 {
                     if( long.TryParse( e.InitParams[ "MaxSizeToUpload" ], out tempLong ) && tempLong > 0 )
                         fileUploader.maxiSize = tempLong;
+                }
+
+                if( e.InitParams.Keys.Contains( "JavascriptBeginFunction" ) && !string.IsNullOrEmpty( e.InitParams[ "JavascriptBeginFunction" ] ) )
+                {
+                    fileUploader.javascriptBeginFunction = e.InitParams[ "JavascriptBeginFunction" ];
                 }
 
                 this.RootVisual = fileUploader;

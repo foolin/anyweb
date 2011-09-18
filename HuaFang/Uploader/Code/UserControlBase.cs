@@ -75,6 +75,14 @@ namespace AnyWell.Uploader
             set;
         }
         /// <summary>
+        /// 任务开始调用JS方法
+        /// </summary>
+        public string javascriptBeginFunction
+        {
+            get;
+            set;
+        }
+        /// <summary>
         /// 单个任务完成调用JS方法
         /// </summary>
         public string javascriptSingleCompleteFunction
@@ -171,6 +179,23 @@ namespace AnyWell.Uploader
                 try
                 {
                     HtmlPage.Window.Eval( string.Format( "{0}('{1}')", javascriptSingleCompleteFunction, bean.newName ) );
+                }
+                catch
+                {
+                }
+            }
+        }
+
+        /// <summary>
+        /// 任务开始调用JS方法
+        /// </summary>
+        protected virtual void beginFuntion()
+        {
+            if( !string.IsNullOrEmpty( javascriptBeginFunction ) )
+            {
+                try
+                {
+                    HtmlPage.Window.Eval( string.Format( "{0}()", javascriptBeginFunction ) );
                 }
                 catch
                 {

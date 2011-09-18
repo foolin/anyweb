@@ -1,20 +1,23 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ArticleListSkin1.ascx.cs"
     Inherits="Controls_ArticleListSkin1" %>
 <div class="g_360 cs-fl">
-    <asp:Repeater ID="rep1" runat="server">
-        <ItemTemplate>
-            <a href="<%#Eval("fdArtiPath") %>" class="PicBlack_mod">
-                <img src="<%#Eval("fdArtiPic") %>" />
-                <div class="PicBlack_tit">
-                    <h2>
-                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 30, false )%></h2>
-                    <p>
-                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 40, false )%></p>
-                    <span class="Pic_point"></span>
-                </div>
-            </a>
-        </ItemTemplate>
-    </asp:Repeater>
+    <div class="PicBlack_mod">
+        <asp:Repeater ID="rep1" runat="server">
+            <ItemTemplate>
+                <a href="<%#Eval("fdArtiPath") %>" class="PicBlack_a">
+                    <img src="<%#Eval("fdArtiPic") %>" />
+                    <div class="PicBlack_tit">
+                        <h2>
+                            <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 30, false )%></h2>
+                        <p>
+                            <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 40, false )%></p>
+                        <span class="Pic_point"></span>
+                    </div>
+                </a>
+            </ItemTemplate>
+        </asp:Repeater>
+        <a href="/c/123.aspx" class="More-mod">more</a>
+    </div>
 </div>
 <div class="g_360 cs-fr">
     <div class="Hotnews_minor Hotnews_minor2">
@@ -26,4 +29,5 @@
             </ItemTemplate>
         </asp:Repeater>
     </div>
+    <a href="/c/<%=columnID %>.aspx" class="More-mod More-item">more</a>
 </div>

@@ -26,21 +26,23 @@
             </div>
             <div class="cs-section Column_sec1">
                 <div class="g_360 cs-fl">
-                    <asp:Repeater ID="rep1" runat="server">
-                        <ItemTemplate>
-                            <a href="<%#Eval("fdArtiPath") %>" class="PicBlack_mod">
-                                <img src="<%#Eval("fdArtiPic") %>" />
-                                <div class="PicBlack_tit">
-                                    <h2>
-                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 28, false )%></h2>
-                                    <p>
-                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 30, false )%>
-                                    </p>
-                                    <span class="Pic_point"></span>
-                                </div>
-                            </a>
-                        </ItemTemplate>
-                    </asp:Repeater>
+                    <div class="PicBlack_mod">
+                        <asp:Repeater ID="rep1" runat="server">
+                            <ItemTemplate>
+                                <a href="<%#Eval("fdArtiPath") %>" class="PicBlack_a">
+                                    <img src="<%#Eval("fdArtiPic") %>" />
+                                    <div class="PicBlack_tit">
+                                        <h2>
+                                            <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 28, false )%></h2>
+                                        <p>
+                                            <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 30, false )%>
+                                        </p>
+                                        <span class="Pic_point"></span>
+                                    </div>
+                                </a>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
                 </div>
                 <div class="g_360 cs-fr">
                     <div class="Hotnews_minor Hotnews_minor2">
@@ -75,7 +77,7 @@
                     <p class="List_order_tit cs-fl">
                         1-5项</p>
                     <div class="Pagination cs-fr">
-                        <AW:Pager ID="PN1" runat="server" StyleID="6" PageSize="15">
+                        <AW:Pager ID="PN1" runat="server" StyleID="7" PageSize="15">
                         </AW:Pager>
                     </div>
                 </div>
@@ -149,7 +151,7 @@
                 </asp:Repeater>
                 <div class="OtherHot-pag">
                     <div class="Pagination cs-fr">
-                        <AW:Pager ID="PN2" runat="server" StyleID="6" PageSize="15">
+                        <AW:Pager ID="PN2" runat="server" StyleID="7" PageSize="15">
                         </AW:Pager>
                     </div>
                 </div>

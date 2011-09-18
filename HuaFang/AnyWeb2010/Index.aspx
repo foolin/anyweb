@@ -62,20 +62,23 @@
                                 BRAND<span>NEWS</span></p>
                         </h2>
                     </div>
-                    <AW:ArticleList runat="server" TopCount="1" GetChild="true" ColumnID="123">
-                        <ItemTemplate>
-                            <a href="<%#Eval("fdArtiPath") %>" class="PicBlack_mod">
-                                <img src="<%#Eval("fdArtiPic") %>" />
-                                <div class="PicBlack_tit">
-                                    <h2>
-                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 30, false )%></h2>
-                                    <p>
-                                        <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 40, false )%></p>
-                                    <span class="Pic_point"></span>
-                                </div>
-                            </a>
-                        </ItemTemplate>
-                    </AW:ArticleList>
+                    <div class="PicBlack_mod">
+                        <AW:ArticleList runat="server" TopCount="1" GetChild="true" ColumnID="123">
+                            <ItemTemplate>
+                                <a href="<%#Eval("fdArtiPath") %>" class="PicBlack_a">
+                                    <img src="<%#Eval("fdArtiPic") %>" />
+                                    <div class="PicBlack_tit">
+                                        <h2>
+                                            <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 30, false )%></h2>
+                                        <p>
+                                            <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 40, false )%></p>
+                                        <span class="Pic_point"></span>
+                                    </div>
+                                </a>
+                            </ItemTemplate>
+                        </AW:ArticleList>
+                        <a href="/c/123.aspx" class="More-mod">more</a>
+                    </div>
                 </div>
                 <div class="g_360 cs-fr">
                     <div class="title-bar">
@@ -95,6 +98,7 @@
                             </ItemTemplate>
                         </asp:Repeater>
                     </div>
+                    <a href="/c/125.aspx" class="More-mod More-item">more</a>
                 </div>
             </div>
             <div class="cs-section Index_sec2">
@@ -116,6 +120,7 @@
                             </ItemTemplate>
                         </asp:Repeater>
                     </div>
+                    <a href="/c/126.aspx" class="More-mod More-item">more</a>
                     <div class="title-bar title-bar2">
                         <h2 class="cs-clear">
                             <p class="title-ch cs-fl">
@@ -140,33 +145,56 @@
                                 TREND<span>S</span></p>
                         </h2>
                     </div>
-                    <div class="PicBlack_Roll">
-                        <div class="PicB_win">
-                            <div class="PicBReel cs-clear">
-                                <asp:Repeater ID="repFashion" runat="server">
-                                    <ItemTemplate>
-                                        <a class="PicBlack_mod2" href="<%#Eval("fdArtiPath") %>">
-                                            <img src="<%#Eval("fdArtiPic") %>" class="nobor" />
-                                            <div class="PicBlack_tit PicBlack_tit2">
-                                                <h2>
-                                                    <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 30, false )%></h2>
-                                                <p>
-                                                    <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 65, false )%></p>
+                    <div id="bannerBox" class="PicBlack_Roll">
+                        <div class="banner">
+                            <div id="slides" class="PicB_win">
+                                <div class="slides_container PicBReel cs-clear">
+                                    <asp:Repeater ID="repFashion" runat="server">
+                                        <ItemTemplate>
+                                            <div>
+                                                <a class="PicBlack_mod2" href="<%#Eval("fdArtiPath") %>">
+                                                    <img src="<%#Eval("fdArtiPic") %>" class="nobor" />
+                                                    <div class="PicBlack_tit PicBlack_tit2">
+                                                        <h2>
+                                                            <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 30, false )%></h2>
+                                                        <p>
+                                                            <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 65, false )%></p>
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </a>
-                                    </ItemTemplate>
-                                </asp:Repeater>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </div>
                             </div>
                         </div>
-                        <ul class="PicBlack_tab cs-clear">
-                            <asp:Repeater ID="repFashionButton" runat="server">
-                                <ItemTemplate>
-                                    <li <%#Container.ItemIndex==0?"class=\"active\"":"" %> href="" rel="<%#Container.ItemIndex+1 %>">
-                                    </li>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                        </ul>
                     </div>
+
+                    <script type="text/javascript">
+                        $(function() {
+                            $('#slides').slides({
+                                preload: true,
+                                preloadImage: 'img/loading.gif',
+                                play: 3000,
+                                pause: 2500,
+                                hoverPause: true,
+                                animationStart: function() {
+                                    $('.caption').animate({
+                                        bottom: -35
+                                    }, 100);
+                                },
+                                animationComplete: function(current) {
+                                    $('.caption').animate({
+                                        bottom: 0
+                                    }, 200);
+                                    if (window.console && console.log) {
+                                        // example return of current slide number
+                                        console.log(current);
+                                    };
+                                }
+                            });
+                        });
+                    </script>
+
                 </div>
             </div>
             <div class="title-bar">
@@ -219,6 +247,7 @@
                             <button class="btn-simple btn-simple2" onclick="search();">
                                 搜索</button></p>
                     </div>
+                    <a href="/c/124.aspx" class="More-mod More-item">more</a>
                 </div>
             </div>
             <div class="title-bar">
@@ -230,34 +259,37 @@
                 </h2>
             </div>
             <div class="cs-section Index_sec4">
-                <div class="g_360 cs-fl">
-                    <asp:Repeater ID="repFashionLife1" runat="server">
-                        <ItemTemplate>
-                            <a href="<%#Eval("fdArtiPath") %>" class="cs-fl">
-                                <img class="nobor" width="180" height="280" src="<%#Eval("fdArtiPic") %>"></a>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </div>
-                <div class="g_360 cs-fr">
-                    <ul class="list-disc">
-                        <asp:Repeater ID="repFashionLife2" runat="server">
+                <div class="cs-clear">
+                    <div class="g_360 cs-fl">
+                        <asp:Repeater ID="repFashionLife1" runat="server">
                             <ItemTemplate>
-                                <li><a href="<%#Eval("fdArtiPath") %>">
-                                    <%#Eval( "fdArtiTitle" )%></a></li>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </ul>
-                    <div class="Index_piclist cs-clear">
-                        <asp:Repeater ID="repFashionLife3" runat="server">
-                            <ItemTemplate>
-                                <a href="<%#Eval("fdArtiPath") %>">
-                                    <img class="nobor" src="<%#Eval("fdArtiPic") %>" />
-                                    <strong>
-                                        <%#Eval( "fdArtiTitle" )%></strong> </a>
+                                <a href="<%#Eval("fdArtiPath") %>" class="cs-fl">
+                                    <img class="nobor" width="180" height="280" src="<%#Eval("fdArtiPic") %>"></a>
                             </ItemTemplate>
                         </asp:Repeater>
                     </div>
+                    <div class="g_360 cs-fr">
+                        <ul class="list-disc">
+                            <asp:Repeater ID="repFashionLife2" runat="server">
+                                <ItemTemplate>
+                                    <li><a href="<%#Eval("fdArtiPath") %>">
+                                        <%#Eval( "fdArtiTitle" )%></a></li>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </ul>
+                        <div class="Index_piclist cs-clear">
+                            <asp:Repeater ID="repFashionLife3" runat="server">
+                                <ItemTemplate>
+                                    <a href="<%#Eval("fdArtiPath") %>">
+                                        <img class="nobor" src="<%#Eval("fdArtiPic") %>" />
+                                        <strong>
+                                            <%#Eval( "fdArtiTitle" )%></strong> </a>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                    </div>
                 </div>
+                <a href="/c/127.aspx" class="More-mod More-item More-item-bottom">more</a>
             </div>
         </div>
         <div class="g_192">

@@ -86,6 +86,11 @@ namespace AnyWell.AW_UC
                             RendNavigator6( writer );
                             break;
                         }
+                    case 7:
+                        {
+                            RendNavigator7( writer );
+                            break;
+                        }
                     default:
                         {
                             RendNavigator1(writer);
@@ -229,6 +234,32 @@ namespace AnyWell.AW_UC
             writer.Write( "<a class=\"Pagination_R\" {0}></a>", PageID < pages ? String.Format( "href='{0}' title='下一页'", GetPageUrl( PageID + 1 ) ) : "disabled" );
             writer.Write( "<span>共{0}页</span><span class=\"Pagination-nopa\">/</span>", pages );
             writer.Write( "<span class=\"Pagination-nopa\">第<input type=\"text\" class=\"ipt-simple\" value=\"{0}\">页</span><button class=\"btn-simple btn-simple2\" onclick=\"javascript:GoToPage('" + UrlPrefix + "' , this.parentNode.children[4].children[0].value);\">GO</button>", PageID );
+        }
+
+        void RendNavigator7( HtmlTextWriter writer )
+        {
+            int begin = PageID > 4 ? PageID > PageCount - 3 ? PageCount - 5 <= 1 ? 2 : PageCount - 5 : PageID - 2 : 2, end = begin == 2 ? PageCount > 6 ? 6 : PageCount - 1 : PageID < PageCount - 3 ? PageID + 2 : PageCount - 1;
+            writer.Write( "<a class=\"Pagination_L\" {0}></a>", PageID > 1 ? String.Format( "href='{0}' title='上一页'", GetPageUrl( PageID - 1 ) ) : "disabled" );
+            writer.Write( "<a href=\"{0}\" {1}>1</a>", GetPageUrl( 1 ), PageID == 1 ? "class=\"on\"" : "" );
+
+            if( begin > 2 )
+            {
+                writer.Write( "<span>...</span>" );
+            }
+            if( begin != end )
+            {
+                for( int i = begin; i <= end; i++ )
+                {
+                    writer.Write( "<a href=\"{0}\" {1}>{2}</a>", GetPageUrl( i ), PageID == i ? "class=\"on\"" : "", i );
+                }
+            }
+            if( end < PageCount - 1 )
+            {
+                writer.Write( "<span>...</span>" );
+            }
+            writer.Write( "<a href=\"{0}\" {1}>{2}</a>", GetPageUrl( PageCount ), PageID == PageCount ? "class=\"on\"" : "", PageCount );
+            writer.Write( "<a class=\"Pagination_R\" {0}></a>", PageID < PageCount ? String.Format( "href='{0}' title='下一页'", GetPageUrl( PageID + 1 ) ) : "disabled" );
+            writer.Write( "<span class=\"Pagination-nopa\">第<input type=\"text\" class=\"ipt-simple\" value=\"{0}\">页</span><a class=\"btn-simple btn-simple2\" href=\"javascript:void(0);\" onclick=\"javascript:GoToPage('" + UrlPrefix + "' , this.previousSibling.children[0].value);\">GO</a>", PageID );
         }
 
         #region Attributes

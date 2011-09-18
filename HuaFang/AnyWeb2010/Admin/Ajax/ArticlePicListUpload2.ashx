@@ -31,17 +31,18 @@ public class ArticlePicListUpload2 : IHttpHandler
 
     void fileUpload_FileUploadCompleted( object sender, FileUploadCompletedEventArgs args )
     {
-        int ThumbWidth = 460, ThumbHeight = 716;
+        int ThumbWidth = 460, maxThumbWidth = 670, ThumbHeight = 716;
         string filePath = Path.Combine( args.FilePath, args.FileName );
         string ThumbPath = Path.Combine( args.FilePath, "S_" + args.FileName );
 
         ImageWaterMark wm = new ImageWaterMark();
+        wm.MiniatureMaxImageWidth = maxThumbWidth;
         switch( GeneralConfigs.GetConfig().ImageWatermarkType )
         {
             case 0:
                 if( GeneralConfigs.GetConfig().ArticleImageWidth > 0 )
                 {
-                    WebAgent.MakeThumbnail( filePath, ThumbPath, ThumbWidth, ThumbHeight, "W", WebAgent.GetImageType( args.Extension ) );
+                    WebAgent.MakeThumbnail( filePath, ThumbPath, ThumbWidth, maxThumbWidth, WebAgent.GetImageType( args.Extension ) );
                 }
                 break;
             case 1:

@@ -46,7 +46,7 @@
             <p class="List_order_tit List_order_tit2 cs-fl">
                 <%=cateName%></p>
             <div class="Pagination cs-fr">
-                <AW:Pager ID="PN1" runat="server" StyleID="6" PageSize="28">
+                <AW:Pager ID="PN1" runat="server" StyleID="7" PageSize="28">
                 </AW:Pager>
             </div>
         </div>
@@ -64,7 +64,7 @@
         </div>
         <div class="PageTurning cs-clear">
             <div class="Pagination cs-fr">
-                <AW:Pager ID="PN2" runat="server" StyleID="6" PageSize="28">
+                <AW:Pager ID="PN2" runat="server" StyleID="7" PageSize="28">
                 </AW:Pager>
             </div>
         </div>

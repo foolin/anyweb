@@ -10,7 +10,7 @@ if (url = tinyMCEPopup.getParam("media_external_list_url"))
 
 function init() {
 	var pl = "", f, val;
-	var type = "flaAW", fe, i;
+	var type = "flv", fe, i;
 
 	ed = tinyMCEPopup.editor;
 
@@ -72,7 +72,7 @@ function init() {
 		pl = tinyMCEPopup.editor.plugins.media._parse(pl);
 
 		switch (type) {
-			case "flash":
+		    case "flaAW":
 				setBool(pl, 'flash', 'play');
 				setBool(pl, 'flash', 'loop');
 				setBool(pl, 'flash', 'menu');
@@ -244,7 +244,7 @@ function insertMedia() {
 	fe = ed.selection.getNode();
 	if (fe != null && /mceItem(Flash|ShockWave|WindowsMedia|QuickTime|RealMedia)/.test(ed.dom.getAttrib(fe, 'class'))) {
 		switch (f.media_type.options[f.media_type.selectedIndex].value) {
-			case "flash":
+		    case "flaAW":
 				fe.className = "mceItemFlash";
 				break;
 
@@ -282,7 +282,7 @@ function insertMedia() {
 		h = '<img src="/img/trans.gif"' ;
 
 		switch (f.media_type.options[f.media_type.selectedIndex].value) {
-			case "flash":
+		    case "flaAW":
 				h += ' class="mceItemFlash"';
 				break;
 
@@ -405,7 +405,6 @@ function changedType(t) {
 	var d = document;
 
 	d.getElementById('flaAW_options').style.display = 'none';
-	d.getElementById('flv_options').style.display = 'none';
 	d.getElementById('qt_options').style.display = 'none';
 	d.getElementById('shockwave_options').style.display = 'none';
 	d.getElementById('wmp_options').style.display = 'none';
@@ -419,17 +418,17 @@ function serializeParameters() {
 	var d = document, f = d.forms[0], s = '';
 
 	switch (f.media_type.options[f.media_type.selectedIndex].value) {
-		case "flash":
-			s += getBool('flash', 'play', true);
-			s += getBool('flash', 'loop', true);
-			s += getBool('flash', 'menu', true);
-			s += getBool('flash', 'swliveconnect', false);
-			s += getStr('flash', 'quality');
-			s += getStr('flash', 'scale');
-			s += getStr('flash', 'salign');
-			s += getStr('flash', 'wmode');
-			s += getStr('flash', 'base');
-			s += getStr('flash', 'flashvars');
+	    case "flaAW":
+	        s += getBool('flaAW', 'play', true);
+	        s += getBool('flaAW', 'loop', true);
+	        s += getBool('flaAW', 'menu', true);
+	        s += getBool('flaAW', 'swliveconnect', false);
+	        s += getStr('flaAW', 'quality');
+	        s += getStr('flaAW', 'scale');
+	        s += getStr('flaAW', 'salign');
+	        s += getStr('flaAW', 'wmode');
+	        s += getStr('flaAW', 'base');
+	        s += getStr('flaAW', 'flashvars');
 		break;
 
 		case "qt":
@@ -570,6 +569,10 @@ function jsEncode(s) {
 }
 
 function generatePreview(c) {
+    if (f.media_type.options[f.media_type.selectedIndex].value == "flv") {
+        return;
+    }
+    
 	var f = document.forms[0], p = document.getElementById('prev'), h = '', cls, pl, n, type, codebase, wp, hp, nw, nh;
 
 	p.innerHTML = '<!-- x --->';

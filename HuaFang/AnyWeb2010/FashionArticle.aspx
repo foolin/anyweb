@@ -155,14 +155,11 @@
                             视频直击</p>
                         <%} %>
                     </div>
-                    <%if( bean.CatWalkList.Count > 0 || bean.CloseUpList.Count > 0 || bean.BackStageList.Count > 0 || bean.FrontRowList.Count > 0 )
-                      { %>
                     <div class="cs-clear" id="divFolding">
                         <a href="javascript:void(0);" class="btn-simple btn-simple1 Unfold" style="">图片展开</a>
                         <a href="javascript:void(0);" class="btn-simple btn-simple1 Packup" style="display: none">
                             图片收起</a>
                     </div>
-                    <%} %>
                     <div class="PhoGal_mod">
                         <%if( !string.IsNullOrEmpty( bean.fdArtiContent.Trim() ) )
                           { %>

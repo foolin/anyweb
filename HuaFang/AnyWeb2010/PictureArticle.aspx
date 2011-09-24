@@ -56,9 +56,9 @@
                             </div>
                             <div class="Show_filmstrip" style="display: none">
                                 <a class="ShowTime_link" href="" id="imageShow" target="_blank">
-                                    <img src=""></a> <a class="Filmstrip_L" href="javascript:pre();">
-                                </a><a class="Filmstrip_R" href="javascript:next();"></a><a id="imageLink" class="Filmstrip_Loupe"
-                                    href="" target="_blank"></a>
+                                    <img src=""></a> <a class="Filmstrip_L" href="javascript:pre();"></a><a class="Filmstrip_R"
+                                        href="javascript:next();"></a><a id="imageLink" class="Filmstrip_Loupe" href="" target="_blank">
+                                        </a>
                             </div>
                             <div class="ArticlePic_con cs-clear">
                                 <div class="ArticlePic_all" id="imageContent">
@@ -75,15 +75,16 @@
                         <style>
                             .PhoGal_con
                             {
-                                width: <%=bean.PictureList.Count*110%>px;
+                                width: <%=bean.PictureList.Count*106+20%>px;
                             }
                         </style>
                         <div class="Pho_Gallery">
                             <div class="Pho_Gal_hd cs-clear">
-                                <a style="display: block;" class="Unfold" href="javascript:void(0);">展开图片列表</a>
-                                <a style="display: none;" class="Packup" href="javascript:void(0);">收起图片列表</a>
+                                <a style="display: block;" class="btn-simple btn-simple1 Unfold" href="javascript:void(0);">
+                                    展开图片列表</a> <a style="display: none;" class="btn-simple btn-simple1 Packup" href="javascript:void(0);">
+                                        收起图片列表</a>
                             </div>
-                            <div class="PhoGal_mod">
+                            <div class="PhoGal_mod PhoGal_mod_2">
                                 <div class="PhoGal_list cs-clear">
                                     <div class="PhoGal_con cs-clear">
                                         <asp:Repeater ID="repPicList" runat="server">

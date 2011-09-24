@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
-    CodeFile="SiteInfo.aspx.cs" Inherits="SiteInfo" %>
+    CodeFile="SiteInfo.aspx.cs" Inherits="Asp_SiteInfo" %>
 
 <%@ Register Src="~/Controls/TagList.ascx" TagName="TagList" TagPrefix="uc1" %>
 <%@ Register Src="~/Controls/Search.ascx" TagName="Search" TagPrefix="uc1" %>

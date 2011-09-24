@@ -42,11 +42,11 @@
                         <td>
                             <select id="media_type" name="media_type" onchange="changedType(this.value);generatePreview();">
                                 <!--<option value="flaAW">Flash</option>-->
-                                 <!--<option value="flv">Flash video (FLV)</option>--> 
-                                <option value="qt">Quicktime</option>
+                                <option value="flv">Flash video (FLV)</option> 
+                                <!--<option value="qt">Quicktime</option>
                                 <option value="shockwave">Shockwave</option>
                                 <option value="wmp">Windows Media</option>
-                                <option value="rmp">Real Media</option>
+                                <option value="rmp">Real Media</option>-->
                             </select>
                         </td>
                     </tr>
@@ -105,7 +105,7 @@
                                             <param name="background" value="white" />
                                             <param name="minRuntimeVersion" value="3.0.40624.0" />
                                             <param name="autoUpgrade" value="true" />
-                                            <param name="initParams" value="UploaderID=MediaUploader,UploadPage=/Admin/Ajax/editerMediaUpload.ashx,UploadChunkSize=102400,FilePath=/Files/Others/,Multiselect=False,Filter=Flash (*.swf;*.flv)|*.swf;*.flv,JavascriptBeginFunction=uploadBegin,JavascriptCompleteFunction=uploadComplete" />
+                                            <param name="initParams" value="UploaderID=MediaUploader,UploadPage=/Admin/Ajax/editerMediaUpload.ashx,UploadChunkSize=102400,FilePath=/Files/Others/,Multiselect=False,Filter=Flash (*.swf;*.flv;*.rm)|*.swf;*.flv;*.rm,JavascriptBeginFunction=uploadBegin,JavascriptCompleteFunction=uploadComplete" />
                                             <a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=3.0.40624.0" style="text-decoration: none;">
                                                 <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="获取 Microsoft Silverlight"
                                                     style="border-style: none" /></a></object>
@@ -370,154 +370,6 @@
                         </td>
                         <td>
                             <input type="text" id="flaAW_flashvars" name="flaAW_flashvars" onchange="generatePreview();" />
-                        </td>
-                    </tr>
-                </table>
-            </fieldset>
-            <fieldset id="flv_options">
-                <legend>{#media_dlg.flv_options}</legend>
-                <table border="0" cellpadding="4" cellspacing="0">
-                    <tr>
-                        <td>
-                            <label for="flv_scalemode">
-                                {#media_dlg.flv_scalemode}</label>
-                        </td>
-                        <td>
-                            <select id="flv_scalemode" name="flv_scalemode" onchange="generatePreview();">
-                                <option value="">{#not_set}</option>
-                                <option value="none">none</option>
-                                <option value="double">double</option>
-                                <option value="full">full</option>
-                            </select>
-                        </td>
-                        <td>
-                            <label for="flv_buffer">
-                                {#media_dlg.flv_buffer}</label>
-                        </td>
-                        <td>
-                            <input type="text" id="flv_buffer" name="flv_buffer" onchange="generatePreview();" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="flv_startimage">
-                                {#media_dlg.flv_startimage}</label>
-                        </td>
-                        <td>
-                            <input type="text" id="flv_startimage" name="flv_startimage" onchange="generatePreview();" />
-                        </td>
-                        <td>
-                            <label for="flv_starttime">
-                                {#media_dlg.flv_starttime}</label>
-                        </td>
-                        <td>
-                            <input type="text" id="flv_starttime" name="flv_starttime" onchange="generatePreview();" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="flv_defaultvolume">
-                                {#media_dlg.flv_defaultvolume}</label>
-                        </td>
-                        <td>
-                            <input type="text" id="flv_defaultvolume" name="flv_defaultvolume" onchange="generatePreview();" />
-                        </td>
-                        <td>
-                            <label for="flv_starttime">
-                                {#media_dlg.flv_starttime}</label>
-                        </td>
-                        <td>
-                            <input type="text" id="flv_starttime" name="flv_starttime" onchange="generatePreview();" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <table border="0" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" class="checkbox" id="flv_hiddengui" name="flv_hiddengui" checked="checked"
-                                            onchange="generatePreview();" />
-                                    </td>
-                                    <td>
-                                        <label for="flv_hiddengui">
-                                            {#media_dlg.flv_hiddengui}</label>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td colspan="2">
-                            <table border="0" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" class="checkbox" id="flv_autostart" name="flv_autostart" checked="checked"
-                                            onchange="generatePreview();" />
-                                    </td>
-                                    <td>
-                                        <label for="flv_autostart">
-                                            {#media_dlg.flv_autostart}</label>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <table border="0" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" class="checkbox" id="flv_loop" name="flv_loop" checked="checked"
-                                            onchange="generatePreview();" />
-                                    </td>
-                                    <td>
-                                        <label for="flv_loop">
-                                            {#media_dlg.flv_loop}</label>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td colspan="2">
-                            <table border="0" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" class="checkbox" id="flv_showscalemodes" name="flv_showscalemodes"
-                                            onchange="generatePreview();" />
-                                    </td>
-                                    <td>
-                                        <label for="flv_showscalemodes">
-                                            {#media_dlg.flv_showscalemodes}</label>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <table border="0" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" class="checkbox" id="flv_smoothvideo" name="flaAW_flv_flv_smoothvideosmoothvideo"
-                                            checked="checked" onchange="generatePreview();" />
-                                    </td>
-                                    <td>
-                                        <label for="flv_smoothvideo">
-                                            {#media_dlg.flv_smoothvideo}</label>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td colspan="2">
-                            <table border="0" cellpadding="0" cellspacing="0">
-                                <tr>
-                                    <td>
-                                        <input type="checkbox" class="checkbox" id="flv_jscallback" name="flv_jscallback"
-                                            onchange="generatePreview();" />
-                                    </td>
-                                    <td>
-                                        <label for="flv_jscallback">
-                                            {#media_dlg.flv_jscallback}</label>
-                                    </td>
-                                </tr>
-                            </table>
                         </td>
                     </tr>
                 </table>

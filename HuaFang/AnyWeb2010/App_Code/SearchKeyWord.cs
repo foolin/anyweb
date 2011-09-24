@@ -59,12 +59,39 @@ public class SearchKeyWord
         {
             return queryString;
         }
-        MatchCollection mc = Regex.Matches(searchKeyword, _keyString);
+        MatchCollection mc = Regex.Matches( searchKeyword, _keyString, RegexOptions.IgnoreCase );
         if (mc.Count > 0)
         {
             foreach (Match m in mc)
             {
                 queryString += string.Format(" OR fdArtiTitle LIKE '%{0}%'", m.Value);
+            }
+        }
+        return queryString;
+    }
+
+    /// <summary>
+    /// 品牌名人库搜索分词
+    /// </summary>
+    /// <param name="searchKeyword"></param>
+    /// <returns></returns>
+    public static string getLibraryQueryString( string searchKeyword )
+    {
+        string queryString = string.Format( "fdLibrName LIKE '%{0}%' OR fdLibrEnName LIKE '%{0}%'", searchKeyword );
+        if( string.IsNullOrEmpty( _keyString ) )
+        {
+            refresh();
+        }
+        if( string.IsNullOrEmpty( _keyString ) )
+        {
+            return queryString;
+        }
+        MatchCollection mc = Regex.Matches( searchKeyword, _keyString, RegexOptions.IgnoreCase );
+        if( mc.Count > 0 )
+        {
+            foreach( Match m in mc )
+            {
+                queryString += string.Format( " OR fdLibrName LIKE '%{0}%' OR fdLibrEnName LIKE '%{0}%'", m.Value );
             }
         }
         return queryString;

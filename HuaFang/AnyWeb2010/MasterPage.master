@@ -121,6 +121,7 @@
                                 <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
                         </ItemTemplate>
                     </asp:Repeater>
+                </ul>
             </div>
             <div class="Info-item">
                 <h4>
@@ -138,6 +139,7 @@
                                 <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
                         </ItemTemplate>
                     </asp:Repeater>
+                </ul>
             </div>
             <div class="Info-item">
                 <h4>
@@ -155,6 +157,7 @@
                                 <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
                         </ItemTemplate>
                     </asp:Repeater>
+                </ul>
             </div>
             <div class="Info-item Info-item-last">
                 <h4>
@@ -172,6 +175,7 @@
                                 <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
                         </ItemTemplate>
                     </asp:Repeater>
+                </ul>
             </div>
         </div>
     </div>

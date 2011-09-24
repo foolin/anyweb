@@ -39,7 +39,9 @@
                         W</a> <a href="/l/<%=type %>.aspx?c=23" <%=cate==23?"class=\"on\"":"" %>>X</a>
                 <a href="/l/<%=type %>.aspx?c=24" <%=cate==24?"class=\"on\"":"" %>>Y</a> <a href="/l/<%=type %>.aspx?c=25"
                     <%=cate==25?"class=\"on\"":"" %>>Z</a> <a href="/l/<%=type %>.aspx?c=26" class="PageSet-ch <%=cate==26?"on":"" %>">
-                        其他</a>
+                        其他</a> <span class="Pagination_sort">/</span> <span class="Pagination_sort">排序：</span>
+                <a href="?c=<%=cate %>" class="<%=sort==0?"on":"" %>">字母</a> <a href="?c=<%=cate %>&s=1"
+                    class="<%=sort==1?"on":"" %>">拼音</a>
             </div>
         </div>
         <div class="List_order List_order2 List_order4 cs-clear">

@@ -25,9 +25,10 @@ public partial class LibrarySearch : PageBase
         {
             keyword = keyword.Replace( "'", "''" );
         }
+        string querryString = SearchKeyWord.getLibraryQueryString( keyword );
         using( AW_Library_dao dao = new AW_Library_dao() )
         {
-            rep.DataSource = dao.funcGetLibrary( type, keyword, PN1.PageSize, PN1.PageID );
+            rep.DataSource = dao.funcGetLibrary( type, querryString, PN1.PageSize, PN1.PageID );
             rep.DataBind();
             PN1.RecordCount = PN2.RecordCount = dao.propCount;
         }

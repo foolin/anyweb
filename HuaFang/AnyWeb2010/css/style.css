@@ -345,7 +345,7 @@ button.btn-simple{height:21px;_height:22px}
 
 /*Pho_Gallery*/
 .Pho_Gallery .btn-simple1{float:right}
-.PhoGal_mod{border:#898989 solid 5px;border-width:0 5px 5px;padding:6px;margin:0px 0 20px}
+.PhoGal_mod{border:#898989 solid 5px;padding:6px;margin:0px 0 20px}
 
 .PhoGal_unfold .PhoGal_list{height:100%}
 .PhoGal_list{height:300px;overflow-y:auto}
@@ -683,13 +683,12 @@ button{cursor:pointer}
 .ArticlePic_con{position:relative;margin:10px 0 20px}
 .ArticlePic_con a{position:absolute;bottom:0;right:0}
 .ArticlePic_intro{width:620px;overflow:hidden;height:20px;}
-.ArticlePic_all{padding-bottom:24px}
 
-.Pho_Gal_hd{background:#898989;height:25px;overflow:hidden}
-.Pho_Gal_hd a{color:#fff;float:right;height:25px;line-height:25px;padding:0 28px 0 20px}
-.PhoGal_mod{width:680px;height:auto;position:relative;padding:0}
-.PhoGal_mod .PhoGal_list{width:636px;height:176px;overflow-x:auto;padding:6px 22px}
-.PhoGal_con{width:1100px}
+.Pho_Gal_hd{/*background:#898989;height:25px;overflow:hidden*/;margin-bottom:10px}
+.Pho_Gal_hd a{/*color:#fff;float:right;height:25px;line-height:25px;padding:0 28px 0 20px*/}
+.PhoGal_mod_2{width:680px;height:auto;position:relative;padding:0}
+.PhoGal_mod_2 .PhoGal_list{width:636px;height:176px;overflow-x:auto;padding:6px 22px}
+.PhoGal_con{width:1080px}
 .PhoGal-prev{background:url("../img/jcarousel-prev.gif") no-repeat center center #fff;width:20px;height:170px;display:block;position:absolute;top:0;left:0}
 .PhoGal-next{background:url("../img/jcarousel-next.gif") no-repeat center center #fff;width:20px;height:170px;display:block;position:absolute;top:0;right:0}
 .PhoGal_unfold,
@@ -699,11 +698,16 @@ button{cursor:pointer}
 .PhoGal_unfold .PhoGal_list,
 .PhoGal_Report .PhoGal_list,/*CZM*/
 .PhoGal_unfold .PhoGal_con{height:auto;width:auto}
-.Pho_Gal_hd .Unfold{background:#000 url(../img/Unfold.gif) no-repeat 100px center}
-.Pho_Gal_hd .Packup{background:#000 url(../img/Packup.gif) no-repeat 100px center}
+.Pho_Gal_hd .Unfold{/*background:#000 url(../img/Unfold.gif) no-repeat 100px center*/}
+.Pho_Gal_hd .Packup{/*background:#000 url(../img/Packup.gif) no-repeat 100px center*/}
 
 /**/
 .About-Art h1{font-size:24px;padding:30px 0 18px}
 .About-nav{border-top:#000 solid 1px;color:#000;margin-top:30px;padding:10px 0}
 .About-nav a{color:#000;padding:0 5px}
 .About-nav a:hover{color:#52bfca}
+
+.PageSet .Pagination_sort{padding:0 0 0 10px;color:#000}
+
+/**/
+.Article_content a{float:none;height:auto;width:auto}

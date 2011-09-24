@@ -162,7 +162,7 @@ namespace AnyWell.AW_DL
         {
             this.propSelect = "fdLibrID,fdLibrType,fdLibrName,fdLibrEnName,fdLibrFirLetter,fdLibrPic,fdLibrDesc,fdLibrSort";
             this.propOrder = "ORDER BY fdLibrSort DESC,fdLibrID DESC";
-            this.propWhere = string.Format( " fdLibrType={0} AND (fdLibrName LIKE '%{1}%' OR fdLibrEnName LIKE '%{1}%')", library, key );
+            this.propWhere = string.Format( " fdLibrType={0} AND ({1})", library, key );
 
             this.propPageSize = pageSize;
             this.propPage = pageIndex;
@@ -202,6 +202,40 @@ namespace AnyWell.AW_DL
             {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// 根据库名和首字母获取库列表
+        /// </summary>
+        /// <param name="library"></param>
+        /// <param name="firstLetter"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="pageIndex"></param>
+        /// <returns></returns>
+        public List<AW_Library_bean> funcGetLibrary( int library, int firstLetter, int sort, int pageSize, int pageIndex )
+        {
+            this.propSelect = "fdLibrID,fdLibrType,fdLibrName,fdLibrEnName,fdLibrFirLetter,fdLibrPic,fdLibrDesc,fdLibrSort";
+            this.propOrder = "ORDER BY fdLibrEnName ASC";
+            if( sort == 1 )
+            {
+                this.propOrder = "ORDER BY fdLibrName ASC";
+            }
+            this.propWhere = "1=1";
+            if( library > 0 )
+            {
+                this.propWhere += " AND fdLibrType=" + library;
+            }
+            if( firstLetter > -1 )
+            {
+                this.propWhere += " AND fdLibrFirLetter=" + firstLetter;
+            }
+
+            this.propPageSize = pageSize;
+            this.propPage = pageIndex;
+            this.propGetCount = true;
+
+            List<AW_Library_bean> list = this.funcGetList();
+            return list;
         }
     }
 }

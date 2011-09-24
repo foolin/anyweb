@@ -7,7 +7,7 @@ using Studio.Web;
 using AnyWell.AW_DL;
 using AnyWell.Configs;
 
-public partial class SiteInfo : PageBase
+public partial class Asp_SiteInfo : PageBase
 {
     protected void Page_Load( object sender, EventArgs e )
     {

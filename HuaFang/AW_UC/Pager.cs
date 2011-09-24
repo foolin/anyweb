@@ -253,6 +253,10 @@ namespace AnyWell.AW_UC
                     writer.Write( "<a href=\"{0}\" {1}>{2}</a>", GetPageUrl( i ), PageID == i ? "class=\"on\"" : "", i );
                 }
             }
+            else
+            {
+                writer.Write( "<a href=\"{0}\" {1}>{2}</a>", GetPageUrl( begin ), PageID == begin ? "class=\"on\"" : "", begin );
+            }
             if( end < PageCount - 1 )
             {
                 writer.Write( "<span>...</span>" );

@@ -13,7 +13,7 @@ public partial class LibraryList : PageBase
         this.Title = typeName + GeneralConfigs.GetConfig().TitleExtension;
         using( AW_Library_dao dao = new AW_Library_dao() )
         {
-            rep.DataSource = dao.funcGetLibrary( type, cate, PN1.PageSize, PN1.PageID );
+            rep.DataSource = dao.funcGetLibrary( type, cate, sort, PN1.PageSize, PN1.PageID );
             rep.DataBind();
             PN1.RecordCount = dao.propCount;
             PN2.RecordCount = dao.propCount;
@@ -61,6 +61,20 @@ public partial class LibraryList : PageBase
         set
         {
             _cate = value;
+        }
+    }
+
+    private int _sort;
+    public int sort
+    {
+        get
+        {
+            int.TryParse( QS( "s" ), out _sort );
+            return _sort;
+        }
+        set
+        {
+            _sort = value;
         }
     }
 

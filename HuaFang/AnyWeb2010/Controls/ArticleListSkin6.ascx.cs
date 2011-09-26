@@ -10,7 +10,7 @@ public partial class Controls_ArticleListSkin6 : System.Web.UI.UserControl
     protected int articleCount = 0;
     protected void Page_Load( object sender, EventArgs e )
     {
-        List<AW_Article_bean> list = new AW_Article_dao().funcGetArticleListByUC( columnID, 16, true, "", "", "", false );
+        List<AW_Article_bean> list = new AW_Article_dao().funcGetArticleListByUC( columnID, 18, true, "", "", "", false );
         articleCount = list.Count > 6 ? 6 : list.Count;
         rep1.DataSource = list.Count > 6 ? list.GetRange( 0, 6 ) : list;
         rep1.DataBind();

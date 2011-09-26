@@ -130,7 +130,7 @@ public partial class Index : PageBase
         {
             if( _streetStyle == null )
             {
-                _streetStyle = new AW_Article_dao().funcGetArticleListByUC( 126, 12, true, "", "", "", false );
+                _streetStyle = new AW_Article_dao().funcGetArticleListByUC( 126, 14, true, "", "", "", false );
             }
             return _streetStyle;
         }

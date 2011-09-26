@@ -20,8 +20,8 @@
     <ul class="list-disc list-disc-fl cs-clear">
         <asp:Repeater ID="rep2" runat="server">
             <ItemTemplate>
-                <li><a href="<%# Eval( "fdArtiPath" )%>">
-                    <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 23, false )%></a></li>
+                <li><a href="<%# Eval( "fdArtiPath" )%>" title="<%#Eval( "fdArtiTitle" ) %>">
+                    <%#Eval( "fdArtiTitle" )%></a></li>
             </ItemTemplate>
         </asp:Repeater>
     </ul>

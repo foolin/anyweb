@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uploader", "Uploader\Upload
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Studio", "..\AnyWell_DLL\Studio\Studio.csproj", "{2FEB2769-C1A2-40C6-ACB0-2214C1E7DF41}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PictureCleaner", "PictureCleaner\PictureCleaner.csproj", "{FDF03DF8-7386-4A2E-BE62-132D33A0893A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{2FEB2769-C1A2-40C6-ACB0-2214C1E7DF41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FEB2769-C1A2-40C6-ACB0-2214C1E7DF41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FEB2769-C1A2-40C6-ACB0-2214C1E7DF41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDF03DF8-7386-4A2E-BE62-132D33A0893A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDF03DF8-7386-4A2E-BE62-132D33A0893A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDF03DF8-7386-4A2E-BE62-132D33A0893A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDF03DF8-7386-4A2E-BE62-132D33A0893A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -269,7 +269,7 @@ namespace AnyWell.Uploader
         {
             long r = DateTime.Now.Ticks;
             Thread.Sleep( 1 );
-            return r.ToString() + file.Extension;
+            return r.ToString() + file.Extension.ToLower();
         }
 
         /// <summary>

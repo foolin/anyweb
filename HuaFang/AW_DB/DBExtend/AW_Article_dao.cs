@@ -581,7 +581,7 @@ namespace AnyWell.AW_DL
         /// <param name="artiTitle"></param>
         /// <param name="top"></param>
         /// <returns></returns>
-        public List<AW_Article_bean> funcGetFashionMoreArticleList( int coluId, int artiId, string artiTitle, int topCount )
+        public List<AW_Article_bean> funcGetFashionMoreArticleList( int artiId, string artiTitle, int topCount )
         {
             this.propSelect = this.selectStr;
 
@@ -591,11 +591,7 @@ namespace AnyWell.AW_DL
             }
 
             this.propTableApp = ",AW_Column ";
-            this.propWhere = "fdColuID=fdArtiColumnID ";
-            if( coluId > 0 )
-            {
-                this.propWhere += " AND fdColuID = " + coluId;
-            }
+            this.propWhere = "fdColuID=fdArtiColumnID AND (fdColuID=124 OR fdColuParentID=124)";
             this.propWhere += string.Format( " AND fdArtiTitle=@fdArtiTitle AND fdArtiID<>{0} AND fdArtiType=2", artiId );
             this.funcAddParam( "@fdArtiTitle", artiTitle );
 

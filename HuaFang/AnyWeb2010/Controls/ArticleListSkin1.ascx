@@ -16,7 +16,6 @@
                 </a>
             </ItemTemplate>
         </asp:Repeater>
-        <a href="/c/123.aspx" class="More-mod">more</a>
     </div>
 </div>
 <div class="g_360 cs-fr">

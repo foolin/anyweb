@@ -47,14 +47,15 @@ namespace BLOG.tiny_mce
             }
             string path = savePath + fileName + Path.GetExtension(Request.Files[0].FileName);
             string thumbPath = savePath + "s_" + fileName + Path.GetExtension( Request.Files[ 0 ].FileName );
-            int thumbWidth = 460, thumbHeight = 716;
+            int thumbWidth = 460, maxThumbWidth = 670, thumbHeight = 716;
 
             ImageWaterMark wm = new ImageWaterMark();
+            wm.MiniatureMaxImageWidth = maxThumbWidth;
             switch( GeneralConfigs.GetConfig().ImageWatermarkType )
             {
                 case 0:
                     Request.Files[ 0 ].SaveAs( path );
-                    WebAgent.MakeThumbnail( path, thumbPath, thumbWidth, thumbHeight, "W", WebAgent.GetImageType( Request.Files[ 0 ].FileName.Substring( Request.Files[ 0 ].FileName.LastIndexOf( "." ) + 1 ) ) );
+                    WebAgent.MakeThumbnail( path, thumbPath, thumbWidth, maxThumbWidth, WebAgent.GetImageType( Request.Files[ 0 ].FileName.Substring( Request.Files[ 0 ].FileName.LastIndexOf( "." ) + 1 ) ) );
                     break;
                 case 1:
                     wm.SaveWaterMarkImageByText(

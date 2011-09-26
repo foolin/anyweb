@@ -53,26 +53,26 @@ public partial class Admin_ArticleAdd : ArticleBase
     protected void btnOk_Click( object sender, EventArgs e )
     {
         if( String.IsNullOrEmpty( txtTitle.Text ) )
-            WebAgent.AlertAndBack( "标题不能为空" );
+            Fail( "标题不能为空" );
 
-        if( String.IsNullOrEmpty( txtContent.Text ) )
+        if( drpType.SelectedValue != "2" && String.IsNullOrEmpty( txtContent.Text ) )
         {
-            WebAgent.AlertAndBack( "内容不能为空" );
+            Fail( "内容不能为空" );
         }
 
         if( txtDesc.Text.Trim().Length > 1000 )
-            WebAgent.AlertAndBack( "文章摘要不能超出1000字" );
+            Fail( "文章摘要不能超出1000字" );
 
         if( string.IsNullOrEmpty( txtSort.Text ) )
-            WebAgent.AlertAndBack( "排序不能为空" );
+            Fail( "排序不能为空" );
 
         if( !WebAgent.IsInt32( txtSort.Text.Trim() ) )
-            WebAgent.AlertAndBack( "排序格式不正确" );
+            Fail( "排序格式不正确" );
 
         DateTime date = DateTime.Now;
         if( !string.IsNullOrEmpty( txtCreateAt.Text.Trim() ) && !DateTime.TryParse( txtCreateAt.Text.Trim(), out date ) )
         {
-            WebAgent.AlertAndBack( "发布时间格式不正确" );
+            Fail( "发布时间格式不正确" );
         }
 
         string childColumn = Request.Form[ "drpChild" ] + "";

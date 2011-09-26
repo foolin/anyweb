@@ -64,7 +64,7 @@
                     <asp:Repeater ID="repKid2" runat="server">
                         <ItemTemplate>
                             <li><a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
-                                <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
+                                <%#Eval( "fdArtiTitle" )%></a></li>
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
@@ -82,7 +82,7 @@
                     <asp:Repeater ID="repNews2" runat="server">
                         <ItemTemplate>
                             <li><a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
-                                <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
+                                <%#Eval( "fdArtiTitle" )%></a></li>
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
@@ -100,7 +100,7 @@
                     <asp:Repeater ID="repStreet2" runat="server">
                         <ItemTemplate>
                             <li><a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
-                                <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
+                                <%#Eval( "fdArtiTitle" )%></a></li>
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
@@ -118,7 +118,7 @@
                     <asp:Repeater ID="repBeauty2" runat="server">
                         <ItemTemplate>
                             <li><a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
-                                <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
+                                <%#Eval( "fdArtiTitle" )%></a></li>
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
@@ -136,7 +136,7 @@
                     <asp:Repeater ID="repAccessory2" runat="server">
                         <ItemTemplate>
                             <li><a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
-                                <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
+                                <%#Eval( "fdArtiTitle" )%></a></li>
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
@@ -154,7 +154,7 @@
                     <asp:Repeater ID="repEvents2" runat="server">
                         <ItemTemplate>
                             <li><a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
-                                <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
+                                <%#Eval( "fdArtiTitle" )%></a></li>
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
@@ -172,7 +172,7 @@
                     <asp:Repeater ID="repEditorial2" runat="server">
                         <ItemTemplate>
                             <li><a href="<%#Eval("fdArtiPath") %>" title="<%#Eval( "fdArtiTitle" ) %>">
-                                <%#Studio.Web.WebAgent.GetLeft((string)Eval( "fdArtiTitle" ),13,false)%></a></li>
+                                <%#Eval( "fdArtiTitle" )%></a></li>
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>

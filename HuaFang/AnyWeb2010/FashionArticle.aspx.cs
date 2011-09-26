@@ -35,7 +35,7 @@ public partial class FashionArticle : PageBase
         repFrontRow.DataSource = bean.FrontRowList;
         repFrontRow.DataBind();
 
-        repMore.DataSource = new AW_Article_dao().funcGetFashionMoreArticleList( 124, bean.fdArtiID, bean.fdArtiTitle, 6 );
+        repMore.DataSource = new AW_Article_dao().funcGetFashionMoreArticleList( bean.fdArtiID, bean.fdArtiTitle, 6 );
         repMore.DataBind();
 
         repColumn.DataSource = new AW_Article_dao().funcGetArticleListByUC( bean.fdArtiColumnID, 6, true, string.Format( "fdArtiID<>{0} AND fdArtiType=2", bean.fdArtiID ), "", "", false );

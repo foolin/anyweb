@@ -130,8 +130,8 @@
                     <ul class="list-disc list-disc-fl cs-clear">
                         <asp:Repeater ID="repStreetMore" runat="server">
                             <ItemTemplate>
-                                <li><a href="<%# Eval( "fdArtiPath" )%>">
-                                    <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 23, false )%></a></li>
+                                <li><a href="<%# Eval( "fdArtiPath" )%>" title="<%#Eval( "fdArtiTitle" ) %>">
+                                    <%#Eval( "fdArtiTitle" )%></a></li>
                             </ItemTemplate>
                         </asp:Repeater>
                     </ul>
@@ -322,6 +322,7 @@
                 </div>
             </div>
         </div>
+        <a href="/c/128.aspx" class="More-mod More-item More-item-bottom">more</a>
     </div>
 
     <script type="text/javascript">

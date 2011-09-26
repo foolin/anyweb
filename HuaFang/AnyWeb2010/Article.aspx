@@ -98,13 +98,13 @@
                                     <div class="OtherHot_con cs-clear">
                                         <a href="<%#Eval("fdArtiPath") %>" class="OtherHot_pic cs-fl">
                                             <img width="130" src="<%#Eval("fdArtiPic") %>"></a>
-                                        <div class="OtherHot_info4 cs-fr">
+                                        <div class="OtherHot_info5 cs-fr">
                                             <p>
                                                 <%#Eval( "fdArtiCreateAt", "{0:yyyy.MM.dd}" )%></p>
                                             <a class="OtherHot_tit" href="<%#Eval("fdArtiPath") %>" title="<%#Eval("fdArtiTitle") %>">
                                                 <%#Studio.Web.WebAgent.GetLeft((string)Eval("fdArtiTitle"),20,false) %></a>
                                             <p class="Article">
-                                                <%#Studio.Web.WebAgent.GetLeft((string)Eval("fdArtiDesc"),240,false) %></p>
+                                                <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 300, false )%></p>
                                         </div>
                                     </div>
                                 </div>

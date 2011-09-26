@@ -26,4 +26,11 @@ public class ArticleBase : PageAdmin
         Response.Write( string.Format( "<script type=text/javascript>alert('{0}');parent.window.location='{1}';</script>", msg, goUrl ) );
         Response.End();
     }
+
+    protected void Fail( string msg )
+    {
+        Response.Clear();
+        Response.Write( string.Format( "<script type=text/javascript>alert('{0}');</script>", msg ) );
+        Response.End();
+    }
 }

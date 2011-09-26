@@ -1,5 +1,0 @@
-E:\PROJECT\DOTNET\HuaFang\PictureCleaner\bin\Release\PictureCleaner.exe
-E:\PROJECT\DOTNET\HuaFang\PictureCleaner\bin\Release\PictureCleaner.pdb
-E:\PROJECT\DOTNET\HuaFang\PictureCleaner\obj\Release\ResolveAssemblyReference.cache
-E:\PROJECT\DOTNET\HuaFang\PictureCleaner\obj\Release\PictureCleaner.exe
-E:\PROJECT\DOTNET\HuaFang\PictureCleaner\obj\Release\PictureCleaner.pdb

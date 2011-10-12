@@ -161,6 +161,7 @@
         if (col == 0 && cate == 0 && city == 0) {
             $("#searchList").html("<a href=\"javascript:void(0);\">请选择季节、产品类别或城市</a>");
         } else {
+            $("#searchList").html("<a href=\"javascript:void(0);\">正在加载...</a>");
             articles = new Array();
             $("#txtKey").val("");
             $.ajax({

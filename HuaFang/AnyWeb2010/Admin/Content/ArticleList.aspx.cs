@@ -72,11 +72,21 @@ public partial class Admin_ArticleList : PageAdmin
             }
         }
 
-        txtKey.Text = QS( "key" ).Trim();
+        string keyword = txtKey.Text = QS( "key" ).Trim();
+
+        if( keyword.Contains( "%" ) )
+        {
+            keyword = keyword.Replace( "%", "[%]" );
+        }
+        if( keyword.Contains( "'" ) )
+        {
+            keyword = keyword.Replace( "'", "''" );
+        }
+        string querryString = SearchKeyWord.getQueryString( keyword );
 
         using (AW_Article_dao dao = new AW_Article_dao())
         {
-            compRep.DataSource = dao.funcGetArticle( column, txtKey.Text, PN1.PageSize, PN1.PageIndex );
+            compRep.DataSource = dao.funcGetArticle( column, querryString, PN1.PageSize, PN1.PageIndex );
             compRep.DataBind();
             PN1.SetPage(dao.propCount);
         }

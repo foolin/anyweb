@@ -5,6 +5,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using AnyWell.AW_DL;
 using AnyWell.Configs;
+using Studio.Web;
 
 public partial class LibraryList : PageBase
 {
@@ -13,7 +14,7 @@ public partial class LibraryList : PageBase
         this.Title = typeName + GeneralConfigs.GetConfig().TitleExtension;
         using( AW_Library_dao dao = new AW_Library_dao() )
         {
-            rep.DataSource = dao.funcGetLibrary( type, cate, sort, PN1.PageSize, PN1.PageID );
+            rep.DataSource = dao.funcGetLibrary( type, celebrityType, cate, sort, PN1.PageSize, PN1.PageID );
             rep.DataBind();
             PN1.RecordCount = dao.propCount;
             PN2.RecordCount = dao.propCount;
@@ -25,12 +26,41 @@ public partial class LibraryList : PageBase
     {
         get
         {
-            int.TryParse( ( string ) Context.Items[ "LIBRARYTYPE" ], out _type );
+            string context = ( string ) Context.Items[ "LIBRARYTYPE" ];
+            if( context.IndexOf( "-" ) > -1 )
+            {
+                _type = 1;
+                if( !int.TryParse( context.Substring( context.IndexOf( "-" ) + 1, 1 ), out _celebrityType ) )
+                {
+                    WebAgent.FailAndGo( "页面不存在！", "/index.aspx" );
+                }
+                if( celebrityType < 1 || celebrityType > 5 )
+                {
+                    WebAgent.FailAndGo( "页面不存在！", "/index.aspx" );
+                }
+            }
+            else
+            {
+                _type = 2;
+            }
             return _type;
         }
         set
         {
             _type = value;
+        }
+    }
+
+    private int _celebrityType;
+    public int celebrityType
+    {
+        get
+        {
+            return _celebrityType;
+        }
+        set
+        {
+            _celebrityType = value;
         }
     }
 
@@ -41,7 +71,21 @@ public partial class LibraryList : PageBase
             switch( type )
             {
                 case 1:
-                    return "名人馆";
+                    switch( celebrityType )
+                    {
+                        case 1:
+                            return "明星库";
+                        case 2:
+                            return "潮人库";
+                        case 3:
+                            return "大师库";
+                        case 4:
+                            return "超模库";
+                        case 5:
+                            return "圈中人";
+                        default:
+                            return "";
+                    }
                 case 2:
                     return "品牌馆";
                 default:
@@ -139,6 +183,30 @@ public partial class LibraryList : PageBase
                 default:
                     return "其他";
             }
+        }
+    }
+
+    private string _currentLink;
+    public string currentLink
+    {
+        get
+        {
+            if( string.IsNullOrEmpty( _currentLink ) )
+            {
+                if( type == 1 )
+                {
+                    _currentLink = string.Format( "/l/1-{0}.aspx", celebrityType );
+                }
+                else
+                {
+                    _currentLink = "/l/2.aspx";
+                }
+            }
+            return _currentLink;
+        }
+        set
+        {
+            _currentLink = value;
         }
     }
 }

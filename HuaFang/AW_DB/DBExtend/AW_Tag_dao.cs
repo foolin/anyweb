@@ -42,22 +42,40 @@ namespace AnyWell.AW_DL
         /// <param name="pageIndex"></param>
         /// <param name="recordCount"></param>
         /// <returns></returns>
-        public List<AW_Tag_bean> funcGetTagList( string key, int pageSize, int pageIndex, out int recordCount )
+        public List<AW_Tag_bean> funcGetTagList( string key, int orderType, int pageSize, int pageIndex, out int recordCount )
         {
-            this.propSelect = "fdTagID,fdTagName,fdTagHightLight,fdArtiCount=(SELECT COUNT(fdTaAsID) from AW_Tag_Associated where fdTaAsTagID=fdTagID AND fdTaAsType=0),fdGoodCount=(SELECT COUNT(fdTaAsID) from AW_Tag_Associated where fdTaAsTagID=fdTagID AND fdTaAsType=1)";
+            string select = "fdTagID,fdTagName,fdTagHightLight,fdArtiCount,fdGoodCount";
+            string where = "1=1";
+            string order = "ORDER BY fdTagSort DESC,fdTagID DESC";
+            int aMaxID = pageIndex * pageSize;
+            int aMinID = aMaxID - pageSize + 1;
             if( !string.IsNullOrEmpty( key ) )
             {
                 key = key.Replace( "[", "[[]" ).Replace( "'", "''" ).Replace( "%", "[%]" );
                 key = string.Format( "%{0}%", key );
-                this.propWhere = string.Format( "fdTagName LIKE '{0}'", key );
+                where = string.Format( "fdTagName LIKE '{0}'", key );
             }
-            this.propOrder = "ORDER BY fdTagSort DESC,fdTagID DESC";
-            this.propGetCount = true;
-            this.propPageSize = pageSize;
-            this.propPage = pageIndex;
-            DataSet ds = this.funcCommon();
-            recordCount = this.propCount;
+            if( orderType == 1 )
+            {
+                order = "ORDER BY fdArtiCount DESC";
+            }
+            else if( orderType == 2 )
+            {
+                order = "ORDER BY fdGoodCount DESC";
+            }
+            string sql = string.Format( "DECLARE @TempTable TABLE(AutoID INT IDENTITY(1,1) NOT NULL,PKID INT NOT NULL,fdArtiCount INT NOT NULL,fdGoodCount INT NOT NULL);INSERT INTO @TempTable(PKID,fdArtiCount,fdGoodCount) SELECT fdTagID,fdArtiCount=(SELECT COUNT(fdTaAsID) FROM AW_Tag_Associated WHERE fdTaAsTagID=fdTagID AND fdTaAsType=0),fdGoodCount=(SELECT COUNT(fdTaAsID) FROM AW_Tag_Associated WHERE fdTaAsTagID=fdTagID AND fdTaAsType=1) FROM AW_Tag WHERE {1} {2};SELECT {0} FROM AW_Tag INNER JOIN @TempTable ON PKID=fdTagID WHERE AutoID BETWEEN {3} AND {4} ORDER BY AutoID", select, where, order, aMinID, aMaxID );
+            string sqlCount = string.Format( "SELECT COUNT(fdTagID) FROM AW_Tag WHERE {0}", where );
+
             List<AW_Tag_bean> list = new List<AW_Tag_bean>();
+            DataSet ds = this.funcGet( sql );
+            using( IDbExecutor db = this.NewExecutor() )
+            {
+                object result = db.ExecuteScalar( CommandType.Text, sqlCount );
+                if( result != null && result != DBNull.Value )
+                    recordCount = int.Parse( result.ToString() );
+                else
+                    recordCount = 0;
+            }
             foreach( DataRow row in ds.Tables[ 0 ].Rows )
             {
                 AW_Tag_bean bean = new AW_Tag_bean();
@@ -67,6 +85,41 @@ namespace AnyWell.AW_DL
                 list.Add( bean );
             }
             return list;
+
+            //this.propSelect = "fdTagID,fdTagName,fdTagHightLight,fdArtiCount=(SELECT COUNT(fdTaAsID) from AW_Tag_Associated where fdTaAsTagID=fdTagID AND fdTaAsType=0),fdGoodCount=(SELECT COUNT(fdTaAsID) from AW_Tag_Associated where fdTaAsTagID=fdTagID AND fdTaAsType=1)";
+            //if( !string.IsNullOrEmpty( key ) )
+            //{
+            //    key = key.Replace( "[", "[[]" ).Replace( "'", "''" ).Replace( "%", "[%]" );
+            //    key = string.Format( "%{0}%", key );
+            //    this.propWhere = string.Format( "fdTagName LIKE '{0}'", key );
+            //}
+            //if( orderType == 0 )
+            //{
+            //    this.propOrder = "ORDER BY fdTagSort DESC,fdTagID DESC";
+            //}
+            //else if( orderType == 1 )
+            //{
+            //    this.propOrder = "ORDER BY fdArtiCount DESC";
+            //}
+            //else
+            //{
+            //    this.propOrder = "ORDER BY fdGoodCount DESC";
+            //}
+            //this.propGetCount = true;
+            //this.propPageSize = pageSize;
+            //this.propPage = pageIndex;
+            //DataSet ds = this.funcCommon();
+            //recordCount = this.propCount;
+            //List<AW_Tag_bean> list = new List<AW_Tag_bean>();
+            //foreach( DataRow row in ds.Tables[ 0 ].Rows )
+            //{
+            //    AW_Tag_bean bean = new AW_Tag_bean();
+            //    bean.funcFromDataRow( row );
+            //    bean.fdArtiCount = ( int ) row[ "fdArtiCount" ];
+            //    bean.fdGoodCount = ( int ) row[ "fdGoodCount" ];
+            //    list.Add( bean );
+            //}
+            //return list;
         }
 
         /// <summary>

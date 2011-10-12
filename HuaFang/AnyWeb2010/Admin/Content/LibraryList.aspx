@@ -39,9 +39,22 @@
             });
         });
 
-        function Change() {
-            var url = "?library=" + document.getElementById("<%=drpLibrary.ClientID %>").value
-                    + "&firstLetter=" + document.getElementById("<%=drpFirstLetter.ClientID %>").value;
+        function Change(val) {
+            if (val == 1) {
+                $("#<%=drpCelebrity.ClientID %>").show();
+            } else {
+                $("#<%=drpCelebrity.ClientID %>").hide();
+            }
+//            var url = "?library=" + document.getElementById("<%=drpLibrary.ClientID %>").value
+//                    + "&firstLetter=" + document.getElementById("<%=drpFirstLetter.ClientID %>").value;
+//            window.location = url;
+        }
+
+        function search() {
+            var url = "?library=" + $("#<%=drpLibrary.ClientID %>").val()
+                + "&firstLetter=" + $("#<%=drpFirstLetter.ClientID %>").val()
+                + "&celebrity=" + $("#<%=drpCelebrity.ClientID %>").val()
+                + "&key=" + encodeURI($("#<%=txtKey.ClientID %>").val());
             window.location = url;
         }
 
@@ -90,11 +103,20 @@
         </div>
         <div class="fi filter">
             分类：
-            <asp:DropDownList ID="drpLibrary" runat="server" onchange="Change()">
+            <asp:DropDownList ID="drpLibrary" runat="server" onchange="Change(this.value)">
                 <asp:ListItem Text="所有分类" Value="0"></asp:ListItem>
                 <asp:ListItem Text="名人库" Value="1"></asp:ListItem>
                 <asp:ListItem Text="品牌库" Value="2"></asp:ListItem>
             </asp:DropDownList>
+            <asp:DropDownList ID="drpCelebrity" runat="server" style="display:none">
+                <asp:ListItem Text="所有" Value="0"></asp:ListItem>
+                <asp:ListItem Text="明星库" Value="1"></asp:ListItem>
+                <asp:ListItem Text="潮人库" Value="2"></asp:ListItem>
+                <asp:ListItem Text="大师库" Value="3"></asp:ListItem>
+                <asp:ListItem Text="超模库" Value="4"></asp:ListItem>
+                <asp:ListItem Text="圈中人" Value="5"></asp:ListItem>
+            </asp:DropDownList>
+            首字母：
             <asp:DropDownList ID="drpFirstLetter" runat="server" onchange="Change()">
                 <asp:ListItem Text="所有" Value="-1"></asp:ListItem>
                 <asp:ListItem Text="A" Value="0"></asp:ListItem>
@@ -125,6 +147,9 @@
                 <asp:ListItem Text="Z" Value="25"></asp:ListItem>
                 <asp:ListItem Text="其他" Value="26"></asp:ListItem>
             </asp:DropDownList>
+            名称：
+            <asp:TextBox ID="txtKey" runat="server" CssClass="text"></asp:TextBox>
+            <input type="button" value="搜索" onclick="search()" />
         </div>
         <div class="mbd">
             <table id="datas">

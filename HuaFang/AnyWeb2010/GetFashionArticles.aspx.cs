@@ -20,7 +20,7 @@ public partial class GetFashionArticles : PageBase
         StringBuilder sb = new StringBuilder();
         foreach( AW_Article_bean bean in list )
         {
-            sb.AppendFormat( "var a = new article({0},\"{1}\");articles.push(a);", bean.fdArtiID, bean.fdArtiTitle );
+            sb.AppendFormat( "var a = new article({0},\"{1}\");articles.push(a);", bean.fdArtiID, bean.fdArtiTitle.Replace( "\"", "\\\"" ) );
         }
         Response.Clear();
         Response.Write( sb.ToString() );

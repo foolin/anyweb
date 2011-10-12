@@ -140,7 +140,7 @@ br.clear{clear:both;height:1px;line-height:0;font-size:0;overflow:hidden;}
 		body .pbd .pubForm label.select,
 		body .pbd .pubForm span.radio label,
 		body .pbd .pubForm span.checkbox label,
-		body .pbd .pubForm .select label{display:inline;float:none;width:auto;padding:0;}
+		body .pbd .pubForm .select label{display:inline;float:none;width:auto;padding:0;line-height:19px;}
 	.Form .fi,
 		body .pbd .pubForm .fi{overflow:hidden;display:inline-block;}
 	.Form [class~="fi"],

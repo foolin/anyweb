@@ -48,7 +48,7 @@ namespace AnyWell.AW_DL
 		}
 		private int _fdNaviType = 0;
 		 /// <summary>
-		 /// 类型(1文章栏目2招聘栏目3自定义链接)
+        /// 类型(1首页2文章栏目3基本信息4两库信息5自定义链接)
 		 /// </summary>
 		public int fdNaviType
 		{

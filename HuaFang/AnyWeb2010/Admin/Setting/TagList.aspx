@@ -12,31 +12,33 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#datas").tableDnD({
-                onDrop: function(table, row) {
-                    var rows = table.tBodies[0].rows;
-                    var tagId = row.id.replace("row_", "");
-                    var nextId = "0";
-                    var previewId = "0";
-                    var total = rows.length;
-                    if (total <= 1)
-                        return;
-                    for (i = 0; i < rows.length; i++) {
-                        rows[i].className = i % 2 == 0 ? "even" : "";
-                        if (rows[i].id == "row_" + tagId) {
-                            if (i == 0)
-                                nextId = rows[i + 1].id.replace("row_", "");
-                            else if (i + 1 == total)
-                                previewId = rows[i - 1].id.replace("row_", "");
-                            else
-                                previewId = rows[i - 1].id.replace("row_", "");
+            if(<%=orderType %>==0){
+                $("#datas").tableDnD({
+                    onDrop: function(table, row) {
+                        var rows = table.tBodies[0].rows;
+                        var tagId = row.id.replace("row_", "");
+                        var nextId = "0";
+                        var previewId = "0";
+                        var total = rows.length;
+                        if (total <= 1)
+                            return;
+                        for (i = 0; i < rows.length; i++) {
+                            rows[i].className = i % 2 == 0 ? "even" : "";
+                            if (rows[i].id == "row_" + tagId) {
+                                if (i == 0)
+                                    nextId = rows[i + 1].id.replace("row_", "");
+                                else if (i + 1 == total)
+                                    previewId = rows[i - 1].id.replace("row_", "");
+                                else
+                                    previewId = rows[i - 1].id.replace("row_", "");
+                            }
                         }
-                    }
 
-                    var url = "TagSort.aspx?id=" + tagId + "&previewid=" + previewId + "&nextid=" + nextId;
-                    $.get(url, "", function(htm) { });
-                }
-            });
+                        var url = "TagSort.aspx?id=" + tagId + "&previewid=" + previewId + "&nextid=" + nextId;
+                        $.get(url, "", function(htm) { });
+                    }
+                });
+            }
         });
 
         function SelectAll(v) {
@@ -48,7 +50,7 @@
             }
         }
         function search() {
-            window.location = "TagList.aspx?key=" + $("#<%=txtKey.ClientID %>").val();
+            window.location = "TagList.aspx?key=" + $("#<%=txtKey.ClientID %>").val() + "&order=" + $("#<%=drpOrder.ClientID %>").val();
         }
         function delArticles() {
             var list = document.getElementsByTagName("input");
@@ -86,6 +88,12 @@
         </div>
         <div class="fi filter">
             标签：<asp:TextBox ID="txtKey" runat="server" MaxLength="50"></asp:TextBox>
+            排序：
+            <asp:DropDownList ID="drpOrder" runat="server">
+                <asp:ListItem Text="推荐度" Value="0"></asp:ListItem>
+                <asp:ListItem Text="文章" Value="1"></asp:ListItem>
+                <asp:ListItem Text="商品" Value="2"></asp:ListItem>
+            </asp:DropDownList>
             <input type="button" onclick="search()" value="搜索" />
         </div>
         <div class="mbd">

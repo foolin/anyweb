@@ -37,11 +37,6 @@ $(document).ready(function(){
 //   });
 //});
 
-function navTab(id){
-    $("#subNav").find("div[id^='navC_navT_']").hide();
-    $("#subNav").find("#navC_navT_"+id).show();
-}
-
 //∑÷œÌ ’≤ÿ
 function addFavorites() { 
     if (document.all) {

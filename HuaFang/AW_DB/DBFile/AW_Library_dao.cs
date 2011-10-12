@@ -8,13 +8,13 @@ using Studio.Data;
 
 namespace AnyWell.AW_DL
 {
-    public partial class AW_Library_dao : Dao_Base
+	public partial class AW_Library_dao : Dao_Base
 	{
-        public AW_Library_dao()
+		public AW_Library_dao()
         {
             this._propTable = "AW_Library";
             this._propPK = "fdLibrID";
-            this._propFields = "fdLibrID,fdLibrType,fdLibrName,fdLibrEnName,fdLibrPic,fdLibrFirLetter,fdLibrDesc,fdLibrSort";
+            this._propFields = "fdLibrID,fdLibrType,fdLibrName,fdLibrEnName,fdLibrPic,fdLibrFirLetter,fdLibrDesc,fdLibrSort,fdLibrCelebrityType1,fdLibrCelebrityType2,fdLibrCelebrityType3,fdLibrCelebrityType4,fdLibrCelebrityType5";
         }
 
         public List<AW_Library_bean> funcGetList()
@@ -29,5 +29,5 @@ namespace AnyWell.AW_DL
             }
             return list;
         }
-    }
-}
+	}//
+}//

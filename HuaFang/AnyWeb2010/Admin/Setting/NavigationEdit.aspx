@@ -45,7 +45,11 @@
                     $("#divLink").hide();
                     $("#divLibrary").show();
                     if (!IsLoad) {
-                        $("#<%=txtTitle.ClientID %>").val($("#<%=drpSite.ClientID %>").find("option:selected").text());
+                        if ($("#<%=drpSite.ClientID %>").val() == 1) {
+                            setCelebrityType();
+                        } else {
+                            $("#<%=txtTitle.ClientID %>").val($("#<%=drpLibrary.ClientID %>").find("option:selected").text());
+                        }
                     }
                     break;
                 case "5": ;
@@ -70,6 +74,11 @@
         }
 
         function ChangeLibrary() {
+            if ($("#<%=drpLibrary.ClientID %>").val() == "1") {
+                $("#celebrity").show();
+            } else {
+                $("#celebrity").hide();
+            }
             $("#<%=txtTitle.ClientID %>").val($("#<%=drpLibrary.ClientID %>").find("option:selected").text());
         }
 
@@ -77,8 +86,7 @@
             $("#<%=txtTitle.ClientID %>").val($("#<%=drpSite.ClientID %>").find("option:selected").text());
         }
 
-        function CheckLink() 
-        {
+        function CheckLink() {
             if ($("#divLink").css("display") != "none") {
                 var url = /^http:\/\/[A-Za-z0-9\-]+\.[A-Za-z0-9]+[\/=\?%\-&_~`@[\]\':+!]*([^<>\"\"])*$/;
                 if (url.test($("#<%=txtLink.ClientID %>").val())) {
@@ -90,7 +98,28 @@
                 return true;
             }
         }
-        
+
+        function setCelebrityType() {
+            var type = $("input[name=celebrityType][type=radio]:checked").val();
+            switch (type) {
+                case "1":
+                    $("#<%=txtTitle.ClientID %>").val("明星库");
+                    break;
+                case "2":
+                    $("#<%=txtTitle.ClientID %>").val("潮人库");
+                    break;
+                case "3":
+                    $("#<%=txtTitle.ClientID %>").val("大师库");
+                    break;
+                case "4":
+                    $("#<%=txtTitle.ClientID %>").val("超模库");
+                    break;
+                case "5":
+                    $("#<%=txtTitle.ClientID %>").val("圈中人");
+                    break;
+            }
+        }
+
         $(document).ready(function() {
             ChangeType(true);
         });
@@ -114,38 +143,47 @@
                     导航分类：</label>
                 <asp:DropDownList ID="drpType" runat="server" onchange="ChangeType()">
                     <asp:ListItem Value="1" Text="首页"></asp:ListItem>
-                    <asp:ListItem Value="2" Text="文章栏目"></asp:ListItem>                
+                    <asp:ListItem Value="2" Text="文章栏目"></asp:ListItem>
                     <asp:ListItem Value="3" Text="基本信息"></asp:ListItem>
                     <asp:ListItem Value="4" Text="两库信息"></asp:ListItem>
                     <asp:ListItem Value="5" Text="自定义链接"></asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <div id="divColumn" class="fi" style="display:none">
+            <div id="divColumn" class="fi" style="display: none">
                 <label>
                     文章栏目：</label>
                 <asp:DropDownList ID="drpColumn" runat="server" onchange="ChangeColumn()">
                 </asp:DropDownList>
             </div>
-            <div id="divSite" class="fi" style="display:none">
+            <div id="divSite" class="fi" style="display: none">
                 <label>
                     信息类型：</label>
                 <asp:DropDownList ID="drpSite" runat="server" onchange="ChangeSite()">
-                    <asp:ListItem Text="关于我们" Value="1"></asp:ListItem>
-                    <asp:ListItem Text="版权声明" Value="2"></asp:ListItem>
-                    <asp:ListItem Text="联系我们" Value="3"></asp:ListItem>
-                    <asp:ListItem Text="地址" Value="4"></asp:ListItem>
-                    <asp:ListItem Text="电话" Value="5"></asp:ListItem>
-                    <asp:ListItem Text="备案" Value="6"></asp:ListItem>
-                    <asp:ListItem Text="企业介绍" Value="7"></asp:ListItem>
+                    <asp:ListItem Text="关于华纺" Value="1"></asp:ListItem>
+                    <asp:ListItem Text="联系华纺" Value="2"></asp:ListItem>
+                    <asp:ListItem Text="隐私保护" Value="3"></asp:ListItem>
+                    <asp:ListItem Text="加入华纺" Value="4"></asp:ListItem>
                 </asp:DropDownList>
             </div>
-            <div id="divLibrary" class="fi" style="display:none">
+            <div id="divLibrary" class="fi" style="display: none">
                 <label>
                     两库：</label>
                 <asp:DropDownList ID="drpLibrary" runat="server" onchange="ChangeLibrary()">
                     <asp:ListItem Text="名人库" Value="1"></asp:ListItem>
                     <asp:ListItem Text="品牌库" Value="2"></asp:ListItem>
                 </asp:DropDownList>
+                <span id="celebrity" style="<%=bean.fdNaviType==4&&bean.fdNaviItemID==2?"display:none": ""%>">
+                    <label class="radio">
+                        <input type="radio" name="celebrityType" value="1" <%=celebrityType==0||celebrityType==1?"checked=\"checked\"":"" %> onclick="setCelebrityType();" />明星库</label>
+                    <label class="radio">
+                        <input type="radio" name="celebrityType" value="2" <%=celebrityType==2?"checked=\"checked\"":"" %> onclick="setCelebrityType();" />潮人库</label>
+                    <label class="radio">
+                        <input type="radio" name="celebrityType" value="3" <%=celebrityType==3?"checked=\"checked\"":"" %> onclick="setCelebrityType();" />大师库</label>
+                    <label class="radio">
+                        <input type="radio" name="celebrityType" value="4" <%=celebrityType==4?"checked=\"checked\"":"" %> onclick="setCelebrityType();" />超模库</label>
+                    <label class="radio">
+                        <input type="radio" name="celebrityType" value="5" <%=celebrityType==5?"checked=\"checked\"":"" %> onclick="setCelebrityType();" />圈中人</label>
+                </span>
             </div>
             <div id="divTitle" class="fi even">
                 <label>

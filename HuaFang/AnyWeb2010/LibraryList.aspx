@@ -19,26 +19,26 @@
         </div>
         <div class="Page_btm cs-clear">
             <div class="PageSet cs-fr">
-                <a href="/l/<%=type %>.aspx" <%=cate==0?"class=\"on\"":"" %>>A</a> <a href="/l/<%=type %>.aspx?c=1"
-                    <%=cate==1?"class=\"on\"":"" %>>B</a> <a href="/l/<%=type %>.aspx?c=2" <%=cate==2?"class=\"on\"":"" %>>
-                        C</a> <a href="/l/<%=type %>.aspx?c=3" <%=cate==3?"class=\"on\"":"" %>>D</a>
-                <a href="/l/<%=type %>.aspx?c=4" <%=cate==4?"class=\"on\"":"" %>>E</a> <a href="/l/<%=type %>.aspx?c=5"
-                    <%=cate==5?"class=\"on\"":"" %>>F</a> <a href="/l/<%=type %>.aspx?c=6" <%=cate==6?"class=\"on\"":"" %>>
-                        G</a> <a href="/l/<%=type %>.aspx?c=7" <%=cate==7?"class=\"on\"":"" %>>H</a>
-                <a href="/l/<%=type %>.aspx?c=8" <%=cate==8?"class=\"on\"":"" %>>I</a> <a href="/l/<%=type %>.aspx?c=9"
-                    <%=cate==9?"class=\"on\"":"" %>>J</a> <a href="/l/<%=type %>.aspx?c=10" <%=cate==10?"class=\"on\"":"" %>>
-                        K</a> <a href="/l/<%=type %>.aspx?c=11" <%=cate==11?"class=\"on\"":"" %>>L</a>
-                <a href="/l/<%=type %>.aspx?c=12" <%=cate==12?"class=\"on\"":"" %>>M</a> <a href="/l/<%=type %>.aspx?c=13"
-                    <%=cate==13?"class=\"on\"":"" %>>N</a> <a href="/l/<%=type %>.aspx?c=14" <%=cate==14?"class=\"on\"":"" %>>
-                        O</a> <a href="/l/<%=type %>.aspx?c=15" <%=cate==15?"class=\"on\"":"" %>>P</a>
-                <a href="/l/<%=type %>.aspx?c=16" <%=cate==16?"class=\"on\"":"" %>>Q</a> <a href="/l/<%=type %>.aspx?c=17"
-                    <%=cate==17?"class=\"on\"":"" %>>R</a> <a href="/l/<%=type %>.aspx?c=18" <%=cate==18?"class=\"on\"":"" %>>
-                        S</a> <a href="/l/<%=type %>.aspx?c=19" <%=cate==19?"class=\"on\"":"" %>>T</a>
-                <a href="/l/<%=type %>.aspx?c=20" <%=cate==20?"class=\"on\"":"" %>>U</a> <a href="/l/<%=type %>.aspx?c=21"
-                    <%=cate==21?"class=\"on\"":"" %>>V</a> <a href="/l/<%=type %>.aspx?c=22" <%=cate==22?"class=\"on\"":"" %>>
-                        W</a> <a href="/l/<%=type %>.aspx?c=23" <%=cate==23?"class=\"on\"":"" %>>X</a>
-                <a href="/l/<%=type %>.aspx?c=24" <%=cate==24?"class=\"on\"":"" %>>Y</a> <a href="/l/<%=type %>.aspx?c=25"
-                    <%=cate==25?"class=\"on\"":"" %>>Z</a> <a href="/l/<%=type %>.aspx?c=26" class="PageSet-ch <%=cate==26?"on":"" %>">
+                <a href="<%=currentLink %>" <%=cate==0?"class=\"on\"":"" %>>A</a> <a href="<%=currentLink %>?c=1"
+                    <%=cate==1?"class=\"on\"":"" %>>B</a> <a href="<%=currentLink %>?c=2" <%=cate==2?"class=\"on\"":"" %>>
+                        C</a> <a href="<%=currentLink %>?c=3" <%=cate==3?"class=\"on\"":"" %>>D</a>
+                <a href="<%=currentLink %>?c=4" <%=cate==4?"class=\"on\"":"" %>>E</a> <a href="<%=currentLink %>?c=5"
+                    <%=cate==5?"class=\"on\"":"" %>>F</a> <a href="<%=currentLink %>?c=6" <%=cate==6?"class=\"on\"":"" %>>
+                        G</a> <a href="<%=currentLink %>?c=7" <%=cate==7?"class=\"on\"":"" %>>H</a>
+                <a href='<%=currentLink %>?c=8" <%=cate==8?"class=\"on\"":"" %>'>I</a> <a href="<%=currentLink %>?c=9"
+                    <%=cate==9?"class=\"on\"":"" %>>J</a> <a href="<%=currentLink %>?c=10" <%=cate==10?"class=\"on\"":"" %>>
+                        K</a> <a href="<%=currentLink %>?c=11" <%=cate==11?"class=\"on\"":"" %>>L</a>
+                <a href="<%=currentLink %>?c=12" <%=cate==12?"class=\"on\"":"" %>>M</a> <a href="<%=currentLink %>?c=13"
+                    <%=cate==13?"class=\"on\"":"" %>>N</a> <a href="<%=currentLink %>c=14" <%=cate==14?"class=\"on\"":"" %>>
+                        O</a> <a href="<%=currentLink %>?c=15" <%=cate==15?"class=\"on\"":"" %>>P</a>
+                <a href="<%=currentLink %>?c=16" <%=cate==16?"class=\"on\"":"" %>>Q</a> <a href="<%=currentLink %>?c=17"
+                    <%=cate==17?"class=\"on\"":"" %>>R</a> <a href="<%=currentLink %>?c=18" <%=cate==18?"class=\"on\"":"" %>>
+                        S</a> <a href="<%=currentLink %>?c=19" <%=cate==19?"class=\"on\"":"" %>>T</a>
+                <a href="<%=currentLink %>?c=20" <%=cate==20?"class=\"on\"":"" %>>U</a> <a href="<%=currentLink %>?c=21"
+                    <%=cate==21?"class=\"on\"":"" %>>V</a> <a href="<%=currentLink %>?c=22" <%=cate==22?"class=\"on\"":"" %>>
+                        W</a> <a href="<%=currentLink %>?c=23" <%=cate==23?"class=\"on\"":"" %>>X</a>
+                <a href="<%=currentLink %>?c=24" <%=cate==24?"class=\"on\"":"" %>>Y</a> <a href="<%=currentLink %>?c=25"
+                    <%=cate==25?"class=\"on\"":"" %>>Z</a> <a href="<%=currentLink %>?c=26" class="PageSet-ch <%=cate==26?"on":"" %>">
                         其他</a> <span class="Pagination_sort">/</span> <span class="Pagination_sort">排序：</span>
                 <a href="?c=<%=cate %>" class="<%=sort==0?"on":"" %>">字母</a> <a href="?c=<%=cate %>&s=1"
                     class="<%=sort==1?"on":"" %>">拼音</a>

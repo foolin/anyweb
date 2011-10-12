@@ -73,13 +73,15 @@
                 <div class="cs-clear weibo">
                     <p>
                         <a class="Article_collect" href="javascript:addFavorites();">收藏分享</a></p>
+                    <div class="bshare-custom">
+                        <a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog">
+                        </a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到开心网" class="bshare-kaixin001">
+                        </a><a title="分享到豆瓣" class="bshare-douban"></a><a title="更多平台" class="bshare-more bshare-more-icon">
+                        </a><span class="BSHARE_COUNT bshare-share-count">0</span></div>
 
-                    <script type="text/javascript">
-                        var _t = encodeURI(document.title);
-                        var _url = encodeURIComponent(document.location);
-                        document.write("<p><a alt=\"转播到腾讯微博\" href=\"http://v.t.qq.com/share/share.php?url=" + _url + "&title=" + _t + "\" target=\"_blank\"><img border=\"0\" align=\"absmiddle\" alt=\"转播到腾讯微博\" src=\"/img/weibo_qq24.png\"></a></p>");
-                        document.write("<p><a alt=\"转播到新浪微博\" href=\"http://service.weibo.com/share/share.php?url=" + _url + "&title=" + _t + "\" target=\"_blank\"><img border=\"0\" align=\"absmiddle\" alt=\"转播到新浪微博\" src=\"/img/weibo_sina24.gif\"></a></p>");
-                    </script>
+                    <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+
+                    <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC2.js"></script>
 
                 </div>
             </div>
@@ -98,8 +100,8 @@
                     <div class="Show_filmstrip" style="display: none">
                         <a href="" class="ShowTime_link" target="_blank" id="imageShow">
                             <img src="" width="398" /></a> <a href="javascript:pre();" class="Filmstrip_L">
-                            </a><a href="javascript:next()" class="Filmstrip_R"></a><a id="imageLink" href=""
-                                class="Filmstrip_Loupe" target="_blank"></a>
+                        </a><a href="javascript:next()" class="Filmstrip_R"></a><a id="imageLink" href=""
+                            class="Filmstrip_Loupe" target="_blank"></a>
                     </div>
                     <div class="Article_picpage ">
                         <div class="Pic_Page Pic_PageL cs-clear">
@@ -119,8 +121,12 @@
                 </div>
             </div>
             <style>
-                .PhoGal_mod{border:#b5b5b6 solid 5px;padding:6px;margin:10px 0 20px;width:;}
-            </style>
+                .PhoGal_mod
+                {
+                    border: #b5b5b6 solid 5px;
+                    padding: 6px;
+                    margin: 10px 0 20px;
+                    width: ;;;}</style>
             <div class="Pho_Gallery">
                 <div class="Pho_Gallery_tab">
                     <div class="PhoG_Tabtit">

@@ -27,7 +27,7 @@ namespace AnyWell.AW_DL
 
             if( !string.IsNullOrEmpty( key ) )
             {
-                this.propWhere += string.Format( " AND fdArtiTitle LIKE '%{0}%'", key.Replace( "%", "[%]" ).Replace( "'", "''" ) );
+                this.propWhere += string.Format( " AND ({0})", key );
             }
 
             if( column != null )
@@ -480,14 +480,15 @@ namespace AnyWell.AW_DL
         /// <returns></returns>
         public List<AW_Article_bean> funcGetFashionArticleList( int columnId, int category, int city )
         {
-            this.propSelect = "TOP 50 fdArtiID,fdArtiTitle";
+            this.propSelect = "fdArtiID,fdArtiTitle";
+            this.propTableApp = " INNER JOIN AW_Column ON fdArtiColumnID=fdColuID";
             if( columnId == 0 )
             {
-                this.propWhere = "fdArtiColumnID=124";
+                this.propWhere = "(fdColuID=124 OR fdColuParentID=124)";
             }
             else
             {
-                this.propWhere = "fdArtiColumnID=" + columnId;
+                this.propWhere = "fdColuID=" + columnId;
             }
             if( category > 0 )
             {
@@ -497,7 +498,6 @@ namespace AnyWell.AW_DL
             {
                 this.propWhere += " AND fdArtiCity=" + city;
             }
-            //this.propWhere = string.Format( "fdArtiColumnID={0} AND fdArtiCategory={1} AND fdArtiCity={2}", columnId, category, city );
             this.propOrder = "ORDER BY fdArtiTitle ASC";
             return this.funcGetList();
         }
@@ -512,7 +512,7 @@ namespace AnyWell.AW_DL
         /// <param name="pageSize"></param>
         /// <param name="recordCount"></param>
         /// <returns></returns>
-        public List<AW_Article_bean> funcGetFashionArticleList( int columnId, int category, int city, string title, int pageIndex, int pageSize, out int recordCount )
+        public List<AW_Article_bean> funcGetFashionArticleList( int columnId, int category, int city, string title, string order, int pageIndex, int pageSize, out int recordCount )
         {
             this.propSelect = "fdArtiID,fdArtiTitle,fdArtiPic,fdArtiType,fdArtiCategory,fdArtiCity,fdColuID,fdColuName";
             this.propTableApp = " INNER JOIN AW_Column ON fdColuID=fdArtiColumnID";
@@ -533,7 +533,14 @@ namespace AnyWell.AW_DL
             {
                 this.propWhere += string.Format( " AND fdArtiTitle LIKE '%{0}%'", title );
             }
-            this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
+            if( string.IsNullOrEmpty( order ) )
+            {
+                this.propOrder = "ORDER BY fdArtiSort DESC,fdArtiID DESC";
+            }
+            else
+            {
+                this.propOrder = order;
+            }
             this.propPage = pageIndex;
             this.propPageSize = pageSize;
             this.propGetCount = true;

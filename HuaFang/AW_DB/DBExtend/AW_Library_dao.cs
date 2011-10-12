@@ -20,18 +20,33 @@ namespace AnyWell.AW_DL
         /// <param name="pageSize"></param>
         /// <param name="pageIndex"></param>
         /// <returns></returns>
-        public List<AW_Library_bean> funcGetLibrary(int library, int firstLetter, int pageSize, int pageIndex)
+        public List<AW_Library_bean> funcGetLibrary( int library, int celebrityType, int firstLetter, string key, int pageSize, int pageIndex )
         {
             this.propSelect = "fdLibrID,fdLibrType,fdLibrName,fdLibrEnName,fdLibrFirLetter,fdLibrPic,fdLibrDesc,fdLibrSort";
             this.propOrder = "ORDER BY fdLibrSort DESC,fdLibrID DESC";
             this.propWhere = "1=1";
+
             if( library > 0 )
             {
                 this.propWhere += " AND fdLibrType=" + library;
+                if( library == 1 )
+                {
+                    if( celebrityType > 0 )
+                    {
+                        this.propWhere += string.Format( " AND fdLibrCelebrityType{0}=1", celebrityType );
+                    }
+                }
             }
+
             if( firstLetter > -1 )
             {
                 this.propWhere += " AND fdLibrFirLetter=" + firstLetter;
+            }
+
+            if( !string.IsNullOrEmpty( key ) )
+            {
+                
+                this.propWhere += string.Format( " AND ({0})", key );
             }
 
             this.propPageSize = pageSize;
@@ -212,7 +227,7 @@ namespace AnyWell.AW_DL
         /// <param name="pageSize"></param>
         /// <param name="pageIndex"></param>
         /// <returns></returns>
-        public List<AW_Library_bean> funcGetLibrary( int library, int firstLetter, int sort, int pageSize, int pageIndex )
+        public List<AW_Library_bean> funcGetLibrary( int library, int celebrityType, int firstLetter, int sort, int pageSize, int pageIndex )
         {
             this.propSelect = "fdLibrID,fdLibrType,fdLibrName,fdLibrEnName,fdLibrFirLetter,fdLibrPic,fdLibrDesc,fdLibrSort";
             this.propOrder = "ORDER BY fdLibrEnName ASC";
@@ -221,9 +236,10 @@ namespace AnyWell.AW_DL
                 this.propOrder = "ORDER BY fdLibrName ASC";
             }
             this.propWhere = "1=1";
-            if( library > 0 )
+            this.propWhere += " AND fdLibrType=" + library;
+            if( celebrityType > 0 )
             {
-                this.propWhere += " AND fdLibrType=" + library;
+                this.propWhere += string.Format( " AND fdLibrCelebrityType{0}=1", celebrityType );
             }
             if( firstLetter > -1 )
             {

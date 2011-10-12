@@ -32,9 +32,9 @@
 </div>
 <div class="Side_menu">
     <div class="common_menu">
-        <a href="#"><strong>行业招聘</strong></a>
+        <a href="/building.aspx"><strong>行业招聘</strong></a>
     </div>
     <div class="common_menu cs-nobor">
-        <a href="#"><strong>行业人才</strong></a>
+        <a href="/building.aspx"><strong>行业人才</strong></a>
     </div>
 </div>

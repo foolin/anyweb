@@ -180,7 +180,7 @@
         }
     }
 
-    string[] urls = { "/", "/index.aspx", "/error.aspx", "/c/118.aspx", "/c/123.aspx", "/c/124.aspx", "/c/125.aspx", "/c/126.aspx", "/c/127.aspx", "/articlesearch.aspx", "/getfashionarticles.aspx", "/fashion.aspx" };
+    string[] urls = { "/", "/index.aspx", "/error.aspx", "/c/118.aspx", "/c/123.aspx", "/c/124.aspx", "/c/125.aspx", "/c/126.aspx", "/c/127.aspx", "/articlesearch.aspx", "/getfashionarticles.aspx", "/fashion.aspx", "/building.aspx" };
        
 </script>
 

@@ -22,9 +22,9 @@
             <dd style="width: 100%">
                 <input type="text" id="txtKey" style="width: 100px" />
                 <select id="drpType">
-                    <option value="0">按标签排序</option>
+                    <option value="0">按标签升序</option>
                     <option value="1">按标签倒序</option>
-                    <option value="2">按时间排序</option>
+                    <option value="2">按时间升序</option>
                     <option value="3">按时间倒序</option>
                 </select>
                 <input type="button" id="btnSearch" value="查找" onclick="SearchTag(1);" />

@@ -2,6 +2,7 @@
     CodeFile="LibraryAdd.aspx.cs" Inherits="Admin_LibraryAdd" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph2" runat="Server">
+    <iframe style="width: 0px; height: 0px;" id="ifrSelf" name="ifrSelf"></iframe>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph1" runat="Server">
     <style type="text/css">
@@ -57,6 +58,13 @@
                 }
             }
         }
+        function changeType(val) {
+            if (val == 1) {
+                $("#celebrity").show();
+            } else {
+                $("#celebrity").hide();
+            }
+        }
     </script>
 
     <div class="Mod Form MainForm" id="InfoEdit">
@@ -68,10 +76,22 @@
             <div class="fi">
                 <label>
                     分类：</label>
-                <asp:DropDownList ID="drpLibrary" runat="server">
+                <asp:DropDownList ID="drpLibrary" runat="server" onchange="changeType(this.value);">
                     <asp:ListItem Text="名人库" Value="1"></asp:ListItem>
                     <asp:ListItem Text="品牌库" Value="2"></asp:ListItem>
                 </asp:DropDownList>
+                <span id="celebrity">
+                    <label class="checkbox">
+                        <input type="checkbox" name="celebrityType" value="1" />明星库</label>
+                    <label class="checkbox">
+                        <input type="checkbox" name="celebrityType" value="2" />潮人库</label>
+                    <label class="checkbox">
+                        <input type="checkbox" name="celebrityType" value="3" />大师库</label>
+                    <label class="checkbox">
+                        <input type="checkbox" name="celebrityType" value="4" />超模库</label>
+                    <label class="checkbox">
+                        <input type="checkbox" name="celebrityType" value="5" />圈中人</label>
+                </span>
             </div>
             <div class="fi even">
                 <label>

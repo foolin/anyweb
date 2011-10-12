@@ -12,7 +12,12 @@
         <div class="title-bar">
             <h2 class="cs-clear">
                 <p class="title-ch cs-fl">
-                    <a href="/Index.aspx">首页</a>/<a href="/l/<%=library.fdLibrType %>.aspx"><%=typeName %></a>/<span><%=library.fdLibrName %>(<%=library.fdLibrEnName %>)</span></p>
+                    <a href="/Index.aspx">首页</a>
+                    <%if( library.fdLibrType == 2 )
+                      { %>
+                    /<a href="/l/<%=library.fdLibrType %>.aspx"><%=typeName %></a>
+                    <%} %>
+                    /<span><%=library.fdLibrName %>(<%=library.fdLibrEnName %>)</span></p>
                 <p class="title-eng EngTit CONTENT cs-fr">
                     CON<span>TENT</span></p>
             </h2>

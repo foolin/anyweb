@@ -24,6 +24,13 @@
                     </div>
                 </h2>
             </div>
+            <div class="Page_btm Page_btm_xc cs-clear">
+                <div class="PageSet cs-fr">
+                    <span class="Pagination_sort">排序：</span> <a href="?col=<%=col %>&cate=<%=cate %>&city=<%=city %>"
+                        class="<%=sort==0?"on":"" %>">推荐度</a> <a href="?col=<%=col %>&cate=<%=cate %>&city=<%=city %>&sort=1"
+                            class="<%=sort==0?"":"on" %>">字母</a>
+                </div>
+            </div>
             <div class="Piclist_outline">
                 <div class="Pic_list cs-clear">
                     <asp:Repeater ID="rep" runat="server">
@@ -32,7 +39,7 @@
                                 <a href="<%#Eval("fdArtiPath") %>" target="_blank">
                                     <img width="95" height="150" src="<%#Eval("fdArtiPic") %>"></a>
                                 <div class="Show_intro Show_introbor">
-                                    <strong><a href="<%#Eval("fdArtiPath") %>" target="_blank">
+                                    <strong><a href="<%#Eval("fdArtiPath") %>" target="_blank" title="<%#Eval( "fdArtiTitle" ) %>">
                                         <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 15, false )%></a></strong></div>
                                 <div class="Show_intro">
                                     <p>

@@ -50,12 +50,16 @@
                         <div class="cs-clear weibo">
                             <p>
                                 <a class="Article_collect" href="javascript:addFavorites();">收藏分享</a></p>
-                            <script type="text/javascript">
-                                var _t = encodeURI(document.title);
-                                var _url = encodeURIComponent(document.location);
-                                document.write("<p><a alt=\"转播到腾讯微博\" href=\"http://v.t.qq.com/share/share.php?url=" + _url + "&title=" + _t + "\" target=\"_blank\"><img border=\"0\" align=\"absmiddle\" alt=\"转播到腾讯微博\" src=\"/img/weibo_qq24.png\"></a></p>");
-                                document.write("<p><a alt=\"转播到新浪微博\" href=\"http://service.weibo.com/share/share.php?url=" + _url + "&title=" + _t + "\" target=\"_blank\"><img border=\"0\" align=\"absmiddle\" alt=\"转播到新浪微博\" src=\"/img/weibo_sina24.gif\"></a></p>");
-                            </script>
+                            <div class="bshare-custom">
+                                <a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog">
+                                </a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到开心网" class="bshare-kaixin001">
+                                </a><a title="分享到豆瓣" class="bshare-douban"></a><a title="更多平台" class="bshare-more bshare-more-icon">
+                                </a><span class="BSHARE_COUNT bshare-share-count">0</span></div>
+
+                            <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+
+                            <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC2.js"></script>
+
                         </div>
                         <p class="keywords">
                             关键字：
@@ -96,15 +100,18 @@
                                             <%#Eval("fdArtiCreateAt","{0:yyyy-MM-dd}") %>
                                             /</span><%#Studio.Web.WebAgent.GetLeft((string)Eval("fdArtiTitle"),48,false) %></div>
                                     <div class="OtherHot_con cs-clear">
+                                        <p class="OtherHot_hd">
+                                            <span>
+                                                <%#Eval("fdArtiCreateAt","{0:yyyy-MM-dd}") %>
+                                                /</span><%#Studio.Web.WebAgent.GetLeft((string)Eval("fdArtiTitle"),48,false) %>
+                                        </p>
                                         <a href="<%#Eval("fdArtiPath") %>" class="OtherHot_pic cs-fl">
                                             <img width="130" src="<%#Eval("fdArtiPic") %>"></a>
                                         <div class="OtherHot_info5 cs-fr">
-                                            <p>
-                                                <%#Eval( "fdArtiCreateAt", "{0:yyyy.MM.dd}" )%></p>
                                             <a class="OtherHot_tit" href="<%#Eval("fdArtiPath") %>" title="<%#Eval("fdArtiTitle") %>">
                                                 <%#Studio.Web.WebAgent.GetLeft((string)Eval("fdArtiTitle"),20,false) %></a>
                                             <p class="Article">
-                                                <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 300, false )%></p>
+                                                <%#Studio.Web.WebAgent.GetLeft((string)Eval("fdArtiDesc"),300,false) %></p>
                                         </div>
                                     </div>
                                 </div>

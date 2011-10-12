@@ -37,7 +37,11 @@
                     $("#divTitle").attr("class", "fi even");
                     $("#divLink").hide();
                     $("#divLibrary").show();
-                    $("#<%=txtTitle.ClientID %>").val($("#<%=drpLibrary.ClientID %>").find("option:selected").text());
+                    if ($("#<%=drpSite.ClientID %>").val() == 1) {
+                        setCelebrityType();
+                    } else {
+                        $("#<%=txtTitle.ClientID %>").val($("#<%=drpLibrary.ClientID %>").find("option:selected").text());
+                    }
                     break;
                 case "5": ;
                     $("#divColumn").hide();
@@ -63,6 +67,11 @@
         }
 
         function ChangeLibrary() {
+            if ($("#<%=drpLibrary.ClientID %>").val() == "1") {
+                $("#celebrity").show();
+            } else {
+                $("#celebrity").hide();
+            }
             $("#<%=txtTitle.ClientID %>").val($("#<%=drpLibrary.ClientID %>").find("option:selected").text());
         }
 
@@ -76,6 +85,27 @@
                 }
             } else {
                 return true;
+            }
+        }
+
+        function setCelebrityType() {
+            var type = $("input[name=celebrityType][type=radio]:checked").val();
+            switch (type) {
+                case "1":
+                    $("#<%=txtTitle.ClientID %>").val("明星库");
+                    break;
+                case "2":
+                    $("#<%=txtTitle.ClientID %>").val("潮人库");
+                    break;
+                case "3":
+                    $("#<%=txtTitle.ClientID %>").val("大师库");
+                    break;
+                case "4":
+                    $("#<%=txtTitle.ClientID %>").val("超模库");
+                    break;
+                case "5":
+                    $("#<%=txtTitle.ClientID %>").val("圈中人");
+                    break;
             }
         }
     </script>
@@ -113,13 +143,10 @@
                 <label>
                     信息类型：</label>
                 <asp:DropDownList ID="drpSite" runat="server" onchange="ChangeSite()">
-                    <asp:ListItem Text="关于我们" Value="1"></asp:ListItem>
-                    <asp:ListItem Text="版权声明" Value="2"></asp:ListItem>
-                    <asp:ListItem Text="联系我们" Value="3"></asp:ListItem>
-                    <asp:ListItem Text="地址" Value="4"></asp:ListItem>
-                    <asp:ListItem Text="电话" Value="5"></asp:ListItem>
-                    <asp:ListItem Text="备案" Value="6"></asp:ListItem>
-                    <asp:ListItem Text="企业介绍" Value="7"></asp:ListItem>
+                    <asp:ListItem Text="关于华纺" Value="1"></asp:ListItem>
+                    <asp:ListItem Text="联系华纺" Value="2"></asp:ListItem>
+                    <asp:ListItem Text="隐私保护" Value="3"></asp:ListItem>
+                    <asp:ListItem Text="加入华纺" Value="4"></asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div id="divLibrary" class="fi" style="display:none">
@@ -129,6 +156,18 @@
                     <asp:ListItem Text="名人库" Value="1"></asp:ListItem>
                     <asp:ListItem Text="品牌库" Value="2"></asp:ListItem>
                 </asp:DropDownList>
+                <span id="celebrity">
+                    <label class="radio">
+                        <input type="radio" name="celebrityType" value="1" checked="checked" onclick="setCelebrityType();" />明星库</label>
+                    <label class="radio">
+                        <input type="radio" name="celebrityType" value="2" onclick="setCelebrityType();" />潮人库</label>
+                    <label class="radio">
+                        <input type="radio" name="celebrityType" value="3" onclick="setCelebrityType();" />大师库</label>
+                    <label class="radio">
+                        <input type="radio" name="celebrityType" value="4" onclick="setCelebrityType();" />超模库</label>
+                    <label class="radio">
+                        <input type="radio" name="celebrityType" value="5" onclick="setCelebrityType();" />圈中人</label>
+                </span>
             </div>
             <div id="divTitle" class="fi even">
                 <label>

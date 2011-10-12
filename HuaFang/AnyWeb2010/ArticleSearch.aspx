@@ -36,17 +36,17 @@
                     <ItemTemplate>
                         <div class="OtherHot-item">
                             <div class="OtherHot_con cs-clear">
-                                <a href="<%#Eval("fdArtiPath") %>" class="OtherHot_pic cs-fl">
+                                <a href="<%#Eval("fdArtiPath") %>" class="OtherHot_pic cs-fl" target="_blank">
                                     <img width="130" src="<%#Eval("fdArtiPic") %>"></a>
                                 <div class="OtherHot_info2 cs-fr">
                                     <p>
                                         <%#Eval("fdArtiCreateAt","{0:yyyy-MM-dd}") %></p>
-                                    <a class="OtherHot_tit" href="<%#Eval("fdArtiPath") %>">
+                                    <a class="OtherHot_tit" href="<%#Eval("fdArtiPath") %>" target="_blank">
                                         <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 120, false )%></a>
                                     <p class="Article">
                                         <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 120, false )%></p>
                                     <div class="More cs-clear">
-                                        <a class="cs-fr" href="<%#Eval("fdArtiPath") %>">查看全文</a></div>
+                                        <a class="cs-fr" href="<%#Eval("fdArtiPath") %>" target="_blank">查看全文</a></div>
                                 </div>
                             </div>
                         </div>
@@ -60,17 +60,17 @@
                     <ItemTemplate>
                         <div class="OtherHot-item">
                             <div class="OtherHot_con cs-clear">
-                                <a href="<%#Eval("fdArtiPath") %>" class="OtherHot_pic cs-fl">
+                                <a href="<%#Eval("fdArtiPath") %>" class="OtherHot_pic cs-fl" target="_blank">
                                     <img width="130" src="<%#Eval("fdArtiPic") %>"></a>
                                 <div class="OtherHot_info2 cs-fr">
                                     <p>
                                         <%#Eval("fdArtiCreateAt","{0:yyyy-MM-dd}") %></p>
-                                    <a class="OtherHot_tit" href="<%#Eval("fdArtiPath") %>">
+                                    <a class="OtherHot_tit" href="<%#Eval("fdArtiPath") %>" target="_blank">
                                         <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 120, false )%></a>
                                     <p class="Article">
                                         <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 120, false )%></p>
                                     <div class="More cs-clear">
-                                        <a class="cs-fr" href="<%#Eval("fdArtiPath") %>">查看全文</a></div>
+                                        <a class="cs-fr" href="<%#Eval("fdArtiPath") %>" target="_blank">查看全文</a></div>
                                 </div>
                             </div>
                         </div>
@@ -84,17 +84,17 @@
                     <ItemTemplate>
                         <div class="OtherHot-item">
                             <div class="OtherHot_con cs-clear">
-                                <a href="<%#Eval("fdArtiPath") %>" class="OtherHot_pic cs-fl">
+                                <a href="<%#Eval("fdArtiPath") %>" class="OtherHot_pic cs-fl" target="_blank">
                                     <img width="130" src="<%#Eval("fdArtiPic") %>"></a>
                                 <div class="OtherHot_info2 cs-fr">
                                     <p>
                                         <%#Eval("fdArtiCreateAt","{0:yyyy-MM-dd}") %></p>
-                                    <a class="OtherHot_tit" href="<%#Eval("fdArtiPath") %>">
+                                    <a class="OtherHot_tit" href="<%#Eval("fdArtiPath") %>" target="_blank">
                                         <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiTitle" ), 120, false )%></a>
                                     <p class="Article">
                                         <%#Studio.Web.WebAgent.GetLeft( ( string ) Eval( "fdArtiDesc" ), 120, false )%></p>
                                     <div class="More cs-clear">
-                                        <a class="cs-fr" href="<%#Eval("fdArtiPath") %>">查看全文</a></div>
+                                        <a class="cs-fr" href="<%#Eval("fdArtiPath") %>" target="_blank">查看全文</a></div>
                                 </div>
                             </div>
                         </div>
